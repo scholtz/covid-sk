@@ -1,0 +1,498 @@
+// Helpers imports
+@import "helpers/opacity";
+@import "helpers/grayscale";
+
+// Resets
+
+.br-tl {
+  border-top-left-radius: $border-radius !important;
+}
+
+.br-tr {
+  border-top-right-radius: $border-radius !important;
+}
+
+.br-bl {
+  border-bottom-left-radius: $border-radius !important;
+}
+
+.br-br {
+  border-bottom-right-radius: $border-radius !important;
+}
+
+.b-radius-0 {
+  border-radius: 0 !important;
+}
+
+.rm-border {
+  border-width: 0 !important;
+}
+
+.br-a {
+  @include border-radius($border-radius);
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex-truncate {
+  min-width: 0 !important;
+}
+
+// Center Elements
+
+.margin-h-center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.center-svg {
+  margin: 0 auto;
+
+  svg {
+    margin: 0 auto;
+  }
+}
+
+.apexcharts-canvas {
+  margin: 0 auto;
+}
+
+.apexcharts-donut {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.alert-dismissible {
+  .close {
+    top: 0;
+    right: 5px;
+    padding: 5px;
+  }
+}
+
+// Gradient Icons
+
+.icon-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+// Font sizes
+
+.font-size-xlg {
+  font-size: 1.3rem !important;
+}
+
+.font-size-md {
+  font-size: .9rem !important;
+}
+
+.font-size-lg {
+  font-size: 1.1rem !important;
+}
+
+// No Shadow
+
+.no-shadow {
+  box-shadow: 0 0 0 transparent !important;
+}
+
+// Layout
+
+.h-100 {
+  height: 100vh !important;
+}
+
+.he-auto {
+  height: auto !important;
+}
+
+.he-100 {
+  height: 100%;
+}
+
+.h-sm {
+  height: 150px;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 2px;
+}
+
+// Font size
+
+.fsize-1 {
+  font-size: .95rem !important;
+}
+
+.fsize-2 {
+  font-size: 1.3rem !important;
+}
+
+.fsize-3 {
+  font-size: 1.6rem !important;
+}
+
+.fsize-4 {
+  font-size: 2rem !important;
+}
+
+.z-index-6 {
+  z-index: 6;
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+
+// Center element
+
+.center-elem {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.flex2 {
+  flex: 2;
+}
+
+// Divider
+
+.divider {
+  margin-top: $spacer;
+  margin-bottom: $spacer;
+  height: 1px;
+  overflow: hidden;
+  background: $gray-200;
+}
+
+.list-group-item:hover {
+  z-index: initial;
+}
+
+// No Results
+
+.no-results {
+  padding: ($spacer * 1.5);
+  text-align: center;
+
+  .results-title {
+    color: $gray-700;
+    font-size: $h5-font-size;
+  }
+
+  .results-subtitle {
+    color: $gray-500;
+    font-size: $font-size-lg;
+  }
+}
+
+// Cursor
+.pointer {
+  cursor: pointer;
+}
+.not-allowed {
+  cursor: not-allowed;
+}
+
+// Background Color Animation
+
+.bg-animation {
+  animation: bg-pan-left 8s both;
+}
+
+@-webkit-keyframes bg-pan-left {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bg-pan-left {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Width 100%
+
+.w-100 {
+  width: 100%;
+}
+
+.mb--2 {
+  margin-bottom: -1.5rem;
+}
+
+// Margins
+
+.mbg-3 {
+  margin-bottom: $grid-gutter-width;
+}
+
+.circle-progress {
+  position: relative;
+
+  small {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    left: 0;
+    top: 0;
+    vertical-align: middle;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    span {
+      margin: 0 auto;
+    }
+  }
+
+  canvas {
+    display: block;
+  }
+}
+
+.dropzone {
+  min-height: 50px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*Width*/
+$num: 25;
+@while $num < 801 {
+  .w-#{$num}p {
+    width: $num +0px !important;
+  }
+  $num: $num +5;
+}
+
+@media (min-width: 576px) {
+  $num: 25;
+  @while $num < 801 {
+    .w-sm-#{$num}p {
+      width: $num +0px !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 768px) {
+  $num: 25;
+  @while $num < 801 {
+    .w-md-#{$num}p {
+      width: $num +0px !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 992px) {
+  $num: 25;
+  @while $num < 801 {
+    .w-lg-#{$num}p {
+      width: $num +0px !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 1200px) {
+  $num: 25;
+  @while $num < 801 {
+    .w-xl-#{$num}p {
+      width: $num +0px !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 1400px) {
+  $num: 25;
+  @while $num < 801 {
+    .w-xxl-#{$num}p {
+      width: $num +0px !important;
+    }
+    $num: $num +5;
+  }
+}
+
+$num: 5;
+@while $num < 101 {
+  .w-#{$num} {
+    width: $num +0% !important;
+  }
+  $num: $num +5;
+}
+
+@media (min-width: 576px) {
+  $num: 5;
+  @while $num < 101 {
+    .w-sm-#{$num} {
+      width: $num +0% !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 768px) {
+  $num: 5;
+  @while $num < 101 {
+    .w-md-#{$num} {
+      width: $num +0% !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 992px) {
+  $num: 5;
+  @while $num < 101 {
+    .w-lg-#{$num} {
+      width: $num +0% !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 1200px) {
+  $num: 5;
+  @while $num < 101 {
+    .w-xl-#{$num} {
+      width: $num +0% !important;
+    }
+    $num: $num +5;
+  }
+}
+
+@media (min-width: 1400px) {
+  $num: 5;
+  @while $num < 101 {
+    .w-xxl-#{$num} {
+      width: $num +0% !important;
+    }
+    $num: $num +5;
+  }
+}
+
+/*Max Width*/
+$num: 25;
+@while $num < 801 {
+  .mw-#{$num}p {
+    max-width: $num +0px !important;
+  }
+  $num: $num +25;
+}
+
+/*Min Width*/
+.mnw-0 {
+  min-width: 0 !important;
+}
+
+$num: 25;
+@while $num < 801 {
+  .mnw-#{$num}p {
+    min-width: $num +0px !important;
+  }
+  $num: $num +25;
+}
+
+/*Height*/
+$num: 25;
+@while $num < 801 {
+  .h-#{$num}p {
+    height: $num +0px !important;
+  }
+  $num: $num +5;
+}
+
+$num: 25;
+@while $num < 101 {
+  .h-#{$num} {
+    height: $num +0% !important;
+  }
+  $num: $num +5;
+}
+
+/*Max Height*/
+$num: 100;
+@while $num < 801 {
+  .mh-#{$num}p {
+    max-height: $num +0px !important;
+  }
+  $num: $num +25;
+}
+
+/*Min Height*/
+$num: 100;
+@while $num < 801 {
+  .mnh-#{$num}p {
+    min-height: $num +0px !important;
+  }
+  $num: $num +25;
+}
+
+/*Div Sizes*/
+$num: 8;
+@while $num < 51 {
+  .d-#{$num} {
+    height: $num +0px !important;
+    width: $num +0px !important;
+  }
+  $num: $num +2;
+}
+
+$num: 54;
+@while $num < 99 {
+  .d-#{$num} {
+    height: $num +0px !important;
+    width: $num +0px !important;
+  }
+  $num: $num + 4;
+}
+
+$num: 100;
+@while $num < 151 {
+  .d-#{$num} {
+    height: $num +0px !important;
+    width: $num +0px !important;
+  }
+  $num: $num + 10;
+}
+
+//position
+.position-relative {
+  position: relative;
+}
+
+.position-absolute-br {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-bottom: inherit;
+  padding-right: inherit;
+}

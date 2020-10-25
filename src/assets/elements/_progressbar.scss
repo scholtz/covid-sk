@@ -1,0 +1,53 @@
+// Progress Bar
+
+.progress {
+
+  .progress-bar {
+    &:last-child {
+      @include border-right-radius($progress-border-radius);
+    }
+  }
+
+  &.progress-bar-sm {
+    height: .5rem;
+  }
+
+  &.progress-bar-xs {
+    height: .3rem;
+  }
+
+  &.progress-bar-rounded {
+    @include border-radius(30px);
+  }
+
+}
+
+.progress-bar-animated-alt {
+  &.progress-bar,
+  .progress-bar {
+    position: relative;
+
+    &::after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $white;
+      animation: progress-active 2s ease infinite;
+    }
+  }
+}
+
+@keyframes progress-active {
+  0% {
+    opacity: .4;
+    width: 0
+  }
+  100% {
+    opacity: 0;
+    width: 100%
+  }
+}

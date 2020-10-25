@@ -1,0 +1,34 @@
+// Header User Area
+
+.header-btn-lg {
+  padding: 0 0 0 ($layout-spacer-x);
+  margin-left: ($layout-spacer-x);
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: -1px;
+    top: 50%;
+    background: $border-color;
+    width: 1px;
+    height: 30px;
+    margin-top: -15px;
+    content: '';
+  }
+
+  .dropdown-toggle::after {
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    right: -3px;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    background: $gray-600;
+  }
+
+}

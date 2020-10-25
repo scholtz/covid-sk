@@ -1,0 +1,142 @@
+// Applications
+
+$app-layout-sidebar-width: 270px;
+$app-layout-aside-width: 60px;
+$app-layout-header-height: 50px;
+
+.app-inner-layout {
+
+  &.rm-sidebar {
+    .app-inner-layout__wrapper {
+      .app-inner-layout__content {
+        width: auto;
+        float: none;
+      }
+    }
+  }
+
+  .app-inner-layout__header {
+    width: 100%;
+    padding: $layout-spacer-x;
+    text-align: left;
+
+    .app-page-title {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    border-bottom: $gray-200 solid 1px;
+  }
+
+  .app-inner-layout__header-boxed {
+    padding: $layout-spacer-x;
+
+    .app-inner-layout__header {
+      @include border-radius($border-radius-lg);
+    }
+  }
+
+  .app-inner-layout__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+
+    .app-inner-layout__content {
+      flex: 1;
+      display: flex;
+
+      &.card {
+        box-shadow: 0 0 0 0 transparent;
+        border-radius: 0;
+        border: 0;
+      }
+
+      .app-inner-layout__top-pane {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        text-align: left;
+        padding: ($layout-spacer-x / 2) $layout-spacer-x;
+      }
+
+      .pane-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .pane-right {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+      }
+
+      .app-inner-layout__bottom-pane {
+        padding: $layout-spacer-x;
+        border-top: $gray-200 solid 1px;
+      }
+    }
+
+    .app-inner-layout__sidebar {
+      width: $app-layout-sidebar-width;
+      list-style: none;
+      text-align: left;
+      order: -1;
+      flex: 0 0 $app-layout-sidebar-width;
+      display: flex;
+      margin: 0;
+      position: relative;
+
+      .dropdown-item {
+        white-space: normal;
+      }
+
+      &.card {
+        box-shadow: 0 0 0 0 transparent;
+        border-radius: 0;
+        background: $gray-100;
+        border: 0;
+        border-right: $gray-200 solid 1px;
+        border-left: $gray-200 solid 1px;
+      }
+
+      .app-inner-layout__sidebar-footer,
+      .app-inner-layout__sidebar-header {
+        background: $gray-100;
+      }
+    }
+
+    .app-inner-layout__aside {
+      width: $app-layout-aside-width;
+    }
+  }
+
+  .app-inner-layout__footer {
+    width: 100%;
+    height: $app-layout-header-height;
+  }
+}
+
+.app-wrapper-footer {
+  .app-footer {
+    border-top: $gray-200 solid 1px;
+
+    .app-footer__inner {
+      border-left: $gray-200 solid 1px;
+    }
+  }
+}
+
+// Components
+
+@import "chat";
+
+// Responsive
+
+.mobile-app-menu-btn {
+  display: none;
+  margin: 3px $layout-spacer-x 0 0;
+}
+
+@import "responsive";

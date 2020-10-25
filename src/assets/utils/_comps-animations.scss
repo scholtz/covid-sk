@@ -1,0 +1,67 @@
+// Common Comps Animations
+
+.popover {
+  &:not([x-placement^="top"]) {
+    animation: fade-in2 .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+}
+
+.dropdown-menu.show {
+  &:not(.dropup) {
+    animation: fade-in2 .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+}
+
+.dropup > .dropdown-menu.show {
+  animation: fade-in3 .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in2 {
+  0% {
+    margin-top: -50px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 5px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in3 {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.form-control {
+  transition: all .2s;
+}
+
+// Route Transition
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.1s
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+
+// Color naimation
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
+
+.highlight-background-animation {
+  animation: color-change 3s;
+}

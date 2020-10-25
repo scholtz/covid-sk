@@ -1,0 +1,59 @@
+// Header Mega Menu
+
+.header-megamenu {
+
+  & > .nav-item {
+    .btn-link {
+      text-decoration: none;
+      color: $gray-600;
+      padding-left: ($nav-link-padding-x / 1.5);
+      padding-right: ($nav-link-padding-x / 1.5);
+      font-size: $font-size-base;
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+
+      &::after {
+        display: none;
+      }
+
+      .badge-pill {
+        padding: 5px 7px;
+      }
+
+      &:hover {
+        color: $gray-800;
+
+        .nav-link-icon {
+          opacity: .9;
+        }
+      }
+
+      .nav-link-icon {
+        color: $primary;
+        font-size: $font-size-lg;
+        width: 30px;
+        text-align: center;
+        opacity: .45;
+        margin-left: -10px;
+      }
+
+      & > span {
+        display: flex;
+        align-items: center;
+      }
+
+      svg {
+        margin-top: 3px;
+      }
+    }
+
+    .dropdown-menu {
+      .ps-container {
+        .ps__scrollbar-y-rail {
+          z-index: 8;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// List Group
+
+.todo-list-wrapper {
+  .todo-indicator {
+    position: absolute;
+    width: 4px;
+    height: 60%;
+    @include border-radius($border-radius-lg);
+    left: ($card-spacer-x / 2);
+    top: 20%;
+    opacity: .6;
+    transition: opacity .2s;
+  }
+
+  .list-group-item {
+    &:hover {
+      .todo-indicator {
+        opacity: .9;
+      }
+    }
+  }
+
+  .custom-control,
+  input[checkbox] {
+    margin-left: ($card-spacer-x / 2);
+  }
+}
+
+.list-group-flush + .card-footer {
+  border-top: 0;
+}
+
+.rm-list-borders {
+  .list-group-item {
+    border: 0;
+    padding: ($card-spacer-y / 1.5) 0;
+  }
+}
+
+.rm-list-borders-scroll {
+  .list-group-item {
+    border: 0;
+    padding-right: ($card-spacer-y * 1.5);
+  }
+}

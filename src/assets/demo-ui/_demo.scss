@@ -1,0 +1,96 @@
+// DEMO
+@import "elements/theme-options";
+
+// Icons demo
+
+.font-icon-wrapper {
+  text-align: center;
+  border: $gray-200 solid 1px;
+  @include border-radius($border-radius);
+  margin: 0 0 10px;
+  padding: 5px;
+
+  &.font-icon-lg {
+    float: left;
+    padding: 10px;
+    text-align: center;
+    margin-right: 15px;
+    min-width: 64px;
+
+    i {
+      font-size: $h1-font-size;
+    }
+  }
+
+  &:hover {
+    background: $gray-100;
+    color: $primary;
+
+    p {
+      color: $gray-600;
+    }
+  }
+
+  i {
+    font-size: ($font-size-lg * 1.5);
+  }
+
+  p {
+    color: $gray-500;
+    font-size: ($font-size-sm / 1.2);
+    margin: 5px 0 0;
+  }
+}
+
+.btn-icon-vertical {
+  min-width: 100px;
+}
+
+/*.card.mb-3 {
+  margin-bottom: $grid-gutter-width !important;
+}*/
+
+// Image BG
+
+.demo-image-bg {
+  height: 350px;
+  margin-bottom: $grid-gutter-width;
+  background-size: 100%;
+}
+
+// Loaders wrapper
+
+.loader-wrapper {
+  width: 150px;
+  height: 100px;
+  @include float-left;
+}
+
+// Slick slider
+
+.slider-item {
+  background: $gray-300;
+  @include border-radius($border-radius);
+  color: $gray-600;
+  font-size: 36px;
+  padding: 0;
+  position: relative;
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  margin: 0 $layout-spacer-x;
+  transition: all .2s;
+}
+
+.slick-center {
+  .slider-item {
+    background: $gray-500;
+    color: $gray-700;
+  }
+}
+
+// Image Crop
+
+.after-img {
+  max-width: 100%;
+}

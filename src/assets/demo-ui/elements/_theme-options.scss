@@ -1,0 +1,133 @@
+// Theme Options
+
+// Variables
+
+$theme-options-width: 500px;
+
+.ui-theme-settings {
+  position: fixed;
+  z-index: 155;
+  right: -30px;
+  top: 0;
+  height: 100vh;
+  transform: translate($theme-options-width);
+  transition: all .2s;
+  box-shadow: -0.46875rem 0 2.1875rem rgba(darken($primary, 50%), .03),
+  -0.9375rem 0 1.40625rem rgba(darken($primary, 50%), .03),
+  -0.25rem 0 0.53125rem rgba(darken($primary, 50%), .05),
+  -0.125rem 0 0.1875rem rgba(darken($primary, 50%), .03);
+
+  .btn-open-options {
+    @include border-radius(50px);
+    position: absolute;
+    left: -100px;
+    bottom: 40px;
+    padding: 0;
+    height: 54px;
+    line-height: 54px;
+    width: 54px;
+    text-align: center;
+    display: block;
+    box-shadow: $box-shadow-default;
+    margin-top: -27px;
+
+    svg {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      margin: -0.5em 0 0 -0.5em;
+    }
+  }
+
+  .theme-settings__inner {
+    background: $white;
+    width: $theme-options-width;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .theme-settings-swatches {
+    text-align: center;
+
+    .swatch-holder-img {
+      width: 72px;
+      height: auto;
+      @include border-radius(3px);
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .themeoptions-heading {
+    font-size: $font-size-lg;
+    color: $body-color;
+    margin: 0;
+    background: $gray-100;
+    padding: ($layout-spacer-x / 2) $layout-spacer-x;
+    border-bottom: $gray-300 solid 1px;
+    border-top: $gray-300 solid 1px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+
+  .list-group-item {
+    h5 {
+      color: $primary;
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+.settings-open {
+  .ui-theme-settings {
+    transform: translate(0);
+    right: 0;
+
+    .btn-open-options {
+      left: -80px;
+    }
+  }
+}
+
+.swatch-holder {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin: 5px 5px 0;
+  transition: all .2s;
+  opacity: .7;
+  display: inline-block;
+  @include border-radius(30px);
+
+  &.active {
+    border: $white solid 2px;
+    box-shadow: 0 0 0 5px $primary;
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.swatch-holder-lg {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.swatch-holder-md {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}

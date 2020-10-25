@@ -1,0 +1,101 @@
+// Footer base
+
+.app-footer {
+  height: $app-header-height;
+
+  .app-footer__inner {
+    padding: 0 $layout-spacer-x 0 ($layout-spacer-x / 2);
+    height: $app-header-height;
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    .app-footer-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .app-footer-right {
+      margin-left: auto;
+      display: flex;
+    }
+  }
+}
+
+// Footer Dots Section
+
+.footer-dots {
+  display: flex;
+  align-items: center;
+  align-content: center;
+
+  .dots-separator {
+    height: 40px;
+    margin: 0 ($layout-spacer-x / 2.5);
+    width: 1px;
+    background: $gray-200;
+  }
+
+  & > .dropdown {
+    display: flex;
+    align-content: center;
+
+    & > .btn-link {
+      text-decoration: none;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .dropdown-item {
+
+      .flag {
+        position: absolute;
+        @include border-radius($border-radius-lg);
+
+        & + span {
+          padding-left: 50px;
+        }
+      }
+
+      &:hover {
+        .flag {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.dot-btn-wrapper {
+  padding: .5rem;
+  position: relative;
+  display: flex;
+  opacity: .7;
+  transition: opacity .2s;
+  cursor: pointer;
+
+  .badge-abs {
+    right: 50% !important;
+
+    &.badge-dot-sm {
+      top: -2px;
+      margin-right: -3px;
+    }
+  }
+
+  .dot-btn-icon {
+    font-size: 1.8rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+// Footer Modifiers
+
+@import "fixed-footer";

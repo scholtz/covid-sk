@@ -1,0 +1,146 @@
+// Styleguide theme colors
+
+$white: #fff;
+$azure-blue: #0b81f1; // primary
+$flickr-blue: #005acd; // secondary
+$alice-blue: #F2F7FE;
+$ghost-blue: #F7FaFF;
+$levander-light: #EBF2FD;
+$levander-dark: #D2E8FC;
+$indigo-light: #E5F2FF;
+$beau-blue: #D6E5F9;
+$cadet-blue: #99aeca;
+$dodger-blue: #3090ef;
+$ocean-blue: #0a7bec;
+$ocean-green: #44C183;
+$sizzling-red: #FC495D;
+$mikado-yellow: #FFC70E;
+
+// Other colors from style guide not specifically mentioned
+
+$gray-light: #BDDEF6;
+$gray-dark: #4972A4;
+$td-blue: #3C6196;
+$th-blue: #283749;
+$table-outline: #0382f1;
+
+// TODO remove outdated colors
+// Other colors not specified in style guide
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$gray-sk : #131313;
+$black: #000;
+
+$grays: ();
+
+$grays: map-merge(
+                (
+                        "100": $gray-100,
+                        "200": $gray-200,
+                        "300": $gray-300,
+                        "400": $gray-400,
+                        "500": $gray-500,
+                        "600": $gray-600,
+                        "700": $gray-700,
+                        "800": $gray-800,
+                        "900": $gray-900
+                ),
+                $grays
+);
+
+$blue-dark: #005ACD;
+$blue-darkness: #0A7BEC;
+$blue: #3090EF;
+$blue-lightness: #ECF4FF;
+$blue-light: #F2F7FE;
+$indigo: #444054;
+$purple: #794c8a;
+$pink: #f65ca2;
+$red: #d92550;
+$red-light: #FBE9EB;
+$orange: #fd7e14;
+$yellow: #f7b924;
+$green: #3ac47d;
+$teal: #16E0BD;
+$cyan: #16aaff;
+
+
+// TODO remove outdated colors
+$brand: $azure-blue;
+$brand-secondary: $flickr-blue;
+$blue-interface2: #f2f7fe;
+$blue-interface3: #f7faff;
+$blue-interface4: #ecf4ff;
+$blue-interface5: #e5f2ff;
+$blue-interface6: #d6e5f9;
+$blue-interface7: #99aeca;
+$blue-interface8: #3090ef;
+$blue-interface9: #0b81f1;
+$blue-interface10: #0a7bec;
+$blue-interface11: #005acd;
+
+// Theme contextual colors
+
+$primary: $brand;
+$secondary: $brand-secondary;
+$success: $ocean-green;
+$info: $cyan; // not specified in style guide
+$warning: $mikado-yellow;
+$danger: $sizzling-red;
+$light: $gray-400; // not specified in style guide
+$dark: $gray-sk; 
+$focus: $indigo; // not specified in style guide
+$alt: $purple; // not specified in style guide
+
+$theme-colors: (
+  "darkblue": $blue-dark,
+  "darknessblue": $blue-darkness,
+  "blue": $blue,
+  "lightnessblue": $blue-lightness,
+  "lightblue": $blue-light,
+  "lightred": $red-light,
+  "blue-interface2": $blue-interface2,
+  "blue-interface3": $blue-interface3,
+  "blue-interface4": $blue-interface4,
+  "blue-interface5": $blue-interface5,
+  "blue-interface6": $blue-interface6,
+  "blue-interface7": $blue-interface7,
+  "blue-interface8": $blue-interface8,
+  "blue-interface9": $blue-interface9,
+  "blue-interface10": $blue-interface10,
+  "blue-interface11": $blue-interface11,
+  "alice-blue": $alice-blue,
+  "ghost-blue": $ghost-blue,
+  "levander-light": $levander-light,
+  "levander-dark": $levander-dark,
+  "indigo-light": $indigo-light,
+  "beau-blue": $beau-blue,
+  "cadet-blue": $cadet-blue,
+  "dodger-blue": $dodger-blue,
+  "ocean-blue": $ocean-blue,
+  "gray-dark": $gray-dark
+);
+
+$theme-colors: map-merge(
+                (
+                        "primary": $primary,
+                        "secondary": $secondary,
+                        "success": $success,
+                        "info": $info,
+                        "warning": $warning,
+                        "danger": $danger,
+                        "light": $light,
+                        "dark": $dark,
+                        "focus": $focus,
+                        "alternate": $alt
+                ),
+                $theme-colors
+);

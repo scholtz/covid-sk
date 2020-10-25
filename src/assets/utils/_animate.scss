@@ -1,0 +1,236 @@
+@import "../../../node_modules/animate-sass/helpers/mixins";
+@import "../../../node_modules/animate-sass/helpers/settings";
+@import "../../../node_modules/animate-sass/helpers/base";
+
+$base-duration              : .2s;
+
+
+$use-all                    :   false; // all animations status
+$use-fade               :   $use-all; // all fades
+$use-bounce             :   $use-all; // all bounces
+$use-rotate             :   $use-all; // all rotates
+$use-slide              :   $use-all; // all slide animations
+$use-flipers            :   $use-all; // all flip animations
+$use-light-speed        :   $use-all; // all light speed animations
+$use-attention-seekers  :   $use-all; // all attention seeker animations
+$use-special            :   $use-all; // all special animations
+$use-zoom               :   $use-all; // all zoom animations
+
+// Fade Enter
+$use-fade-in            :   $use-fade;
+$use-fadeIn 			:	$use-fade-in;
+$use-fadeInUp 			:	$use-fade-in;
+$use-fadeInUpBig 		:	$use-fade-in;
+$use-fadeInDown 		:	$use-fade-in;
+$use-fadeInDownBig 		:	$use-fade-in;
+$use-fadeInLeft 		:	$use-fade-in;
+$use-fadeInLeftBig 		:	$use-fade-in;
+$use-fadeInRight 		:	$use-fade-in;
+$use-fadeInRightBig 	:	$use-fade-in;
+
+// Fade Exit
+$use-fade-out           :   $use-fade;
+$use-fadeOut			:   $use-fade-out;
+$use-fadeOutUp			:	$use-fade-out;
+$use-fadeOutUpBig   	:	$use-fade-out;
+$use-fadeOutDown		:	$use-fade-out;
+$use-fadeOutDownBig 	:	$use-fade-out;
+$use-fadeOutLeft		:	$use-fade-out;
+$use-fadeOutLeftBig 	:	$use-fade-out;
+$use-fadeOutRight		:	$use-fade-out;
+$use-fadeOutRightBig	:	$use-fade-out;
+
+// Bounce Enter
+$use-bounce-in          :   $use-bounce;
+$use-bounceIn			:	$use-bounce-in;
+$use-bounceInUp			: 	$use-bounce-in;
+$use-bounceInDown 		: 	$use-bounce-in;
+$use-bounceInLeft 		: 	$use-bounce-in;
+$use-bounceInRight 		: 	$use-bounce-in;
+
+// Bounce Exit
+$use-bounce-out         :   $use-bounce;
+$use-bounceOut			:	$use-bounce-out;
+$use-bounceOutUp		: 	$use-bounce-out;
+$use-bounceOutDown 		: 	$use-bounce-out;
+$use-bounceOutLeft 		: 	$use-bounce-out;
+$use-bounceOutRight 	: 	$use-bounce-out;
+
+// Rotate Enter
+$use-rotate-in          :   $use-rotate;
+$use-rotateIn 			:	$use-rotate-in;
+$use-rotateInUpLeft 	: 	$use-rotate-in;
+$use-rotateInUpRight 	: 	$use-rotate-in;
+$use-rotateInDownLeft 	: 	$use-rotate-in;
+$use-rotateInDownRight 	: 	$use-rotate-in;
+
+// Rotate Exit
+$use-rotate-out         :   $use-rotate;
+$use-rotateOut 			:	$use-rotate-out;
+$use-rotateOutUpLeft 	: 	$use-rotate-out;
+$use-rotateOutUpRight 	: 	$use-rotate-out;
+$use-rotateOutDownLeft 	: 	$use-rotate-out;
+$use-rotateOutDownRight : 	$use-rotate-out;
+
+// Slide Enter
+$use-slide-in           :   $use-slide;
+$use-slideIn			:   $use-slide-in;
+$use-slideInUp			:   $use-slide-in;
+$use-slideInDown		:   $use-slide-in;
+$use-slideInLeft		:   $use-slide-in;
+$use-slideInRight		:   $use-slide-in;
+
+// Slide Exit
+$use-slide-out          :   $use-slide;
+$use-slideOut			:   $use-slide-out;
+$use-slideOutUp			:   $use-slide-out;
+$use-slideOutDown		:   $use-slide-out;
+$use-slideOutLeft		:   $use-slide-out;
+$use-slideOutRight		:   $use-slide-out;
+
+// Flippers
+$use-flip				:	$use-flipers;
+$use-flipInX			:	$use-flipers;
+$use-flipInY			:	$use-flipers;
+$use-flipOutX			:	$use-flipers;
+$use-flipOutY			:	$use-flipers;
+
+// Lightspeed
+$use-lightSpeedIn 		:	$use-light-speed;
+$use-lightSpeedOut 		:	$use-light-speed;
+
+// Attention Seekers
+$use-bounce				:	$use-attention-seekers;
+$use-flash				:	$use-attention-seekers;
+$use-pulse				:	$use-attention-seekers;
+$use-wiggle				:	$use-attention-seekers;
+$use-swing				:	$use-attention-seekers;
+$use-shake				:	$use-attention-seekers;
+$use-tada				:	$use-attention-seekers;
+$use-wobble				:	$use-attention-seekers;
+
+// Special
+$use-hinge				:	$use-special;
+$use-rollIn				: 	$use-special;
+$use-rollOut 			:	$use-special;
+
+// Zoom In
+$use-zoom-in            :   $use-zoom;
+$use-zoomIn 			:	$use-zoom-in;
+$use-zoomInDown 		:	$use-zoom-in;
+$use-zoomInLeft 		:	$use-zoom-in;
+$use-zoomInRight 		:	$use-zoom-in;
+$use-zoomInUp 			:	$use-zoom-in;
+
+// Zoom Out
+$use-zoom-out           :   $use-zoom;
+$use-zoomOut			:	$use-zoom-out;
+$use-zoomOutDown		:	$use-zoom-out;
+$use-zoomOutLeft		:	$use-zoom-out;
+$use-zoomOutRight		:	$use-zoom-out;
+$use-zoomOutUp			:	$use-zoom-out;
+
+
+$use-fadeIn: true;
+$use-fadeOut: true;
+$use-fadeInDown: true;
+$use-fadeInUp: true;
+
+$use-lightSpeedIn: true;
+$use-lightSpeedOut: true;
+
+
+$use-slideInLeft: true;
+$use-slideOutLeft: true;
+
+// ATTENTION
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/bounce";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/flash";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/pulse";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/shake";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/swing";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/wiggle";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/wobble";
+//@import "../../../../node_modules/animate-sass/animations/attention-seekers/tada";
+
+// BOUNCE
+//@import "../../../../node_modules/animate-sass/animations/bounce-enter/bounceIn";
+//@import "../../../../node_modules/animate-sass/animations/bounce-enter/bounceInDown";
+//@import "../../../../node_modules/animate-sass/animations/bounce-enter/bounceInLeft";
+//@import "../../../../node_modules/animate-sass/animations/bounce-enter/bounceInRight";
+//@import "../../../../node_modules/animate-sass/animations/bounce-enter/bounceInUp";
+//@import "../../../../node_modules/animate-sass/animations/bounce-exit/bounceOut";
+//@import "../../../../node_modules/animate-sass/animations/bounce-exit/bounceOutDown";
+//@import "../../../../node_modules/animate-sass/animations/bounce-exit/bounceOutLeft";
+//@import "../../../../node_modules/animate-sass/animations/bounce-exit/bounceOutRight";
+//@import "../../../../node_modules/animate-sass/animations/bounce-exit/bounceOutUp";
+
+// FADE
+@import "../../../node_modules/animate-sass/animations/fade-enter/fadeIn";
+@import "../../../node_modules/animate-sass/animations/fade-enter/fadeInDown";
+//@import "../../../../node_modules/animate-sass/animations/fade-enter/fadeInDownBig";
+//@import "../../../../node_modules/animate-sass/animations/fade-enter/fadeInLeft";
+//@import "../../../../node_modules/animate-sass/animations/fade-enter/fadeInLeftBig";
+//@import "../../../../node_modules/animate-sass/animations/fade-enter/fadeInRight";
+//@import "../../../../node_modules/animate-sass/animations/fade-enter/fadeInRightBig";
+@import "../../../node_modules/animate-sass/animations/fade-enter/fadeInUp";
+//@import "../../../../node_modules/animate-sass/animations/fade-enter/fadeInUpBig";
+@import "../../../node_modules/animate-sass/animations/fade-exit/fadeOut";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutDown";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutDownBig";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutLeft";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutLeftBig";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutRight";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutRightBig";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutUp";
+//@import "../../../../node_modules/animate-sass/animations/fade-exit/fadeOutUpBig";
+
+// FLIP
+//@import "../../../../node_modules/animate-sass/animations/flippers/flip";
+//@import "../../../../node_modules/animate-sass/animations/flippers/flipInX";
+//@import "../../../../node_modules/animate-sass/animations/flippers/flipInY";
+//@import "../../../../node_modules/animate-sass/animations/flippers/flipOutX";
+//@import "../../../../node_modules/animate-sass/animations/flippers/flipOutY";
+
+// LIGHTSPEED
+@import "../../../node_modules/animate-sass/animations/lightspeed/lightSpeedIn";
+@import "../../../node_modules/animate-sass/animations/lightspeed/lightSpeedOut";
+
+// ROTATE
+//@import "../../../../node_modules/animate-sass/animations/rotate-enter/rotateIn";
+//@import "../../../../node_modules/animate-sass/animations/rotate-enter/rotateInDownLeft";
+//@import "../../../../node_modules/animate-sass/animations/rotate-enter/rotateInDownRight";
+//@import "../../../../node_modules/animate-sass/animations/rotate-enter/rotateInUpLeft";
+//@import "../../../../node_modules/animate-sass/animations/rotate-enter/rotateInUpRight";
+//@import "../../../../node_modules/animate-sass/animations/rotate-exit/rotateOut";
+//@import "../../../../node_modules/animate-sass/animations/rotate-exit/rotateOutDownLeft";
+//@import "../../../../node_modules/animate-sass/animations/rotate-exit/rotateOutDownRight";
+//@import "../../../../node_modules/animate-sass/animations/rotate-exit/rotateOutUpLeft";
+//@import "../../../../node_modules/animate-sass/animations/rotate-exit/rotateOutUpRight";
+
+// SLIDE
+//@import "../../../../node_modules/animate-sass/animations/slide-enter/slideInDown";
+@import "../../../node_modules/animate-sass/animations/slide-enter/slideInLeft";
+//@import "../../../../node_modules/animate-sass/animations/slide-enter/slideInRight";
+//@import "../../../../node_modules/animate-sass/animations/slide-enter/slideInUp";
+//@import "../../../../node_modules/animate-sass/animations/slide-exit/slideOutDown";
+@import "../../../node_modules/animate-sass/animations/slide-exit/slideOutLeft";
+//@import "../../../../node_modules/animate-sass/animations/slide-exit/slideOutRight";
+//@import "../../../../node_modules/animate-sass/animations/slide-exit/slideOutUp";
+
+// SPECIAL
+//@import "../../../../node_modules/animate-sass/animations/special/hinge";
+//@import "../../../../node_modules/animate-sass/animations/special/rollIn";
+//@import "../../../../node_modules/animate-sass/animations/special/rollOut";
+
+// ZOOM
+//@import "../../../../node_modules/animate-sass/animations/zoom-enter/zoomIn";
+//@import "../../../../node_modules/animate-sass/animations/zoom-enter/zoomInDown";
+//@import "../../../../node_modules/animate-sass/animations/zoom-enter/zoomInLeft";
+//@import "../../../../node_modules/animate-sass/animations/zoom-enter/zoomInRight";
+//@import "../../../../node_modules/animate-sass/animations/zoom-enter/zoomInUp";
+//@import "../../../../node_modules/animate-sass/animations/zoom-exit/zoomOut";
+//@import "../../../../node_modules/animate-sass/animations/zoom-exit/zoomOutDown";
+//@import "../../../../node_modules/animate-sass/animations/zoom-exit/zoomOutLeft";
+//@import "../../../../node_modules/animate-sass/animations/zoom-exit/zoomOutRight";
+//@import "../../../../node_modules/animate-sass/animations/zoom-exit/zoomOutUp";

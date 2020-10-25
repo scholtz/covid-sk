@@ -1,0 +1,35 @@
+// Accordions
+
+.accordion-wrapper {
+  @include border-radius($border-radius);
+  border: $gray-200 solid 1px;
+
+  & > .card {
+    box-shadow: 0 0 0 0 transparent;
+
+    & > .card-header {
+      padding: 1rem;
+      height: auto;
+
+      .btn:active,
+      .btn:focus,
+      .btn:hover {
+        text-decoration: none;
+      }
+
+      .form-heading {
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .collapse {
+      border-bottom: transparent solid 1px;
+
+      &.show {
+        border-bottom-color: $gray-200;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.vue-form-wizard a {
+  text-decoration: none;
+}
+.vue-form-wizard .wizard-nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  //@include clearfix;
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $primary;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $gray-600;
+
+      &:hover,
+      &:focus {
+        color: $gray-600;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.stepTitle {
+  padding-top: 1rem;
+  font-size: $font-size-lg;
+}

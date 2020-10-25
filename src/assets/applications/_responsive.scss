@@ -1,0 +1,18 @@
+// Responsive Applications
+
+@include media-breakpoint-down(md) {
+  .app-inner-layout__sidebar {
+    display: none !important;
+  }
+
+  .mobile-app-menu-btn {
+    display: block;
+  }
+
+  .open-mobile-menu {
+
+    .app-inner-layout__sidebar {
+      display: block !important;
+    }
+  }
+}

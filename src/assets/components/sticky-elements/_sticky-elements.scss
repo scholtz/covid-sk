@@ -1,0 +1,16 @@
+// Sticky Elements
+
+.scroll-area {
+  overflow-y: auto;
+  position: relative;
+  height: 400px;
+}
+
+.scrollable-block {
+  margin-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+  .sticky {
+    z-index: 2;
+  }
+}

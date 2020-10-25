@@ -1,0 +1,35 @@
+// Chat
+$app-layout-chat-sidebar-width: 360px;
+
+.chat-layout {
+  &.app-inner-layout {
+    .app-inner-layout__sidebar {
+      width: $app-layout-chat-sidebar-width;
+      flex: 0 0 $app-layout-chat-sidebar-width;
+    }
+  }
+
+  .app-inner-layout__top-pane h4 {
+    font-size: $h5-font-size;
+
+    div {
+      font-size: $font-size-base;
+    }
+  }
+
+  .chat-box-wrapper {
+    padding: $layout-spacer-x;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .chat-layout {
+    &.app-inner-layout {
+      .app-inner-layout__sidebar {
+        .widget-content .widget-content-left .widget-subheading {
+          white-space: normal;
+        }
+      }
+    }
+  }
+}

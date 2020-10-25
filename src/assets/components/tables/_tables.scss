@@ -1,0 +1,25 @@
+// Table sizing
+
+.table-lg {
+  th,
+  td {
+    padding: ($table-cell-padding * 2) ($table-cell-padding * 1.5);
+  }
+}
+
+.table {
+  .sorting {
+    outline: none !important;
+
+    &::before {
+      right: 1.2rem !important;
+    }
+  }
+
+  &.align-middle {
+    th,
+    td {
+      vertical-align: middle;
+    }
+  }
+}

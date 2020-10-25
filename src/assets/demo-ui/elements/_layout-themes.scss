@@ -1,0 +1,28 @@
+// Themes
+
+$themes: ();
+
+$themes: map_merge(
+                (
+                        "default": (
+                        ),
+                        "light-blue": (
+                        ),
+                ),
+                $themes
+);
+
+@mixin theme-variant($app-container-bg, $app-sidebar-bg, $app-header-bg, $app-header-logo-bg) {
+
+}
+
+@each $theme, $colors in $themes {
+  $color1: nth($colors, 1);
+  $color2: nth($colors, 2);
+  $color3: nth($colors, 3);
+  $color4: nth($colors, 4);
+
+  .theme-#{$theme} {
+    @include theme-variant($color1, $color2, $color3, $color4);
+  }
+}

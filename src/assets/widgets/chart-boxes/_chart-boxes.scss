@@ -1,0 +1,376 @@
+// Chart boxes
+
+// Variables
+
+$widget-spacer: $spacer;
+
+%center-elem {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.widget-chart {
+  text-align: center;
+  padding: $widget-spacer;
+  position: relative;
+
+  .progress-sub-label {
+    opacity: .8;
+    padding: 5px 0 0;
+  }
+
+  .progress-circle-wrapper {
+    min-width: 68px;
+    margin-right: $widget-spacer;
+
+    .react-sweet-progress-symbol {
+      font-size: $font-size-xs;
+    }
+  }
+
+  .widget-chart-content {
+    position: relative;
+    z-index: 5;
+  }
+
+  .widget-chart-content-lg {
+    padding: ($widget-spacer * 2) 0 $widget-spacer ($widget-spacer * 2);
+
+    .widget-numbers {
+      margin-bottom: 0;
+    }
+  }
+
+  .widget-chart-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: .25;
+    z-index: 4;
+    @include border-bottom-radius($card-border-radius);
+    overflow: hidden;
+  }
+
+  .widget-numbers {
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: block;
+    line-height: 1;
+    margin: $widget-spacer auto;
+
+    & + .widget-chart-flex,
+    & + .widget-description,
+    & + .widget-subheading {
+      margin-top: -($widget-spacer / 2);
+    }
+  }
+
+  .widget-subheading {
+    margin: -0.5rem 0 0;
+    display: block;
+    opacity: .6;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    & + .widget-numbers {
+      margin-top: ($widget-spacer / 2);
+    }
+  }
+
+  .widget-description {
+    margin: $widget-spacer 0 0;
+  }
+
+  &.widget-chart-hover {
+    transition: all .2s;
+
+    &:hover {
+      z-index: 15;
+      transform: scale(1.15);
+      box-shadow: 0 0.46875rem 4.1875rem rgba(darken($primary, 50%), .05),
+      0 0.9375rem 2.40625rem rgba(darken($primary, 50%), .05),
+      0 0.25rem 1.3125rem rgba(darken($primary, 50%), .06),
+      0 0.125rem 1.1875rem rgba(darken($primary, 50%), .06);
+      cursor: pointer;
+      background: $white;
+    }
+  }
+
+  .widget-chart-actions {
+    position: absolute;
+    right: $widget-spacer / 2;
+    top: $widget-spacer / 2;
+    z-index: 12;
+
+    .btn-link {
+      font-size: 1.1rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      opacity: .6;
+    }
+  }
+
+  .widget-progress-wrapper {
+    margin-top: $widget-spacer;
+
+    &.progress-wrapper-bottom {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+
+      .progress {
+        margin: 0 -1px -1px;
+      }
+
+      .progress {
+        @include border-top-radius(0);
+        @include border-bottom-radius($card-border-radius);
+
+        .progress-bar {
+          border-bottom-left-radius: $card-border-radius;
+        }
+      }
+
+    }
+  }
+
+  .widget-chart-flex {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-bottom: $widget-spacer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .widget-subheading {
+      margin: 0;
+    }
+
+    .widget-description {
+      margin-top: 0;
+    }
+  }
+
+  &.text-left {
+    flex-direction: row;
+    align-items: center;
+
+    .icon-wrapper {
+      min-width: 54px;
+      margin: 0 ($widget-spacer) 0 0;
+    }
+
+    .widget-numbers {
+      margin-left: 0;
+    }
+
+    .widget-chart-content {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      flex: 1;
+      position: relative;
+
+      & > .widget-numbers:first-child {
+        margin-top: 0;
+      }
+
+      .widget-description {
+        align-self: flex-start;
+      }
+    }
+
+    .widget-chart-wrapper {
+      height: 35%;
+    }
+  }
+
+  &.widget-chart-left {
+    padding-bottom: 15%;
+  }
+
+  .chart-wrapper-relative {
+    position: relative;
+    opacity: 1;
+    margin-top: ($widget-spacer);
+  }
+}
+
+.widget-chart-actions {
+  position: absolute;
+  right: $widget-spacer;
+  top: $widget-spacer;
+  z-index: 12;
+
+  .btn-link {
+    font-size: 1.1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: .6;
+  }
+}
+
+.widget-chart,
+.widget-content {
+  &:hover {
+    .widget-chart-actions {
+      .btn-link {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.grid-menu {
+  .widget-chart {
+    &.widget-chart-hover {
+      &:hover {
+        background: $card-bg;
+        @include border-radius($border-radius);
+      }
+    }
+  }
+
+}
+
+.icon-wrapper {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto;
+  @extend %center-elem;
+  position: relative;
+  overflow: hidden;
+
+  &[class*="border-"] {
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .icon-wrapper-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    opacity: .2;
+
+    &.bg-light {
+      opacity: .08;
+    }
+
+  }
+
+  i {
+    margin: 0 auto;
+    font-size: 1.7rem;
+    position: relative;
+    z-index: 5;
+
+    &:before {
+      margin-top: -3px;
+    }
+  }
+
+  .progress-circle-wrapper {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.widget-chart2 {
+  .widget-chart-flex {
+    display: flex;
+    align-items: baseline;
+    align-content: center;
+    margin-bottom: 0;
+
+    .widget-subtitle,
+    .widget-title {
+    }
+
+    .widget-subtitle {
+      margin-left: auto;
+    }
+
+    .widget-numbers {
+      font-weight: normal;
+    }
+
+    & + .widget-chart-flex {
+      .widget-numbers {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .widget-chat-wrapper-outer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    max-width: 100%;
+
+    .widget-chart-wrapper {
+      height: 70px;
+      opacity: .8;
+      position: relative;
+      margin: $widget-spacer auto (-($widget-spacer / 2));
+    }
+
+    .widget-chart-wrapper-lg {
+      height: 130px;
+    }
+
+    .widget-chart-wrapper-xlg {
+      height: 160px;
+    }
+  }
+}
+
+// Widgets with bottom border
+
+.card-btm-border {
+  border-bottom: transparent solid 4px;
+}
+
+// Progress Box
+
+.progress-box {
+  text-align: center;
+
+  h4 {
+    font-size: $font-size-base;
+    font-weight: bold;
+    opacity: .6;
+    text-transform: uppercase;
+    padding-bottom: ($widget-spacer / 3)
+  }
+
+  svg {
+    margin: 0 auto;
+  }
+}
+
+.svg-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: .1;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.widget-numbers-sm {
+  font-size: 1.5rem;
+}

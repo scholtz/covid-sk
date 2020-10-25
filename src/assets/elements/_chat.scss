@@ -1,0 +1,52 @@
+// Chat
+
+.chat-box-wrapper {
+  display: flex;
+  clear: both;
+  padding: ($layout-spacer-x / 2);
+
+  & + .chat-box-wrapper {
+    padding-top: 0;
+  }
+
+  .chat-box {
+    box-shadow: 0 0 0 transparent;
+    position: relative;
+    opacity: 1;
+    background: $dropdown-link-hover-bg;
+    border: 0;
+    padding: ($layout-spacer-x / 2) $layout-spacer-x;
+    @include border-radius(30px);
+    border-top-left-radius: $border-radius;
+    flex: 1;
+    display: flex;
+    max-width: 50%;
+    min-width: 100%;
+    text-align: left;
+
+    & + small {
+      text-align: left;
+      padding: ($layout-spacer-x / 3) 0 0;
+      margin-left: $layout-spacer-x;
+      display: block;
+    }
+  }
+
+  &.chat-box-wrapper-right {
+    text-align: right;
+
+    .chat-box {
+      @include border-radius(30px);
+      border-top-left-radius: 30px;
+      border-top-right-radius: $border-radius;
+      margin-left: auto;
+
+      & + small {
+        text-align: right;
+        margin-right: $layout-spacer-x;
+        margin-left: 0;
+      }
+    }
+
+  }
+}

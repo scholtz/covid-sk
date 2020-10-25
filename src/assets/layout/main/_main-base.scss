@@ -1,0 +1,21 @@
+// Main Base
+
+.app-main__outer {
+  overflow: hidden;
+  z-index: 8;
+  margin: 0 $app-sidebar-width 0 $app-navbar-width;
+  transition: all .2s;
+  transition-property: box-shadow, height, background, font-size;
+}
+
+.app-main__inner {
+  padding: 0 $grid-gutter-width 0 $grid-gutter-width;
+}
+
+.body-tabs {
+  margin: (-($grid-gutter-width / 3)) 0 ($grid-gutter-width / 1.3);
+}
+
+// Themes
+
+@import "themes/main-white";

@@ -1,0 +1,21 @@
+$gray-input-bg:              #F3F2EE !default;
+$danger-color:               #EB5E28 !default;
+$white-color:                #FFFFFF !default;
+
+$form-placeholder-color:     rgba(0,0,0,.2) !default;
+
+$card-black-color:          #252422 !default;
+
+$border-thick:               2px !default;
+$transparent-bg:             transparent !default;
+$default-color:              #66615B !default;
+$default-states-color:       darken($default-color,11%) !default;
+$fill-font-color:            rgba(255, 255, 255, 0.85);
+
+$fast-transition-time:           150ms !default;
+
+$danger-states-color:        darken($danger-color,11%) !default;
+
+$font-weight-light:          300 !default;
+$font-weight-normal:         400 !default;
+$font-weight-bold:           600 !default;

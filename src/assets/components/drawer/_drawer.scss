@@ -1,0 +1,63 @@
+// Drawer
+
+.app-drawer-wrapper {
+  width: 450px;
+  height: 100%;
+  position: fixed;
+  right: -450px;
+  top: 0;
+  transition: all .2s;
+  z-index: 9999;
+
+  &.drawer-open {
+    right: 0;
+    box-shadow: $box-shadow-lg-default;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.drawer-content-wrapper {
+  background: $white;
+  position: relative;
+  height: 100%;
+
+  .drawer-heading {
+    font-size: $font-size-sm;
+    color: $body-color;
+    margin: 0;
+    background: $gray-100;
+    padding: ($layout-spacer-x / 2) $layout-spacer-x;
+    border-bottom: $gray-300 solid 1px;
+    border-top: $gray-300 solid 1px;
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+
+  .drawer-section {
+    padding: $layout-spacer-x;
+  }
+
+  & > .app-sidebar__heading:first-child {
+    margin-top: 0;
+  }
+}
+
+.drawer-nav-btn {
+  @include border-radius(30px);
+  background: $white;
+  position: absolute;
+  right: $layout-spacer-x / 2;
+  top: $layout-spacer-x / 2;
+  padding: ($layout-spacer-x / 3);
+  box-shadow: $box-shadow-sm;
+  z-index: 20;
+
+  .hamburger {
+    margin-top: 4px;
+  }
+}
