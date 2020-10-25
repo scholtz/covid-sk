@@ -39,9 +39,9 @@
         style="min-height: 800px; width: 100%"
       >
         <LTileLayer :url="url" :attribution="attribution" :options="options" />
-        <LLayerGroup>
+        <LLayerGroup v-if="this.$store.state.place.places">
           <l-marker
-            v-for="(place, placeId) in places"
+            v-for="(place, placeId) in $store.state.place.places"
             :key="placeId"
             :lat-lng="getLatLng(place)"
           >
@@ -73,17 +73,24 @@
         </l-marker>
       </l-map>
     </div>
-    <b-table v-if="showing === 'table'" :items="places" :fields="fields">
-      <template #cell(id)="row">
-        <b-link :to="`/place/${row.value}`" class="govuk-button">
-          Vybrať
-        </b-link>
-      </template>
-    </b-table>
+    <div v-if="$store.state.place.places">
+      <b-table
+        v-if="showing === 'table'"
+        :items="Object.values($store.state.place.places)"
+        :fields="fields"
+      >
+        <template #cell(id)="row">
+          <b-link :to="`/place/${row.value}`" class="govuk-button">
+            Vybrať
+          </b-link>
+        </template>
+      </b-table>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { LMap, LTileLayer, LPopup, LMarker, LLayerGroup } from "vue2-leaflet";
 
 import { Icon } from "leaflet";
@@ -145,38 +152,7 @@ export default {
           sortable: true,
         },
       ],
-      places: [
-        {
-          id: "1",
-          name: "Škola AA",
-          address: "Bratislavská 1, Pezinok",
-          lat: 48.28524902921143,
-          lng: 17.256517410278324,
-          isDriveIn: false,
-          isWalkIn: true,
-          registrations: 1500,
-        },
-        {
-          id: "2",
-          name: "Odberné miesto 2",
-          address: "Pražská 11, Pezinok",
-          lat: 48.29467191641477,
-          lng: 17.26587295532227,
-          isDriveIn: false,
-          isWalkIn: true,
-          registrations: 1233,
-        },
-        {
-          id: "3",
-          name: "Odberné miesto 3",
-          address: "Pražská 10, Pezinok",
-          lat: 48.289218275462225,
-          lng: 17.272996902465824,
-          isDriveIn: false,
-          isWalkIn: true,
-          registrations: 3233,
-        },
-      ],
+
       lastClickLatLng: [],
       zoom: 15,
       minZoom: 3,
@@ -191,12 +167,20 @@ export default {
       },
     };
   },
+  mounted() {
+    this.ReloadPlaces().then(r => {
+      console.log("r", r);
+    });
+  },
   methods: {
+    ...mapActions({
+      ReloadPlaces: "place/ReloadPlaces",
+    }),
     onMapClick(event) {
       this.lastClickLatLng = event.latlng;
 
       if (event === undefined) return;
-      this.popupTarget.openPopup();
+      // this.popupTarget.openPopup();
     },
     openPopup(event) {
       if (event === undefined) return;

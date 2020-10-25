@@ -46,6 +46,7 @@
                 >
                   Čo je COVID-19 </a
                 ><a class="idsk-footer__link" href="https://korona.gov.sk/faq/">
+                  FAQ
                 </a>
               </li>
               <li class="idsk-footer__inline-list-item">

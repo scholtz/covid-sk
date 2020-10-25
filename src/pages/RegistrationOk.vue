@@ -1,0 +1,146 @@
+<template>
+  <div>
+    <div class="app-pane-lgray py-2">
+      <b-container>
+        <h1>Úspešne ste sa zaregistrovali k odberu vzorky covid-19</h1>
+      </b-container>
+    </div>
+    <div class="py-3">
+      <b-container>
+        <b-row>
+          <h2>Zobrazte tento čiarový kód doktorovi pred odobratím vzorky</h2>
+          <p>
+            Aj keď sme Vám poslali tento kód emailom a v SMS, odporúčame Vám
+            tento kód vytlačiť do PDF alebo uložiť iným spôsobom.
+          </p>
+          <p>
+            Starším osobám alebo osobám bez smartphonu odporúčame 9-miestny kód
+            napísať čitateľným písmom na papier a ukázať medicínskemu personálu
+            pred vykonaním odberu
+          </p>
+        </b-row>
+        <b-row>
+          <barcode v-bind:value="barcodeValue">
+            Nepodarilo sa vygenerovať čiarový kód
+          </barcode>
+        </b-row>
+
+        <b-row>
+          Dostavte sa prosím
+          {{ $store.state.slot.slotDCurrent.description }} medzi
+          {{ $store.state.slot.slotMCurrent.description }} na odberné miesto
+          {{ $store.state.place.currentPlace.name }}
+        </b-row>
+        <b-row class="py-3">
+          <b-link
+            :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${$route.params.minuteId}`"
+            class="govuk-button m-0"
+          >
+            Pokračujte zaregistrovaním ďalšej osoby na rovnaký temín odberu
+          </b-link>
+        </b-row>
+      </b-container>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapMutations, mapActions } from "vuex";
+import VueBarcode from "vue-barcode";
+
+export default {
+  components: {
+    barcode: VueBarcode,
+  },
+  data() {
+    return {
+      barcodeValue: "0",
+    };
+  },
+  computed: {
+    barcode() {
+      return this.$store.state.slot.registration.id;
+    },
+  },
+  watch: {
+    barcode() {
+      this.barcodeValue = this.$store.state.slot.registration.id.subtring(0, 3);
+    },
+  },
+  mounted() {
+    this.GetPlace({ id: this.$route.params.placeId })
+      .then(r => {
+        return r;
+      })
+      .then(r => {
+        this.setCurrentPlace(r);
+        return r;
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotD({
+          placeId: this.$route.params.placeId,
+          daySlotId: this.$route.params.dayId,
+        });
+      })
+      .then(r => {
+        this.setSlotDCurrent(r);
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotH({
+          placeId: this.$route.params.placeId,
+          daySlotId: this.$route.params.dayId,
+          hourSlotId: this.$route.params.hourId,
+        });
+      })
+      .then(r => {
+        return this.setSlotHCurrent(r);
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotM({
+          placeId: this.$route.params.placeId,
+          hourSlotId: this.$route.params.hourId,
+          minuteSlotId: this.$route.params.minuteId,
+        });
+      })
+      .then(r => {
+        return this.setSlotMCurrent(r);
+      });
+    this.formatCode();
+  },
+  methods: {
+    ...mapMutations({
+      setCurrentPlace: "place/setCurrentPlace",
+      setSlotDCurrent: "slot/setSlotDCurrent",
+      setSlotHCurrent: "slot/setSlotHCurrent",
+      setSlotMCurrent: "slot/setSlotMCurrent",
+    }),
+    ...mapActions({
+      GetPlace: "place/GetPlace",
+    }),
+    ...mapActions({
+      GetSlotD: "slot/GetSlotD",
+      GetSlotH: "slot/GetSlotH",
+      GetSlotM: "slot/GetSlotM",
+      ReloadSlotsM: "slot/ReloadSlotsM",
+    }),
+    formatCode() {
+      this.barcodeValue = this.commafy(this.$store.state.slot.registration.id);
+    },
+    commafy(num) {
+      var str = num.toString().split(".");
+      if (str[0].length >= 5) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, "$1-");
+      }
+      if (str[1] && str[1].length >= 5) {
+        str[1] = str[1].replace(/(\d{3})/g, "$1 ");
+      }
+      return str.join(".");
+    },
+  },
+};
+</script>
+<style lang="scss">
+</style>

@@ -23,8 +23,6 @@
 import Vue from "vue";
 import Navbar from "../Components/Navbar/Navbar";
 import FooterComponent from "../Components/Footer";
-import { mapActions } from "vuex";
-import router from "../../router";
 
 export default {
   name: "app",

@@ -8,29 +8,34 @@
     <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
       <b-container>
         <h2>
-          Vybrali ste si {{ $route.params.placeId }}, dňa
-          {{ $route.params.dayId }}, medzi {{ $route.params.hourId }}:00 a
-          {{ `${parseInt($route.params.hourId) + 1}` }}:00
+          Vybrali ste si
+          {{ $store.state.place.currentPlace.name }}, dňa
+          {{ $store.state.slot.slotDCurrent.description }} medzi
+          {{ $store.state.slot.slotHCurrent.description }}
         </h2>
+
+        <b-link
+          :to="`/place/${$route.params.placeId}/${$route.params.dayId}`"
+          class="govuk-button m-0"
+        >
+          Zmeniť
+        </b-link>
       </b-container>
     </div>
 
     <b-container class="my-4">
-      <h2>V ktorú hodinu Vám to vyhovuje viac?</h2>
+      <h2>Vyberte si ideálny čas odberu</h2>
       <p>
         V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším
         počtom registrácií
       </p>
-      <p v-for="minute in minutes" :key="minute.from">
+      <p v-for="minute in $store.state.slot.slotsM" :key="minute.slotId">
         <b-link
-          :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.from}`"
+          :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.slotId}`"
           class="govuk-button m-0"
         >
           Medzi
-          <b
-            >{{ $route.params.hourId }}:{{ minute.from }} a
-            {{ $route.params.hourId }}:{{ minute.to }}</b
-          >
+          <b>{{ minute.description }}</b>
           je aktuálne registrovaných {{ minute.registrations }} osôb
         </b-link>
       </p>
@@ -39,16 +44,62 @@
 </template>
 
 <script>
+import { mapMutations, mapActions } from "vuex";
 export default {
-  data() {
-    return {
-      minutes: [],
-    };
-  },
   mounted() {
-    for (let i = 0; i < 60; i = i + 5) {
-      this.minutes.push({ from: i, to: i + 5, registrations: i });
-    }
+    this.GetPlace({ id: this.$route.params.placeId })
+      .then(r => {
+        return r;
+      })
+      .then(r => {
+        this.setCurrentPlace(r);
+        return r;
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotD({
+          placeId: this.$route.params.placeId,
+          daySlotId: this.$route.params.dayId,
+        });
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        this.setSlotDCurrent(r);
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotH({
+          placeId: this.$route.params.placeId,
+          daySlotId: this.$route.params.dayId,
+          hourSlotId: this.$route.params.hourId,
+        });
+      })
+      .then(r => {
+        return this.setSlotHCurrent(r);
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.ReloadSlotsM({
+          placeId: this.$route.params.placeId,
+          hourSlotId: this.$route.params.hourId,
+        });
+      });
+  },
+  methods: {
+    ...mapMutations({
+      setCurrentPlace: "place/setCurrentPlace",
+      setSlotDCurrent: "slot/setSlotDCurrent",
+      setSlotHCurrent: "slot/setSlotHCurrent",
+    }),
+    ...mapActions({
+      GetPlace: "place/GetPlace",
+    }),
+    ...mapActions({
+      GetSlotD: "slot/GetSlotD",
+      GetSlotH: "slot/GetSlotH",
+      GetSlotM: "slot/GetSlotM",
+      ReloadSlotsM: "slot/ReloadSlotsM",
+    }),
   },
 };
 </script>

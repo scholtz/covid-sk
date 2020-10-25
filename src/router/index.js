@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import store from "../store";
 
 Vue.use(VueRouter);
 
@@ -35,6 +34,11 @@ const router = new VueRouter({
       path: "/place/:placeId/:dayId/:hourId/:minuteId",
       name: "PlaceHour",
       component: () => import("../pages/Registration.vue"),
+    },
+    {
+      path: "/place/:placeId/:dayId/:hourId/:minuteId/done",
+      name: "RegistrationOk",
+      component: () => import("../pages/RegistrationOk.vue"),
     },
   ],
 });

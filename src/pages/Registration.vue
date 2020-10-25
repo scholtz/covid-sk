@@ -13,44 +13,82 @@
         </p>
       </b-container>
     </div>
-    <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
+    <div
+      class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6"
+      v-if="$store.state.place.currentPlace"
+    >
       <b-container>
         <h2>
-          Vybrali ste si {{ $route.params.placeId }}, dňa
-          {{ $route.params.dayId }}
+          Vybrali ste si
+          {{ $store.state.place.currentPlace.name }}, dňa
+          {{ $store.state.slot.slotDCurrent.description }} medzi
+          {{ $store.state.slot.slotMCurrent.description }}
         </h2>
+        <b-link
+          :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}`"
+          class="govuk-button m-0"
+        >
+          Zmeniť
+        </b-link>
       </b-container>
     </div>
 
     <b-container class="my-4">
       <b-row>
-        <b-col cols="4">
-          <label for="name">Meno</label>
-          <b-input id="name" />
-        </b-col>
-        <b-col cols="4">
-          <label for="lastname">Priezvisko</label>
-          <b-input id="lastname" />
-        </b-col>
-        <b-col cols="4">
-          <label for="rc">Rodné číslo / Číslo cestovného dokladu</label>
-          <b-input id="rc" />
+        <b-col cols="12" md="4">
+          <b-form-group label="Identifikácia registrovanej osoby">
+            <b-form-radio v-model="personType" name="person-type" value="rc"
+              >Mám občiansky preukaz</b-form-radio
+            >
+            <b-form-radio v-model="personType" name="person-type" value="child"
+              >Registrácia dieťaťa zákonným zástupcom</b-form-radio
+            >
+            <b-form-radio
+              v-model="personType"
+              name="person-type"
+              value="foreign"
+              >Som cudzinec</b-form-radio
+            >
+          </b-form-group>
         </b-col>
       </b-row>
       <b-row>
-        <b-col cols="12">
+        <b-col cols="12" md="4">
+          <label for="firstName">Meno</label>
+          <b-input v-model="firstName" ref="firstName" firstName="name" />
+        </b-col>
+        <b-col cols="12" md="4">
+          <label for="lastName">Priezvisko</label>
+          <b-input v-model="lastName" ref="lastName" id="lastName" />
+        </b-col>
+        <b-col
+          cols="12"
+          md="4"
+          v-if="personType === 'rc' || personType === 'child'"
+        >
+          <label for="rc" v-if="personType === 'rc'">Rodné číslo</label>
+          <label for="rc" v-else>Rodné číslo dieťaťa</label>
+          <b-input v-model="rc" ref="rc" id="rc" />
+        </b-col>
+        <b-col cols="12" md="4" v-else>
+          <label for="passport">Číslo cestovného dokladu</label>
+          <b-input v-model="passport" ref="passport" id="passport" />
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col cols="12" md="12">
           <label for="address">Adresa miesta pobytu</label>
-          <b-input id="address" />
+          <b-input v-model="address" ref="address" id="address" />
         </b-col>
       </b-row>
       <b-row>
-        <b-col cols="6">
+        <b-col cols="12" md="6">
           <label for="phone">Telefón bez medzier s predvoľbou štátu</label>
-          <b-input id="phone" value="+421" />
+          <b-input v-model="phone" ref="phone" id="phone" />
         </b-col>
-        <b-col cols="6">
+        <b-col cols="12" md="6">
           <label for="email">Email</label>
-          <b-input id="email" type="email" />
+          <b-input v-model="email" ref="email" id="email" type="email" />
         </b-col>
       </b-row>
       <b-row>
@@ -70,7 +108,9 @@
             registrácie.
           </p>
 
-          <b-link class="govuk-button"> Zaregistrovať </b-link>
+          <b-link class="govuk-button" @click="registerForTest">
+            Zaregistrovať
+          </b-link>
         </b-col>
       </b-row>
     </b-container>
@@ -78,16 +118,104 @@
 </template>
 
 <script>
+import { mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      hours: [],
+      personType: "rc",
+      passport: "",
+      rc: "",
+      firstName: "",
+      lastName: "",
+      address: "",
+      email: "@",
+      phone: "+421",
     };
   },
   mounted() {
-    for (let i = 10; i < 18; i++) {
-      this.hours.push({ from: i, to: i + 1, registrations: i });
-    }
+    this.GetPlace({ id: this.$route.params.placeId })
+      .then(r => {
+        return r;
+      })
+      .then(r => {
+        this.setCurrentPlace(r);
+        return r;
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        const ret = this.GetSlotD({
+          placeId: this.$route.params.placeId,
+          daySlotId: this.$route.params.dayId,
+        }).then(r2 => {
+          this.setSlotDCurrent(r2);
+        });
+        return r;
+      })
+
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotH({
+          placeId: this.$route.params.placeId,
+          daySlotId: this.$route.params.dayId,
+          hourSlotId: this.$route.params.hourId,
+        }).then(r2 => {
+          return this.setSlotHCurrent(r2);
+        });
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        return this.GetSlotM({
+          placeId: this.$route.params.placeId,
+          hourSlotId: this.$route.params.hourId,
+          minuteSlotId: this.$route.params.minuteId,
+        }).then(r2 => {
+          console.log("r2", r2, {
+            placeId: this.$route.params.placeId,
+            hourSlotId: this.$route.params.hourId,
+            minuteSlotId: this.$route.params.minuteId,
+          });
+          return this.setSlotMCurrent(r2);
+        });
+      });
+  },
+  methods: {
+    ...mapMutations({
+      setCurrentPlace: "place/setCurrentPlace",
+      setSlotDCurrent: "slot/setSlotDCurrent",
+      setSlotHCurrent: "slot/setSlotHCurrent",
+      setSlotMCurrent: "slot/setSlotMCurrent",
+    }),
+    ...mapActions({
+      GetPlace: "place/GetPlace",
+    }),
+    ...mapActions({
+      GetSlotD: "slot/GetSlotD",
+      GetSlotH: "slot/GetSlotH",
+      GetSlotM: "slot/GetSlotM",
+      ReloadSlotsM: "slot/ReloadSlotsM",
+      Register: "slot/Register",
+    }),
+    registerForTest() {
+      const that = this;
+      this.Register({
+        personType: this.personType,
+        passport: this.passport,
+        rc: this.rc,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        address: this.address,
+        email: this.email,
+        phone: this.phone,
+        chosenSlot: this.$route.params.minuteId,
+        chosenPlaceId: this.$route.params.placeId,
+      })
+        // eslint-disable-next-line
+        .then(r => {
+          that.$router.push(
+            `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
+          );
+        });
+    },
   },
 };
 </script>

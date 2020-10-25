@@ -52,6 +52,7 @@
     "v-mask": "latest",
     "vee-validate": "latest",
     "vue-apexcharts": "latest",
+    "vue-barcode": "^1.3.0",
     "vue-bootstrap-toasts": "latest",
     "vue-chartjs": "latest",
     "vue-clipboards": "latest",

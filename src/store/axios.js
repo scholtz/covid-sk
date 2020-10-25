@@ -2,7 +2,6 @@ import axios from "axios";
 const actions = {
   async get({ dispatch }, { url, params }) {
     let response = null;
-    console.log("get", url, params);
     try {
       let shown = false;
       response = await axios.get(url, { params }).catch(function (error) {
@@ -42,7 +41,6 @@ const actions = {
           );
         }
       });
-      console.log("response.status", response.status);
       if (response && response.status === 200) {
         return response.data;
       }

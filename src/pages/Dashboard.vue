@@ -34,7 +34,8 @@
           draggable="false"
           class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
           data-module="govuk-button"
-          >Začnite výberom odberného miesta<svg
+          >Začnite výberom odberného miesta
+          <svg
             class="govuk-button__start-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="17.5"
@@ -43,10 +44,7 @@
             role="presentation"
             focusable="false"
           >
-            <path
-              fill="currentColor"
-              d="M0 0h13l20 20-20 20H0l20-20z"
-            ></path></svg
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" /></svg
         ></b-link>
       </b-container>
     </div>
