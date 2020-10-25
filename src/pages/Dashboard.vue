@@ -64,6 +64,7 @@
               <ul>
                 <li>FE: Multijazyčnosť</li>
                 <li>FE: Výsledky testovania</li>
+                <li>FE: Validácia prvkov v registračnom formulári</li>
                 <li>BE: Napojenie na emailový server</li>
                 <li>BE: Autorizácia</li>
                 <li>BE: Napojenie na sms bránu</li>

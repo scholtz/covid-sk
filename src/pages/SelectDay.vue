@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Vyberte si temín testovania</h1>
+        <h1>Vyberte si termín testovania</h1>
       </b-container>
     </div>
 

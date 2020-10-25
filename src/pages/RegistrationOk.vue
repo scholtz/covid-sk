@@ -36,7 +36,7 @@
             :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${$route.params.minuteId}`"
             class="govuk-button m-0"
           >
-            Pokračujte zaregistrovaním ďalšej osoby na rovnaký temín odberu
+            Pokračujte zaregistrovaním ďalšej osoby na rovnaký termín odberu
           </b-link>
         </b-row>
       </b-container>

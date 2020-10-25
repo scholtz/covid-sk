@@ -143,7 +143,7 @@ export default {
       })
       // eslint-disable-next-line
       .then(r => {
-        const ret = this.GetSlotD({
+        this.GetSlotD({
           placeId: this.$route.params.placeId,
           daySlotId: this.$route.params.dayId,
         }).then(r2 => {
