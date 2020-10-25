@@ -23,7 +23,7 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown text="Jazyk / Language" right>
-              <b-dropdown-item href="#">Anlicky / English</b-dropdown-item>
+              <b-dropdown-item href="#">Anglicky / English</b-dropdown-item>
               <b-dropdown-item href="#">Slovensky / Slovak</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
