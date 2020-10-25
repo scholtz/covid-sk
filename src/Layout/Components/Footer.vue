@@ -2,11 +2,32 @@
   <footer class="idsk-footer" role="contentinfo">
     <div class="govuk-width-container">
       <div class="idsk-footer__meta">
+        <div class="idsk-footer__meta-item footer-logo-wrap">
+          <div class="footer-logo-inner">
+            <div class="textwidget">
+              <a
+                class="idsk-footer__link"
+                href="https://www.mirri.gov.sk/index.html"
+                style="display: block"
+              >
+                <img src="../../assets/images/pezinok.svg" width="80px"
+              /></a>
+            </div>
+          </div>
+        </div>
         <div class="idsk-footer__meta-item idsk-footer__meta-item--grow">
           <span class="idsk-footer__licence-description">
             <div class="textwidget">
-              Prevádzkovateľom služby je Ministerstvo investícií, regionálneho
-              rozvoja a informatizácie Slovenskej republiky.<br />
+              Prevádzkovateľom služby je mesto
+              <a
+                class="idsk-footer__link"
+                href="https://www.pezinok.sk/"
+                target="_blank"
+                >Pezinok</a
+              >. Web vytvoril
+              <a class="idsk-footer__link" href="https://ludovit.scholtz.sk"
+                >Ľudovít Scholtz</a
+              >.<br />
               Vytvorené v súlade s
               <a
                 href="https://idsk.gov.sk/"
