@@ -59,7 +59,7 @@
           </b-col>
           <b-col cols="12" md="6">
             <div class="alert alert-danger">
-              <p><b>POZOR!!! Táto webstránke je vo vývoji.</b></p>
+              <p><b>POZOR!!! Táto webstránka je vo vývoji.</b></p>
               <p>Zoznam plánovaných vylepšení:</p>
               <ul>
                 <li>FE: Multijazyčnosť</li>
