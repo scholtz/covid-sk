@@ -55,7 +55,7 @@
       <b-row>
         <b-col cols="12" md="4">
           <label for="firstName">Meno</label>
-          <b-input v-model="firstName" ref="firstName" firstName="name" />
+          <b-input v-model="firstName" ref="firstName" id="firstName" />
         </b-col>
         <b-col cols="12" md="4">
           <label for="lastName">Priezvisko</label>

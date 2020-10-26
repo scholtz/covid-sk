@@ -40,6 +40,11 @@ const router = new VueRouter({
       name: "RegistrationOk",
       component: () => import("../pages/RegistrationOk.vue"),
     },
+    {
+      path: "/results",
+      name: "Results",
+      component: () => import("../pages/Results.vue"),
+    },
   ],
 });
 

@@ -4,6 +4,7 @@ import axios from "./axios";
 import place from "./place";
 import slot from "./slot";
 import snackbar from "./snackbar";
+import result from "./result";
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     place,
     snackbar,
     slot,
+    result,
   },
   strict: debugStrict,
 });
