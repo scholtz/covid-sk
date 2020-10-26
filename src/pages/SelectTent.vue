@@ -151,6 +151,21 @@ export default {
           key: "lng",
           sortable: true,
         },
+        {
+          label: "Registrácií",
+          key: "registrations",
+          sortable: true,
+        },
+        {
+          label: "Počet zdravých",
+          key: "healthy",
+          sortable: true,
+        },
+        {
+          label: "Počet nakazených",
+          key: "sick",
+          sortable: true,
+        },
       ],
 
       lastClickLatLng: [],

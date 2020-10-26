@@ -5,7 +5,7 @@ const state = () => ({
 
 const mutations = {
   setPlaces(state, places) {
-    state.places = Object.assign({}, state.places, places);
+    state.places = places;
   },
   setCurrentPlace(state, currentPlace) {
     state.currentPlace = currentPlace;

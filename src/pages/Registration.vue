@@ -107,10 +107,18 @@
             registrácii k vybranému termínu. Každá osoba má svoj unikátny kód
             registrácie.
           </p>
-
-          <b-link class="govuk-button" @click="registerForTest">
+          <p>
+            <b-form-checkbox v-model="gdpr" id="gdpr">
+              Súhlasím so spracovaním osobných údajov
+            </b-form-checkbox>
+          </p>
+          <button
+            :disabled="!gdpr"
+            class="govuk-button"
+            @click="registerForTest"
+          >
             Zaregistrovať
-          </b-link>
+          </button>
         </b-col>
       </b-row>
     </b-container>
@@ -130,6 +138,7 @@ export default {
       address: "",
       email: "@",
       phone: "+421",
+      gdpr: false,
     };
   },
   mounted() {

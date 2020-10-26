@@ -52,6 +52,13 @@
             <p v-if="results.state === 'error'">
               Pri spracovaní požiadavku vznikla chyba
             </p>
+
+            <p v-if="results.state === 'test-not-taken'">
+              Zatiaľ sme nezaznamenali Vašu návštevu
+            </p>
+            <p v-if="results.state === 'test-not-processed'">
+              Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva
+            </p>
             <p v-if="results.state === 'positive'">
               <b>Bol</b> vám detekovaný COVID. Ostaňte prosím v karanténe.
             </p>
