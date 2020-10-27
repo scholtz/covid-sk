@@ -11,8 +11,13 @@ const router = new VueRouter({
       component: () => import("../pages/Dashboard.vue"),
     },
     {
+      path: "/login",
+      name: "Login",
+      component: () => import("../pages/Login.vue"),
+    },
+    {
       path: "/register",
-      name: "Dashboard",
+      name: "SelectPlace",
       component: () => import("../pages/SelectTent.vue"),
     },
     {
@@ -22,17 +27,17 @@ const router = new VueRouter({
     },
     {
       path: "/place/:placeId/:dayId",
-      name: "PlaceHour",
+      name: "SelectHour",
       component: () => import("../pages/SelectHour.vue"),
     },
     {
       path: "/place/:placeId/:dayId/:hourId",
-      name: "PlaceHour",
+      name: "SelectMinute",
       component: () => import("../pages/SelectMinute.vue"),
     },
     {
       path: "/place/:placeId/:dayId/:hourId/:minuteId",
-      name: "PlaceHour",
+      name: "Registration",
       component: () => import("../pages/Registration.vue"),
     },
     {
@@ -44,6 +49,11 @@ const router = new VueRouter({
       path: "/results",
       name: "Results",
       component: () => import("../pages/Results.vue"),
+    },
+    {
+      path: "/user",
+      name: "user",
+      component: () => import("../pages/User.vue"),
     },
   ],
 });

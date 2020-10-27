@@ -82,13 +82,21 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col cols="12" md="6">
+        <b-col cols="12" md="4">
           <label for="phone">Telefón bez medzier s predvoľbou štátu</label>
           <b-input v-model="phone" ref="phone" id="phone" />
         </b-col>
-        <b-col cols="12" md="6">
+        <b-col cols="12" md="4">
           <label for="email">Email</label>
           <b-input v-model="email" ref="email" id="email" type="email" />
+        </b-col>
+        <b-col cols="12" md="4">
+          <label for="insurance">Poisťovňa</label>
+          <b-form-select
+            :options="insuranceOptions"
+            v-model="insurance"
+            id="insurance"
+          />
         </b-col>
       </b-row>
       <b-row>
@@ -138,7 +146,30 @@ export default {
       address: "",
       email: "@",
       phone: "+421",
+      insurance: "25",
       gdpr: false,
+      insuranceOptions: [
+        {
+          value: "24",
+          text: "Dôvera",
+        },
+        {
+          value: "25",
+          text: "VšZP",
+        },
+        {
+          value: "27",
+          text: "Union",
+        },
+        {
+          value: "98",
+          text: "EÚ poistenec",
+        },
+        {
+          value: "99",
+          text: "Cudzinec",
+        },
+      ],
     };
   },
   mounted() {
@@ -215,6 +246,7 @@ export default {
         address: this.address,
         email: this.email,
         phone: this.phone,
+        insurance: this.insurance,
         chosenSlot: this.$route.params.minuteId,
         chosenPlaceId: this.$route.params.placeId,
       })

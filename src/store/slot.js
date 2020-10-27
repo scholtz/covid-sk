@@ -41,6 +41,7 @@ export const actions = {
       address,
       email,
       phone,
+      insurance,
       chosenSlot,
       chosenPlaceId,
     }
@@ -52,6 +53,7 @@ export const actions = {
       address,
       email,
       phone,
+      insurance,
       chosenSlot,
       chosenPlaceId,
     };

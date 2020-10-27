@@ -4,6 +4,9 @@ const actions = {
     let response = null;
     try {
       let shown = false;
+      if (this.state.user.authJWT) {
+        axios.setHeader("Authorization", "Bearer " + this.state.user.authJWT);
+      }
       response = await axios.get(url, { params }).catch(function (error) {
         console.log("error", error);
         if (

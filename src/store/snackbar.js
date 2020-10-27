@@ -1,15 +1,15 @@
 import Vue from "vue";
 export const actions = {
-  // eslint-disable-next-line no-empty-pattern
-  openError: ({}, text) => {
+  // eslint-disable-next-line
+  openError: ({ dispatch }, text) => {
     Vue.$toast.error(text);
   },
-  // eslint-disable-next-line no-empty-pattern
-  openWarning: ({}, text) => {
+  // eslint-disable-next-line
+  openWarning: ({ dispatch }, text) => {
     Vue.$toast.warning(text);
   },
-  // eslint-disable-next-line no-empty-pattern
-  openSuccess: ({}, text) => {
+  // eslint-disable-next-line
+  openSuccess: ({ dispatch }, text) => {
     Vue.$toast.success(text);
   },
 };

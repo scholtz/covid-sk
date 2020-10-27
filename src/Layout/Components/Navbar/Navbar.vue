@@ -27,6 +27,12 @@
               <b-dropdown-item href="#">Slovensky / Slovak</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
+
+          <b-navbar-nav class="ml-auto" v-if="$store.state.user.auth">
+            <b-nav-item-dropdown :text="$store.state.user.tokenData.Name" right>
+              <b-dropdown-item @click="logout">Logout</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
         </b-collapse>
       </b-container>
     </b-navbar>
@@ -34,12 +40,21 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   components: {},
   data() {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    ...mapMutations({
+      setAuthJWT: "user/setAuthJWT",
+    }),
+    logout() {
+      this.setAuthJWT("");
+      this.$router.push("/");
+    },
+  },
 };
 </script>
