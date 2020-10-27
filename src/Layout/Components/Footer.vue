@@ -80,6 +80,45 @@
               </li>
             </ul>
           </div>
+          <div class="textwidget">
+            <ul class="idsk-footer__inline-list">
+              <li class="idsk-footer__inline-list-item">
+                OpenSource zdrojové kódy:
+              </li>
+              <li class="idsk-footer__inline-list-item">
+                <a
+                  class="idsk-footer__link"
+                  href="https://github.com/scholtz/covid-sk"
+                >
+                  FE: vue.js
+                </a>
+              </li>
+              <li class="idsk-footer__inline-list-item">
+                <a
+                  class="idsk-footer__link"
+                  href="https://github.com/scholtz/covid-sk-api"
+                >
+                  BE: .NET Core API
+                </a>
+              </li>
+              <li class="idsk-footer__inline-list-item">
+                <a
+                  class="idsk-footer__link"
+                  href="https://hub.docker.com/r/scholtz2/mass-covid-testing-api"
+                >
+                  BE: Docker image
+                </a>
+              </li>
+              <li class="idsk-footer__inline-list-item">
+                <a
+                  class="idsk-footer__link"
+                  href="https://github.com/scholtz/covid-sk-android"
+                >
+                  Android OCR: - Xamarin, Tesseract
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
