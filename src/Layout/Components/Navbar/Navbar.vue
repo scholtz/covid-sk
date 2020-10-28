@@ -55,6 +55,7 @@
           <b-navbar-nav v-else>
             <b-nav-item to="/register">Registrácia k odberu vzorky</b-nav-item>
             <b-nav-item to="/results">Výsledky testu</b-nav-item>
+            <b-nav-item to="/help">Pomoc</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items

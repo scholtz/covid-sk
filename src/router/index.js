@@ -95,6 +95,11 @@ const router = new VueRouter({
       name: "gdpmanage",
       component: () => import("../pages/GDPR/Manage.vue"),
     },
+    {
+      path: "/help",
+      name: "help",
+      component: () => import("../pages/Help.vue"),
+    },
   ],
 });
 
