@@ -6,8 +6,8 @@
       </b-container>
     </div>
 
-    <b-container class="py-4" fluid style="text-align: center">
-      <h2>Ako sú moje osobné údaje chránené?</h2>
+    <b-container class="py-4" fluid>
+      <h2 class="text-center">Ako sú moje osobné údaje chránené?</h2>
       <p>
         Osobné údaje sú odoslané na server v momente keď stlačíte tlačítko
         registrácia. Komunikácia so serverom je šifrovaná SSL protokolom.
@@ -33,13 +33,18 @@
         prideleného kódu registrácie.
       </p>
 
-      <h2>Registrácia</h2>
-      <img
-        style="margin: 0 auto"
-        src="../assets/images/process/registration.svg"
-      />
-      <h2>Testovanie</h2>
-      <img style="margin: 0 auto" src="../assets/images/process/testing.svg" />
+      <div class="text-center">
+        <h2>Registrácia</h2>
+        <img
+          style="margin: 0 auto"
+          src="../assets/images/process/registration.svg"
+        />
+        <h2>Testovanie</h2>
+        <img
+          style="margin: 0 auto"
+          src="../assets/images/process/testing.svg"
+        />
+      </div>
     </b-container>
   </div>
 </template>
