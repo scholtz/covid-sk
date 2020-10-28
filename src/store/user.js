@@ -66,6 +66,16 @@ export const actions = {
       { root: true }
     );
   },
+  async InviteUser({ dispatch }, { name, email, roles }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Admin/InviteUser",
+        params: { email, name, roles },
+      },
+      { root: true }
+    );
+  },
   async Authenticate({ dispatch, commit }, { email, hash, data }) {
     const token = await dispatch(
       "axios/post",

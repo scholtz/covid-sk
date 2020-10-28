@@ -15,6 +15,9 @@
             Delete
           </button>
         </template>
+        <template #cell(role)="row">
+          {{ formatRoles(row) }}
+        </template>
       </b-table>
     </b-container>
   </div>
@@ -54,7 +57,7 @@ export default {
   mounted() {
     this.LoadUsers().then(r => {
       if (r) {
-        this.data = r;
+        this.data = Object.values(r);
       }
     });
   },
@@ -62,6 +65,9 @@ export default {
     ...mapActions({
       LoadUsers: "user/LoadUsers",
     }),
+    formatRoles(data) {
+      return data.item.roles.join(", ");
+    },
   },
 };
 </script>
