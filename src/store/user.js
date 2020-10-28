@@ -9,6 +9,7 @@ export const mutations = {
     state.auth = auth;
   },
   setAuthJWT(state, authJWT) {
+    localStorage.setItem("jwt", authJWT);
     if (!authJWT) {
       state.auth = false;
       state.authJWT = "";

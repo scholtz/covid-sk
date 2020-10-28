@@ -7,6 +7,11 @@ const actions = {
       if (this.state.user.authJWT) {
         axios.defaults.headers.common.Authorization =
           "Bearer " + this.state.user.authJWT;
+      } else {
+        if (localStorage.getItem("jwt")) {
+          axios.defaults.headers.common.Authorization =
+            "Bearer " + localStorage.getItem("jwt");
+        }
       }
       response = await axios.get(url, { params }).catch(function (error) {
         console.log("error", error);
@@ -74,6 +79,11 @@ const actions = {
       if (this.state.user.authJWT) {
         axios.defaults.headers.common.Authorization =
           "Bearer " + this.state.user.authJWT;
+      } else {
+        if (localStorage.getItem("jwt")) {
+          axios.defaults.headers.common.Authorization =
+            "Bearer " + localStorage.getItem("jwt");
+        }
       }
       let shown = false;
       response = await axios.post(url, fd).catch(function (error) {

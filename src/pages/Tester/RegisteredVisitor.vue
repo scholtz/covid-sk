@@ -105,8 +105,8 @@ export default {
       code: "",
       testingset: "",
       readerSize: {
-        width: 480,
-        height: 360,
+        width: 120,
+        height: 90,
       },
       detecteds: [],
     };
