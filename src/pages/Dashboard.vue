@@ -32,6 +32,7 @@
               <li>Registrácia ku konkrétnemu času</li>
               <li>Reálny odber vzorky</li>
               <li>Výsledky testu</li>
+              <li>Certifikát v papierovej forme</li>
             </ol>
 
             <b-link
