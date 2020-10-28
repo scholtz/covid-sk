@@ -6,13 +6,10 @@
         <div>
           <b>Code: {{ code }}</b>
         </div>
-        <div>
-          <b>Last: {{ last }}</b>
-        </div>
       </b-container>
     </div>
     <b-container>
-      <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded" />
+      <StreamBarcodeReader @decode="onDecode" />
     </b-container>
   </div>
 </template>
@@ -33,9 +30,6 @@ export default {
   methods: {
     onDecode(result) {
       this.code = result;
-    },
-    onLoaded(result) {
-      this.last = result;
     },
   },
 };

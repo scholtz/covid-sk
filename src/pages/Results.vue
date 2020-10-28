@@ -56,6 +56,11 @@
             <p v-if="results.state === 'test-not-taken'">
               Zatiaľ sme nezaznamenali Vašu návštevu
             </p>
+            <p v-if="results.state === 'test-to-be-repeated'">
+              S Vašim testom sa vyskytla chyba testovania a test musí byť
+              zopakovaný. Príďte vykonať test znovu. Môžete použiť tento kód
+              registrácie.
+            </p>
             <p v-if="results.state === 'test-not-processed'">
               Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva
             </p>
