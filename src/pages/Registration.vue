@@ -37,7 +37,7 @@
       <b-row>
         <b-col cols="12" md="4">
           <b-form-group label="Identifikácia registrovanej osoby">
-            <b-form-radio v-model="personType" name="person-type" value="rc"
+            <b-form-radio v-model="personType" name="person-type" value="idcard"
               >Mám občiansky preukaz</b-form-radio
             >
             <b-form-radio v-model="personType" name="person-type" value="child"
@@ -64,9 +64,9 @@
         <b-col
           cols="12"
           md="4"
-          v-if="personType === 'rc' || personType === 'child'"
+          v-if="personType === 'idcard' || personType === 'child'"
         >
-          <label for="rc" v-if="personType === 'rc'">Rodné číslo</label>
+          <label for="rc" v-if="personType === 'idcard'">Rodné číslo</label>
           <label for="rc" v-else>Rodné číslo dieťaťa</label>
           <b-input v-model="rc" ref="rc" id="rc" />
         </b-col>
@@ -138,7 +138,7 @@ import { mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      personType: "rc",
+      personType: "idcard",
       passport: "",
       rc: "",
       firstName: "",

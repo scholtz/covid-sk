@@ -55,6 +55,41 @@ const router = new VueRouter({
       name: "user",
       component: () => import("../pages/User.vue"),
     },
+    {
+      path: "/admin/users",
+      name: "AdminUsers",
+      component: () => import("../pages/Admin/Users.vue"),
+    },
+    {
+      path: "/admin/invite",
+      name: "AdminInvite",
+      component: () => import("../pages/Admin/Invite.vue"),
+    },
+    {
+      path: "/admin/testingTime",
+      name: "AdminTestingTime",
+      component: () => import("../pages/Admin/TestingTime.vue"),
+    },
+    {
+      path: "/tester/unannouncedVisitor",
+      name: "TesterNewVisitor",
+      component: () => import("../pages/Tester/NewVisitor.vue"),
+    },
+    {
+      path: "/tester/registeredVisitor",
+      name: "TesterRegisteredVisitor",
+      component: () => import("../pages/Tester/RegisteredVisitor.vue"),
+    },
+    {
+      path: "/lab/testResult",
+      name: "labTestResult",
+      component: () => import("../pages/Lab/TestResult.vue"),
+    },
+    {
+      path: "/gdpr/manage",
+      name: "gdpmanage",
+      component: () => import("../pages/GDPR/Manage.vue"),
+    },
   ],
 });
 
