@@ -49,6 +49,7 @@
     "v-mask": "latest",
     "vee-validate": "latest",
     "vue-barcode": "latest",
+    "vue-barcode-scanner": "^0.8.1",
     "vue-bootstrap-toasts": "latest",
     "vue-clipboards": "latest",
     "vue-color": "latest",

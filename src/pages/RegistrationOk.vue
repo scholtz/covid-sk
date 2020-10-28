@@ -20,7 +20,7 @@
           </p>
         </b-row>
         <b-row>
-          <barcode v-bind:value="barcodeValue">
+          <barcode v-bind:value="barcodeValue" format="CODE39">
             Nepodarilo sa vygenerovať čiarový kód
           </barcode>
         </b-row>
