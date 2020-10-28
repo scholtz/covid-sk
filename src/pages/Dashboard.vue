@@ -64,9 +64,7 @@
               <ul>
                 <li>FE: Multijazyčnosť</li>
                 <li>FE: Validácia prvkov v registračnom formulári</li>
-                <li>BE: Autorizácia</li>
-                <li>BE: Napojenie na sms bránu</li>
-                <li>BE: Api pre scannery</li>
+                <li>BE: Implementácia sms brány</li>
               </ul>
             </div>
           </b-col>
