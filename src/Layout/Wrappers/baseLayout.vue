@@ -23,6 +23,7 @@
 import Vue from "vue";
 import Navbar from "../Components/Navbar/Navbar";
 import FooterComponent from "../Components/Footer";
+import { mapActions } from "vuex";
 
 export default {
   name: "app",
@@ -35,7 +36,14 @@ export default {
     Vue.$toast = this.$toast;
   },
   created() {},
-  methods: {},
+  mounted() {
+    this.OnLoad();
+  },
+  methods: {
+    ...mapActions({
+      OnLoad: "user/OnLoad",
+    }),
+  },
 };
 </script>
 <style lang="scss">

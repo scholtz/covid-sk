@@ -5,11 +5,63 @@
         <h1>Audit užívateľov a ich práv</h1>
       </b-container>
     </div>
+    <b-container class="my-4">
+      <b-table :items="data" :fields="fields">
+        <template #cell(id)="row">
+          <button @click="editPlaceClick(row)" class="govuk-button m-2">
+            Edit
+          </button>
+          <button @click="deletePlaceClick(row)" class="govuk-button m-2">
+            Delete
+          </button>
+        </template>
+      </b-table>
+    </b-container>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      data: [],
+      person: {
+        name: "",
+        email: "",
+        roles: [],
+      },
+      fields: [
+        {
+          label: "Meno",
+          key: "name",
+          sortable: true,
+        },
+        {
+          label: "Email",
+          key: "email",
+          sortable: true,
+        },
+        {
+          label: "Role",
+          key: "role",
+          sortable: true,
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.LoadUsers().then(r => {
+      this.data = r;
+    });
+  },
+  methods: {
+    ...mapActions({
+      LoadUsers: "user/LoadUsers",
+    }),
+  },
+};
 </script>
 <style lang="scss">
 </style>

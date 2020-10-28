@@ -41,6 +41,21 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 export const actions = {
+  OnLoad({ commit }) {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      commit("setAuthJWT", token);
+    }
+  },
+  async LoadUsers({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: process.env.VUE_APP_API + "User/List",
+      },
+      { root: true }
+    );
+  },
   async Preauthenticate({ dispatch }, { email }) {
     return await dispatch(
       "axios/post",

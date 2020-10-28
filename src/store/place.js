@@ -38,9 +38,10 @@ export const actions = {
   },
   async InsertOrUpdate(
     { dispatch },
-    { name, description, address, lat, lng, isDriveIn, isWalkIn }
+    { id, name, description, address, lat, lng, isDriveIn, isWalkIn }
   ) {
     var place = {
+      id,
       name,
       description,
       address,

@@ -86,6 +86,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      id: "",
       name: "",
       description: "",
       address: "",
@@ -173,6 +174,7 @@ export default {
     },
     clickCreate() {
       this.InsertOrUpdate({
+        id: this.id,
         name: this.name,
         description: this.description,
         address: this.address,
