@@ -115,7 +115,7 @@ export default {
   },
   data() {
     return {
-      showing: "map",
+      showing: "table",
       fields: [
         {
           label: "Akcia",

@@ -25,6 +25,7 @@
               v-bind:value="barcodeValue"
               format="CODE39"
               class="barcode thumbnail"
+              :width="barcodeWidth"
             >
               Nepodarilo sa vygenerovať čiarový kód
             </barcode>
@@ -61,6 +62,7 @@ export default {
   data() {
     return {
       barcodeValue: "0",
+      barcodeWidth: "2",
     };
   },
   computed: {
