@@ -9,6 +9,16 @@ export const actions = {
       { root: true }
     );
   },
+  async GetVisitor({ dispatch }, { visitorCode }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Result/GetVisitor",
+        params: { visitorCode },
+      },
+      { root: true }
+    );
+  },
   async ConnectVisitorToTest({ dispatch }, { visitorCode, testCode }) {
     const data = await dispatch(
       "axios/post",

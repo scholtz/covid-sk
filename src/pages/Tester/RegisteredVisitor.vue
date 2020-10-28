@@ -26,11 +26,35 @@
               <label for="code">Kód registrácie</label>
               <b-input v-model="code" ref="code" id="code" />
             </b-col>
+            <b-col cols="12" v-if="state === 'check'">
+              <button
+                @click="load"
+                class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+              >
+                Skontrolovať údaje
+                <svg
+                  class="govuk-button__start-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </button> </b-col
+            ><b-col cols="12" v-if="state === 'loading-data'">
+              <div><B>Čítam dáta</B> <b-spinner /></div> </b-col
+            ><b-col cols="12" v-if="state === 'visitor-loaded'">
+              <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
+              <div>Poisťovňa: {{ visitor.insurance }}</div>
+            </b-col>
             <b-col cols="12">
               <label for="testingset">Skúmavka</label>
               <b-input v-model="testingset" ref="testingset" id="testingset" />
             </b-col>
-            <b-col cols="12">
+            <b-col cols="12" v-if="state === 'visitor-loaded'">
               <button
                 @click="save"
                 class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
@@ -75,6 +99,8 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      state: "check",
+      visitor: {},
       scanningData: "code",
       code: "",
       testingset: "",
@@ -88,6 +114,7 @@ export default {
   methods: {
     ...mapActions({
       ConnectVisitorToTest: "result/ConnectVisitorToTest",
+      GetVisitor: "result/GetVisitor",
     }),
     logIt(data) {
       if (this.scanningData == "code") {
@@ -95,6 +122,19 @@ export default {
       } else {
         this.testingset = data;
       }
+    },
+    load() {
+      this.state = "loading-data";
+      this.GetVisitor({
+        visitorCode: this.code,
+      }).then(r => {
+        if (r) {
+          this.visitor = r;
+          this.state = "visitor-loaded";
+        } else {
+          this.state = "visitor-error";
+        }
+      });
     },
     save() {
       this.ConnectVisitorToTest({

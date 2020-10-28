@@ -1,0 +1,197 @@
+<template>
+  <div>
+    <div class="app-pane-lgray py-2">
+      <b-container>
+        <h1>Management testovacích miest</h1>
+      </b-container>
+    </div>
+    <b-container>
+      <h2>Nové miesto</h2>
+      <b-row>
+        <b-col cols="12" md="6">
+          <label for="name">Názov miesta</label>
+          <b-input v-model="name" ref="name" id="name" />
+        </b-col>
+        <b-col cols="12" md="6">
+          <label for="address">Adresa</label>
+          <b-input v-model="address" ref="address" id="address" />
+        </b-col>
+        <b-col cols="12" md="12">
+          <label for="description">Popis</label>
+          <b-input v-model="description" ref="description" id="description" />
+        </b-col>
+        <b-col cols="12" md="6">
+          <label for="lat">GPS Lat</label>
+          <b-input v-model="lat" ref="lat" id="lat" />
+        </b-col>
+        <b-col cols="12" md="6">
+          <label for="lng">GPS Lng</label>
+          <b-input v-model="lng" ref="lng" id="lng" />
+        </b-col>
+        <b-col cols="12" md="6">
+          <b-form-checkbox id="isDriveIn" v-model="isDriveIn" name="isDriveIn">
+            Drive in
+          </b-form-checkbox>
+        </b-col>
+        <b-col cols="12" md="6">
+          <b-form-checkbox id="isWalkIn" v-model="isWalkIn" name="isWalkIn">
+            Walk in
+          </b-form-checkbox>
+        </b-col>
+      </b-row>
+      <b-row
+        ><button
+          @click="clickCreate"
+          class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+        >
+          Vytvoriť
+          <svg
+            class="govuk-button__start-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="17.5"
+            height="19"
+            viewBox="0 0 33 40"
+            role="presentation"
+            focusable="false"
+          >
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </button>
+      </b-row>
+    </b-container>
+    <div v-if="$store.state.place.places">
+      <b-table
+        :items="Object.values($store.state.place.places)"
+        :fields="fields"
+      >
+        <template #cell(id)="row">
+          <b-link :to="`/place/${row.value}`" class="govuk-button m-2">
+            Vybrať
+          </b-link>
+          <button @click="editPlaceClick(row)" class="govuk-button m-2">
+            Edit
+          </button>
+          <button @click="deletePlaceClick(row)" class="govuk-button m-2">
+            Delete
+          </button>
+        </template>
+      </b-table>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      name: "",
+      description: "",
+      address: "",
+      lat: 48.289218275462225,
+      lng: 17.272996902465824,
+      isDriveIn: false,
+      isWalkIn: true,
+      fields: [
+        {
+          label: "Akcia",
+          key: "id",
+        },
+        {
+          label: "Názov miesta",
+          key: "name",
+          sortable: true,
+        },
+        {
+          label: "Adresa",
+          key: "address",
+          sortable: true,
+        },
+        {
+          key: "isDriveIn",
+          label: "Možnosť prísť autom",
+          sortable: true,
+        },
+        {
+          key: "isWalkIn",
+          label: "Možnosť prísť pešo",
+          sortable: true,
+        },
+        {
+          label: "GPS Lat",
+          key: "lat",
+          sortable: true,
+        },
+        {
+          label: "GPS Lng",
+          key: "lng",
+          sortable: true,
+        },
+        {
+          label: "Registrácií",
+          key: "registrations",
+          sortable: true,
+        },
+        {
+          label: "Počet zdravých",
+          key: "healthy",
+          sortable: true,
+        },
+        {
+          label: "Počet nakazených",
+          key: "sick",
+          sortable: true,
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.ReloadPlaces().then(r => {
+      console.log("r", r);
+    });
+  },
+  methods: {
+    ...mapActions({
+      ReloadPlaces: "place/ReloadPlaces",
+      InsertOrUpdate: "place/InsertOrUpdate",
+      Delete: "place/Delete",
+    }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
+    deletePlaceClick(row) {
+      console.log("deletePlaceClick", row);
+      if (row.item?.id) {
+        this.Delete({ id: row.item?.id }).then(r => {
+          this.ReloadPlaces().then(r => {
+            console.log("r", r);
+          });
+        });
+      }
+    },
+    clickCreate() {
+      this.InsertOrUpdate({
+        name: this.name,
+        description: this.description,
+        address: this.address,
+        lat: this.lat,
+        lng: this.lng,
+        isDriveIn: this.isDriveIn,
+        isWalkIn: this.isWalkIn,
+      }).then(r => {
+        if (r) {
+          this.openSuccess("Uložené");
+        }
+
+        this.ReloadPlaces().then(r => {
+          console.log("r", r);
+        });
+      });
+    },
+    editPlaceClick(row) {},
+  },
+};
+</script>
+<style lang="scss">
+</style>

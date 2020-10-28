@@ -26,6 +26,51 @@ export const actions = {
     }
     return false;
   },
+  async CheckSlots({ dispatch }, { day, from, until }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Admin/CheckSlots",
+        params: { testingDay: day, from, until },
+      },
+      { root: true }
+    );
+  },
+  async InsertOrUpdate(
+    { dispatch },
+    { name, description, address, lat, lng, isDriveIn, isWalkIn }
+  ) {
+    var place = {
+      name,
+      description,
+      address,
+      lat,
+      lng,
+      isDriveIn,
+      isWalkIn,
+    };
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Place/InsertOrUpdate",
+        body: place,
+      },
+      { root: true }
+    );
+  },
+  async Delete({ dispatch }, { id }) {
+    var place = {
+      id,
+    };
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Place/Delete",
+        body: place,
+      },
+      { root: true }
+    );
+  },
   async GetPlace({ dispatch }, { id }) {
     if (Object.keys(this.state.place.places).length === 0) {
       await dispatch("ReloadPlaces");

@@ -15,6 +15,9 @@
           <b-navbar-nav v-if="$store.state.user.auth">
             <b-navbar-nav>
               <b-nav-item-dropdown text="Administrátor">
+                <b-dropdown-item to="/admin/placeManager"
+                  >Management testovacích miest</b-dropdown-item
+                >
                 <b-dropdown-item to="/admin/invite"
                   >Nový užívateľ</b-dropdown-item
                 >

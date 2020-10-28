@@ -9,13 +9,6 @@
           </h1>
         </b-container>
       </div>
-      <b-container class="my-4">
-        <v-quagga
-          :onDetected="logIt"
-          :readerSize="readerSize"
-          :readerTypes="['ean_reader']"
-        />
-      </b-container>
     </div>
     <div v-else>
       <b-container>
@@ -26,12 +19,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueQuagga from "vue-quaggajs";
-
-// register component 'v-quagga'
-Vue.use(VueQuagga);
-
 export default {
   data() {
     return {

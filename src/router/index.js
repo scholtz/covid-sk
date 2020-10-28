@@ -56,6 +56,11 @@ const router = new VueRouter({
       component: () => import("../pages/User.vue"),
     },
     {
+      path: "/admin/placeManager",
+      name: "AdminPlaceManager",
+      component: () => import("../pages/Admin/PlaceManager.vue"),
+    },
+    {
       path: "/admin/users",
       name: "AdminUsers",
       component: () => import("../pages/Admin/Users.vue"),
