@@ -11,13 +11,17 @@
         </div>
       </b-container>
     </div>
+    <b-container>
+      <StreamBarcodeReader
+        @decode="onDecode"
+        @loaded="onLoaded"
+      ></StreamBarcodeReader>
+    </b-container>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-import VueBarcodeScanner from "vue-barcode-scanner";
-Vue.use(VueBarcodeScanner);
+import { StreamBarcodeReader } from "vue-barcode-reader";
 
 export default {
   data() {
@@ -26,26 +30,12 @@ export default {
       last: "Not found",
     };
   },
-  created() {
-    // Add barcode scan listener and pass the callback function
-    this.$barcodeScanner.init(this.onBarcodeScanned);
-  },
-  destroyed() {
-    // Remove listener when component is destroyed
-    this.$barcodeScanner.destroy();
-  },
   methods: {
-    // Create callback function to receive barcode when the scanner is already done
-    onBarcodeScanned(barcode) {
-      console.log(barcode);
-      this.code = barcode;
-      // do something...
+    onDecode(result) {
+      this.code = result;
     },
-    // Reset to the last barcode before hitting enter (whatever anything in the input box)
-    resetBarcode() {
-      let barcode = this.$barcodeScanner.getPreviousCode();
-      this.last = barcode;
-      // do something...
+    onLoaded(result) {
+      this.last = result;
     },
   },
 };
