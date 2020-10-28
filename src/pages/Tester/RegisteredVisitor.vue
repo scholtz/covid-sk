@@ -7,7 +7,7 @@
     </div>
     <b-container class="my-4">
       <b-row>
-        <b-col>
+        <b-col cols="4">
           <b-form-group label="Scanuje sa typ údaju">
             <b-form-radio v-model="scanningData" name="person-type" value="code"
               >Kód registrácie</b-form-radio
@@ -20,7 +20,7 @@
             >
           </b-form-group>
         </b-col>
-        <b-col>
+        <b-col cols="8">
           <b-row>
             <b-col cols="12">
               <label for="code">Kód registrácie</label>
@@ -76,27 +76,25 @@
           </b-row>
         </b-col>
       </b-row>
-
-      <b-row>
-        <b-col>
-          <v-quagga
-            :onDetected="logIt"
-            :readerSize="readerSize"
-            :readerTypes="['code_39']"
-          />
-        </b-col>
-      </b-row>
+    </b-container>
+    <b-container>
+      <StreamBarcodeReader
+        @decode="onDecode"
+        @loaded="onLoaded"
+      ></StreamBarcodeReader>
     </b-container>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-import VueQuagga from "vue-quaggajs";
-Vue.use(VueQuagga);
+import { StreamBarcodeReader } from "vue-barcode-reader";
+
 import { mapActions } from "vuex";
 
 export default {
+  components: {
+    StreamBarcodeReader,
+  },
   data() {
     return {
       state: "check",
@@ -116,17 +114,6 @@ export default {
       ConnectVisitorToTest: "result/ConnectVisitorToTest",
       GetVisitor: "result/GetVisitor",
     }),
-    logIt(data) {
-      if (this.scanningData == "code") {
-        if (data?.codeResult?.code) {
-          this.code = data.codeResult.code;
-        }
-      } else {
-        if (data) {
-          this.testingset = data;
-        }
-      }
-    },
     load() {
       this.state = "loading-data";
       this.GetVisitor({
@@ -145,6 +132,15 @@ export default {
         visitorCode: this.code,
         testCode: this.testingset,
       });
+    },
+    onDecode(result) {
+      if (result) {
+        if (this.scanningData == "code") {
+          this.code = result;
+        } else {
+          this.testingset = result;
+        }
+      }
     },
   },
 };
