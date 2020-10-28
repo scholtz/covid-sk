@@ -82,7 +82,7 @@
           <v-quagga
             :onDetected="logIt"
             :readerSize="readerSize"
-            :readerTypes="['ean_reader']"
+            :readerTypes="['codabar_reader']"
           />
         </b-col>
       </b-row>
@@ -118,9 +118,13 @@ export default {
     }),
     logIt(data) {
       if (this.scanningData == "code") {
-        this.code = data;
+        if (data?.codeResult?.code) {
+          this.code = data;
+        }
       } else {
-        this.testingset = data;
+        if (data?.codeResult?.code) {
+          this.testingset = data;
+        }
       }
     },
     load() {
