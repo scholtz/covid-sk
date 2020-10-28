@@ -35,6 +35,8 @@ export const actions = {
   async Register(
     { dispatch, commit },
     {
+      personType,
+      passport,
       rc,
       firstName,
       lastName,
@@ -47,6 +49,8 @@ export const actions = {
     }
   ) {
     const visitor = {
+      personType,
+      passport,
       rc,
       firstName,
       lastName,

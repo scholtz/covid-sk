@@ -53,7 +53,9 @@ export default {
   },
   mounted() {
     this.LoadUsers().then(r => {
-      this.data = r;
+      if (r) {
+        this.data = r;
+      }
     });
   },
   methods: {
