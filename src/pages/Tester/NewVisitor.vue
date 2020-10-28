@@ -24,6 +24,9 @@
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
 export default {
+  components: {
+    StreamBarcodeReader,
+  },
   data() {
     return {
       code: "Not found",
