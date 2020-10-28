@@ -20,9 +20,15 @@
           </p>
         </b-row>
         <b-row>
-          <barcode v-bind:value="barcodeValue" format="CODE39">
-            Nepodarilo sa vygenerovať čiarový kód
-          </barcode>
+          <b-col>
+            <barcode
+              v-bind:value="barcodeValue"
+              format="CODE39"
+              class="barcode thumbnail"
+            >
+              Nepodarilo sa vygenerovať čiarový kód
+            </barcode>
+          </b-col>
         </b-row>
 
         <b-row>
@@ -36,7 +42,7 @@
             :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${$route.params.minuteId}`"
             class="govuk-button m-0"
           >
-            Pokračujte zaregistrovaním ďalšej osoby na rovnaký termín odberu
+            Ďalšia osoba na rovnaký termín odberu
           </b-link>
         </b-row>
       </b-container>
@@ -143,4 +149,9 @@ export default {
 };
 </script>
 <style lang="scss">
+.barcode svg {
+  border: 1px dashed indianred;
+
+  width: 100%;
+}
 </style>
