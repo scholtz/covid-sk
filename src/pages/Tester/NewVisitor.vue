@@ -4,18 +4,15 @@
       <b-container>
         <h1>Nezaregistrovaný návštevník</h1>
         <div>
-          <b>{{ code }}</b>
+          <b>Code: {{ code }}</b>
         </div>
         <div>
-          <b>{{ last }}</b>
+          <b>Last: {{ last }}</b>
         </div>
       </b-container>
     </div>
     <b-container>
-      <StreamBarcodeReader
-        @decode="onDecode"
-        @loaded="onLoaded"
-      ></StreamBarcodeReader>
+      <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded" />
     </b-container>
   </div>
 </template>

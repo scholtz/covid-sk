@@ -163,9 +163,10 @@ export default {
     deletePlaceClick(row) {
       console.log("deletePlaceClick", row);
       if (row.item?.id) {
+        // eslint-disable-next-line
         this.Delete({ id: row.item?.id }).then(r => {
-          this.ReloadPlaces().then(r => {
-            console.log("r", r);
+          this.ReloadPlaces().then(r2 => {
+            console.log("r", r, r2);
           });
         });
       }
@@ -189,7 +190,15 @@ export default {
         });
       });
     },
-    editPlaceClick(row) {},
+    editPlaceClick(row) {
+      this.name = row.item.name;
+      this.description = row.item.description;
+      this.address = row.item.address;
+      this.lat = row.item.lat;
+      this.lng = row.item.lng;
+      this.isDriveIn = row.item.isDriveIn;
+      this.isWalkIn = row.item.isWalkIn;
+    },
   },
 };
 </script>

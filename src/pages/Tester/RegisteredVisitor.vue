@@ -78,10 +78,7 @@
       </b-row>
     </b-container>
     <b-container>
-      <StreamBarcodeReader
-        @decode="onDecode"
-        @loaded="onLoaded"
-      ></StreamBarcodeReader>
+      <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded" />
     </b-container>
   </div>
 </template>
