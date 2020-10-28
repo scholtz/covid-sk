@@ -24,21 +24,25 @@
     </div>
 
     <b-container class="my-4">
-      <h2>Vyberte si ideálny čas odberu</h2>
-      <p>
-        V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším
-        počtom registrácií
-      </p>
-      <p v-for="minute in $store.state.slot.slotsM" :key="minute.slotId">
-        <b-link
-          :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.slotId}`"
-          class="govuk-button m-0"
-        >
-          Medzi
-          <b>{{ minute.description }}</b>
-          je aktuálne registrovaných {{ minute.registrations }} osôb
-        </b-link>
-      </p>
+      <b-row>
+        <b-col>
+          <h2>Vyberte si ideálny čas odberu</h2>
+          <p>
+            V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s
+            nižším počtom registrácií
+          </p>
+          <p v-for="minute in $store.state.slot.slotsM" :key="minute.slotId">
+            <b-link
+              :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.slotId}`"
+              class="govuk-button m-0"
+            >
+              Medzi
+              <b>{{ minute.description }}</b>
+              je aktuálne registrovaných {{ minute.registrations }} osôb
+            </b-link>
+          </p>
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>

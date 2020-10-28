@@ -27,64 +27,76 @@
     </div>
 
     <div v-if="showing === 'map'" style="min-height: 500px; width: 100%">
-      <l-map
-        id="map"
-        ref="map"
-        v-resize="onResize"
-        :zoom="zoom"
-        :min-zoom="minZoom"
-        :max-zoom="maxZoom"
-        :center="center"
-        @click="onMapClick"
-        style="min-height: 800px; width: 100%"
-      >
-        <LTileLayer :url="url" :attribution="attribution" :options="options" />
-        <LLayerGroup v-if="this.$store.state.place.places">
-          <l-marker
-            v-for="(place, placeId) in $store.state.place.places"
-            :key="placeId"
-            :lat-lng="getLatLng(place)"
-          >
-            <l-popup :options="{ autoClose: true, closeOnClick: false }">
-              <h4 class="md-auto" style="text-align: center">
-                {{ place.name }}
-              </h4>
-              <p>Adresa: {{ place.address }}</p>
-              <p>Registrácií: {{ place.registrations }}</p>
-              <p>Má drive in: {{ place.isDriveIn }}</p>
-              <p>Má walk in: {{ place.isWalkIn }}</p>
-              <b-link :to="`/place/${place.id}`" class="govuk-button">
-                Vybrať
-              </b-link>
-            </l-popup>
-          </l-marker>
-        </LLayerGroup>
+      <b-container fluid>
+        <b-row>
+          <b-col>
+            <l-map
+              id="map"
+              ref="map"
+              v-resize="onResize"
+              :zoom="zoom"
+              :min-zoom="minZoom"
+              :max-zoom="maxZoom"
+              :center="center"
+              @click="onMapClick"
+              style="min-height: 800px; width: 100%"
+            >
+              <LTileLayer
+                :url="url"
+                :attribution="attribution"
+                :options="options"
+              />
+              <LLayerGroup v-if="this.$store.state.place.places">
+                <l-marker
+                  v-for="(place, placeId) in $store.state.place.places"
+                  :key="placeId"
+                  :lat-lng="getLatLng(place)"
+                >
+                  <l-popup :options="{ autoClose: true, closeOnClick: false }">
+                    <h4 class="md-auto" style="text-align: center">
+                      {{ place.name }}
+                    </h4>
+                    <p>Adresa: {{ place.address }}</p>
+                    <p>Registrácií: {{ place.registrations }}</p>
+                    <p>Má drive in: {{ place.isDriveIn }}</p>
+                    <p>Má walk in: {{ place.isWalkIn }}</p>
+                    <b-link :to="`/place/${place.id}`" class="govuk-button">
+                      Vybrať
+                    </b-link>
+                  </l-popup>
+                </l-marker>
+              </LLayerGroup>
 
-        <l-marker
-          v-if="lastClickLatLng.lat"
-          :lat-lng="lastClickLatLng"
-          @add="openPopup"
-        >
-          <l-popup :options="{ autoClose: false, closeOnClick: false }">
-            <h4 class="md-auto" style="text-align: center">Map click</h4>
-            <p>{{ lastClickLatLng.lat }}</p>
-            <p>{{ lastClickLatLng.lng }}</p>
-          </l-popup>
-        </l-marker>
-      </l-map>
+              <l-marker
+                v-if="lastClickLatLng.lat"
+                :lat-lng="lastClickLatLng"
+                @add="openPopup"
+              >
+                <l-popup :options="{ autoClose: false, closeOnClick: false }">
+                  <h4 class="md-auto" style="text-align: center">Map click</h4>
+                  <p>{{ lastClickLatLng.lat }}</p>
+                  <p>{{ lastClickLatLng.lng }}</p>
+                </l-popup>
+              </l-marker>
+            </l-map>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
     <div v-if="$store.state.place.places">
-      <b-table
-        v-if="showing === 'table'"
-        :items="Object.values($store.state.place.places)"
-        :fields="fields"
-      >
-        <template #cell(id)="row">
-          <b-link :to="`/place/${row.value}`" class="govuk-button">
-            Vybrať
-          </b-link>
-        </template>
-      </b-table>
+      <div class="table-responsive">
+        <b-table
+          v-if="showing === 'table'"
+          :items="Object.values($store.state.place.places)"
+          :fields="fields"
+        >
+          <template #cell(id)="row">
+            <b-link :to="`/place/${row.value}`" class="govuk-button">
+              Vybrať
+            </b-link>
+          </template>
+        </b-table>
+      </div>
     </div>
   </div>
 </template>
