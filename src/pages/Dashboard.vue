@@ -11,15 +11,7 @@
 
     <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
       <b-container>
-        <h2>
-          <img
-            src="../assets/images/pezinok.svg"
-            width="80px"
-            class="float-right"
-          />
-          Táto aplikácia bola vytvorená pre mesto Pezinok a všetky odberné
-          miesta ktoré sú mestom spravované
-        </h2>
+        <h2>Táto aplikácia bola vytvorená pre mesto Pezinok</h2>
       </b-container>
     </div>
 
@@ -60,14 +52,20 @@
           </b-col>
           <b-col cols="12" md="6">
             <div class="alert alert-danger">
-              <p><b>POZOR!!! Táto webstránka je vo vývoji.</b></p>
-              <p>Zoznam plánovaných vylepšení:</p>
-              <ul>
-                <li>FE: Multijazyčnosť</li>
-                <li>FE: Validácia prvkov v registračnom formulári</li>
-                <li>BE: Implementácia sms brány</li>
-              </ul>
+              <p><b>POZOR!!! Nachádzate sa vo vývojovej verzii.</b></p>
             </div>
+
+            <div class="alert alert-danger">
+              <p>
+                Odberné miesta v tejto aplikácii sú určené iba pre osoby ktoré
+                žijú v meste Pezinok a blízkom okolí
+              </p>
+            </div>
+            <img
+              src="../assets/images/pezinok.svg"
+              width="200px"
+              class="m-2 float-right d-none d-sm-block"
+            />
           </b-col>
         </b-row>
       </b-container>
