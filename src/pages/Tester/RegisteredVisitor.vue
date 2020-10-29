@@ -5,7 +5,161 @@
         <h1>Zaregistrovaný návštevník</h1>
       </b-container>
     </div>
-    <b-container class="my-4">
+    <b-container class="my-4" v-if="action === 'select'">
+      <b-row>
+        <b-col>
+          <button
+            @click="action = 'rc'"
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Načítať rodné číslo
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+          <button
+            @click="action = 'regCode'"
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Načítať kód registrácie
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container class="my-4" v-if="action === 'regCode'">
+      <b-row>
+        <b-col cols="12">
+          <button class="float-right bg-light my-2" @click="reset">
+            Zrušiť
+          </button>
+          <label for="code1">Kód registrácie</label>
+          <b-input v-model="code" id="code1" />
+
+          <button
+            @click="confirmCode"
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Načítať kód registrácie
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+
+        <b-col>
+          <StreamBarcodeReader @decode="onDecode" />
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'verifyRegCode'">
+      <b-row>
+        <b-col cols="12">
+          <button class="float-right bg-light my-2" @click="reset">
+            Zrušiť
+          </button>
+          <h2>Overenie užívateľa</h2>
+          <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
+          <div>Poisťovňa: {{ visitor.insurance }}</div>
+          <div>RČ: {{ visitor.rc }} {{ visitor.passport }}</div>
+          <button
+            @click="action = 'testSetCode'"
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Osoba je overená
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+          <button
+            @click="action = 'testSetCode'"
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Chybné údaje
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'testSetCode'">
+      <b-row>
+        <b-col cols="12">
+          <button class="float-right bg-light my-2" @click="reset">
+            Zrušiť
+          </button>
+          <label for="testingset1">Kód testovacej sady</label>
+          <b-input v-model="testingset" id="testingset1" />
+          <button
+            @click="save"
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Vykonať test
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+        <b-col>
+          <StreamBarcodeReader @decode="onDecode" />
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'old'">
       <b-row>
         <b-col cols="4">
           <b-form-group label="Scanuje sa typ údaju">
@@ -26,7 +180,10 @@
               <label for="code">Kód registrácie</label>
               <b-input v-model="code" ref="code" id="code" />
             </b-col>
-            <b-col cols="12" v-if="state === 'check'">
+            <b-col
+              cols="12"
+              v-if="state === 'check' || state === 'visitor-error'"
+            >
               <button
                 @click="load"
                 class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
@@ -76,8 +233,6 @@
           </b-row>
         </b-col>
       </b-row>
-    </b-container>
-    <b-container>
       <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded" />
     </b-container>
   </div>
@@ -94,6 +249,7 @@ export default {
   },
   data() {
     return {
+      action: "select",
       state: "check",
       visitor: {},
       scanningData: "code",
@@ -128,16 +284,36 @@ export default {
       this.ConnectVisitorToTest({
         visitorCode: this.code,
         testCode: this.testingset,
+      }).then(r => {
+        if (r) {
+          this.action = "select";
+          this.code = "";
+          this.testingset = "";
+        }
       });
     },
     onDecode(result) {
       if (result) {
-        if (this.scanningData == "code") {
+        if (this.action == "regCode") {
           this.code = result;
+          this.load().then(r => {
+            if (r) {
+              this.action = "verifyRegCode";
+            }
+          });
         } else {
           this.testingset = result;
         }
       }
+    },
+    confirmCode() {
+      this.action = "verifyRegCode";
+      this.load();
+    },
+    reset() {
+      this.action = "select";
+      this.code = "";
+      this.testingset = "";
     },
   },
 };
