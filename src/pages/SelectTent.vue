@@ -84,7 +84,7 @@
       </b-container>
     </div>
     <div v-if="$store.state.place.places">
-      <div class="table-responsive">
+      <div class="table-responsive my-4">
         <b-table
           v-if="showing === 'table'"
           :items="Object.values($store.state.place.places)"
