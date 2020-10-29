@@ -137,7 +137,7 @@
                 <b-form-input
                   id="rc"
                   name="rc"
-                  v-model="firstName"
+                  v-model="rc"
                   :state="getValidationState(validationContext)"
                   aria-describedby="rc-feedback"
                   data-vv-as="Rodné číslo"
