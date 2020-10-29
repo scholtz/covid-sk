@@ -100,6 +100,11 @@ const router = new VueRouter({
       name: "help",
       component: () => import("../pages/Help.vue"),
     },
+    {
+      path: "/change-password",
+      name: "change-password",
+      component: () => import("../pages/ChangePassword.vue"),
+    },
   ],
 });
 

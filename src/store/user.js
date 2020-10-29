@@ -76,6 +76,23 @@ export const actions = {
       { root: true }
     );
   },
+
+  async ChangePassword({ dispatch, commit }, { oldHash, newHash }) {
+    const token = await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "User/ChangePassword",
+        params: { oldHash, newHash },
+      },
+      { root: true }
+    );
+    if (token) {
+      commit("setAuthJWT", token);
+    }
+    if (token) return true;
+    return false;
+  },
+
   async Authenticate({ dispatch, commit }, { email, hash, data }) {
     const token = await dispatch(
       "axios/post",

@@ -68,6 +68,9 @@
 
           <b-navbar-nav class="ml-auto" v-if="$store.state.user.auth">
             <b-nav-item-dropdown :text="$store.state.user.tokenData.Name" right>
+              <b-dropdown-item to="/change-password"
+                >Zmena hesla</b-dropdown-item
+              >
               <b-dropdown-item @click="logout">Logout</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
