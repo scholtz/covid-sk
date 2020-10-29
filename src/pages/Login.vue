@@ -3,6 +3,12 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>Prihlásenie</h1>
+        <p>
+          Prihlásenie slúži pre obsluhu testovacieho miesta. Po prihlásení môže
+          obsluha scanovať čiarové kódy z obrazovky mobilu alebo vytlačené na
+          papieri. Po úspešnom prihlásení sa zmení horné menu na rozbaľovací
+          zoznam rolí a funkcií ktoré môžu robiť.
+        </p>
       </b-container>
     </div>
     <b-container class="py-3">

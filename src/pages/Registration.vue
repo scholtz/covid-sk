@@ -11,6 +11,10 @@
           budú z tejto databáze odstránené najneskôr do 2 pracovných dní od
           posledného dňa testovania.
         </p>
+        <p>
+          Ak ste obsluha testoacieho miesta, a ešte ste nedostali email s
+          registráciou, kontaktujte administrátora aby vám poslal pozvánku.
+        </p>
       </b-container>
     </div>
     <div
@@ -77,7 +81,7 @@
                   :state="getValidationState(validationContext)"
                   aria-describedby="firstName-feedback"
                   data-vv-as="Name"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="firstName-feedback">{{
                   validationContext.errors[0]
@@ -103,7 +107,7 @@
                   :state="getValidationState(validationContext)"
                   aria-describedby="lastName-feedback"
                   data-vv-as="Priezvisko"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="lastName-feedback">{{
                   validationContext.errors[0]
@@ -137,7 +141,7 @@
                   :state="getValidationState(validationContext)"
                   aria-describedby="rc-feedback"
                   data-vv-as="Rodné číslo"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="rc-feedback">{{
                   validationContext.errors[0]
@@ -163,7 +167,7 @@
                   :state="getValidationState(validationContext)"
                   aria-describedby="passport-feedback"
                   data-vv-as="Číslo cestovného dokladu"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="passport-feedback">{{
                   validationContext.errors[0]
@@ -190,7 +194,7 @@
                   v-model="address"
                   :state="getValidationState(validationContext)"
                   aria-describedby="address-feedback"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="address-feedback">{{
                   validationContext.errors[0]
@@ -217,7 +221,7 @@
                   v-model="phone"
                   :state="getValidationState(validationContext)"
                   aria-describedby="phone-feedback"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="phone-feedback">{{
                   validationContext.errors[0]
@@ -238,7 +242,7 @@
                   v-model="email"
                   :state="getValidationState(validationContext)"
                   aria-describedby="email-feedback"
-                ></b-form-input>
+                />
 
                 <b-form-invalid-feedback id="email-feedback">{{
                   validationContext.errors[0]
