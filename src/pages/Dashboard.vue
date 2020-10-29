@@ -61,11 +61,13 @@
                 žijú v meste Pezinok a blízkom okolí
               </p>
             </div>
-            <img
-              src="../assets/images/pezinok.svg"
-              width="200px"
-              class="m-2 float-right d-none d-sm-block"
-            />
+            <div class="text-center">
+              <img
+                src="../assets/images/pezinok.svg"
+                width="200px"
+                class="m-2 d-none d-sm-block m-auto"
+              />
+            </div>
           </b-col>
         </b-row>
       </b-container>
