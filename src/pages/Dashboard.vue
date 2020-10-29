@@ -28,7 +28,7 @@
         <b-row>
           <b-col cols="12" md="6">
             <ol class="steps">
-              <li>Výber odberného miesta</li>
+              <li>Výber odberného miesta a času</li>
               <li>Registrácia ku konkrétnemu času</li>
               <li>Reálny odber vzorky</li>
               <li>Výsledky testu</li>

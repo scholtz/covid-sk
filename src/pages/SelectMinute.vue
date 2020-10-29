@@ -32,14 +32,18 @@
             nižším počtom registrácií
           </p>
           <p v-for="minute in $store.state.slot.slotsM" :key="minute.slotId">
-            <b-link
+            <button
+              :disabled="
+                minute.registrations >=
+                $store.state.place.currentPlace.limitPer5MinSlot
+              "
               :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.slotId}`"
               class="govuk-button m-0"
             >
               Medzi
               <b>{{ minute.description }}</b>
               je aktuálne registrovaných {{ minute.registrations }} osôb
-            </b-link>
+            </button>
           </p>
         </b-col>
       </b-row>
