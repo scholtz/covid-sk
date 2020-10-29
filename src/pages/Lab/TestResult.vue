@@ -88,7 +88,7 @@
         </button>
       </b-container>
     </b-container>
-    <b-container>
+    <b-container v-if="action !== 'select'">
       <StreamBarcodeReader @decode="onDecode" />
     </b-container>
   </div>
