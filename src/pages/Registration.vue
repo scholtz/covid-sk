@@ -257,6 +257,36 @@ export default {
           );
         });
     },
+    testRC(x) {
+      //https://www.zizka.ch/pages/programming/ruzne/rodne-cislo-identifikacni-cislo-rc-ico-kontrola-validace.html
+      const age = 0;
+      try {
+        if (x.length == 0) return false;
+        if (x.length < 9) throw 1;
+        let year = parseInt(x.substr(0, 2), 10);
+        let month = parseInt(x.substr(2, 2), 10);
+        const day = parseInt(x.substr(4, 2), 10);
+        if (x.length == 9 && year < 54) return true;
+        let c = 0;
+        if (x.length == 10) c = parseInt(x.substr(9, 1));
+        let m = parseInt(x.substr(0, 9)) % 11;
+        if (m == 10) m = 0;
+        if (m != c) throw 1;
+        year += year < 54 ? 2000 : 1900;
+        if (month > 70 && year > 2003) month -= 70;
+        else if (month > 50) month -= 50;
+        else if (month > 20 && year > 2003) month -= 20;
+        const d = new Date();
+        if (year + age > d.getFullYear()) throw 1;
+        if (month == 0) throw 1;
+        if (month > 12) throw 1;
+        if (day == 0) throw 1;
+        if (day > 31) throw 1;
+      } catch {
+        return false;
+      }
+      return true;
+    },
   },
 };
 </script>

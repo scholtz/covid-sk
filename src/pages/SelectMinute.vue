@@ -32,7 +32,7 @@
             nižším počtom registrácií
           </p>
           <p v-for="minute in $store.state.slot.slotsM" :key="minute.slotId">
-            <button
+            <b-link
               :disabled="
                 minute.registrations >=
                 $store.state.place.currentPlace.limitPer5MinSlot
@@ -43,7 +43,7 @@
               Medzi
               <b>{{ minute.description }}</b>
               je aktuálne registrovaných {{ minute.registrations }} osôb
-            </button>
+            </b-link>
           </p>
         </b-col>
       </b-row>

@@ -45,6 +45,36 @@
         </b-col>
       </b-row>
     </b-container>
+
+    <b-container class="my-4" v-if="action === 'rc'">
+      <b-row>
+        <b-col cols="12">
+          <button class="float-right bg-light my-2" @click="reset">
+            Zrušiť
+          </button>
+          <label for="code1">Rodné číslo</label>
+          <b-input v-model="code" id="code1" />
+
+          <button
+            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+          >
+            Overiť registráciu
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+      </b-row>
+    </b-container>
+
     <b-container class="my-4" v-if="action === 'regCode'">
       <b-row>
         <b-col cols="12">

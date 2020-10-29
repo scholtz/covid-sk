@@ -28,7 +28,7 @@
         počtom registrácií
       </p>
       <p v-for="hour in $store.state.slot.slotsH" :key="hour.from">
-        <button
+        <b-link
           :disabled="
             hour.registrations >=
             $store.state.place.currentPlace.limitPer1HourSlot
@@ -38,7 +38,7 @@
         >
           Medzi <b>{{ hour.description }}</b> je aktuálne registrovaných
           {{ hour.registrations }} osôb
-        </button>
+        </b-link>
       </p>
     </b-container>
   </div>
