@@ -95,6 +95,19 @@
               Vybrať
             </b-link>
           </template>
+
+          <template #cell(isDriveIn)="row">
+            <b-form-checkbox disabled v-model="row.item.isDriveIn">
+              <span v-if="row.item.isDriveIn">Áno</span>
+              <span v-if="!row.item.isDriveIn">Nie</span>
+            </b-form-checkbox>
+          </template>
+          <template #cell(isWalkIn)="row">
+            <b-form-checkbox disabled v-model="row.item.isWalkIn">
+              <span v-if="row.item.isWalkIn">Áno</span>
+              <span v-if="!row.item.isWalkIn">Nie</span>
+            </b-form-checkbox>
+          </template>
         </b-table>
       </div>
     </div>
@@ -161,6 +174,16 @@ export default {
         {
           label: "GPS Lng",
           key: "lng",
+          sortable: true,
+        },
+        {
+          key: "limitPer5MinSlot",
+          label: "5Min limit",
+          sortable: true,
+        },
+        {
+          key: "limitPer1HourSlot",
+          label: "Hod limit",
           sortable: true,
         },
         {

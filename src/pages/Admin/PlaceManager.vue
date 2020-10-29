@@ -20,13 +20,29 @@
           <label for="description">Popis</label>
           <b-input v-model="description" ref="description" id="description" />
         </b-col>
-        <b-col cols="12" md="6">
+        <b-col cols="12" md="3">
           <label for="lat">GPS Lat</label>
           <b-input v-model="lat" ref="lat" id="lat" />
         </b-col>
-        <b-col cols="12" md="6">
+        <b-col cols="12" md="3">
           <label for="lng">GPS Lng</label>
           <b-input v-model="lng" ref="lng" id="lng" />
+        </b-col>
+        <b-col cols="12" md="3">
+          <label for="limitPer5MinSlot">Limit / 5min</label>
+          <b-input
+            v-model="limitPer5MinSlot"
+            ref="limitPer5MinSlot"
+            id="limitPer5MinSlot"
+          />
+        </b-col>
+        <b-col cols="12" md="3">
+          <label for="limitPer1HourSlot">Limit / hour</label>
+          <b-input
+            v-model="limitPer1HourSlot"
+            ref="limitPer1HourSlot"
+            id="limitPer1HourSlot"
+          />
         </b-col>
         <b-col cols="12" md="6">
           <b-form-checkbox id="isDriveIn" v-model="isDriveIn" name="isDriveIn">
@@ -94,6 +110,8 @@ export default {
       lng: 17.272996902465824,
       isDriveIn: false,
       isWalkIn: true,
+      limitPer5MinSlot: 5,
+      limitPer1HourSlot: 40,
       fields: [
         {
           label: "Akcia",
@@ -102,6 +120,16 @@ export default {
         {
           label: "Názov miesta",
           key: "name",
+          sortable: true,
+        },
+        {
+          key: "limitPer5MinSlot",
+          label: "5Min limit",
+          sortable: true,
+        },
+        {
+          key: "limitPer1HourSlot",
+          label: "Hod limit",
           sortable: true,
         },
         {
@@ -182,6 +210,8 @@ export default {
         lng: this.lng,
         isDriveIn: this.isDriveIn,
         isWalkIn: this.isWalkIn,
+        limitPer5MinSlot: this.limitPer5MinSlot,
+        limitPer1HourSlot: this.limitPer1HourSlot,
       }).then(r => {
         if (r) {
           this.openSuccess("Uložené");
@@ -193,6 +223,7 @@ export default {
       });
     },
     editPlaceClick(row) {
+      this.id = row.item.id;
       this.name = row.item.name;
       this.description = row.item.description;
       this.address = row.item.address;
@@ -200,6 +231,8 @@ export default {
       this.lng = row.item.lng;
       this.isDriveIn = row.item.isDriveIn;
       this.isWalkIn = row.item.isWalkIn;
+      this.limitPer5MinSlot = row.item.limitPer5MinSlot;
+      this.limitPer1HourSlot = row.item.limitPer1HourSlot;
     },
   },
 };

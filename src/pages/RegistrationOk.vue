@@ -31,7 +31,43 @@
             </barcode>
           </b-col>
         </b-row>
-
+        <b-row>
+          <b-col>
+            <b-table-simple>
+              <b-tr>
+                <b-th>Údaj</b-th>
+                <b-th>Hodnota</b-th>
+              </b-tr>
+              <b-tr>
+                <b-th>Meno</b-th
+                ><b-td
+                  >{{ $store.state.slot.registration.firstName }}
+                  {{ $store.state.slot.registration.lastName }}</b-td
+                >
+              </b-tr>
+              <b-tr>
+                <b-th>Email</b-th
+                ><b-td>{{ $store.state.slot.registration.email }}</b-td>
+              </b-tr>
+              <b-tr>
+                <b-th>Telefón</b-th
+                ><b-td>{{ $store.state.slot.registration.phone }}</b-td>
+              </b-tr>
+              <b-tr v-if="$store.state.slot.registration.rc">
+                <b-th>RČ</b-th
+                ><b-td>{{ $store.state.slot.registration.rc }}</b-td>
+              </b-tr>
+              <b-tr v-if="$store.state.slot.registration.passport">
+                <b-th>Cestovný doklad</b-th
+                ><b-td>{{ $store.state.slot.registration.passport }}</b-td>
+              </b-tr>
+              <b-tr v-if="$store.state.slot.registration.rc">
+                <b-th>Adresa</b-th
+                ><b-td>{{ $store.state.slot.registration.address }}</b-td>
+              </b-tr>
+            </b-table-simple>
+          </b-col>
+        </b-row>
         <b-row>
           Dostavte sa prosím
           {{ $store.state.slot.slotDCurrent.description }} medzi

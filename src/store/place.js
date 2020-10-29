@@ -38,7 +38,17 @@ export const actions = {
   },
   async InsertOrUpdate(
     { dispatch },
-    { id, name, description, address, lat, lng, isDriveIn, isWalkIn }
+    {
+      id,
+      name,
+      description,
+      address,
+      lat,
+      lng,
+      isDriveIn,
+      isWalkIn,
+      limitPer5MinSlot,
+    }
   ) {
     var place = {
       id,
@@ -49,6 +59,7 @@ export const actions = {
       lng,
       isDriveIn,
       isWalkIn,
+      limitPer5MinSlot,
     };
     return await dispatch(
       "axios/post",
