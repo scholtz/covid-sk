@@ -29,6 +29,16 @@ export const actions = {
       { root: true }
     );
   },
+  async GetVisitorByRC({ dispatch }, { rc }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Result/GetVisitorByRC",
+        params: { rc },
+      },
+      { root: true }
+    );
+  },
   async ConnectVisitorToTest({ dispatch }, { visitorCode, testCode }) {
     const data = await dispatch(
       "axios/post",

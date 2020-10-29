@@ -56,6 +56,7 @@
           <b-input v-model="code" id="code1" />
 
           <button
+            @click="loadByRC"
             class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
           >
             Overiť registráciu
@@ -109,16 +110,18 @@
       </b-row>
     </b-container>
 
-    <b-container class="my-4" v-if="action === 'verifyRegCode'">
+    <b-container class="my-4" v-if="action === 'verifyPerson'">
       <b-row>
         <b-col cols="12">
           <button class="float-right bg-light my-2" @click="reset">
             Zrušiť
           </button>
           <h2>Overenie užívateľa</h2>
+          <div>Kod: {{ visitor.id }}</div>
           <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
           <div>Poisťovňa: {{ visitor.insurance }}</div>
           <div>RČ: {{ visitor.rc }} {{ visitor.passport }}</div>
+          <div>Adresa: {{ visitor.address }}</div>
           <button
             @click="action = 'testSetCode'"
             class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
@@ -296,6 +299,7 @@ export default {
     ...mapActions({
       ConnectVisitorToTest: "result/ConnectVisitorToTest",
       GetVisitor: "result/GetVisitor",
+      GetVisitorByRC: "result/GetVisitorByRC",
     }),
     load() {
       this.state = "loading-data";
@@ -304,7 +308,21 @@ export default {
       }).then(r => {
         if (r) {
           this.visitor = r;
-          this.state = "visitor-loaded";
+          this.action = "verifyPerson";
+        } else {
+          this.state = "visitor-error";
+        }
+      });
+    },
+    loadByRC() {
+      this.state = "loading-data";
+      this.GetVisitorByRC({
+        rc: this.code,
+      }).then(r => {
+        if (r) {
+          this.code = r.id;
+          this.visitor = r;
+          this.action = "verifyPerson";
         } else {
           this.state = "visitor-error";
         }
@@ -328,7 +346,7 @@ export default {
           this.code = result;
           this.load().then(r => {
             if (r) {
-              this.action = "verifyRegCode";
+              this.action = "verifyPerson";
             }
           });
         } else {
@@ -337,7 +355,7 @@ export default {
       }
     },
     confirmCode() {
-      this.action = "verifyRegCode";
+      this.action = "verifyPerson";
       this.load();
     },
     reset() {
