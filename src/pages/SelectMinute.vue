@@ -39,6 +39,11 @@
               "
               :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.slotId}`"
               class="govuk-button m-0"
+              v-bind:class="{
+                'bg-danger':
+                  minute.registrations >=
+                  $store.state.place.currentPlace.limitPer5MinSlot,
+              }"
             >
               Medzi
               <b>{{ minute.description }}</b>

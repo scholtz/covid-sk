@@ -252,9 +252,12 @@ export default {
       })
         // eslint-disable-next-line
         .then(r => {
-          that.$router.push(
-            `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
-          );
+          if (r) {
+            // redirect only on successfull registration
+            that.$router.push(
+              `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
+            );
+          }
         });
     },
     testRC(x) {

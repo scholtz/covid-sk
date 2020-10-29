@@ -48,6 +48,7 @@ export const actions = {
       isDriveIn,
       isWalkIn,
       limitPer5MinSlot,
+      limitPer1HourSlot,
     }
   ) {
     var place = {
@@ -60,6 +61,7 @@ export const actions = {
       isDriveIn,
       isWalkIn,
       limitPer5MinSlot,
+      limitPer1HourSlot,
     };
     return await dispatch(
       "axios/post",

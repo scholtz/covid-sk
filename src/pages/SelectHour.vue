@@ -35,6 +35,11 @@
           "
           :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${hour.slotId}`"
           class="govuk-button m-0"
+          v-bind:class="{
+            'bg-danger':
+              hour.registrations >=
+              $store.state.place.currentPlace.limitPer1HourSlot,
+          }"
         >
           Medzi <b>{{ hour.description }}</b> je aktuálne registrovaných
           {{ hour.registrations }} osôb
