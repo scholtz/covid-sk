@@ -9,6 +9,16 @@ export const actions = {
       { root: true }
     );
   },
+  async RemoveTest({ dispatch }, { code, pass }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Result/RemoveTest",
+        params: { code, pass },
+      },
+      { root: true }
+    );
+  },
   async SetResults({ dispatch }, { testCode, result }) {
     return await dispatch(
       "axios/post",
