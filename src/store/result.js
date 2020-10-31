@@ -9,6 +9,25 @@ export const actions = {
       { root: true }
     );
   },
+  async GetNextTest({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: process.env.VUE_APP_API + "Result/GetNextTest",
+      },
+      { root: true }
+    );
+  },
+  async RemoveFromDocQueue({ dispatch }, { testId }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Result/RemoveFromDocQueue",
+        params: { testId },
+      },
+      { root: true }
+    );
+  },
   async RemoveTest({ dispatch }, { code, pass }) {
     return await dispatch(
       "axios/post",

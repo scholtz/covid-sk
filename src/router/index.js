@@ -96,6 +96,11 @@ const router = new VueRouter({
       component: () => import("../pages/GDPR/Manage.vue"),
     },
     {
+      path: "/documenter/certificate",
+      name: "documenter-certificate",
+      component: () => import("../pages/Documenter/Certificate.vue"),
+    },
+    {
       path: "/help",
       name: "help",
       component: () => import("../pages/Help.vue"),

@@ -47,8 +47,10 @@
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav>
-              <b-nav-item-dropdown text="GRPR manager">
-                <b-dropdown-item to="/gdpr/manage">Správa GDPR</b-dropdown-item>
+              <b-nav-item-dropdown text="Správca dokumentov">
+                <b-dropdown-item to="/documenter/certificate"
+                  >Vypisovanie certifikátov</b-dropdown-item
+                >
               </b-nav-item-dropdown>
             </b-navbar-nav>
           </b-navbar-nav>
