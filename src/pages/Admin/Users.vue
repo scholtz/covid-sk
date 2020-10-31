@@ -18,6 +18,11 @@
         <template #cell(role)="row">
           {{ formatRoles(row) }}
         </template>
+        <template #cell(actions)="row">
+          <button @click="deleteUserClick(row)" class="govuk-button m-2">
+            Vymazať
+          </button>
+        </template>
       </b-table>
     </b-container>
   </div>
@@ -51,6 +56,11 @@ export default {
           key: "role",
           sortable: true,
         },
+        {
+          label: "Akcie",
+          key: "actions",
+          sortable: false,
+        },
       ],
     };
   },
@@ -64,9 +74,23 @@ export default {
   methods: {
     ...mapActions({
       LoadUsers: "user/LoadUsers",
+      RemoveUser: "user/RemoveUser",
     }),
     formatRoles(data) {
       return data.item.roles.join(", ");
+    },
+    deleteUserClick(row) {
+      if (confirm("Naozaj chcete vymazať užívateľa?")) {
+        this.RemoveUser({ email: row.item.email }).then(r => {
+          if (r) {
+            this.LoadUsers().then(r => {
+              if (r) {
+                this.data = Object.values(r);
+              }
+            });
+          }
+        });
+      }
     },
   },
 };

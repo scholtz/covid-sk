@@ -76,6 +76,16 @@ export const actions = {
       { root: true }
     );
   },
+  async RemoveUser({ dispatch }, { email }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Admin/RemoveUser",
+        params: { email },
+      },
+      { root: true }
+    );
+  },
 
   async ChangePassword({ dispatch, commit }, { oldHash, newHash }) {
     const token = await dispatch(

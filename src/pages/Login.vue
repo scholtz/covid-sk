@@ -14,7 +14,7 @@
     <b-container class="py-3">
       <b-row>
         <b-col cols="12" md="6">
-          <label for="login">Email</label>
+          <label for="login">Login / Email</label>
           <b-input v-model="login" ref="login" id="login" />
         </b-col>
         <b-col cols="12" md="6">

@@ -209,14 +209,16 @@ export default {
       openSuccess: "snackbar/openSuccess",
     }),
     deletePlaceClick(row) {
-      console.log("deletePlaceClick", row);
-      if (row.item?.id) {
-        // eslint-disable-next-line
-        this.Delete({ id: row.item?.id }).then(r => {
-          this.ReloadPlaces().then(r2 => {
-            console.log("r", r, r2);
+      if (confirm("Naozaj chcete vymazať miesto?")) {
+        console.log("deletePlaceClick", row);
+        if (row.item?.id) {
+          // eslint-disable-next-line
+          this.Delete({ id: row.item?.id }).then(r => {
+            this.ReloadPlaces().then(r2 => {
+              console.log("r", r, r2);
+            });
           });
-        });
+        }
       }
     },
     clickCreate() {
