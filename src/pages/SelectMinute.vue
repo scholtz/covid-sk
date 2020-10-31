@@ -23,6 +23,7 @@
       </b-container>
     </div>
 
+    <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
     <b-container class="my-4">
       <b-row>
         <b-col>
@@ -59,6 +60,11 @@
 <script>
 import { mapMutations, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      loading: true,
+    };
+  },
   mounted() {
     this.GetPlace({ id: this.$route.params.placeId })
       .then(r => {
@@ -92,10 +98,16 @@ export default {
       })
       // eslint-disable-next-line
       .then(r => {
-        return this.ReloadSlotsM({
-          placeId: this.$route.params.placeId,
-          hourSlotId: this.$route.params.hourId,
-        });
+        return (
+          this.ReloadSlotsM({
+            placeId: this.$route.params.placeId,
+            hourSlotId: this.$route.params.hourId,
+          })
+            // eslint-disable-next-line
+            .then(r2 => {
+              this.loading = false;
+            })
+        );
       });
   },
   methods: {

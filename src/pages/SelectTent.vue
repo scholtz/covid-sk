@@ -111,6 +111,7 @@
         </b-table>
       </div>
     </div>
+    <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
   </div>
 </template>
 
@@ -202,7 +203,7 @@ export default {
           sortable: true,
         },
       ],
-
+      loading: true,
       lastClickLatLng: [],
       zoom: 15,
       minZoom: 3,
@@ -218,8 +219,9 @@ export default {
     };
   },
   mounted() {
+    // eslint-disable-next-line
     this.ReloadPlaces().then(r => {
-      console.log("r", r);
+      this.loading = false;
     });
   },
   methods: {

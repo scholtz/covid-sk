@@ -27,6 +27,7 @@
         V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším
         počtom registrácií
       </p>
+      <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
       <p v-for="hour in $store.state.slot.slotsH" :key="hour.from">
         <b-link
           :disabled="
@@ -52,6 +53,11 @@
 <script>
 import { mapMutations, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      loading: true,
+    };
+  },
   mounted() {
     this.GetPlace({ id: this.$route.params.placeId })
       .then(r => {
@@ -76,7 +82,11 @@ export default {
         this.ReloadSlotsH({
           placeId: this.$route.params.placeId,
           daySlotId: this.$route.params.dayId,
-        });
+        })
+          // eslint-disable-next-line
+          .then(r2 => {
+            this.loading = false;
+          });
         return r;
       });
   },

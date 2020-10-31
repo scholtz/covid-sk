@@ -25,6 +25,7 @@
         V prípade ak môžete prísť v oba termíny, uprednostnite prosím prvý
         termín
       </p>
+      <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
       <div v-for="slotD in $store.state.slot.slotsD" :key="slotD.slotId">
         <b-link
           :to="`/place/${$route.params.placeId}/${slotD.slotId}`"
@@ -42,6 +43,11 @@
 import { mapMutations, mapActions } from "vuex";
 
 export default {
+  data() {
+    return {
+      loading: true,
+    };
+  },
   mounted() {
     this.GetPlace({ id: this.$route.params.placeId })
       .then(r => {
@@ -51,6 +57,10 @@ export default {
       // eslint-disable-next-line
       .then(r => {
         return this.ReloadSlotsD({ placeId: this.$route.params.placeId });
+      })
+      // eslint-disable-next-line
+      .then(r => {
+        this.loading = false;
       });
   },
   methods: {
