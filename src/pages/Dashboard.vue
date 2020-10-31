@@ -51,10 +51,45 @@
             ></b-link>
           </b-col>
           <b-col cols="12" md="6">
-            <div class="alert alert-danger">
-              <p><b>POZOR!!! Nachádzate sa vo vývojovej verzii.</b></p>
-            </div>
+            <div>
+              <div class="alert alert-danger">
+                <b
+                  >Vyskúšajte si, ako by mohla vyzerať verzia testovania s
+                  podporou IT</b
+                >
+              </div>
 
+              <ul>
+                <li>Čas strávený pri odbere - <b>10 až 20</b> sekúnd</li>
+                <li>Žiadne fronty</li>
+                <li>Jasná definícia práce s osobnými údajmi</li>
+              </ul>
+              <p>
+                Web je optimalizovaný pre chrome a ostatné prehliadače ktoré
+                dodržiavajú štandardy. Práca registračného manažéra a
+                laboratórneho medika vyžaduje mobilný prístup s povolenou
+                kamerou pre scanovanie čiarových kódov.
+              </p>
+              <p>
+                Vyskúšajte si jednotlivé role:
+                <b-table-simple>
+                  <b-tr>
+                    <b-th>Login</b-th>
+                    <b-th>Heslo</b-th>
+                  </b-tr>
+                  <b-tr>
+                    <b-td>RegistrationManager</b-td
+                    ><b-td>!_b_59i?7E</b-td></b-tr
+                  >
+                  <b-tr> <b-td>MedicTester</b-td><b-td> 62f@Ok$XUV</b-td></b-tr>
+                  <b-tr> <b-td>MedicLab</b-td><b-td>v@F?RvbR2O</b-td></b-tr>
+                  <b-tr>
+                    <b-td>DocumentManager</b-td><b-td>LwY@9bQx0M</b-td></b-tr
+                  >
+                </b-table-simple>
+              </p>
+            </div>
+            <!--
             <div class="alert alert-danger">
               <p>
                 Odberné miesta v tejto aplikácii sú určené iba pre osoby ktoré
@@ -68,6 +103,7 @@
                 class="m-2 d-none d-sm-block m-auto"
               />
             </div>
+            -->
           </b-col>
         </b-row>
       </b-container>
