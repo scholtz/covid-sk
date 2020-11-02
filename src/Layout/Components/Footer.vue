@@ -18,13 +18,7 @@
         <div class="idsk-footer__meta-item idsk-footer__meta-item--grow">
           <span class="idsk-footer__licence-description">
             <div class="textwidget">
-              Prevádzkovateľom služby je mesto
-              <a
-                class="idsk-footer__link"
-                href="https://www.pezinok.sk/"
-                target="_blank"
-                >Pezinok</a
-              >. Web vytvoril
+              Túto vzorovú službu vytvoril a ju prevádzkuje
               <a class="idsk-footer__link" href="https://ludovit.scholtz.sk"
                 >Ľudovít Scholtz</a
               >.<br />

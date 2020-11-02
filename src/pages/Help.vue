@@ -36,6 +36,19 @@
               registrácie a posledné 4 čísla rodného čísla. Dbajte na bezpečnosť
               prideleného kódu registrácie.
             </p>
+            <p>
+              Osobné údaje môžete vymazať zo serveru po prevzatí certifikátu s
+              negatívnym výsledkom. Zobrazte výsledok testu zadaním svojho kódu
+              a posledného 4-číslia rodného čísla. V prípade negatívneho testu
+              sa Vám zobrazí tlačítko vymazať osobné údaje. Stlačte tlačítko
+              vymazať osoboné údaje pre vykonanie výmazu. Po vymazaní bude Vaša
+              návšteva kompletne vymazaná aj s ďalšími indexovanými údajmi, a v
+              systéme po Vás zostane iba štatistický údaj.
+            </p>
+            <p>
+              Prevádzkovateľ osobných údajov je osoba uvedená vo footeri každej
+              stránky.
+            </p>
           </b-container>
           <div class="text-center">
             <h2>Registrácia</h2>
