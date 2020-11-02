@@ -37,6 +37,9 @@
                 <b-dropdown-item to="/tester/unannouncedVisitor"
                   >Neohlásený návštevník</b-dropdown-item
                 >
+                <b-dropdown-item to="/tester/place"
+                  >Nastaviť moje miesto</b-dropdown-item
+                >
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav>

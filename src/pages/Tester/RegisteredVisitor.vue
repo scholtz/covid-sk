@@ -140,7 +140,7 @@
             </svg>
           </button>
           <button
-            @click="action = 'testSetCode'"
+            @click="$router.push('/tester/unannouncedVisitor')"
             class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
           >
             Chybné údaje
@@ -294,6 +294,23 @@ export default {
       },
       detecteds: [],
     };
+  },
+  mounted() {
+    console.log("this.$route.params.id", this.$route.params.id);
+    if (this.$route.params.id) {
+      this.code = this.$route.params.id;
+      // newly registered by reg manager
+      this.GetVisitor({
+        visitorCode: this.code,
+      }).then(r => {
+        if (r) {
+          this.visitor = r;
+          this.action = "verifyPerson";
+        } else {
+          this.state = "visitor-error";
+        }
+      });
+    }
   },
   methods: {
     ...mapActions({

@@ -1,0 +1,143 @@
+<template>
+  <div>
+    <div class="app-pane-lgray py-2">
+      <b-container>
+        <h1>Výber miesta</h1>
+      </b-container>
+    </div>
+    <div v-if="$store.state.place.places">
+      <b-table
+        :items="Object.values($store.state.place.places)"
+        :fields="fields"
+      >
+        <template #cell(id)="row">
+          <button @click="selectPlace(row)" class="govuk-button">
+            Vybrať
+            <svg
+              class="govuk-button__start-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </template>
+      </b-table>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      id: "",
+      name: "",
+      description: "",
+      address: "",
+      lat: 48.289218275462225,
+      lng: 17.272996902465824,
+      isDriveIn: false,
+      isWalkIn: true,
+      limitPer5MinSlot: 5,
+      limitPer1HourSlot: 40,
+      fields: [
+        {
+          label: "Akcia",
+          key: "id",
+        },
+        {
+          label: "Názov miesta",
+          key: "name",
+          sortable: true,
+        },
+        {
+          key: "limitPer5MinSlot",
+          label: "5Min limit",
+          sortable: true,
+        },
+        {
+          key: "limitPer1HourSlot",
+          label: "Hod limit",
+          sortable: true,
+        },
+        {
+          label: "Adresa",
+          key: "address",
+          sortable: true,
+        },
+        {
+          key: "isDriveIn",
+          label: "Možnosť prísť autom",
+          sortable: true,
+        },
+        {
+          key: "isWalkIn",
+          label: "Možnosť prísť pešo",
+          sortable: true,
+        },
+        {
+          label: "GPS Lat",
+          key: "lat",
+          sortable: true,
+        },
+        {
+          label: "GPS Lng",
+          key: "lng",
+          sortable: true,
+        },
+        {
+          label: "Registrácií",
+          key: "registrations",
+          sortable: true,
+        },
+        {
+          label: "Počet zdravých",
+          key: "healthy",
+          sortable: true,
+        },
+        {
+          label: "Počet nakazených",
+          key: "sick",
+          sortable: true,
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.ReloadPlaces().then(r => {
+      console.log("r", r);
+    });
+  },
+  methods: {
+    ...mapActions({
+      ReloadPlaces: "place/ReloadPlaces",
+      InsertOrUpdate: "place/InsertOrUpdate",
+      Delete: "place/Delete",
+    }),
+    ...mapActions({
+      SetLocation: "user/SetLocation",
+    }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
+    selectPlace(row) {
+      if (row.item.id) {
+        this.SetLocation({ placeId: row.item.id }).then(r => {
+          if (r) {
+            this.openSuccess("Úspešne ste si nastavili miesto");
+          }
+        });
+      }
+    },
+  },
+};
+</script>
+<style lang="scss">
+</style>

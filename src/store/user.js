@@ -66,6 +66,16 @@ export const actions = {
       { root: true }
     );
   },
+  async SetLocation({ dispatch }, { placeId }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "User/SetLocation",
+        params: { placeId },
+      },
+      { root: true }
+    );
+  },
   async InviteUser({ dispatch }, { name, email, roles }) {
     return await dispatch(
       "axios/post",

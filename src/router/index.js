@@ -93,6 +93,16 @@ const router = new VueRouter({
       component: () => import("../pages/Tester/RegisteredVisitor.vue"),
     },
     {
+      path: "/tester/registeredVisitor/:id",
+      name: "TesterRegisteredVisitorWithId",
+      component: () => import("../pages/Tester/RegisteredVisitor.vue"),
+    },
+    {
+      path: "/tester/place",
+      name: "TesterPlace",
+      component: () => import("../pages/Tester/Place.vue"),
+    },
+    {
       path: "/lab/testResult",
       name: "labTestResult",
       component: () => import("../pages/Lab/TestResult.vue"),

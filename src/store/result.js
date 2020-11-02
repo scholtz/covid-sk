@@ -81,7 +81,9 @@ export const actions = {
       dispatch("snackbar/openSuccess", "Uložené", {
         root: true,
       });
+      return true;
     }
+    return false;
   },
 };
 export default {

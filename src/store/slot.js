@@ -32,6 +32,49 @@ const mutations = {
   },
 };
 export const actions = {
+  async RegisterByManager(
+    { dispatch, commit },
+    {
+      personType,
+      passport,
+      rc,
+      firstName,
+      lastName,
+      address,
+      email,
+      phone,
+      insurance,
+      chosenSlot,
+      chosenPlaceId,
+    }
+  ) {
+    const visitor = {
+      personType,
+      passport,
+      rc,
+      firstName,
+      lastName,
+      address,
+      email,
+      phone,
+      insurance,
+      chosenSlot,
+      chosenPlaceId,
+    };
+    const data = await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "Visitor/RegisterByManager",
+        body: visitor,
+      },
+      { root: true }
+    );
+    if (data) {
+      commit("setRegistration", data);
+      return true;
+    }
+    return false;
+  },
   async Register(
     { dispatch, commit },
     {
