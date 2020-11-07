@@ -75,7 +75,7 @@ export default {
           }
           hash = sha256(hash + r.coData);
           // eslint-disable-next-line
-          this.AuthenticateV2({ email: this.login, hash, data }).then(r2 => {
+          this.AuthenticateV2({ email: this.login, hash }).then(r2 => {
             this.$router.push("/user");
           });
         } else {
