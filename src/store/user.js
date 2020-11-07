@@ -127,6 +127,20 @@ export const actions = {
     if (token) return true;
     return false;
   },
+  async AuthenticateV2({ dispatch, commit }, { email, hash }) {
+    const token = await dispatch(
+      "axios/post",
+      {
+        url: process.env.VUE_APP_API + "User/Authenticate",
+        params: { email, hash },
+      },
+      { root: true }
+    );
+
+    commit("setAuthJWT", token);
+    if (token) return true;
+    return false;
+  },
 };
 export default {
   namespaced: true,

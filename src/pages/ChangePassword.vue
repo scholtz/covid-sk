@@ -136,21 +136,39 @@ export default {
         email: this.$store.state.user.tokenData.nameid,
       }).then(r => {
         if (r) {
-          let oldHash = this.pass1;
-          for (let i = 0; i < 99; i++) {
-            oldHash = sha256(oldHash + r);
-          }
-
-          let newHash = this.pass2;
-          for (let i = 0; i < 99; i++) {
-            newHash = sha256(newHash + r);
-          }
-
-          this.ChangePassword({ oldHash, newHash }).then(r2 => {
-            if (r2) {
-              this.$router.push("/user");
+          if (typeof r === "object") {
+            let oldHash = this.pass1;
+            for (let i = 0; i < 99; i++) {
+              oldHash = sha256(oldHash + r.coHash);
             }
-          });
+
+            let newHash = this.pass2;
+            for (let i = 0; i < 99; i++) {
+              newHash = sha256(newHash + r.coData);
+            }
+
+            this.ChangePassword({ oldHash, newHash }).then(r2 => {
+              if (r2) {
+                this.$router.push("/user");
+              }
+            });
+          } else {
+            let oldHash = this.pass1;
+            for (let i = 0; i < 99; i++) {
+              oldHash = sha256(oldHash + r);
+            }
+
+            let newHash = this.pass2;
+            for (let i = 0; i < 99; i++) {
+              newHash = sha256(newHash + r);
+            }
+
+            this.ChangePassword({ oldHash, newHash }).then(r2 => {
+              if (r2) {
+                this.$router.push("/user");
+              }
+            });
+          }
         }
       });
     },

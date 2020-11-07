@@ -62,19 +62,36 @@ export default {
     ...mapActions({
       Preauthenticate: "user/Preauthenticate",
       Authenticate: "user/Authenticate",
+      AuthenticateV2: "user/AuthenticateV2",
     }),
     clickLogin() {
       this.Preauthenticate({ email: this.login }).then(r => {
-        let hash = this.pass;
-        for (let i = 0; i < 99; i++) {
-          hash = sha256(hash + r);
+        if (typeof r === "object" && r !== null) {
+          console.log("AuthV2");
+          // v2 auth
+          let hash = this.pass;
+          for (let i = 0; i < 99; i++) {
+            hash = sha256(hash + r.coHash);
+          }
+          hash = sha256(hash + r.coData);
+          // eslint-disable-next-line
+          this.AuthenticateV2({ email: this.login, hash, data }).then(r2 => {
+            this.$router.push("/user");
+          });
+        } else {
+          console.log("AuthV1");
+          //v1 auth
+          let hash = this.pass;
+          for (let i = 0; i < 99; i++) {
+            hash = sha256(hash + r);
+          }
+          const data = Math.random().toString(36).substring(8);
+          hash = sha256(hash + data);
+          // eslint-disable-next-line
+          this.Authenticate({ email: this.login, hash, data }).then(r2 => {
+            this.$router.push("/user");
+          });
         }
-        const data = Math.random().toString(36).substring(8);
-        hash = sha256(hash + data);
-        // eslint-disable-next-line
-        this.Authenticate({ email: this.login, hash, data }).then(r2 => {
-          this.$router.push("/user");
-        });
       });
     },
   },
