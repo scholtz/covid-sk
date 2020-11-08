@@ -3,7 +3,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/Get",
+        url: config.VUE_CONFIG_APP_API + "Result/Get",
         params: { code, pass },
       },
       { root: true }
@@ -13,7 +13,7 @@ export const actions = {
     return await dispatch(
       "axios/get",
       {
-        url: process.env.VUE_APP_API + "Result/GetNextTest",
+        url: config.VUE_CONFIG_APP_API + "Result/GetNextTest",
       },
       { root: true }
     );
@@ -22,7 +22,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/RemoveFromDocQueue",
+        url: config.VUE_CONFIG_APP_API + "Result/RemoveFromDocQueue",
         params: { testId },
       },
       { root: true }
@@ -32,7 +32,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/RemoveTest",
+        url: config.VUE_CONFIG_APP_API + "Result/RemoveTest",
         params: { code, pass },
       },
       { root: true }
@@ -42,7 +42,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/SetResult",
+        url: config.VUE_CONFIG_APP_API + "Result/SetResult",
         params: { testCode, result },
       },
       { root: true }
@@ -52,7 +52,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/GetVisitor",
+        url: config.VUE_CONFIG_APP_API + "Result/GetVisitor",
         params: { visitorCode },
       },
       { root: true }
@@ -62,7 +62,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/GetVisitorByRC",
+        url: config.VUE_CONFIG_APP_API + "Result/GetVisitorByRC",
         params: { rc },
       },
       { root: true }
@@ -72,7 +72,7 @@ export const actions = {
     const data = await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Result/ConnectVisitorToTest",
+        url: config.VUE_CONFIG_APP_API + "Result/ConnectVisitorToTest",
         params: { visitorCode, testCode },
       },
       { root: true }

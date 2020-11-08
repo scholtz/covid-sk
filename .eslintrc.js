@@ -7,6 +7,9 @@ module.exports = {
   parserOptions: {
     parser: "babel-eslint",
   },
+  globals: {
+    config: "readable",
+  },
   extends: [
     // add more generic rulesets here, such as:
     "plugin:vue/essential",

@@ -16,7 +16,7 @@ export const actions = {
     const data = await dispatch(
       "axios/get",
       {
-        url: process.env.VUE_APP_API + "Place/List",
+        url: config.VUE_CONFIG_APP_API + "Place/List",
       },
       { root: true }
     );
@@ -30,7 +30,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Admin/CheckSlots",
+        url: config.VUE_CONFIG_APP_API + "Admin/CheckSlots",
         params: { testingDay: day, from, until },
       },
       { root: true }
@@ -66,7 +66,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Place/InsertOrUpdate",
+        url: config.VUE_CONFIG_APP_API + "Place/InsertOrUpdate",
         body: place,
       },
       { root: true }
@@ -79,7 +79,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Place/Delete",
+        url: config.VUE_CONFIG_APP_API + "Place/Delete",
         body: place,
       },
       { root: true }

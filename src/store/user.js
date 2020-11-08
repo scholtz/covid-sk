@@ -51,7 +51,7 @@ export const actions = {
     return await dispatch(
       "axios/get",
       {
-        url: process.env.VUE_APP_API + "User/List",
+        url: config.VUE_CONFIG_APP_API + "User/List",
       },
       { root: true }
     );
@@ -60,7 +60,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "User/Preauthenticate",
+        url: config.VUE_CONFIG_APP_API + "User/Preauthenticate",
         params: { email },
       },
       { root: true }
@@ -70,7 +70,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "User/SetLocation",
+        url: config.VUE_CONFIG_APP_API + "User/SetLocation",
         params: { placeId },
       },
       { root: true }
@@ -80,7 +80,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Admin/InviteUser",
+        url: config.VUE_CONFIG_APP_API + "Admin/InviteUser",
         params: { email, name, roles },
       },
       { root: true }
@@ -90,7 +90,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "Admin/RemoveUser",
+        url: config.VUE_CONFIG_APP_API + "Admin/RemoveUser",
         params: { email },
       },
       { root: true }
@@ -101,7 +101,7 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "User/ChangePassword",
+        url: config.VUE_CONFIG_APP_API + "User/ChangePassword",
         params: { oldHash, newHash },
       },
       { root: true }
@@ -117,7 +117,7 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "User/Authenticate",
+        url: config.VUE_CONFIG_APP_API + "User/Authenticate",
         params: { email, hash, data },
       },
       { root: true }
@@ -131,7 +131,7 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: process.env.VUE_APP_API + "User/Authenticate",
+        url: config.VUE_CONFIG_APP_API + "User/Authenticate",
         params: { email, hash },
       },
       { root: true }
