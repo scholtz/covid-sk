@@ -72,6 +72,17 @@
           </b-navbar-nav> -->
 
           <b-navbar-nav class="ml-auto" v-if="$store.state.user.auth">
+            <b-nav-form right class="mx-3">
+              <b-select class="bg-dark text-light" v-model="$i18n.locale">
+                <option
+                  v-for="(lang, i) in langs"
+                  :key="`Lang${i}`"
+                  :value="lang"
+                >
+                  {{ lang }}
+                </option>
+              </b-select>
+            </b-nav-form>
             <b-nav-item-dropdown :text="$store.state.user.tokenData.Name" right>
               <b-dropdown-item to="/change-password"
                 >Zmena hesla</b-dropdown-item
@@ -79,7 +90,18 @@
               <b-dropdown-item @click="logout">Logout</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
-          <b-navbar-nav v-else right class="ml-auto">
+          <b-navbar-nav v-else right class="ml-auto"
+            ><b-nav-form right class="mx-3">
+              <b-select class="bg-dark text-light" v-model="$i18n.locale">
+                <option
+                  v-for="(lang, i) in langs"
+                  :key="`Lang${i}`"
+                  :value="lang"
+                >
+                  {{ lang }}
+                </option>
+              </b-select>
+            </b-nav-form>
             <b-nav-item to="/login">Prihlásenie</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
@@ -93,7 +115,9 @@ import { mapMutations } from "vuex";
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      langs: ["sk", "en"],
+    };
   },
   computed: {},
   methods: {
