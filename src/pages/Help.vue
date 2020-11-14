@@ -56,7 +56,12 @@
               style="margin: 0 auto"
               src="../assets/images/process/registration.svg"
             />
-            <h2>Testovanie</h2>
+            <h2>Stavy testu</h2>
+            <img
+              style="margin: 0 auto"
+              src="../assets/images/process/states-of-test.svg"
+            />
+            <h2>Proces testovania</h2>
             <img
               style="margin: 0 auto"
               src="../assets/images/process/testing.svg"
