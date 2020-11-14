@@ -43,5 +43,23 @@
   "navBarUserLogout":"Odhlásenie",
   "navBarUserLogin":"Prihlásenie",
 
+  "resultsTitle":"Výsledky testovania",
+  "resultsCode":"9-miestny kód registácie",
+  "resultsPass":"Posledné 4 čísla s rodného čísla alebo cestovného dokladu",
+  "resultsCheckResults":"Skontrolovať výsledok testu",
+  "resultsResult":"Výsledok testovania",
+  "resultsSendForm":"Odošlite prosím formulár",
+  "resultsCheckingTest":"Kontrolujem stav testu",
+  "resultsError":"Pri spracovaní požiadavku vznikla chyba",
+  "resultsTestNotTaken":"Zatiaľ sme nezaznamenali Vašu návštevu",
+  "resultsTestRemoved":"Test bol vymazaný",
+  "resultsTestToRepeat":"S Vašim testom sa vyskytla chyba testovania a test musí byť zopakovaný. Príďte vykonať test znovu. Môžete použiť tento kód registrácie.",
+  "resultsTestNotProcessed":"Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva",
+  "resultsTestPositiveCertTaken":"<b>Bol</b> vám detekovaný COVID. Ostaňte prosím v karanténe.",
+  "resultsTestPositiveCertNotTaken":"<b>Bol</b> vám detekovaný COVID. <b>Príďte si pre certifikát.</b>",
+  "resultsTestNegativeCertTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19.",
+  "resultsTestNegativeCertNotTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Príďte si pre certifikát.</b>",
+  "resultsRemovePersonalData":"Vymazať osobné údaje",
+
   "Scholtz":"Scholtz"
 }

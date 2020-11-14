@@ -43,5 +43,23 @@
   "navBarUserLogout":"Logout",
   "navBarUserLogin":"Login",
 
+  "resultsTitle":"Test results",
+  "resultsCode":"9-digit registration code",
+  "resultsPass":"Last 4 digits of your personal number or last 4 characters from password",
+  "resultsCheckResults":"Check test results",
+  "resultsResult":"Test result",
+  "resultsSendForm":"Submit form please",
+  "resultsCheckingTest":"Checking test result state",
+  "resultsError":"Error occured while checking the test result. Please check your internet connection.",
+  "resultsTestNotTaken":"We are waiting for you at the sampling place",
+  "resultsTestRemoved":"Test was removed",
+  "resultsTestToRepeat":"There was tehnical issue with your test. Test must be repeated. Please visit sampling place again. You can reuse the registration code.",
+  "resultsTestNotProcessed":"Thank you for allowing to take test sample. We will notify you when the test has been finished. You can check the results online in this form.",
+  "resultsTestPositiveCertTaken":"You are <b>infected</b>. Please stay in quarantine.",
+  "resultsTestPositiveCertNotTaken":"You are <b>infected</b>. <b>If you really need the certificate, please come to the sampling place and take it.</b>",
+  "resultsTestNegativeCertTaken":"You are <b>NOT</b> infected. Test has proven that you are not infected with SARS-CoV-2.",
+  "resultsTestNegativeCertNotTaken":"You are <b>NOT</b> infected. Test has proven that you are not infected with SARS-CoV-2. <b>Please visit sampling place and take the certificate.</b>",
+  "resultsRemovePersonalData":"Delete personal data",
+
   "Scholtz":"Scholtz"
 }
