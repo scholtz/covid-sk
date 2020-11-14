@@ -3,8 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>
-          Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné
-          testovanie populácie proti chorobe covid-19
+          {{ $t("mainTitle") }}
         </h1>
       </b-container>
     </div>
