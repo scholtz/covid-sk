@@ -10,7 +10,7 @@
                 href="https://www.mirri.gov.sk/index.html"
                 style="display: block"
               >
-                <img src="../../assets/images/pezinok.svg" width="80px"
+                <img src="../assets/images/pezinok.svg" width="80px"
               /></a>
             </div>
           </div>

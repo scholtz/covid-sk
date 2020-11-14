@@ -4,7 +4,7 @@
       <b-container>
         <b-navbar-brand @click="window.location.reload()" href="./">
           <img
-            src="../../../assets/images/logo.svg"
+            src="../../assets/images/logo.svg"
             class="idsk-header__logotype-crown"
           />
         </b-navbar-brand>

@@ -46,7 +46,7 @@
 
 <script>
 import NotesItem from "./NotesItem.vue";
-import FormInput from "@/Layout/Components/BaseComponents/Input";
+import FormInput from "@/components/Layout/Components/BaseComponents/Input";
 
 export default {
   components: {

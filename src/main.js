@@ -9,8 +9,8 @@ import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
 import App from "./App";
 
-import Default from "./Layout/Wrappers/baseLayout.vue";
-import Pages from "./Layout/Wrappers/pagesLayout.vue";
+import Default from "./components/Layout/Wrappers/baseLayout.vue";
+import Pages from "./components/Layout/Wrappers/pagesLayout.vue";
 import store from "./store";
 import "core-js/stable";
 import "./icons";

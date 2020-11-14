@@ -21,8 +21,8 @@
 
 <script>
 import Vue from "vue";
-import Navbar from "../Components/Navbar/Navbar";
-import FooterComponent from "../Components/Footer";
+import Navbar from "../../Navbar/Navbar";
+import FooterComponent from "../../Footer";
 import { mapActions } from "vuex";
 
 export default {
