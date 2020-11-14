@@ -14,62 +14,58 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav v-if="$store.state.user.auth">
             <b-navbar-nav>
-              <b-nav-item-dropdown text="Administrátor">
-                <b-dropdown-item to="/admin/placeManager"
-                  >Management testovacích miest</b-dropdown-item
-                >
-                <b-dropdown-item to="/admin/invite"
-                  >Nový užívateľ</b-dropdown-item
-                >
-                <b-dropdown-item to="/admin/users"
-                  >Audit užívateľov</b-dropdown-item
-                >
-                <b-dropdown-item to="/admin/testingTime"
-                  >Čas testovania</b-dropdown-item
-                >
+              <b-nav-item-dropdown :text="$t('navBarAdmin')">
+                <b-dropdown-item to="/admin/placeManager">{{
+                  $t("navBarAdminManagePlace")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/invite">{{
+                  $t("navBarAdminNewUser")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/users">{{
+                  $t("navBarAdminAuditUsers")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/testingTime">{{
+                  $t("navBarAdminTestingTimes")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav>
-              <b-nav-item-dropdown text="Tester">
-                <b-dropdown-item to="/tester/registeredVisitor"
-                  >Zaregistrovaný návštevník</b-dropdown-item
-                >
-                <b-dropdown-item to="/tester/unannouncedVisitor"
-                  >Neohlásený návštevník</b-dropdown-item
-                >
-                <b-dropdown-item to="/tester/place"
-                  >Nastaviť moje miesto</b-dropdown-item
-                >
+              <b-nav-item-dropdown :text="$t('navBarTester')">
+                <b-dropdown-item to="/tester/registeredVisitor">{{
+                  $t("navBarRegVisitor")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/tester/unannouncedVisitor">{{
+                  $t("navBarNewVisitor")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/tester/place">{{
+                  $t("navBarSetPlace")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav>
-              <b-nav-item-dropdown text="Lab">
-                <b-dropdown-item to="/lab/testResult"
-                  >Výsledok testu</b-dropdown-item
-                >
+              <b-nav-item-dropdown :text="$t('navBarLab')">
+                <b-dropdown-item to="/lab/testResult">{{
+                  $t("navBarLabResult")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav>
-              <b-nav-item-dropdown text="Správca dokumentov">
-                <b-dropdown-item to="/documenter/certificate"
-                  >Vypisovanie certifikátov</b-dropdown-item
-                >
+              <b-nav-item-dropdown :text="$t('navBarDoc')">
+                <b-dropdown-item to="/documenter/certificate">{{
+                  $t("navBarDocCertificate")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
           </b-navbar-nav>
           <b-navbar-nav v-else>
-            <b-nav-item to="/register">Registrácia k odberu vzorky</b-nav-item>
-            <b-nav-item to="/results">Výsledky testu</b-nav-item>
-            <b-nav-item to="/help">Pomoc</b-nav-item>
+            <b-nav-item to="/register">{{
+              $t("navBarPublicRegister")
+            }}</b-nav-item>
+            <b-nav-item to="/results">{{
+              $t("navBarPublicResults")
+            }}</b-nav-item>
+            <b-nav-item to="/help">{{ $t("navBarPublicHelp") }}</b-nav-item>
           </b-navbar-nav>
-
-          <!-- Right aligned nav items
-          <b-navbar-nav class="ml-auto">
-            <b-nav-item-dropdown text="Jazyk / Language" right>
-              <b-dropdown-item href="#">Anglicky / English</b-dropdown-item>
-              <b-dropdown-item href="#">Slovensky / Slovak</b-dropdown-item>
-            </b-nav-item-dropdown>
-          </b-navbar-nav> -->
 
           <b-navbar-nav class="ml-auto" v-if="$store.state.user.auth">
             <b-nav-form right class="mx-3">
@@ -84,10 +80,12 @@
               </b-select>
             </b-nav-form>
             <b-nav-item-dropdown :text="$store.state.user.tokenData.Name" right>
-              <b-dropdown-item to="/change-password"
-                >Zmena hesla</b-dropdown-item
-              >
-              <b-dropdown-item @click="logout">Logout</b-dropdown-item>
+              <b-dropdown-item to="/change-password">{{
+                $t("navBarUserChangePassword")
+              }}</b-dropdown-item>
+              <b-dropdown-item @click="logout">{{
+                $t("navBarUserLogout")
+              }}</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
           <b-navbar-nav v-else right class="ml-auto"
@@ -102,7 +100,7 @@
                 </option>
               </b-select>
             </b-nav-form>
-            <b-nav-item to="/login">Prihlásenie</b-nav-item>
+            <b-nav-item to="/login">{{ $t("navBarUserLogin") }}</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-container>

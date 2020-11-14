@@ -1,4 +1,47 @@
 {
-  "mainTitle": "Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné testovanie populácie proti chorobe covid-19"
- 
+  "mainTitle": "Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné testovanie populácie proti chorobe covid-19",
+  "mainSubTitle": "Táto aplikácia bola vytvorená pre mesto Pezinok",
+  "mainStep1": "Výber odberného miesta a času",
+  "mainStep2": "Registrácia ku konkrétnemu času",
+  "mainStep3": "Reálny odber vzorky",
+  "mainStep4": "Výsledky testu",
+  "mainStep5": "Certifikát v papierovej forme",
+  "mainActionButton": "Začnite výberom odberného miesta",
+  "mainTryText": "Vyskúšajte si, ako by mohla vyzerať verzia testovania s podporou IT",
+  "mainTimeAtSampling": "Čas strávený pri odbere",
+  "mainTimeAtResult": "10 až 20",
+  "mainTimeAtSeconds":"sekúnd",
+  "mainNoQueues":"Žiadne fronty",
+  "mainGDPR":"Jasná definícia práce s osobnými údajmi",
+  "mainBrowserSupport":"Web je optimalizovaný pre chrome a ostatné prehliadače ktoré dodržiavajú štandardy. Práca registračného manažéra a laboratórneho medika vyžaduje mobilný prístup s povolenou kamerou pre scanovanie čiarových kódov.",
+  "mainDemoAccounts":"Vyskúšajte si jednotlivé role",
+  "mainLogin":"Login",
+  "mainPassword":"Heslo",
+
+  "navBarAdmin":"Administrátor",
+  "navBarAdminManagePlace":"Management testovacích miest",
+  "navBarAdminNewUser":"Nový užívateľ",
+  "navBarAdminAuditUsers":"Audit užívateľov",
+  "navBarAdminTestingTimes":"Čas testovania",
+
+  "navBarTester":"Tester",
+  "navBarRegVisitor":"Zaregistrovaný návštevník",
+  "navBarNewVisitor":"Neohlásený návštevník",
+  "navBarSetPlace":"Nastaviť moje miesto",
+  
+  "navBarLab":"Lab",
+  "navBarLabResult":"Výsledok testu",
+  
+  "navBarDoc":"Správca dokumentov",
+  "navBarDocCertificate":"Vypisovanie certifikátov",
+  
+  "navBarPublicRegister":"Registrácia k odberu vzorky",
+  "navBarPublicResults":"Výsledky testu",
+  "navBarPublicHelp":"Pomoc",
+
+  "navBarUserChangePassword":"Zmena hesla",
+  "navBarUserLogout":"Odhlásenie",
+  "navBarUserLogin":"Prihlásenie",
+
+  "Scholtz":"Scholtz"
 }

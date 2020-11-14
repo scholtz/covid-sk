@@ -1,3 +1,47 @@
 {
-  "mainTitle": "You can register for sampling against COVID-19 at this site"
+  "mainTitle": "You can register for sampling against COVID-19 at this site",
+  "mainSubTitle": "This application can be used for any sampling location, city or government. Application was build with security and privacy in mind, is open source, free to use or clone and change.",
+  "mainStep1": "Select sampling place",
+  "mainStep2": "Registration for specific time slot",
+  "mainStep3": "Real sampling",
+  "mainStep4": "Test results",
+  "mainStep5": "Certificate in paper form",
+  "mainActionButton": "Please, start with selecting your closest sampling place",
+  "mainTryText": "Try this application",
+  "mainTimeAtSampling": "Average time at sampling place can be",
+  "mainTimeAtResult": "10 to 20",
+  "mainTimeAtSeconds":"seconds",
+  "mainNoQueues":"No queues",
+  "mainGDPR":"Clear GDPR definition",
+  "mainBrowserSupport":"Web was optimized for chrome or other browsers supporting W3C standards. Registration manager and laboratory medic requires to use mobile device with camera enabled for bar code scanning.",
+  "mainDemoAccounts":"Try different roles",
+  "mainLogin":"Login",
+  "mainPassword":"Password",
+
+  "navBarAdmin":"Admin",
+  "navBarAdminManagePlace":"Place Management",
+  "navBarAdminNewUser":"New User",
+  "navBarAdminAuditUsers":"User Audit",
+  "navBarAdminTestingTimes":"Sampling time",
+
+  "navBarTester":"Tester",
+  "navBarRegVisitor":"Registered visitor",
+  "navBarNewVisitor":"New visitor",
+  "navBarSetPlace":"Setup my location",
+  
+  "navBarLab":"Lab",
+  "navBarLabResult":"Test results",
+  
+  "navBarDoc":"Document Manager",
+  "navBarDocCertificate":"Certificate issuance",
+  
+  "navBarPublicRegister":"Register for sampling",
+  "navBarPublicResults":"Test results",
+  "navBarPublicHelp":"Help",
+
+  "navBarUserChangePassword":"Change password",
+  "navBarUserLogout":"Logout",
+  "navBarUserLogin":"Login",
+
+  "Scholtz":"Scholtz"
 }
