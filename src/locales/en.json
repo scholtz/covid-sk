@@ -45,7 +45,7 @@
 
   "resultsTitle":"Test results",
   "resultsCode":"9-digit registration code",
-  "resultsPass":"Last 4 digits of your personal number or last 4 characters from password",
+  "resultsPass":"Last 4 digits of your personal number or last 4 characters from passport (foreigners)",
   "resultsCheckResults":"Check test results",
   "resultsResult":"Test result",
   "resultsSendForm":"Submit form please",
