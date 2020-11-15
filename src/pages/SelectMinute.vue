@@ -2,35 +2,39 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Vyberte si termín testovania</h1>
+        <h1>{{ $t("selectMinuteTitle") }}</h1>
       </b-container>
     </div>
     <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
       <b-container>
         <h2>
-          Vybrali ste si
-          {{ $store.state.place.currentPlace.name }}, dňa
-          {{ $store.state.slot.slotDCurrent.description }} medzi
-          {{ $store.state.slot.slotHCurrent.description }}
+          {{
+            $t("selectMinuteYourSelection", {
+              place: $store.state.place.currentPlace.name,
+              day: $store.state.slot.slotDCurrent.description,
+              hour: $store.state.slot.slotHCurrent.description,
+            })
+          }}
         </h2>
 
         <b-link
           :to="`/place/${$route.params.placeId}/${$route.params.dayId}`"
           class="govuk-button m-0"
         >
-          Zmeniť
+          {{ $t("change") }}
         </b-link>
       </b-container>
     </div>
 
-    <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
+    <b-container v-if="loading">
+      <b-spinner /> {{ $t("loadingData") }}
+    </b-container>
     <b-container class="my-4">
       <b-row>
         <b-col>
-          <h2>Vyberte si ideálny čas odberu</h2>
+          <h2>{{ $t("selectMinuteQuestion") }}</h2>
           <p>
-            V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s
-            nižším počtom registrácií
+            {{ $t("selectMinuteHelp") }}
           </p>
           <p v-for="minute in $store.state.slot.slotsM" :key="minute.slotId">
             <b-link
@@ -46,9 +50,12 @@
                   $store.state.place.currentPlace.limitPer5MinSlot,
               }"
             >
-              Medzi
-              <b>{{ minute.description }}</b>
-              je aktuálne registrovaných {{ minute.registrations }} osôb
+              {{
+                $t("selectMinuteButtonText", {
+                  description: minute.description,
+                  registrations: minute.registrations,
+                })
+              }}
             </b-link>
           </p>
         </b-col>

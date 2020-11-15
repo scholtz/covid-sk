@@ -105,5 +105,11 @@
   "selectHourHelp":"V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším počtom registrácií",
   "selectHourButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
+  "selectMinuteTitle":"Vyberte si čas testovania",
+  "selectMinuteYourSelection":"Vybrali ste si {place}, dňa {day} medzi {hour}",
+  "selectMinuteQuestion":"Vyberte si ideálny čas odberu",
+  "selectMinuteHelp":"V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším počtom registrácií",
+  "selectMinuteButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
+  
   "Scholtz":"Scholtz"
 }

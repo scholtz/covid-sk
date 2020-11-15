@@ -100,10 +100,16 @@
   "selectDayButtonText":"On {description} is currently registered {registrations} people",
 
   "selectHourTitle":"Please select hour",
-  "selectHourYourSelection":"you have selected sampling place {place}, on {day}",
+  "selectHourYourSelection":"You have selected sampling place {place}, on {day}",
   "selectHourQuestion":"Which hour is better suited for you?",
   "selectHourHelp":"In case you can visit sampling place any time, please select hour with minimum registrations",
   "selectHourButtonText":"Between {description} is currently registered {registrations} people",
+
+  "selectMinuteTitle":"Please select your sampling time",
+  "selectMinuteYourSelection":"You have selected sampling place {place}, on {day} between {hour}",
+  "selectMinuteQuestion":"Please select time that is ideal for you",
+  "selectMinuteHelp":"In case you can visit sampling place any time, please select hour with minimum registrations",
+  "selectMinuteButtonText":"Between {description} is currently registered {registrations} people",
 
   "Scholtz":"Scholtz"
 }
