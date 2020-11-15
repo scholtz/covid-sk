@@ -68,5 +68,27 @@
   "chPassSetup":"Nastaviť nové heslo",
   "chPassValidationDoNotMatch":"Heslá sa nezhodujú",
 
+  "selectPlaceTitle":"Výber odberného miesta",
+  "selectPlaceShowTable":"Zobraziť tabuľku",
+  "selectPlaceShowMap":"Zobraziť mapu",
+  "selectPlaceHelpMap":"Vyberte si na mape odberné miesto, zobrazte podrobnosti a pokračujte kliknutím na tlačítko Vybrať.",
+  "selectPlaceHelpTable":"Vyberte si z tabuľky odberné miesto a pokračujte kliknutím na tlačítko Vybrať.",
+  "selectPlaceSelect":"Vybrať",
+  "selectPlaceLoadingData":"Čítam údaje",
+  "selectPlaceAction":"Akcia",
+  "selectPlacePlaceName":"Názov miesta",
+  "selectPlaceAddress":"Adresa",
+  "selectPlaceDriveIn":"Možnosť prísť autom",
+  "selectPlaceWalkIn":"Možnosť prísť pešo",
+  "selectPlaceLat":"GPS Lat",
+  "selectPlaceLng":"GPS Lng",
+  "selectPlace5MinLimit":"5Min limit",
+  "selectPlace1HourLimit":"Hod limit",
+  "selectPlaceRegistrations":"Registrácií",
+  "selectPlaceStatsHealthy":"Počet zdravých",
+  "selectPlaceStatsSick":"Počet nakazených",
+  "yes":"Áno",
+  "no":"Nie",
+  
   "Scholtz":"Scholtz"
 }

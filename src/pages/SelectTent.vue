@@ -6,22 +6,20 @@
           v-if="showing === 'map'"
           class="pull-right govuk-button govuk-!-margin-right-3"
           @click="showing = 'table'"
-          >Zobraziť tabuľku</b-link
+          >{{ $t("selectPlaceShowTable") }}</b-link
         >
         <b-link
           v-if="showing === 'table'"
           class="pull-right govuk-button govuk-!-margin-right-3"
           @click="showing = 'map'"
-          >Zobraziť mapu</b-link
+          >{{ $t("selectPlaceShowMap") }}</b-link
         >
-        <h1>Výber odberného miesta</h1>
+        <h1>{{ $t("selectPlaceTitle") }}</h1>
         <p v-if="showing === 'map'">
-          Vyberte si na mape odberné miesto, zobrazte podrobnosti a pokračujte
-          kliknutím na tlačítko Vybrať.
+          {{ $t("selectPlaceHelpMap") }}
         </p>
         <p v-if="showing === 'table'">
-          Vyberte si z tabuľky odberné miesto a pokračujte kliknutím na tlačítko
-          Vybrať.
+          {{ $t("selectPlaceHelpTable") }}
         </p>
       </b-container>
     </div>
@@ -56,28 +54,19 @@
                     <h4 class="md-auto" style="text-align: center">
                       {{ place.name }}
                     </h4>
-                    <p>Adresa: {{ place.address }}</p>
-                    <p>Registrácií: {{ place.registrations }}</p>
-                    <p>Má drive in: {{ place.isDriveIn }}</p>
-                    <p>Má walk in: {{ place.isWalkIn }}</p>
+                    <p>{{ $t("selectPlaceAddress") }}: {{ place.address }}</p>
+                    <p>
+                      {{ $t("selectPlaceRegistrations") }}:
+                      {{ place.registrations }}
+                    </p>
+                    <p>{{ $t("selectPlaceDriveIn") }}: {{ place.isDriveIn }}</p>
+                    <p>{{ $t("selectPlaceWalkIn") }}: {{ place.isWalkIn }}</p>
                     <b-link :to="`/place/${place.id}`" class="govuk-button">
-                      Vybrať
+                      {{ $t("selectPlaceSelect") }}
                     </b-link>
                   </l-popup>
                 </l-marker>
               </LLayerGroup>
-
-              <l-marker
-                v-if="lastClickLatLng.lat"
-                :lat-lng="lastClickLatLng"
-                @add="openPopup"
-              >
-                <l-popup :options="{ autoClose: false, closeOnClick: false }">
-                  <h4 class="md-auto" style="text-align: center">Map click</h4>
-                  <p>{{ lastClickLatLng.lat }}</p>
-                  <p>{{ lastClickLatLng.lng }}</p>
-                </l-popup>
-              </l-marker>
             </l-map>
           </b-col>
         </b-row>
@@ -92,26 +81,28 @@
         >
           <template #cell(id)="row">
             <b-link :to="`/place/${row.value}`" class="govuk-button">
-              Vybrať
+              {{ $t("selectPlaceSelect") }}
             </b-link>
           </template>
 
           <template #cell(isDriveIn)="row">
             <b-form-checkbox disabled v-model="row.item.isDriveIn">
-              <span v-if="row.item.isDriveIn">Áno</span>
-              <span v-if="!row.item.isDriveIn">Nie</span>
+              <span v-if="row.item.isDriveIn">{{ $t("yes") }}</span>
+              <span v-if="!row.item.isDriveIn">{{ $t("no") }}</span>
             </b-form-checkbox>
           </template>
           <template #cell(isWalkIn)="row">
             <b-form-checkbox disabled v-model="row.item.isWalkIn">
-              <span v-if="row.item.isWalkIn">Áno</span>
-              <span v-if="!row.item.isWalkIn">Nie</span>
+              <span v-if="row.item.isWalkIn">{{ $t("yes") }}</span>
+              <span v-if="!row.item.isWalkIn">{{ $t("no") }}</span>
             </b-form-checkbox>
           </template>
         </b-table>
       </div>
     </div>
-    <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
+    <b-container v-if="loading">
+      <b-spinner /> {{ $t("selectPlaceLoadingData") }}
+    </b-container>
   </div>
 </template>
 
@@ -142,68 +133,68 @@ export default {
   data() {
     return {
       showing: "table",
+      loading: true,
       fields: [
         {
-          label: "Akcia",
+          label: this.$i18n.t("selectPlaceAction"),
           key: "id",
         },
         {
-          label: "Názov miesta",
+          label: this.$i18n.t("selectPlacePlaceName"),
           key: "name",
           sortable: true,
         },
         {
-          label: "Adresa",
+          label: this.$t("selectPlaceAddress"),
           key: "address",
           sortable: true,
         },
         {
           key: "isDriveIn",
-          label: "Možnosť prísť autom",
+          label: this.$t("selectPlaceDriveIn"),
           sortable: true,
         },
         {
           key: "isWalkIn",
-          label: "Možnosť prísť pešo",
+          label: this.$t("selectPlaceWalkIn"),
           sortable: true,
         },
         {
-          label: "GPS Lat",
+          label: this.$t("selectPlaceLat"),
           key: "lat",
           sortable: true,
         },
         {
-          label: "GPS Lng",
+          label: this.$t("selectPlaceLng"),
           key: "lng",
           sortable: true,
         },
         {
           key: "limitPer5MinSlot",
-          label: "5Min limit",
+          label: this.$t("selectPlace5MinLimit"),
           sortable: true,
         },
         {
           key: "limitPer1HourSlot",
-          label: "Hod limit",
+          label: this.$t("selectPlace1HourLimit"),
           sortable: true,
         },
         {
-          label: "Registrácií",
+          label: this.$t("selectPlaceRegistrations"),
           key: "registrations",
           sortable: true,
         },
         {
-          label: "Počet zdravých",
+          label: this.$t("selectPlaceStatsHealthy"),
           key: "healthy",
           sortable: true,
         },
         {
-          label: "Počet nakazených",
+          label: this.$t("selectPlaceStatsSick"),
           key: "sick",
           sortable: true,
         },
       ],
-      loading: true,
       lastClickLatLng: [],
       zoom: 15,
       minZoom: 3,
@@ -218,6 +209,17 @@ export default {
       },
     };
   },
+  computed: {
+    locale() {
+      return this.$i18n.locale;
+    },
+  },
+  watch: {
+    locale() {
+      console.log("this.$i18n.locale", this.$i18n.locale);
+      this.setFields();
+    },
+  },
   mounted() {
     // eslint-disable-next-line
     this.ReloadPlaces().then(r => {
@@ -228,6 +230,69 @@ export default {
     ...mapActions({
       ReloadPlaces: "place/ReloadPlaces",
     }),
+    setFields() {
+      this.fields = [
+        {
+          label: this.$t("selectPlaceAction"),
+          key: "id",
+        },
+        {
+          label: this.$t("selectPlacePlaceName"),
+          key: "name",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceAddress"),
+          key: "address",
+          sortable: true,
+        },
+        {
+          key: "isDriveIn",
+          label: this.$t("selectPlaceDriveIn"),
+          sortable: true,
+        },
+        {
+          key: "isWalkIn",
+          label: this.$t("selectPlaceWalkIn"),
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceLat"),
+          key: "lat",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceLng"),
+          key: "lng",
+          sortable: true,
+        },
+        {
+          key: "limitPer5MinSlot",
+          label: this.$t("selectPlace5MinLimit"),
+          sortable: true,
+        },
+        {
+          key: "limitPer1HourSlot",
+          label: this.$t("selectPlace1HourLimit"),
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceRegistrations"),
+          key: "registrations",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceStatsHealthy"),
+          key: "healthy",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceStatsSick"),
+          key: "sick",
+          sortable: true,
+        },
+      ];
+    },
     onMapClick(event) {
       this.lastClickLatLng = event.latlng;
 

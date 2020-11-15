@@ -68,5 +68,27 @@
   "chPassSetup":"Set the new password",
   "chPassValidationDoNotMatch":"Passwords do not match",
 
+  "selectPlaceTitle":"Select your sampling place",
+  "selectPlaceShowTable":"Show table",
+  "selectPlaceShowMap":"Show map",
+  "selectPlaceHelpMap":"Select sampling place on the map which is closest to you. Please consider number of registrations at the specific place. View place details, and continue by clicking the Select button.",
+  "selectPlaceHelpTable":"Select sampling place from the table, and continue by clicking on the Select button.",
+  "selectPlaceSelect":"Select",
+  "selectPlaceLoadingData":"Loading data",
+  "selectPlaceAction":"Action",
+  "selectPlacePlaceName":"Place name",
+  "selectPlaceAddress":"Address",
+  "selectPlaceDriveIn":"Is drive in",
+  "selectPlaceWalkIn":"Is walk in",
+  "selectPlaceLat":"GPS Lat",
+  "selectPlaceLng":"GPS Lng",
+  "selectPlace5MinLimit":"5 Min limit",
+  "selectPlace1HourLimit":"1 Hour limit",
+  "selectPlaceRegistrations":"Registrations",
+  "selectPlaceStatsHealthy":"Stats of healthy",
+  "selectPlaceStatsSick":"Stats of sick",
+  "yes":"Yes",
+  "no":"No",
+
   "Scholtz":"Scholtz"
 }
