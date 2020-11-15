@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Vyberte si termín testovania</h1>
+        <h1>{{ $t("selectDayTitle") }}</h1>
       </b-container>
     </div>
 
@@ -12,27 +12,36 @@
     >
       <b-container>
         <h2>
-          Vybrali ste si
-          {{ $store.state.place.currentPlace.name }}
+          {{
+            $t("selectDayYourSelection", {
+              place: $store.state.place.currentPlace.name,
+            })
+          }}
         </h2>
 
-        <b-link :to="`/register`" class="govuk-button m-0"> Zmeniť </b-link>
+        <b-link :to="`/register`" class="govuk-button m-0"
+          >{{ $t("change") }}
+        </b-link>
       </b-container>
     </div>
     <b-container class="my-4">
-      <h2>V ktorý deň Vám návšteva odberného miesta vyhovuje viac?</h2>
+      <h2>{{ $t("selectDayQuestion") }}</h2>
       <p>
-        V prípade ak môžete prísť v oba termíny, uprednostnite prosím prvý
-        termín
+        {{ $t("selectDayHelp") }}
       </p>
-      <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
+      <b-container v-if="loading">
+        <b-spinner /> {{ $t("loadingData") }}
+      </b-container>
       <div v-for="slotD in $store.state.slot.slotsD" :key="slotD.slotId">
         <b-link
           :to="`/place/${$route.params.placeId}/${slotD.slotId}`"
           class="govuk-button"
-        >
-          Dňa {{ slotD.description }} je aktuálne registrovaných
-          {{ slotD.registrations }} osôb
+          >{{
+            $t("selectDayButtonText", {
+              description: slotD.description,
+              registrations: slotD.registrations,
+            })
+          }}
         </b-link>
       </div>
     </b-container>

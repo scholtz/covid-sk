@@ -90,5 +90,12 @@
   "yes":"Yes",
   "no":"No",
 
+  "selectDayTitle":"Please select day",
+  "selectDayYourSelection":"You have chosen {place}",
+  "change":"Change",
+  "selectDayQuestion":"Which day is better suited for you?",
+  "selectDayHelp":"In case you can visit sampling place any day, please select first available day, even if there is more registrations",
+  "selectDayButtonText":"On {description} is currently registered {registrations} people",
+
   "Scholtz":"Scholtz"
 }
