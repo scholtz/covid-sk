@@ -2,6 +2,7 @@
   "loadingData":"Čítam údaje",
   "yes":"Áno",
   "no":"Nie",
+  "change":"Zmeniť",
 
   "mainTitle": "Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné testovanie populácie proti chorobe covid-19",
   "mainSubTitle": "Táto aplikácia bola vytvorená pre mesto Pezinok",
@@ -92,12 +93,17 @@
   "selectPlaceStatsHealthy":"Počet zdravých",
   "selectPlaceStatsSick":"Počet nakazených",
   
-  "selectDayTitle":"Vyberte si termín testovania",
+  "selectDayTitle":"Vyberte si deň testovania",
   "selectDayYourSelection":"Vybrali ste si {place}",
-  "change":"Zmeniť",
   "selectDayQuestion":"V ktorý deň Vám návšteva odberného miesta vyhovuje viac?",
   "selectDayHelp":"V prípade ak môžete prísť v oba termíny, uprednostnite prosím prvý termín",
   "selectDayButtonText":"Dňa {description} je aktuálne registrovaných {registrations} osôb",
+  
+  "selectHourTitle":"Vyberte si hodinu testovania",
+  "selectHourYourSelection":"Vybrali ste si {place}, dňa {day}",
+  "selectHourQuestion":"V ktorú hodinu Vám to vyhovuje viac?",
+  "selectHourHelp":"V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším počtom registrácií",
+  "selectHourButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "Scholtz":"Scholtz"
 }

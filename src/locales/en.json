@@ -1,4 +1,9 @@
 {
+  "loadingData":"Loading data",
+  "yes":"Yes",
+  "no":"No",
+  "change":"Change",
+
   "mainTitle": "You can register for sampling against COVID-19 at this site",
   "mainSubTitle": "This application can be used for any sampling location, city or government. Application was build with security, scalability, and privacy in mind, is open source, free to use or clone and change.",
   "mainStep1": "Select sampling place",
@@ -87,15 +92,18 @@
   "selectPlaceRegistrations":"Registrations",
   "selectPlaceStatsHealthy":"Stats of healthy",
   "selectPlaceStatsSick":"Stats of sick",
-  "yes":"Yes",
-  "no":"No",
 
   "selectDayTitle":"Please select day",
   "selectDayYourSelection":"You have chosen {place}",
-  "change":"Change",
   "selectDayQuestion":"Which day is better suited for you?",
   "selectDayHelp":"In case you can visit sampling place any day, please select first available day, even if there is more registrations",
   "selectDayButtonText":"On {description} is currently registered {registrations} people",
+
+  "selectHourTitle":"Please select hour",
+  "selectHourYourSelection":"you have selected sampling place {place}, on {day}",
+  "selectHourQuestion":"Which hour is better suited for you?",
+  "selectHourHelp":"In case you can visit sampling place any time, please select hour with minimum registrations",
+  "selectHourButtonText":"Between {description} is currently registered {registrations} people",
 
   "Scholtz":"Scholtz"
 }

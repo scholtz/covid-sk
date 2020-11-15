@@ -2,32 +2,36 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Vyberte si termín testovania</h1>
+        <h1>{{ $t("selectHourTitle") }}</h1>
       </b-container>
     </div>
     <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
       <b-container>
         <h2>
-          Vybrali ste si
-          {{ $store.state.place.currentPlace.name }}, dňa
-          {{ $store.state.slot.slotDCurrent.description }}
+          {{
+            $t("selectHourYourSelection", {
+              place: $store.state.place.currentPlace.name,
+              day: $store.state.slot.slotDCurrent.description,
+            })
+          }}
         </h2>
         <b-link
           :to="`/place/${$route.params.placeId}`"
           class="govuk-button m-0"
         >
-          Zmeniť
+          {{ $t("change") }}
         </b-link>
       </b-container>
     </div>
 
     <b-container class="my-4">
-      <h2>V ktorú hodinu Vám to vyhovuje viac?</h2>
+      <h2>{{ $t("selectHourQuestion") }}</h2>
       <p>
-        V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším
-        počtom registrácií
+        {{ $t("selectHourHelp") }}
       </p>
-      <b-container v-if="loading"> <b-spinner /> Čítam údaje </b-container>
+      <b-container v-if="loading">
+        <b-spinner /> {{ $t("loadingData") }}
+      </b-container>
       <p v-for="hour in $store.state.slot.slotsH" :key="hour.from">
         <b-link
           :disabled="
@@ -42,8 +46,12 @@
               $store.state.place.currentPlace.limitPer1HourSlot,
           }"
         >
-          Medzi <b>{{ hour.description }}</b> je aktuálne registrovaných
-          {{ hour.registrations }} osôb
+          {{
+            $t("selectHourButtonText", {
+              description: hour.description,
+              registrations: hour.registrations,
+            })
+          }}
         </b-link>
       </p>
     </b-container>
