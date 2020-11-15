@@ -1,4 +1,8 @@
 import Vue from "vue";
+
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 import router from "./router";
 
 import BootstrapVue from "bootstrap-vue";
@@ -13,15 +17,15 @@ import i18n from "./i18n";
 import Default from "./components/Layout/Wrappers/baseLayout.vue";
 import Pages from "./components/Layout/Wrappers/pagesLayout.vue";
 import store from "./store";
-import "core-js/stable";
+
 import "./icons";
 import "./filters";
-import VueBootstrapToasts from "vue-bootstrap-toasts";
+import ToastsPlugin from "./components/ToastsPlugin";
 
 Vue.config.productionTip = false;
 
+Vue.use(ToastsPlugin);
 Vue.use(BootstrapVue);
-Vue.use(VueBootstrapToasts);
 Vue.component("default-layout", Default);
 Vue.component("userpages-layout", Pages);
 

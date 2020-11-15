@@ -28,6 +28,7 @@ export const mutations = {
 function parseJwt(token) {
   if (!token) return {};
   const base64Url = token.split(".")[1];
+  if (!base64Url) return {};
   const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   const jsonPayload = decodeURIComponent(
     atob(base64)
