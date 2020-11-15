@@ -61,5 +61,12 @@
   "resultsTestNegativeCertNotTaken":"You are <b>NOT</b> infected. Test has proven that you are not infected with SARS-CoV-2. <b>Please visit sampling place and take the certificate.</b>",
   "resultsRemovePersonalData":"Delete personal data",
 
+  "chPassTitle":"Change Password",
+  "chPassOldPassword":"Old password",
+  "chPassNewPassword":"New password",
+  "chPassNewPasswordValidation":"New password - confirmation",
+  "chPassSetup":"Set the new password",
+  "chPassValidationDoNotMatch":"Passwords do not match",
+
   "Scholtz":"Scholtz"
 }

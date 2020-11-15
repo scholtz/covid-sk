@@ -61,5 +61,12 @@
   "resultsTestNegativeCertNotTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Príďte si pre certifikát.</b>",
   "resultsRemovePersonalData":"Vymazať osobné údaje",
 
+  "chPassTitle":"Zmena hesla",
+  "chPassOldPassword":"Staré heslo",
+  "chPassNewPassword":"Nové heslo",
+  "chPassNewPasswordValidation":"Nové heslo - overenie",
+  "chPassSetup":"Nastaviť nové heslo",
+  "chPassValidationDoNotMatch":"Heslá sa nezhodujú",
+
   "Scholtz":"Scholtz"
 }

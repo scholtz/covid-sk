@@ -2,14 +2,14 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Zmena hesla</h1>
+        <h1>{{ $t("chPassTitle") }}</h1>
       </b-container>
     </div>
     <ValidationObserver>
       <b-container class="py-3">
         <b-row>
           <b-col cols="12" md="12">
-            <label for="pass1">Staré heslo</label>
+            <label for="pass1">{{ $t("chPassOldPassword") }}</label>
             <b-input v-model="pass1" ref="pass1" id="pass1" type="password" />
           </b-col>
           <b-col cols="12" md="6">
@@ -20,7 +20,7 @@
             >
               <b-form-group
                 id="pass2-group-1"
-                label="Nové heslo"
+                :label="$t('chPassNewPassword')"
                 label-for="pass2"
               >
                 <b-form-input
@@ -46,7 +46,7 @@
             >
               <b-form-group
                 id="pass3-group-1"
-                label="Nové heslo - overenie"
+                :label="$t('chPassNewPasswordValidation')"
                 label-for="pass3"
               >
                 <b-form-input
@@ -71,7 +71,7 @@
               @click="clickLogin"
               class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
             >
-              Nastaviť nové heslo
+              {{ $t("chPassTitle") }}
               <svg
                 class="govuk-button__start-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,13 +100,14 @@ import {
 } from "vee-validate/dist/vee-validate.full";
 import sk from "vee-validate/dist/locale/sk.json";
 localize("sk", sk);
+import i18n from "@/i18n";
 
 extend("password", {
   params: ["target"],
   validate(value, { target }) {
     return value === target;
   },
-  message: "Heslá sa nezhodujú",
+  message: i18n.t("chPassValidationDoNotMatch"),
 });
 
 import { mapActions } from "vuex";
