@@ -117,5 +117,28 @@
   "selectMinuteHelp":"In case you can visit sampling place any time, please select hour with minimum registrations",
   "selectMinuteButtonText":"Between {description} is currently registered {registrations} people",
 
+  "registrationTitle":"Last registration step - Personal Data",
+  "registrationHelp1":"You are allowed to delete your personal data after your test is marked as negative. In case of pisitive test, your personal data will be forwarded to central covid medical database. Your personal data is securly encrypted and every access to them is logged. All personal data will be deleted at maximum 2 business days after last day of testing.",
+  "registrationYourSelection":"You have selected sampling place {place}, on {day} between {hour}",
+  "registrationFormTypeLabel":"Type of person identification",
+  "registrationFormTypePersonalCard":"I have national ID card",
+  "registrationFormTypePersonalChild":"Registration of child by parent",
+  "registrationFormTypePersonalForeigner":"I am foreigner",
+  "registrationFormFirstName":"Name",
+  "registrationFormLastName":"Last name",
+  "registrationFormPersonalNumber":"Personal ID",
+  "registrationFormPersonalNumberChild":"Child personal ID",
+  "registrationFormPassport":"Passport or national ID number",
+  "registrationFormAddress":"Address of residence",
+  "registrationFormMobile":"Mobile phone with country suffix",
+  "registrationFormEmail":"Email",
+  "registrationFormInsurance":"Insurance",
+  "registrationBottomHelp1":"Main purpose of preregistration is to minimize risk of covid exposure between visitors and minimize testing time. In ideal case doctor will scan your registration code, scan the testing set code, and performs the sampling. By pressing the registration button, you will create your registration code. Registration code with last 4 digits of personal number (or passport for foreginers) is used to detect the result of the test. You can change your registration any time by registering again (to the different place or time) with the same personal number.",
+  "registrationBottomHelp2":"You can add next person (child, parent) after you finish your registration. Every person has unique registration code. Registration bar code does not have to be printed, it may be shown on screen (take screenshot) or it can be just written on paper as number.",
+  "registrationFormGDPR":"I agree with processing of my peresonal data (GDPR)",
+  "registrationFormButton":"Register",
+  "registrationFormInsuranceEU":"EU insurance",
+  "registrationFormInsuranceForeigner":"Foreigner",
+
   "Scholtz":"Scholtz"
 }

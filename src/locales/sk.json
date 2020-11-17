@@ -118,5 +118,28 @@
   "selectMinuteHelp":"V prípade ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším počtom registrácií",
   "selectMinuteButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
+  "registrationTitle":"Posledný krok registrácie - Osobné údaje",
+  "registrationHelp1":"Údaje o Vašom testovaní, vrátane osobných údajov môžete vymazať zo stránky výsledky testu ak sa preukáže, že ochorenie covid19 nemáte. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256. Všetky osobné údaje budú z tejto databáze odstránené najneskôr do 2 pracovných dní od posledného dňa testovania.",
+  "registrationYourSelection":"Vybrali ste si {place}, dňa {day} medzi {hour}",
+  "registrationFormTypeLabel":"Identifikácia registrovanej osoby",
+  "registrationFormTypePersonalCard":"Mám občiansky preukaz",
+  "registrationFormTypePersonalChild":"Registrácia dieťaťa zákonným zástupcom",
+  "registrationFormTypePersonalForeigner":"Som cudzinec",
+  "registrationFormFirstName":"Meno",
+  "registrationFormLastName":"Priezvisko",
+  "registrationFormPersonalNumber":"Rodné číslo bez lomítka",
+  "registrationFormPersonalNumberChild":"Rodné číslo dieťaťa bez lomítka",
+  "registrationFormPassport":"Číslo cestovného dokladu",
+  "registrationFormAddress":"Adresa miesta pobytu",
+  "registrationFormMobile":"Telefón bez medzier s predvoľbou štátu",
+  "registrationFormEmail":"Email",
+  "registrationFormInsurance":"Poisťovňa",
+  "registrationBottomHelp1":"Cieľom registrácie pred návštevou odberného miesta je minimalizovať čas potrebný pre výkon testu. V ideálnom prípade doktor nascanuje čiarový kód Vašej registrácie, čiarový kód na testovacej súprave, a vykoná odobratie vzorky. Stlačením tlačítka nižšie vytvoríte svoj jedinečný kód registrácie, ktorý s kombináciou posledných 4 čísel rodného čísla (cestovného dokladu pre cudzincov) použijete aj na zistenie výsledku testu na tejto stránke.",
+  "registrationBottomHelp2":"Ďalšiu osobu (partnera/ku, deti) budete môcť pridať po Vašej registrácii k vybranému termínu. Každá osoba má svoj unikátny kód registrácie.",
+  "registrationFormGDPR":"Súhlasím so spracovaním osobných údajov",
+  "registrationFormButton":"Zaregistrovať",
+  "registrationFormInsuranceEU":"EÚ poistenec",
+  "registrationFormInsuranceForeigner":"Cudzinec",
+
   "Scholtz":"Scholtz"
 }

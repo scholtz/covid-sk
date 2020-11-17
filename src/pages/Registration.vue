@@ -2,18 +2,9 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Posledný krok registrácie - Osobné údaje</h1>
+        <h1>{{ $t("registrationTitle") }}</h1>
         <p>
-          Údaje o Vašom testovaní, vrátane osobných údajov môžete vymazať zo
-          stránky výsledky testu ak sa preukáže, že ochorenie covid19 nemáte. V
-          prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania
-          budú Vaše osobné údaje chránené šifrovaním AES256. Všetky osobné údaje
-          budú z tejto databáze odstránené najneskôr do 2 pracovných dní od
-          posledného dňa testovania.
-        </p>
-        <p>
-          Ak ste obsluha testoacieho miesta, a ešte ste nedostali email s
-          registráciou, kontaktujte administrátora aby vám poslal pozvánku.
+          {{ $t("registrationHelp1") }}
         </p>
       </b-container>
     </div>
@@ -23,16 +14,19 @@
     >
       <b-container>
         <h2>
-          Vybrali ste si
-          {{ $store.state.place.currentPlace.name }}, dňa
-          {{ $store.state.slot.slotDCurrent.description }} medzi
-          {{ $store.state.slot.slotMCurrent.description }}
+          {{
+            $t("registrationYourSelection", {
+              place: $store.state.place.currentPlace.name,
+              day: $store.state.slot.slotDCurrent.description,
+              hour: $store.state.slot.slotHCurrent.description,
+            })
+          }}
         </h2>
         <b-link
           :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}`"
           class="govuk-button m-0"
         >
-          Zmeniť
+          {{ $t("change") }}
         </b-link>
       </b-container>
     </div>
@@ -40,24 +34,24 @@
       <b-container class="my-4">
         <b-row>
           <b-col cols="12" md="4">
-            <b-form-group label="Identifikácia registrovanej osoby">
+            <b-form-group :label="$t('registrationFormTypeLabel')">
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="idcard"
-                >Mám občiansky preukaz</b-form-radio
+                >{{ $t("registrationFormTypePersonalCard") }}</b-form-radio
               >
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="child"
-                >Registrácia dieťaťa zákonným zástupcom</b-form-radio
+                >{{ $t("registrationFormTypePersonalChild") }}</b-form-radio
               >
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="foreign"
-                >Som cudzinec</b-form-radio
+                >{{ $t("registrationFormTypePersonalForeigner") }}</b-form-radio
               >
             </b-form-group>
           </b-col>
@@ -71,7 +65,7 @@
             >
               <b-form-group
                 id="firstName-group-1"
-                label="Meno"
+                :label="$t('registrationFormFirstName')"
                 label-for="firstName"
               >
                 <b-form-input
@@ -97,7 +91,7 @@
             >
               <b-form-group
                 id="lastName-group-1"
-                label="Priezvisko"
+                :label="$t('registrationFormLastName')"
                 label-for="lastName"
               >
                 <b-form-input
@@ -129,8 +123,8 @@
                 id="rc-group-1"
                 :label="
                   personType === 'idcard'
-                    ? 'Rodné číslo bez lomítka'
-                    : 'Rodné číslo dieťaťa bez lomítka'
+                    ? $t('registrationFormPersonalNumber')
+                    : $t('registrationFormPersonalNumberChild')
                 "
                 label-for="rc"
               >
@@ -157,7 +151,7 @@
             >
               <b-form-group
                 id="passport-group-1"
-                label="Číslo cestovného dokladu"
+                :label="$t('registrationFormPassport')"
                 label-for="passport"
               >
                 <b-form-input
@@ -185,7 +179,7 @@
             >
               <b-form-group
                 id="address-group-1"
-                label="Adresa miesta pobytu"
+                :label="$t('registrationFormAddress')"
                 label-for="address"
               >
                 <b-form-input
@@ -212,7 +206,7 @@
             >
               <b-form-group
                 id="phone-group-1"
-                label="Telefón bez medzier s predvoľbou štátu"
+                :label="$t('registrationFormMobile')"
                 label-for="phone"
               >
                 <b-form-input
@@ -235,7 +229,11 @@
               rules="required|email"
               v-slot="validationContext"
             >
-              <b-form-group id="email-group-1" label="Email" label-for="email">
+              <b-form-group
+                id="email-group-1"
+                :label="$t('registrationFormEmail')"
+                label-for="email"
+              >
                 <b-form-input
                   id="email"
                   name="email"
@@ -251,7 +249,7 @@
             </validation-provider>
           </b-col>
           <b-col cols="12" md="4">
-            <label for="insurance">Poisťovňa</label>
+            <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
               :options="insuranceOptions"
               v-model="insurance"
@@ -262,23 +260,14 @@
         <b-row>
           <b-col cols="12" class="my-2">
             <p>
-              Cieľom registrácie pred návštevou odberného miesta je
-              minimalizovať čas potrebný pre výkon testu. V ideálnom prípade
-              doktor nascanuje čiarový kód Vašej registrácie, čiarový kód na
-              testovacej súprave, a vykoná odobratie vzorky. Stlačením tlačítka
-              nižšie vytvoríte svoj jedinečný kód registrácie, ktorý s
-              kombináciou posledných 4 čísel rodného čísla (cestovného dokladu
-              pre cudzincov) použijete aj na zistenie výsledku testu na tejto
-              stránke.
+              {{ $t("registrationBottomHelp1") }}
             </p>
             <p>
-              Ďalšiu osobu (partnera/ku, deti) budete môcť pridať po Vašej
-              registrácii k vybranému termínu. Každá osoba má svoj unikátny kód
-              registrácie.
+              {{ $t("registrationBottomHelp2") }}
             </p>
             <p>
               <b-form-checkbox v-model="gdpr" id="gdpr">
-                Súhlasím so spracovaním osobných údajov
+                {{ $t("registrationFormGDPR") }}
               </b-form-checkbox>
             </p>
             <button
@@ -286,7 +275,7 @@
               class="govuk-button"
               @click="registerForTest"
             >
-              Zaregistrovať
+              {{ $t("registrationFormButton") }}
             </button>
           </b-col>
         </b-row>
@@ -347,8 +336,22 @@ extend("phone", {
     if (valTrim.substr(0, 1) !== "+") return false;
     valTrim = valTrim.substr(1);
 
-    const ret = valTrim.match(/^\d{12}$/);
-    console.log("valTrim", valTrim, ret);
+    if (valTrim.substr(0, 3) == 421) {
+      // slovakia
+      const ret = valTrim.match(/^\d{12}$/);
+      return ret;
+    }
+    if (valTrim.substr(0, 3) == 420) {
+      // czech
+      const ret = valTrim.match(/^\d{12}$/);
+      return ret;
+    }
+    if (valTrim.substr(0, 2) == 43) {
+      // austria
+      const ret = valTrim.match(/^\d{11}$/);
+      return ret;
+    }
+    const ret = valTrim.match(/^\d{11}$/);
     return ret;
   },
 });
@@ -386,11 +389,11 @@ export default {
         },
         {
           value: "98",
-          text: "EÚ poistenec",
+          text: this.$t("registrationFormInsuranceEU"),
         },
         {
           value: "99",
-          text: "Cudzinec",
+          text: this.$t("registrationFormInsuranceForeigner"),
         },
       ],
     };
