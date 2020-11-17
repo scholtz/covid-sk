@@ -73,6 +73,12 @@
   "chPassSetup":"Set the new password",
   "chPassValidationDoNotMatch":"Passwords do not match",
 
+  "loginTitle":"Login",
+  "loginHelp":"Authentication is for authorized personell only. After medic authenticate, he or she can scan registration bar codes from mobile device screen or printed out. After successfull authorization, the top menu changes, and person can access required action there.",
+  "loginFormLogin":"Login / Email",
+  "loginFormPassword":"Password",
+  "loginFormButton":"Login",
+
   "selectPlaceTitle":"Select your sampling place",
   "selectPlaceShowTable":"Show table",
   "selectPlaceShowMap":"Show map",

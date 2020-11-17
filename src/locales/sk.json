@@ -73,6 +73,13 @@
   "chPassSetup":"Nastaviť nové heslo",
   "chPassValidationDoNotMatch":"Heslá sa nezhodujú",
 
+  "loginTitle":"Prihlásenie",
+  "loginHelp":"Prihlásenie slúži pre obsluhu testovacieho miesta. Po prihlásení môže obsluha scanovať čiarové kódy z obrazovky mobilu alebo vytlačené na papieri. Po úspešnom prihlásení sa zmení horné menu na rozbaľovací zoznam rolí a funkcií ktoré môžu robiť.",
+  "loginFormLogin":"Login / Email",
+  "loginFormPassword":"Heslo",
+  "loginFormButton":"Prihlás",
+  
+
   "selectPlaceTitle":"Výber odberného miesta",
   "selectPlaceShowTable":"Zobraziť tabuľku",
   "selectPlaceShowMap":"Zobraziť mapu",

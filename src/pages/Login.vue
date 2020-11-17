@@ -2,23 +2,20 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Prihlásenie</h1>
+        <h1>{{ $t("loginTitle") }}</h1>
         <p>
-          Prihlásenie slúži pre obsluhu testovacieho miesta. Po prihlásení môže
-          obsluha scanovať čiarové kódy z obrazovky mobilu alebo vytlačené na
-          papieri. Po úspešnom prihlásení sa zmení horné menu na rozbaľovací
-          zoznam rolí a funkcií ktoré môžu robiť.
+          {{ $t("loginHelp") }}
         </p>
       </b-container>
     </div>
     <b-container class="py-3">
       <b-row>
         <b-col cols="12" md="6">
-          <label for="login">Login / Email</label>
+          <label for="login">{{ $t("loginFormLogin") }}</label>
           <b-input v-model="login" ref="login" id="login" />
         </b-col>
         <b-col cols="12" md="6">
-          <label for="pass">Heslo</label>
+          <label for="pass">{{ $t("loginFormPassword") }}</label>
           <b-input v-model="pass" ref="pass" id="pass" type="password" />
         </b-col>
       </b-row>
@@ -28,7 +25,7 @@
             @click="clickLogin"
             class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
           >
-            Prihlás
+            {{ $t("loginFormButton") }}
             <svg
               class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
