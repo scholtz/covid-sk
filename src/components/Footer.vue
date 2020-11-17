@@ -7,7 +7,7 @@
             <div class="textwidget">
               <a
                 class="idsk-footer__link"
-                href="https://www.mirri.gov.sk/index.html"
+                href="https://www.pezinok.sk/"
                 style="display: block"
               >
                 <img src="../assets/images/pezinok.svg" width="80px"
@@ -115,6 +115,33 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="govuk-width-container">
+      <h5>Aplikácia bola podporená</h5>
+      <ul>
+        <li>
+          <a class="idsk-footer__link" href="https://www.pezinok.sk/"
+            >Mestom Pezinok</a
+          >
+          - business owner
+        </li>
+        <li>
+          <a class="idsk-footer__link" href="https://ludovit.scholtz.sk/"
+            >Ľudovít Scholtz</a
+          >
+          - Architekt
+        </li>
+        <li>
+          <a class="idsk-footer__link" href="https://www.gosms.eu/">GoSMS</a> -
+          Zadarmo SMSky pre testovacie účely
+        </li>
+        <li>
+          <a class="idsk-footer__link" href="https://www.srdcomdoma.sk/"
+            >oz. SrdcomDoma</a
+          >
+          - Rebranding, pomoc s vývojom, testovaním a procesmi
+        </li>
+      </ul>
     </div>
   </footer>
 </template>
