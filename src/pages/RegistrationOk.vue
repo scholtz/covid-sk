@@ -2,21 +2,18 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Úspešne ste sa zaregistrovali k odberu vzorky covid-19</h1>
+        <h1>{{ $t("regDoneTitle") }}</h1>
       </b-container>
     </div>
     <div class="py-3">
       <b-container>
         <b-row>
-          <h2>Zobrazte tento čiarový kód doktorovi pred odobratím vzorky</h2>
+          <h2>{{ $t("regDoneHelp1") }}</h2>
           <p>
-            Aj keď sme Vám poslali tento kód emailom a v SMS, odporúčame Vám
-            tento kód vytlačiť do PDF alebo uložiť iným spôsobom.
+            {{ $t("regDoneHelp2") }}
           </p>
           <p>
-            Starším osobám alebo osobám bez smartphonu odporúčame 9-miestny kód
-            napísať čitateľným písmom na papier a ukázať medicínskemu personálu
-            pred vykonaním odberu
+            {{ $t("regDoneHelp3") }}
           </p>
         </b-row>
         <b-row>
@@ -27,7 +24,7 @@
               class="barcode thumbnail"
               :width="barcodeWidth"
             >
-              Nepodarilo sa vygenerovať čiarový kód
+              {{ $t("regDoneError") }}
             </barcode>
           </b-col>
         </b-row>
@@ -35,51 +32,54 @@
           <b-col>
             <b-table-simple>
               <b-tr>
-                <b-th>Údaj</b-th>
-                <b-th>Hodnota</b-th>
+                <b-th>{{ $t("regDoneDataType") }}</b-th>
+                <b-th>{{ $t("regDoneValue") }}</b-th>
               </b-tr>
               <b-tr>
-                <b-th>Meno</b-th
+                <b-th>{{ $t("regDoneName") }}</b-th
                 ><b-td
                   >{{ $store.state.slot.registration.firstName }}
                   {{ $store.state.slot.registration.lastName }}</b-td
                 >
               </b-tr>
               <b-tr>
-                <b-th>Email</b-th
+                <b-th>{{ $t("regDoneEmail") }}</b-th
                 ><b-td>{{ $store.state.slot.registration.email }}</b-td>
               </b-tr>
               <b-tr>
-                <b-th>Telefón</b-th
+                <b-th>{{ $t("regDoneMobile") }}</b-th
                 ><b-td>{{ $store.state.slot.registration.phone }}</b-td>
               </b-tr>
               <b-tr v-if="$store.state.slot.registration.rc">
-                <b-th>RČ</b-th
+                <b-th>{{ $t("regDonePersonalNumber") }}</b-th
                 ><b-td>{{ $store.state.slot.registration.rc }}</b-td>
               </b-tr>
               <b-tr v-if="$store.state.slot.registration.passport">
-                <b-th>Cestovný doklad</b-th
+                <b-th>{{ $t("regDonePassport") }}</b-th
                 ><b-td>{{ $store.state.slot.registration.passport }}</b-td>
               </b-tr>
               <b-tr v-if="$store.state.slot.registration.rc">
-                <b-th>Adresa</b-th
+                <b-th>{{ $t("regDoneAddress") }}</b-th
                 ><b-td>{{ $store.state.slot.registration.address }}</b-td>
               </b-tr>
             </b-table-simple>
           </b-col>
         </b-row>
         <b-row>
-          Dostavte sa prosím
-          {{ $store.state.slot.slotDCurrent.description }} medzi
-          {{ $store.state.slot.slotMCurrent.description }} na odberné miesto
-          {{ $store.state.place.currentPlace.name }}
+          {{
+            $t("regDoneYourSelection", {
+              place: $store.state.place.currentPlace.name,
+              day: $store.state.slot.slotDCurrent.description,
+              time: $store.state.slot.slotMCurrent.description,
+            })
+          }}
         </b-row>
         <b-row class="py-3">
           <b-link
             :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${$route.params.minuteId}`"
             class="govuk-button m-0"
           >
-            Ďalšia osoba na rovnaký termín odberu
+            {{ $t("regDoneNextPerson") }}
           </b-link>
         </b-row>
       </b-container>

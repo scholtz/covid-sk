@@ -120,7 +120,7 @@
 
   "registrationTitle":"Last registration step - Personal Data",
   "registrationHelp1":"You are allowed to delete your personal data after your test is marked as negative. In case of pisitive test, your personal data will be forwarded to central covid medical database. Your personal data is securly encrypted and every access to them is logged. All personal data will be deleted at maximum 2 business days after last day of testing.",
-  "registrationYourSelection":"You have selected sampling place {place}, on {day} between {hour}",
+  "registrationYourSelection":"You have selected sampling place {place}, on {day} between {time}",
   "registrationFormTypeLabel":"Type of person identification",
   "registrationFormTypePersonalCard":"I have national ID card",
   "registrationFormTypePersonalChild":"Registration of child by parent",
@@ -141,8 +141,24 @@
   "registrationFormInsuranceEU":"EU insurance",
   "registrationFormInsuranceForeigner":"Foreigner",
 
-  "userWelcome":"{name}, vitajte v systéme pre testovanie covidu",
-  "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",
+  "regDoneTitle":"You have successfully registered for sampling test against covid 19",
+  "regDoneHelp1":"Show this code to the doctor at the sampling place",
+  "regDoneHelp2":"Even we have sent you this code to your email address and to your mobile, we recommend to take a screenshot or print out the bar code.",
+  "regDoneHelp3":"To older people, or others who do not have access to smart phone, we recommend to write down the 9-digit registration code in readable form on the paper, and show it to the doctor at the sampling place.",
+  "regDoneError":"Error occured while generating the bar code",
+  "regDoneDataType":"Data Type",
+  "regDoneValue":"Value",
+  "regDoneName":"Name",
+  "regDoneEmail":"Email",
+  "regDoneMobile":"Mobile",
+  "regDonePersonalNumber":"Personal number",
+  "regDonePassport":"Passport or travel ID",
+  "regDoneAddress":"Address",
+  "regDoneYourSelection":"Please visit sampling place {place}, on {day} between {time}",
+  "regDoneNextPerson":"Register next person at the same time",
+
+  "userWelcome":"{name}, welcome to the COVID-19 sampling system",
+  "userHelp":"Select action in the top menu according the role you represent please.",
 
   "Scholtz":"Scholtz"
 }

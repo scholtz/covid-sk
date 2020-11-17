@@ -4,7 +4,7 @@
   "no":"Nie",
   "change":"Zmeniť",
   "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
-  
+
   "mainTitle": "Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné testovanie populácie proti chorobe covid-19",
   "mainSubTitle": "Táto aplikácia bola vytvorená pre mesto Pezinok",
   "mainStep1": "Výber odberného miesta a času",
@@ -121,7 +121,7 @@
   
   "registrationTitle":"Posledný krok registrácie - Osobné údaje",
   "registrationHelp1":"Údaje o Vašom testovaní, vrátane osobných údajov môžete vymazať zo stránky výsledky testu ak sa preukáže, že ochorenie covid19 nemáte. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256. Všetky osobné údaje budú z tejto databáze odstránené najneskôr do 2 pracovných dní od posledného dňa testovania.",
-  "registrationYourSelection":"Vybrali ste si {place}, dňa {day} medzi {hour}",
+  "registrationYourSelection":"Vybrali ste si {place}, dňa {day} medzi {time}",
   "registrationFormTypeLabel":"Identifikácia registrovanej osoby",
   "registrationFormTypePersonalCard":"Mám občiansky preukaz",
   "registrationFormTypePersonalChild":"Registrácia dieťaťa zákonným zástupcom",
@@ -142,6 +142,21 @@
   "registrationFormInsuranceEU":"EÚ poistenec",
   "registrationFormInsuranceForeigner":"Cudzinec",
 
+  "regDoneTitle":"Úspešne ste sa zaregistrovali k odberu vzorky covid-19",
+  "regDoneHelp1":"Zobrazte tento čiarový kód doktorovi pred odobratím vzorky",
+  "regDoneHelp2":"Aj keď sme Vám poslali tento kód emailom a v SMS, odporúčame Vám tento kód vytlačiť do PDF alebo uložiť iným spôsobom.",
+  "regDoneHelp3":"Starším osobám alebo osobám bez smartphonu odporúčame 9-miestny kód napísať čitateľným písmom na papier a ukázať medicínskemu personálu pred vykonaním odberu",
+  "regDoneError":"Nepodarilo sa vygenerovať čiarový kód",
+  "regDoneDataType":"Údaj",
+  "regDoneValue":"Hodnota",
+  "regDoneName":"Meno",
+  "regDoneEmail":"Email",
+  "regDoneMobile":"Telefón",
+  "regDonePersonalNumber":"RČ",
+  "regDonePassport":"Cestovný doklad",
+  "regDoneAddress":"Adresa",
+  "regDoneYourSelection":"Dostavte sa prosím dňa {day} medzi {time} na odberné miesto {place}.",
+  "regDoneNextPerson":"Ďalšia osoba na rovnaký termín odberu",
 
   "userWelcome":"{name}, vitajte v systéme pre testovanie covidu",
   "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",

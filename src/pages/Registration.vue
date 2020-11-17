@@ -18,7 +18,7 @@
             $t("registrationYourSelection", {
               place: $store.state.place.currentPlace.name,
               day: $store.state.slot.slotDCurrent.description,
-              hour: $store.state.slot.slotHCurrent.description,
+              time: $store.state.slot.slotMCurrent.description,
             })
           }}
         </h2>
