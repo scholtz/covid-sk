@@ -20,8 +20,36 @@ function loadLocaleMessages() {
   return messages;
 }
 
+function defaultLanguage() {
+  let lang = localStorage.getItem("lang");
+  if (lang) {
+    return lang;
+  }
+
+  var userLang = navigator.language || navigator.userLanguage;
+  if (userLang.length >= 2 && userLang.substring(0, 2) == "sk") {
+    lang = "sk";
+    localStorage.setItem("lang", lang);
+    return lang;
+  }
+  if (userLang.length >= 2 && userLang.substring(0, 2) == "en") {
+    lang = "en";
+    localStorage.setItem("lang", lang);
+    return lang;
+  }
+
+  lang = process.env.VUE_APP_I18N_LOCALE || "en";
+  localStorage.setItem("lang", lang);
+  return lang;
+}
+
+function fallbackLanguage() {
+  if (defaultLanguage() !== "en") return "en";
+  return process.env.VUE_APP_I18N_FALLBACK_LOCALE || "sk";
+}
+
 export default new VueI18n({
-  locale: process.env.VUE_APP_I18N_LOCALE || "sk",
-  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en",
+  locale: defaultLanguage(),
+  fallbackLocale: fallbackLanguage(),
   messages: loadLocaleMessages(),
 });
