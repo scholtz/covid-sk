@@ -3,6 +3,7 @@
   "yes":"Yes",
   "no":"No",
   "change":"Change",
+  "accessDenied":"You do not have permissions to display this page",
 
   "mainTitle": "You can register for sampling against COVID-19 at this site",
   "mainSubTitle": "This application can be used for any sampling location, city or government. Application was build with security, scalability, and privacy in mind, is open source, free to use or clone and change.",
@@ -139,6 +140,9 @@
   "registrationFormButton":"Register",
   "registrationFormInsuranceEU":"EU insurance",
   "registrationFormInsuranceForeigner":"Foreigner",
+
+  "userWelcome":"{name}, vitajte v systéme pre testovanie covidu",
+  "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",
 
   "Scholtz":"Scholtz"
 }

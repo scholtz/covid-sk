@@ -3,7 +3,8 @@
   "yes":"Áno",
   "no":"Nie",
   "change":"Zmeniť",
-
+  "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
+  
   "mainTitle": "Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné testovanie populácie proti chorobe covid-19",
   "mainSubTitle": "Táto aplikácia bola vytvorená pre mesto Pezinok",
   "mainStep1": "Výber odberného miesta a času",
@@ -140,6 +141,11 @@
   "registrationFormButton":"Zaregistrovať",
   "registrationFormInsuranceEU":"EÚ poistenec",
   "registrationFormInsuranceForeigner":"Cudzinec",
+
+
+  "userWelcome":"{name}, vitajte v systéme pre testovanie covidu",
+  "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",
+  
 
   "Scholtz":"Scholtz"
 }
