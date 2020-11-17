@@ -1,4 +1,16 @@
 import axios from "axios";
+
+function getLang() {
+  switch (localStorage.getItem("lang")) {
+    case "sk":
+      return "sk-SK";
+    case "en":
+      return "en-US";
+    case "de":
+      return "de-DE";
+  }
+}
+
 const actions = {
   async get({ dispatch }, { url, params }) {
     let response = null;
@@ -13,6 +25,15 @@ const actions = {
             "Bearer " + localStorage.getItem("jwt");
         }
       }
+
+      var lang = getLang();
+
+      if (lang) {
+        if (axios.defaults.headers.common["Accept-Language"] !== lang) {
+          axios.defaults.headers.common["Accept-Language"] = lang;
+        }
+      }
+
       response = await axios.get(url, { params }).catch(function (error) {
         console.log("error", error);
         if (
@@ -86,6 +107,12 @@ const actions = {
         if (localStorage.getItem("jwt")) {
           axios.defaults.headers.common.Authorization =
             "Bearer " + localStorage.getItem("jwt");
+        }
+      }
+      var lang = getLang();
+      if (lang) {
+        if (axios.defaults.headers.common["Accept-Language"] !== lang) {
+          axios.defaults.headers.common["Accept-Language"] = lang;
         }
       }
       let shown = false;
