@@ -160,5 +160,40 @@
   "userWelcome":"{name}, welcome to the COVID-19 sampling system",
   "userHelp":"Select action in the top menu according the role you represent please.",
 
+  "helpTitle":"Help center",
+  "helpPublicQ1":"How are my personal data protected?",
+  "helpPublicA1":"<p>Osobné údaje sú odoslané na server v momente keď stlačíte tlačítko registrácia. Komunikácia so serverom je šifrovaná SSL   protokolom. </p> <p>   Údaje sú uložené v no-sql databáze. Sú zašifrované AES256   metódou ktorá sa považuje za najvyšší štandard bezpečnosti   uložených údajov. 2 heslá sú nastavené administrátorom. </p> <p>   Autorizovaná osoba môže podľa kódu registrácie načítať vaše   osobné údaje. Autorizované osoby sú pozvané do systému. Žiadna   z autorizovaných osôb nemá možnosť zobraziť zoznam   registračných kódov. Môžu vyhľadávať podľa rodného čísla (v db   zahashované), alebo podľa kódu registrácie. </p> <p>   Autorizované osoby sa prihlasujú heslom, a autozivoané   požiadavky na server prebiehajú s JWT tokenom. </p> <p>   Výsledok testovania je dostupný všetkým osobám ktoré majú kód   registrácie a posledné 4 čísla rodného čísla. Dbajte na   bezpečnosť prideleného kódu registrácie. </p> <p>   Osobné údaje môžete vymazať zo serveru po prevzatí certifikátu   s negatívnym výsledkom. Zobrazte výsledok testu zadaním svojho   kódu a posledného 4-číslia rodného čísla. V prípade   negatívneho testu sa Vám zobrazí tlačítko vymazať osobné   údaje. Stlačte tlačítko vymazať osoboné údaje pre vykonanie   výmazu. Po vymazaní bude Vaša návšteva kompletne vymazaná aj s   ďalšími indexovanými údajmi, a v systéme po Vás zostane iba   štatistický údaj. </p> <p>   Prevádzkovateľ osobných údajov je osoba uvedená vo footeri   každej stránky. </p>",
+  "helpPublicQ2":"How does the registration works?",
+  "helpPublicA2":"<img class=\"img-fluid\" style=\"margin: 0 auto\" src=\"./images/process/sk/registration.svg\" />",
+  "helpPublicQ3":"Test states",
+  "helpPublicA3":"<img class=\"img-fluid\" style=\"margin: 0 auto\" src=\"./images/process/sk/states-of-test.svg\" />",
+  "helpPublicQ4":"Testing process",
+  "helpPublicA4":"<img class=\"img-fluid\" style=\"margin: 0 auto\" src=\"./images/process/sk/testing.svg\" />",
+
+  "helpAdminQ1":"How to create sampling place?",
+  "helpAdminA1":"<p>Správa miest je v menu Admin &gt; Management testovacích miest. Vyplnením formuláru sa a stlačením tlačítka Vytvoriť sa vytvorí testovacie miesto. Ak chcete upraviť testovacie miesto, z tabuľky si vyberte miesto a stlačte tlačítko Upraviť. Tým sa vo formulári doplnia z daného miesta editovateľné údaje ktoré je možné zmeniť. Po stlačení tlačítka Upraviť sa údaje zmenia a administrátor je notifikovaný zeleným statusom o vykonaní zmeny.</p>",
+  "helpAdminQ2":"How to setup sampling date and time?",
+  "helpAdminA2":"<p>Správa termínov je v menu Admin &gt; Čas testovania. Termíny sa aktuálne určujú globálne pre všetky miesta naraz. Výberom času a odoslaním formuláru sa skontroluje, či všetky miesta majú vytvorený časový slot pre testovanie. Tento časový slot slúži pre štatistické účely alebo obmedzenie kapacity miesta.</p>",
+  "helpAdminQ3":"User audit, and user invitation",
+  "helpAdminA3":"<p>Aduit užívateľov môžete previesť v menu Admin &gt; Audit užívateľov. Na tomto mieste administrátor môže vymazať užívateľa. Pozvanie užívateľa do systému je v menu Admin &gt; Nový užívateľ.</p>",
+  "helpAdminQ4":"Testing preparation",
+  "helpAdminA4":"<p><ul><li>Spustenie predregistrácie v dostatočnom predstihu. Na základe štatistík registrácií skontrolovať dostupné ľudské zdroje v testovacom mieste.</li><li>Vytlačenie informačných letákov - Predregistrácia na mieste (QR kód adresy miesta), informáciu že návštevník má ukázať čiarový kód registrácie a občiansky preukaz, informáciu že hlasivkami sa šíri vírus tak ak je možné nech nič nehovorí, informáciu že hlava sa nemá zakláňať pri testovaní.</li><li>Ak testovacie sady neobsahujú čiarové kódy, je potrebné predvytlačiť čiarové kódy testovacích sád. Jeden útržok pre návštevníka a jeden ostáva s testom. V prípade ak by sa IT systém pre podporu testovania vypol v čase keď návštevník už absolvoval test, dochádza ku prechodu na papierový režim a test je možné spárovať s návštevníkom pri odbere certifikátu.</li></ul></p>",
+
+  "helpTesterQ1":"Registered visitor has arrived for sampling",
+  "helpTesterA1":"<p>To be documented..</p>",
+  "helpTesterQ2":"Registered visitor does not have bar code",
+  "helpTesterA2":"To be documented..",
+  "helpTesterQ3":"Registered visitor is not registered",
+  "helpTesterA3":"To be documented..>",
+  "helpTesterQ4":"Setup my sampling place",
+  "helpTesterA4":"To be documented..",
+
+  "helpLabQ1":"How to mark multiple testing set as positive or negative?",
+  "helpLabA1":"To be documented..",
+  
+
+  "helpDocQ1":"Certificate issuance",
+  "helpDocA1":"To be documented..",
+
   "Scholtz":"Scholtz"
 }

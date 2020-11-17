@@ -4,6 +4,8 @@ function getLang() {
   switch (localStorage.getItem("lang")) {
     case "sk":
       return "sk-SK";
+    case "cs":
+      return "cs-CZ";
     case "en":
       return "en-US";
     case "de":
