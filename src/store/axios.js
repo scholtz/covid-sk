@@ -3,13 +3,13 @@ import axios from "axios";
 function getLang() {
   switch (localStorage.getItem("lang")) {
     case "sk":
-      return "sk-SK";
+      return "sk";
     case "cs":
-      return "cs-CZ";
+      return "cs";
     case "en":
-      return "en-US";
+      return "en";
     case "de":
-      return "de-DE";
+      return "de";
   }
 }
 
