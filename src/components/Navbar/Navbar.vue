@@ -70,7 +70,11 @@
 
           <b-navbar-nav class="ml-auto" v-if="$store.state.user.auth">
             <b-nav-form right class="mx-3">
-              <b-select class="bg-dark text-light" v-model="$i18n.locale">
+              <b-select
+                class="bg-dark text-light"
+                v-model="$i18n.locale"
+                @change="languageUpdated"
+              >
                 <option
                   v-for="(lang, i) in langs"
                   :key="`Lang${i}`"
@@ -91,7 +95,11 @@
           </b-navbar-nav>
           <b-navbar-nav v-else right class="ml-auto"
             ><b-nav-form right class="mx-3">
-              <b-select class="bg-dark text-light" v-model="$i18n.locale">
+              <b-select
+                class="bg-dark text-light"
+                v-model="$i18n.locale"
+                @change="languageUpdated"
+              >
                 <option
                   v-for="(lang, i) in langs"
                   :key="`Lang${i}`"
@@ -126,6 +134,9 @@ export default {
     logout() {
       this.setAuthJWT("");
       this.$router.push("/");
+    },
+    languageUpdated() {
+      localStorage.setItem("lang", this.$i18n.locale);
     },
   },
 };
