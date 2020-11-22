@@ -108,6 +108,11 @@ const router = new VueRouter({
       component: () => import("../pages/Lab/TestResult.vue"),
     },
     {
+      path: "/dataExporter/export",
+      name: "dataExporterExport",
+      component: () => import("../pages/DataExporter/Export.vue"),
+    },
+    {
       path: "/gdpr/manage",
       name: "gdpmanage",
       component: () => import("../pages/GDPR/Manage.vue"),

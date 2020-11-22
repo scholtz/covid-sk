@@ -18,6 +18,15 @@ export const actions = {
       { root: true }
     );
   },
+  async FinalDataExport({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
+      },
+      { root: true }
+    );
+  },
   async RemoveFromDocQueue({ dispatch }, { testId }) {
     return await dispatch(
       "axios/post",

@@ -41,6 +41,9 @@
   "navBarDoc":"Správca dokumentov",
   "navBarDocCertificate":"Vypisovanie certifikátov",
   
+  "navBarDataExporter":"Data exporter",
+  "navBarDataExporterExport":"Finálny export údajov",
+
   "navBarPublicRegister":"Registrácia k odberu vzorky",
   "navBarPublicResults":"Výsledky testu",
   "navBarPublicHelp":"Pomoc",

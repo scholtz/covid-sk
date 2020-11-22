@@ -50,6 +50,7 @@ export default {
         "MedicTester",
         "MedicLab",
         "DocumentManager",
+        "DataExporter",
         "PasswordProtected",
       ],
     };

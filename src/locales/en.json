@@ -40,6 +40,9 @@
   
   "navBarDoc":"Document Manager",
   "navBarDocCertificate":"Certificate issuance",
+
+  "navBarDataExporter":"Data exporter",
+  "navBarDataExporterExport":"Export data",
   
   "navBarPublicRegister":"Register for sampling",
   "navBarPublicResults":"Test results",

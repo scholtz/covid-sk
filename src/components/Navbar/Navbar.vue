@@ -57,6 +57,13 @@
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
+            <b-navbar-nav>
+              <b-nav-item-dropdown :text="$t('navBarDataExporter')">
+                <b-dropdown-item to="/dataExporter/export">{{
+                  $t("navBarDataExporterExport")
+                }}</b-dropdown-item>
+              </b-nav-item-dropdown>
+            </b-navbar-nav>
           </b-navbar-nav>
           <b-navbar-nav v-else>
             <b-nav-item to="/register">{{
