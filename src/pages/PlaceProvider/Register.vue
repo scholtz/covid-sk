@@ -213,6 +213,9 @@
               Neexistuje časový bod v ktorom by sa dali extrahovať údaje pretože
               dáta sa po teste a notifikácii užívateľovi zmažú.
             </li>
+            <li>
+              Real time monitoring štatistických údajov, napríklad pre médiá
+            </li>
           </ol>
         </b-col>
       </b-row>
