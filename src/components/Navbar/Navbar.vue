@@ -14,7 +14,7 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav v-if="$store.state.user.auth">
-            <b-navbar-nav>
+            <b-navbar-nav v-if="isAdmin()">
               <b-nav-item-dropdown :text="$t('navBarAdmin')">
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
@@ -30,7 +30,7 @@
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
-            <b-navbar-nav>
+            <b-navbar-nav v-if="isTester()">
               <b-nav-item-dropdown :text="$t('navBarTester')">
                 <b-dropdown-item to="/tester/registeredVisitor">{{
                   $t("navBarRegVisitor")
@@ -43,21 +43,21 @@
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
-            <b-navbar-nav>
+            <b-navbar-nav v-if="isMedicLab()">
               <b-nav-item-dropdown :text="$t('navBarLab')">
                 <b-dropdown-item to="/lab/testResult">{{
                   $t("navBarLabResult")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
-            <b-navbar-nav>
+            <b-navbar-nav v-if="isDocumentManager()">
               <b-nav-item-dropdown :text="$t('navBarDoc')">
                 <b-dropdown-item to="/documenter/certificate">{{
                   $t("navBarDocCertificate")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
-            <b-navbar-nav>
+            <b-navbar-nav v-if="isDataExporter()">
               <b-nav-item-dropdown :text="$t('navBarDataExporter')">
                 <b-dropdown-item to="/dataExporter/export">{{
                   $t("navBarDataExporterExport")
@@ -141,6 +141,51 @@ export default {
     ...mapMutations({
       setAuthJWT: "user/setAuthJWT",
     }),
+    isAdmin() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return true;
+      }
+      return false;
+    },
+    isTester() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "MedicTester")
+          return true;
+        if (
+          this.$store.state.user.tokenData.Role[index] === "RegistrationManager"
+        )
+          return true;
+        if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return true;
+      }
+      return false;
+    },
+    isMedicLab() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "MedicLab")
+          return true;
+        if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return true;
+      }
+      return false;
+    },
+    isDocumentManager() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "DocumentManager")
+          return true;
+        if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return true;
+      }
+      return false;
+    },
+    isDataExporter() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "DataExporter")
+          return true;
+      }
+      return false;
+    },
     logout() {
       this.setAuthJWT("");
       this.$router.push("/");
