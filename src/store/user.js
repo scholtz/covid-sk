@@ -113,6 +113,21 @@ export const actions = {
     if (token) return true;
     return false;
   },
+  async SetPlaceProvider({ dispatch, commit }, { placeProviderId }) {
+    const token = await dispatch(
+      "axios/post",
+      {
+        url: config.VUE_CONFIG_APP_API + "User/SetPlaceProvider",
+        params: { placeProviderId },
+      },
+      { root: true }
+    );
+    if (token) {
+      commit("setAuthJWT", token);
+    }
+    if (token) return true;
+    return false;
+  },
 
   async Authenticate({ dispatch, commit }, { email, hash, data }) {
     const token = await dispatch(

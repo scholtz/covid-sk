@@ -120,7 +120,6 @@
 
             <button
               v-if="$store.state.user.auth"
-              @click="clickLogin"
               class="govuk-button govuk-!-margin-right-3 govuk-button--start my-1"
             >
               Objednať službu

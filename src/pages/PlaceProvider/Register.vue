@@ -140,6 +140,7 @@
           <b-row class="py-1">
             <b-col offset-md="4">
               <button
+                v-if="agreement"
                 @click="clickRegister"
                 class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
               >

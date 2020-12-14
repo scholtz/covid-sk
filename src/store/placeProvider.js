@@ -9,6 +9,15 @@ export const actions = {
       { root: true }
     );
   },
+  async ListPrivate({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: config.VUE_CONFIG_APP_API + "PlaceProvider/ListPrivate",
+      },
+      { root: true }
+    );
+  },
 };
 export default {
   namespaced: true,

@@ -92,15 +92,7 @@
                       d="M0 0h13l20 20-20 20H0l20-20z"
                     /></svg
                 ></b-link>
-                <div v-html="$t('mainHelpPerson')" />
-                <p>
-                  Sústreďte sa na to, čo Vám ide najlepšie -
-                  <b>liečenie ľudí</b>. Prenechajte vývoj, zabezpečenie sotfwaru
-                  a analytickú prácu na <b>odborníkov</b> z <b>IT</b> oblasti.
-                  Spoločne môžeme <b>minimalizovať riziko</b> prenosu choroby
-                  medzi testovacím personálom alebo návštevníkmi testovacích
-                  miest na minimum.
-                </p>
+                <div v-html="$t('mainDoctorHelp')" />
               </div>
             </div>
           </b-col>

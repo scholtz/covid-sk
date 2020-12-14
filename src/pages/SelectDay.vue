@@ -18,13 +18,55 @@
             })
           }}
         </h2>
-
+        <p>Adresa: {{ $store.state.place.currentPlace.address }}</p>
+        <p>
+          GPS: {{ $store.state.place.currentPlace.lat }}
+          {{ $store.state.place.currentPlace.lng }}
+        </p>
+        <p>
+          Má drive in:
+          <span v-if="$store.state.place.currentPlace.isDriveIn">Áno</span>
+          <span v-else>Nie</span>
+        </p>
+        <p>
+          Možnosť prísť pešo:
+          <span v-if="$store.state.place.currentPlace.isWalkIn">Áno</span>
+          <span v-else>Nie</span>
+        </p>
+        <p>
+          5 minútový limit:
+          {{ $store.state.place.currentPlace.limitPer5MinSlot }}
+        </p>
+        <p>
+          Hodinový limit:
+          {{ $store.state.place.currentPlace.limitPer1HourSlot }}
+        </p>
+        <p v-if="$store.state.place.currentPlace.description">
+          Popis: {{ $store.state.place.currentPlace.description }}
+        </p>
         <b-link :to="`/register`" class="govuk-button m-0"
           >{{ $t("change") }}
         </b-link>
       </b-container>
     </div>
-    <b-container class="my-4">
+    <b-container
+      class="my-4"
+      v-if="!$store.state.place.currentPlace.placeProviderId"
+    >
+      <h2>Čakáme, kým si odberné miesto vyberie naše super služby</h2>
+      <p>
+        Odberné miesto zatiaľ nie je registrované v našom registračnom systéme.
+        Ak poznáte správcu tohto odberného miesta, prosím dajte mu vedieť o
+        našich službách.
+      </p>
+      <b-link :to="`/registerPlaceProvider`" class="govuk-button"
+        >16 dôvodov prečo použiť náš rezervačný systém
+      </b-link>
+    </b-container>
+    <b-container
+      class="my-4"
+      v-if="$store.state.place.currentPlace.placeProviderId"
+    >
       <h2>{{ $t("selectDayQuestion") }}</h2>
       <p>
         {{ $t("selectDayHelp") }}

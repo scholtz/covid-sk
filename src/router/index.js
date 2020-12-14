@@ -28,6 +28,11 @@ const router = new VueRouter({
       component: () => import("../pages/SelectTent.vue"),
     },
     {
+      path: "/change-pp",
+      name: "change-pp",
+      component: () => import("../pages/PlaceProvider/Select.vue"),
+    },
+    {
       path: "/pricing",
       name: "Pricing",
       component: () => import("../pages/PlaceProvider/Pricing.vue"),

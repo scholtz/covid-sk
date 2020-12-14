@@ -92,6 +92,9 @@
               </b-select>
             </b-nav-form>
             <b-nav-item-dropdown :text="$store.state.user.tokenData.Name" right>
+              <b-dropdown-item to="/change-pp">{{
+                $t("navBarUserChangePP")
+              }}</b-dropdown-item>
               <b-dropdown-item to="/change-password">{{
                 $t("navBarUserChangePassword")
               }}</b-dropdown-item>
