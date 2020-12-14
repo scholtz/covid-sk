@@ -18,72 +18,90 @@
       <b-container>
         <b-row>
           <b-col cols="12" md="6">
-            <ol class="steps">
-              <li>{{ $t("mainStep1") }}</li>
-              <li>{{ $t("mainStep2") }}</li>
-              <li>{{ $t("mainStep3") }}</li>
-              <li>{{ $t("mainStep4") }}</li>
-              <li>{{ $t("mainStep5") }}</li>
-            </ol>
+            <div class="card">
+              <div class="card-header text-dark bg-light">
+                Chcem sa testovať
+              </div>
+              <div class="card-body">
+                <ol class="steps">
+                  <li>{{ $t("mainStep1") }}</li>
+                  <li>{{ $t("mainStep2") }}</li>
+                  <li>{{ $t("mainStep3") }}</li>
+                  <li>{{ $t("mainStep4") }}</li>
+                </ol>
 
-            <b-link
-              to="/register"
-              target="_self"
-              role="button"
-              draggable="false"
-              class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-              data-module="govuk-button"
-              >{{ $t("mainActionButton") }}
-              <svg
-                class="govuk-button__start-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="17.5"
-                height="19"
-                viewBox="0 0 33 40"
-                role="presentation"
-                focusable="false"
-              >
-                <path
-                  fill="currentColor"
-                  d="M0 0h13l20 20-20 20H0l20-20z"
-                /></svg
-            ></b-link>
+                <b-link
+                  to="/register"
+                  target="_self"
+                  role="button"
+                  draggable="false"
+                  class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+                  data-module="govuk-button"
+                  >{{ $t("mainActionButton") }}
+                  <svg
+                    class="govuk-button__start-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    /></svg
+                ></b-link>
+
+                <div v-html="$t('mainHelpPerson')" />
+              </div>
+            </div>
           </b-col>
           <b-col cols="12" md="6">
-            <div>
-              <div class="alert alert-danger">
-                <b>{{ $t("mainTryText") }}</b>
+            <div class="card">
+              <div class="card-header text-white bg-primary">
+                {{ $t("mainDoctor") }}
               </div>
-              <ul>
-                <li>
-                  {{ $t("mainTimeAtSampling") }} -
-                  <b>{{ $t("mainTimeAtResult") }}</b>
-                  {{ $t("mainTimeAtSeconds") }}
-                </li>
-                <li>{{ $t("mainNoQueues") }}</li>
-                <li>{{ $t("mainGDPR") }}</li>
-              </ul>
-              <p>
-                {{ $t("mainBrowserSupport") }}
-              </p>
-              <p>
-                {{ $t("mainDemoAccounts") }}
-                <b-table-simple>
-                  <b-tr>
-                    <b-th>{{ $t("mainLogin") }}</b-th>
-                    <b-th>{{ $t("mainPassword") }}</b-th>
-                  </b-tr>
-                  <b-tr>
-                    <b-td>RegistrationManager</b-td
-                    ><b-td>!_b_59i?7E</b-td></b-tr
+              <div class="card-body">
+                <ol class="steps">
+                  <li>{{ $t("mainDoctorStep1") }}</li>
+                  <li>{{ $t("mainDoctorStep2") }}</li>
+                  <li>{{ $t("mainDoctorStep3") }}</li>
+                  <li>{{ $t("mainDoctorStep4") }}</li>
+                </ol>
+
+                <b-link
+                  to="/registerPlaceProvider"
+                  target="_self"
+                  role="button"
+                  draggable="false"
+                  class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+                  data-module="govuk-button"
+                  >{{ $t("mainActionMedicButton") }}
+                  <svg
+                    class="govuk-button__start-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
                   >
-                  <b-tr> <b-td>MedicTester</b-td><b-td> 62f@Ok$XUV</b-td></b-tr>
-                  <b-tr> <b-td>MedicLab</b-td><b-td>v@F?RvbR2O</b-td></b-tr>
-                  <b-tr>
-                    <b-td>DocumentManager</b-td><b-td>LwY@9bQx0M</b-td></b-tr
-                  >
-                </b-table-simple>
-              </p>
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    /></svg
+                ></b-link>
+                <div v-html="$t('mainHelpPerson')" />
+                <p>
+                  Sústreďte sa na to, čo Vám ide najlepšie -
+                  <b>liečenie ľudí</b>. Prenechajte vývoj, zabezpečenie sotfwaru
+                  a analytickú prácu na <b>odborníkov</b> z <b>IT</b> oblasti.
+                  Spoločne môžeme <b>minimalizovať riziko</b> prenosu choroby
+                  medzi testovacím personálom alebo návštevníkmi testovacích
+                  miest na minimum.
+                </p>
+              </div>
             </div>
           </b-col>
         </b-row>

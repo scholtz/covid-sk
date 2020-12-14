@@ -5,8 +5,8 @@
   "change":"Zmeniť",
   "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
 
-  "mainTitle": "Na tejto stránke sa môžete zaregistrovať k odberu vzorky pre hromadné testovanie populácie proti chorobe covid-19",
-  "mainSubTitle": "Táto aplikácia bola vytvorená pre mesto Pezinok",
+  "mainTitle": "Testovanie proti covid-19 s IT podporou 21. storočia",
+  "mainSubTitle": "Aplikáciu môže použiť ľubovoľné odberné miesto - Nemocnica, mobilné odberové miesto, aj stále odberové miesta - antigénové testy alebo PCR testy.",
   "mainStep1": "Výber odberného miesta a času",
   "mainStep2": "Registrácia ku konkrétnemu času",
   "mainStep3": "Reálny odber vzorky",
@@ -23,6 +23,16 @@
   "mainDemoAccounts":"Vyskúšajte si jednotlivé role",
   "mainLogin":"Login",
   "mainPassword":"Heslo",
+  "mainActionMedicButton":"Začnite registráciou nemocnice",
+  "mainHelpPerson":"Ak nechcete nakaziť svoju <b>rodinu</b> alebo svojich známich,  vo svojom vlastnom záujme sa <b>zadarmo</b> otestujte  antigénovými testami alebo si objednajte PCR test.  Predregistráciou vyplníte potrebné údaje a reálny test bude  trvať približne 20 sekúnd. <b>SMS</b>kou a na email Vám  pošleme kód registrácie, ktorý ukážete testovaciemu personálu.  Na email Vám pošleme potrebné informácie ako sa správať pri  odbere. Po teste Vám pošleme <b>elektronický certifikát</b> s  výsledkom testovania.",
+  "mainDoctor":"Som doktor / zástupca nemocnice",
+
+  "mainDoctorStep1": "Registrácia spoločnosti",
+  "mainDoctorStep2": "Registrácia odberných miest",
+  "mainDoctorStep3": "Správa ľudských zdrojov",
+  "mainDoctorStep4": "Testovanie a reporting hygiene",
+  "mainDoctorHelp": "Sústreďte sa na to, čo Vám ide najlepšie - <b>liečenie ľudí</b>. Prenechajte vývoj, zabezpečenie sotfwaru a analytickú prácu na <b>odborníkov</b> z <b>IT</b> oblasti. Spoločne môžeme <b>minimalizovať riziko</b> prenosu choroby medzi testovacím personálom alebo návštevníkmi testovacích miest na minimum.",
+
 
   "navBarAdmin":"Administrátor",
   "navBarAdminManagePlace":"Management testovacích miest",
@@ -198,6 +208,22 @@
 
   "helpDocQ1":"Vypísanie dokladu",
   "helpDocA1":"Na doplnenie..",
+
+  "ppTitle":"Registrácia spoločnosti ktorá spravuje odberné miesta",
+  "ppAgreement":"Som konteľ spoločnosti, alebo mám poverenie od konateľa spoločnosti k registrácii do systému rýchlejšie.sk . Súhlasím so spracovaním osobných údajov a ďalších údajov spoločnosti a súhlasím so zmluvnými podmienkami služby.",
+  "ppTerms":"Obchodné podmienky",
+  "ppPricing":"Cenník",
+  "ppCountry":"Krajina",
+  "ppCompanyId":"IČO",
+  "ppCompanyName":"Názov spoločnosti",
+  "ppVAT":"IČ DPH",
+  "ppMainEmail":"Hlavný neverejný email",
+  "ppPrivatePhone":"Hlavný neverejný mobil",
+  "ppPublicEmail":"Verejný email",
+  "ppPublicPhone":"Verejný telefón",
+  "ppRegister":"Zaregistrovať správcu odberných miest",
+  
+
 
   "Scholtz":"Scholtz"
 }

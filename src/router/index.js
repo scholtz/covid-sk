@@ -28,6 +28,21 @@ const router = new VueRouter({
       component: () => import("../pages/SelectTent.vue"),
     },
     {
+      path: "/pricing",
+      name: "Pricing",
+      component: () => import("../pages/PlaceProvider/Pricing.vue"),
+    },
+    {
+      path: "/terms-and-conditions",
+      name: "Terms",
+      component: () => import("../pages/PlaceProvider/Terms.vue"),
+    },
+    {
+      path: "/registerPlaceProvider",
+      name: "PlaceProviderRegistration",
+      component: () => import("../pages/PlaceProvider/Register.vue"),
+    },
+    {
       path: "/place/:placeId",
       name: "PlaceDay",
       component: () => import("../pages/SelectDay.vue"),
