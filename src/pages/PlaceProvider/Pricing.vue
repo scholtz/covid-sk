@@ -22,43 +22,47 @@
               iné ako odberové miesto v Prahe, alebo správa odberových miest pre
               celoplošné testovanie obyvateľov.
             </p>
-            <b-card title="Zdieľaná infraštruktúra" class="my-1">
+            <b-card class="my-1">
               <b-form-radio
                 v-model="infra"
                 name="infra"
                 value="shared"
                 id="shared"
               >
-                V tomto modele Vám negarantujeme nič, ale je <b>zadarmo</b>
+                <b>Zdieľaná infraštruktúra</b>: Bez garancie dostupnosti, ale
+                <b>zadarmo</b>
               </b-form-radio>
             </b-card>
-            <b-card title="SLA - Bronze" class="my-1">
+            <b-card class="my-1">
               <b-form-radio
                 v-model="infra"
                 name="infra"
                 id="bronze"
                 value="bronze"
               >
-                Garantujeme Vám 600 requestov na server za minútu:<br />
-                Dostupnosť: min 90%
-                <b>20 EUR / deň</b>
+                <b>SLA - Bronze</b>: Garantujeme Vám 600 requestov na server za
+                minútu:<br />
+                Dostupnosť: min 95%
+                <b>5 EUR / deň</b>
               </b-form-radio>
             </b-card>
-            <b-card title="SLA - Silver" class="my-1">
+            <b-card class="my-1">
               <b-form-radio
                 v-model="infra"
                 name="infra"
                 id="silver"
                 value="silver"
               >
-                Garantujeme Vám 100 000 requestov na server za minútu:<br />
-                Dostupnosť: min 95%
+                <b>SLA - Silver</b>: Garantujeme Vám 100 000 requestov na server
+                za minútu:<br />
+                Dostupnosť: min 98%
                 <b>100 EUR / deň</b>
               </b-form-radio>
             </b-card>
-            <b-card title="SLA - Gold" class="my-1">
+            <b-card class="my-1">
               <b-form-radio v-model="infra" name="infra" id="gold" value="gold">
-                Garantujeme Vám 5 000 000 requestov na server za minútu:<br />
+                <b>SLA - Gold</b>: Garantujeme Vám 5 000 000 requestov na server
+                za minútu:<br />
                 Dostupnosť: min 99%
                 <b>10 000 EUR / deň</b>
               </b-form-radio>
@@ -84,19 +88,24 @@
               registráciu. Výberom balíka nižšie si kúpite určítý počet
               registrácií. Neskôr si môžete dokúpiť ďalší počet.
             </p>
-            <b-card title="K1" class="my-1">
+            <b-card class="my-1">
+              <b-form-radio v-model="comm" name="comm" value="K0" id="K0">
+                <b>K0</b>: Bez SMS komunikácie - Zadarmo
+              </b-form-radio>
+            </b-card>
+            <b-card class="my-1">
               <b-form-radio v-model="comm" name="comm" value="K1" id="K1">
-                1 000 registrácií: <b>500 EUR</b>
+                <b>K1</b>: 1 000 registrácií: <b>500 EUR</b>
               </b-form-radio>
             </b-card>
-            <b-card title="K15" class="my-1">
+            <b-card class="my-1">
               <b-form-radio v-model="comm" name="comm" id="K15" value="K15">
-                15 000 registrácií: <b>3 500 EUR</b>
+                <b>K15</b>: 15 000 registrácií: <b>3 500 EUR</b>
               </b-form-radio>
             </b-card>
-            <b-card title="K100" class="my-1">
+            <b-card class="my-1">
               <b-form-radio v-model="comm" name="comm" id="K100" value="K100">
-                100 000 registrácií: <b>20 000 EUR</b>
+                <b>K100</b>: 100 000 registrácií: <b>20 000 EUR</b>
               </b-form-radio>
             </b-card>
           </b-card>
@@ -107,8 +116,45 @@
               <b-card class="my-1">
                 <h2>{{ price }}</h2>
               </b-card>
-            </p></b-card
-          >
+            </p>
+
+            <button
+              v-if="$store.state.user.auth"
+              @click="clickLogin"
+              class="govuk-button govuk-!-margin-right-3 govuk-button--start my-1"
+            >
+              Objednať službu
+              <svg
+                class="govuk-button__start-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </button>
+            <button
+              v-if="!$store.state.user.auth"
+              @click="$router.push('/registerPlaceProvider')"
+              class="govuk-button govuk-!-margin-right-3 govuk-button--start my-1"
+            >
+              Registrácia správcu odberných miest
+              <svg
+                class="govuk-button__start-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </button>
+          </b-card>
         </b-col>
       </b-row>
     </b-container>
@@ -146,8 +192,8 @@ export default {
         ret += "0 + ";
       }
       if (this.infra === "bronze") {
-        ret += `20 * ${this.days} + `;
-        price = 20 * this.days;
+        ret += `5 * ${this.days} + `;
+        price = 5 * this.days;
       }
       if (this.infra === "silver") {
         ret += `100 * ${this.days} + `;
@@ -156,6 +202,11 @@ export default {
       if (this.infra === "gold") {
         ret += `10000 * ${this.days} + `;
         price = 10000 * this.days;
+      }
+
+      if (this.comm === "K0") {
+        ret += ` 0 = `;
+        price += 0;
       }
 
       if (this.comm === "K1") {
