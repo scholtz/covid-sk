@@ -132,7 +132,7 @@ export default {
   },
   data() {
     return {
-      showing: "table",
+      showing: "map",
       loading: true,
       fields: [
         {
@@ -196,10 +196,10 @@ export default {
         },
       ],
       lastClickLatLng: [],
-      zoom: 15,
+      zoom: 8,
       minZoom: 3,
       maxZoom: 18,
-      center: [48.28986, 17.26664],
+      center: [48.5, 19.5],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
