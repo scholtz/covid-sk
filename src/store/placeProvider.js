@@ -4,7 +4,7 @@ export const actions = {
       "axios/post",
       {
         url: config.VUE_CONFIG_APP_API + "PlaceProvider/Register",
-        params: { testingPlaceProvider: pp },
+        body: pp,
       },
       { root: true }
     );
