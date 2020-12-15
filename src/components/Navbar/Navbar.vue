@@ -30,6 +30,22 @@
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
+            <b-navbar-nav v-if="isPPAdmin()">
+              <b-nav-item-dropdown :text="$t('navBarAdmin')">
+                <b-dropdown-item to="/admin/placeManager">{{
+                  $t("navBarAdminManagePlace")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/invite">{{
+                  $t("navBarAdminNewUser")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/users">{{
+                  $t("navBarAdminAuditUsers")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/testingTime">{{
+                  $t("navBarAdminTestingTimes")
+                }}</b-dropdown-item>
+              </b-nav-item-dropdown>
+            </b-navbar-nav>
             <b-navbar-nav v-if="isTester()">
               <b-nav-item-dropdown :text="$t('navBarTester')">
                 <b-dropdown-item to="/tester/registeredVisitor">{{
@@ -144,6 +160,15 @@ export default {
     isAdmin() {
       for (const index in this.$store.state.user.tokenData.Role) {
         if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return true;
+      }
+      return false;
+    },
+    isPPAdmin() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return false;
+        if (this.$store.state.user.tokenData.Role[index] === "PPAdmin")
           return true;
       }
       return false;
