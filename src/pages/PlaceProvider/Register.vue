@@ -31,6 +31,19 @@
           </b-row>
           <b-row class="py-1">
             <b-col md="4">
+              <label for="MainContact">{{ $t("ppMainContact") }}</label>
+            </b-col>
+            <b-col md="8">
+              <b-input
+                v-model="pp.MainContact"
+                ref="MainContact"
+                id="MainContact"
+                :disabled="!agreement"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="py-1">
+            <b-col md="4">
               <label for="Country">{{ $t("ppCountry") }}</label>
             </b-col>
             <b-col md="8">

@@ -213,6 +213,7 @@
   "ppTitle":"Registrácia spoločnosti ktorá spravuje odberné miesta",
   "ppAgreement":"Som konateľ spoločnosti, alebo mám poverenie od konateľa spoločnosti k registrácii do systému rýchlejšie.sk . Súhlasím so spracovaním osobných údajov a ďalších údajov spoločnosti a súhlasím so zmluvnými podmienkami služby.",
   "ppTerms":"Obchodné podmienky",
+  "ppMainContact": "Kontaktná osoba",
   "ppPricing":"Cenník",
   "ppCountry":"Krajina",
   "ppCompanyId":"IČO",
