@@ -340,7 +340,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      ReloadPlaces: "place/ReloadPlaces",
+      ReloadPlaces: "place/ReloadPrivatePlaces",
       InsertOrUpdate: "place/InsertOrUpdate",
       Delete: "place/Delete",
     }),

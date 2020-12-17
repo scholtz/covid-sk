@@ -26,6 +26,19 @@ export const actions = {
     }
     return false;
   },
+  async ReloadPrivatePlaces({ dispatch }) {
+    const data = await dispatch(
+      "axios/get",
+      {
+        url: config.VUE_CONFIG_APP_API + "Place/PrivateList",
+      },
+      { root: true }
+    );
+    if (data) {
+      return true;
+    }
+    return false;
+  },
   async CheckSlots({ dispatch }, { day, from, until }) {
     return await dispatch(
       "axios/post",
