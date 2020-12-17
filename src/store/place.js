@@ -26,7 +26,7 @@ export const actions = {
     }
     return false;
   },
-  async ReloadPrivatePlaces({ dispatch }) {
+  async ReloadPrivatePlaces({ dispatch, commit }) {
     const data = await dispatch(
       "axios/get",
       {
@@ -35,6 +35,8 @@ export const actions = {
       { root: true }
     );
     if (data) {
+      commit("setPlaces", data);
+
       return true;
     }
     return false;
