@@ -1,7 +1,7 @@
 <template>
   <div class="idsk-header">
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-container>
+      <b-container :fluid="fluid">
         <b-navbar-brand @click="window.location.reload()" href="./">
           <img
             src="../../assets/images/logo-rychlejsie-white.png"
@@ -19,14 +19,14 @@
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/testingTime">{{
+                  $t("navBarAdminTestingTimes")
+                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/invite">{{
                   $t("navBarAdminNewUser")
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/users">{{
                   $t("navBarAdminAuditUsers")
-                }}</b-dropdown-item>
-                <b-dropdown-item to="/admin/testingTime">{{
-                  $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -35,14 +35,14 @@
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/testingTime">{{
+                  $t("navBarAdminTestingTimes")
+                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/invite">{{
                   $t("navBarAdminNewUser")
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/users">{{
                   $t("navBarAdminAuditUsers")
-                }}</b-dropdown-item>
-                <b-dropdown-item to="/admin/testingTime">{{
-                  $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -147,6 +147,9 @@
 import { mapMutations } from "vuex";
 export default {
   components: {},
+  props: {
+    fluid: Boolean,
+  },
   data() {
     return {
       langs: ["sk", "en"],

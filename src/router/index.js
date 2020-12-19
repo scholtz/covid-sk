@@ -25,6 +25,7 @@ const router = new VueRouter({
     {
       path: "/register",
       name: "SelectPlace",
+      meta: { layout: "wide" },
       component: () => import("../pages/SelectTent.vue"),
     },
     {
@@ -85,6 +86,7 @@ const router = new VueRouter({
     {
       path: "/admin/placeManager",
       name: "AdminPlaceManager",
+      meta: { layout: "wide" },
       component: () => import("../pages/Admin/PlaceManager.vue"),
     },
     {
@@ -100,6 +102,7 @@ const router = new VueRouter({
     {
       path: "/admin/testingTime",
       name: "AdminTestingTime",
+      meta: { layout: "wide" },
       component: () => import("../pages/Admin/TestingTime.vue"),
     },
     {
@@ -120,6 +123,7 @@ const router = new VueRouter({
     {
       path: "/tester/place",
       name: "TesterPlace",
+      meta: { layout: "wide" },
       component: () => import("../pages/Tester/Place.vue"),
     },
     {

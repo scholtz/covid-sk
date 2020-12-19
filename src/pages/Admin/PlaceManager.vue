@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="app-pane-lgray py-2">
-      <b-container>
+      <b-container fluid>
         <h1>Management testovacích miest</h1>
       </b-container>
     </div>
-    <b-container>
+    <b-container fluid>
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
           <b-tab title="Prehľad miest">
@@ -222,6 +222,15 @@
                   </b-col>
                 </b-row>
               </b-col>
+              <b-col>
+                <b-form-checkbox
+                  id="hasVaccineFree"
+                  v-model="place.hasVaccineFree"
+                  name="hasVaccineFree"
+                >
+                  Vakcína - zadarmo
+                </b-form-checkbox>
+              </b-col>
             </b-row>
 
             <b-row
@@ -300,6 +309,7 @@ export default {
         hasAntTestSelf: false,
         hasAntTestSelfPrice: 5,
         hasAntTestSelfPriceCurrency: "EUR",
+        hasVaccineFree: false,
       },
       currencies: ["EUR", "CZK", "USD"],
       tabIndex: 0,
@@ -361,8 +371,9 @@ export default {
       }
     },
     clickCreate() {
+      console.log("this.place", this.place);
       this.InsertOrUpdate({
-        id: this.place,
+        place: this.place,
       }).then(r => {
         if (r) {
           this.openSuccess("Uložené");
@@ -375,16 +386,7 @@ export default {
       });
     },
     editPlaceClick(row) {
-      this.place.id = row.item.id;
-      this.place.name = row.item.name;
-      this.place.description = row.item.description;
-      this.place.address = row.item.address;
-      this.place.lat = row.item.lat;
-      this.place.lng = row.item.lng;
-      this.place.isDriveIn = row.item.isDriveIn;
-      this.place.isWalkIn = row.item.isWalkIn;
-      this.place.limitPer5MinSlot = row.item.limitPer5MinSlot;
-      this.place.limitPer1HourSlot = row.item.limitPer1HourSlot;
+      this.place = row.item;
       this.tabIndex = 1;
     },
     clickCancel() {

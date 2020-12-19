@@ -1,21 +1,37 @@
 <template>
   <footer class="idsk-footer" role="contentinfo">
-    <div class="govuk-width-container">
-      <div class="idsk-footer__meta">
-        <div class="idsk-footer__meta-item footer-logo-wrap">
-          <div class="footer-logo-inner">
-            <div class="textwidget">
-              <a
-                class="idsk-footer__link"
-                href="https://www.pezinok.sk/"
-                style="display: block"
+    <b-container :fluid="fluid">
+      <b-row>
+        <b-col offset-md="2" md="4">
+          <h5>Aplikácia bola podporená</h5>
+          <ul>
+            <li>
+              <a class="idsk-footer__link" href="https://www.pezinok.sk/"
+                >Mestom Pezinok</a
               >
-                <img src="../assets/images/pezinok.svg" width="80px"
-              /></a>
-            </div>
-          </div>
-        </div>
-        <div class="idsk-footer__meta-item idsk-footer__meta-item--grow">
+              - prvý business owner
+            </li>
+            <li>
+              <a class="idsk-footer__link" href="https://ludovit.scholtz.sk/"
+                >Ľudovít Scholtz</a
+              >
+              - Architekt
+            </li>
+            <li>
+              <a class="idsk-footer__link" href="https://www.gosms.eu/"
+                >GoSMS</a
+              >
+              - Zadarmo SMSky pre testovacie účely
+            </li>
+            <li>
+              <a class="idsk-footer__link" href="https://www.srdcomdoma.sk/"
+                >oz. SrdcomDoma</a
+              >
+              - Rebranding, pomoc s vývojom, testovaním a procesmi
+            </li>
+          </ul>
+        </b-col>
+        <b-col md="4">
           <span class="idsk-footer__licence-description">
             <div class="textwidget">
               Prevádzkovateľom služby je Scholtz &amp; Company, j.s.a.<br />
@@ -60,42 +76,17 @@
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="govuk-width-container">
-      <h5>Aplikácia bola podporená</h5>
-      <ul>
-        <li>
-          <a class="idsk-footer__link" href="https://www.pezinok.sk/"
-            >Mestom Pezinok</a
-          >
-          - prvý business owner
-        </li>
-        <li>
-          <a class="idsk-footer__link" href="https://ludovit.scholtz.sk/"
-            >Ľudovít Scholtz</a
-          >
-          - Architekt
-        </li>
-        <li>
-          <a class="idsk-footer__link" href="https://www.gosms.eu/">GoSMS</a> -
-          Zadarmo SMSky pre testovacie účely
-        </li>
-        <li>
-          <a class="idsk-footer__link" href="https://www.srdcomdoma.sk/"
-            >oz. SrdcomDoma</a
-          >
-          - Rebranding, pomoc s vývojom, testovaním a procesmi
-        </li>
-      </ul>
-    </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </footer>
 </template>
 
 <script>
 export default {
   name: "Footer",
-  components: {},
+  props: {
+    fluid: Boolean,
+  },
 };
 </script>

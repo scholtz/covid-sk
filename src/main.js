@@ -15,7 +15,7 @@ import App from "./App";
 import i18n from "./i18n";
 
 import Default from "./components/Layout/Wrappers/baseLayout.vue";
-import Pages from "./components/Layout/Wrappers/pagesLayout.vue";
+import Wide from "./components/Layout/Wrappers/baseLayoutWide.vue";
 import store from "./store";
 
 import "./icons";
@@ -27,7 +27,7 @@ Vue.config.productionTip = false;
 Vue.use(ToastsPlugin);
 Vue.use(BootstrapVue);
 Vue.component("default-layout", Default);
-Vue.component("userpages-layout", Pages);
+Vue.component("wide-layout", Wide);
 
 new Vue({
   el: "#app",

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="app-pane-lgray py-2">
-      <b-container>
+      <b-container fluid>
         <b-link
           v-if="showing === 'map'"
           class="pull-right govuk-button govuk-!-margin-right-3"

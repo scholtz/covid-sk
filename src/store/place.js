@@ -12,6 +12,16 @@ const mutations = {
   },
 };
 export const actions = {
+  async ListScheduledDays({ dispatch }, { placeId }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: config.VUE_CONFIG_APP_API + "Place/ListScheduledDays",
+        params: { placeId },
+      },
+      { root: true }
+    );
+  },
   async ReloadPlaces({ dispatch, commit }) {
     const data = await dispatch(
       "axios/get",
@@ -51,33 +61,8 @@ export const actions = {
       { root: true }
     );
   },
-  async InsertOrUpdate(
-    { dispatch },
-    {
-      id,
-      name,
-      description,
-      address,
-      lat,
-      lng,
-      isDriveIn,
-      isWalkIn,
-      limitPer5MinSlot,
-      limitPer1HourSlot,
-    }
-  ) {
-    var place = {
-      id,
-      name,
-      description,
-      address,
-      lat,
-      lng,
-      isDriveIn,
-      isWalkIn,
-      limitPer5MinSlot,
-      limitPer1HourSlot,
-    };
+  async InsertOrUpdate({ dispatch }, { place }) {
+    console.log("place", place);
     return await dispatch(
       "axios/post",
       {

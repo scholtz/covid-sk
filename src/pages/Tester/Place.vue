@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="app-pane-lgray py-2">
-      <b-container>
+      <b-container fluid>
         <h1>Výber miesta</h1>
       </b-container>
     </div>
@@ -58,16 +58,6 @@ export default {
           sortable: true,
         },
         {
-          key: "limitPer5MinSlot",
-          label: "5Min limit",
-          sortable: true,
-        },
-        {
-          key: "limitPer1HourSlot",
-          label: "Hod limit",
-          sortable: true,
-        },
-        {
           label: "Adresa",
           key: "address",
           sortable: true,
@@ -90,21 +80,6 @@ export default {
         {
           label: "GPS Lng",
           key: "lng",
-          sortable: true,
-        },
-        {
-          label: "Registrácií",
-          key: "registrations",
-          sortable: true,
-        },
-        {
-          label: "Počet zdravých",
-          key: "healthy",
-          sortable: true,
-        },
-        {
-          label: "Počet nakazených",
-          key: "sick",
           sortable: true,
         },
       ],
