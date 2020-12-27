@@ -16,7 +16,7 @@ export const actions = {
     return await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Place/ListScheduledDays",
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/ListScheduledDays",
         params: { placeId },
       },
       { root: true }
@@ -26,7 +26,7 @@ export const actions = {
     const data = await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Place/List",
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/List",
       },
       { root: true }
     );
@@ -40,7 +40,7 @@ export const actions = {
     const data = await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Place/PrivateList",
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/PrivateList",
       },
       { root: true }
     );
@@ -55,8 +55,19 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Admin/CheckSlots",
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/CheckSlots",
         params: { testingDay: day, from, until },
+      },
+      { root: true }
+    );
+  },
+  async ScheduleOpenningHours({ dispatch }, { actions }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "Place/ScheduleOpenningHours",
+        body: actions,
       },
       { root: true }
     );
@@ -66,7 +77,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Place/InsertOrUpdate",
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/InsertOrUpdate",
         body: place,
       },
       { root: true }
@@ -79,7 +90,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Place/Delete",
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/Delete",
         body: place,
       },
       { root: true }

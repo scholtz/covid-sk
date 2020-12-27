@@ -64,7 +64,7 @@ export const actions = {
     const data = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Visitor/RegisterByManager",
+        url: this.state.config.VUE_CONFIG_APP_API + "Visitor/RegisterByManager",
         body: visitor,
       },
       { root: true }
@@ -107,7 +107,7 @@ export const actions = {
     const data = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Visitor/Register",
+        url: this.state.config.VUE_CONFIG_APP_API + "Visitor/Register",
         body: visitor,
       },
       { root: true }
@@ -123,7 +123,7 @@ export const actions = {
     const data = await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Slot/ListDaySlotsByPlace",
+        url: this.state.config.VUE_CONFIG_APP_API + "Slot/ListDaySlotsByPlace",
         params: { placeId },
       },
       { root: true }
@@ -140,7 +140,7 @@ export const actions = {
     const data = await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Slot/ListHourSlotsByPlaceAndDaySlotId",
+        url: this.state.config.VUE_CONFIG_APP_API + "Slot/ListHourSlotsByPlaceAndDaySlotId",
         params: { placeId, daySlotId },
       },
       { root: true }
@@ -157,7 +157,7 @@ export const actions = {
       "axios/get",
       {
         url:
-          config.VUE_CONFIG_APP_API + "Slot/ListMinuteSlotsByPlaceAndHourSlotId",
+          this.state.config.VUE_CONFIG_APP_API + "Slot/ListMinuteSlotsByPlaceAndHourSlotId",
         params: { placeId, hourSlotId },
       },
       { root: true }

@@ -231,7 +231,7 @@
         </b-row>
         <b-row>
           <b-col cols="12" class="my-2">
-            <button class="govuk-button" @click="registerForTest">
+            <button class="btn btn-primary" @click="registerForTest">
               Zaregistrovať
             </button>
           </b-col>

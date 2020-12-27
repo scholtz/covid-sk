@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import multiguard from "vue-router-multiguard";
+import store from "@/store";
 
 Vue.use(VueRouter);
 
@@ -32,6 +34,11 @@ const router = new VueRouter({
       path: "/change-pp",
       name: "change-pp",
       component: () => import("../pages/PlaceProvider/Select.vue"),
+    },
+    {
+      path: "/invitations",
+      name: "invitations",
+      component: () => import("../pages/User/Invitations.vue"),
     },
     {
       path: "/pricing",
@@ -92,12 +99,18 @@ const router = new VueRouter({
     {
       path: "/admin/users",
       name: "AdminUsers",
+      meta: { layout: "wide" },
       component: () => import("../pages/Admin/Users.vue"),
     },
     {
       path: "/admin/invite",
       name: "AdminInvite",
       component: () => import("../pages/Admin/Invite.vue"),
+    },
+    {
+      path: "/admin/managepp",
+      name: "managepp",
+      component: () => import("../pages/PlaceProvider/Manage.vue"),
     },
     {
       path: "/admin/testingTime",
@@ -158,5 +171,20 @@ const router = new VueRouter({
     },
   ],
 });
+
+const setPageTitle = async (to, from, next) => {
+  document.title = to.meta.title || "rychlejsie.sk";
+  next();
+};
+
+const configRouteGuard = async (to, from, next) => {
+  const fetched = store.state.config.fetched;
+  if (!fetched) {
+    await store.dispatch("config/getConfig");
+  }
+  next();
+};
+
+router.beforeEach(multiguard([configRouteGuard, setPageTitle]));
 
 export default router;

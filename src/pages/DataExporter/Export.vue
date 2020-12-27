@@ -8,13 +8,9 @@
     <b-container>
       <b-row>
         <b-col>
-          <button
-            @click="clickExport"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="clickExport" class="btn btn-primary my-4">
             Stiahnuť
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"

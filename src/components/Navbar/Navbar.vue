@@ -2,11 +2,16 @@
   <div class="idsk-header">
     <b-navbar toggleable="lg" type="dark" variant="dark">
       <b-container :fluid="fluid">
-        <b-navbar-brand @click="window.location.reload()" href="./">
+        <b-navbar-brand
+          @click="window.location.reload()"
+          href="./"
+          class="m-0 p-0"
+        >
           <img
-            src="../../assets/images/logo-rychlejsie-white.png"
+            src="../../assets/images/logo-rychlejsie-light.svg"
             height="40px"
-            class="idsk-header__logotype-crown"
+            width="190px"
+            class="m-0 p-0"
           />
         </b-navbar-brand>
 
@@ -22,11 +27,11 @@
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
-                <b-dropdown-item to="/admin/invite">{{
-                  $t("navBarAdminNewUser")
-                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/users">{{
                   $t("navBarAdminAuditUsers")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/managepp">{{
+                  $t("navBarAdminManagePP")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -38,11 +43,11 @@
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
-                <b-dropdown-item to="/admin/invite">{{
-                  $t("navBarAdminNewUser")
-                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/users">{{
                   $t("navBarAdminAuditUsers")
+                }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/managepp">{{
+                  $t("navBarAdminManagePP")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -110,6 +115,9 @@
             <b-nav-item-dropdown :text="$store.state.user.tokenData.Name" right>
               <b-dropdown-item to="/change-pp">{{
                 $t("navBarUserChangePP")
+              }}</b-dropdown-item>
+              <b-dropdown-item to="/invitations">{{
+                $t("navBarUserInvitations")
               }}</b-dropdown-item>
               <b-dropdown-item to="/change-password">{{
                 $t("navBarUserChangePassword")

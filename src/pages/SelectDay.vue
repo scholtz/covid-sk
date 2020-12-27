@@ -6,10 +6,7 @@
       </b-container>
     </div>
 
-    <div
-      class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6"
-      v-if="$store.state.place.currentPlace"
-    >
+    <div class="app-pane-blue py-4" v-if="$store.state.place.currentPlace">
       <b-container>
         <h2>
           {{
@@ -44,7 +41,7 @@
         <p v-if="$store.state.place.currentPlace.description">
           Popis: {{ $store.state.place.currentPlace.description }}
         </p>
-        <b-link :to="`/register`" class="govuk-button m-0"
+        <b-link :to="`/register`" class="btn btn-light m-0"
           >{{ $t("change") }}
         </b-link>
       </b-container>
@@ -59,7 +56,7 @@
         Ak poznáte správcu tohto odberného miesta, prosím dajte mu vedieť o
         našich službách.
       </p>
-      <b-link :to="`/registerPlaceProvider`" class="govuk-button"
+      <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"
         >16 dôvodov prečo použiť náš rezervačný systém
       </b-link>
     </b-container>
@@ -77,7 +74,7 @@
       <div v-for="slotD in $store.state.slot.slotsD" :key="slotD.slotId">
         <b-link
           :to="`/place/${$route.params.placeId}/${slotD.slotId}`"
-          class="govuk-button"
+          class="btn btn-primary"
           >{{
             $t("selectDayButtonText", {
               description: slotD.description,

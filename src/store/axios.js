@@ -13,6 +13,21 @@ function getLang() {
   }
 }
 
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    if (401 === error.response.status) {
+      // handle error: inform user, go to login, etc
+      console.log("401", error);
+      return Promise.reject(error);
+    } else {
+      return Promise.reject(error);
+    }
+  }
+);
+
 const actions = {
   async get({ dispatch }, { url, params }) {
     let response = null;
@@ -37,7 +52,20 @@ const actions = {
       }
 
       response = await axios.get(url, { params }).catch(function (error) {
-        console.log("error", error);
+        if (error.response.status == 401) {
+          dispatch("snackbar/openError", "Session timeout - unauthenticated", {
+            root: true,
+          });
+          shown = true;
+          dispatch(
+            "user/Logout",
+            {},
+            {
+              root: true,
+            }
+          );
+        }
+
         if (
           error.response &&
           error.response.data &&
@@ -88,6 +116,7 @@ const actions = {
         );
       }
     } catch (e) {
+      console.log("catch.e", e);
       dispatch("snackbar/openError", e.message, { root: true });
     }
   },
@@ -119,6 +148,19 @@ const actions = {
       }
       let shown = false;
       response = await axios.post(url, fd).catch(function (error) {
+        if (error.response.status == 401) {
+          dispatch("snackbar/openError", "Session timeout - unauthenticated", {
+            root: true,
+          });
+          shown = true;
+          dispatch(
+            "user/Logout",
+            {},
+            {
+              root: true,
+            }
+          );
+        }
         if (
           error.response &&
           error.response.data &&
@@ -174,6 +216,7 @@ const actions = {
         );
       }
     } catch (e) {
+      console.log("catch.e", e);
       dispatch("snackbar/openError", e.message, { root: true });
     }
   },

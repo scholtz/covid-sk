@@ -29,6 +29,7 @@
   "navBarAdminNewUser":"New User",
   "navBarAdminAuditUsers":"User Audit",
   "navBarAdminTestingTimes":"Opening hours management",
+  "navBarAdminManagePP":"Edit company",
 
   "navBarTester":"Tester",
   "navBarRegVisitor":"Registered visitor",
@@ -50,6 +51,7 @@
 
   "navBarUserChangePassword":"Change password",
   "navBarUserChangePP":"Change company",
+  "navBarUserInvitations": "Invitations",
   "navBarUserLogout":"Logout",
   "navBarUserLogin":"Login",
 

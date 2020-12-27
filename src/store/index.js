@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "./axios";
+import config from "./config";
 import place from "./place";
 import slot from "./slot";
 import snackbar from "./snackbar";
@@ -15,6 +16,7 @@ const debugStrict = process.env.NODE_ENV !== "production";
 export default new Vuex.Store({
   modules: {
     axios,
+    config,
     place,
     snackbar,
     slot,

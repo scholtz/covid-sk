@@ -27,13 +27,9 @@
           </b-td>
         </b-tr>
       </b-table-simple>
-      <button
-        @click="nextTestClick"
-        class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-      >
+      <button @click="nextTestClick" class="btn btn-primary my-4">
         Načítať údaje ďalšieho testu
         <svg
-          class="govuk-button__start-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="17.5"
           height="19"

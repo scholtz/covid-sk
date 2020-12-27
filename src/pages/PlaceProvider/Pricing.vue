@@ -118,13 +118,9 @@
               </b-card>
             </p>
 
-            <button
-              v-if="$store.state.user.auth"
-              class="govuk-button govuk-!-margin-right-3 govuk-button--start my-1"
-            >
+            <button v-if="$store.state.user.auth" class="btn btn-primary my-1">
               Objednať službu
               <svg
-                class="govuk-button__start-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
                 height="19"
@@ -138,11 +134,10 @@
             <button
               v-if="!$store.state.user.auth"
               @click="$router.push('/registerPlaceProvider')"
-              class="govuk-button govuk-!-margin-right-3 govuk-button--start my-1"
+              class="btn btn-primary my-1"
             >
               Registrácia správcu odberných miest
               <svg
-                class="govuk-button__start-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
                 height="19"

@@ -14,7 +14,7 @@
         <template #cell(id)="row">
           <b-link
             @click="selectPPClick(row)"
-            class="govuk-button m-2"
+            class="btn btn-primary m-2"
             v-if="$store.state.user.tokenData.pp !== row.item.placeProviderId"
           >
             Vybrať

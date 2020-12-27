@@ -52,7 +52,37 @@ export const actions = {
     return await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "User/List",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/List",
+      },
+      { root: true }
+    );
+  },
+  async ListUserInvites({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "User/ListUserInvites",
+      },
+      { root: true }
+    );
+  },
+
+  async ListPPInvites({ dispatch }, { placeProviderId }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "User/ListPPInvites",
+        params: { placeProviderId },
+      },
+      { root: true }
+    );
+  },
+  async ProcessInvitation({ dispatch }, { invitationId, accepted }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "User/ProcessInvitation",
+        params: { invitationId, accepted },
       },
       { root: true }
     );
@@ -61,7 +91,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "User/Preauthenticate",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/Preauthenticate",
         params: { email },
       },
       { root: true }
@@ -71,7 +101,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "User/SetLocation",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/SetLocation",
         params: { placeId },
       },
       { root: true }
@@ -81,7 +111,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Admin/InviteUser",
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/InviteUser",
         params: { email, name, roles },
       },
       { root: true }
@@ -91,7 +121,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Admin/RemoveUser",
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/RemoveUser",
         params: { email },
       },
       { root: true }
@@ -102,7 +132,7 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "User/ChangePassword",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/ChangePassword",
         params: { oldHash, newHash },
       },
       { root: true }
@@ -117,7 +147,7 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "User/SetPlaceProvider",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/SetPlaceProvider",
         params: { placeProviderId },
       },
       { root: true }
@@ -133,7 +163,7 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "User/Authenticate",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/Authenticate",
         params: { email, hash, data },
       },
       { root: true }
@@ -147,11 +177,18 @@ export const actions = {
     const token = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "User/Authenticate",
+        url: this.state.config.VUE_CONFIG_APP_API + "User/Authenticate",
         params: { email, hash },
       },
       { root: true }
     );
+
+    commit("setAuthJWT", token);
+    if (token) return true;
+    return false;
+  },
+  async Logout({ commit }) {
+    const token = "";
 
     commit("setAuthJWT", token);
     if (token) return true;

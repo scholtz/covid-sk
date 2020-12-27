@@ -11,10 +11,9 @@
         :fields="fields"
       >
         <template #cell(id)="row">
-          <button @click="selectPlace(row)" class="govuk-button">
+          <button @click="selectPlace(row)" class="btn btn-primary">
             Vybrať
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"

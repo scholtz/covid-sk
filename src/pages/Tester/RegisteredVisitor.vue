@@ -8,13 +8,9 @@
     <b-container class="my-4" v-if="action === 'select'">
       <b-row>
         <b-col>
-          <button
-            @click="action = 'rc'"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="action = 'rc'" class="btn btn-primary my-4 mr-4">
             Načítať rodné číslo
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -25,13 +21,9 @@
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
           </button>
-          <button
-            @click="action = 'regCode'"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="action = 'regCode'" class="btn btn-primary my-4 mr-4">
             Načítať kód registrácie
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -49,19 +41,18 @@
     <b-container class="my-4" v-if="action === 'rc'">
       <b-row>
         <b-col cols="12">
-          <button class="float-right bg-light my-2" @click="reset">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
             Zrušiť
           </button>
           <label for="code1">Rodné číslo</label>
           <b-input v-model="code" id="code1" />
 
-          <button
-            @click="loadByRC"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="loadByRC" class="btn btn-primary my-4">
             Overiť registráciu
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -79,19 +70,18 @@
     <b-container class="my-4" v-if="action === 'regCode'">
       <b-row>
         <b-col cols="12">
-          <button class="float-right bg-light my-2" @click="reset">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
             Zrušiť
           </button>
           <label for="code1">Kód registrácie</label>
           <b-input v-model="code" id="code1" />
 
-          <button
-            @click="confirmCode"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="confirmCode" class="btn btn-primary my-4">
             Načítať kód registrácie
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -113,7 +103,10 @@
     <b-container class="my-4" v-if="action === 'verifyPerson'">
       <b-row>
         <b-col cols="12">
-          <button class="float-right bg-light my-2" @click="reset">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
             Zrušiť
           </button>
           <h2>Overenie užívateľa</h2>
@@ -122,13 +115,9 @@
           <div>Poisťovňa: {{ visitor.insurance }}</div>
           <div>RČ: {{ visitor.rc }} {{ visitor.passport }}</div>
           <div>Adresa: {{ visitor.address }}</div>
-          <button
-            @click="action = 'testSetCode'"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="action = 'testSetCode'" class="btn btn-primary my-4">
             Osoba je overená
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -141,11 +130,10 @@
           </button>
           <button
             @click="$router.push('/tester/unannouncedVisitor')"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+            class="btn btn-primary my-4"
           >
             Chybné údaje
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -163,18 +151,17 @@
     <b-container class="my-4" v-if="action === 'testSetCode'">
       <b-row>
         <b-col cols="12">
-          <button class="float-right bg-light my-2" @click="reset">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
             Zrušiť
           </button>
           <label for="testingset1">Kód testovacej sady</label>
           <b-input v-model="testingset" id="testingset1" />
-          <button
-            @click="save"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-          >
+          <button @click="save" class="btn btn-primary my-4">
             Vykonať test
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -217,13 +204,9 @@
               cols="12"
               v-if="state === 'check' || state === 'visitor-error'"
             >
-              <button
-                @click="load"
-                class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-              >
+              <button @click="load" class="btn btn-primary my-4 mr-4">
                 Skontrolovať údaje
                 <svg
-                  class="govuk-button__start-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="19"
@@ -245,13 +228,9 @@
               <b-input v-model="testingset" ref="testingset" id="testingset" />
             </b-col>
             <b-col cols="12" v-if="state === 'visitor-loaded'">
-              <button
-                @click="save"
-                class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-              >
+              <button @click="save" class="btn btn-primary my-4">
                 Uložiť
                 <svg
-                  class="govuk-button__start-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="19"

@@ -8,10 +8,7 @@
         </p>
       </b-container>
     </div>
-    <div
-      class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6"
-      v-if="$store.state.place.currentPlace"
-    >
+    <div class="app-pane-blue py-4" v-if="$store.state.place.currentPlace">
       <b-container>
         <h2>
           {{
@@ -24,7 +21,7 @@
         </h2>
         <b-link
           :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}`"
-          class="govuk-button m-0"
+          class="m-0 btn btn-light"
         >
           {{ $t("change") }}
         </b-link>
@@ -270,13 +267,13 @@
                 {{ $t("registrationFormGDPR") }}
               </b-form-checkbox>
             </p>
-            <button
+            <b-button
               :disabled="!gdpr"
-              class="govuk-button"
               @click="registerForTest"
+              variant="primary"
             >
               {{ $t("registrationFormButton") }}
-            </button>
+            </b-button>
           </b-col>
         </b-row>
       </b-container>

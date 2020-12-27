@@ -8,7 +8,7 @@
       </b-container>
     </div>
 
-    <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
+    <div class="app-pane-blue py-4">
       <b-container>
         <h2>{{ $t("mainSubTitle") }}</h2>
       </b-container>
@@ -35,11 +35,9 @@
                   target="_self"
                   role="button"
                   draggable="false"
-                  class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-                  data-module="govuk-button"
+                  class="my-4 btn btn-light"
                   >{{ $t("mainActionButton") }}
                   <svg
-                    class="govuk-button__start-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
                     height="19"
@@ -75,11 +73,9 @@
                   target="_self"
                   role="button"
                   draggable="false"
-                  class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-                  data-module="govuk-button"
+                  class="my-4 btn btn-primary"
                   >{{ $t("mainActionMedicButton") }}
                   <svg
-                    class="govuk-button__start-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
                     height="19"

@@ -13,11 +13,7 @@
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-1>{{
                         $t("helpPublicQ1")
                       }}</b-button>
@@ -35,11 +31,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-2>{{
                         $t("helpPublicQ2")
                       }}</b-button>
@@ -56,11 +48,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-3>{{
                         $t("helpPublicQ3")
                       }}</b-button>
@@ -77,11 +65,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-4>{{
                         $t("helpPublicQ4")
                       }}</b-button>
@@ -103,11 +87,7 @@
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -128,11 +108,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -152,11 +128,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -176,11 +148,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -205,11 +173,7 @@
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -230,11 +194,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -254,11 +214,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -278,11 +234,7 @@
                   </b-card>
 
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
                         class="p-3"
                         block
@@ -307,11 +259,7 @@
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-lab-1>{{
                         $t("helpLabQ1")
                       }}</b-button>
@@ -334,11 +282,7 @@
               <b-card-text
                 ><div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
-                    <b-card-header
-                      header-tag="header"
-                      class="p-0 govuk-button"
-                      role="tab"
-                    >
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-doc-1>{{
                         $t("helpDocQ1")
                       }}</b-button>

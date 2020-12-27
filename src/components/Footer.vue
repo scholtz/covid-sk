@@ -43,39 +43,6 @@
               >
             </div>
           </span>
-          <h2 class="govuk-visually-hidden">Dôležité odkazy</h2>
-
-          <div class="textwidget">
-            <ul class="idsk-footer__inline-list">
-              <li class="idsk-footer__inline-list-item">
-                OpenSource zdrojové kódy:
-              </li>
-              <li class="idsk-footer__inline-list-item">
-                <a
-                  class="idsk-footer__link"
-                  href="https://github.com/scholtz/covid-sk"
-                >
-                  FE: vue.js
-                </a>
-              </li>
-              <li class="idsk-footer__inline-list-item">
-                <a
-                  class="idsk-footer__link"
-                  href="https://github.com/scholtz/covid-sk-api"
-                >
-                  BE: .NET Core API
-                </a>
-              </li>
-              <li class="idsk-footer__inline-list-item">
-                <a
-                  class="idsk-footer__link"
-                  href="https://hub.docker.com/r/scholtz2/mass-covid-testing-api"
-                >
-                  BE: Docker image
-                </a>
-              </li>
-            </ul>
-          </div>
         </b-col>
       </b-row>
     </b-container>

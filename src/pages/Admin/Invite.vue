@@ -27,7 +27,7 @@
       </b-row>
       <b-row>
         <b-col cols="12" md="12">
-          <button @click="inviteUserClick" class="govuk-button my-4">
+          <button @click="inviteUserClick" class="btn btn-primary my-4">
             Pozvať
           </button>
         </b-col>

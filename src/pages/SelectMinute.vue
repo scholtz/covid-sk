@@ -5,7 +5,7 @@
         <h1>{{ $t("selectMinuteTitle") }}</h1>
       </b-container>
     </div>
-    <div class="app-pane-blue govuk-!-padding-top-6 govuk-!-padding-bottom-6">
+    <div class="app-pane-blue py-4">
       <b-container>
         <h2>
           {{
@@ -19,7 +19,7 @@
 
         <b-link
           :to="`/place/${$route.params.placeId}/${$route.params.dayId}`"
-          class="govuk-button m-0"
+          class="btn btn-light m-0"
         >
           {{ $t("change") }}
         </b-link>
@@ -43,7 +43,7 @@
                 $store.state.place.currentPlace.limitPer5MinSlot
               "
               :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${minute.slotId}`"
-              class="govuk-button m-0"
+              class="btn btn-primary m-0"
               v-bind:class="{
                 'bg-danger':
                   minute.registrations >=

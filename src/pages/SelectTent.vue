@@ -4,13 +4,13 @@
       <b-container fluid>
         <b-link
           v-if="showing === 'map'"
-          class="pull-right govuk-button govuk-!-margin-right-3"
+          class="pull-right mr-2 btn btn-primary"
           @click="showing = 'table'"
           >{{ $t("selectPlaceShowTable") }}</b-link
         >
         <b-link
           v-if="showing === 'table'"
-          class="pull-right govuk-button govuk-!-margin-right-3"
+          class="pull-right mr-2 btn btn-primary"
           @click="showing = 'map'"
           >{{ $t("selectPlaceShowMap") }}</b-link
         >
@@ -61,7 +61,11 @@
                     </p>
                     <p>{{ $t("selectPlaceDriveIn") }}: {{ place.isDriveIn }}</p>
                     <p>{{ $t("selectPlaceWalkIn") }}: {{ place.isWalkIn }}</p>
-                    <b-link :to="`/place/${place.id}`" class="govuk-button">
+                    <b-link
+                      :to="`/place/${place.id}`"
+                      class="btn btn-primary"
+                      style="color: #fff !important"
+                    >
                       {{ $t("selectPlaceSelect") }}
                     </b-link>
                   </l-popup>
@@ -80,7 +84,7 @@
           :fields="fields"
         >
           <template #cell(id)="row">
-            <b-link :to="`/place/${row.value}`" class="govuk-button">
+            <b-link :to="`/place/${row.value}`" class="btn btn-primary btn-sm">
               {{ $t("selectPlaceSelect") }}
             </b-link>
           </template>

@@ -39,6 +39,7 @@
   "navBarAdminNewUser":"Nový užívateľ",
   "navBarAdminAuditUsers":"Audit užívateľov",
   "navBarAdminTestingTimes":"Management otváracích hodín",
+  "navBarAdminManagePP":"Upraviť spoločnosť",
 
   "navBarTester":"Tester",
   "navBarRegVisitor":"Zaregistrovaný návštevník",
@@ -60,6 +61,7 @@
 
   "navBarUserChangePassword":"Zmena hesla",
   "navBarUserChangePP":"Zmena spoločnosti",
+  "navBarUserInvitations": "Pozvánky",
   "navBarUserLogout":"Odhlásenie",
   "navBarUserLogin":"Prihlásenie",
 

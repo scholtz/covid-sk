@@ -2,10 +2,20 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container fluid>
-        <h1>Management testovacích miest</h1>
+        <h1>
+          Management testovacích miest
+          <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
+        </h1>
       </b-container>
     </div>
-    <b-container fluid>
+    <b-container fluid v-if="loading">
+      <b-row>
+        <b-col>
+          <b-spinner label="Loading..."></b-spinner>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container fluid v-if="!loading">
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
           <b-tab title="Prehľad miest">
@@ -15,15 +25,24 @@
                 :fields="fields"
               >
                 <template #cell(id)="row">
-                  <button @click="editPlaceClick(row)" class="govuk-button m-1">
-                    Upraviť
-                  </button>
-                  <button
-                    @click="deletePlaceClick(row)"
-                    class="govuk-button m-1"
+                  <b-button
+                    variant="light"
+                    @click="editPlaceClick(row)"
+                    class="mr-1"
+                    title="Upraviť"
+                    size="sm"
                   >
-                    Zrušiť
-                  </button>
+                    <font-awesome-icon class="m-1" icon="edit" />
+                  </b-button>
+                  <b-button
+                    variant="light"
+                    @click="deletePlaceClick(row)"
+                    class="mr-1"
+                    title="Zrušiť"
+                    size="sm"
+                  >
+                    <font-awesome-icon class="m-1" icon="trash" />
+                  </b-button>
                 </template>
               </b-table>
             </div>
@@ -161,7 +180,7 @@
                   v-model="place.hasPCRTestSelf"
                   name="hasPCRTestSelf"
                 >
-                  PCR Test - samoplatca
+                  PCR Test - samoplatca (Bez DPH)
                 </b-form-checkbox>
                 <b-row v-if="place.hasPCRTestSelf">
                   <b-col md="8">
@@ -199,7 +218,7 @@
                   v-model="place.hasAntTestSelf"
                   name="hasAntTestSelf"
                 >
-                  Antigen Test - samoplatca
+                  Antigen Test - samoplatca (Bez DPH)
                 </b-form-checkbox>
                 <b-row v-if="place.hasAntTestSelf">
                   <b-col md="8">
@@ -237,11 +256,10 @@
               ><button
                 v-if="place.id"
                 @click="clickCreate"
-                class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+                class="btn btn-primary my-4"
               >
                 Upraviť
                 <svg
-                  class="govuk-button__start-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="19"
@@ -255,14 +273,9 @@
               <a v-if="place.id" @click="clickCancel" class="btn btn-light">
                 Zrušiť úpravu
               </a>
-              <button
-                v-else
-                @click="clickCreate"
-                class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
-              >
+              <button v-else @click="clickCreate" class="btn btn-primary my-4">
                 Vytvoriť
                 <svg
-                  class="govuk-button__start-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="19"
@@ -287,6 +300,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      loading: true,
       place: {
         id: "",
         name: "",
@@ -341,11 +355,54 @@ export default {
       ],
     };
   },
+  computed: {
+    placePrivider() {
+      if (!this.$store.state.placeProvider.places) return {};
+      return this.$store.state.placeProvider.places.find(
+        p => p.placeProviderId === this.pp
+      );
+    },
+    pp() {
+      if (!this.$store.state) return "";
+      return this.$store.state.user.tokenData.pp;
+    },
+    places() {
+      return this.$store.state.place.places;
+    },
+  },
+  watch: {
+    places() {
+      console.log(
+        "places",
+        this.$store.state.place.places,
+        Object.values(this.$store.state.place.places).length,
+        this.$store.state.place.places &&
+          Object.values(this.$store.state.place.places).length > 0
+      );
+      if (
+        this.$store.state.place.places &&
+        Object.values(this.$store.state.place.places).length > 0
+      ) {
+        this.tabIndex = 0;
+      } else {
+        this.tabIndex = 1;
+      }
+      this.loading = false;
+    },
+  },
   mounted() {
-    this.tabIndex = 0;
+    this.ListPrivate();
     this.ReloadPlaces().then(r => {
-      console.log("r", r);
-      this.tabIndex = 0;
+      if (
+        r &&
+        this.$store.state.place.places &&
+        Object.values(this.$store.state.place.places).length > 0
+      ) {
+        this.tabIndex = 0;
+      } else {
+        this.tabIndex = 1;
+      }
+      this.loading = false;
     });
   },
   methods: {
@@ -353,6 +410,7 @@ export default {
       ReloadPlaces: "place/ReloadPrivatePlaces",
       InsertOrUpdate: "place/InsertOrUpdate",
       Delete: "place/Delete",
+      ListPrivate: "placeProvider/ListPrivate",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",

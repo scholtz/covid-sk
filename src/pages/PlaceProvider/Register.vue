@@ -155,11 +155,10 @@
               <button
                 v-if="agreement"
                 @click="clickRegister"
-                class="govuk-button govuk-!-margin-right-3 govuk-button--start my-4"
+                class="btn btn-primary my-4"
               >
                 {{ $t("ppRegister") }}
                 <svg
-                  class="govuk-button__start-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="19"

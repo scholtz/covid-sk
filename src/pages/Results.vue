@@ -20,14 +20,9 @@
         </b-row>
         <b-row>
           <b-col>
-            <button
-              class="govuk-button my-3"
-              data-module="govuk-button"
-              @click="check"
-            >
+            <b-button class="my-3" @click="check" variant="primary">
               {{ $t("resultsCheckResults") }}
               <svg
-                class="govuk-button__start-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
                 height="19"
@@ -37,7 +32,7 @@
               >
                 <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
               </svg>
-            </button>
+            </b-button>
           </b-col>
         </b-row>
         <b-row>
@@ -78,14 +73,13 @@
               <span v-html="$t('resultsTestNegativeCertTaken')" />
 
               <br />
-              <button
-                class="govuk-button my-3"
-                data-module="govuk-button"
+              <b-button
+                class="my-3"
                 @click="removePersonalData"
+                variant="primary"
               >
                 {{ $t("resultsRemovePersonalData") }}
                 <svg
-                  class="govuk-button__start-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="19"
@@ -95,7 +89,7 @@
                 >
                   <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
                 </svg>
-              </button>
+              </b-button>
             </p>
           </b-col>
         </b-row>

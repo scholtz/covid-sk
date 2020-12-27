@@ -2,14 +2,17 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container fluid>
-        <h1>Nastavenie otváracích hodín</h1>
+        <h1>
+          Nastavenie otváracích hodín
+          <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
+        </h1>
       </b-container>
     </div>
     <div class="py-3" v-if="revision">
       <b-container fluid>
         <b-row>
           <b-col>
-            <h2>Revízia zmnien</h2>
+            <h2>Revízia zmien</h2>
             <ol id="example-2">
               <li v-for="(item, index) in sortedActions()" :key="index">
                 <span v-if="item.type === 'delete'">
@@ -42,13 +45,9 @@
               Pozor! Chystáte sa zmeniť otváracie miesta na všetkých Vašich
               odberných miestach
             </div>
-            <button
-              @click="revisionClick"
-              class="govuk-button govuk-!-margin-right-3 govuk-button--start m-2"
-            >
+            <b-button @click="saveClick" class="m-2" variant="primary">
               Uložiť
               <svg
-                class="govuk-button__start-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
                 height="19"
@@ -58,13 +57,10 @@
               >
                 <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
               </svg>
-            </button>
-            <button
-              @click="revisionBackClick"
-              class="govuk-button govuk-!-margin-right-3 govuk-button--start m-2"
-            >
+            </b-button>
+            <b-button @click="revisionBackClick" class="m-2" variant="light">
               Späť
-            </button>
+            </b-button>
           </b-col>
         </b-row>
       </b-container>
@@ -80,6 +76,7 @@
               id="allPlaces"
               v-model="allPlaces"
               name="allPlaces"
+              class="text-right"
             >
               Všetky miesta
             </b-form-checkbox>
@@ -128,28 +125,28 @@
 
           <button
             @click="createEvent(1)"
-            class="my-2 w-100 govuk-button"
+            class="my-2 w-100 btn btn-primary"
             style="background: darkgreen; color: white"
           >
             {{ template1 }}
           </button>
           <button
             @click="createEvent(2)"
-            class="my-2 w-100 govuk-button"
+            class="my-2 w-100 btn btn-primary"
             style="background: navy; color: white"
           >
             Šablóna otváracích hodín 2 (víkendy)
           </button>
           <button
             @click="createEvent(3)"
-            class="my-2 w-100 govuk-button"
+            class="my-2 w-100 btn btn-primary"
             style="background: purple; color: white"
           >
             Šablóna otváracích hodín 3 (sviatky)
           </button>
           <button
             @click="createEvent(4)"
-            class="my-2 w-100 govuk-button"
+            class="my-2 w-100 btn btn-primary"
             style="background: darkred; color: white"
           >
             Zatvorené
@@ -161,13 +158,9 @@
       </b-row>
       <b-row class="my-4">
         <b-col offset-md="3">
-          <button
-            @click="revisionClick"
-            class="govuk-button govuk-!-margin-right-3 govuk-button--start my-2"
-          >
+          <button @click="revisionClick" class="btn btn-primary my-2">
             Prehľad zmien
             <svg
-              class="govuk-button__start-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
               height="19"
@@ -190,6 +183,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { mapActions } from "vuex";
 import { moment } from "moment";
+import skLocale from "@fullcalendar/core/locales/sk";
 
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
@@ -212,6 +206,7 @@ export default {
       untilDate: new Date().toISOString(),
 
       calendarOptions: {
+        locale: skLocale,
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: "dayGridMonth",
         selectable: true,
@@ -221,6 +216,7 @@ export default {
         showNonCurrentDates: true,
         fixedWeekCount: false,
         contentHeight: 400,
+        firstDay: 1,
         events: [],
       },
     };
@@ -249,6 +245,16 @@ export default {
         return "Šablóna otváracích hodín 3";
       return obj["openingHoursOther2"];
     },
+    placePrivider() {
+      if (!this.$store.state.placeProvider.places) return {};
+      return this.$store.state.placeProvider.places.find(
+        p => p.placeProviderId === this.pp
+      );
+    },
+    pp() {
+      if (!this.$store.state) return "";
+      return this.$store.state.user.tokenData.pp;
+    },
   },
   watch: {
     place() {
@@ -271,6 +277,7 @@ export default {
     },
   },
   mounted() {
+    this.ListPrivate();
     this.ReloadPlaces();
     this.ListScheduledDays({
       placeId: this.allPlaces ? "__ALL__" : this.place,
@@ -281,6 +288,15 @@ export default {
     });
   },
   methods: {
+    ...mapActions({
+      ReloadPlaces: "place/ReloadPrivatePlaces",
+      ListPrivate: "placeProvider/ListPrivate",
+      ListScheduledDays: "place/ListScheduledDays",
+      ScheduleOpenningHours: "place/ScheduleOpenningHours",
+    }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
     processScheduledDays(r) {
       this.calendarOptions.events = [];
       this.actions = {};
@@ -304,6 +320,7 @@ export default {
           backgroundColor: bck,
         });
       }
+      console.log("this.calendarOptions.events", this.calendarOptions.events);
     },
     getBackground(i) {
       if (i == 1) return "darkgreen";
@@ -329,7 +346,6 @@ export default {
       this.untilDate = info.end.toISOString();
     },
     selectAllow: function (info) {
-      console.log("info", info, new Date() < info.start);
       const currDate = new Date();
       const date = currDate.setDate(currDate.getDate() - 1);
 
@@ -338,30 +354,30 @@ export default {
 
       // return true;
     },
-    ...mapActions({
-      CheckSlots: "place/CheckSlots",
-      ReloadPlaces: "place/ReloadPrivatePlaces",
-      ListScheduledDays: "place/ListScheduledDays",
-    }),
-    ...mapActions({
-      openSuccess: "snackbar/openSuccess",
-    }),
     revisionClick() {
       this.revision = true;
     },
     revisionBackClick() {
       this.revision = false;
     },
-    checkClick() {
-      this.CheckSlots({
-        day: this.day,
-        from: this.from,
-        until: this.until,
-      }).then(r => {
-        if (r) {
-          this.openSuccess("Uložené " + r);
+    saveClick() {
+      this.ScheduleOpenningHours({ actions: Object.values(this.actions) }).then(
+        r => {
+          if (r) {
+            this.ListScheduledDays({
+              placeId: this.allPlaces ? "__ALL__" : this.place,
+            }).then(r2 => {
+              if (r2) {
+                this.processScheduledDays(r2);
+                this.revision = false;
+                this.openSuccess(
+                  "Dni testovania boli nastavené. Verejnosť sa teraz môže zaregistrovať k odberu/vakcinácii."
+                );
+              }
+            });
+          }
         }
-      });
+      );
     },
     createEvent(i) {
       let color = "#999";

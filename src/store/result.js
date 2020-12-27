@@ -3,7 +3,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/Get",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/Get",
         params: { code, pass },
       },
       { root: true }
@@ -13,7 +13,7 @@ export const actions = {
     return await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/GetNextTest",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/GetNextTest",
       },
       { root: true }
     );
@@ -22,7 +22,7 @@ export const actions = {
     return await dispatch(
       "axios/get",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
       },
       { root: true }
     );
@@ -31,7 +31,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/RemoveFromDocQueue",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/RemoveFromDocQueue",
         params: { testId },
       },
       { root: true }
@@ -41,7 +41,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/RemoveTest",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/RemoveTest",
         params: { code, pass },
       },
       { root: true }
@@ -51,7 +51,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/SetResult",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/SetResult",
         params: { testCode, result },
       },
       { root: true }
@@ -61,7 +61,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/GetVisitor",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/GetVisitor",
         params: { visitorCode },
       },
       { root: true }
@@ -71,7 +71,7 @@ export const actions = {
     return await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/GetVisitorByRC",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/GetVisitorByRC",
         params: { rc },
       },
       { root: true }
@@ -81,7 +81,7 @@ export const actions = {
     const data = await dispatch(
       "axios/post",
       {
-        url: config.VUE_CONFIG_APP_API + "Result/ConnectVisitorToTest",
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ConnectVisitorToTest",
         params: { visitorCode, testCode },
       },
       { root: true }

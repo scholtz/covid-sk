@@ -9,7 +9,10 @@
       <h2>Vyberte čo idete nascanovať</h2>
       <b-row>
         <b-col>
-          <button class="my-2 govuk-button bg-danger" @click="action = 'sick'">
+          <button
+            class="my-2 btn btn-primary bg-danger"
+            @click="action = 'sick'"
+          >
             Idem nascanovať pozitívne výsledky testov - Chorí na Covid-19
           </button>
         </b-col>
@@ -17,7 +20,7 @@
       <b-row>
         <b-col>
           <button
-            class="my-2 govuk-button bg-warning text-dark"
+            class="my-2 btn btn-primary bg-warning text-dark"
             @click="action = 'repeat'"
           >
             Idem nascanovať chybné výsledky testov - Na pretestovanie
@@ -27,7 +30,7 @@
       <b-row>
         <b-col>
           <button
-            class="my-2 govuk-button bg-success"
+            class="my-2 btn btn-primary bg-success"
             @click="action = 'healthy'"
           >
             Idem nascanovať negatívne výsledky testov - Zdraví
@@ -53,7 +56,7 @@
           <label for="next">Ďalší kód</label>
           <b-input v-model="next" ref="next" id="next" />
           <button
-            class="govuk-button my-2"
+            class="btn btn-primary my-2"
             @click="data.push({ code: next, state: 'Na odoslanie' })"
           >
             Pridaj
@@ -65,7 +68,7 @@
         <template #cell(id)="row">
           <button
             @click="data.splice(row.index, 1)"
-            class="govuk-button m-2 bg-light"
+            class="btn btn-primary m-2 bg-light"
           >
             Zrušiť
           </button>
@@ -73,17 +76,17 @@
       </b-table>
 
       <b-container v-if="action === 'sick'">
-        <button class="govuk-button my-2" @click="send">
+        <button class="btn btn-primary my-2" @click="send">
           Oznámiť pozitívne prípady
         </button>
       </b-container>
       <b-container v-if="action === 'repeat'">
-        <button class="govuk-button my-2" @click="send">
+        <button class="btn btn-primarymy-2" @click="send">
           Oznámiť chybné prípady
         </button>
       </b-container>
       <b-container v-if="action === 'healthy'">
-        <button class="govuk-button my-2" @click="send">
+        <button class="btn btn-primary my-2" @click="send">
           Oznámiť negatívne prípady
         </button>
       </b-container>
