@@ -17,6 +17,7 @@ const router = new VueRouter({
     {
       path: "/",
       name: "Dashboard",
+      meta: { layout: "wide" },
       component: () => import("../pages/Dashboard.vue"),
     },
     {

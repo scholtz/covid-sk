@@ -6,6 +6,12 @@
         <p>
           {{ $t("loginHelp") }}
         </p>
+        <p>
+          <b-link to="/registerPlaceProvider" class="opacity-8 btn btn-light"
+            >Registrácia nemocnice, mobilného odberového miesta, alebo
+            vakcinačného miesta</b-link
+          >
+        </p>
       </b-container>
     </div>
     <b-container class="py-3">

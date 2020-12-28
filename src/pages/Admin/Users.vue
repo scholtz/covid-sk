@@ -733,6 +733,7 @@ export default {
             console.log("this.allocations1", this.allocations);
             this.allocations = r2;
             this.redrawEvents(r2);
+            this.events = [];
           });
         });
       }

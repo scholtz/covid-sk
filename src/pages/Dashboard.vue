@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="app-pane-lgray py-2">
-      <b-container>
+      <b-container fluid>
         <h1>
           {{ $t("mainTitle") }}
         </h1>
@@ -9,18 +9,52 @@
     </div>
 
     <div class="app-pane-blue py-4">
-      <b-container>
+      <b-container fluid>
         <h2>{{ $t("mainSubTitle") }}</h2>
       </b-container>
     </div>
 
     <div class="py-2">
-      <b-container>
+      <b-container fluid>
         <b-row>
           <b-col cols="12" md="6">
+            <b-carousel
+              id="carousel-1"
+              v-model="slide"
+              :interval="4000"
+              controls
+              indicators
+            >
+              <b-carousel-slide img-src="/images/carousel/map.png">
+                <b-link
+                  to="/registerPlaceProvider"
+                  class="opacity-8 btn btn-light"
+                  >{{ $t("mainC1") }}</b-link
+                >
+              </b-carousel-slide>
+              <b-carousel-slide img-src="/images/carousel/place-management.png">
+                <b-link to="/login" class="opacity-8 btn btn-light">{{
+                  $t("mainC2")
+                }}</b-link>
+              </b-carousel-slide>
+              <b-carousel-slide img-src="/images/carousel/opening-hours.png">
+                <b-link to="/login" class="opacity-9 btn btn-light">{{
+                  $t("mainC3")
+                }}</b-link>
+              </b-carousel-slide>
+              <b-carousel-slide
+                img-src="/images/carousel/human-resources-management.png"
+              >
+                <b-link to="/login" class="opacity-9 btn btn-light"
+                  >{{ $t("mainC4") }}v</b-link
+                >
+              </b-carousel-slide>
+            </b-carousel>
+          </b-col>
+          <b-col cols="12" md="3">
             <div class="card">
               <div class="card-header text-dark bg-light">
-                Chcem sa testovať
+                {{ $t("mainStepTitle") }}
               </div>
               <div class="card-body">
                 <ol class="steps">
@@ -55,7 +89,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" md="6">
+          <b-col cols="12" md="3">
             <div class="card">
               <div class="card-header text-white bg-primary">
                 {{ $t("mainDoctor") }}

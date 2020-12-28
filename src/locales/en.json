@@ -24,6 +24,22 @@
   "mainLogin":"Login",
   "mainPassword":"Password",
 
+  "mainActionMedicButton":"Start with hospital registration",
+  "mainHelpPerson":"If you do not want your family or your friends to get sick, in take <b>free</b> covid antigen test or order PCR test. With registration you fill in all necesary data and real sampling process will take only approx. 20 seconds. We will send you <b>SMS</b> and email registration confirmation with registration code, which you will show to the doctor.",
+  "mainDoctor":"I am doctor / hospital representative",
+
+  "mainDoctorStep1": "Company registration",
+  "mainDoctorStep2": "Sampling place registration",
+  "mainDoctorStep3": "Human resources allocation",
+  "mainDoctorStep4": "Sampling and data export",
+  "mainDoctorHelp": "Focus on what you do the best - <b>treatment of sick people</b>. Leave development, software security, and analytics work to <b> IT </b> experts. Together, we can <b> minimize the risk </b> of disease transmission between test staff or test site visitors to a minimum.",
+
+  "mainC1": "We provide not only the possibility of registration for small collection points, hospitals and the state, but also support services for a faster and especially safer collection process.",
+  "mainC2": "The administrator of the sampling and vaccination places may work with one or more places. He can set the technical options, testing or vactionation products performed, and prices for each.",
+  "mainC3": "Each sampling or vaccination place may have its own opening hours",
+  "mainC4": "Human resources management ensures clarity, security of personal data and efficiency of employees",
+  "mainStepTitle": "I want to test myself",
+
   "navBarAdmin":"Admin",
   "navBarAdminManagePlace":"Place Management",
   "navBarAdminNewUser":"New User",

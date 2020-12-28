@@ -270,9 +270,13 @@
                   <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
                 </svg>
               </button>
-              <a v-if="place.id" @click="clickCancel" class="btn btn-light">
+              <b-button
+                v-if="place.id"
+                @click="clickCancel"
+                class="btn btn-light p-2 m-4"
+              >
                 Zrušiť úpravu
-              </a>
+              </b-button>
               <button v-else @click="clickCreate" class="btn btn-primary my-4">
                 Vytvoriť
                 <svg
