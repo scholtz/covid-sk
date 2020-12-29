@@ -17,8 +17,8 @@
         </h2>
         <p>Adresa: {{ $store.state.place.currentPlace.address }}</p>
         <p>
-          GPS: {{ $store.state.place.currentPlace.lat }}
-          {{ $store.state.place.currentPlace.lng }}
+          GPS: Lat: {{ $store.state.place.currentPlace.lat | formatGps }} Lng:
+          {{ $store.state.place.currentPlace.lng | formatGps }}
         </p>
         <p>
           Má drive in:
@@ -74,7 +74,7 @@
       <div v-for="slotD in $store.state.slot.slotsD" :key="slotD.slotId">
         <b-link
           :to="`/place/${$route.params.placeId}/${slotD.slotId}`"
-          class="btn btn-primary"
+          class="btn btn-primary my-1"
           >{{
             $t("selectDayButtonText", {
               description: slotD.description,

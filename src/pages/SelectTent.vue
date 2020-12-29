@@ -54,6 +54,10 @@
                     <h4 class="md-auto" style="text-align: center">
                       {{ place.name }}
                     </h4>
+                    <div style="font-size: smaller; color: #999">
+                      Lat: {{ place.lat | formatGps }} Lng:
+                      {{ place.lng | formatGps }}
+                    </div>
                     <p>{{ $t("selectPlaceAddress") }}: {{ place.address }}</p>
                     <p>
                       {{ $t("selectPlaceRegistrations") }}:
@@ -94,6 +98,12 @@
               <span v-if="row.item.isDriveIn">{{ $t("yes") }}</span>
               <span v-if="!row.item.isDriveIn">{{ $t("no") }}</span>
             </b-form-checkbox>
+          </template>
+          <template #cell(lat)="row">
+            {{ row.item.lat | formatGps }}
+          </template>
+          <template #cell(lng)="row">
+            {{ row.item.lng | formatGps }}
           </template>
           <template #cell(isWalkIn)="row">
             <b-form-checkbox disabled v-model="row.item.isWalkIn">
