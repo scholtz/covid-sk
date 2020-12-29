@@ -63,8 +63,14 @@
                       {{ $t("selectPlaceRegistrations") }}:
                       {{ place.registrations }}
                     </p>
-                    <p>{{ $t("selectPlaceDriveIn") }}: {{ place.isDriveIn }}</p>
-                    <p>{{ $t("selectPlaceWalkIn") }}: {{ place.isWalkIn }}</p>
+                    <p>
+                      {{ $t("selectPlaceDriveIn") }}:
+                      {{ place.isDriveIn === true ? $t("yes") : $t("no") }}
+                    </p>
+                    <p>
+                      {{ $t("selectPlaceWalkIn") }}:
+                      {{ place.isWalkIn === true ? $t("yes") : $t("no") }}
+                    </p>
                     <b-link
                       :to="`/place/${place.id}`"
                       class="btn btn-primary"
