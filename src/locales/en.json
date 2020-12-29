@@ -217,5 +217,20 @@
   "helpDocQ1":"Certificate issuance",
   "helpDocA1":"To be documented..",
 
+  "ppTitle":"Registration of a company that manages testing or vaccination places",
+  "ppAgreement":"I am the manager of the company, or I have an authorization from the manager of the company to register in the system rychlejšie.sk. I agree to the processing of personal data and other data of the company and I agree with the terms and conditions of the service.",
+  "ppTerms":"Terms and conditions",
+  "ppMainContact": "Contact person",
+  "ppPricing":"Pricing",
+  "ppCountry":"Country",
+  "ppCompanyId":"Company ID",
+  "ppCompanyName":"Company name",
+  "ppVAT":"VAT Identifier",
+  "ppMainEmail":"Primary nonpublic email",
+  "ppPrivatePhone":"Primary nonpublic phone",
+  "ppPublicEmail":"Public email",
+  "ppPublicPhone":"Public phone",
+  "ppRegister":"Register as testing/vaccination place provider",
+
   "Scholtz":"Scholtz"
 }
