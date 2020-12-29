@@ -2,10 +2,48 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
+        <b-form-checkbox
+          id="customHW"
+          v-model="customHW"
+          name="customHW"
+          class="float-right"
+        >
+          Na vlastnom HW
+        </b-form-checkbox>
         <h1>Cenová kalkulačka</h1>
       </b-container>
     </div>
-    <b-container class="py-3">
+    <b-container class="py-3" v-if="customHW">
+      <b-row
+        ><b-col md="12">
+          <b-card title="Licenčné podmienky pre spustenie na vlastnom HW">
+            <p>
+              Od začiatku bola aplikácia vyvíjaná tak aby bola nasaditeľná na
+              vlastnom hardwari mesta, obce, alebo nemocnice.
+            </p>
+            <p>
+              V takomto prípade si hardware, dostupnosť, komunikačné náklady a
+              administráciu platíte samostatne. Za poskytnutie softwaru na
+              vlastnom hardwari si účtujeme jednorázový poplatok
+              <b>1&nbsp;000</b> eur za účtovnú jednotku plus ak chcete
+              konzultačné služby alebo službu úpravu kódu, účtujeme si
+              <b>100 EUR</b>/človekohodinu.
+            </p>
+            <p>
+              Frontend aj Backend je webová aplikácia spustiteľná pod windowsom
+              na IIS, alebo Linuxom npr Apache alebo Nginx, alebo ju je možné
+              spustiť samostatne ako docker kontainer alebo ako multiinstančnú
+              aplikáciu v kubernetes v ľubovoľnom cloude.
+            </p>
+            <p>
+              Kontaktujte nás na +420 776 082 012 alebo na email
+              ludovit@scholtz.sk
+            </p>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container class="py-3" v-if="!customHW">
       <b-row
         ><b-col md="12">
           <p>
@@ -158,6 +196,7 @@
 export default {
   data() {
     return {
+      customHW: false,
       days: 7,
       infra: "bronze",
       comm: "K1",
