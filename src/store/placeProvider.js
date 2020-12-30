@@ -100,6 +100,97 @@ export const actions = {
     );
     return data;
   },
+
+  async ListPlaceProductByCategory({ dispatch }, { category }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/ListPlaceAllocations?category=" +
+          category,
+      },
+      { root: true }
+    );
+  },
+  async ListPlaceProduct({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/ListPlaceProduct",
+      },
+      { root: true }
+    );
+  },
+  async ListPlaceProductByPlaceProvider({ dispatch }, { placeProviderId }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/ListPlaceProductByPlaceProvider?placeProviderId=" +
+          placeProviderId,
+      },
+      { root: true }
+    );
+  },
+  async ListPlaceProductByPlace({ dispatch }, { placeId }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/ListPlaceProductByPlace?placeId=" +
+          placeId,
+      },
+      { root: true }
+    );
+  },
+  async CreateProduct({ dispatch }, { product }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "PlaceProvider/CreateProduct",
+        body: product,
+      },
+      { root: true }
+    );
+  },
+  async UpdateProduct({ dispatch }, { product }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "PlaceProvider/UpdateProduct",
+        body: product,
+      },
+      { root: true }
+    );
+  },
+  async DeleteProduct({ dispatch }, { product }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "PlaceProvider/DeleteProduct",
+        body: product,
+      },
+      { root: true }
+    );
+  },
+  async ListProducts({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "PlaceProvider/ListProducts",
+      },
+      { root: true }
+    );
+  },
 };
 export default {
   namespaced: true,

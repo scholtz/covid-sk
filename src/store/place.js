@@ -96,6 +96,31 @@ export const actions = {
       { root: true }
     );
   },
+
+  async InsertOrUpdatePlaceProduct({ dispatch }, { placeProduct }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Place/InsertOrUpdatePlaceProduct",
+        body: placeProduct,
+      },
+      { root: true }
+    );
+  },
+
+  async DeletePlaceProduct({ dispatch }, { placeProductid }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/DeletePlaceProduct",
+        params: { placeProductid },
+      },
+      { root: true }
+    );
+  },
+
   async GetPlace({ dispatch }, { id }) {
     if (Object.keys(this.state.place.places).length === 0) {
       await dispatch("ReloadPlaces");

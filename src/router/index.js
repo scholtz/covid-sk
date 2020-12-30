@@ -120,6 +120,12 @@ const router = new VueRouter({
       component: () => import("../pages/Admin/TestingTime.vue"),
     },
     {
+      path: "/admin/manageProducts",
+      name: "manageProducts",
+      meta: { layout: "wide" },
+      component: () => import("../pages/PlaceProvider/ManageProducts.vue"),
+    },
+    {
       path: "/tester/unannouncedVisitor",
       name: "TesterNewVisitor",
       component: () => import("../pages/Tester/NewVisitor.vue"),

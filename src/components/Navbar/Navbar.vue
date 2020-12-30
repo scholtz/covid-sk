@@ -33,6 +33,9 @@
                 <b-dropdown-item to="/admin/managepp">{{
                   $t("navBarAdminManagePP")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/manageProducts">{{
+                  $t("navBarAdminManageProducts")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav v-if="isPPAdmin()">
@@ -49,6 +52,9 @@
                 <b-dropdown-item to="/admin/managepp">{{
                   $t("navBarAdminManagePP")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/manageProducts">{{
+                  $t("navBarAdminManageProducts")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav v-if="isTester()">
@@ -58,9 +64,6 @@
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/tester/unannouncedVisitor">{{
                   $t("navBarNewVisitor")
-                }}</b-dropdown-item>
-                <b-dropdown-item to="/tester/place">{{
-                  $t("navBarSetPlace")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>

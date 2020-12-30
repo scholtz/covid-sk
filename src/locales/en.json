@@ -46,6 +46,7 @@
   "navBarAdminAuditUsers":"User Audit",
   "navBarAdminTestingTimes":"Opening hours management",
   "navBarAdminManagePP":"Edit company",
+  "navBarAdminManageProducts": "Manage served services",
 
   "navBarTester":"Tester",
   "navBarRegVisitor":"Registered visitor",
