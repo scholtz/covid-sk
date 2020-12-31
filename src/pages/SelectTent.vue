@@ -14,6 +14,44 @@
           @click="showing = 'map'"
           >{{ $t("selectPlaceShowMap") }}</b-link
         >
+        <b-form-select class="pull-right mr-2 w-25" v-model="availability">
+          <b-form-select-option value="all"
+            >Dostupné aj nedostupné</b-form-select-option
+          >
+          <b-form-select-option value="today"
+            >Dostupné dnes</b-form-select-option
+          >
+          <b-form-select-option value="tomorrow"
+            >Dostupné zajtra</b-form-select-option
+          >
+          <b-form-select-option value="week"
+            >Dostupné tento týždeň</b-form-select-option
+          >
+          <b-form-select-option value="month"
+            >Dostupné do mesiaca</b-form-select-option
+          >
+        </b-form-select>
+        <b-form-select class="pull-right mr-2 w-25" v-model="category">
+          <b-form-select-option value="all">Všetky služby</b-form-select-option>
+          <b-form-select-option value="pcr-doctor"
+            >PCR na predpis</b-form-select-option
+          >
+          <b-form-select-option value="pcr-self"
+            >PCR test - samoplatca</b-form-select-option
+          >
+          <b-form-select-option value="ant-doctor"
+            >Antigénový test na predpis</b-form-select-option
+          >
+          <b-form-select-option value="ant-self"
+            >Antigénový test - samoplatca</b-form-select-option
+          >
+          <b-form-select-option value="vac-doctor"
+            >Vakcína na predpis</b-form-select-option
+          >
+          <b-form-select-option value="vac-self"
+            >Vakcína - samoplatca</b-form-select-option
+          >
+        </b-form-select>
         <h1>{{ $t("selectPlaceTitle") }}</h1>
         <p v-if="showing === 'map'">
           {{ $t("selectPlaceHelpMap") }}
@@ -24,105 +62,112 @@
       </b-container>
     </div>
 
-    <div v-if="showing === 'map'" style="min-height: 500px; width: 100%">
-      <b-container fluid>
-        <b-row>
-          <b-col>
-            <l-map
-              id="map"
-              ref="map"
-              v-resize="onResize"
-              :zoom="zoom"
-              :min-zoom="minZoom"
-              :max-zoom="maxZoom"
-              :center="center"
-              @click="onMapClick"
-              style="min-height: 800px; width: 100%"
-            >
-              <LTileLayer
-                :url="url"
-                :attribution="attribution"
-                :options="options"
-              />
-              <LLayerGroup v-if="this.$store.state.place.places">
-                <l-marker
-                  v-for="(place, placeId) in $store.state.place.places"
-                  :key="placeId"
-                  :lat-lng="getLatLng(place)"
-                >
-                  <l-popup :options="{ autoClose: true, closeOnClick: false }">
-                    <h4 class="md-auto" style="text-align: center">
-                      {{ place.name }}
-                    </h4>
-                    <div style="font-size: smaller; color: #999">
-                      Lat: {{ place.lat | formatGps }} Lng:
-                      {{ place.lng | formatGps }}
-                    </div>
-                    <p>{{ $t("selectPlaceAddress") }}: {{ place.address }}</p>
-                    <p>
-                      {{ $t("selectPlaceRegistrations") }}:
-                      {{ place.registrations }}
-                    </p>
-                    <p>
-                      {{ $t("selectPlaceDriveIn") }}:
-                      {{ place.isDriveIn === true ? $t("yes") : $t("no") }}
-                    </p>
-                    <p>
-                      {{ $t("selectPlaceWalkIn") }}:
-                      {{ place.isWalkIn === true ? $t("yes") : $t("no") }}
-                    </p>
-                    <b-link
-                      :to="`/place/${place.id}`"
-                      class="btn btn-primary"
-                      style="color: #fff !important"
-                    >
-                      {{ $t("selectPlaceSelect") }}
-                    </b-link>
-                  </l-popup>
-                </l-marker>
-              </LLayerGroup>
-            </l-map>
-          </b-col>
-        </b-row>
-      </b-container>
-    </div>
-    <div v-if="$store.state.place.places">
-      <div class="table-responsive my-4">
-        <b-table
-          v-if="showing === 'table'"
-          :items="Object.values($store.state.place.places)"
-          :fields="fields"
-        >
-          <template #cell(id)="row">
-            <b-link :to="`/place/${row.value}`" class="btn btn-primary btn-sm">
-              {{ $t("selectPlaceSelect") }}
-            </b-link>
-          </template>
-
-          <template #cell(isDriveIn)="row">
-            <b-form-checkbox disabled v-model="row.item.isDriveIn">
-              <span v-if="row.item.isDriveIn">{{ $t("yes") }}</span>
-              <span v-if="!row.item.isDriveIn">{{ $t("no") }}</span>
-            </b-form-checkbox>
-          </template>
-          <template #cell(lat)="row">
-            {{ row.item.lat | formatGps }}
-          </template>
-          <template #cell(lng)="row">
-            {{ row.item.lng | formatGps }}
-          </template>
-          <template #cell(isWalkIn)="row">
-            <b-form-checkbox disabled v-model="row.item.isWalkIn">
-              <span v-if="row.item.isWalkIn">{{ $t("yes") }}</span>
-              <span v-if="!row.item.isWalkIn">{{ $t("no") }}</span>
-            </b-form-checkbox>
-          </template>
-        </b-table>
-      </div>
-    </div>
     <b-container v-if="loading">
       <b-spinner /> {{ $t("selectPlaceLoadingData") }}
     </b-container>
+    <div v-else>
+      <div v-if="showing === 'map'" style="min-height: 500px; width: 100%">
+        <b-container fluid>
+          <b-row>
+            <b-col>
+              <l-map
+                id="map"
+                ref="map"
+                v-resize="onResize"
+                :zoom="zoom"
+                :min-zoom="minZoom"
+                :max-zoom="maxZoom"
+                :center="center"
+                @click="onMapClick"
+                style="min-height: 800px; width: 100%"
+              >
+                <LTileLayer
+                  :url="url"
+                  :attribution="attribution"
+                  :options="options"
+                />
+                <LLayerGroup v-if="this.$store.state.place.places">
+                  <l-marker
+                    v-for="(place, placeId) in $store.state.place.places"
+                    :key="placeId"
+                    :lat-lng="getLatLng(place)"
+                  >
+                    <l-popup
+                      :options="{ autoClose: true, closeOnClick: false }"
+                    >
+                      <h4 class="md-auto" style="text-align: center">
+                        {{ place.name }}
+                      </h4>
+                      <div style="font-size: smaller; color: #999">
+                        Lat: {{ place.lat | formatGps }} Lng:
+                        {{ place.lng | formatGps }}
+                      </div>
+                      <p>{{ $t("selectPlaceAddress") }}: {{ place.address }}</p>
+                      <p>
+                        {{ $t("selectPlaceRegistrations") }}:
+                        {{ place.registrations }}
+                      </p>
+                      <p>
+                        {{ $t("selectPlaceDriveIn") }}:
+                        {{ place.isDriveIn === true ? $t("yes") : $t("no") }}
+                      </p>
+                      <p>
+                        {{ $t("selectPlaceWalkIn") }}:
+                        {{ place.isWalkIn === true ? $t("yes") : $t("no") }}
+                      </p>
+                      <b-link
+                        :to="`/place/${place.id}`"
+                        class="btn btn-primary"
+                        style="color: #fff !important"
+                      >
+                        {{ $t("selectPlaceSelect") }}
+                      </b-link>
+                    </l-popup>
+                  </l-marker>
+                </LLayerGroup>
+              </l-map>
+            </b-col>
+          </b-row>
+        </b-container>
+      </div>
+      <div v-if="$store.state.place.places">
+        <div class="table-responsive my-4">
+          <b-table
+            v-if="showing === 'table'"
+            :items="Object.values($store.state.place.places)"
+            :fields="fields"
+          >
+            <template #cell(id)="row">
+              <b-link
+                :to="`/place/${row.value}`"
+                class="btn btn-primary btn-sm"
+              >
+                {{ $t("selectPlaceSelect") }}
+              </b-link>
+            </template>
+
+            <template #cell(isDriveIn)="row">
+              <b-form-checkbox disabled v-model="row.item.isDriveIn">
+                <span v-if="row.item.isDriveIn">{{ $t("yes") }}</span>
+                <span v-if="!row.item.isDriveIn">{{ $t("no") }}</span>
+              </b-form-checkbox>
+            </template>
+            <template #cell(lat)="row">
+              {{ row.item.lat | formatGps }}
+            </template>
+            <template #cell(lng)="row">
+              {{ row.item.lng | formatGps }}
+            </template>
+            <template #cell(isWalkIn)="row">
+              <b-form-checkbox disabled v-model="row.item.isWalkIn">
+                <span v-if="row.item.isWalkIn">{{ $t("yes") }}</span>
+                <span v-if="!row.item.isWalkIn">{{ $t("no") }}</span>
+              </b-form-checkbox>
+            </template>
+          </b-table>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -152,6 +197,9 @@ export default {
   },
   data() {
     return {
+      availability: "all",
+      category: "all",
+
       showing: "map",
       loading: true,
       fields: [
@@ -239,16 +287,38 @@ export default {
       console.log("this.$i18n.locale", this.$i18n.locale);
       this.setFields();
     },
+    availability() {
+      this.loading = true;
+      this.ReloadPlaces({
+        availability: this.availability,
+        category: this.category,
+      }).then(r => {
+        this.loading = false;
+      });
+    },
+    category() {
+      this.loading = true;
+      this.ReloadPlaces({
+        availability: this.availability,
+        category: this.category,
+      }).then(r => {
+        this.loading = false;
+      });
+    },
   },
   mounted() {
     // eslint-disable-next-line
-    this.ReloadPlaces().then(r => {
+    this.loading = true;
+    this.ReloadPlaces({
+      availability: this.availability,
+      category: this.category,
+    }).then(r => {
       this.loading = false;
     });
   },
   methods: {
     ...mapActions({
-      ReloadPlaces: "place/ReloadPlaces",
+      ReloadPlaces: "place/ReloadPlacesWithFilter",
     }),
     setFields() {
       this.fields = [

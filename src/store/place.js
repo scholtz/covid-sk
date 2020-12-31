@@ -36,6 +36,24 @@ export const actions = {
     }
     return false;
   },
+  async ReloadPlacesWithFilter(
+    { dispatch, commit },
+    { availability, category }
+  ) {
+    const data = await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Place/ListFiltered",
+        params: { availability, category },
+      },
+      { root: true }
+    );
+    if (data) {
+      commit("setPlaces", data);
+      return true;
+    }
+    return false;
+  },
   async ReloadPrivatePlaces({ dispatch, commit }) {
     const data = await dispatch(
       "axios/get",
