@@ -2,29 +2,68 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>{{ $t("registrationTitle") }}</h1>
-        <p>
-          {{ $t("registrationHelp1") }}
-        </p>
+        <b-row>
+          <b-col>
+            <h1>{{ $t("registrationTitle") }}</h1>
+            <p>
+              {{ $t("registrationHelp1") }}
+            </p>
+          </b-col>
+        </b-row>
       </b-container>
     </div>
     <div class="app-pane-blue py-4" v-if="$store.state.place.currentPlace">
       <b-container>
-        <h2>
-          {{
-            $t("registrationYourSelection", {
-              place: $store.state.place.currentPlace.name,
-              day: $store.state.slot.slotDCurrent.description,
-              time: $store.state.slot.slotMCurrent.description,
-            })
-          }}
-        </h2>
-        <b-link
-          :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}`"
-          class="m-0 btn btn-light"
-        >
-          {{ $t("change") }}
-        </b-link>
+        <b-row>
+          <b-col>
+            <h2>
+              {{
+                $t("registrationYourSelection", {
+                  place: $store.state.place.currentPlace.name,
+                  day: $store.state.slot.slotDCurrent.description,
+                  time: $store.state.slot.slotMCurrent.description,
+                })
+              }}
+            </h2>
+            <b-link
+              :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}`"
+              class="m-0 btn btn-light"
+            >
+              {{ $t("change") }}
+            </b-link>
+          </b-col>
+          <b-col v-if="$store.state.slot.product">
+            <b-card
+              text-variant="dark"
+              :title="$store.state.slot.product.product.name"
+              class="mb-3"
+            >
+              {{ $store.state.slot.product.product.description }}
+
+              <div>
+                <div v-if="$store.state.slot.product.customPrice">
+                  <div v-if="$store.state.slot.product.price > 0">
+                    Cena: {{ $store.state.slot.product.price }}
+                    {{ $store.state.slot.product.priceCurrency }}
+                  </div>
+                  <div v-else>Cena: Plne hradené poisťovňou</div>
+                </div>
+                <div v-else>
+                  <div
+                    v-if="$store.state.slot.product.product.defaultPrice > 0"
+                  >
+                    Cena: {{ $store.state.slot.product.product.defaultPrice }}
+                    {{ $store.state.slot.product.product.defaultPriceCurrency }}
+                  </div>
+                  <div v-else>Cena: Plne hradené poisťovňou</div>
+                </div>
+                <div v-if="$store.state.slot.product.insuranceOnly">
+                  Túto službu môžeme poskytnúť iba poistencom
+                </div>
+              </div>
+            </b-card>
+          </b-col>
+        </b-row>
       </b-container>
     </div>
     <ValidationObserver>
@@ -112,7 +151,7 @@
             v-if="personType === 'idcard' || personType === 'child'"
           >
             <validation-provider
-              name="Rodné číslo"
+              name="Rodné číslo / Číslo poistenca"
               :rules="{ required: true, rc: true }"
               v-slot="validationContext"
             >
@@ -396,6 +435,16 @@ export default {
     };
   },
   mounted() {
+    if (
+      !this.$store.state.slot ||
+      !this.$store.state.slot.product ||
+      !this.$store.state.slot.product.product ||
+      !this.$store.state.slot.product.product.name
+    ) {
+      console.log("this.$store.state.slot", this.$store.state.slot);
+      this.$router.push("/place/" + this.$route.params.placeId);
+      return;
+    }
     this.GetPlace({ id: this.$route.params.placeId })
       .then(r => {
         return r;
@@ -472,6 +521,7 @@ export default {
         insurance: this.insurance,
         chosenSlot: this.$route.params.minuteId,
         chosenPlaceId: this.$route.params.placeId,
+        product: this.$store.state.slot.product,
       })
         // eslint-disable-next-line
         .then(r => {

@@ -6,9 +6,13 @@ const state = () => ({
   slotsM: {},
   slotMCurrent: {},
   registration: {},
+  product: {},
 });
 
 const mutations = {
+  setProduct(state, product) {
+    state.product = product;
+  },
   setSlotsD(state, slotsD) {
     state.slotsD = slotsD;
   },
@@ -46,6 +50,7 @@ export const actions = {
       insurance,
       chosenSlot,
       chosenPlaceId,
+      product,
     }
   ) {
     const visitor = {
@@ -60,6 +65,7 @@ export const actions = {
       insurance,
       chosenSlot,
       chosenPlaceId,
+      product,
     };
     const data = await dispatch(
       "axios/post",
@@ -89,6 +95,7 @@ export const actions = {
       insurance,
       chosenSlot,
       chosenPlaceId,
+      product,
     }
   ) {
     const visitor = {
@@ -103,6 +110,7 @@ export const actions = {
       insurance,
       chosenSlot,
       chosenPlaceId,
+      product,
     };
     const data = await dispatch(
       "axios/post",
@@ -140,7 +148,9 @@ export const actions = {
     const data = await dispatch(
       "axios/get",
       {
-        url: this.state.config.VUE_CONFIG_APP_API + "Slot/ListHourSlotsByPlaceAndDaySlotId",
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Slot/ListHourSlotsByPlaceAndDaySlotId",
         params: { placeId, daySlotId },
       },
       { root: true }
@@ -157,7 +167,8 @@ export const actions = {
       "axios/get",
       {
         url:
-          this.state.config.VUE_CONFIG_APP_API + "Slot/ListMinuteSlotsByPlaceAndHourSlotId",
+          this.state.config.VUE_CONFIG_APP_API +
+          "Slot/ListMinuteSlotsByPlaceAndHourSlotId",
         params: { placeId, hourSlotId },
       },
       { root: true }

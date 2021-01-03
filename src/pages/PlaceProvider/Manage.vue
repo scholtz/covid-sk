@@ -8,7 +8,7 @@
     <b-container class="py-3" v-if="loading">
       <b-row>
         <b-col>
-          <b-spinner label="Loading..."></b-spinner>
+          <b-spinner label="Loading..." />
         </b-col>
       </b-row>
     </b-container>

@@ -379,7 +379,6 @@ export default {
         initialView: "timeGridWeek",
         plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
         selectable: true,
-        dateClick: this.dateClick,
         eventClick: this.eventClick,
         select: this.select,
         selectAllow: this.selectAllow,
@@ -464,8 +463,8 @@ export default {
       if (this.$refs.calendar) {
         this.$nextTick(() => {
           const calendarApi = this.$refs.calendar.getApi();
-          const ret = calendarApi.next();
-          const ret2 = calendarApi.prev();
+          calendarApi.next();
+          calendarApi.prev();
         });
       }
     },
@@ -480,7 +479,7 @@ export default {
         placeId: this.place,
       }).then(r => {
         if (r) {
-          this.processScheduledDays(r);
+          this.processScheduledDays();
         }
       });
     },
@@ -489,7 +488,7 @@ export default {
         placeId: this.place,
       }).then(r => {
         if (r) {
-          this.processScheduledDays(r);
+          this.processScheduledDays();
         }
       });
     },
@@ -551,48 +550,16 @@ export default {
         allocations[index].backgroundColor = color;
         this.calendarOptions.events.push(allocations[index]);
       }
-      console.log("this.calendarOptions.events", this.calendarOptions.events);
     },
-    processScheduledDays(r) {
+    processScheduledDays() {
       this.events = [];
       this.actions = {};
-      for (const index in r) {
-        const day = r[index];
-        let title = "Rôžne šablóny otv. hodín";
-        let bck = this.getBackground(0);
-        if (day.openingHoursTemplates.length == 1) {
-          title = "Šablóna otv. hodín miesta " + day.openingHoursTemplates[0];
-          bck = this.getBackground(day.openingHoursTemplates[0]);
-        }
-        if (day.openingHours.length == 1) {
-          title = day.openingHours[0];
-        }
-        title += ` [${day.count}]`;
-        /*
-        this.events.push({
-          title: title,
-          start: day.day,
-          allDay: true,
-          backgroundColor: bck,
-        });/**/
-      }
-      //this.redrawEvents();
-    },
-    dateClick: function (info) {
-      // alert("clicked " + info.dateStr);
     },
     eventClick: function (info) {
       this.eventinfo = info;
-      console.log(
-        "eventinfo",
-        info,
-        info.event.extendedProps,
-        info.event.extendedProps.user
-      );
       this.modalEditShow = true;
     },
     select: function (info) {
-      console.log("select.info", info);
       this.fromDate = info.startStr;
       this.untilDate = info.endStr;
       this.modalSetupShow = true;
@@ -667,11 +634,13 @@ export default {
           allocationId: event.id,
           placeId: this.place,
         }).then(r => {
-          this.ListPlaceAllocations({ placeId: this.place }).then(r2 => {
-            console.log("this.allocations4", this.allocations);
-            this.allocations = r2;
-            this.redrawEvents(r2);
-          });
+          if (r) {
+            this.ListPlaceAllocations({ placeId: this.place }).then(r2 => {
+              console.log("this.allocations4", this.allocations);
+              this.allocations = r2;
+              this.redrawEvents(r2);
+            });
+          }
         });
       }
     },
@@ -729,12 +698,14 @@ export default {
           allocations: this.events,
           placeId: this.place,
         }).then(r => {
-          this.ListPlaceAllocations({ placeId: this.place }).then(r2 => {
-            console.log("this.allocations1", this.allocations);
-            this.allocations = r2;
-            this.redrawEvents(r2);
-            this.events = [];
-          });
+          if (r) {
+            this.ListPlaceAllocations({ placeId: this.place }).then(r2 => {
+              console.log("this.allocations1", this.allocations);
+              this.allocations = r2;
+              this.redrawEvents(r2);
+              this.events = [];
+            });
+          }
         });
       }
     },

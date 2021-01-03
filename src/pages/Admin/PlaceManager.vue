@@ -11,7 +11,7 @@
     <b-container fluid v-if="loading">
       <b-row>
         <b-col>
-          <b-spinner label="Loading..."></b-spinner>
+          <b-spinner label="Loading..." />
         </b-col>
       </b-row>
     </b-container>
@@ -159,99 +159,6 @@
                 Správa otváracích dní sa robí na samostatnej stránke
               </b-col>
             </b-row>
-            <b-row>
-              <b-col class="py-2">
-                <h4>Možnosti testovania</h4>
-              </b-col>
-            </b-row>
-            <b-row class="py-2">
-              <b-col>
-                <b-form-checkbox
-                  id="hasPCRTestFree"
-                  v-model="place.hasPCRTestFree"
-                  name="hasPCRTestFree"
-                >
-                  PCR Test - na predpis
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="hasPCRTestSelf"
-                  v-model="place.hasPCRTestSelf"
-                  name="hasPCRTestSelf"
-                >
-                  PCR Test - samoplatca (Bez DPH)
-                </b-form-checkbox>
-                <b-row v-if="place.hasPCRTestSelf">
-                  <b-col md="8">
-                    <b-input
-                      v-model="place.hasPCRTestSelfPrice"
-                      ref="hasPCRTestSelfPrice"
-                      id="hasPCRTestSelfPrice"
-                      type="number"
-                      step="0.25"
-                      min="0"
-                    />
-                  </b-col>
-                  <b-col md="4">
-                    <b-form-select
-                      :options="currencies"
-                      v-model="place.hasPCRTestSelfPriceCurrency"
-                      ref="hasPCRTestSelfPriceCurrency"
-                      id="hasPCRTestSelfPriceCurrency"
-                    />
-                  </b-col>
-                </b-row>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="hasAntTestFree"
-                  v-model="place.hasAntTestFree"
-                  name="hasAntTestFree"
-                >
-                  Antigen Test - zadarmo
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="hasAntTestSelf"
-                  v-model="place.hasAntTestSelf"
-                  name="hasAntTestSelf"
-                >
-                  Antigen Test - samoplatca (Bez DPH)
-                </b-form-checkbox>
-                <b-row v-if="place.hasAntTestSelf">
-                  <b-col md="8">
-                    <b-input
-                      v-model="place.hasAntTestSelfPrice"
-                      ref="hasAntTestSelfPrice"
-                      id="hasAntTestSelfPrice"
-                      type="number"
-                      step="0.25"
-                      min="0"
-                    />
-                  </b-col>
-                  <b-col md="4">
-                    <b-form-select
-                      :options="currencies"
-                      v-model="place.hasAntTestSelfPriceCurrency"
-                      ref="hasAntTestSelfPriceCurrency"
-                      id="hasAntTestSelfPriceCurrency"
-                    />
-                  </b-col>
-                </b-row>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="hasVaccineFree"
-                  v-model="place.hasVaccineFree"
-                  name="hasVaccineFree"
-                >
-                  Vakcína - zadarmo
-                </b-form-checkbox>
-              </b-col>
-            </b-row>
-
             <b-row
               ><button
                 v-if="place.id"
@@ -448,7 +355,8 @@ export default {
       });
     },
     editPlaceClick(row) {
-      this.place = row.item;
+      this.place = JSON.parse(JSON.stringify(row.item));
+      console.log("place", this.place);
       this.tabIndex = 1;
     },
     clickCancel() {

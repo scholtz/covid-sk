@@ -59,6 +59,7 @@ const router = new VueRouter({
     {
       path: "/place/:placeId",
       name: "PlaceDay",
+      meta: { layout: "wide" },
       component: () => import("../pages/SelectDay.vue"),
     },
     {

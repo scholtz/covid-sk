@@ -182,7 +182,6 @@ import FullCalendar from "@fullcalendar/vue";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { mapActions } from "vuex";
-import { moment } from "moment";
 import skLocale from "@fullcalendar/core/locales/sk";
 
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
@@ -210,7 +209,6 @@ export default {
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: "dayGridMonth",
         selectable: true,
-        dateClick: this.dateClick,
         select: this.select,
         selectAllow: this.selectAllow,
         showNonCurrentDates: true,
@@ -334,9 +332,6 @@ export default {
       );
       console.log("ret", ret);
       return ret;
-    },
-    dateClick: function (info) {
-      // alert("clicked " + info.dateStr);
     },
     select: function (info) {
       console.log("typeof info.startStr", typeof info.start);

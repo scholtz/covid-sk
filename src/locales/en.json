@@ -44,7 +44,7 @@
   "navBarAdminManagePlace":"Place Management",
   "navBarAdminNewUser":"New User",
   "navBarAdminAuditUsers":"User Audit",
-  "navBarAdminTestingTimes":"Opening hours management",
+  "navBarAdminTestingTimes":"Opening days management",
   "navBarAdminManagePP":"Edit company",
   "navBarAdminManageProducts": "Manage served services",
 
@@ -123,7 +123,7 @@
   "selectPlaceStatsHealthy":"Stats of healthy",
   "selectPlaceStatsSick":"Stats of sick",
 
-  "selectDayTitle":"Please select day",
+  "selectDayTitle":"Please select service and your visit day",
   "selectDayYourSelection":"You have chosen {place}",
   "selectDayQuestion":"Which day is better suited for you?",
   "selectDayHelp":"In case you can visit sampling place any day, please select first available day, even if there is more registrations",

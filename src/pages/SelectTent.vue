@@ -293,7 +293,9 @@ export default {
         availability: this.availability,
         category: this.category,
       }).then(r => {
-        this.loading = false;
+        if (r) {
+          this.loading = false;
+        }
       });
     },
     category() {
@@ -302,7 +304,9 @@ export default {
         availability: this.availability,
         category: this.category,
       }).then(r => {
-        this.loading = false;
+        if (r) {
+          this.loading = false;
+        }
       });
     },
   },
@@ -313,7 +317,9 @@ export default {
       availability: this.availability,
       category: this.category,
     }).then(r => {
-      this.loading = false;
+      if (r) {
+        this.loading = false;
+      }
     });
   },
   methods: {

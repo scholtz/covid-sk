@@ -356,7 +356,7 @@
                       id="from-datepicker"
                       v-model="ppr.from"
                       class="mb-2"
-                    ></b-form-datepicker>
+                    />
                   </b-form-group>
                 </validation-provider>
                 <validation-provider name="Platnosť do">
@@ -386,7 +386,7 @@
                       id="until-datepicker"
                       v-model="ppr.until"
                       class="mb-2"
-                    ></b-form-datepicker>
+                    />
                   </b-form-group>
                 </validation-provider>
                 <validation-provider name="Upravená cena">
@@ -562,10 +562,10 @@ import { mapActions } from "vuex";
 import {
   ValidationObserver,
   ValidationProvider,
-  extend,
   localize,
 } from "vee-validate/dist/vee-validate.full";
 import sk from "vee-validate/dist/locale/sk.json";
+localize("sk", sk);
 
 export default {
   components: {
@@ -720,16 +720,21 @@ export default {
     this.ListProducts().then(r => {
       if (r) {
         this.products = r;
+        if (this.products) {
+          this.addPPRForm = false;
+        }
         this.loading = false;
       }
     });
 
     this.ReloadPlaces().then(r => {
-      this.ListPlaceProduct().then(r2 => {
-        if (r2) {
-          this.pprs = r2;
-        }
-      });
+      if (r) {
+        this.ListPlaceProduct().then(r2 => {
+          if (r2) {
+            this.pprs = r2;
+          }
+        });
+      }
     });
   },
   methods: {
@@ -786,7 +791,7 @@ export default {
         this.DeleteProduct({ product: row.item }).then(r => {
           if (r) {
             this.loading = true;
-            this.addProductForm = false;
+            this.addProdaddPPRFormuctForm = false;
             this.ListProducts().then(r2 => {
               if (r2) {
                 this.products = r2;
