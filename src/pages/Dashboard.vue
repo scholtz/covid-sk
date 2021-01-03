@@ -18,13 +18,7 @@
       <b-container fluid>
         <b-row>
           <b-col cols="12" md="6">
-            <b-carousel
-              id="carousel-1"
-              v-model="slide"
-              :interval="4000"
-              controls
-              indicators
-            >
+            <b-carousel id="carousel-1" :interval="4000" controls indicators>
               <b-carousel-slide img-src="/images/carousel/map.png">
                 <b-link
                   to="/registerPlaceProvider"
