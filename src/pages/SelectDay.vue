@@ -11,53 +11,55 @@
     </div>
 
     <div class="py-4" v-if="$store.state.place.currentPlace">
-      <b-container fluid>
+      <b-container :fluid="$store.state.place.currentPlace.placeProviderId">
         <b-row>
           <b-col>
-            <h2>
-              {{
-                $t("selectDayYourSelection", {
-                  place: $store.state.place.currentPlace.name,
-                })
-              }}
-            </h2>
-            <p>Adresa: {{ $store.state.place.currentPlace.address }}</p>
-            <p>
-              GPS: Lat:
-              {{ $store.state.place.currentPlace.lat | formatGps }} Lng:
-              {{ $store.state.place.currentPlace.lng | formatGps }}
-            </p>
-            <p>
-              Má drive in:
-              <b v-if="$store.state.place.currentPlace.isDriveIn">Áno</b>
-              <b v-else>Nie</b>
-              <br />
-              Možnosť prísť pešo:
-              <b v-if="$store.state.place.currentPlace.isWalkIn">Áno</b>
-              <b v-else>Nie</b>
-            </p>
-            <p>
-              Limity:
-              <b>{{ $store.state.place.currentPlace.limitPer5MinSlot }}</b> / 5
-              min,
-              <b>{{ $store.state.place.currentPlace.limitPer1HourSlot }}</b> /
-              hod.
-            </p>
-            <p v-if="$store.state.place.currentPlace.description">
-              Popis: {{ $store.state.place.currentPlace.description }}
-            </p>
-            <b-link :to="`/register`" class="btn btn-light m-0"
-              >{{ $t("change") }}
-            </b-link>
+            <b-card class="m-3">
+              <h2>
+                {{
+                  $t("selectDayYourSelection", {
+                    place: $store.state.place.currentPlace.name,
+                  })
+                }}
+              </h2>
+              <p>Adresa: {{ $store.state.place.currentPlace.address }}</p>
+              <p>
+                GPS: Lat:
+                {{ $store.state.place.currentPlace.lat | formatGps }} Lng:
+                {{ $store.state.place.currentPlace.lng | formatGps }}
+              </p>
+              <p>
+                Má drive in:
+                <b v-if="$store.state.place.currentPlace.isDriveIn">Áno</b>
+                <b v-else>Nie</b>
+                <br />
+                Možnosť prísť pešo:
+                <b v-if="$store.state.place.currentPlace.isWalkIn">Áno</b>
+                <b v-else>Nie</b>
+              </p>
+              <p>
+                Limity:
+                <b>{{ $store.state.place.currentPlace.limitPer5MinSlot }}</b> /
+                5 min,
+                <b>{{ $store.state.place.currentPlace.limitPer1HourSlot }}</b> /
+                hod.
+              </p>
+              <p v-if="$store.state.place.currentPlace.description">
+                Popis: {{ $store.state.place.currentPlace.description }}
+              </p>
+              <b-link :to="`/register`" class="btn btn-light m-0"
+                >{{ $t("change") }}
+              </b-link>
+            </b-card>
           </b-col>
-          <b-col>
+          <b-col v-if="this.products">
             <div v-for="product in this.products" :key="product.id">
               <b-card
                 header-bg-variant="dark"
                 header-text-variant="light"
                 text-variant="dark"
                 :title="product.product.name"
-                class="mb-3"
+                class="m-3"
               >
                 <b-form-radio
                   name="selectedProduct"
@@ -88,13 +90,34 @@
               </b-card>
             </div>
           </b-col>
+          <b-col v-if="!this.products">
+            <b-container
+              class="my-4"
+              v-if="!$store.state.place.currentPlace.placeProviderId"
+            >
+              <h2>Čakáme, kým si odberné miesto vyberie naše služby</h2>
+              <p>
+                Odberné miesto zatiaľ nie je registrované v našom registračnom
+                systéme. Ak poznáte správcu tohto odberného miesta, prosím dajte
+                mu vedieť o našich službách.
+              </p>
+              <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"
+                >16 dôvodov prečo použiť náš rezervačný systém
+              </b-link>
+            </b-container>
+          </b-col>
+
           <b-col
             md="7"
             v-if="
               $store.state.place.currentPlace.placeProviderId && selectedProduct
             "
           >
-            <b-card :bg-variant="dayVariant" :text-variant="dayVariantText">
+            <b-card
+              :bg-variant="dayVariant"
+              :text-variant="dayVariantText"
+              class="m-3"
+            >
               <h2>{{ $t("selectDayQuestion") }}</h2>
               <p>
                 {{ $t("selectDayHelp") }}
@@ -122,7 +145,7 @@
 
             <b-card
               v-if="hoursLoaded"
-              class="my-1"
+              class="m-3"
               :bg-variant="hourVariant"
               :text-variant="hourVariantText"
             >
@@ -160,7 +183,7 @@
 
             <b-card
               v-if="minutesLoaded"
-              class="my-1"
+              class="m-3"
               :bg-variant="minutesVariant"
               :text-variant="minutesVariantText"
             >
@@ -199,20 +222,6 @@
         </b-row>
       </b-container>
     </div>
-    <b-container
-      class="my-4"
-      v-if="!$store.state.place.currentPlace.placeProviderId"
-    >
-      <h2>Čakáme, kým si odberné miesto vyberie naše super služby</h2>
-      <p>
-        Odberné miesto zatiaľ nie je registrované v našom registračnom systéme.
-        Ak poznáte správcu tohto odberného miesta, prosím dajte mu vedieť o
-        našich službách.
-      </p>
-      <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"
-        >16 dôvodov prečo použiť náš rezervačný systém
-      </b-link>
-    </b-container>
   </div>
 </template>
 
@@ -252,20 +261,25 @@ export default {
     this.setSlotsH([]);
     this.GetPlace({ id: this.$route.params.placeId })
       .then(r => {
-        this.setCurrentPlace(r);
-        return r;
+        if (r) {
+          this.setCurrentPlace(r);
+          return r;
+        }
       })
-      // eslint-disable-next-line
       .then(r => {
-        return this.ReloadSlotsD({ placeId: this.$route.params.placeId });
+        if (r) {
+          if (!this.$store.state.place.currentPlace.placeProviderId)
+            return false;
+          return this.ReloadSlotsD({ placeId: this.$route.params.placeId });
+        }
       })
-      // eslint-disable-next-line
       .then(r => {
-        return this.ListPlaceProductByPlace({
-          placeId: this.$route.params.placeId,
-        });
+        if (r) {
+          return this.ListPlaceProductByPlace({
+            placeId: this.$route.params.placeId,
+          });
+        }
       })
-      // eslint-disable-next-line
       .then(r => {
         this.products = r;
         this.loading = false;
