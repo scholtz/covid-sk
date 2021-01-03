@@ -22,27 +22,33 @@
           <p>
             Prevádzkovateľ určil osobu zodpovednú za spracovanie osobných údajov
             v rámci zákona o <b>GDPR</b>: Ľudovít Scholtz, kontakt:
-            scholtzandcojsa@gmail.com
+            scholtzandcojsa@gmail.com, Telefón +420 776 082 012. Dozorujúci
+            orgán: Úrad na ochranu osobných údajov Slovenskej republiky,
+            Hraničná 12 820 07 Bratislava 27, Slovenská republika, +421 2
+            32313214, zodpovednaosoba@pdp.gov.sk, statny.dozor@pdp.gov.sk
           </p>
           <p>
             Prevádzkovateľ zabezpečí <b>šifrovanie osobných údajov</b>, a
             ďalších citlivých údajov ako je napríklad výsledok testovania.
             Zabezpečí zamedzenie prístupnosti k osobným údajom v minimálnom
-            rozsahu pre personál testovacieho miesta.
+            rozsahu pre personál testovacieho alebo vakcinačného miesta vrátane
+            kontaktných údajov.
           </p>
           <p>
             Systém je webové rozhranie a backendové služby zriadené
             prevádzkovateľom pre poskytovanie služieb.
           </p>
           <p>
-            <b>Správcom odberného miesta</b> sa rozumie osoba oprávnená na
-            prevádzku odberného miesta na odber vzoriek proti chorobe Covid-19.
-            Iba oprávnená osoba (konateľ, predseda predstavenstva..) môže
-            zaregistrovať správcu odberného miesta do systému.
+            <b>Správcom odberného alebo vakcinačného miesta</b> sa rozumie osoba
+            oprávnená na prevádzku odberného alebo vakcinačného miesta na odber
+            vzoriek proti chorobe Covid-19. Iba oprávnená osoba (konateľ,
+            predseda predstavenstva..) môže zaregistrovať správcu odberného
+            alebo vakcinačného miesta do systému.
           </p>
           <p>
             Registráciou správcovi nevzniká žiadna povinnosť. Všetky poskytnuté
-            služby prevádzkovateľom sú poskytnuté na základe objednávky.
+            služby prevádzkovateľom sú poskytnuté na základe objednávky alebo
+            jeho nastavení v systéme (npr výkon platených služieb).
           </p>
           <p>
             Objednávka obsahuje úroveň SLA, a počet registrácií. Cenník je
@@ -77,6 +83,18 @@
             <b>po úhrade</b> objednávky.
           </p>
           <p>
+            Správca odberného alebo vakcinačného miesta môže poskytovať platené
+            službu. Prevádzkovateľ vystaví faktúru každej osobe ktorá sa
+            zaregistruje na test v cene určenou správcom miesta plus servisný
+            poplatok 5% plus DPH. Prevádzkovateľ má nárok na servisný poplatok
+            5% z obratu. Správca odberného alebo vakcinačného miesta má nárok na
+            100% z jeho určenej hodnoty poplatkov z každej zaplatenej faktúry.
+            Správca odberného alebo vakcinačného miesta vystaví
+            prevádzkovateľovi faktúru medzi 1. až 7. dňom nasledujúceho mesiaca
+            s hodnoutou všetkých transakcií v predchádzajúcom mesiaci so
+            splatnosťou 14 dní. Prevádzkovateľ je povinný faktúru uhradiť.
+          </p>
+          <p>
             Spory z týchto obchodných podmienok bude riešiť Burzový rozhodcovský
             súd pri Komoditnej burze Bratislava.
           </p>
@@ -87,7 +105,7 @@
           <p>
             Prevádzkovateľ si vyhradzuje právo na zmenu obchodných podmienok.
           </p>
-          <p>Tieto obchodné podmienky sú platné a účinné od 13.12.2020.</p>
+          <p>Tieto obchodné podmienky sú platné a účinné od 3.1.2021.</p>
         </b-col>
       </b-row>
     </b-container>

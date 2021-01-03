@@ -137,7 +137,7 @@
                 >
                   <b-form-group
                     id="price-group-1"
-                    label="Predvolená cena"
+                    label="Predvolená cena (Bez DPH a servisných poplatkov)"
                     label-for="price"
                     label-cols-sm="4"
                     label-cols-lg="2"
@@ -392,7 +392,7 @@
                 <validation-provider name="Upravená cena">
                   <b-form-group
                     id="customPrice-group-1"
-                    label="Upravená cena"
+                    label="Upravená cena (Bez DPH a servisných poplatkov)"
                     label-for="customPrice"
                     label-cols-sm="4"
                     label-cols-lg="2"
@@ -412,7 +412,7 @@
                 >
                   <b-form-group
                     id="price-group-1"
-                    label="Predvolená cena"
+                    label="Predvolená cena (Bez DPH a servisných poplatkov)"
                     label-for="price"
                     label-cols-sm="4"
                     label-cols-lg="2"
@@ -627,7 +627,7 @@ export default {
           sortable: true,
         },
         {
-          label: "Predvolená cena",
+          label: "Predvolená cena (Bez DPH a servisných poplatkov)",
           key: "defaultPrice",
           sortable: true,
         },

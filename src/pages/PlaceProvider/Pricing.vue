@@ -47,9 +47,10 @@
       <b-row
         ><b-col md="12">
           <p>
-            Cena sa skladá z 2 hlavných zložiek: Náklady na
+            Cena sa skladá z 3 hlavných zložiek: Náklady na
             <b>infraštruktúru</b> (HW nie je zadarmo) a náklady na
-            <b>komunikáciu</b> (SMSky nie sú zadarmo)
+            <b>komunikáciu</b> (SMSky nie sú zadarmo) a náklady na platobnú
+            bránu
           </p>
         </b-col>
         <b-col md="6">
@@ -150,7 +151,9 @@
           <b-card class="my-1" title="Výsledná cena">
             <p>
               <abbr title="Service Level Agreement">SLA</abbr> za každý deň
-              používania s cenou komunikácie tvorí výslednú cenu služby.
+              používania s cenou komunikácie tvorí výslednú cenu služby. V cene
+              nie je zahrnutý servisný poplatok pre platobnú bránu vo výške 5% z
+              každej transakcie preúčtovanej cez prevádzkovateľa služby.
               <b-card class="my-1">
                 <h2>{{ price }}</h2>
               </b-card>
