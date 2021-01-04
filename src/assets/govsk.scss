@@ -1100,55 +1100,11 @@ ol ol, ul ol, ol ul {margin-left: 30px;}
 
 .steps {
   clear: both;
-  list-style: none;
-  padding-left: 2%;
 }
+
 .steps li {
-  margin: 0em 0;
-  padding-top: 1em;
-  display: block;
-  position: relative;
-  counter-increment: inst;
-}
-.steps li::before {
-  content: counter(inst) ".";
-
-  color: #1d70b8;
-
-  font-size: 1em;
-  font-weight: 700;
-
-  border-radius: 1em;
-  font-size: 1.5em;
-  text-align: center;
-
-  padding-top: 0;
-  padding-left: 2.25%;
-  margin-right: 5px;
-  left: -5%;
-  top: -0.65em;
-  height: 1.35em;
-  width: 1.35em;
-
-  transition: all 0.2s ease-in-out;
-
-  z-index: -1;
-}
-@media (min-width: 33em) {
-  .steps li:before {
-    
-    font-size: 1.2em;
-    height: 1.2em;
-    margin: 0;
-    padding: 0;
-    top: -0.15em;
-    width: 1.35em;
-    z-index: -1;
-  }
-}
-
-.steps {
-  font-size: 25px;
+  font-size: 23px;
+  padding: 1ex 0;
 }
 
 main{
