@@ -10,7 +10,7 @@
 
     <div class="app-pane-blue p-5">
       <b-container fluid>
-        <h2>{{ $t("mainSubTitle") }}</h2>
+        <h5>{{ $t("mainSubTitle") }}</h5>
       </b-container>
     </div>
 

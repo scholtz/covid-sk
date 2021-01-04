@@ -5,8 +5,8 @@
   "change":"Zmeniť",
   "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
 
-  "mainTitle": "Testovanie proti covid-19 s IT podporou 21. storočia",
-  "mainSubTitle": "Aplikáciu môže použiť ľubovoľné odberné miesto - Nemocnica, mobilné odberové miesto, stále odberové miesta, automobilky, mestá alebo školy - antigénové testy, PCR testy alebo vakcinácia.",
+  "mainTitle": "Testovanie proti covid-19 s využítím technológií 21. storočia",
+  "mainSubTitle": "Aplikáciu môže použiť ľubovoľné odberné miesto - Nemocnica, mobilné odberové miesto, stále odberové miesta, automobilky, mestá alebo školy - antigénové testy, PCR testy alebo vakcinácia. Umožňuje riadiť miesta, ľudské zdroje, využíva e-mail aj SMS, znižuje čas potrebný na proces testovania s využitím predregistrácie a scanovaním registračných údajov čiarovými kódmi.",
   "mainStep1": "Výber odberného miesta a času",
   "mainStep2": "Registrácia ku konkrétnemu času",
   "mainStep3": "Reálny odber vzorky",
