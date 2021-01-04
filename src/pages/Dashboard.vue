@@ -48,7 +48,7 @@
           <b-col cols="12" md="3" class="py-5 pr-3 pl-3">
             <div class="card">
               <div class="card-header text-dark bg-light">
-                {{ $t("mainStepTitle") }}
+                <h5>{{ $t("mainStepTitle") }}</h5>
               </div>
               <div class="card-body">
                 <ol class="steps">
@@ -86,7 +86,7 @@
           <b-col cols="12" md="3" class="py-5 pr-5 pl-3">
             <div class="card">
               <div class="card-header text-white bg-primary">
-                {{ $t("mainDoctor") }}
+                <h5>{{ $t("mainDoctor") }}</h5>
               </div>
               <div class="card-body">
                 <ol class="steps">
