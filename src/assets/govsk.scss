@@ -1113,12 +1113,10 @@ ol ol, ul ol, ol ul {margin-left: 30px;}
 .steps li::before {
   content: counter(inst) ".";
 
-  color: #003183;
+  color: #1d70b8;
 
   font-size: 1em;
   font-weight: 700;
-  font-style: italic;
-  text-shadow: 3px 3px rgba(88, 91, 250, 0.5);
 
   border-radius: 1em;
   font-size: 1.5em;
@@ -1138,12 +1136,11 @@ ol ol, ul ol, ol ul {margin-left: 30px;}
 }
 @media (min-width: 33em) {
   .steps li:before {
-    border-radius: 50%;
-    font-size: 1.5em;
-    height: 1.35em;
-    margin-left: 2.5%;
-    padding-left: 0;
-    padding-top: 0;
+    
+    font-size: 1.2em;
+    height: 1.2em;
+    margin: 0;
+    padding: 0;
     top: -0.15em;
     width: 1.35em;
     z-index: -1;

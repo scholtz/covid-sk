@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="app-pane-lgray py-2">
+    <div class="app-pane-lgray p-5">
       <b-container fluid>
         <h1>
           {{ $t("mainTitle") }}
-        </h1>
-      </b-container>
+        </h1></b-container
+      >
     </div>
 
-    <div class="app-pane-blue py-4">
+    <div class="app-pane-blue p-5">
       <b-container fluid>
         <h2>{{ $t("mainSubTitle") }}</h2>
       </b-container>
@@ -17,7 +17,7 @@
     <div class="py-2">
       <b-container fluid>
         <b-row>
-          <b-col cols="12" md="6">
+          <b-col cols="12" md="6" class="py-5 pr-3 pl-5">
             <b-carousel id="carousel-1" :interval="4000" controls indicators>
               <b-carousel-slide img-src="/images/carousel/map.png">
                 <b-link
@@ -45,7 +45,7 @@
               </b-carousel-slide>
             </b-carousel>
           </b-col>
-          <b-col cols="12" md="3">
+          <b-col cols="12" md="3" class="py-5 pr-3 pl-3">
             <div class="card">
               <div class="card-header text-dark bg-light">
                 {{ $t("mainStepTitle") }}
@@ -83,7 +83,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" md="3">
+          <b-col cols="12" md="3" class="py-5 pr-5 pl-3">
             <div class="card">
               <div class="card-header text-white bg-primary">
                 {{ $t("mainDoctor") }}

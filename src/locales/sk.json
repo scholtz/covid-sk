@@ -6,7 +6,7 @@
   "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
 
   "mainTitle": "Testovanie proti covid-19 s IT podporou 21. storočia",
-  "mainSubTitle": "Aplikáciu môže použiť ľubovoľné odberné miesto - Nemocnica, mobilné odberové miesto, aj stále odberové miesta - antigénové testy, PCR testy alebo vakcinácia.",
+  "mainSubTitle": "Aplikáciu môže použiť ľubovoľné odberné miesto - Nemocnica, mobilné odberové miesto, stále odberové miesta, automobilky, mestá alebo školy - antigénové testy, PCR testy alebo vakcinácia.",
   "mainStep1": "Výber odberného miesta a času",
   "mainStep2": "Registrácia ku konkrétnemu času",
   "mainStep3": "Reálny odber vzorky",
@@ -25,7 +25,7 @@
   "mainPassword":"Heslo",
   "mainActionMedicButton":"Začnite registráciou nemocnice",
   "mainHelpPerson":"Ak nechcete nakaziť svoju <b>rodinu</b> alebo svojich známich,  vo svojom vlastnom záujme sa <b>zadarmo</b> otestujte  antigénovými testami alebo si objednajte PCR test.  Predregistráciou vyplníte potrebné údaje a reálny test bude  trvať približne 20 sekúnd. <b>SMS</b>kou a na email Vám  pošleme kód registrácie, ktorý ukážete testovaciemu personálu.  Na email Vám pošleme potrebné informácie ako sa správať pri  odbere. Po teste Vám pošleme <b>elektronický certifikát</b> s  výsledkom testovania.",
-  "mainDoctor":"Som doktor / zástupca nemocnice",
+  "mainDoctor":"Chcem zaregistrovať odberné miesto",
 
   "mainDoctorStep1": "Registrácia spoločnosti",
   "mainDoctorStep2": "Registrácia odberných miest",
