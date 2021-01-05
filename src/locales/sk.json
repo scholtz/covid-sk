@@ -7,9 +7,9 @@
 
   "mainTitle": "Testovanie proti covid-19 s využítím technológií 21. storočia",
   "mainSubTitle": "Aplikáciu môže použiť ľubovoľné odberné miesto - Nemocnica, mobilné odberové miesto, stále odberové miesta, automobilky, mestá alebo školy - antigénové testy, PCR testy alebo vakcinácia. Umožňuje riadiť miesta, ľudské zdroje, využíva e-mail aj SMS, znižuje čas potrebný na proces testovania s využitím predregistrácie a scanovaním registračných údajov čiarovými kódmi.",
-  "mainStep1": "Výber odberného miesta a času",
-  "mainStep2": "Registrácia ku konkrétnemu času",
-  "mainStep3": "Reálny odber vzorky",
+  "mainStep1": "Vyber si miesto",
+  "mainStep2": "Zvoľ si čas",
+  "mainStep3": "Nestoj v rade",
   "mainStep4": "Výsledky testu",
   "mainStep5": "Certifikát v papierovej forme",
   "mainActionButton": "Začnite výberom odberného miesta",
@@ -28,8 +28,8 @@
   "mainDoctor":"Chcem zaregistrovať odberné miesto",
 
   "mainDoctorStep1": "Registrácia spoločnosti",
-  "mainDoctorStep2": "Registrácia odberných miest",
-  "mainDoctorStep3": "Správa ľudských zdrojov",
+  "mainDoctorStep2": "Pridanie odberného miesta",
+  "mainDoctorStep3": "Plánovanie ľudských zdrojov",
   "mainDoctorStep4": "Testovanie a reporting hygiene",
   "mainDoctorHelp": "Sústreďte sa na to, čo Vám ide najlepšie - <b>liečenie ľudí</b>. Prenechajte vývoj, zabezpečenie sotfwaru a analytickú prácu na <b>odborníkov</b> z <b>IT</b> oblasti. Spoločne môžeme <b>minimalizovať riziko</b> prenosu choroby medzi testovacím personálom alebo návštevníkmi testovacích miest na minimum.",
 

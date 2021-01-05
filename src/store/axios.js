@@ -52,7 +52,7 @@ const actions = {
       }
 
       response = await axios.get(url, { params }).catch(function (error) {
-        if (error.response.status == 401) {
+        if (error.response && error.response && error.response.status == 401) {
           dispatch("snackbar/openError", "Session timeout - unauthenticated", {
             root: true,
           });
@@ -148,7 +148,7 @@ const actions = {
       }
       let shown = false;
       response = await axios.post(url, fd).catch(function (error) {
-        if (error.response.status == 401) {
+        if (error.response && error.response && error.response.status == 401) {
           dispatch("snackbar/openError", "Session timeout - unauthenticated", {
             root: true,
           });
