@@ -2,9 +2,9 @@ name: Create docker image
 
 on:
   push:
-    branches: [ main ]
+    branches: [ gh-pages ]
   pull_request:
-    branches: [ main ]
+    branches: [ gh-pages ]
 
 jobs:
   multi:
@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           file: ./docker/Dockerfile
-          platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          platforms: linux/amd64
           push: true
           tags: |
             scholtz2/mass-covid-testing-fe:latest
