@@ -2,9 +2,7 @@ name: Create docker image - nginx
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ gh-pages ]
 
 jobs:
   multi:
