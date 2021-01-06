@@ -5,7 +5,7 @@
   "change":"Change",
   "accessDenied":"You do not have permissions to display this page",
 
-  "mainTitle": "You can register for sampling against COVID-19 at this site",
+  "mainTitle": "Testing covid with 21st century technologies",
   "mainSubTitle": "This application can be used for any sampling location, city or government. Application was build with security, scalability, and privacy in mind, is open source, free to use or clone and change.",
   "mainStep1": "Select sampling place",
   "mainStep2": "Registration for specific time slot",
