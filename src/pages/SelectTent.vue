@@ -264,10 +264,13 @@ export default {
         },
       ],
       lastClickLatLng: [],
-      zoom: 8,
+      zoom: this.$store.state.config.MAP_ZOOM,
       minZoom: 3,
       maxZoom: 18,
-      center: [48.5, 19.5],
+      center: [
+        this.$store.state.config.MAP_LAT,
+        this.$store.state.config.MAP_LNG,
+      ],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
