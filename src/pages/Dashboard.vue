@@ -26,18 +26,20 @@
                   >{{ $t("mainC1") }}</b-link
                 >
               </b-carousel-slide>
-              <b-carousel-slide img-src="/images/carousel/place-management.png">
+              <b-carousel-slide
+                img-src="./images/carousel/place-management.png"
+              >
                 <b-link to="/login" class="opacity-8 btn btn-light">{{
                   $t("mainC2")
                 }}</b-link>
               </b-carousel-slide>
-              <b-carousel-slide img-src="/images/carousel/opening-hours.png">
+              <b-carousel-slide img-src="./images/carousel/opening-hours.png">
                 <b-link to="/login" class="opacity-9 btn btn-light">{{
                   $t("mainC3")
                 }}</b-link>
               </b-carousel-slide>
               <b-carousel-slide
-                img-src="/images/carousel/human-resources-management.png"
+                img-src="./images/carousel/human-resources-management.png"
               >
                 <b-link to="/login" class="opacity-9 btn btn-light"
                   >{{ $t("mainC4") }}v</b-link

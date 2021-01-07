@@ -17,7 +17,7 @@ const actions = {
       const data = await dispatch(
         "axios/get",
         {
-          url: "/config.json",
+          url: "./config.json",
         },
         { root: true }
       );
