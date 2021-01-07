@@ -127,7 +127,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    if (this.$store.state.config.DEDICATED_PLACE) {
+      this.$router.push("/register");
+    }
+  },
+};
 </script>
 <style lang="scss">
 </style>

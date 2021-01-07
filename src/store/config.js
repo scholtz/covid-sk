@@ -1,11 +1,13 @@
 const state = () => ({
   VUE_CONFIG_APP_API: "https://apps.scholtz.sk:4430/",
+  DEDICATED_PLACE: false,
   fetched: false,
 });
 
 const mutations = {
   setConfig(state, value) {
     state.VUE_CONFIG_APP_API = value.VUE_CONFIG_APP_API;
+    state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     state.fetched = true;
   },
 };
