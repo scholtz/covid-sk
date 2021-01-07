@@ -1,3 +1,4 @@
 {
-  "VUE_CONFIG_APP_API": "https://apps.scholtz.sk:4430/"
+  "VUE_CONFIG_APP_API": "https://apps.scholtz.sk:4430/",
+  "DEDICATED_PLACE":false
 }
