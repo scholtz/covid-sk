@@ -1,4 +1,7 @@
 {
   "VUE_CONFIG_APP_API": "https://apps.scholtz.sk:4430/",
-  "DEDICATED_PLACE":false
+  "DEDICATED_PLACE":false,
+  "MAP_LAT":48.5,
+  "MAP_LNG":19.5,
+  "MAP_ZOOM":8
 }
