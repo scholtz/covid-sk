@@ -9,9 +9,6 @@ RUN npm run build --prod
 
 FROM nginx:latest
 
-# add init script
-COPY ./docker/nginx.conf /etc/nginx/nginx.conf
-
 WORKDIR /usr/share/nginx/html
 
 COPY --from=builder /app/dist/ .
