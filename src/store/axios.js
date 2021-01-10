@@ -207,6 +207,9 @@ const actions = {
       if (response && response.status === 200 && response.data) {
         return response.data;
       }
+      if (response && response.status === 204) {
+        return false;
+      }
 
       if (!shown) {
         dispatch(

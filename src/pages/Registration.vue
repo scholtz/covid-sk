@@ -521,7 +521,7 @@ export default {
         insurance: this.insurance,
         chosenSlot: this.$route.params.minuteId,
         chosenPlaceId: this.$route.params.placeId,
-        product: this.$store.state.slot.product,
+        product: this.$store.state.slot.product.id,
       })
         // eslint-disable-next-line
         .then(r => {

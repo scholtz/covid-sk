@@ -88,6 +88,11 @@ const router = new VueRouter({
       component: () => import("../pages/Results.vue"),
     },
     {
+      path: "/check/:id",
+      name: "check",
+      component: () => import("../pages/Public/Check.vue"),
+    },
+    {
       path: "/user",
       name: "user",
       component: () => import("../pages/User.vue"),
