@@ -3,7 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container fluid>
         <h1>
-          Management testovacích miest
+          Management pracovísk
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>
@@ -18,7 +18,7 @@
     <b-container fluid v-if="!loading">
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
-          <b-tab title="Prehľad miest">
+          <b-tab title="Prehľad pracovísk">
             <div v-if="$store.state.place.places">
               <b-table
                 :items="Object.values($store.state.place.places)"
@@ -48,11 +48,11 @@
             </div>
           </b-tab>
           <b-tab title="Formulár pre správu miesta" active>
-            <h2 v-if="place.id">Úprava miesta</h2>
+            <h2 v-if="place.id">Úprava pracoviska</h2>
             <h2 v-else>Nové miesto</h2>
             <b-row>
               <b-col cols="12" md="6">
-                <label for="name">Názov miesta</label>
+                <label for="name">Názov pracoviska</label>
                 <b-input v-model="place.name" ref="name" id="name" />
               </b-col>
               <b-col cols="12" md="6">
@@ -76,7 +76,7 @@
                 <b-input v-model="place.lng" ref="lng" id="lng" />
               </b-col>
               <b-col cols="12" md="3">
-                <label for="limitPer5MinSlot">Limit / 5min</label>
+                <label for="limitPer5MinSlot">Limit úkonov za 5min</label>
                 <b-input
                   v-model="place.limitPer5MinSlot"
                   ref="limitPer5MinSlot"
@@ -84,7 +84,7 @@
                 />
               </b-col>
               <b-col cols="12" md="3">
-                <label for="limitPer1HourSlot">Limit / hour</label>
+                <label for="limitPer1HourSlot">Limit úkonov za hodinu</label>
                 <b-input
                   v-model="place.limitPer1HourSlot"
                   ref="limitPer1HourSlot"
@@ -223,7 +223,7 @@ export default {
         isWalkIn: false,
         limitPer5MinSlot: 5,
         limitPer1HourSlot: 40,
-        openingHoursWorkDay: "",
+        openingHoursWorkDay: "08:00-12:00, 13:00-18:00",
         openingHoursOther1: "",
         openingHoursOther2: "",
         hasPCRTestFree: false,

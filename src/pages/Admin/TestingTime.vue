@@ -366,7 +366,7 @@ export default {
                 this.processScheduledDays(r2);
                 this.revision = false;
                 this.openSuccess(
-                  "Dni testovania boli nastavené. Verejnosť sa teraz môže zaregistrovať k odberu/vakcinácii."
+                  "Dni testovania boli nastavené. Verejnosť sa teraz môže objednať k odberu/vakcinácii."
                 );
               }
             });
