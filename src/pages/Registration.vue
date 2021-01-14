@@ -151,7 +151,7 @@
             v-if="personType === 'idcard' || personType === 'child'"
           >
             <validation-provider
-              name="Rodné číslo / Číslo poistenca"
+              name="Rodné číslo"
               :rules="{ required: true, rc: true }"
               v-slot="validationContext"
             >
