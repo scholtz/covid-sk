@@ -32,6 +32,11 @@ function defaultLanguage() {
     localStorage.setItem("lang", lang);
     return lang;
   }
+  if (userLang.length >= 2 && userLang.substring(0, 2) == "cs") {
+    lang = "sk";
+    localStorage.setItem("lang", lang);
+    return lang;
+  }
   if (userLang.length >= 2 && userLang.substring(0, 2) == "en") {
     lang = "en";
     localStorage.setItem("lang", lang);
