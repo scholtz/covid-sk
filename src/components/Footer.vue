@@ -25,7 +25,7 @@
             </li>
             <li>
               <a class="idsk-footer__link" href="https://www.srdcomdoma.sk/"
-                >oz. SrdcomDoma</a
+                >Srdcom doma o.z.</a
               >
               - Rebranding, pomoc s vývojom, testovaním a procesmi
             </li>
