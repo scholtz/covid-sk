@@ -518,7 +518,7 @@ export default {
       );
 
       load(this.$store.state.config.SITE_KEY).then(recaptcha => {
-        recaptcha.execute(this.$store.state.config.SITE_KEY).then(token => {
+        recaptcha.execute("submit").then(token => {
           console.log(token); // Will print the token
 
           this.Register({
