@@ -4,6 +4,7 @@ const state = () => ({
   MAP_LAT: 48.5,
   MAP_LNG: 19.5,
   MAP_ZOOM: 8,
+  SITE_KEY: "6LdV2SwaAAAAAP1wUVwNil6Dg7bBY7Ll0omw-cnx",
   fetched: false,
 });
 
@@ -19,6 +20,9 @@ const mutations = {
     }
     if (value.MAP_ZOOM) {
       state.MAP_ZOOM = value.MAP_ZOOM;
+    }
+    if (value.SITE_KEY) {
+      state.SITE_KEY = value.SITE_KEY;
     }
     state.fetched = true;
   },

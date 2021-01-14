@@ -96,6 +96,7 @@ export const actions = {
       chosenSlot,
       chosenPlaceId,
       product,
+      token,
     }
   ) {
     const visitor = {
@@ -111,6 +112,7 @@ export const actions = {
       chosenSlot,
       chosenPlaceId,
       product,
+      token,
     };
     const data = await dispatch(
       "axios/post",

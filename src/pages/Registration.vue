@@ -321,6 +321,8 @@
 </template>
 
 <script>
+import { load } from "recaptcha-v3";
+
 import {
   ValidationObserver,
   ValidationProvider,
@@ -509,29 +511,42 @@ export default {
     }),
     registerForTest() {
       const that = this;
-      this.Register({
-        personType: this.personType,
-        passport: this.passport,
-        rc: this.rc,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        address: this.address,
-        email: this.email,
-        phone: this.phone,
-        insurance: this.insurance,
-        chosenSlot: this.$route.params.minuteId,
-        chosenPlaceId: this.$route.params.placeId,
-        product: this.$store.state.slot.product.id,
-      })
-        // eslint-disable-next-line
-        .then(r => {
-          if (r) {
-            // redirect only on successfull registration
-            that.$router.push(
-              `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
-            );
-          }
+
+      console.log(
+        "this.$store.state.config.SITE_KEY",
+        this.$store.state.config.SITE_KEY
+      );
+
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute(this.$store.state.config.SITE_KEY).then(token => {
+          console.log(token); // Will print the token
+
+          this.Register({
+            personType: this.personType,
+            passport: this.passport,
+            rc: this.rc,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            address: this.address,
+            email: this.email,
+            phone: this.phone,
+            insurance: this.insurance,
+            chosenSlot: this.$route.params.minuteId,
+            chosenPlaceId: this.$route.params.placeId,
+            product: this.$store.state.slot.product.id,
+            token,
+          })
+            // eslint-disable-next-line
+            .then(r => {
+              if (r) {
+                // redirect only on successfull registration
+                that.$router.push(
+                  `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
+                );
+              }
+            });
         });
+      });
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
