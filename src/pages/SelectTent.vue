@@ -14,6 +14,7 @@
           @click="showing = 'map'"
           >{{ $t("selectPlaceShowMap") }}</b-link
         >
+        <!-- 
         <b-form-select class="pull-right mr-2 w-25" v-model="availability">
           <b-form-select-option value="all"
             >Dostupné aj nedostupné</b-form-select-option
@@ -52,6 +53,7 @@
             >Vakcína - samoplatca</b-form-select-option
           >
         </b-form-select>
+        -->
         <h1>{{ $t("selectPlaceTitle") }}</h1>
         <p v-if="showing === 'map'">
           {{ $t("selectPlaceHelpMap") }}
