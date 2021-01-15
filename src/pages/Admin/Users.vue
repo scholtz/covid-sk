@@ -33,7 +33,7 @@
         <b-tab title="Správa užívateľov na odberných miestach">
           <b-row>
             <b-col md="2">
-              <h2>Priradiť oprávnenia</h2>
+              <h2>{{ $t("TimeAndPeopleSectionRights") }}: </h2>
               <div :style="roleStyle('MedicTester')">
                 <b-form-checkbox v-model="roles.MedicTester" id="MedicTester">
                   {{ role2Text("MedicTester") }}
@@ -63,7 +63,7 @@
                 </b-form-checkbox>
               </div>
 
-              <h2>Zamestnanci</h2>
+              <h2>{{ $t("navBarAdminManageTimeAndPeopleSectionTitle") }}</h2>
 
               <div v-if="placePrivider">
                 <div
