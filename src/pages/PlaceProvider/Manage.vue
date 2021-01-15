@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>{{ $t("editProviderDetails") }}</h1>
+        <h1>{{ $t("formEditProviderDetailsTitle") }}</h1>
       </b-container>
     </div>
     <b-container class="py-3" v-if="loading">
