@@ -253,12 +253,12 @@ export default {
           sortable: true,
         },
         {
-          label: "$t('selectPlaceStatsHealthy')",
+          label: this.$t("selectPlaceStatsHealthy"),
           key: "healthy",
           sortable: true,
         },
         {
-          label: "$t('selectPlaceStatsSick')",
+          label: this.$t("selectPlaceStatsSick"),
           key: "sick",
           sortable: true,
         },
