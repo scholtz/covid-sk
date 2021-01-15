@@ -43,8 +43,8 @@
   "navBarAdmin":"Administrátor",
   "navBarAdminManagePlace":"Správa pracovísk",
   "navBarAdminNewUser":"Nový užívateľ",
-  "navBarAdminAuditUsers":"Audit užívateľov",
-  "navBarAdminTestingTimes":"Správa prevádzkových dní",
+  "navBarAdminAuditUsers":"Správa užívateľov",
+  "navBarAdminTestingTimes":"Správa prevádzkovej doby",
   "navBarAdminManagePP":"Upraviť prevádzkovateľa",
   "navBarAdminManageProducts": "Správa poskytovaných služieb",
 
@@ -235,8 +235,9 @@
   "ppPrivatePhone":"Hlavný neverejný mobil",
   "ppPublicE-mail":"Verejný e-mail",
   "ppPublicPhone":"Verejný telefón",
-  "ppRegister":"Zaregistrovať správcu odberných miest",
-  
+  "ppRegister":"Zaregistrovať prevádzkovateľa odberných miest",
+
+  "formEditProviderDetailsTitle":"Úprava údajov o prevádzkovateľovi",
 
 
   "Scholtz":"Scholtz"

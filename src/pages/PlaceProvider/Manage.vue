@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Správa spoločnosti ktorá spravuje odberné miesta</h1>
+        <h1>{{ $t("editProviderDetails") }}</h1>
       </b-container>
     </div>
     <b-container class="py-3" v-if="loading">
@@ -73,7 +73,7 @@
           </b-row>
           <b-row class="py-1">
             <b-col md="4">
-              <label for="MainEmail">{{ $t("ppMainEmail") }}</label>
+              <label for="MainEmail">{{ $t("ppMainE-mail") }}</label>
             </b-col>
             <b-col md="8">
               <b-input v-model="pp.mainEmail" ref="MainEmail" id="MainEmail" />
@@ -201,7 +201,7 @@ export default {
           this.ListPrivate().then(r2 => {
             if (r2) {
               this.pp = this.placePrivider;
-              this.openSuccess("Informácie o spoločnosti boli upravené");
+              this.openSuccess("Informácie o prevádzkovateľovi boli upravené");
             }
           });
         }

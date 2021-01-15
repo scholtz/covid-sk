@@ -248,7 +248,7 @@ export default {
           sortable: true,
         },
         {
-          label: this.$t("numberOfRegistered"),
+          label: this.$t("selectPlaceRegistrations"),
           key: "registrations",
           sortable: true,
         },
