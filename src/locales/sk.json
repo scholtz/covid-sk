@@ -41,12 +41,22 @@
   
 
   "navBarAdmin":"Administrátor",
-  "navBarAdminManagePlace":"Správa pracovísk",
+  "navBarAdminManagePlace":"Správa pracovísk prevádzkovateľa: ",
   "navBarAdminNewUser":"Nový užívateľ",
   "navBarAdminAuditUsers":"Správa užívateľov",
   "navBarAdminTestingTimes":"Správa prevádzkovej doby",
   "navBarAdminManagePP":"Upraviť prevádzkovateľa",
   "navBarAdminManageProducts": "Správa poskytovaných služieb",
+  
+  "AdminListOfProvidedServicesOnTheSpotName":"Miesto",
+  "AdminListOfProvidedServicesOnTheSpotServiceName":"Služba",
+  "AdminListOfProvidedServicesOnTheSpotFromDate":"Od",
+  "AdminListOfProvidedServicesOnTheSpotUntilDate":"Do",
+  "AdminListOfProvidedServicesOnTheSpotCustomPrice":"Špeciálna cena",
+  "AdminListOfProvidedServicesOnTheSpotPrice":"Štandardná cena",
+  "AdminListOfProvidedServicesOnTheSpotCurrency":"Mena",
+  "AdminListOfProvidedServicesOnTheSpotAction":"Akcia",
+
 
   "navBarTester":"Tester",
   "navBarRegVisitor":"Zaregistrovaný klient",
@@ -71,6 +81,8 @@
   "navBarUserInvitations": "Pozvánky",
   "navBarUserLogout":"Odhlásenie",
   "navBarUserLogin":"Prihlásenie",
+
+  "navBarAdminServicesManagement":"Správa poskytovaných služieb",
 
   "resultsTitle":"Výsledky testovania",
   "resultsCode":"9-miestny kód registácie",
@@ -227,18 +239,18 @@
   "ppTerms":"Obchodné podmienky",
   "ppMainContact": "Kontaktná osoba",
   "ppPricing":"Cenník",
-  "ppCountry":"Krajina",
+  "ppCountry":"Štát registrácie prevádzkovateľa",
   "ppCompanyId":"IČO",
   "ppCompanyName":"Názov prevádzkovateľa",
   "ppVAT":"IČ DPH",
-  "ppMainE-mail":"Hlavný neverejný e-mail",
-  "ppPrivatePhone":"Hlavný neverejný mobil",
+  "ppMainE-mail":"NEverejný e-mail (hlavný kontakt)",
+  "ppPrivatePhone":"NEverejný mobil (hlavný kontakt)",
   "ppPublicE-mail":"Verejný e-mail",
   "ppPublicPhone":"Verejný telefón",
   "ppRegister":"Zaregistrovať prevádzkovateľa odberných miest",
 
   "formEditProviderDetailsTitle":"Úprava údajov o prevádzkovateľovi",
-
+ 
 
   "Scholtz":"Scholtz"
 }

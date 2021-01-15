@@ -3,7 +3,7 @@
     <b-container class="app-pane-lgray py-2" fluid>
       <b-row>
         <b-col>
-          <h1>Management poskytovaných úkonov</h1>
+          <h1>{{ $t("navBarAdminServicesManagement") }}</h1>
         </b-col>
       </b-row>
     </b-container>
@@ -262,7 +262,7 @@
             </div>
           </b-tab>
 
-          <b-tab title="Poskytované úkony na odberných/vakcinačných miestach">
+          <b-tab title="Poskytované úkony">
             <div v-if="addPPRForm">
               <ValidationObserver>
                 <validation-provider
@@ -654,42 +654,42 @@ export default {
       ],
       fieldsPPR: [
         {
-          label: "Miesto",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotName"),
           key: "placeId",
           sortable: true,
         },
         {
-          label: "Produkt",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotServiceName"),
           key: "productId",
           sortable: true,
         },
         {
-          label: "Od",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotFrom"),
           key: "from",
           sortable: true,
         },
         {
-          label: "Do",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotUntil"),
           key: "until",
           sortable: true,
         },
         {
-          label: "CustomPrice",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotCustomPrice"),
           key: "customPrice",
           sortable: true,
         },
         {
-          label: "Price",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotPrice"),
           key: "price",
           sortable: true,
         },
         {
-          label: "Currency",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotCurrency"),
           key: "priceCurrency",
           sortable: true,
         },
         {
-          label: "Akcie",
+          label: this.$t("AdminListOfProvidedServicesOnTheSpotAction"),
           key: "actions",
           sortable: false,
         },

@@ -93,7 +93,7 @@
           </b-row>
           <b-row class="py-1">
             <b-col md="4">
-              <label for="PublicEmail">{{ $t("ppPublicEmail") }}</label>
+              <label for="PublicEmail">{{ $t("ppPublicE-mail") }}</label>
             </b-col>
             <b-col md="8">
               <b-input
