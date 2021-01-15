@@ -41,7 +41,7 @@
   
 
   "navBarAdmin":"Administrátor",
-  "navBarAdminManagePlace":"Správa pracovísk prevádzkovateľa: ",
+  "navBarAdminManagePlace":"Správa pracovísk prevádzkovateľa",
   "navBarAdminNewUser":"Nový užívateľ",
   "navBarAdminAuditUsers":"Správa užívateľov",
   "navBarAdminTestingTimes":"Správa prevádzkovej doby",
@@ -258,7 +258,10 @@
   "ppRegister":"Zaregistrovať prevádzkovateľa odberných miest",
 
   "formEditProviderDetailsTitle":"Úprava údajov o prevádzkovateľovi",
- 
+  
+  "formAdminHRTitle":"Správa ľudských zdrojov poskytovateľa",
+
+  "formAdminOpeningHoursTitle":"Správa prevádzkovej doby",
 
   "Scholtz":"Scholtz"
 }

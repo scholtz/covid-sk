@@ -65,13 +65,13 @@
         </b-row>
       </b-container>
     </div>
-    <div class="py-3" v-if="!revision">
+    <div class="py-3" v-if="!revision" style="margin-bottom:10px;">
       <b-container fluid>
         <b-row>
-          <b-col cols="2">
+          <b-col md="3">
             <p style="text-align:right;"><b>Platí pre:</b></p>
           </b-col>
-          <b-col cols="2">
+          <b-col md="2">
             <b-form-checkbox
               id="allPlaces"
               v-model="allPlaces"
@@ -81,7 +81,7 @@
               Všetky miesta
             </b-form-checkbox>
           </b-col>
-          <b-col cols="8">
+          <b-col cols="7">
             <b-form-select
               :disabled="allPlaces"
               v-model="place"
