@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container fluid>
-        <h1>{{ $t("navBarAdminManagePlace") }} 
+        <h1>{{ $t("navBarAdminManagePlace") }}:  
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>

@@ -3,7 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container fluid>
         <h1>
-          Nastavenie otváracích hodín
+          {{ formAdminOpeningHoursTitle }}: 
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>
@@ -69,7 +69,7 @@
       <b-container fluid>
         <b-row>
           <b-col cols="2">
-            <h2>Rozsah</h2>
+            <p style="text-align:right;"><b>Platí pre:</b></p>
           </b-col>
           <b-col cols="2">
             <b-form-checkbox

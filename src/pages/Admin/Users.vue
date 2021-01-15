@@ -5,7 +5,7 @@
         <b-row>
           <b-col md="7">
             <h1>
-              Správa ľudských zdrojov
+              {{ formAdminHRTitle }}: 
               <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
             </h1>
           </b-col>
