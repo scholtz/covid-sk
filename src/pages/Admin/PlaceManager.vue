@@ -239,16 +239,16 @@ export default {
       tabIndex: 0,
       fields: [
         {
-          label: "Akcia",
+          label: this.$t("selectPlaceAction"),
           key: "id",
         },
         {
-          label: "Názov miesta",
+          label: this.$t("selectPlacePlaceName"),
           key: "name",
           sortable: true,
         },
         {
-          label: "Registrácií",
+          label: this.$t("numberOfRegistered"),
           key: "registrations",
           sortable: true,
         },
