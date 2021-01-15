@@ -3,7 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container fluid>
         <h1>
-          {{ formAdminOpeningHoursTitle }}: 
+          {{ $t("formAdminOpeningHoursTitle") }}: 
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>
@@ -69,15 +69,16 @@
       <b-container fluid>
         <b-row>
           <b-col md="3">
-            <p style="text-align:right;"><b>Platí pre:</b></p>
+            <p> </p>
           </b-col>
           <b-col md="2">
+            <b>Nastavujete čas pre: </b>
             <b-form-checkbox
               id="allPlaces"
               v-model="allPlaces"
               name="allPlaces"
               class="text-right"
-            >
+            > 
               Všetky miesta
             </b-form-checkbox>
           </b-col>
