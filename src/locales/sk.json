@@ -42,7 +42,7 @@
 
   "navBarAdmin":"Administrátor",
   "navBarAdminManagePlace":"Správa pracovísk prevádzkovateľa",
-  "navBarAdminNewUser":"Nový užívateľ",
+  "navBarAdminNewUser":"Nový pracovník",
   "navBarAdminAuditUsers":"Správa ľudských zdrojov",
   "navBarAdminTestingTimes":"Správa prevádzkovej doby",
   "navBarAdminManagePP":"Upraviť údaje o prevádzkovateľovi",
@@ -221,8 +221,8 @@
   "helpAdminA1":"<p>Správa pracovísk je v menu Admin &gt; Správa pracovísk. Vyplnením formuláru sa a stlačením tlačítka Vytvoriť sa vytvorí pracovisko. Ak chcete upraviť pracovisko, z tabuľky si vyberte miesto a stlačte tlačítko Upraviť. Tým sa vo formulári doplnia z daného miesta editovateľné údaje ktoré je možné zmeniť. Po stlačení tlačítka Upraviť sa údaje zmenia a administrátor je notifikovaný zeleným statusom o vykonaní zmeny.</p>",
   "helpAdminQ2":"Ako vytvoriť termín pre testovanie?",
   "helpAdminA2":"<p>Správa termínov je v menu Admin &gt; Čas testovania. Termíny sa aktuálne určujú globálne pre všetky miesta naraz. Výberom času a odoslaním formuláru sa skontroluje, či všetky miesta majú vytvorený časový slot pre testovanie. Tento časový slot slúži pre štatistické účely alebo obmedzenie kapacity miesta.</p>",
-  "helpAdminQ3":"Audit užívateľov a pozvanie užívateľa",
-  "helpAdminA3":"<p>Aduit užívateľov môžete previesť v menu Admin &gt; Audit užívateľov. Na tomto mieste administrátor môže vymazať užívateľa. Pozvanie užívateľa do systému je v menu Admin &gt; Nový užívateľ.</p>",
+  "helpAdminQ3":"Správa pracovníkov",
+  "helpAdminA3":"<p>Správu pracovníkov môžete previesť v menu Admin &gt; Správa pracovníkov. Na tomto mieste administrátor môže vymazať pracovníka. Pozvanie pracovníka do systému je v menu Admin &gt; Nový pracovník.</p>",
   "helpAdminQ4":"Príprava na testovanie",
   "helpAdminA4":"<p><ul><li>Spustenie predregistrácie v dostatočnom predstihu. Na základe štatistík registrácií skontrolovať dostupné ľudské zdroje v testovacom mieste.</li><li>Vytlačenie informačných letákov - Predregistrácia na mieste (QR kód adresy miesta), informáciu že návštevník má ukázať čiarový kód registrácie a občiansky preukaz, informáciu že hlasivkami sa šíri vírus tak ak je možné nech nič nehovorí, informáciu že hlava sa nemá zakláňať pri testovaní.</li><li>Ak testovacie sady neobsahujú čiarové kódy, je potrebné predvytlačiť čiarové kódy testovacích sád. Jeden útržok pre návštevníka a jeden ostáva s testom. V prípade ak by sa IT systém pre podporu testovania vypol v čase keď návštevník už absolvoval test, dochádza ku prechodu na papierový režim a test je možné spárovať s návštevníkom pri odbere certifikátu.</li></ul></p>",
 
