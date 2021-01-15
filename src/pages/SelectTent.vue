@@ -202,7 +202,7 @@ export default {
       availability: "all",
       category: "all",
 
-      showing: "map",
+      showing: "table",
       loading: true,
       fields: [
         {
