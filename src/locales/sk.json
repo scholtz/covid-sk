@@ -121,8 +121,8 @@
   "selectPlace5MinLimit":"5Min limit",
   "selectPlace1HourLimit":"Hod limit",
   "selectPlaceRegistrations":"Registrácií",
-  "selectPlaceStatsHealthy":"Počet zdravých",
-  "selectPlaceStatsSick":"Počet nakazených",
+  "selectPlaceStatsHealthy":"Počet negatívnych",
+  "selectPlaceStatsSick":"Počet pozitívnych",
   
   "selectDayTitle":"Vyberte si službu a deň testovania/vakcinácie",
   "selectDayYourSelection":"Vybrali ste si {place}",
