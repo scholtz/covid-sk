@@ -262,7 +262,7 @@
             </div>
           </b-tab>
 
-          <b-tab title="this.$t('navBarAdminProvidedServices')">
+          <b-tab title="Poskytované úkony na prevádzkových miestach">
             <div v-if="addPPRForm">
               <ValidationObserver>
                 <validation-provider
@@ -654,42 +654,42 @@ export default {
       ],
       fieldsPPR: [
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotName"),
+          label: "Miesto",
           key: "placeId",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotServiceName"),
+          label: "Produkt",
           key: "productId",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotFrom"),
+          label: "Od",
           key: "from",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotUntil"),
+          label: "Do",
           key: "until",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotCustomPrice"),
+          label: "CustomPrice",
           key: "customPrice",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotPrice"),
+          label: "Price",
           key: "price",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotCurrency"),
+          label: "Currency",
           key: "priceCurrency",
           sortable: true,
         },
         {
-          label: this.$t("AdminListOfProvidedServicesOnTheSpotAction"),
+          label: "Akcie",
           key: "actions",
           sortable: false,
         },
