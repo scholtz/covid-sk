@@ -9,6 +9,30 @@
       <b-container class="py-4">
         <b-card no-body>
           <b-tabs card>
+            <b-tab title="Na úvod" active>
+              <b-card-text>
+                <div class="accordion" role="tablist">
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-1>{{
+                        $t("helpCommonQ1")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-1"
+                      visible
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpCommonA1')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+                </div>
+              </b-card-text>
+            </b-tab>
+
             <b-tab title="Verejnosť" active>
               <b-card-text>
                 <div class="accordion" role="tablist">
