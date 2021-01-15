@@ -63,7 +63,7 @@
                 </b-form-checkbox>
               </div>
 
-              <h2>{{ $t("navBarAdminManageTimeAndPeopleSectionTitle") }}</h2>
+              <h2>{{ $t("TimeAndPeopleSectionPeople") }}:</h2>
 
               <div v-if="placePrivider">
                 <div
