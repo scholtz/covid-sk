@@ -43,9 +43,9 @@
   "navBarAdmin":"Administrátor",
   "navBarAdminManagePlace":"Správa pracovísk prevádzkovateľa",
   "navBarAdminNewUser":"Nový užívateľ",
-  "navBarAdminAuditUsers":"Správa užívateľov",
+  "navBarAdminAuditUsers":"Správa ľudských zdrojov",
   "navBarAdminTestingTimes":"Správa prevádzkovej doby",
-  "navBarAdminManagePP":"Upraviť prevádzkovateľa",
+  "navBarAdminManagePP":"Upraviť údaje o prevádzkovateľovi",
   "navBarAdminManageServices": "Správa poskytovaných služieb",
 
   "navBarAdminProvidedServices": "Zoznam poskytovaných služieb",

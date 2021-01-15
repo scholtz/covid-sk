@@ -71,8 +71,8 @@
           <b-col md="3">
             <p> </p>
           </b-col>
-          <b-col md="3">
-            <b>Nastavujete čas pre: </b>
+          <b-col md="2">
+            <b>Nastavujete čas pre:</b>
             <b-form-checkbox
               id="allPlaces"
               v-model="allPlaces"
@@ -82,7 +82,7 @@
               Všetky miesta
             </b-form-checkbox>
           </b-col>
-          <b-col cols="6">
+          <b-col cols="7">
             <b-form-select
               :disabled="allPlaces"
               v-model="place"
