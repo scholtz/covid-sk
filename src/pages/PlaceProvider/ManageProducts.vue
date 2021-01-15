@@ -262,7 +262,7 @@
             </div>
           </b-tab>
 
-          <b-tab title="Poskytované úkony">
+          <b-tab title="this.$t('navBarAdminProvidedServices')">
             <div v-if="addPPRForm">
               <ValidationObserver>
                 <validation-provider

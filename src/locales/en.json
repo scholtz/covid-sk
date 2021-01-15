@@ -53,8 +53,8 @@
   
   "AdminListOfProvidedServicesOnTheSpotName":"Spot",
   "AdminListOfProvidedServicesOnTheSpotServiceName":"Service",
-  "AdminListOfProvidedServicesOnTheSpotFromDate":"From",
-  "AdminListOfProvidedServicesOnTheSpotUntilDate":"Until",
+  "AdminListOfProvidedServicesOnTheSpotFrom":"From",
+  "AdminListOfProvidedServicesOnTheSpotUntil":"Until",
   "AdminListOfProvidedServicesOnTheSpotCustomPrice":"Special Price",
   "AdminListOfProvidedServicesOnTheSpotPrice":"Basic Price",
   "AdminListOfProvidedServicesOnTheSpotCurrency":"Currency",
