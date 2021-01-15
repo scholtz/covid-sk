@@ -34,7 +34,7 @@
                   $t("navBarAdminManagePP")
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/manageProducts">{{
-                  $t("navBarAdminManageProducts")
+                  $t("navBarAdminManageServices")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -53,7 +53,7 @@
                   $t("navBarAdminManagePP")
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/manageProducts">{{
-                  $t("navBarAdminManageProducts")
+                  $t("navBarAdminManageServices")
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>

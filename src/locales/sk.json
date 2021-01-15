@@ -46,7 +46,10 @@
   "navBarAdminAuditUsers":"Správa užívateľov",
   "navBarAdminTestingTimes":"Správa prevádzkovej doby",
   "navBarAdminManagePP":"Upraviť prevádzkovateľa",
-  "navBarAdminManageProducts": "Správa poskytovaných služieb",
+  "navBarAdminManageServices": "Správa poskytovaných služieb",
+
+  "navBarAdminProvidedServices": "Zoznam poskytovaných služieb",
+  "navBarAdminServicesOnTheSpots": "Služby poskytované na prevádzkových miestach",
   
   "AdminListOfProvidedServicesOnTheSpotName":"Miesto",
   "AdminListOfProvidedServicesOnTheSpotServiceName":"Služba",
