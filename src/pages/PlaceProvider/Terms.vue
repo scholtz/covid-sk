@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Obchodné podmienky</h1>
+        <h1>Obchodné podmienky a GDPR ustanovenia</h1>
       </b-container>
     </div>
     <b-container class="py-3">
@@ -37,6 +37,10 @@
           <p>
             Systém je webové rozhranie a backendové služby zriadené
             prevádzkovateľom pre poskytovanie služieb.
+          </p>
+          <p>
+            Osobné údaje sú uložené v cloude. Pre testovanie v Pezinku 16. a 17.
+            januára 2021 v Microsoft Azure, v lokalite West Europe.
           </p>
           <p>
             <b>Správcom odberného alebo vakcinačného miesta</b> sa rozumie osoba
@@ -105,7 +109,7 @@
           <p>
             Prevádzkovateľ si vyhradzuje právo na zmenu obchodných podmienok.
           </p>
-          <p>Tieto obchodné podmienky sú platné a účinné od 3.1.2021.</p>
+          <p>Tieto obchodné podmienky sú platné a účinné od 15.1.2021.</p>
         </b-col>
       </b-row>
     </b-container>
