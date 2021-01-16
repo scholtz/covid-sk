@@ -47,9 +47,30 @@
               <p v-if="$store.state.place.currentPlace.description">
                 Popis: {{ $store.state.place.currentPlace.description }}
               </p>
-              <b-link :to="`/register`" class="btn btn-light m-0"
+              <b-link :to="`/register`" class="btn btn-light my-3"
                 >{{ $t("change") }}
               </b-link>
+              <p v-if="$store.state.place.currentPlace.picture1">
+                <img
+                  :src="$store.state.place.currentPlace.picture1"
+                  class="w-100"
+                  alt="First picture"
+                />
+              </p>
+              <p v-if="$store.state.place.currentPlace.picture2">
+                <img
+                  :src="$store.state.place.currentPlace.picture2"
+                  class="w-100"
+                  alt="Second picture"
+                />
+              </p>
+              <p v-if="$store.state.place.currentPlace.picture3">
+                <img
+                  :src="$store.state.place.currentPlace.picture3"
+                  class="w-100"
+                  alt="Third picture"
+                />
+              </p>
             </b-card>
           </b-col>
           <b-col v-if="this.products">
