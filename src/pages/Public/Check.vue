@@ -40,10 +40,6 @@
               <th>Adresa výkonu testu:</th>
               <td>{{ result.testingAddress }}</td>
             </tr>
-            <tr>
-              <th>Typ:</th>
-              <td>{{ result.product }}</td>
-            </tr>
           </table>
           <div v-else class="alert alert-danger my-4">
             Tento test je neplatný alebo bol vykonaný skôr ako týždeň dozadu
