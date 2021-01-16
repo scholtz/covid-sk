@@ -47,8 +47,8 @@
           >
             Zrušiť
           </button>
-          <label for="code1">Rodné číslo</label>
-          <b-input v-model="code" id="code1" />
+          <label for="codeRc">Rodné číslo</label>
+          <b-input v-model="code" id="codeRc" />
 
           <button @click="loadByRC" class="btn btn-primary my-4">
             Overiť registráciu
@@ -78,7 +78,7 @@
           </button>
           <label for="code1">Kód registrácie</label>
           <b-input v-model="code" id="code1" />
-
+          <div class="m-4"></div>
           <button @click="confirmCode" class="btn btn-primary my-4">
             Načítať kód registrácie
             <svg
