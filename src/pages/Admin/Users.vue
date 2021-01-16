@@ -146,7 +146,7 @@
           </b-row>
           <b-row class="my-2">
             <b-col md="2">
-              <label for="message">Správa pre užívateľa</label>
+              <label for="message">Text pozvánky</label>
             </b-col>
             <b-col md="10">
               <b-input v-model="person.message" ref="message" id="message" />
