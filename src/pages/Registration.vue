@@ -312,8 +312,8 @@
               variant="primary"
             >
               {{ $t("registrationFormButton") }}
+              <b-spinner small class="ml-1" v-if="processing" />
             </b-button>
-            <b-spinner class="ml-2 pt-2" v-if="processing" />
           </b-col>
         </b-row>
       </b-container>

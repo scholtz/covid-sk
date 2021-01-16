@@ -32,6 +32,23 @@
               >
                 <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
               </svg>
+              <b-spinner small v-if="processingRequest" class="ml-1" />
+            </b-button>
+          </b-col>
+          <b-col>
+            <b-button class="my-3" @click="downloadPDF" variant="primary">
+              Stiahnuť PDF
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner small v-if="processingDownload" class="ml-1" />
             </b-button>
           </b-col>
         </b-row>
@@ -99,10 +116,14 @@
 </template>
 
 <script>
+import { load } from "recaptcha-v3";
 import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      processingRequest: false,
+      processingDownload: false,
+
       code: "",
       pass: "",
       results: {
@@ -114,15 +135,57 @@ export default {
     ...mapActions({
       GetResults: "result/GetResults",
       RemoveTest: "result/RemoveTest",
+      DownloadPDF: "result/DownloadPDF",
     }),
     check() {
+      this.processingRequest = true;
       this.results = { state: "submitting" };
-      this.GetResults({ code: this.code, pass: this.pass }).then(r => {
-        if (r) {
-          this.results = r;
-        } else {
-          this.results = { state: "error" };
-        }
+
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute("submit").then(token => {
+          if (token) {
+            this.GetResults({
+              code: this.code,
+              pass: this.pass,
+              captcha: token,
+            }).then(r => {
+              if (r) {
+                this.results = r;
+              } else {
+                this.results = { state: "error" };
+              }
+              this.processingRequest = false;
+            });
+          } else {
+            this.results = { state: "error" };
+            this.processingRequest = false;
+          }
+        });
+      });
+    },
+    downloadPDF() {
+      this.processingDownload = true;
+      this.results = { state: "submitting" };
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute("submit").then(token => {
+          if (token) {
+            this.DownloadPDF({
+              code: this.code,
+              pass: this.pass,
+              captcha: token,
+            }).then(r => {
+              if (r) {
+                this.results = r;
+              } else {
+                this.results = { state: "error" };
+              }
+              this.processingDownload = false;
+            });
+          } else {
+            this.results = { state: "error" };
+            this.processingDownload = false;
+          }
+        });
       });
     },
     removePersonalData() {

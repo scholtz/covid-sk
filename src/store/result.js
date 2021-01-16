@@ -9,12 +9,12 @@ export const mutations = {
 };
 
 export const actions = {
-  async GetResults({ dispatch }, { code, pass }) {
+  async GetResults({ dispatch }, { code, pass, captcha }) {
     const ret = await dispatch(
       "axios/post",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/Get",
-        params: { code, pass },
+        params: { code, pass, captcha },
       },
       { root: true }
     );
@@ -34,6 +34,18 @@ export const actions = {
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
+      },
+      { root: true }
+    );
+  },
+  async DownloadPDF({ dispatch }, { code, pass, captcha }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/DownloadPDF",
+        params: { code, pass, captcha },
+        name: "result.pdf",
+        type: "post",
       },
       { root: true }
     );
