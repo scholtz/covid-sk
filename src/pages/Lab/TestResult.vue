@@ -76,18 +76,33 @@
       </b-table>
 
       <b-container v-if="action === 'sick'">
-        <button class="btn btn-primary my-2" @click="send">
+        <button
+          :disabled="processing"
+          class="btn btn-primary my-2"
+          @click="send"
+        >
           Oznámiť pozitívne prípady
+          <b-spinner v-if="processing" />
         </button>
       </b-container>
       <b-container v-if="action === 'repeat'">
-        <button class="btn btn-primarymy-2" @click="send">
+        <button
+          :disabled="processing"
+          class="btn btn-primarymy-2"
+          @click="send"
+        >
           Oznámiť chybné prípady
+          <b-spinner v-if="processing" />
         </button>
       </b-container>
       <b-container v-if="action === 'healthy'">
-        <button class="btn btn-primary my-2" @click="send">
+        <button
+          :disabled="processing"
+          class="btn btn-primary my-2"
+          @click="send"
+        >
           Oznámiť negatívne prípady
+          <b-spinner v-if="processing" />
         </button>
       </b-container>
     </b-container>
@@ -108,6 +123,8 @@ export default {
   },
   data() {
     return {
+      processing: false,
+      processingCount: 0,
       fields: [
         {
           label: "Akcia",
@@ -146,12 +163,19 @@ export default {
       if (this.action === "healthy") result = "negative";
       if (this.action === "repeat") result = "test-to-be-repeated";
       console.log("result", result);
+      this.processing = true;
+      this.processingCount = this.data.length;
+      let processed = 0;
       for (let index in this.data) {
         const code = this.data[index].code;
         console.log("result", result, code);
         this.SetResults({ testCode: code, result }).then(r => {
+          processed++;
           if (r) {
             this.data[index].state = "Odoslané";
+          }
+          if (processed == this.processingCount) {
+            this.processing = false;
           }
         });
       }
