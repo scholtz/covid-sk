@@ -2,7 +2,8 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container fluid>
-        <h1>{{ $t("navBarAdminManagePlace") }}:  
+        <h1>
+          {{ $t("navBarAdminManagePlace") }}:
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>
@@ -139,7 +140,6 @@
                   v-model="place.openingHoursOther1"
                   ref="openingHoursOther1"
                   id="openingHoursOther1"
-                  placeholder="8:00-12:00, 13:00-17:00"
                 />
               </b-col>
               <b-col>
@@ -150,12 +150,39 @@
                   v-model="place.openingHoursOther2"
                   ref="openingHoursOther2"
                   id="openingHoursOther2"
-                  placeholder="13:00-17:00"
                 />
               </b-col> </b-row
             ><b-row>
               <b-col>
-                Poznámka: Detailné nastavenie prevádzkových hodín sa robí na samostatnej stránke.
+                Poznámka: Detailné nastavenie prevádzkových hodín sa robí na
+                samostatnej stránke.
+              </b-col>
+            </b-row>
+
+            <b-row>
+              <b-col>
+                <label for="picture1">Foto 1 - URL</label>
+                <b-input
+                  v-model="place.picture1"
+                  ref="picture1"
+                  id="picture1"
+                />
+              </b-col>
+              <b-col>
+                <label for="picture2">Foto 2 - URL</label>
+                <b-input
+                  v-model="place.picture2"
+                  ref="picture2"
+                  id="picture2"
+                />
+              </b-col>
+              <b-col>
+                <label for="picture3">Foto 3 - URL</label>
+                <b-input
+                  v-model="place.picture3"
+                  ref="picture3"
+                  id="picture3"
+                />
               </b-col>
             </b-row>
             <b-row
@@ -234,6 +261,9 @@ export default {
         hasAntTestSelfPrice: 5,
         hasAntTestSelfPriceCurrency: "EUR",
         hasVaccineFree: false,
+        picture1: "",
+        picture2: "",
+        picture3: "",
       },
       currencies: ["EUR", "CZK", "USD"],
       tabIndex: 0,
