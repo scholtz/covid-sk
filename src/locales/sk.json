@@ -107,7 +107,7 @@
   "resultsTestPositiveCertTaken":"<b>Bol</b> vám detekovaný COVID. Ostaňte prosím v karanténe.",
   "resultsTestPositiveCertNotTaken":"<b>Bol</b> vám detekovaný COVID. <b>Ostaňte prosím v karanténe.</b>",
   "resultsTestNegativeCertTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19.",
-  "resultsTestNegativeCertNotTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Certifikát k testu si nájdete v emaile.</b>",
+  "resultsTestNegativeCertNotTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Certifikát k testu si nájdete v e-maile.</b>",
   "resultsRemovePersonalData":"Vymazať osobné údaje",
 
   "chPassTitle":"Zmena hesla",
