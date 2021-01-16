@@ -154,6 +154,11 @@
         </b-collapse>
       </b-container>
     </b-navbar>
+    <div class="alert alert-danger m-0" v-if="isNotProdHost">
+      <a :href="`https://${$store.state.config.PROD}`"
+        ><h2 class="text-center">Prejsť na{{ $store.state.config.PROD }}</h2>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -169,7 +174,13 @@ export default {
       langs: ["sk", "en"],
     };
   },
-  computed: {},
+  computed: {
+    isNotProdHost() {
+      return !(
+        document.location.host.indexOf(this.$store.state.config.PROD) > -1
+      );
+    },
+  },
   methods: {
     ...mapMutations({
       setAuthJWT: "user/setAuthJWT",

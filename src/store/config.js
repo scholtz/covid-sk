@@ -1,4 +1,5 @@
 const state = () => ({
+  PROD: "covid.pezinok.sk",
   VUE_CONFIG_APP_API: "https://apps.scholtz.sk:4430/",
   DEDICATED_PLACE: false,
   MAP_LAT: 48.5,
@@ -12,6 +13,9 @@ const mutations = {
   setConfig(state, value) {
     state.VUE_CONFIG_APP_API = value.VUE_CONFIG_APP_API;
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
+    if (value.PROD) {
+      state.PROD = value.PROD;
+    }
     if (value.MAP_LAT) {
       state.MAP_LAT = value.MAP_LAT;
     }
