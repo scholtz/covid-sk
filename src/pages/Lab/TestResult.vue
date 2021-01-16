@@ -82,7 +82,7 @@
           @click="send"
         >
           Oznámiť pozitívne prípady
-          <b-spinner v-if="processing" />
+          <b-spinner small v-if="processing" />
         </button>
       </b-container>
       <b-container v-if="action === 'repeat'">
@@ -92,7 +92,7 @@
           @click="send"
         >
           Oznámiť chybné prípady
-          <b-spinner v-if="processing" />
+          <b-spinner small v-if="processing" />
         </button>
       </b-container>
       <b-container v-if="action === 'healthy'">
@@ -102,7 +102,7 @@
           @click="send"
         >
           Oznámiť negatívne prípady
-          <b-spinner v-if="processing" />
+          <b-spinner small v-if="processing" />
         </button>
       </b-container>
     </b-container>
