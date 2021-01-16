@@ -3,7 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container fluid>
         <h1>
-          {{ $t("TimeAndPeopleSectionPeople") }}: 
+          {{ $t("workingTimeScheduleTitle") }}: 
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>
