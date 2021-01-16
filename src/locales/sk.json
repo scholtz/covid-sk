@@ -105,9 +105,9 @@
   "resultsTestToRepeat":"S Vašim testom sa vyskytla chyba testovania a test musí byť zopakovaný. Príďte vykonať test znovu. Môžete použiť tento kód registrácie.",
   "resultsTestNotProcessed":"Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva",
   "resultsTestPositiveCertTaken":"<b>Bol</b> vám detekovaný COVID. Ostaňte prosím v karanténe.",
-  "resultsTestPositiveCertNotTaken":"<b>Bol</b> vám detekovaný COVID. <b>Príďte si pre certifikát.</b>",
+  "resultsTestPositiveCertNotTaken":"<b>Bol</b> vám detekovaný COVID. <b>Ostaňte prosím v karanténe.</b>",
   "resultsTestNegativeCertTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19.",
-  "resultsTestNegativeCertNotTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Príďte si pre certifikát.</b>",
+  "resultsTestNegativeCertNotTaken":"Nie ste infikovaný/á. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Certifikát k testu si nájdete v emaile.</b>",
   "resultsRemovePersonalData":"Vymazať osobné údaje",
 
   "chPassTitle":"Zmena hesla",

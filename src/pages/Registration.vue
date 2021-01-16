@@ -521,31 +521,35 @@ export default {
 
       load(this.$store.state.config.SITE_KEY).then(recaptcha => {
         recaptcha.execute("submit").then(token => {
-          this.Register({
-            personType: this.personType,
-            passport: this.passport,
-            rc: this.rc,
-            firstName: this.firstName,
-            lastName: this.lastName,
-            address: this.address,
-            email: this.email,
-            phone: this.phone,
-            insurance: this.insurance,
-            chosenSlot: this.$route.params.minuteId,
-            chosenPlaceId: this.$route.params.placeId,
-            product: this.$store.state.slot.product.id,
-            token,
-          })
-            // eslint-disable-next-line
-            .then(r => {
-              this.processing = false;
-              if (r) {
-                // redirect only on successfull registration
-                that.$router.push(
-                  `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
-                );
-              }
-            });
+          if (token) {
+            this.Register({
+              personType: this.personType,
+              passport: this.passport,
+              rc: this.rc,
+              firstName: this.firstName,
+              lastName: this.lastName,
+              address: this.address,
+              email: this.email,
+              phone: this.phone,
+              insurance: this.insurance,
+              chosenSlot: this.$route.params.minuteId,
+              chosenPlaceId: this.$route.params.placeId,
+              product: this.$store.state.slot.product.id,
+              token,
+            })
+              // eslint-disable-next-line
+              .then(r => {
+                this.processing = false;
+                if (r) {
+                  // redirect only on successfull registration
+                  that.$router.push(
+                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
+                  );
+                }
+              });
+          } else {
+            this.processing = false;
+          }
         });
       });
     },
