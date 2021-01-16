@@ -246,7 +246,7 @@ export default {
         },
         {
           key: "limitPer1HourSlot",
-          label: this.$t("selectPlaceRegistrations"),
+          label: this.$t("selectPlace1HourLimit"),
           sortable: true,
         },
         {
