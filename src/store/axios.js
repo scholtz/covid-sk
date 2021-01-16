@@ -120,6 +120,127 @@ const actions = {
       dispatch("snackbar/openError", e.message, { root: true });
     }
   },
+  async download({ dispatch }, { url, params }) {
+    let response = null;
+    try {
+      let shown = false;
+      if (this.state.user.authJWT) {
+        axios.defaults.headers.common.Authorization =
+          "Bearer " + this.state.user.authJWT;
+      } else {
+        if (localStorage.getItem("jwt")) {
+          axios.defaults.headers.common.Authorization =
+            "Bearer " + localStorage.getItem("jwt");
+        }
+      }
+
+      var lang = getLang();
+
+      if (lang) {
+        if (axios.defaults.headers.common["Accept-Language"] !== lang) {
+          axios.defaults.headers.common["Accept-Language"] = lang;
+        }
+      }
+      if (!params) params = {};
+      params.responseType = "blob";
+      console.log("Downloading..");
+      response = await axios
+        .get(url, { params })
+        .then(response => {
+          console.log("response", response);
+          if (response.data) {
+            var blob = new Blob([response.data]);
+            var downloadElement = document.createElement("a");
+            var href = window.URL.createObjectURL(blob); //create the download url
+            downloadElement.href = href;
+            downloadElement.download = "export.csv"; //the name of the downloaded file
+            document.body.appendChild(downloadElement);
+            downloadElement.click(); //click to file
+            document.body.removeChild(downloadElement); //remove the element
+            window.URL.revokeObjectURL(href); //release the object  of the blob
+            shown = true;
+
+            dispatch(
+              "snackbar/openSuccess",
+              "Súbor na stiahnutie bol odoslaný do prehliadača",
+              { root: true }
+            );
+            return true;
+          }
+        })
+        .catch(function (error) {
+          if (error.response && error.response.status == 401) {
+            dispatch(
+              "snackbar/openError",
+              "Session timeout - unauthenticated",
+              {
+                root: true,
+              }
+            );
+            shown = true;
+            dispatch(
+              "user/Logout",
+              {},
+              {
+                root: true,
+              }
+            );
+          }
+
+          if (
+            error.response &&
+            error.response.data &&
+            error.response.data.errors
+          ) {
+            for (const index in error.response.data.errors) {
+              for (const index2 in error.response.data.errors[index]) {
+                const err = error.response.data.errors[index][index2];
+                if (err) {
+                  shown = true;
+                  dispatch("snackbar/openError", err, {
+                    root: true,
+                  });
+                }
+              }
+            }
+          } else if (
+            error.response &&
+            error.response.data &&
+            error.response.data.detail
+          ) {
+            shown = true;
+            dispatch("snackbar/openError", error.response.data.detail, {
+              root: true,
+            });
+          }
+          if (!shown) {
+            shown = true;
+            dispatch(
+              "snackbar/openError",
+              "Error occured, please try again later",
+              { root: true }
+            );
+          }
+        });
+      if (response && response.status === 200) {
+        return response.data;
+      }
+      if (response && response.status === 204) {
+        return true; // no content
+      }
+
+      if (!shown) {
+        dispatch(
+          "snackbar/openError",
+          "Error occured, please try again later",
+          { root: true }
+        );
+      }
+    } catch (e) {
+      console.log("catch.e", e);
+      dispatch("snackbar/openError", e.message, { root: true });
+    }
+  },
   async post({ dispatch }, { url, params, body }) {
     let response = null;
     // console.log('post', url, params)

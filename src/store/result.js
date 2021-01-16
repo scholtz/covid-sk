@@ -31,9 +31,19 @@ export const actions = {
   },
   async FinalDataExport({ dispatch }) {
     return await dispatch(
-      "axios/get",
+      "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
+      },
+      { root: true }
+    );
+  },
+  async ListVisitorsInProcess({ dispatch }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "Result/ListVisitorsInProcess",
       },
       { root: true }
     );
