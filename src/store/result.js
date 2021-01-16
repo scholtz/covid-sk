@@ -1,6 +1,16 @@
+export const state = () => ({
+  lastVisitor: {},
+});
+
+export const mutations = {
+  setLastVisitor(state, lastVisitor) {
+    state.lastVisitor = lastVisitor;
+  },
+};
+
 export const actions = {
   async GetResults({ dispatch }, { code, pass }) {
-    return await dispatch(
+    const ret = await dispatch(
       "axios/post",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/Get",
@@ -8,6 +18,7 @@ export const actions = {
       },
       { root: true }
     );
+    return ret;
   },
   async GetNextTest({ dispatch }) {
     return await dispatch(
@@ -57,8 +68,8 @@ export const actions = {
       { root: true }
     );
   },
-  async GetVisitor({ dispatch }, { visitorCode }) {
-    return await dispatch(
+  async GetVisitor({ dispatch, commit }, { visitorCode }) {
+    const ret = await dispatch(
       "axios/post",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/GetVisitor",
@@ -66,6 +77,8 @@ export const actions = {
       },
       { root: true }
     );
+    commit("setLastVisitor", ret);
+    return ret;
   },
   async VerifyResult({ dispatch }, { id }) {
     return await dispatch(
@@ -77,8 +90,8 @@ export const actions = {
       { root: true }
     );
   },
-  async GetVisitorByRC({ dispatch }, { rc }) {
-    return await dispatch(
+  async GetVisitorByRC({ dispatch, commit }, { rc }) {
+    const ret = await dispatch(
       "axios/post",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/GetVisitorByRC",
@@ -86,6 +99,9 @@ export const actions = {
       },
       { root: true }
     );
+
+    commit("setLastVisitor", ret);
+    return ret;
   },
   async ConnectVisitorToTest({ dispatch }, { visitorCode, testCode }) {
     const data = await dispatch(
@@ -109,4 +125,6 @@ export const actions = {
 export default {
   namespaced: true,
   actions,
+  state,
+  mutations,
 };

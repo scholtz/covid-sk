@@ -110,12 +110,23 @@
             Zrušiť
           </button>
           <h2>Overenie užívateľa</h2>
-          <div>Kod: {{ visitor.id }}</div>
+          <div>
+            Kod: <span v-if="visitor.id">{{ visitor.id }}</span
+            ><span v-else class="badge badge-danger ml-5"
+              >Chybný kód registrácie</span
+            >
+          </div>
           <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
           <div>Poisťovňa: {{ visitor.insurance }}</div>
           <div>RČ: {{ visitor.rc }} {{ visitor.passport }}</div>
           <div>Adresa: {{ visitor.address }}</div>
-          <button @click="action = 'testSetCode'" class="btn btn-primary my-4">
+          <div>Email: {{ visitor.email }}</div>
+          <div>Tel: {{ visitor.phone }}</div>
+          <button
+            @click="action = 'testSetCode'"
+            class="btn btn-primary my-4 mr-4"
+            v-if="visitor.id"
+          >
             Osoba je overená
             <svg
               xmlns="http://www.w3.org/2000/svg"

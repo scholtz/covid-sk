@@ -341,7 +341,19 @@ export default {
       ],
     };
   },
-  mounted() {},
+  mounted() {
+    if (this.$store.state.result.lastVisitor) {
+      this.personType = this.$store.state.result.lastVisitor.personType;
+      this.passport = this.$store.state.result.lastVisitor.passport;
+      this.rc = this.$store.state.result.lastVisitor.rc;
+      this.firstName = this.$store.state.result.lastVisitor.firstName;
+      this.lastName = this.$store.state.result.lastVisitor.lastName;
+      this.address = this.$store.state.result.lastVisitor.address;
+      this.email = this.$store.state.result.lastVisitor.email;
+      this.phone = this.$store.state.result.lastVisitor.phone;
+      this.insurance = this.$store.state.result.lastVisitor.insurance;
+    }
+  },
   methods: {
     ...mapMutations({
       setRegistration: "slot/setRegistration",
