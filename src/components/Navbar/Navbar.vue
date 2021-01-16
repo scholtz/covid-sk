@@ -156,7 +156,7 @@
     </b-navbar>
     <div class="alert alert-danger m-0" v-if="isNotProdHost">
       <a :href="`https://${$store.state.config.PROD}`"
-        ><h2 class="text-center">Prejsť na{{ $store.state.config.PROD }}</h2>
+        ><h2 class="text-center">Prejsť na {{ $store.state.config.PROD }}</h2>
       </a>
     </div>
   </div>
