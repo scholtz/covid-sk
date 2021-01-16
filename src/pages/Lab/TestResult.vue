@@ -88,7 +88,7 @@
       <b-container v-if="action === 'repeat'">
         <button
           :disabled="processing"
-          class="btn btn-primarymy-2"
+          class="btn btn-primary my-2"
           @click="send"
         >
           Oznámiť chybné prípady
