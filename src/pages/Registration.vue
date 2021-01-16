@@ -307,12 +307,13 @@
               </b-form-checkbox>
             </p>
             <b-button
-              :disabled="!gdpr"
+              :disabled="!gdpr || processing"
               @click="registerForTest"
               variant="primary"
             >
               {{ $t("registrationFormButton") }}
             </b-button>
+            <b-spinner class="ml-2 pt-2" v-if="processing" />
           </b-col>
         </b-row>
       </b-container>
@@ -402,6 +403,7 @@ export default {
   },
   data() {
     return {
+      processing: false,
       personType: "idcard",
       passport: "",
       rc: "",
@@ -511,7 +513,7 @@ export default {
     }),
     registerForTest() {
       const that = this;
-
+      this.processing = true;
       console.log(
         "this.$store.state.config.SITE_KEY",
         this.$store.state.config.SITE_KEY
@@ -519,8 +521,6 @@ export default {
 
       load(this.$store.state.config.SITE_KEY).then(recaptcha => {
         recaptcha.execute("submit").then(token => {
-          console.log(token); // Will print the token
-
           this.Register({
             personType: this.personType,
             passport: this.passport,
@@ -538,6 +538,7 @@ export default {
           })
             // eslint-disable-next-line
             .then(r => {
+              this.processing = false;
               if (r) {
                 // redirect only on successfull registration
                 that.$router.push(
