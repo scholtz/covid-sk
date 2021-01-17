@@ -34,6 +34,20 @@ export const actions = {
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
+        name: "sick.csv",
+        type: "get",
+      },
+      { root: true }
+    );
+  },
+
+  async ProofOfWorkExport({ dispatch }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ProofOfWorkExport",
+        name: "proofOfWork.csv",
+        type: "get",
       },
       { root: true }
     );
@@ -56,6 +70,8 @@ export const actions = {
       {
         url:
           this.state.config.VUE_CONFIG_APP_API + "Result/ListVisitorsInProcess",
+        name: "visitorsInProcess.csv",
+        type: "get",
       },
       { root: true }
     );

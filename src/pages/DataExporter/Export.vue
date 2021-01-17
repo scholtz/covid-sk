@@ -37,6 +37,21 @@
             </svg>
           </button>
         </b-col>
+        <b-col>
+          <button @click="clickProofOfWorkExport" class="btn btn-primary my-4">
+            Export pre armádu
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
       </b-row>
     </b-container>
   </div>
@@ -49,12 +64,16 @@ export default {
     ...mapActions({
       FinalDataExport: "result/FinalDataExport",
       ListVisitorsInProcess: "result/ListVisitorsInProcess",
+      ProofOfWorkExport: "result/ProofOfWorkExport",
     }),
     clickExport() {
       this.FinalDataExport();
     },
     clickExportInProcess() {
       this.ListVisitorsInProcess();
+    },
+    clickProofOfWorkExport() {
+      this.ProofOfWorkExport();
     },
   },
 };
