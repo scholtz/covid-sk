@@ -1,5 +1,5 @@
 {
-  "VUE_CONFIG_APP_API": "https://apps.scholtz.sk:4430/",
+  "VUE_CONFIG_APP_API": "https://demo.rychlejsie.sk/api/",
   "DEDICATED_PLACE":false,
   "MAP_LAT":48.5,
   "MAP_LNG":19.5,
