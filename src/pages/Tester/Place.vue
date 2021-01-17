@@ -61,26 +61,6 @@ export default {
           key: "address",
           sortable: true,
         },
-        {
-          key: "isDriveIn",
-          label: "Možnosť prísť autom",
-          sortable: true,
-        },
-        {
-          key: "isWalkIn",
-          label: "Možnosť prísť pešo",
-          sortable: true,
-        },
-        {
-          label: "GPS Lat",
-          key: "lat",
-          sortable: true,
-        },
-        {
-          label: "GPS Lng",
-          key: "lng",
-          sortable: true,
-        },
       ],
     };
   },
