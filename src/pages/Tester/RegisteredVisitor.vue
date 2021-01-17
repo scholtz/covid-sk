@@ -22,7 +22,23 @@
             </svg>
           </button>
           <button @click="action = 'regCode'" class="btn btn-primary my-4 mr-4">
-            Načítať kód registrácie
+            Načítať kód registrácie čiarovým kódom
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+          <button
+            @click="action = 'regCodeQR'"
+            class="btn btn-primary my-4 mr-4"
+          >
+            Načítať kód registrácie QR kódom
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -78,7 +94,40 @@
           </button>
           <label for="code1">Kód registrácie</label>
           <b-input v-model="code" id="code1" />
-          <div class="m-4"></div>
+          <div class="m-4">&nbsp;</div>
+          <button @click="confirmCode" class="btn btn-primary my-4">
+            Načítať kód registrácie
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+
+        <b-col>
+          <qrcode-stream @decode="onDecodeQR" />
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'regCodeQR'">
+      <b-row>
+        <b-col cols="12">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
+            Zrušiť
+          </button>
+          <label for="codeQR">Kód registrácie</label>
+          <b-input v-model="code" id="codeQR" />
+          <div class="m-4">&nbsp;</div>
           <button @click="confirmCode" class="btn btn-primary my-4">
             Načítať kód registrácie
             <svg
@@ -262,6 +311,8 @@
 </template>
 
 <script>
+import { QrcodeStream } from "vue-qrcode-reader";
+
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
 import { mapActions } from "vuex";
@@ -269,6 +320,7 @@ import { mapActions } from "vuex";
 export default {
   components: {
     StreamBarcodeReader,
+    QrcodeStream,
   },
   data() {
     return {
@@ -350,6 +402,21 @@ export default {
     onDecode(result) {
       if (result) {
         if (this.action == "regCode") {
+          this.code = result;
+
+          this.load().then(r => {
+            if (r) {
+              this.action = "verifyPerson";
+            }
+          });
+        } else {
+          this.testingset = result;
+        }
+      }
+    },
+    onDecodeQR(result) {
+      if (result) {
+        if (this.action == "regCodeQR") {
           this.code = result;
           this.load().then(r => {
             if (r) {

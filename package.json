@@ -71,6 +71,7 @@
     "vue-multiselect": "latest",
     "vue-notifications": "latest",
     "vue-perfect-scrollbar": "latest",
+    "vue-qrcode-reader": "^2.3.16",
     "vue-quaggajs": "^1.0.12",
     "vue-quill-editor": "latest",
     "vue-rate": "latest",
