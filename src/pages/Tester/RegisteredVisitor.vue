@@ -83,7 +83,7 @@
       </b-row>
     </b-container>
 
-    <b-container class="my-4" v-if="action === 'regCode'">
+    <b-container class="my-4" v-if="action === 'regCodeQR'">
       <b-row>
         <b-col cols="12">
           <button
@@ -116,7 +116,7 @@
       </b-row>
     </b-container>
 
-    <b-container class="my-4" v-if="action === 'regCodeQR'">
+    <b-container class="my-4" v-if="action === 'regCode'">
       <b-row>
         <b-col cols="12">
           <button
