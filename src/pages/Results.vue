@@ -10,12 +10,14 @@
       <b-container
         ><b-row>
           <b-col cols="12" md="6">
-            <label for="code">{{ $t("resultsCode") }}</label>
             <b-input v-model="code" ref="code" />
+            <label for="code">{{ $t("resultsCode") }}</label>
+            
           </b-col>
           <b-col cols="12" md="6">
-            <label for="pass">{{ $t("resultsPass") }}</label>
             <b-input v-model="pass" ref="pass" id="pass" />
+            <label for="pass">{{ $t("resultsPass") }}</label>
+            
           </b-col>
         </b-row>
         <b-row>
