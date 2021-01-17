@@ -281,7 +281,7 @@
           </button>
         </b-col>
         <b-col>
-          <qrcode-stream @decode="onDecodeQR"></qrcode-stream>
+          <qrcode-stream @decode="onDecodeQR" />
         </b-col>
       </b-row>
     </b-container>

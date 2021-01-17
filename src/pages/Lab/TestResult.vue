@@ -3,6 +3,9 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>Oznámenie výsledku testu</h1>
+        <b-form-checkbox v-model="useQR" name="useQR" switch>
+          Používať QR kódy pre testovacie sady
+        </b-form-checkbox>
       </b-container>
     </div>
     <b-container v-if="action === 'select'">
@@ -107,22 +110,26 @@
       </b-container>
     </b-container>
     <b-container v-if="action !== 'select'">
-      <StreamBarcodeReader @decode="onDecode" />
+      <qrcode-stream v-if="useQR" @decode="onDecode" />
+      <StreamBarcodeReader v-else @decode="onDecode" />
     </b-container>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import { QrcodeStream } from "vue-qrcode-reader";
 
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
 export default {
   components: {
     StreamBarcodeReader,
+    QrcodeStream,
   },
   data() {
     return {
+      useQR: true,
       processing: false,
       processingCount: 0,
       fields: [
