@@ -28,15 +28,11 @@
               <th>Výsledok:</th>
               <td>
                 {{ result.result }}
-                <span
-                  class="badge badge-succcess"
-                  v-if="result.result === 'negative'"
-                  >Testovaná osoba je pravdepodobne zdravá</span
+                <b-badge variant="success" v-if="result.result === 'negative'"
+                  >Testovaná osoba je pravdepodobne zdravá</b-badge
                 >
-                <span
-                  class="badge badge-danger"
-                  v-if="result.result === 'positive'"
-                  >Testom bol preukázaný COVID</span
+                <b-badge variant="danger" v-if="result.result === 'positive'"
+                  >Testom bol preukázaný COVID</b-badge
                 >
               </td>
             </tr>
