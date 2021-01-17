@@ -94,7 +94,7 @@
 
   "resultsTitle":"Výsledky testovania",
   "resultsCode":"9-miestny kód registrácie (stačí zadať číslice bez pomlčiek)",
-  "resultsPass":"Posledné 4 číslice z rodného čísla alebo cestovného dokladu",
+  "resultsPass":"Posledné štyri číslice z rodného čísla alebo <b>celý kód</b> cestovného dokladu (vrátane písmen a číslic, tak ako ste ho zadali pri registrácii)",
   "resultsCheckResults":"Skontrolovať výsledok testu",
   "resultsResult":"Výsledok testovania",
   "resultsSendForm":"Odošlite prosím formulár",

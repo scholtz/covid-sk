@@ -3,31 +3,31 @@
     <b-container :fluid="fluid">
       <b-row>
         <b-col offset-md="2" md="4">
-          <h5>Aplikácia bola podporená</h5>
+          <h5>Aplikáciu podporili:</h5>
           <ul>
             <li>
               <a class="idsk-footer__link" href="https://www.pezinok.sk/"
-                >Mestom Pezinok</a
+                >Mesto Pezinok</a
               >
-              - prvý business owner
+              - prvé nasadenie na Slovensku
             </li>
             <li>
               <a class="idsk-footer__link" href="https://ludovit.scholtz.sk/"
                 >Ľudovít Scholtz</a
               >
-              - Architekt
+              - architekt
             </li>
             <li>
               <a class="idsk-footer__link" href="https://www.gosms.eu/"
                 >GoSMS</a
               >
-              - Zadarmo SMSky pre testovacie účely
+              - bezplatné SMSky pre testovacie účely
             </li>
             <li>
               <a class="idsk-footer__link" href="https://www.srdcomdoma.sk/"
                 >Srdcom doma o.z.</a
               >
-              - Rebranding, pomoc s vývojom, testovaním a procesmi
+              - rebranding, pomoc s vývojom, testovaním a procesmi
             </li>
           </ul>
         </b-col>
