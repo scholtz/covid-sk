@@ -37,7 +37,7 @@
           </b-col>
           <b-col>
             <b-button class="my-3" @click="downloadPDF" variant="primary">
-              Stiahnuť PDF*
+              Stiahnuť Certifikát ako PDF súbor zabezpečený heslom*
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
@@ -50,7 +50,7 @@
               </svg>
               <b-spinner small v-if="processingDownload" class="ml-1" />
             </b-button><br/>
-            *PDF je zabezpečené heslom zhodným s vašim rodným číslom (bez lomítka), resp. číslo cestovného pasu, ak ste ho zadali pri registrácii na test. 
+            {{ $t("resultsPdfNote") }} 
           </b-col>
         </b-row>
         <b-row>

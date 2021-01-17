@@ -93,8 +93,9 @@
   "navBarAdminServicesManagement":"Správa poskytovaných služieb",
 
   "resultsTitle":"Výsledky testovania",
-  "resultsCode":"9-miestny kód registrácie (stačí zadať číslice bez pomlčiek)",
-  "resultsPass":"Posledné štyri číslice z rodného čísla. Ak ste sa na test registrovali s cestovným dokladom, zadajte posledné štyri znaky z cestovného dokladu.",
+  "resultsCode":"Zadajte 9-miestny kód registrácie (stačí zadať číslice bez pomlčiek):",
+  "resultsPass":"Zadajte posledné štyri číslice z rodného čísla. Ak ste sa na test registrovali s cestovným dokladom, zadajte posledné štyri číslice cestovného dokladu:",
+  "resultsPdfNote":"*Ako heslo použite rodné číslo (celé ale bez lomítka), použité pri registrácii. Ak ste namiesto rodného čísla zadali cestovný pas, použite celé číslo cestovného pasu.",
   "resultsCheckResults":"Skontrolovať výsledok testu",
   "resultsResult":"Výsledok testovania",
   "resultsSendForm":"Najprv zadajte vyššie požadované údaje.",
