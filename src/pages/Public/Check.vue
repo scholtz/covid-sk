@@ -26,11 +26,23 @@
             </tr>
             <tr>
               <th>Výsledok:</th>
-              <td>{{ result.result }}</td>
+              <td>
+                {{ result.result }}
+                <span
+                  class="badge badge-succcess"
+                  v-if="result.result === 'negative'"
+                  >Testovaná osoba je pravdepodobne zdravá</span
+                >
+                <span
+                  class="badge badge-danger"
+                  v-if="result.result === 'positive'"
+                  >Testom bol preukázaný COVID</span
+                >
+              </td>
             </tr>
             <tr>
               <th>Čas odberu vzorky:</th>
-              <td>{{ result.time }}</td>
+              <td>{{ result.time | formatDateTime }}</td>
             </tr>
             <tr>
               <th>Test vykonal:</th>
