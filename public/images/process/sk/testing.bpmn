@@ -280,7 +280,7 @@
       <bpmn:incoming>Flow_0asx1gs</bpmn:incoming>
       <bpmn:outgoing>Flow_00kg7ns</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_0kt3v74" name="Čakanie na výsledok v čakárni alebo na bezpečnom mieste">
+    <bpmn:exclusiveGateway id="Gateway_0kt3v74" name="Čakanie na výsledok mimo testovacieho miesta">
       <bpmn:incoming>Flow_01wwi2l</bpmn:incoming>
       <bpmn:incoming>Flow_08xyhjc</bpmn:incoming>
       <bpmn:outgoing>Flow_0flhwf6</bpmn:outgoing>
