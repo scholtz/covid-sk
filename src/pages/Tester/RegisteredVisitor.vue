@@ -172,11 +172,27 @@
           <div>Email: {{ visitor.email }}</div>
           <div>Tel: {{ visitor.phone }}</div>
           <button
+            @click="action = 'testSetCodeQR'"
+            class="btn btn-primary my-4 mr-4"
+            v-if="visitor.id"
+          >
+            Osoba je overená, nascanovať QR kód
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg></button
+          ><button
             @click="action = 'testSetCode'"
             class="btn btn-primary my-4 mr-4"
             v-if="visitor.id"
           >
-            Osoba je overená
+            Osoba je overená, nascanovať čiarový kód
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -235,6 +251,37 @@
         </b-col>
         <b-col>
           <StreamBarcodeReader @decode="onDecode" />
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'testSetCodeQR'">
+      <b-row>
+        <b-col cols="12">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
+            Zrušiť
+          </button>
+          <label for="testingset1">Kód testovacej sady</label>
+          <b-input v-model="testingset" id="testingset1" />
+          <button @click="save" class="btn btn-primary my-4">
+            Vykonať test
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+        <b-col>
+          <qrcode-stream @decode="onDecodeQR"></qrcode-stream>
         </b-col>
       </b-row>
     </b-container>
@@ -329,6 +376,7 @@ export default {
       visitor: {},
       scanningData: "code",
       code: "",
+      lastCode: "",
       testingset: "",
       readerSize: {
         width: 120,
@@ -362,6 +410,7 @@ export default {
     }),
     load() {
       this.state = "loading-data";
+      this.lastCode = this.code;
       this.GetVisitor({
         visitorCode: this.code,
       }).then(r => {
@@ -403,12 +452,13 @@ export default {
       if (result) {
         if (this.action == "regCode") {
           this.code = result;
-
-          this.load().then(r => {
-            if (r) {
-              this.action = "verifyPerson";
-            }
-          });
+          if (this.lastCode !== this.code) {
+            this.load().then(r => {
+              if (r) {
+                this.action = "verifyPerson";
+              }
+            });
+          }
         } else {
           this.testingset = result;
         }
@@ -418,11 +468,13 @@ export default {
       if (result) {
         if (this.action == "regCodeQR") {
           this.code = result;
-          this.load().then(r => {
-            if (r) {
-              this.action = "verifyPerson";
-            }
-          });
+          if (this.lastCode !== this.code) {
+            this.load().then(r => {
+              if (r) {
+                this.action = "verifyPerson";
+              }
+            });
+          }
         } else {
           this.testingset = result;
         }
