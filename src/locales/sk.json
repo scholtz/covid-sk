@@ -94,7 +94,7 @@
 
   "resultsTitle":"Výsledky testovania",
   "resultsCode":"9-miestny kód registrácie (stačí zadať číslice bez pomlčiek)",
-  "resultsPass":"Posledné štyri číslice z rodného čísla alebo <b>celý kód</b> cestovného dokladu (vrátane písmen a číslic, tak ako ste ho zadali pri registrácii)",
+  "resultsPass":"Posledné štyri číslice z rodného čísla alebo celý kód cestovného dokladu (vrátane písmen a číslic, tak ako ste ho zadali pri registrácii)",
   "resultsCheckResults":"Skontrolovať výsledok testu",
   "resultsResult":"Výsledok testovania",
   "resultsSendForm":"Odošlite prosím formulár",
@@ -223,13 +223,8 @@
   "helpProviderA1":"<p>Ak chcete poskytnúť občanom možnosť prihlásiť sa na testy, najprv musíte zaregistrovať svoj subjekt - prevádzkovateľa. Na hlavnej stránke kliknite prosím na \"Prihlásenie\" (na obrázku označené číslom 1): <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_001_prihlasenie.png\" /></p><p>Pre registráciu nového prevádzkovateľa kliknite na tlačidlo označené na obrázku číslom 1:  <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_002_registracia.png\" /></p><p>Začnite tým, že potvrdíte, že ste oprávnení zastupovať subjekt, ktorý sa chystáte zaregistrovať. Vyplňte požadované údaje o vašom subjekte, ktorý prevádzkuje odberné miesta. Pred odoslaním sa uistite o správnosti kontaktných údajov. E-mailom Vám pošleme počiatočné heslo. <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_003_registacia_form.png\" /></p>",
   "helpProviderQ2":"Prvé kroky po registrácii prevádzkovateľa",
   "helpProviderA2":"<p>Kontaktná osob zadaná pri registrácia prevádzkovateľa, je automaticky administrátorom prevádzkovateľa. Môže riadiť pracovníkov, prideľovať im oprávnenia aj úlohy. Administrátor môže spravovať miesta, ich prevádzkový čas aj poskytované služby. Pre prihlásenie do systému používa kontaktný e-mail zadaný pri registrácii subjektu - prevádzkovateľa odberných miest a heslo, ktoré dostal e-mailom. Heslo si po prvom prihlásení zmeňte: <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sprava_000_zmena_hesla.png\" /></p><p>V ďalšom kroku v menu zvoľte \"Pozvánky\". Ak prijmete pozvánku, získate všetky administrátorské oprávnenia k vami vytvorenému subjektu. V budúcnosti sa vám tu môžu zobraziť ďalšie pozvánky, ak vám niekto pridelí oprávnenia: <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sprava_001_sprava_pozvanok.png\" /></p>",
-
   "helpProviderQ3":"Správa agend",
-  "helpProviderA3":"<p>Správou agend</p>",
-  "helpProviderQ4":"",
-  "helpProviderA4":"",
-  "helpProviderQ5":"",
-  "helpProviderA5":"",
+  "helpProviderA3":"<p>Správou agend sa myslí:<ul><li>Správa pracovísk</li><li>Správa prevádzkovej doby</li><li>Správa ľudských zdrojov</li><li>Správa poskytovaných služieb</li><li>Exporty dát</li></ul><br/>Tieto časti spravuje administrátor. Pozrite si časť venovanú tejto roli. </p>",
 
   "helpAdminQ1":"Správa agend",
   "helpAdminA1":"<p>Po prijatí pozvánky v predchádzajúcom bode uvidíte v hornom menu agendy, ktoré môžete spravovať. Po registrácii nového subjektu doporučujeme postupovať agendami odhora dolu (ich popis nájdete v ďalších častiach tohto helpu):  <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sprava_003_menu.png\" /></p>",
