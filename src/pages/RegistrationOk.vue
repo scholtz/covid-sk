@@ -18,6 +18,9 @@
         </b-row>
         <b-row>
           <b-col>
+            <vue-qrcode :value="barcodeValue" />
+          </b-col>
+          <b-col>
             <barcode
               v-bind:value="barcodeValue"
               format="CODE39"
@@ -90,10 +93,12 @@
 <script>
 import { mapMutations, mapActions } from "vuex";
 import VueBarcode from "vue-barcode";
+import VueQrcode from "vue-qrcode";
 
 export default {
   components: {
     barcode: VueBarcode,
+    VueQrcode,
   },
   data() {
     return {
