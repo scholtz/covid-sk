@@ -167,7 +167,12 @@
           </div>
           <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
           <div>Poisťovňa: {{ visitor.insurance }}</div>
-          <div>RČ: {{ visitor.rc }} {{ visitor.passport }}</div>
+          <div>
+            RČ: {{ visitor.rc }} {{ visitor.passport }}
+            <b-badge variant="danger" v-if="validatePersonalNumber"
+              >Pozor, RČ vyzerá byť nesprávne</b-badge
+            >
+          </div>
           <div>Adresa: {{ visitor.address }}</div>
           <div>Email: {{ visitor.email }}</div>
           <div>Tel: {{ visitor.phone }}</div>
@@ -384,6 +389,41 @@ export default {
       },
       detecteds: [],
     };
+  },
+  computed: {
+    validatePersonalNumber() {
+      try {
+        const age = 0;
+
+        let x = this.visitor.rc;
+        x = x.replace("/", "");
+        x = x.replace(" ", "");
+        if (x.length == 0) return false;
+        if (x.length < 9) return true;
+        let year = parseInt(x.substr(0, 2), 10);
+        let month = parseInt(x.substr(2, 2), 10);
+        const day = parseInt(x.substr(4, 2), 10);
+        if (x.length == 9 && year < 54) return false;
+        let c = 0;
+        if (x.length == 10) c = parseInt(x.substr(9, 1));
+        let m = parseInt(x.substr(0, 9)) % 11;
+        if (m == 10) m = 0;
+        if (m != c) return true;
+        year += year < 54 ? 2000 : 1900;
+        if (month > 70 && year > 2003) month -= 70;
+        else if (month > 50) month -= 50;
+        else if (month > 20 && year > 2003) month -= 20;
+        const d = new Date();
+        if (year + age > d.getFullYear()) return true;
+        if (month == 0) return true;
+        if (month > 12) return true;
+        if (day == 0) return true;
+        if (day > 31) return true;
+      } catch {
+        return true;
+      }
+      return false;
+    },
   },
   mounted() {
     console.log("this.$route.params.id", this.$route.params.id);
