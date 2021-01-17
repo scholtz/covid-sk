@@ -94,7 +94,7 @@
       <bpmn:incoming>Flow_0ops4fd</bpmn:incoming>
       <bpmn:outgoing>Flow_1jrpz0i</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_0ops4fd" name="Osoba si prišla pre certifikát" sourceRef="Gateway_01yi18a" targetRef="Activity_0aozf40" />
+    <bpmn:sequenceFlow id="Flow_0ops4fd" name="..." sourceRef="Gateway_01yi18a" targetRef="Activity_0aozf40" />
     <bpmn:sequenceFlow id="Flow_1jrpz0i" sourceRef="Activity_0aozf40" targetRef="Gateway_0ok44ud" />
     <bpmn:exclusiveGateway id="Gateway_0ok44ud">
       <bpmn:incoming>Flow_1jrpz0i</bpmn:incoming>
@@ -116,7 +116,7 @@
       <bpmn:incoming>Flow_1dnvc62</bpmn:incoming>
       <bpmn:outgoing>Flow_1swmdgh</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_1dnvc62" name="Osoba si prišla pre certifikát" sourceRef="Gateway_17sbx0n" targetRef="Activity_16ic88v" />
+    <bpmn:sequenceFlow id="Flow_1dnvc62" name="..." sourceRef="Gateway_17sbx0n" targetRef="Activity_16ic88v" />
     <bpmn:exclusiveGateway id="Gateway_0arbhl8">
       <bpmn:incoming>Flow_109e8pa</bpmn:incoming>
       <bpmn:incoming>Flow_0rkn3xs</bpmn:incoming>
