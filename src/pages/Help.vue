@@ -374,6 +374,27 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
+                  
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button
+                        class="p-3"
+                        block
+                        v-b-toggle.accordion-admin-5
+                        >{{ $t("helpAdminQ5") }}</b-button
+                      >
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-admin-5"
+                      accordion="admin-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpAdminA5')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
                 </div>
               </b-card-text>
             </b-tab>
