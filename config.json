@@ -1,4 +1,6 @@
 {
+  "PROD":"covid.pezinok.sk",
+  "ALLOWED_HOSTS":["localhost","covid.pezinok.sk"],
   "VUE_CONFIG_APP_API": "https://demo.rychlejsie.sk/api/",
   "DEDICATED_PLACE":false,
   "MAP_LAT":48.5,
