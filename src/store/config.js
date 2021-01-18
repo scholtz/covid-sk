@@ -6,6 +6,8 @@ const state = () => ({
   MAP_LNG: 19.5,
   MAP_ZOOM: 8,
   SITE_KEY: "6LdV2SwaAAAAAP1wUVwNil6Dg7bBY7Ll0omw-cnx",
+  SHOW_DANGER:
+    "Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov",
   fetched: false,
 });
 
@@ -15,6 +17,9 @@ const mutations = {
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     if (value.PROD) {
       state.PROD = value.PROD;
+    }
+    if (value.SHOW_DANGER) {
+      state.SHOW_DANGER = value.SHOW_DANGER;
     }
     if (value.MAP_LAT) {
       state.MAP_LAT = value.MAP_LAT;

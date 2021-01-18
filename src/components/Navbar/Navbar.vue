@@ -159,12 +159,9 @@
         ><h2 class="text-center">Prejsť na {{ $store.state.config.PROD }}</h2>
       </a>
     </div>
-    <div class="alert alert-danger m-0">
+    <div class="alert alert-danger m-0" v-if="$store.state.config.SHOW_DANGER">
       <h2 class="text-center">
-        <b
-          >Aktuálne sa netestuje. čaká sa na dohodnutie ďalších odberných
-          termínov</b
-        >
+        <b>{{ $store.state.config.SHOW_DANGER }}</b>
       </h2>
     </div>
   </div>
