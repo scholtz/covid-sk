@@ -166,7 +166,7 @@
     <bpmn:intermediateThrowEvent id="Event_0qsscz7" name="Ukončenie práce správcu registrácie">
       <bpmn:incoming>Flow_02e5cx0</bpmn:incoming>
     </bpmn:intermediateThrowEvent>
-    <bpmn:task id="Activity_1jfh08f" name="Odobratie vzorky z nosu">
+    <bpmn:task id="Activity_1jfh08f" name="Odobratie vzorky z nosa">
       <bpmn:incoming>Flow_0rm3yvk</bpmn:incoming>
       <bpmn:outgoing>Flow_0wqime9</bpmn:outgoing>
     </bpmn:task>
@@ -175,7 +175,7 @@
       <bpmn:outgoing>Flow_0chgu6f</bpmn:outgoing>
       <bpmn:outgoing>Flow_01wwi2l</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_1k06t24" name="Odoslanie testovanej osoby do čakárne">
+    <bpmn:task id="Activity_1k06t24" name="Testovaná osoba opúšťa miesto testovania">
       <bpmn:incoming>Flow_0wqime9</bpmn:incoming>
       <bpmn:outgoing>Flow_1p84ce0</bpmn:outgoing>
     </bpmn:task>
