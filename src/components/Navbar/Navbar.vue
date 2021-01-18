@@ -186,11 +186,6 @@ export default {
       );
     },
   },
-  mounted() {
-    if (this.isNotProdHost) {
-      window.location.href = "https://" + this.$store.state.config.PROD;
-    }
-  },
   methods: {
     ...mapMutations({
       setAuthJWT: "user/setAuthJWT",
