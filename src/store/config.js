@@ -1,6 +1,7 @@
 const state = () => ({
   PROD: "covid.pezinok.sk",
   VUE_CONFIG_APP_API: "https://apps.scholtz.sk:4430/",
+  LOGO: "./images/logo-rychlejsie-light.svg",
   DEDICATED_PLACE: false,
   MAP_LAT: 48.5,
   MAP_LNG: 19.5,
@@ -17,6 +18,9 @@ const mutations = {
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     if (value.PROD) {
       state.PROD = value.PROD;
+    }
+    if (value.LOGO) {
+      state.LOGO = value.LOGO;
     }
     if (value.SHOW_DANGER) {
       state.SHOW_DANGER = value.SHOW_DANGER;

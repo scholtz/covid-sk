@@ -8,7 +8,7 @@
           class="m-0 p-0"
         >
           <img
-            src="../../assets/images/logo-rychlejsie-light.svg"
+            :src="$store.state.config.LOGO"
             height="40px"
             width="190px"
             class="m-0 p-0"
