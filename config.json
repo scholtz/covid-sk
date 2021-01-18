@@ -4,5 +4,6 @@
   "MAP_LAT":48.5,
   "MAP_LNG":19.5,
   "MAP_ZOOM":8,
-  "SHOW_DANGER":"Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov"
+  "SHOW_DANGER":"Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov",
+  "LOGO":"./images/logo-rychlejsie-light.svg"
 }
