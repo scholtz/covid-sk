@@ -29,6 +29,18 @@
               >
               - rebranding, pomoc s vývojom, testovaním a procesmi
             </li>
+            <li>
+              <a class="idsk-footer__link" href="https://www.sk.kbb.sk/">KBB</a
+              >,
+              <a class="idsk-footer__link" href="https://www.aaaauto.sk/"
+                >AAA Auto</a
+              >,
+              <a
+                class="idsk-footer__link"
+                href="https://github.com/scholtz/covid-sk/blob/master/SUPPORT.md"
+                >a ďalší</a
+              >
+            </li>
           </ul>
         </b-col>
         <b-col md="4">
