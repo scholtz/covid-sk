@@ -7,6 +7,7 @@ const state = () => ({
   MAP_LAT: 48.5,
   MAP_LNG: 19.5,
   MAP_ZOOM: 8,
+  CSS: "",
   SITE_KEY: "6LdV2SwaAAAAAP1wUVwNil6Dg7bBY7Ll0omw-cnx",
   SHOW_DANGER:
     "Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov",
@@ -25,6 +26,9 @@ const mutations = {
     }
     if (value.LOGO) {
       state.LOGO = value.LOGO;
+    }
+    if (value.CSS) {
+      state.CSS = value.CSS;
     }
     if (value.SHOW_DANGER) {
       state.SHOW_DANGER = value.SHOW_DANGER;
@@ -53,6 +57,14 @@ const mutations = {
     if (!found) {
       const hostToRedirect = "https://" + state.PROD;
       window.location.href = hostToRedirect;
+    }
+
+    if (state.CSS) {
+      let style = document.createElement("link");
+      style.type = "text/css";
+      style.rel = "stylesheet";
+      style.href = state.CSS;
+      document.head.appendChild(style);
     }
   },
 };

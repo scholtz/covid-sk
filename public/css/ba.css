@@ -1,0 +1,35 @@
+nav, .navbar{
+  background-color: #e02b20!important;
+  color:#fff!important;
+}
+a.navbar-brand{
+  background-image: url('../images/ba.svg');
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat;
+  min-width: 30px;
+  height: 100%;
+ 
+}
+a.navbar-brand img{
+   opacity: 0;
+}
+.navbar a{
+  color: #fff!important;;
+}
+.navbar a:hover{
+  color: #ddd!important;;
+}
+.bg-dark{
+  background-color: #e02b20!important;
+}
+.navbar option{
+  color:#fff!important;
+}
+.idsk-footer{
+  background-color: #222;
+  color:#fff
+}
+.idsk-footer a{
+  color: #cc8b8b!important;;
+}
