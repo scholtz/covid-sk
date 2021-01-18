@@ -159,7 +159,7 @@
         ><h2 class="text-center">Prejsť na {{ $store.state.config.PROD }}</h2>
       </a>
     </div>
-    <div>
+    <div class="alert alert-danger m-0">
       <h2 class="text-center">
         <b
           >Aktuálne sa netestuje. čaká sa na dohodnutie ďalších odberných
