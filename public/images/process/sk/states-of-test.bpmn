@@ -90,7 +90,7 @@
     <bpmn:sequenceFlow id="Flow_1e55wtm" sourceRef="Gateway_10o3fre" targetRef="Activity_0ycsdud" />
     <bpmn:sequenceFlow id="Flow_0i5dupt" name="Osoba prišla na pretestovanie" sourceRef="Gateway_0mvir7y" targetRef="Gateway_10o3fre" />
     <bpmn:sequenceFlow id="Flow_157x0q1" name="Timeout - Koniec testovania" sourceRef="Gateway_0mvir7y" targetRef="Gateway_0ff0hj3" />
-    <bpmn:task id="Activity_0aozf40" name="Stav testu:&#10;positive-certiciate-taken">
+    <bpmn:task id="Activity_0aozf40" name="Stav testu:&#10;positive-certifiacte-sent">
       <bpmn:incoming>Flow_0ops4fd</bpmn:incoming>
       <bpmn:outgoing>Flow_1jrpz0i</bpmn:outgoing>
     </bpmn:task>
@@ -112,7 +112,7 @@
       <bpmn:outgoing>Flow_0rkn3xs</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1eo6kjy" sourceRef="Activity_03fc5p4" targetRef="Gateway_17sbx0n" />
-    <bpmn:task id="Activity_16ic88v" name="Stav testu:&#10;negative-certiciate-taken">
+    <bpmn:task id="Activity_16ic88v" name="Stav testu:&#10;negative-certifiacte-sent">
       <bpmn:incoming>Flow_1dnvc62</bpmn:incoming>
       <bpmn:outgoing>Flow_1swmdgh</bpmn:outgoing>
     </bpmn:task>

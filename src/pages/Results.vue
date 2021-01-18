@@ -80,7 +80,7 @@
             <p v-if="results.state === 'test-not-processed'">
               {{ $t("resultsTestNotProcessed") }}
             </p>
-            <p v-if="results.state === 'positive-certiciate-taken'">
+            <p v-if="results.state === 'positive-certifiacte-sent'">
               <span v-html="$t('resultsTestPositiveCertTaken')" />
             </p>
             <p v-if="results.state === 'positive'">
@@ -89,7 +89,7 @@
             <p v-if="results.state === 'negative'">
               <span v-html="$t('resultsTestNegativeCertNotTaken')" />
             </p>
-            <p v-if="results.state === 'negative-certiciate-taken'">
+            <p v-if="results.state === 'negative-certifiacte-sent'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
 
               <br />

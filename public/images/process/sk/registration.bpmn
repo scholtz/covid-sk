@@ -34,7 +34,7 @@
       <bpmn:outgoing>Flow_1g6wem1</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0mrybgg" sourceRef="Gateway_0x7jlth" targetRef="Activity_172g8r0" />
-    <bpmn:task id="Activity_172g8r0" name="Odoslanie SMS/Emailu s barcodom">
+    <bpmn:task id="Activity_172g8r0" name="Odoslanie registračného kódu v SMS a Emailom aj čiar. kód a QR kódom.">
       <bpmn:incoming>Flow_0mrybgg</bpmn:incoming>
       <bpmn:outgoing>Flow_1i7ufeq</bpmn:outgoing>
     </bpmn:task>
