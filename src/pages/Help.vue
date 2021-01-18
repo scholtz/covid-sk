@@ -33,7 +33,7 @@
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Verejnosť" active>
+            <b-tab title="Verejnosť">
               <b-card-text>
                 <div class="accordion" role="tablist">
 
@@ -200,97 +200,6 @@
               </b-card-text>
             </b-tab>
 
-
-            <b-tab title="Medic Tester / Registration manager">
-              <b-card-text>
-                <div class="accordion" role="tablist">
-                  <b-card no-body class="mb-1">
-                    <b-card-header header-tag="header" class="p-0" role="tab">
-                      <b-button
-                        class="p-3"
-                        block
-                        v-b-toggle.accordion-tester-1
-                        >{{ $t("helpTesterQ1") }}</b-button
-                      >
-                    </b-card-header>
-                    <b-collapse
-                      id="accordion-tester-1"
-                      visible
-                      accordion="tester-accordion"
-                      role="tabpanel"
-                    >
-                      <b-card-body>
-                        <div v-html="$t('helpTesterA1')" />
-                      </b-card-body>
-                    </b-collapse>
-                  </b-card>
-
-                  <b-card no-body class="mb-1">
-                    <b-card-header header-tag="header" class="p-0" role="tab">
-                      <b-button
-                        class="p-3"
-                        block
-                        v-b-toggle.accordion-tester-2
-                        >{{ $t("helpTesterQ2") }}</b-button
-                      >
-                    </b-card-header>
-                    <b-collapse
-                      id="accordion-tester-2"
-                      accordion="tester-accordion"
-                      role="tabpanel"
-                    >
-                      <b-card-body>
-                        <div v-html="$t('helpTesterA2')" />
-                      </b-card-body>
-                    </b-collapse>
-                  </b-card>
-
-                  <b-card no-body class="mb-1">
-                    <b-card-header header-tag="header" class="p-0" role="tab">
-                      <b-button
-                        class="p-3"
-                        block
-                        v-b-toggle.accordion-tester-3
-                        >{{ $t("helpTesterQ3") }}</b-button
-                      >
-                    </b-card-header>
-                    <b-collapse
-                      id="accordion-tester-3"
-                      accordion="tester-accordion"
-                      role="tabpanel"
-                    >
-                      <b-card-body>
-                        <div v-html="$t('helpTesterA3')" />
-                      </b-card-body>
-                    </b-collapse>
-                  </b-card>
-
-                  <b-card no-body class="mb-1">
-                    <b-card-header header-tag="header" class="p-0" role="tab">
-                      <b-button
-                        class="p-3"
-                        block
-                        v-b-toggle.accordion-tester-4
-                        >{{ $t("helpTesterQ4") }}</b-button
-                      >
-                    </b-card-header>
-                    <b-collapse
-                      id="accordion-tester-4"
-                      accordion="tester-accordion"
-                      role="tabpanel"
-                    >
-                      <b-card-body>
-                        <div v-html="$t('helpTesterA4')" />
-                      </b-card-body>
-                    </b-collapse>
-                  </b-card>
-                </div>
-              </b-card-text>
-            </b-tab>
-
-
-
-
             <b-tab title="Administrátor">
               <b-card-text>
                 <div class="accordion" role="tablist">
@@ -398,6 +307,95 @@
                 </div>
               </b-card-text>
             </b-tab>
+
+
+            <b-tab title="Medic Tester / Registration manager">
+              <b-card-text>
+                <div class="accordion" role="tablist">
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button
+                        class="p-3"
+                        block
+                        v-b-toggle.accordion-tester-1
+                        >{{ $t("helpTesterQ1") }}</b-button
+                      >
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-tester-1"
+                      visible
+                      accordion="tester-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpTesterA1')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button
+                        class="p-3"
+                        block
+                        v-b-toggle.accordion-tester-2
+                        >{{ $t("helpTesterQ2") }}</b-button
+                      >
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-tester-2"
+                      accordion="tester-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpTesterA2')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button
+                        class="p-3"
+                        block
+                        v-b-toggle.accordion-tester-3
+                        >{{ $t("helpTesterQ3") }}</b-button
+                      >
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-tester-3"
+                      accordion="tester-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpTesterA3')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button
+                        class="p-3"
+                        block
+                        v-b-toggle.accordion-tester-4
+                        >{{ $t("helpTesterQ4") }}</b-button
+                      >
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-tester-4"
+                      accordion="tester-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpTesterA4')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+                </div>
+              </b-card-text>
+            </b-tab>
+
             <b-tab title="Medic Tester / Registration manager">
               <b-card-text>
                 <div class="accordion" role="tablist">
