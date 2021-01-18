@@ -46,7 +46,7 @@
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
-                <b-dropdown-item to="/admin/users">{{
+                <b-dropdown-item to="/placeprovider/users">{{
                   $t("navBarAdminAuditUsers")
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/managepp">{{

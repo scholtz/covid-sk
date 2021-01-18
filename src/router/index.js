@@ -110,6 +110,12 @@ const router = new VueRouter({
       component: () => import("../pages/Admin/Users.vue"),
     },
     {
+      path: "/placeprovider/users",
+      name: "PPUsers",
+      meta: { layout: "wide" },
+      component: () => import("../pages/PlaceProvider/User.vue"),
+    },
+    {
       path: "/admin/invite",
       name: "AdminInvite",
       component: () => import("../pages/Admin/Invite.vue"),
