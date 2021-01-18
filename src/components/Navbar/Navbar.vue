@@ -159,6 +159,14 @@
         ><h2 class="text-center">Prejsť na {{ $store.state.config.PROD }}</h2>
       </a>
     </div>
+    <div>
+      <h2 class="text-center">
+        <b
+          >Aktuálne sa netestuje. čaká sa na dohodnutie ďalších odberných
+          termínov</b
+        >
+      </h2>
+    </div>
   </div>
 </template>
 
