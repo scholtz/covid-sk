@@ -202,7 +202,7 @@
   "regDoneYourSelection":"Dostavte sa prosím dňa {day} medzi {time} na odberné miesto {place}.",
   "regDoneNextPerson":"Ďalšia osoba na rovnaký termín odberu",
 
-  "userWelcome":"{name}, vitajte v systéme pre testovanie covidu",
+  "userWelcome":"{name}, vitajte",
   "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",
   
   "helpTitle":"Centrum pomoci",

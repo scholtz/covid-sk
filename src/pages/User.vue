@@ -3,9 +3,9 @@
     <div v-if="$store.state.user.auth">
       <div class="app-pane-lgray py-2">
         <b-container>
-          <h1>
+          <h3>
             {{ $t("userWelcome", { name: $store.state.user.tokenData.Name }) }}
-          </h1>
+          </h3>
           <p>
             {{ $t("userHelp") }}
           </p>

@@ -36,14 +36,14 @@
           </p>
           <p>
             Systém je webové rozhranie a backendové služby zriadené
-            prevádzkovateľom pre poskytovanie služieb.
+            dodávateľom pre poskytovanie služieb.
           </p>
           <p>
             Osobné údaje sú uložené v cloude. Pre testovanie v Pezinku 16. a 17.
             januára 2021 v Microsoft Azure, v lokalite West Europe.
           </p>
           <p>
-            <b>Správcom odberného alebo vakcinačného miesta</b> sa rozumie osoba
+            <b>Prevádzkovateľom odberného alebo vakcinačného miesta</b> sa rozumie osoba
             oprávnená na prevádzku odberného alebo vakcinačného miesta na odber
             vzoriek proti chorobe Covid-19. Iba oprávnená osoba (konateľ,
             predseda predstavenstva..) môže zaregistrovať správcu odberného
@@ -51,8 +51,8 @@
           </p>
           <p>
             Registráciou správcovi nevzniká žiadna povinnosť. Všetky poskytnuté
-            služby prevádzkovateľom sú poskytnuté na základe objednávky alebo
-            jeho nastavení v systéme (npr výkon platených služieb).
+            služby dodávateľom sú poskytnuté na základe objednávky alebo
+            jeho nastavení v systéme (napr. výkon platených služieb).
           </p>
           <p>
             Objednávka obsahuje úroveň SLA, a počet registrácií. Cenník je
@@ -78,23 +78,18 @@
             ale nemusí poskytnúť v takom prípade zľavu za službu.
           </p>
           <p>
-            Zaplatené objednávky sú nevratné. V prípade nevyužitia počtu
-            registrácií a uplynutia doby prevádzky registrácie prepadnú v
-            prospech prevádzkovateľa.
+            Dodávateľ poskytne prevádzkovateľovi odberného miesta službu až
+            <b>po úhrade</b> objednávky, alebo zálohy.
           </p>
           <p>
-            Prevádzkovateľ poskytne správcovi odberného miesta službu až
-            <b>po úhrade</b> objednávky.
-          </p>
-          <p>
-            Správca odberného alebo vakcinačného miesta môže poskytovať platené
+            Prevádzkovateľ odberného alebo vakcinačného miesta môže poskytovať platené
             službu. Prevádzkovateľ vystaví faktúru každej osobe ktorá sa
             zaregistruje na test v cene určenou správcom miesta plus servisný
             poplatok 5% plus DPH. Prevádzkovateľ má nárok na servisný poplatok
-            5% z obratu. Správca odberného alebo vakcinačného miesta má nárok na
+            5% z obratu. Prevádzkovateľ odberného alebo vakcinačného miesta má nárok na
             100% z jeho určenej hodnoty poplatkov z každej zaplatenej faktúry.
-            Správca odberného alebo vakcinačného miesta vystaví
-            prevádzkovateľovi faktúru medzi 1. až 7. dňom nasledujúceho mesiaca
+            Prevádzkovateľ odberného alebo vakcinačného miesta vystaví
+            dodávateľovi faktúru medzi 1. až 7. dňom nasledujúceho mesiaca
             s hodnoutou všetkých transakcií v predchádzajúcom mesiaci so
             splatnosťou 14 dní. Prevádzkovateľ je povinný faktúru uhradiť.
           </p>
