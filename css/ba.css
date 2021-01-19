@@ -20,6 +20,13 @@ a.navbar-brand img{
 .navbar a:hover{
   color: #ddd!important;;
 }
+.navbar .dropdown a{
+  color: #333!important;
+}
+.navbar .dropdown a:hover{
+  color: #000!important;
+}
+
 .bg-dark{
   background-color: #e02b20!important;
 }
