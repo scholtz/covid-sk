@@ -18,7 +18,7 @@
     <b-container fluid v-if="!loading">
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
-          <b-tab title="Zoznam poskytovaných úkonov">
+          <b-tab title="Zoznam služieb">
             <div v-if="addProductForm">
               <ValidationObserver>
                 <validation-provider
@@ -262,7 +262,7 @@
             </div>
           </b-tab>
 
-          <b-tab title="Poskytované úkony na prevádzkových miestach">
+          <b-tab title="Služby poskytované na miestach">
             <div v-if="addPPRForm">
               <ValidationObserver>
                 <validation-provider
@@ -466,7 +466,7 @@
                   @click="newPPRClick"
                   class="mr-1"
                 >
-                  Pridaj produkt k miestu
+                  Poskytovať aj na tomto mieste
                 </b-button>
                 <b-button
                   v-if="ppr.id"
