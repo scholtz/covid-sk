@@ -1,12 +1,15 @@
 {
-  "PROD":"covid.pezinok.sk",
-  "ALLOWED_HOSTS":["localhost","covid.pezinok.sk"],
-  "VUE_CONFIG_APP_API": "https://demo.rychlejsie.sk/api/",
+  "PROD":"www.rychlejsie.sk",
+  "ALLOWED_HOSTS":["localhost","www.rychlejsie.sk","covid.pezinok.sk"],
+  "VUE_CONFIG_APP_API": "https://data.rychlejsie.sk",
+  "APPLICATIONS":[
+    {"FE":"http://covid.pezinok.sk/", "BE":"http://covid.pezinok.sk/api/"}
+  ],
   "DEDICATED_PLACE":false,
   "MAP_LAT":48.5,
   "MAP_LNG":19.5,
   "MAP_ZOOM":8,
   "CSS":"",
-  "SHOW_DANGER":"Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov",
+  "SHOW_DANGER":"Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a miest.",
   "LOGO":"./images/logo-rychlejsie-light.svg"
 }
