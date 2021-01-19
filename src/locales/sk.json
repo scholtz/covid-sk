@@ -107,8 +107,8 @@
   "resultsTestNotProcessed":"Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva",
   "resultsTestPositiveCertTaken":"<b>Bol</b> vám detekovaný COVID. Ostaňte prosím v karanténe.",
   "resultsTestPositiveCertNotTaken":"<b>Bol</b> vám detekovaný COVID. <b>Ostaňte prosím v karanténe.</b>",
-  "resultsTestNegativeCertTaken":"Výsledok testu: NEGATÍVNY. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19.",
-  "resultsTestNegativeCertNotTaken":"Výsledok testu: NEGATÍVNY. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Certifikát k testu si nájdete v e-maile.</b>",
+"resultsTestNegativeCertTaken":"Výsledok testu = NEGATÍVNY. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19.",
+"resultsTestNegativeCertNotTaken":"Výsledok testu = NEGATÍVNY. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Certifikát k testu si nájdete v e-maile.</b>",
   "resultsRemovePersonalData":"Vymazať osobné údaje",
 
   "chPassTitle":"Zmena hesla",
@@ -282,6 +282,14 @@
   
 
   "formAdminOpeningHoursTitle":"Správa prevádzkovej doby",
+
+  "pricingTitle":"Cenová ponuka",
+  "pricingSubtitle":"V súčasnosti ponúkame dva varianty. Najrýchlejšie sme schopní poskytnúť prvý variant.",
+  "pricingVariant1Title":"Variant 1 - na kľúč",
+  "pricingVariant1Text":"<h4>Špecifikácia:</h4><ul><li>Služba Rýchlejšie.sk so všetkými funkciami</li><li>Kanál pre odosielanie SMS v cene</li><li>Kanál pre odosielanie e-mailov v cene</li><li>Službu poskytujeme v cloude MS Azure</li><li>Za bezpečnosť riešenia zodpovedá dodávateľ</li><li>Za bezpečnosť nakladania s dátami, ku ktorým poskytne odberateľ prístup, zodpovedá odberateľ</li><li>Dodávateľ poskytne školenie pre podporu 1. stupňa v rozsahu 1 deň + online help</li><li>Užívateľskú podporu 1. stupňa pre pracovníkov zabezpečuje odberateľ</li><li>Technická podpora 8h x 7d. pred plánovaným testovaním</li><li>Technická podpora 16h denne počas testovania</li></ul><h3>Cena: </h3><ul><li>0,2 € / osobu, ktorá sa dostaví na test</li><li>minimálna faktúrovaná suma </li><li>je 280 € </li></ul><p>Podmienka: Podpísanie zmluvy kvalifikovaným elektronickým podpisom osobou oprávnenou konať za prevádzkovateľa testovacieho miesta.</p>",
+  "pricingVariant2Title":"Variant 2 - prenájom kódu aplikácie",
+  "pricingVariant2Text":"<h4>Špecifikácia:</h4><ul><li>Licenčné použitie sw vrátane technickej podpory</li><li>Kód pre nasadenie Služby Rýchlejšie.sk so všetkými funkciami</li><li>Hardware, inštaláciu si zabezpečuje odberateľ</li><li>Kanál pre odosielanie SMS zabezpečuje odberateľ</li><li>Kanál pre odosielanie e-mailov zabezpečuje odberateľ</li><li>Technická podpora 4h x 7d. pred plánovaným testovaním a počas neho</li><li>Za bezpečnosť dát zodpovedá odberateľ</li></ul><h3>Cena: </h3><ul><li>0,05 € / osobu, ktorá sa dostaví na test </li><li>minimálna faktúrovaná suma </li><li>je 4.800 €</li></ul><p>Podmienka: Podpísanie zmluvy kvalifikovaným elektronickým podpisom osobou oprávnenou konať za prevádzkovateľa testovacieho miesta.</p>",  
+  "pricingRequestToRegister":"Zaujala vás naša ponuka? Zaregistrujte sa nezáväzne ihneď. Spojíme sa s vami ešte dnes.",  
 
   "Scholtz":"Scholtz"
 }
