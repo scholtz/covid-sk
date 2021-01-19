@@ -10,6 +10,6 @@
   "MAP_LNG":19.5,
   "MAP_ZOOM":8,
   "CSS":"",
-  "SHOW_DANGER":"Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a miest.",
+  "SHOW_DANGER":"Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a MIEST a OBCÍ pre použitie systému rýchlejšie.sk",
   "LOGO":"./images/logo-rychlejsie-light.svg"
 }
