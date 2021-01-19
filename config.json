@@ -1,7 +1,7 @@
 {
   "PROD":"www.rychlejsie.sk",
   "ALLOWED_HOSTS":["localhost","www.rychlejsie.sk","covid.pezinok.sk"],
-  "VUE_CONFIG_APP_API": "https://data.rychlejsie.sk",
+  "VUE_CONFIG_APP_API": "https://data.rychlejsie.sk/",
   "APPLICATIONS":[
     {"FE":"http://covid.pezinok.sk/", "BE":"http://covid.pezinok.sk/api/"}
   ],
