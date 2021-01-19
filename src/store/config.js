@@ -12,6 +12,8 @@ const state = () => ({
   SHOW_DANGER:
     "Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov",
   fetched: false,
+  DEFAULT_HIDE_HEALTH_STATUS: false,
+  DEFAULT_VIEW: "table",
 });
 
 const mutations = {
@@ -20,6 +22,12 @@ const mutations = {
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     if (value.ALLOWED_HOSTS) {
       state.ALLOWED_HOSTS = value.ALLOWED_HOSTS;
+    }
+    if (value.DEFAULT_VIEW) {
+      state.DEFAULT_VIEW = value.DEFAULT_VIEW;
+    }
+    if (value.DEFAULT_HIDE_HEALTH_STATUS) {
+      state.DEFAULT_HIDE_HEALTH_STATUS = value.DEFAULT_HIDE_HEALTH_STATUS;
     }
     if (value.PROD) {
       state.PROD = value.PROD;

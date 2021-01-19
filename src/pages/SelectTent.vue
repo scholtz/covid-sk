@@ -318,6 +318,7 @@ export default {
   mounted() {
     // eslint-disable-next-line
     this.loading = true;
+    this.showing = this.$store.state.config.DEFAULT_VIEW;
     this.ReloadPlaces({
       availability: this.availability,
       category: this.category,
@@ -332,67 +333,121 @@ export default {
       ReloadPlaces: "place/ReloadPlacesWithFilter",
     }),
     setFields() {
-      this.fields = [
-        {
-          label: this.$t("selectPlaceAction"),
-          key: "id",
-        },
-        {
-          label: this.$t("selectPlacePlaceName"),
-          key: "name",
-          sortable: true,
-        },
-        {
-          label: this.$t("selectPlaceAddress"),
-          key: "address",
-          sortable: true,
-        },
-        {
-          key: "isDriveIn",
-          label: this.$t("selectPlaceDriveIn"),
-          sortable: true,
-        },
-        {
-          key: "isWalkIn",
-          label: this.$t("selectPlaceWalkIn"),
-          sortable: true,
-        },
-        {
-          label: this.$t("selectPlaceLat"),
-          key: "lat",
-          sortable: true,
-        },
-        {
-          label: this.$t("selectPlaceLng"),
-          key: "lng",
-          sortable: true,
-        },
-        {
-          key: "limitPer5MinSlot",
-          label: this.$t("selectPlace5MinLimit"),
-          sortable: true,
-        },
-        {
-          key: "limitPer1HourSlot",
-          label: this.$t("selectPlace1HourLimit"),
-          sortable: true,
-        },
-        {
-          label: this.$t("selectPlaceRegistrations"),
-          key: "registrations",
-          sortable: true,
-        },
-        {
-          label: this.$t("selectPlaceStatsHealthy"),
-          key: "healthy",
-          sortable: true,
-        },
-        {
-          label: this.$t("selectPlaceStatsSick"),
-          key: "sick",
-          sortable: true,
-        },
-      ];
+      if (this.$store.state.config.DEFAULT_HIDE_HEALTH_STATUS) {
+        this.fields = [
+          {
+            label: this.$t("selectPlaceAction"),
+            key: "id",
+          },
+          {
+            label: this.$t("selectPlacePlaceName"),
+            key: "name",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceAddress"),
+            key: "address",
+            sortable: true,
+          },
+          {
+            key: "isDriveIn",
+            label: this.$t("selectPlaceDriveIn"),
+            sortable: true,
+          },
+          {
+            key: "isWalkIn",
+            label: this.$t("selectPlaceWalkIn"),
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceLat"),
+            key: "lat",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceLng"),
+            key: "lng",
+            sortable: true,
+          },
+          {
+            key: "limitPer5MinSlot",
+            label: this.$t("selectPlace5MinLimit"),
+            sortable: true,
+          },
+          {
+            key: "limitPer1HourSlot",
+            label: this.$t("selectPlace1HourLimit"),
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceRegistrations"),
+            key: "registrations",
+            sortable: true,
+          },
+        ];
+      } else {
+        this.fields = [
+          {
+            label: this.$t("selectPlaceAction"),
+            key: "id",
+          },
+          {
+            label: this.$t("selectPlacePlaceName"),
+            key: "name",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceAddress"),
+            key: "address",
+            sortable: true,
+          },
+          {
+            key: "isDriveIn",
+            label: this.$t("selectPlaceDriveIn"),
+            sortable: true,
+          },
+          {
+            key: "isWalkIn",
+            label: this.$t("selectPlaceWalkIn"),
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceLat"),
+            key: "lat",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceLng"),
+            key: "lng",
+            sortable: true,
+          },
+          {
+            key: "limitPer5MinSlot",
+            label: this.$t("selectPlace5MinLimit"),
+            sortable: true,
+          },
+          {
+            key: "limitPer1HourSlot",
+            label: this.$t("selectPlace1HourLimit"),
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceRegistrations"),
+            key: "registrations",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceStatsHealthy"),
+            key: "healthy",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectPlaceStatsSick"),
+            key: "sick",
+            sortable: true,
+          },
+        ];
+      }
     },
     onMapClick(event) {
       this.lastClickLatLng = event.latlng;
