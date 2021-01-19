@@ -3,7 +3,7 @@
   "ALLOWED_HOSTS":["localhost","www.rychlejsie.sk","covid.pezinok.sk"],
   "VUE_CONFIG_APP_API": "https://data.rychlejsie.sk/",
   "APPLICATIONS":[
-    {"FE":"http://covid.pezinok.sk/", "BE":"http://covid.pezinok.sk/api/"}
+    {"Name":"Pezinok","LAU2":"SK0107508179","FE":"http://covid.pezinok.sk/", "BE":"http://covid.pezinok.sk/api/"}
   ],
   "DEDICATED_PLACE":false,
   "MAP_LAT":48.5,
