@@ -68,7 +68,7 @@ export default {
         if (typeof r === "object" && r !== null) {
           console.log("AuthV2");
           // v2 auth
-          let hash = this.pass;
+          let hash = this.pass.trim();
           for (let i = 0; i < 99; i++) {
             hash = sha256(hash + r.coHash);
           }
