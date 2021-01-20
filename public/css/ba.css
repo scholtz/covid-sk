@@ -20,11 +20,8 @@ a.navbar-brand img{
 .navbar a:hover{
   color: #ddd!important;;
 }
-.navbar .dropdown a{
+.dropdown-menu .dropdown-item{
   color: #333!important;
-}
-.navbar .dropdown a:hover{
-  color: #000!important;
 }
 
 .bg-dark{
