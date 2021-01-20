@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="app-pane-lgray py-2">
-      <b-container fluid>
+      <b-container fluid class="p-3">
         <b-link
           v-if="showing === 'map'"
           class="pull-right mr-2 btn btn-primary"
@@ -71,7 +71,7 @@
       <div v-if="showing === 'map'" style="min-height: 500px; width: 100%">
         <b-container fluid>
           <b-row>
-            <b-col>
+            <b-col class="m-2">
               <l-map
                 id="map"
                 ref="map"
