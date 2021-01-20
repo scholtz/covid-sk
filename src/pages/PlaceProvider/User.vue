@@ -153,7 +153,7 @@
             </template>
             <template #cell(status)="row">
               <span v-if="row.item.status === 'invited'">
-                Čaká sa na Vaše potvrdenie
+                Čaká sa na potvrdenie
               </span>
               <span v-else-if="row.item.status === 'declined'">
                 Zamietli ste pozvánku
