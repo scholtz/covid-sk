@@ -9,8 +9,7 @@ const state = () => ({
   MAP_ZOOM: 8,
   CSS: "",
   SITE_KEY: "6LdV2SwaAAAAAP1wUVwNil6Dg7bBY7Ll0omw-cnx",
-  SHOW_DANGER:
-    "Aktuálne sa netestuje. Čaká sa na dohodnutie ďalších odberných termínov",
+  SHOW_DANGER: "",
   fetched: false,
   DEFAULT_HIDE_HEALTH_STATUS: false,
   DEFAULT_VIEW: "table",
