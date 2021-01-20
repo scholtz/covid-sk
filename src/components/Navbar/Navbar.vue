@@ -27,6 +27,9 @@
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/invite">
+                  Pridanie admina
+                </b-dropdown-item>
                 <b-dropdown-item to="/admin/users">{{
                   $t("navBarAdminAuditUsers")
                 }}</b-dropdown-item>

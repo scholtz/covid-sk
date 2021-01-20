@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Pozvanie ďalších užívateľov</h1>
+        <h1>Pozvanie ďalších administrátorov</h1>
       </b-container>
     </div>
     <b-container>
@@ -15,6 +15,7 @@
           <label for="email">Email</label>
           <b-input v-model="email" ref="email" id="email" type="email" />
         </b-col>
+        <!--
         <b-col cols="12" md="12">
           <b-select
             multiple="true"
@@ -23,13 +24,18 @@
             style="min-height: 200px"
             class="my-2"
           />
-        </b-col>
+        </b-col>-->
       </b-row>
       <b-row>
         <b-col cols="12" md="12">
+          <p>Na tejto stránke môžete pridať ďalších administrátorov</p>
           <button @click="inviteUserClick" class="btn btn-primary my-4">
             Pozvať
           </button>
+
+          <b-link to="/admin/users" class="btn btn-light m-4">
+            Správa iných rolí
+          </b-link>
         </b-col>
       </b-row>
     </b-container>
@@ -43,16 +49,8 @@ export default {
     return {
       name: "",
       email: "",
-      roles: [],
-      rolesList: [
-        "Admin",
-        "RegistrationManager",
-        "MedicTester",
-        "MedicLab",
-        "DocumentManager",
-        "DataExporter",
-        "PasswordProtected",
-      ],
+      roles: ["Admin"],
+      rolesList: ["Admin", "PasswordProtected"],
     };
   },
   methods: {
