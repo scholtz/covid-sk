@@ -80,7 +80,7 @@
           />
           Bez predregistrácie:
           <img
-            src="../../public/images/icons/map_icon_red_10.png"
+            src="../../public/images/icons/map_icon_blue.png"
             height="20px"
             alt="red"
           />
