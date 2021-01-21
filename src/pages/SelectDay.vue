@@ -324,7 +324,8 @@ export default {
       ) {
         return "";
       }
-      return `https://www.google.sk/maps/@${this.$store.state.place.currentPlace.lat},${this.$store.state.place.currentPlace.lng},13z`;
+      const ret = `http://www.google.com/maps/place/${this.$store.state.place.currentPlace.lat},${this.$store.state.place.currentPlace.lng}`;
+      return ret;
     },
   },
   mounted() {
