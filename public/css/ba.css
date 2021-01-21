@@ -18,7 +18,7 @@ a.navbar-brand img{
   color: #fff!important;;
 }
 .navbar a:hover{
-  color: #ddd!important;;
+  color: rgb(0, 0, 0)!important;;
 }
 .dropdown-menu .dropdown-item{
   color: #333!important;
@@ -31,7 +31,7 @@ a.navbar-brand img{
   color:#fff!important;
 }
 .idsk-footer{
-  background-color: #222;
+  background-color: #e02b20;
   color:#fff
 }
 .idsk-footer a{
