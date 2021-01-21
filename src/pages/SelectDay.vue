@@ -54,6 +54,19 @@
                   >Áno</b
                 >
                 <b v-else>Nie</b>
+                <a
+                  class="btn btn-primary m-2"
+                  v-if="
+                    $store.state.place.currentPlace.externalReservationSystem
+                  "
+                  :href="
+                    $store.state.place.currentPlace.externalReservationSystem
+                  "
+                >
+                  {{
+                    $store.state.place.currentPlace.externalReservationSystem
+                  }}
+                </a>
                 <br />
                 {{ $t("registrationIsRequired") }}:
 
@@ -137,8 +150,8 @@
               <h2>Čakáme, kým si odberové miesto vyberie naše služby</h2>
               <p>
                 Odberové miesto zatiaľ nie je registrované v našom registračnom
-                systéme. Ak poznáte správcu tohto odberového miesta, prosím dajte
-                mu vedieť o našich službách.
+                systéme. Ak poznáte správcu tohto odberového miesta, prosím
+                dajte mu vedieť o našich službách.
               </p>
               <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"
                 >16 dôvodov prečo použiť náš rezervačný systém
