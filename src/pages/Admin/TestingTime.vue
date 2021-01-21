@@ -18,12 +18,12 @@
                 <span v-if="item.type === 'delete'">
                   Dňa
                   <b>{{ new Date(item.date).toLocaleDateString("sk") }}</b> bude
-                  odberné miesto <b>zavreté</b>
+                  odberové miesto <b>zavreté</b>
                 </span>
                 <span v-if="item.type === 'set'">
                   Dňa
                   <b>{{ new Date(item.date).toLocaleDateString("sk") }}</b> bude
-                  odberné miesto
+                  odberové miesto
                   <span v-if="placeObj"
                     ><b>{{ placeObj.name }}</b></span
                   >

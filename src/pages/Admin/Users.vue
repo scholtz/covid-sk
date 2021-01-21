@@ -19,7 +19,7 @@
               :class="this.place === '' ? 'border-danger' : ''"
             >
               <b-form-select-option disabled value=""
-                >Vyberte si miesto pre alokovanie osôb na odberné
+                >Vyberte si miesto pre alokovanie osôb na odberové
                 miesta</b-form-select-option
               >
             </b-form-select>
@@ -223,17 +223,17 @@
       </div>
     </b-modal>
     <b-modal
-      title="Pridať osobu na odberné miesto"
+      title="Pridať osobu na odberové miesto"
       v-model="modalSetupShow"
       ok-title="Priradiť"
       cancel-title="Zrušiť"
       @ok="assignClick"
     >
       <div class="alert alert-danger" v-if="this.place === ''">
-        Vyberte si odberné miesto
+        Vyberte si odberové miesto
       </div>
       <div v-else>
-        <h4>Odberné miesto</h4>
+        <h4>Odberové miesto</h4>
         <p>{{ this.placeObj.name }}</p>
       </div>
       <div class="alert alert-danger" v-if="roleNotSelected()">

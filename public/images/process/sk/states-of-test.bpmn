@@ -166,7 +166,7 @@
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0zvt8um" sourceRef="Activity_0du581g" targetRef="TextAnnotation_1upvnik" />
     <bpmn:textAnnotation id="TextAnnotation_0mzpmk3">
-      <bpmn:text>Návštevník prišiel na odberné miesto, a jeho registrácia bola spárovaná s číslom testovacej sady</bpmn:text>
+      <bpmn:text>Návštevník prišiel na odberové miesto, a jeho registrácia bola spárovaná s číslom testovacej sady</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0x6ql3t" sourceRef="Activity_0ycsdud" targetRef="TextAnnotation_0mzpmk3" />
     <bpmn:textAnnotation id="TextAnnotation_0pnvhpq">

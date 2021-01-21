@@ -16,7 +16,7 @@
           <p>
             Prevádzkovateľ poskytuje <b>službu</b> predregistrácie návštevníka
             pre odber vzorky na testovacie miesto proti chorobe covid-19, IT
-            služby pre odberné miesto pre scanovanie a kontrolu registrácie a
+            služby pre odberové miesto pre scanovanie a kontrolu registrácie a
             zadávanie výsledkov testov.
           </p>
           <p>
@@ -43,10 +43,10 @@
             januára 2021 v Microsoft Azure, v lokalite West Europe.
           </p>
           <p>
-            <b>Prevádzkovateľom odberného alebo vakcinačného miesta</b> sa rozumie osoba
-            oprávnená na prevádzku odberného alebo vakcinačného miesta na odber
+            <b>Prevádzkovateľom odberového alebo vakcinačného miesta</b> sa rozumie osoba
+            oprávnená na prevádzku odberového alebo vakcinačného miesta na odber
             vzoriek proti chorobe Covid-19. Iba oprávnená osoba (konateľ,
-            predseda predstavenstva..) môže zaregistrovať správcu odberného
+            predseda predstavenstva..) môže zaregistrovať správcu odberového
             alebo vakcinačného miesta do systému.
           </p>
           <p>
@@ -78,17 +78,17 @@
             ale nemusí poskytnúť v takom prípade zľavu za službu.
           </p>
           <p>
-            Dodávateľ poskytne prevádzkovateľovi odberného miesta službu až
+            Dodávateľ poskytne prevádzkovateľovi odberového miesta službu až
             <b>po úhrade</b> objednávky, alebo zálohy.
           </p>
           <p>
-            Prevádzkovateľ odberného alebo vakcinačného miesta môže poskytovať platené
+            Prevádzkovateľ odberového alebo vakcinačného miesta môže poskytovať platené
             službu. Prevádzkovateľ vystaví faktúru každej osobe ktorá sa
             zaregistruje na test v cene určenou správcom miesta plus servisný
             poplatok 5% plus DPH. Prevádzkovateľ má nárok na servisný poplatok
-            5% z obratu. Prevádzkovateľ odberného alebo vakcinačného miesta má nárok na
+            5% z obratu. Prevádzkovateľ odberového alebo vakcinačného miesta má nárok na
             100% z jeho určenej hodnoty poplatkov z každej zaplatenej faktúry.
-            Prevádzkovateľ odberného alebo vakcinačného miesta vystaví
+            Prevádzkovateľ odberového alebo vakcinačného miesta vystaví
             dodávateľovi faktúru medzi 1. až 7. dňom nasledujúceho mesiaca
             s hodnoutou všetkých transakcií v predchádzajúcom mesiaci so
             splatnosťou 14 dní. Prevádzkovateľ je povinný faktúru uhradiť.

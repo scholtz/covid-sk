@@ -191,7 +191,7 @@
               prvým hromadným testovaním.
             </li>
             <li>
-              Podpora IT znamená pre odberné miesto
+              Podpora IT znamená pre odberové miesto
               <b>5 - 20 násobne rýchlejší</b>
               vykon testu ako pri papierovej podobe.
             </li>
