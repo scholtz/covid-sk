@@ -187,7 +187,10 @@
               >
                 <span
                   @click="dayClicked(slotD)"
-                  class="btn btn-light m-1"
+                  class="btn m-1"
+                  :class="
+                    day && day === slotD.slotId ? 'btn-primary' : 'btn-light'
+                  "
                   :title="
                     $t('selectDayButtonText', {
                       description: slotD.description,
@@ -219,12 +222,8 @@
                     $store.state.place.currentPlace.limitPer1HourSlot
                   "
                   @click="hourClicked(hour)"
-                  class="btn btn-light m-1"
-                  v-bind:class="{
-                    'bg-danger':
-                      hour.registrations >=
-                      $store.state.place.currentPlace.limitPer1HourSlot,
-                  }"
+                  class="btn m-1"
+                  :class="hourButtonStyle(hour)"
                   :title="
                     $t('selectHourButtonText', {
                       description: hour.description,
@@ -414,6 +413,19 @@ export default {
           this.minuteVariantText = "white";
         }
       });
+    },
+    hourButtonStyle(hour) {
+      console.log("hour", hour.slotId, this.hour);
+      if (!hour) return "bg-danger";
+      if (
+        hour &&
+        hour.registrations >=
+          this.$store.state.place.currentPlace.limitPer1HourSlot
+      )
+        return "bg-danger";
+
+      if (this.hour && this.hour === hour.slotId) return "btn-primary";
+      return "btn-light";
     },
   },
 };
