@@ -200,7 +200,7 @@
   "regDonePassport":"Cestovný doklad",
   "regDoneAddress":"Adresa",
   "regDoneYourSelection":"Dostavte sa prosím dňa {day} medzi {time} na odberné miesto {place}.",
-  "regDoneNextPerson":"Ďalšia osoba na rovnaký termín odberu",
+  "regDoneNextPerson":"Zaregistrovať novú osobu na tento termín odberu",
 
   "userWelcome":"{name}, vitajte",
   "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",

@@ -193,7 +193,7 @@
   "regDonePassport":"Passport or travel ID",
   "regDoneAddress":"Address",
   "regDoneYourSelection":"Please visit sampling place {place}, on {day} between {time}",
-  "regDoneNextPerson":"Register next person at the same time",
+  "regDoneNextPerson":"Register new person at the same time",
 
   "userWelcome":"{name}, welcome to the COVID-19 sampling system",
   "userHelp":"Select action in the top menu according the role you represent please.",
