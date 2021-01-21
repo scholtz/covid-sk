@@ -529,7 +529,7 @@ export default {
         return "./images/icons/map_icon_orange.png";
       if (place.externalReservationSystem)
         return "./images/icons/map_icon_gray_01.png";
-      return "./images/icons/map_icon_red_10.png";
+      return "./images/icons/map_icon_blue.png";
     },
   },
 };
