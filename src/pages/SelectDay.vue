@@ -23,10 +23,13 @@
                 }}
               </h2>
               <p>Adresa: {{ $store.state.place.currentPlace.address }}</p>
-              <p>
-                GPS: Lat:
-                {{ $store.state.place.currentPlace.lat | formatGps }} Lng:
-                {{ $store.state.place.currentPlace.lng | formatGps }}
+              <p v-if="gpsLink">
+                GPS:
+                <a :href="gpsLink" target="_blank">
+                  Lat:
+                  {{ $store.state.place.currentPlace.lat | formatGps }} Lng:
+                  {{ $store.state.place.currentPlace.lng | formatGps }}
+                </a>
               </p>
               <p>
                 Má drive in:
@@ -276,6 +279,20 @@ export default {
           this.products.find(p => p.product.id === this.selectedProduct)
         );
       }
+    },
+  },
+  computed: {
+    gpsLink() {
+      if (
+        !this.$store ||
+        !this.$store.state ||
+        !this.$store.state.place ||
+        !this.$store.state.place.currentPlace ||
+        !this.$store.state.place.currentPlace.lat
+      ) {
+        return "";
+      }
+      return `https://www.google.sk/maps/@${this.$store.state.place.currentPlace.lat},${this.$store.state.place.currentPlace.lng},13z`;
     },
   },
   mounted() {
