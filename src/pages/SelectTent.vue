@@ -66,11 +66,7 @@
         -->
         <h1>{{ $t("selectPlaceTitle") }}</h1>
         <p v-if="showing === 'map'">
-          {{ $t("selectPlaceHelpMap") }}
-        </p>
-        <p v-if="showing === 'table'">
-          {{ $t("selectPlaceHelpTable") }}
-          Legenda: Rychlejsie.sk:
+          {{ $t("selectPlaceHelpMap") }} Legenda: Rychlejsie.sk:
           <img
             src="../../public/images/icons/map_icon_orange.png"
             height="20px"
@@ -88,6 +84,9 @@
             height="20px"
             alt="red"
           />
+        </p>
+        <p v-if="showing === 'table'">
+          {{ $t("selectPlaceHelpTable") }}
         </p>
       </b-container>
     </div>
