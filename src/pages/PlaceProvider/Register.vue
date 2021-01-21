@@ -273,7 +273,7 @@ export default {
       this.Register({ pp: this.pp }).then(r => {
         if (r) {
           this.openSuccess(
-            "Zaregistrovali ste odberné miesto. Pozrite si prosím email"
+            "Zaregistrovali ste prevádzkovateľa odberných miest. Pozrite si prosím email"
           );
           this.$router.push("/login");
         }
