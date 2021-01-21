@@ -42,10 +42,11 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 export const actions = {
-  OnLoad({ commit }) {
+  OnLoad({ dispatch, commit }) {
     const token = localStorage.getItem("jwt");
     if (token) {
       commit("setAuthJWT", token);
+      dispatch("RefreshToken");
     }
   },
   async LoadUsers({ dispatch }) {
@@ -56,6 +57,18 @@ export const actions = {
       },
       { root: true }
     );
+  },
+  async RefreshToken({ commit, dispatch }) {
+    const token = await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "User/RefreshToken",
+      },
+      { root: true }
+    );
+    if (token) {
+      commit("setAuthJWT", token);
+    }
   },
   async ListUserInvites({ dispatch }) {
     return await dispatch(
