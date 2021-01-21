@@ -14,6 +14,7 @@ const state = () => ({
   DEFAULT_HIDE_HEALTH_STATUS: false,
   DEFAULT_VIEW: "table",
   INTRO_TEXT: "",
+  IS_PROD: true,
 });
 
 const mutations = {
@@ -25,6 +26,9 @@ const mutations = {
     }
     if (value.INTRO_TEXT) {
       state.INTRO_TEXT = value.INTRO_TEXT;
+    }
+    if (value.IS_PROD) {
+      state.IS_PROD = value.IS_PROD;
     }
     if (value.DEFAULT_VIEW) {
       state.DEFAULT_VIEW = value.DEFAULT_VIEW;
