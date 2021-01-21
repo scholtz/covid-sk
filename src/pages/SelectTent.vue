@@ -70,6 +70,24 @@
         </p>
         <p v-if="showing === 'table'">
           {{ $t("selectPlaceHelpTable") }}
+          Legenda: Rychlejsie.sk:
+          <img
+            src="../../public/images/icons/map_icon_orange.png"
+            height="20px"
+            alt="orange"
+          />
+          Ina rezervácia:
+          <img
+            src="../../public/images/icons/map_icon_gray_01.png"
+            height="20px"
+            alt="gray"
+          />
+          Bez predregistrácie:
+          <img
+            src="../../public/images/icons/map_icon_red_10.png"
+            height="20px"
+            alt="red"
+          />
         </p>
       </b-container>
     </div>
@@ -138,6 +156,23 @@
                             ? $t("yes")
                             : $t("no")
                         }}
+
+                        <a
+                          class="btn btn-light m-2"
+                          v-if="
+                            $store.state.place.currentPlace
+                              .externalReservationSystem
+                          "
+                          :href="
+                            $store.state.place.currentPlace
+                              .externalReservationSystem
+                          "
+                        >
+                          {{
+                            $store.state.place.currentPlace
+                              .externalReservationSystem
+                          }}
+                        </a>
                       </p>
 
                       <b-link
@@ -490,8 +525,11 @@ export default {
       return { lat: branch.lat, lng: branch.lng };
     },
     getIcon(place) {
-      if (place.hasReservationSystem) return "./images/marker-icon2.png";
-      return "./images/marker-icon.png";
+      if (place.hasReservationSystem)
+        return "./images/icons/map_icon_orange.png";
+      if (place.externalReservationSystem)
+        return "./images/icons/map_icon_gray_01.png";
+      return "./images/icons/map_icon_red_10.png";
     },
   },
 };
