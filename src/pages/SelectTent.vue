@@ -95,7 +95,7 @@
       <b-spinner /> {{ $t("selectPlaceLoadingData") }}
     </b-container>
     <div v-else>
-      <div v-if="showing === 'map'" style="min-height: 500px; width: 100%">
+      <div v-if="showing === 'map'" style="min-height: 500px; width: 100%; padding:10px;">
         <b-container fluid>
           <b-row>
             <b-col class="m-2">
