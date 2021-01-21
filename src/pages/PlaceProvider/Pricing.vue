@@ -14,7 +14,7 @@
         <b-col md="6">
           <b-card>
             <h3><div v-html="$t('pricingVariant1Title')" /></h3><br/><br/>
-            <div v-html="$t('footerText')" />
+            <div v-html="$t('pricingVariant1Text')" />
           </b-card>
         </b-col>
         <b-col md="6">
