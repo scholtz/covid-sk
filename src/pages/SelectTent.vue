@@ -166,6 +166,16 @@
                 <span v-if="!row.item.isDriveIn">{{ $t("no") }}</span>
               </b-form-checkbox>
             </template>
+            <template #cell(hasReservationSystem)="row">
+              <b-form-checkbox disabled v-model="row.item.hasReservationSystem">
+                <span v-if="row.item.hasReservationSystem">{{
+                  $t("yes")
+                }}</span>
+                <span v-if="!row.item.hasReservationSystem">{{
+                  $t("no")
+                }}</span>
+              </b-form-checkbox>
+            </template>
             <template #cell(requiresRegistration)="row">
               <b-form-checkbox disabled v-model="row.item.requiresRegistration">
                 <span v-if="row.item.requiresRegistration">{{
@@ -313,6 +323,11 @@ export default {
             sortable: true,
           },
           {
+            key: "hasReservationSystem",
+            label: this.$t("hasReservationSystem"),
+            sortable: true,
+          },
+          {
             key: "requiresRegistration",
             label: this.$t("registrationIsRequired"),
             sortable: true,
@@ -367,6 +382,11 @@ export default {
           {
             label: this.$t("selectPlaceAddress"),
             key: "address",
+            sortable: true,
+          },
+          {
+            key: "hasReservationSystem",
+            label: this.$t("hasReservationSystem"),
             sortable: true,
           },
           {

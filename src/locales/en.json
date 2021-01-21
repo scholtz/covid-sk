@@ -196,6 +196,7 @@
   "regDoneNextPerson":"Register new person at the same time",
 
   "registrationIsRequired":"Registration is required",
+  "hasReservationSystem":"Registration possible",
 
   "userWelcome":"{name}, welcome to the COVID-19 sampling system",
   "userHelp":"Select action in the top menu according the role you represent please.",

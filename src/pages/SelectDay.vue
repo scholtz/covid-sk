@@ -48,9 +48,16 @@
                 hod.
               </p>
               <p>
+                {{ $t("hasReservationSystem") }}:
+
+                <b v-if="$store.state.place.currentPlace.hasReservationSystem"
+                  >Áno</b
+                >
+                <b v-else>Nie</b>
+                <br />
                 {{ $t("registrationIsRequired") }}:
 
-                <b v-if="$store.state.place.currentPlace.requiresRegistration"
+                <b v-if="$store.state.place.currentPlace.hasReservationSystem"
                   >Áno</b
                 >
                 <b v-else>Nie</b>
