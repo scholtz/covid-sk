@@ -328,7 +328,32 @@
               </b-card-text>
             </b-tab>
 
-
+            <b-tab title="Testovanie I.">
+              <b-card-text>
+                <div class="accordion" role="tablist">
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button
+                        class="p-3"
+                        block
+                        v-b-toggle.accordion-testing-1
+                        >{{ $t("helpAdminQ1") }}</b-button
+                      >
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-testing-1"
+                      visible
+                      accordion="admin-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <iframe src="https://player.vimeo.com/video/502757010?byline=0&portrait=0" width="300" height="533" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+                </div>
+              </b-card-text>
+            </b-tab>
             
           </b-tabs>
         </b-card>
@@ -336,6 +361,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 export default {};
