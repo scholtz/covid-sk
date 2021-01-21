@@ -27,7 +27,7 @@ const mutations = {
     if (value.INTRO_TEXT) {
       state.INTRO_TEXT = value.INTRO_TEXT;
     }
-    if (value.IS_PROD) {
+    if (value.IS_PROD !== undefined) {
       state.IS_PROD = value.IS_PROD;
     }
     if (value.DEFAULT_VIEW) {
