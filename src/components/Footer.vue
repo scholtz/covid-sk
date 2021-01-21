@@ -3,7 +3,7 @@
     <b-container :fluid="fluid">
       <b-row>
         <b-col md="12" style="text-align:center;">
-          <div v-html="$t('footerText')" /></b-col>
+          <div v-html="$t('footerText')" /></b-col> 
       </b-row>
     </b-container>
   </footer>
