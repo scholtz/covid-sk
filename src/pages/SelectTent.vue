@@ -104,6 +104,7 @@
                     :key="placeId"
                     :lat-lng="getLatLng(place)"
                   >
+                    <l-icon :icon-url="getIcon(place)" />
                     <l-popup
                       :options="{ autoClose: true, closeOnClick: false }"
                     >
@@ -217,7 +218,14 @@
 
 <script>
 import { mapActions } from "vuex";
-import { LMap, LTileLayer, LPopup, LMarker, LLayerGroup } from "vue2-leaflet";
+import {
+  LMap,
+  LTileLayer,
+  LPopup,
+  LMarker,
+  LLayerGroup,
+  LIcon,
+} from "vue2-leaflet";
 
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -238,6 +246,7 @@ export default {
     LPopup,
     LMarker,
     LLayerGroup,
+    LIcon,
   },
   data() {
     return {
@@ -479,6 +488,10 @@ export default {
     getLatLng(branch) {
       if (!branch) return { lat: 0, lng: 0 };
       return { lat: branch.lat, lng: branch.lng };
+    },
+    getIcon(place) {
+      if (place.hasReservationSystem) return "./images/marker-icon2.png";
+      return "./images/marker-icon.png";
     },
   },
 };
