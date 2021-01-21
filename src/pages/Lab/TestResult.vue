@@ -81,7 +81,7 @@
       <b-container v-if="action === 'sick'">
         <button
           :disabled="processing"
-          class="btn btn-primary my-2"
+          class="btn btn-danger my-2"
           @click="send"
         >
           Oznámiť pozitívne prípady
@@ -89,11 +89,7 @@
         </button>
       </b-container>
       <b-container v-if="action === 'repeat'">
-        <button
-          :disabled="processing"
-          class="btn btn-primary my-2"
-          @click="send"
-        >
+        <button :disabled="processing" class="btn btn-info my-2" @click="send">
           Oznámiť chybné prípady
           <b-spinner small v-if="processing" />
         </button>
@@ -101,7 +97,7 @@
       <b-container v-if="action === 'healthy'">
         <button
           :disabled="processing"
-          class="btn btn-primary my-2"
+          class="btn btn-success my-2"
           @click="send"
         >
           Oznámiť negatívne prípady
