@@ -194,7 +194,7 @@
             </svg></button
           ><button
             @click="action = 'testSetCode'"
-            class="btn btn-primary my-4 mr-4"
+            class="btn btn-primary my-4 mr-4 collapse"
             v-if="visitor.id"
           >
             Osoba je overená, nascanovať čiarový kód
