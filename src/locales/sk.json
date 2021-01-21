@@ -301,7 +301,7 @@
   "manageProductspart1Title":"Zoznam služieb",
   "manageProductspart2Title":"Služby poskytované na miestach",
   
-  "footerText":"<p>Službu <a href=\"https://rychlejsie.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:40px;\" src=\"./images/logos/Rychlejsie_sk_logo.png\" alt=\"Rýchlejšie.sk - služby bez čakania\" /></a> poskytuje Scholtz &amp; Company, j.s.a. v spolupráci so <a href=\"https://www.srdcomdoma.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:30px;\" src=\"./images/logos/Srdcomdoma_logo_horizontal_CMYK_80px.png\" alt=\"Srdcom doma o.z.\" /></a></p>",
+  "footerText":"<p>Službu <a href=\"https://rychlejsie.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:40px;\" src=\"./images/logos/Rychlejsie_sk_logo_biele.png\" alt=\"Rýchlejšie.sk - služby bez čakania\" /></a> poskytuje Scholtz &amp; Company, j.s.a. v spolupráci so <a href=\"https://www.srdcomdoma.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:25px;\" src=\"./images/logos/Srdcomdoma_logo_horizontal_White_80px.png\" alt=\"Srdcom doma o.z.\" /></a></p><p><a class=\"idsk-footer__link\" href=\"#/terms-and-conditions\">Obchodné podmienky</a><br /></p>",
   
 
   "Scholtz":"Scholtz"
