@@ -65,7 +65,7 @@
                       accordion="public-accordion"
                       role="tabpanel"
                     >
-                      <b-card-body> 
+                      <b-card-body>
                         <div v-html="$t('helpPublicA1')" />
                       </b-card-body>
                     </b-collapse>
@@ -125,7 +125,13 @@
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Často kladené otázky">
+            <b-tab
+              title="Často kladené otázky"
+              v-if="
+                $store.state.config.PROD === 'covid.bratislava.sk' ||
+                $store.state.config.PROD === 'www.rychlejsie.sk'
+              "
+            >
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -157,7 +163,7 @@
                       accordion="public-accordion"
                       role="tabpanel"
                     >
-                      <b-card-body> 
+                      <b-card-body>
                         <div v-html="$t('FaqBaA2')" />
                       </b-card-body>
                     </b-collapse>
