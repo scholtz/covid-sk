@@ -97,7 +97,10 @@
                     <l-popup
                       :options="{ autoClose: true, closeOnClick: false }"
                     >
-                      <h4 class="md-auto" style="text-align: center">
+                      <h4
+                        class="md-auto"
+                        style="text-align: center; min-width: 150px"
+                      >
                         {{ place.name }}
                       </h4>
                       <div style="font-size: smaller; color: #999">
@@ -117,6 +120,15 @@
                         {{ $t("selectPlaceWalkIn") }}:
                         {{ place.isWalkIn === true ? $t("yes") : $t("no") }}
                       </p>
+                      <p>
+                        {{ $t("registrationIsRequired") }}:
+                        {{
+                          place.requiresRegistration === true
+                            ? $t("yes")
+                            : $t("no")
+                        }}
+                      </p>
+
                       <b-link
                         :to="`/place/${place.id}`"
                         class="btn btn-primary"
@@ -152,6 +164,16 @@
               <b-form-checkbox disabled v-model="row.item.isDriveIn">
                 <span v-if="row.item.isDriveIn">{{ $t("yes") }}</span>
                 <span v-if="!row.item.isDriveIn">{{ $t("no") }}</span>
+              </b-form-checkbox>
+            </template>
+            <template #cell(requiresRegistration)="row">
+              <b-form-checkbox disabled v-model="row.item.requiresRegistration">
+                <span v-if="row.item.requiresRegistration">{{
+                  $t("yes")
+                }}</span>
+                <span v-if="!row.item.requiresRegistration">{{
+                  $t("no")
+                }}</span>
               </b-form-checkbox>
             </template>
             <template #cell(lat)="row">
@@ -291,6 +313,11 @@ export default {
             sortable: true,
           },
           {
+            key: "requiresRegistration",
+            label: this.$t("registrationIsRequired"),
+            sortable: true,
+          },
+          {
             key: "isDriveIn",
             label: this.$t("selectPlaceDriveIn"),
             sortable: true,
@@ -340,6 +367,11 @@ export default {
           {
             label: this.$t("selectPlaceAddress"),
             key: "address",
+            sortable: true,
+          },
+          {
+            key: "requiresRegistration",
+            label: this.$t("registrationIsRequired"),
             sortable: true,
           },
           {

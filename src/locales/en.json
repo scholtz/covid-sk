@@ -195,6 +195,8 @@
   "regDoneYourSelection":"Please visit sampling place {place}, on {day} between {time}",
   "regDoneNextPerson":"Register new person at the same time",
 
+  "registrationIsRequired":"Registration is required",
+
   "userWelcome":"{name}, welcome to the COVID-19 sampling system",
   "userHelp":"Select action in the top menu according the role you represent please.",
 

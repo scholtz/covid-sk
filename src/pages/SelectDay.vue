@@ -47,6 +47,14 @@
                 <b>{{ $store.state.place.currentPlace.limitPer1HourSlot }}</b> /
                 hod.
               </p>
+              <p>
+                {{ $t("registrationIsRequired") }}:
+
+                <b v-if="$store.state.place.currentPlace.requiresRegistration"
+                  >Áno</b
+                >
+                <b v-else>Nie</b>
+              </p>
               <p v-if="$store.state.place.currentPlace.description">
                 Popis: {{ $store.state.place.currentPlace.description }}
               </p>

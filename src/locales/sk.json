@@ -202,6 +202,8 @@
   "regDoneYourSelection":"Dostavte sa prosím dňa {day} medzi {time} na odberné miesto {place}.",
   "regDoneNextPerson":"Zaregistrovať novú osobu na tento termín odberu",
 
+  "registrationIsRequired":"Vyžaduje predregistráciu",
+  
   "userWelcome":"{name}, vitajte",
   "userHelp":"Vyberte si z menu akciu na základe role ktorú reprezentujete.",
   
