@@ -213,6 +213,40 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-6>{{
+                        $t("FaqBaQ6")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-6"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('FaqBaA6')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-7>{{
+                        $t("FaqBaQ7")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-7"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('FaqBaA7')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
                 </div>
               </b-card-text>
             </b-tab>
