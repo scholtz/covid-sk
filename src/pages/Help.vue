@@ -36,7 +36,6 @@
             <b-tab title="Verejnosť">
               <b-card-text>
                 <div class="accordion" role="tablist">
-
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-1>{{
@@ -126,12 +125,9 @@
               </b-card-text>
             </b-tab>
 
-
-
-            <b-tab title="Prevádzkovateľ">
+            <b-tab title="Prevádzkovateľ" v-if="!$store.state.config.IS_PROD">
               <b-card-text>
                 <div class="accordion" role="tablist">
-                  
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
@@ -194,13 +190,11 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-
-                  
                 </div>
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Administrátor">
+            <b-tab title="Administrátor" v-if="!$store.state.config.IS_PROD">
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -283,7 +277,7 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-                  
+
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
@@ -323,12 +317,11 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-
                 </div>
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Testovanie I.">
+            <b-tab title="Testovanie I." v-if="!$store.state.config.IS_PROD">
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -347,9 +340,15 @@
                       role="tabpanel"
                     >
                       <b-card-body>
-                        <iframe src="https://player.vimeo.com/video/502757010?byline=0&portrait=0" width="300" height="533" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <iframe
+                          src="https://player.vimeo.com/video/502757010?byline=0&portrait=0"
+                          width="300"
+                          height="533"
+                          frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
                       </b-card-body>
-
                     </b-collapse>
                   </b-card>
 
@@ -369,16 +368,20 @@
                       role="tabpanel"
                     >
                       <b-card-body>
-                        <iframe src="https://player.vimeo.com/video/502947178?loop=1&byline=0&portrait=0" width="300" height="533" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <iframe
+                          src="https://player.vimeo.com/video/502947178?loop=1&byline=0&portrait=0"
+                          width="300"
+                          height="533"
+                          frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
                       </b-card-body>
-
                     </b-collapse>
                   </b-card>
-
                 </div>
               </b-card-text>
             </b-tab>
-            
           </b-tabs>
         </b-card>
       </b-container>

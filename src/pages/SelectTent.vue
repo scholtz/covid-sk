@@ -1,5 +1,15 @@
 <template>
   <div>
+    <div v-if="$store.state.config.INTRO_TEXT" class="">
+      <b-container fluid class="p-3">
+        <b-row>
+          <b-col>
+            <div v-html="$store.state.config.INTRO_TEXT" />
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+
     <div class="app-pane-lgray py-2">
       <b-container fluid class="p-3">
         <b-link
