@@ -1,6 +1,6 @@
 const state = () => ({
   PROD: "covid.pezinok.sk",
-  VUE_CONFIG_APP_API: "https://apps.scholtz.sk:4430/",
+  VUE_CONFIG_APP_API: "",
   ALLOWED_HOSTS: ["localhost", "covid.pezinok.sk"],
   LOGO: "./images/logo-rychlejsie-light.svg",
   DEDICATED_PLACE: false,

@@ -59,6 +59,7 @@ export const actions = {
     );
   },
   async RefreshToken({ commit, dispatch }) {
+    if (!this.state.config.VUE_CONFIG_APP_API) return;
     const token = await dispatch(
       "axios/get",
       {
