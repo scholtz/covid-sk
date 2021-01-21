@@ -65,7 +65,7 @@
                       accordion="public-accordion"
                       role="tabpanel"
                     >
-                      <b-card-body>
+                      <b-card-body> 
                         <div v-html="$t('helpPublicA1')" />
                       </b-card-body>
                     </b-collapse>
