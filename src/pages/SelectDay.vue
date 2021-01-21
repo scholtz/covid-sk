@@ -50,7 +50,11 @@
               <p>
                 {{ $t("hasReservationSystem") }}:
 
-                <b v-if="$store.state.place.currentPlace.hasReservationSystem"
+                <b
+                  v-if="
+                    $store.state.place.currentPlace.hasReservationSystem ||
+                    $store.state.place.currentPlace.externalReservationSystem
+                  "
                   >Áno</b
                 >
                 <b v-else>Nie</b>
