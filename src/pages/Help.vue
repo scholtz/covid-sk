@@ -125,6 +125,98 @@
               </b-card-text>
             </b-tab>
 
+            <b-tab title="Často kladené otázky">
+              <b-card-text>
+                <div class="accordion" role="tablist">
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-1>{{
+                        $t("FaqBaQ1")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-1"
+                      visible
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('FaqBaA1')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-2>{{
+                        $t("FaqBaQ2")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-2"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body> 
+                        <div v-html="$t('FaqBaA2')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-3>{{
+                        $t("FaqBaQ3")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-3"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('FaqBaA3')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-4>{{
+                        $t("FaqBaQ4")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-4"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('FaqBaA4')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-5>{{
+                        $t("FaqBaQ5")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-5"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('FaqBaA5')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+                </div>
+              </b-card-text>
+            </b-tab>
+
             <b-tab title="Prevádzkovateľ" v-if="!$store.state.config.IS_PROD">
               <b-card-text>
                 <div class="accordion" role="tablist">
