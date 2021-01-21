@@ -120,6 +120,9 @@ export const actions = {
       insurance,
       chosenSlot,
       chosenPlaceId,
+      birthDayDay,
+      birthDayMonth,
+      birthDayYear,
       product,
       token,
     };
