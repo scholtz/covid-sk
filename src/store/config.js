@@ -13,6 +13,7 @@ const state = () => ({
   fetched: false,
   DEFAULT_HIDE_HEALTH_STATUS: false,
   DEFAULT_VIEW: "table",
+  INTRO_TEXT: "",
 });
 
 const mutations = {
@@ -21,6 +22,9 @@ const mutations = {
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     if (value.ALLOWED_HOSTS) {
       state.ALLOWED_HOSTS = value.ALLOWED_HOSTS;
+    }
+    if (value.INTRO_TEXT) {
+      state.INTRO_TEXT = value.INTRO_TEXT;
     }
     if (value.DEFAULT_VIEW) {
       state.DEFAULT_VIEW = value.DEFAULT_VIEW;
