@@ -134,10 +134,10 @@
               class="my-4"
               v-if="!$store.state.place.currentPlace.placeProviderId"
             >
-              <h2>Čakáme, kým si odberné miesto vyberie naše služby</h2>
+              <h2>Čakáme, kým si odberové miesto vyberie naše služby</h2>
               <p>
-                Odberné miesto zatiaľ nie je registrované v našom registračnom
-                systéme. Ak poznáte správcu tohto odberného miesta, prosím dajte
+                Odberové miesto zatiaľ nie je registrované v našom registračnom
+                systéme. Ak poznáte správcu tohto odberového miesta, prosím dajte
                 mu vedieť o našich službách.
               </p>
               <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"

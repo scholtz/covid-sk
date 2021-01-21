@@ -75,7 +75,7 @@
         <bpmn:flowNodeRef>Event_15e449d</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="Event_1yqzm64" name="Testovaná osoba príde na odberné miesto">
+    <bpmn:startEvent id="Event_1yqzm64" name="Testovaná osoba príde na odberové miesto">
       <bpmn:outgoing>Flow_0ct08im</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:task id="Activity_081fzma" name="Zaradí sa do fronty, 2 metrové odstupy">
