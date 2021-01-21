@@ -246,19 +246,12 @@
   "helpAdminQ6":"Správa služieb",
   "helpAdminA6":"<p>Kliknutím na tlačidlo \"+\" v zozname poskytovaných služieb zobrazíte formulár pre pridanie služby: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sluzby_001_poskytovane_sluzby_zoznam.png\" /></p> <p>Vyplňte formulár. Ak zaškrtnete \"Predvolené na všetkých miestach\" bude sa služba poskytovať na všetkých vašich miestach. Kliknite na tlačidlo \"Pridaj\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sluzby_002_pridanie_sluzby.png\" /></p> <p>V zozname sa zobrazí novo pridaná služba: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sluzby_003_sluzba_bola_pridana.png\" /></p> <p>Ak ste pri definovaní služby (v predchádzajúcich krokoch) nenastavili službu, aby sa poskytovala na všetkých miestach, môžete tu zadefinovať, na ktorých miestach sa bude poskytovať. Kliknite na tlačidlo \"+\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sluzby_004_sluzby_poskytovane_na_miestach_zoznam.png\" /></p> <p>Vyplňte formulár a zvoľte prípadne časové ohraničenie poskytovania služby. Nakoniec kliknite na \"Pridaj: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sluzby_005_sluzby_poskytovane_na_miestach_form.png\" /></p> <p>Služba bude poskytovaná aj na zvolenom mieste: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"./images/sk/prevadzk_sluzby_006_sluzby_poskytovane_na_miestach_zaznam_bol_pridany.png\" /></p>",
 
-  "helpTesterQ1":"Registrovaný klient prišiel na test",
+  "helpTesterQ1":"Skenovanie kódu klienta a priradenie čísla testu.",
   "helpTesterA1":"<p>Na doplnenie..</p>",
-  "helpTesterQ2":"Registrovaný klient nemá bar kód",
-  "helpTesterA2":"Na doplnenie..",
-  "helpTesterQ3":"Klient nie je zaregistrovaný",
-  "helpTesterA3":"Na doplnenie..>",
-  "helpTesterQ4":"Nastavenie a zmena miesta testovania",
-  "helpTesterA4":"Na doplnenie..",
 
-  "helpLabQ1":"Hromadné označenie testov",
+  "helpLabQ1":"Skenovanie vyhodnotených testov laborantom a ich odoslanie.",
   "helpLabA1":"Na doplnenie..",
   
-
   "helpDocQ1":"Vypísanie dokladu",
   "helpDocA1":"Na doplnenie..",
 
