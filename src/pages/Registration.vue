@@ -93,7 +93,7 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col cols="12" md="4">
+          <b-col cols="12" md="6" lg="3">
             <validation-provider
               name="Meno"
               :rules="{ required: true }"
@@ -119,7 +119,7 @@
               </b-form-group>
             </validation-provider>
           </b-col>
-          <b-col cols="12" md="4">
+          <b-col cols="12" md="6" lg="3">
             <validation-provider
               name="Priezvisko"
               :rules="{ required: true }"
@@ -147,6 +147,7 @@
           </b-col>
           <b-col
             cols="12"
+            lg="2"
             md="4"
             v-if="personType === 'idcard' || personType === 'child'"
           >
@@ -179,7 +180,7 @@
               </b-form-group>
             </validation-provider>
           </b-col>
-          <b-col cols="12" md="4" v-else>
+          <b-col cols="12" md="4" lg="2" v-else>
             <validation-provider
               name="Číslo cestovného dokladu"
               :rules="{ required: true }"
@@ -205,28 +206,188 @@
               </b-form-group>
             </validation-provider>
           </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12" md="12">
+          <b-col cols="12" lg="1" md="2">
             <validation-provider
-              name="Adresa"
+              name="Deň narodenia"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
               <b-form-group
-                id="address-group-1"
-                :label="$t('registrationFormAddress')"
-                label-for="address"
+                id="birthDayDay-group-1"
+                :label="$t('registrationFormBirthDayDay')"
+                label-for="birthDayDay"
               >
                 <b-form-input
-                  id="address"
-                  name="address"
-                  v-model="address"
+                  id="birthDayDay"
+                  name="birthDayDay"
+                  v-model="birthday.day"
+                  type="number"
+                  min="1"
+                  max="31"
                   :state="getValidationState(validationContext)"
-                  aria-describedby="address-feedback"
+                  aria-describedby="birthDayDay-feedback"
+                  data-vv-as="Priezvisko"
+                />
+
+                <b-form-invalid-feedback id="lastName-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider> </b-col
+          ><b-col cols="12" lg="1" md="2">
+            <validation-provider
+              name="Mesiac narodenia"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="birthDayMonth-group-1"
+                :label="$t('registrationFormBirthDayMonth')"
+                label-for="birthDayMonth"
+              >
+                <b-form-input
+                  id="birthDayMonth"
+                  name="birthDayMonth"
+                  v-model="birthday.month"
+                  type="number"
+                  min="1"
+                  max="12"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="birthDayMonth-feedback"
+                />
+
+                <b-form-invalid-feedback id="lastName-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+
+          <b-col cols="12" md="4" lg="2">
+            <validation-provider
+              name="Rok narodenia"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="birthDayYear-group-1"
+                :label="$t('registrationFormBirthDayYear')"
+                label-for="birthDayYearh"
+              >
+                <b-form-input
+                  id="birthDayYear"
+                  name="birthDayYear"
+                  v-model="birthday.year"
+                  type="number"
+                  min="1900"
+                  max="2021"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="birthDayYear-feedback"
+                />
+
+                <b-form-invalid-feedback id="lastName-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="6">
+            <validation-provider
+              name="Adresa - Ulica"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="street-group-1"
+                :label="$t('registrationFormAddressStreet')"
+                label-for="street"
+              >
+                <b-form-input
+                  id="street"
+                  name="street"
+                  v-model="address.street"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="street-feedback"
                 />
 
                 <b-form-invalid-feedback id="address-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+          <b-col cols="12" md="1">
+            <validation-provider
+              name="Číslo"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="streetNo-group-1"
+                :label="$t('registrationFormAddressStreetNo')"
+                label-for="streetNo"
+              >
+                <b-form-input
+                  id="streetNo"
+                  name="streetNo"
+                  v-model="address.streetNo"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="streetNo-feedback"
+                />
+
+                <b-form-invalid-feedback id="streetNo-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+          <b-col cols="12" md="2">
+            <validation-provider
+              name="PSČ"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="zip-group-1"
+                :label="$t('registrationFormAddressZIP')"
+                label-for="zip"
+              >
+                <b-form-input
+                  id="zip"
+                  name="zip"
+                  v-model="address.zip"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="zip-feedback"
+                />
+
+                <b-form-invalid-feedback id="zip-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+          <b-col cols="12" md="3">
+            <validation-provider
+              name="Mesto"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="city-group-1"
+                :label="$t('registrationFormAddressCity')"
+                label-for="city"
+              >
+                <b-form-input
+                  id="city"
+                  name="city"
+                  v-model="address.city"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="city-feedback"
+                />
+
+                <b-form-invalid-feedback id="city-feedback">{{
                   validationContext.errors[0]
                 }}</b-form-invalid-feedback>
               </b-form-group>
@@ -409,7 +570,14 @@ export default {
       rc: "",
       firstName: "",
       lastName: "",
-      address: "",
+      address: {
+        street: "",
+        streetNo: "",
+        zip: "",
+        city: "",
+      },
+      birthday: { day: "", month: "", year: "" },
+
       email: "@",
       phone: "+421",
       insurance: "25",
@@ -528,12 +696,18 @@ export default {
               rc: this.rc,
               firstName: this.firstName,
               lastName: this.lastName,
-              address: this.address,
+              street: this.address.street,
+              streetNo: this.address.streetNo,
+              zip: this.address.zip,
+              city: this.address.city,
               email: this.email,
               phone: this.phone,
               insurance: this.insurance,
               chosenSlot: this.$route.params.minuteId,
               chosenPlaceId: this.$route.params.placeId,
+              birthDayDay: this.birthday.day,
+              birthDayMonth: this.birthday.month,
+              birthDayYear: this.birthday.year,
               product: this.$store.state.slot.product.id,
               token,
             })
