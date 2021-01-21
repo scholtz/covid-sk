@@ -1,7 +1,7 @@
 const state = () => ({
-  PROD: "covid.pezinok.sk",
+  PROD: "",
   VUE_CONFIG_APP_API: "",
-  ALLOWED_HOSTS: ["localhost", "covid.pezinok.sk"],
+  ALLOWED_HOSTS: [],
   LOGO: "./images/logo-rychlejsie-light.svg",
   DEDICATED_PLACE: false,
   MAP_LAT: 48.5,
