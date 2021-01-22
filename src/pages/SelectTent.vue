@@ -95,7 +95,10 @@
       <b-spinner /> {{ $t("selectPlaceLoadingData") }}
     </b-container>
     <div v-else>
-      <div v-if="showing === 'map'" style="min-height: 500px; width: 100%; padding:10px;">
+      <div
+        v-if="showing === 'map'"
+        style="min-height: 500px; width: 100%; padding: 10px"
+      >
         <b-container fluid>
           <b-row>
             <b-col class="m-2">
@@ -237,6 +240,33 @@
             <template #cell(lng)="row">
               {{ row.item.lng | formatGps }}
             </template>
+            <template #cell(queue)="row">
+              {{ row.item.queue | formatDateTime }}
+
+              <span v-if="!row.item.queue"> </span>
+              <span
+                v-else-if="
+                  moment(row.item.queue, 'HH:mm:ss') <=
+                  moment('00:05:00', 'HH:mm:ss')
+                "
+              >
+                <img src="../../public/images/lights-green.png" alt="Green" />
+              </span>
+              <span
+                v-else-if="
+                  moment(row.item.queue, 'HH:mm:ss') <=
+                  moment('01:00:00', 'HH:mm:ss')
+                "
+              >
+                <img src="../../public/images/lights-yellow.png" alt="Yellow" />
+              </span>
+              <span v-else>
+                <img src="../../public/images/lights-red.png" alt="Red" />
+              </span>
+            </template>
+            <template #cell(queueLastUpdate)="row">
+              {{ row.item.queueLastUpdate | formatDateTime }}
+            </template>
             <template #cell(isWalkIn)="row">
               <b-form-checkbox disabled v-model="row.item.isWalkIn">
                 <span v-if="row.item.isWalkIn">{{ $t("yes") }}</span>
@@ -251,6 +281,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import { mapActions } from "vuex";
 import {
   LMap,
@@ -376,6 +407,16 @@ export default {
             sortable: true,
           },
           {
+            label: this.$t("selectQueue"),
+            key: "queue",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectQueueLastUpdate"),
+            key: "queueLastUpdate",
+            sortable: true,
+          },
+          {
             key: "hasReservationSystem",
             label: this.$t("hasReservationSystem"),
             sortable: true,
@@ -435,6 +476,16 @@ export default {
           {
             label: this.$t("selectPlaceAddress"),
             key: "address",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectQueue"),
+            key: "queue",
+            sortable: true,
+          },
+          {
+            label: this.$t("selectQueueLastUpdate"),
+            key: "queueLastUpdate",
             sortable: true,
           },
           {
@@ -529,6 +580,9 @@ export default {
       if (place.externalReservationSystem)
         return "./images/icons/map_icon_gray_01.png";
       return "./images/icons/map_icon_blue.png";
+    },
+    moment(time, format) {
+      return moment(time, format);
     },
   },
 };

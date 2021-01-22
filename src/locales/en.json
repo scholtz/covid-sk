@@ -137,6 +137,8 @@
   "selectPlaceRegistrations":"Registrations",
   "selectPlaceStatsHealthy":"Stats of healthy",
   "selectPlaceStatsSick":"Stats of sick",
+  "selectQueue":"Est. waiting time",
+  "selectQueueLastUpdate":"Waiting time update",
 
   "selectDayTitle":"Please select service and your visit day",
   "selectDayYourSelection":"You have chosen {place}",

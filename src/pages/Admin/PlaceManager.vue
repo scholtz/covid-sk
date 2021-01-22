@@ -67,15 +67,33 @@
                   id="description"
                 />
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col cols="12" md="2">
+                <label for="queue">Fronta</label>
+                <b-input
+                  type="time"
+                  v-model="place.queue"
+                  ref="queue"
+                  id="queue"
+                  step="2"
+                />
+              </b-col>
+              <b-col cols="12" md="2">
+                <label for="queueLastUpdate">Čas zmeny fronty</label>
+                <VueCtkDateTimePicker
+                  v-model="place.queueLastUpdate"
+                  ref="queueLastUpdate"
+                  id="queueLastUpdate"
+                />
+              </b-col>
+              <b-col cols="12" md="2">
                 <label for="lat">GPS Lat</label>
                 <b-input v-model="place.lat" ref="lat" id="lat" />
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col cols="12" md="2">
                 <label for="lng">GPS Lng</label>
                 <b-input v-model="place.lng" ref="lng" id="lng" />
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col cols="12" md="2">
                 <label for="limitPer5MinSlot">Limit úkonov za 5min</label>
                 <b-input
                   v-model="place.limitPer5MinSlot"
@@ -83,7 +101,7 @@
                   id="limitPer5MinSlot"
                 />
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col cols="12" md="2">
                 <label for="limitPer1HourSlot">Limit úkonov za hodinu</label>
                 <b-input
                   v-model="place.limitPer1HourSlot"
@@ -254,8 +272,12 @@
 
 <script>
 import { mapActions } from "vuex";
-
+import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
+import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 export default {
+  components: {
+    VueCtkDateTimePicker,
+  },
   data() {
     return {
       loading: true,
@@ -264,6 +286,8 @@ export default {
         name: "",
         description: "",
         address: "",
+        queue: "00:00",
+        queueLastUpdate: "",
         lat: 48.289218275462225,
         lng: 17.272996902465824,
         isDriveIn: false,

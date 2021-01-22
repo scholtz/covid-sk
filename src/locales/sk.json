@@ -146,6 +146,10 @@
   "selectPlaceRegistrations":"Registrácií",
   "selectPlaceStatsHealthy":"Počet negatívnych",
   "selectPlaceStatsSick":"Počet pozitívnych",
+
+  "selectQueue":"Odhadovaná čakacia doba",
+  "selectQueueLastUpdate":"Aktualizácia čakacej doby",
+
   
   "selectDayTitle":"Vyberte si službu a deň",
   "selectDayYourSelection":"Vybrali ste si: {place}",
