@@ -11,13 +11,14 @@
           procesy testovania aby sme mohli efektívne porovnať dĺžku radov a
           odchýlku od času registrácie medzi rôznymi rezervačnými a odberovými
           systémami.
-        </p></b-container
-      >
+        </p>
+      </b-container>
     </div>
 
     <div class="py-5">
-      <b-container
-        ><b-row>
+      <b-container>
+        <b-col v-if="success"> Ďakujeme za pomoc </b-col>
+        <b-row v-if="!success">
           <b-col cols="12" md="6">
             <b-input v-model="code" ref="code" />
             <label for="code">{{ $t("resultsCode") }}</label>
@@ -27,7 +28,7 @@
             <label for="pass">{{ $t("resultsPass") }}</label>
           </b-col>
         </b-row>
-        <b-row>
+        <b-row v-if="!success">
           <b-col> </b-col>
           <b-col>
             <b-button class="my-3" @click="enqueuee" variant="primary">
@@ -61,6 +62,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      success: false,
       processingRequest: false,
       processingDownload: false,
 
@@ -92,6 +94,7 @@ export default {
             }).then(r => {
               if (r) {
                 this.openSuccess("Ďakujeme");
+                this.success = true;
               }
               this.processingRequest = false;
             });
