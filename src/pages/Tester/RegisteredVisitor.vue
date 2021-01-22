@@ -201,6 +201,18 @@
                 !visitor.birthDayYear
               "
               >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
+            ><b-badge
+              variant="danger"
+              v-if="
+                validateRCWithDate(
+                  visitor.birthDayDay,
+                  visitor.birthDayMonth,
+                  visitor.birthDayYear,
+                  visitor.rc,
+                  visitor.type
+                )
+              "
+              >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
             >
           </div>
           <button
@@ -555,6 +567,24 @@ export default {
       this.action = "select";
       this.code = "";
       this.testingset = "";
+    },
+    validateRCWithDate(day, month, year, rc, type) {
+      // returns true if validation fails
+      console.log("day, month, year, rc, type", day, month, year, rc, type);
+      if (!day || !month || !year) return true;
+      if (type === "foreign") return false;
+      if (rc === undefined) return false; // this is not rc validation
+      let x = rc;
+      x = x.replace("/", "");
+      x = x.replace(" ", "");
+      if (x.length == 0) return false;
+      if (x.length < 9) return true;
+      const rcyear = parseInt(x.substr(0, 2), 10);
+      const rcmonth = parseInt(x.substr(2, 2), 10);
+      const rcday = parseInt(x.substr(4, 2), 10);
+
+      console.log("day, month, year, rc, type", rcyear, rcmonth, rcday);
+      return rcyear !== year || rcmonth !== month || rcday !== day;
     },
   },
 };
