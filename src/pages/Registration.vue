@@ -709,6 +709,14 @@ export default {
               birthDayMonth: this.birthday.month,
               birthDayYear: this.birthday.year,
               product: this.$store.state.slot.product.id,
+              address:
+                this.address.street +
+                " " +
+                this.address.streetNo +
+                ", " +
+                this.address.zip +
+                " " +
+                this.address.city,
               token,
             })
               // eslint-disable-next-line
