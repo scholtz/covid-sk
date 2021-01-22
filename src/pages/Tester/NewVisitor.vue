@@ -392,7 +392,7 @@
         <b-row>
           <b-col cols="12" class="my-2">
             <button class="btn btn-primary" @click="registerForTest">
-              Zaregistrovať klienta
+              Zaregistrovať / upraviť klienta
             </button>
           </b-col>
         </b-row>
@@ -523,6 +523,11 @@ export default {
         streetNo: this.$store.state.result.lastVisitor.streetNo,
         zip: this.$store.state.result.lastVisitor.zip,
         city: this.$store.state.result.lastVisitor.city,
+      };
+      this.birthday = {
+        day: this.$store.state.result.lastVisitor.birthDayDay,
+        month: this.$store.state.result.lastVisitor.birthDayMonth,
+        year: this.$store.state.result.lastVisitor.birthDayYear,
       };
     }
   },

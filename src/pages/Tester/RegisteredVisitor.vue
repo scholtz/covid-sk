@@ -582,7 +582,8 @@ export default {
       const rcyear = parseInt(x.substr(0, 2), 10);
       const rcmonth = parseInt(x.substr(2, 2), 10);
       const rcday = parseInt(x.substr(4, 2), 10);
-
+      year -= 1900;
+      if (year > 100) year -= 100;
       console.log("day, month, year, rc, type", rcyear, rcmonth, rcday);
       return rcyear !== year || rcmonth !== month || rcday !== day;
     },
