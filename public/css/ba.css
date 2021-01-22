@@ -8,7 +8,8 @@ a.navbar-brand{
   background-size: contain; 
   background-repeat: no-repeat;
   min-width: 30px;
-  height: 75%;
+  height: 70%;
+  margin-right: 20px;
  
 }
 a.navbar-brand img{

@@ -9,8 +9,7 @@
         >
           <img
             :src="$store.state.config.LOGO"
-            height="40px"
-            width="190px"
+            height="45px"
             class="m-0 p-0"
           />
         </b-navbar-brand>
