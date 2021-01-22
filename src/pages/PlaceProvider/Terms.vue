@@ -39,8 +39,7 @@
             dodávateľom pre poskytovanie služieb.
           </p>
           <p>
-            Osobné údaje sú uložené v cloude. Pre testovanie v Pezinku 16. a 17.
-            januára 2021 v Microsoft Azure, v lokalite West Europe.
+            Osobné údaje sú uložené v cloude v Microsoft Azure, v lokalite West Europe.
           </p>
           <p>
             <b>Prevádzkovateľom odberového alebo vakcinačného miesta</b> sa rozumie osoba
