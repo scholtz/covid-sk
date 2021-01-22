@@ -99,6 +99,7 @@
             <b-nav-item to="/register">{{
               $t("navBarPublicRegister")
             }}</b-nav-item>
+            <b-nav-item to="/enqueued">Som v rade</b-nav-item>
             <b-nav-item to="/results">{{
               $t("navBarPublicResults")
             }}</b-nav-item>

@@ -82,6 +82,12 @@ const router = new VueRouter({
       name: "RegistrationOk",
       component: () => import("../pages/RegistrationOk.vue"),
     },
+
+    {
+      path: "/enqueued",
+      name: "enqueued",
+      component: () => import("../pages/Public/Enqueued.vue"),
+    },
     {
       path: "/results",
       name: "Results",
