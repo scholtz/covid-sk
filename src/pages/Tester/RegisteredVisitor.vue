@@ -168,11 +168,11 @@
           <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
           <div>
             Poisťovňa: {{ visitor.insurance }}
-            <div v-if="visitor.insurance === '24'">Dôvera</div>
-            <div v-if="visitor.insurance === '25'">VšZP</div>
-            <div v-if="visitor.insurance === '27'">Union</div>
-            <div v-if="visitor.insurance === '98'">EÚ poistenec</div>
-            <div v-if="visitor.insurance === '99'">Cudzinec</div>
+            <span v-if="visitor.insurance === '24'">- Dôvera</span>
+            <span v-if="visitor.insurance === '25'">- VšZP</span>
+            <span v-if="visitor.insurance === '27'">- Union</span>
+            <span v-if="visitor.insurance === '98'">- EÚ poistenec</span>
+            <span v-if="visitor.insurance === '99'">- Cudzinec</span>
           </div>
           <div>
             RČ: {{ visitor.rc }} {{ visitor.passport }}
@@ -180,13 +180,28 @@
               >Pozor, RČ vyzerá byť nesprávne</b-badge
             >
           </div>
-          <div>Adresa: {{ visitor.address }}</div>
+          <div>
+            Adresa: {{ visitor.address }}
+            <b-badge variant="danger" v-if="!visitor.address"
+              >Pozor, adresa je nesprávne zadaná</b-badge
+            >
+          </div>
           <div>Email: {{ visitor.email }}</div>
           <div>Tel: {{ visitor.phone }}</div>
           <div>
             Dátum narodenia: {{ visitor.birthDayDay }}.{{
               visitor.birthDayMonth
             }}.{{ visitor.birthDayYear }}
+
+            <b-badge
+              variant="danger"
+              v-if="
+                !visitor.birthDayDay ||
+                !visitor.birthDayMonth ||
+                !visitor.birthDayYear
+              "
+              >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
+            >
           </div>
           <button
             @click="action = 'testSetCodeQR'"
