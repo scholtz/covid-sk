@@ -217,10 +217,7 @@
               </b-container>
               <span v-for="hour in $store.state.slot.slotsH" :key="hour.from">
                 <span
-                  :disabled="
-                    hour.registrations >=
-                    $store.state.place.currentPlace.limitPer1HourSlot
-                  "
+                  :disabled="hourDisabled(hour)"
                   @click="hourClicked(hour)"
                   class="btn m-1"
                   :class="hourButtonStyle(hour)"
@@ -393,6 +390,7 @@ export default {
       });
     },
     hourClicked(hour) {
+      if (this.hourDisabled(hour)) return;
       this.loadingMinutes = true;
       this.minutesLoaded = false;
       this.setSlotsM([]);
@@ -415,7 +413,6 @@ export default {
       });
     },
     hourButtonStyle(hour) {
-      console.log("hour", hour.slotId, this.hour);
       if (!hour) return "bg-danger";
       if (
         hour &&
@@ -426,6 +423,13 @@ export default {
 
       if (this.hour && this.hour === hour.slotId) return "btn-primary";
       return "btn-light";
+    },
+    hourDisabled(hour) {
+      if (!hour) return true;
+      return (
+        hour.registrations >=
+        this.$store.state.place.currentPlace.limitPer1HourSlot
+      );
     },
   },
 };
