@@ -255,7 +255,7 @@
               <span
                 v-else-if="
                   moment(row.item.queue, 'HH:mm:ss') <=
-                  moment('01:00:00', 'HH:mm:ss')
+                  moment('00:30:00', 'HH:mm:ss')
                 "
               >
                 <img src="../../public/images/lights-yellow.png" alt="Yellow" />
