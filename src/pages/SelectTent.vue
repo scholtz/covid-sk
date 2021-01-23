@@ -72,13 +72,13 @@
             height="20px"
             alt="orange"
           />
-          Ina rezervácia:
+          Ina rezervácia (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_gray_01.png"
             height="20px"
             alt="gray"
           />
-          Bez predregistrácie:
+          Bez predregistrácie (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_blue.png"
             height="20px"
