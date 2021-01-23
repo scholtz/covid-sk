@@ -82,13 +82,13 @@
             src="../../public/images/icons/map_icon_gray_01.png"
             height="25px"
             alt="gray"
-          />
+          /> | 
           Bez rezervácie (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_blue.png"
             height="25px"
             alt="red"
-          /><br/>
+          />.<br/>
           
           <b>Príklady</b>: čakanie do 5 min:
           <img
