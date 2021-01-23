@@ -66,63 +66,59 @@
         -->
         <h1>{{ $t("selectPlaceTitle") }}</h1>
         <p v-if="showing === 'map'">
-          Legenda: rezervácia s 
-          <a href="#"><img
-            src="../../public/images/logos/Rychlejsie_sk_logo.png"
-            height="35px"
-            alt="orange"
-          /></a> priamo na tomto webe:
+          Legenda: rezervácia s
+          <a href="#"
+            ><img
+              src="../../public/images/logos/Rychlejsie_sk_logo.png"
+              height="35px"
+              alt="orange"
+          /></a>
+          priamo na tomto webe:
           <img
             src="../../public/images/icons/map_icon_orange.png"
             height="25px"
             alt="orange"
-          /> | 
-          Iný rezervačný systém (s max. dobou čakania v min.):
+          />
+          | Iný rezervačný systém (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_gray_01.png"
             height="25px"
             alt="gray"
-          /> | 
-          Bez rezervácie (s max. dobou čakania v min.):
+          />
+          | Bez rezervácie (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_blue.png"
             height="25px"
             alt="red"
-          />.<br/>
-          
-          <b>Význam ikoniek</b>: 
-          zatvorené miesto s rezerváciou:
+          />.<br />
+
+          <b>Význam ikoniek</b>: zatvorené miesto s rezerváciou:
           <img
             src="../../public/images/icons/map_icon_gray_01.png"
             height="25px"
             alt="red"
-          />, 
-          zatvorené miesto bez rezervácie:
+          />, zatvorené miesto bez rezervácie:
           <img
             src="../../public/images/icons/map_icon_blue.png"
             height="25px"
             alt="red"
-          />, 
-
-          čakanie do 5 min:
+          />, čakanie do 5 min:
           <img
             src="../../public/images/icons/map_icon_gray_max_5min.png"
             height="25px"
             alt="red"
-          />, 
-          čakanie 5-30 min:
+          />, čakanie 5-30 min:
           <img
             src="../../public/images/icons/map_icon_gray_max_30min.png"
             height="25px"
             alt="red"
-          />, 
-          čakanie nad 30 min:
+          />, čakanie nad 30 min:
           <img
             src="../../public/images/icons/map_icon_gray_over_30min.png"
             height="25px"
             alt="red"
           />.
-          {{ $t("selectPlaceHelpMap") }} 
+          {{ $t("selectPlaceHelpMap") }}
         </p>
         <p v-if="showing === 'table'">
           {{ $t("selectPlaceHelpTable") }}
@@ -614,6 +610,16 @@ export default {
       return { lat: branch.lat, lng: branch.lng };
     },
     getIcon(place) {
+      const curTime = new Date();
+      if (curTime.getHours() >= 18 || curTime.getHours() < 8) {
+        if (place.hasReservationSystem) {
+          return "./images/icons/map_icon_orange.png";
+        } else if (place.externalReservationSystem) {
+          return "./images/icons/map_icon_gray_01.png";
+        } else {
+          return "./images/icons/map_icon_blue.png";
+        }
+      }
       if (place.hasReservationSystem) {
         if (!place.queue) {
           return "./images/icons/map_icon_orange.png";
