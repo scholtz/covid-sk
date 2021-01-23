@@ -66,24 +66,30 @@
         -->
         <h1>{{ $t("selectPlaceTitle") }}</h1>
         <p v-if="showing === 'map'">
-          {{ $t("selectPlaceHelpMap") }} Legenda: Rychlejsie.sk:
+          Legenda: naša rezervácia s 
+          <a href="#"><img
+            src="../../public/images/logos/Rychlejsie_sk_logo.png"
+            height="35px"
+            alt="orange"
+          /></a>
           <img
             src="../../public/images/icons/map_icon_orange.png"
-            height="20px"
+            height="25px"
             alt="orange"
-          />
-          Ina rezervácia (s max. dobou čakania v min.):
+          /> | 
+          Iný rezervačný systém (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_gray_01.png"
-            height="20px"
+            height="25px"
             alt="gray"
           />
-          Bez predregistrácie (s max. dobou čakania v min.):
+          Bez registrácie (s max. dobou čakania v min.):
           <img
             src="../../public/images/icons/map_icon_blue.png"
-            height="20px"
+            height="25px"
             alt="red"
-          />
+          /><br/>
+          {{ $t("selectPlaceHelpMap") }} 
         </p>
         <p v-if="showing === 'table'">
           {{ $t("selectPlaceHelpTable") }}
