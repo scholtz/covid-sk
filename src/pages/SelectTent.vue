@@ -90,7 +90,21 @@
             alt="red"
           />.<br/>
           
-          <b>Príklady</b>: čakanie do 5 min:
+          <b>Význam ikoniek</b>: 
+          zatvorené miesto s rezerváciou:
+          <img
+            src="../../public/images/icons/map_icon_gray_01.png"
+            height="25px"
+            alt="red"
+          />, 
+          zatvorené miesto bez rezervácie:
+          <img
+            src="../../public/images/icons/map_icon_blue.png"
+            height="25px"
+            alt="red"
+          />, 
+
+          čakanie do 5 min:
           <img
             src="../../public/images/icons/map_icon_gray_max_5min.png"
             height="25px"
