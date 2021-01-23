@@ -87,6 +87,19 @@ export const actions = {
       { root: true }
     );
   },
+  async ListAllVisitorsWhoDidNotCome({ dispatch }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Result/ListAllVisitorsWhoDidNotCome",
+        name: "visitorsDidNotCome.csv",
+        type: "get",
+      },
+      { root: true }
+    );
+  },
   async RemoveFromDocQueue({ dispatch }, { testId }) {
     return await dispatch(
       "axios/post",
