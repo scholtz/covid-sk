@@ -50,6 +50,19 @@
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
           </button>
+          <button @click="newVisitor()" class="btn btn-primary my-4 mr-4">
+            Osoba bez registrácie
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
         </b-col>
       </b-row>
     </b-container>
@@ -514,7 +527,7 @@ import { QrcodeStream } from "vue-qrcode-reader";
 
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -604,8 +617,12 @@ export default {
       GetVisitor: "result/GetVisitor",
       GetVisitorByRC: "result/GetVisitorByRC",
     }),
+    ...mapMutations({
+      setLastVisitor: "result/setLastVisitor",
+    }),
     load() {
       this.visitor = {};
+      this.setLastVisitor({});
       this.state = "loading-data";
       this.lastCode = this.code;
       this.GetVisitor({
@@ -621,6 +638,7 @@ export default {
     },
     loadByRC() {
       this.visitor = {};
+      this.setLastVisitor({});
       this.state = "loading-data";
       this.GetVisitorByRC({
         rc: this.code,
@@ -643,6 +661,7 @@ export default {
           this.action = "select";
           this.code = "";
           this.testingset = "";
+          this.setLastVisitor({});
         }
       });
     },
@@ -686,6 +705,11 @@ export default {
       this.action = "select";
       this.code = "";
       this.testingset = "";
+    },
+    newVisitor() {
+      this.visitor = {};
+      this.setLastVisitor({});
+      this.$router.push("/tester/unannouncedVisitor");
     },
     validateRCWithDate(day, month, year, rc, type) {
       // returns true if validation fails
