@@ -67,7 +67,7 @@
         <h1>{{ $t("selectPlaceTitle") }}</h1>
 
         <div v-if="showing === 'map'" v-html="$t('mapLegend')" />
-        
+
         <p v-if="showing === 'table'">
           {{ $t("selectPlaceHelpTable") }}
         </p>
@@ -224,7 +224,17 @@
               {{ row.item.lng | formatGps }}
             </template>
             <template #cell(queue)="row">
-              {{ row.item.queue | formatDateTime }}
+              <span
+                v-if="
+                  row.item.queue &&
+                  moment(row.item.queue, 'HH:mm:ss') ===
+                    moment('08:00:00', 'HH:mm:ss')
+                "
+                >Zatvorené</span
+              >
+              <span v-else>
+                {{ row.item.queue | formatDateTime }}
+              </span>
 
               <span v-if="!row.item.queue"> </span>
               <span
