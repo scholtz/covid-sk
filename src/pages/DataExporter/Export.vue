@@ -9,7 +9,7 @@
       <b-row>
         <b-col>
           <button @click="clickExport" class="btn btn-primary my-4">
-            Stiahnuť chorých
+            Stiahnuť testovaných
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -39,7 +39,7 @@
         </b-col>
         <b-col>
           <button @click="clickProofOfWorkExport" class="btn btn-primary my-4">
-            Export pre armádu
+            Export pre NCZI (Krajský úrad)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
