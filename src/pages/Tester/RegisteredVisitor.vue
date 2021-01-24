@@ -159,7 +159,7 @@
             Zrušiť
           </button>
           <h2>Overenie užívateľa</h2>
-          <table>
+          <table class="table">
             <tr>
               <td>Kod:</td>
               <td>
@@ -189,11 +189,20 @@
             <tr>
               <td>RČ:</td>
               <td>
-                {{ visitor.rc }} {{ visitor.passport }}
+                {{ visitor.rc }}
                 <b-badge variant="danger" v-if="validatePersonalNumber"
                   >Pozor, RČ vyzerá byť nesprávne</b-badge
                 >
 
+                <b-badge variant="danger" v-if="invalidID"
+                  >Pozor, doklad nie je vyplnený</b-badge
+                >
+              </td>
+            </tr>
+            <tr v-if="visitor.passport">
+              <td>Pas:</td>
+              <td>
+                {{ visitor.passport }}
                 <b-badge variant="danger" v-if="invalidID"
                   >Pozor, doklad nie je vyplnený</b-badge
                 >
@@ -272,30 +281,26 @@
                 <span
                   v-else-if="visitor.result === 'positive-certifiacte-sent'"
                 >
-                  <b-badge variant="danger">{{
-                    $t("resultsTestNotProcessed")
-                  }}</b-badge>
-                  <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+                  <b-badge variant="danger"
+                    ><span v-html="$t('resultsTestPositiveCertNotTaken')"
+                  /></b-badge>
                 </span>
                 <span v-else-if="visitor.result === 'positive'">
-                  <b-badge variant="danger">{{
-                    $t("resultsTestNotProcessed")
-                  }}</b-badge>
-                  <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+                  <b-badge variant="danger"
+                    ><span v-html="$t('resultsTestPositiveCertNotTaken')"
+                  /></b-badge>
                 </span>
                 <span v-else-if="visitor.result === 'negative'">
-                  <b-badge variant="info">{{
-                    $t("resultsTestNotProcessed")
-                  }}</b-badge>
-                  <span v-html="$t('resultsTestNegativeCertNotTaken')" />
+                  <b-badge variant="info"
+                    ><span v-html="$t('resultsTestNegativeCertNotTaken')"
+                  /></b-badge>
                 </span>
                 <span
                   v-else-if="visitor.result === 'negative-certiciate-taken'"
                 >
-                  <b-badge variant="info">{{
-                    $t("resultsTestNotProcessed")
-                  }}</b-badge>
-                  <span v-html="$t('resultsTestNegativeCertNotTaken')" />
+                  <b-badge variant="info"
+                    ><span v-html="$t('resultsTestNegativeCertNotTaken')"
+                  /></b-badge>
                 </span>
                 <span v-else>
                   <b-badge variant="info">Neznámy výsledok</b-badge>
