@@ -7,11 +7,7 @@
           href="./"
           class="m-0 p-0"
         >
-          <img
-            :src="$store.state.config.LOGO"
-            height="45px"
-            class="m-0 p-0"
-          />
+          <img :src="$store.state.config.LOGO" height="45px" class="m-0 p-0" />
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse" />
@@ -241,11 +237,13 @@ export default {
       return false;
     },
     isDataExporter() {
+      return false;
+      /*
       for (const index in this.$store.state.user.tokenData.Role) {
         if (this.$store.state.user.tokenData.Role[index] === "DataExporter")
           return true;
       }
-      return false;
+      return false;*/
     },
     logout() {
       this.setAuthJWT("");
