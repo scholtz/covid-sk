@@ -159,116 +159,214 @@
             Zrušiť
           </button>
           <h2>Overenie užívateľa</h2>
-          <div>
-            Kod: <span v-if="visitor.id">{{ visitor.id }}</span
-            ><span v-else class="badge badge-danger ml-5"
-              >Chybný kód registrácie</span
-            >
-          </div>
-          <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
-          <div>
-            Poisťovňa: {{ visitor.insurance }}
-            <span v-if="visitor.insurance === '24'">- Dôvera</span>
-            <span v-if="visitor.insurance === '25'">- VšZP</span>
-            <span v-if="visitor.insurance === '27'">- Union</span>
-            <span v-if="visitor.insurance === '98'">- EÚ poistenec</span>
-            <span v-if="visitor.insurance === '99'">- Cudzinec</span>
-          </div>
-          <div>
-            RČ: {{ visitor.rc }} {{ visitor.passport }}
-            <b-badge variant="danger" v-if="validatePersonalNumber"
-              >Pozor, RČ vyzerá byť nesprávne</b-badge
-            >
+          <table>
+            <tr>
+              <td>Kod:</td>
+              <td>
+                <span v-if="visitor.id">{{ visitor.id }}</span>
 
-            <b-badge variant="danger" v-if="invalidID"
-              >Pozor, doklad nie je vyplnený</b-badge
-            >
-          </div>
-          <div>
-            Adresa: {{ visitor.address }}
-            <b-badge variant="danger" v-if="!visitor.address"
-              >Pozor, adresa je nesprávne zadaná</b-badge
-            >
-          </div>
-          <div>Email: {{ visitor.email }}</div>
-          <div>Tel: {{ visitor.phone }}</div>
-          <div>
-            Dátum narodenia: {{ visitor.birthDayDay }}.{{
-              visitor.birthDayMonth
-            }}.{{ visitor.birthDayYear }}
+                <span v-else class="badge badge-danger ml-5"
+                  >Chybný kód registrácie</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Meno:</td>
+              <td>{{ visitor.firstName }} {{ visitor.lastName }}</td>
+            </tr>
+            <tr>
+              <td>Poisťovňa:</td>
+              <td>
+                {{ visitor.insurance }}
+                <span v-if="visitor.insurance === '24'">- Dôvera</span>
+                <span v-if="visitor.insurance === '25'">- VšZP</span>
+                <span v-if="visitor.insurance === '27'">- Union</span>
+                <span v-if="visitor.insurance === '98'">- EÚ poistenec</span>
+                <span v-if="visitor.insurance === '99'">- Cudzinec</span>
+              </td>
+            </tr>
 
-            <b-badge
-              variant="danger"
-              v-if="
-                !visitor.birthDayDay ||
-                !visitor.birthDayMonth ||
-                !visitor.birthDayYear
-              "
-              >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
-            ><b-badge
-              variant="danger"
-              v-if="
-                validateRCWithDate(
-                  visitor.birthDayDay,
-                  visitor.birthDayMonth,
-                  visitor.birthDayYear,
-                  visitor.rc,
-                  visitor.personType
-                )
-              "
-              >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
-            >
-          </div>
-          <button
-            @click="action = 'testSetCodeQR'"
-            class="btn btn-primary my-4 mr-4"
-            :disabled="invalidID"
-            v-if="visitor.id"
-          >
-            Osoba je overená, nascanovať QR kód
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg></button
-          ><button
-            @click="action = 'testSetCode'"
-            class="btn btn-primary my-4 mr-4 collapse"
-            v-if="visitor.id"
-          >
-            Osoba je overená, nascanovať čiarový kód
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
-          <button
-            @click="$router.push('/tester/unannouncedVisitor')"
-            class="btn btn-primary my-4"
-          >
-            Chybné údaje
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
+            <tr>
+              <td>RČ:</td>
+              <td>
+                {{ visitor.rc }} {{ visitor.passport }}
+                <b-badge variant="danger" v-if="validatePersonalNumber"
+                  >Pozor, RČ vyzerá byť nesprávne</b-badge
+                >
+
+                <b-badge variant="danger" v-if="invalidID"
+                  >Pozor, doklad nie je vyplnený</b-badge
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Adresa:</td>
+              <td>
+                {{ visitor.address }}
+                <b-badge variant="danger" v-if="!visitor.address"
+                  >Pozor, adresa je nesprávne zadaná</b-badge
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>{{ visitor.email }}</td>
+            </tr>
+            <tr>
+              <td>Tel:</td>
+              <td>{{ visitor.phone }}</td>
+            </tr>
+            <tr>
+              <td>Dátum narodenia:</td>
+              <td>
+                {{ visitor.birthDayDay }}.{{ visitor.birthDayMonth }}.{{
+                  visitor.birthDayYear
+                }}
+
+                <b-badge
+                  variant="danger"
+                  v-if="
+                    !visitor.birthDayDay ||
+                    !visitor.birthDayMonth ||
+                    !visitor.birthDayYear
+                  "
+                  >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
+                ><b-badge
+                  variant="danger"
+                  v-if="
+                    validateRCWithDate(
+                      visitor.birthDayDay,
+                      visitor.birthDayMonth,
+                      visitor.birthDayYear,
+                      visitor.rc,
+                      visitor.personType
+                    )
+                  "
+                  >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Stav:</td>
+              <td>
+                <span v-if="visitor.result === 'not-submitted'">
+                  {{ $t("resultsSendForm") }}
+                </span>
+
+                <span v-else-if="visitor.result === 'test-not-taken'">
+                  {{ $t("resultsTestNotTaken") }}
+                </span>
+                <span v-else-if="visitor.result === 'removed'">
+                  {{ $t("resultsTestRemoved") }}
+                </span>
+                <span v-else-if="visitor.result === 'test-to-be-repeated'">
+                  <b-badge variant="info">{{
+                    $t("resultsTestToRepeat")
+                  }}</b-badge>
+                </span>
+                <span v-else-if="visitor.result === 'test-not-processed'">
+                  <b-badge variant="info">{{
+                    $t("resultsTestNotProcessed")
+                  }}</b-badge>
+                </span>
+                <span
+                  v-else-if="visitor.result === 'positive-certifiacte-sent'"
+                >
+                  <b-badge variant="danger">{{
+                    $t("resultsTestNotProcessed")
+                  }}</b-badge>
+                  <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+                </span>
+                <span v-else-if="visitor.result === 'positive'">
+                  <b-badge variant="danger">{{
+                    $t("resultsTestNotProcessed")
+                  }}</b-badge>
+                  <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+                </span>
+                <span v-else-if="visitor.result === 'negative'">
+                  <b-badge variant="info">{{
+                    $t("resultsTestNotProcessed")
+                  }}</b-badge>
+                  <span v-html="$t('resultsTestNegativeCertNotTaken')" />
+                </span>
+                <span
+                  v-else-if="visitor.result === 'negative-certiciate-taken'"
+                >
+                  <b-badge variant="info">{{
+                    $t("resultsTestNotProcessed")
+                  }}</b-badge>
+                  <span v-html="$t('resultsTestNegativeCertNotTaken')" />
+                </span>
+                <span v-else>
+                  <b-badge variant="info">Neznámy výsledok</b-badge>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <button
+                  @click="action = 'testSetCodeQR'"
+                  class="btn btn-primary my-4 mr-4"
+                  :disabled="invalidID"
+                  v-if="visitor.id"
+                >
+                  Osoba je overená, nascanovať QR kód
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg></button
+                ><button
+                  @click="action = 'testSetCode'"
+                  class="btn btn-primary my-4 mr-4 collapse"
+                  v-if="visitor.id"
+                >
+                  Osoba je overená, nascanovať čiarový kód
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  @click="$router.push('/tester/unannouncedVisitor')"
+                  class="btn btn-primary my-4"
+                >
+                  Chybné údaje
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </table>
         </b-col>
       </b-row>
     </b-container>
