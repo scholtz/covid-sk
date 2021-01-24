@@ -179,6 +179,10 @@
             <b-badge variant="danger" v-if="validatePersonalNumber"
               >Pozor, RČ vyzerá byť nesprávne</b-badge
             >
+
+            <b-badge variant="danger" v-if="invalidID"
+              >Pozor, doklad nie je vyplnený</b-badge
+            >
           </div>
           <div>
             Adresa: {{ visitor.address }}
@@ -218,6 +222,7 @@
           <button
             @click="action = 'testSetCodeQR'"
             class="btn btn-primary my-4 mr-4"
+            :disabled="invalidID"
             v-if="visitor.id"
           >
             Osoba je overená, nascanovať QR kód
@@ -430,6 +435,15 @@ export default {
     };
   },
   computed: {
+    invalidID() {
+      if (this.visitor.personType === "foreign") {
+        if (!this.visitor.passport) return true;
+        return false;
+      } else {
+        if (!this.visitor.rc) return true;
+        return false;
+      }
+    },
     validatePersonalNumber() {
       try {
         const age = 0;
