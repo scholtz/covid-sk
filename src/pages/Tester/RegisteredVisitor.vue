@@ -179,6 +179,10 @@
             <b-badge variant="danger" v-if="validatePersonalNumber"
               >Pozor, RČ vyzerá byť nesprávne</b-badge
             >
+
+            <b-badge variant="danger" v-if="invalidID"
+              >Pozor, doklad nie je vyplnený</b-badge
+            >
           </div>
           <div>
             Adresa: {{ visitor.address }}
@@ -209,7 +213,7 @@
                   visitor.birthDayMonth,
                   visitor.birthDayYear,
                   visitor.rc,
-                  visitor.type
+                  visitor.personType
                 )
               "
               >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
@@ -218,6 +222,7 @@
           <button
             @click="action = 'testSetCodeQR'"
             class="btn btn-primary my-4 mr-4"
+            :disabled="invalidID"
             v-if="visitor.id"
           >
             Osoba je overená, nascanovať QR kód
@@ -430,6 +435,15 @@ export default {
     };
   },
   computed: {
+    invalidID() {
+      if (this.visitor.personType === "foreign") {
+        if (!this.visitor.passport) return true;
+        return false;
+      } else {
+        if (!this.visitor.rc) return true;
+        return false;
+      }
+    },
     validatePersonalNumber() {
       try {
         const age = 0;
@@ -488,6 +502,7 @@ export default {
       GetVisitorByRC: "result/GetVisitorByRC",
     }),
     load() {
+      this.visitor = {};
       this.state = "loading-data";
       this.lastCode = this.code;
       this.GetVisitor({
@@ -502,6 +517,7 @@ export default {
       });
     },
     loadByRC() {
+      this.visitor = {};
       this.state = "loading-data";
       this.GetVisitorByRC({
         rc: this.code,
@@ -572,6 +588,10 @@ export default {
       // returns true if validation fails
       console.log("day, month, year, rc, type", day, month, year, rc, type);
       if (!day || !month || !year) return true;
+      if (!type) {
+        if (!rc) type = "foreign";
+      }
+
       if (type === "foreign") return false;
       if (rc === undefined) return false; // this is not rc validation
       let x = rc;
