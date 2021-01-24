@@ -558,6 +558,16 @@ export default {
       return { lat: branch.lat, lng: branch.lng };
     },
     getIcon(place) {
+      const curTime = new Date();
+      if (curTime.getHours() >= 18 || curTime.getHours() < 8) {
+        if (place.hasReservationSystem) {
+          return "./images/icons/map_icon_orange.png";
+        } else if (place.externalReservationSystem) {
+          return "./images/icons/map_icon_gray_01.png";
+        } else {
+          return "./images/icons/map_icon_blue.png";
+        }
+      }
       if (place.hasReservationSystem) {
         if (!place.queue) {
           return "./images/icons/map_icon_orange.png";
