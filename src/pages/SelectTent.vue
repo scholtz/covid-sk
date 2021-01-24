@@ -65,65 +65,9 @@
         </b-form-select>
         -->
         <h1>{{ $t("selectPlaceTitle") }}</h1>
-        <p v-if="showing === 'map'">
-          Legenda: rezervácia s 
-          <a href="#"><img
-            src="../../public/images/logos/Rychlejsie_sk_logo.png"
-            height="35px"
-            alt="orange"
-          /></a> priamo na tomto webe:
-          <img
-            src="../../public/images/icons/map_icon_orange.png"
-            height="25px"
-            alt="orange"
-          /> | 
-          Iný rezervačný systém (s max. dobou čakania v min.):
-          <img
-            src="../../public/images/icons/map_icon_gray_01.png"
-            height="25px"
-            alt="gray"
-          /> | 
-          Bez rezervácie (s max. dobou čakania v min.):
-          <img
-            src="../../public/images/icons/map_icon_blue.png"
-            height="25px"
-            alt="red"
-          />.<br/>
-          
-          <b>Význam ikoniek</b>: 
-          zatvorené miesto s rezerváciou:
-          <img
-            src="../../public/images/icons/map_icon_gray_01.png"
-            height="25px"
-            alt="red"
-          />, 
-          zatvorené miesto bez rezervácie:
-          <img
-            src="../../public/images/icons/map_icon_blue.png"
-            height="25px"
-            alt="red"
-          />, 
 
-          čakanie do 5 min:
-          <img
-            src="../../public/images/icons/map_icon_gray_max_5min.png"
-            height="25px"
-            alt="red"
-          />, 
-          čakanie 5-30 min:
-          <img
-            src="../../public/images/icons/map_icon_gray_max_30min.png"
-            height="25px"
-            alt="red"
-          />, 
-          čakanie nad 30 min:
-          <img
-            src="../../public/images/icons/map_icon_gray_over_30min.png"
-            height="25px"
-            alt="red"
-          />.
-          {{ $t("selectPlaceHelpMap") }} 
-        </p>
+        <div v-if="showing === 'map'" v-html="$t('mapLegend')" />
+        
         <p v-if="showing === 'table'">
           {{ $t("selectPlaceHelpTable") }}
         </p>
