@@ -213,7 +213,7 @@
                   visitor.birthDayMonth,
                   visitor.birthDayYear,
                   visitor.rc,
-                  visitor.type
+                  visitor.personType
                 )
               "
               >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
@@ -586,6 +586,10 @@ export default {
       // returns true if validation fails
       console.log("day, month, year, rc, type", day, month, year, rc, type);
       if (!day || !month || !year) return true;
+      if (!type) {
+        if (!rc) type = "foreign";
+      }
+
       if (type === "foreign") return false;
       if (rc === undefined) return false; // this is not rc validation
       let x = rc;
