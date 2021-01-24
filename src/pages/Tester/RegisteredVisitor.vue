@@ -502,6 +502,7 @@ export default {
       GetVisitorByRC: "result/GetVisitorByRC",
     }),
     load() {
+      this.visitor = {};
       this.state = "loading-data";
       this.lastCode = this.code;
       this.GetVisitor({
@@ -516,6 +517,7 @@ export default {
       });
     },
     loadByRC() {
+      this.visitor = {};
       this.state = "loading-data";
       this.GetVisitorByRC({
         rc: this.code,
