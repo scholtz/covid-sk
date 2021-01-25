@@ -111,7 +111,16 @@
               </b-col>
             </b-row>
             <b-row class="py-2">
-              <b-col cols="12" md="4">
+              <b-col cols="12" md="3">
+                <b-form-checkbox
+                  id="isVisible"
+                  v-model="place.isVisible"
+                  name="isVisible"
+                >
+                  Zobrazuje sa
+                </b-form-checkbox>
+              </b-col>
+              <b-col cols="12" md="3">
                 <b-form-checkbox
                   id="isDriveIn"
                   v-model="place.isDriveIn"
@@ -120,7 +129,7 @@
                   Možnosť prísť autom (Drive In)
                 </b-form-checkbox>
               </b-col>
-              <b-col cols="12" md="4">
+              <b-col cols="12" md="3">
                 <b-form-checkbox
                   id="isWalkIn"
                   v-model="place.isWalkIn"
@@ -129,7 +138,7 @@
                   Možnosť prísť pešo (Walk in)
                 </b-form-checkbox>
               </b-col>
-              <b-col cols="12" md="4">
+              <b-col cols="12" md="3">
                 <b-form-checkbox
                   id="hasReservationSystem"
                   v-model="place.hasReservationSystem"
