@@ -227,16 +227,32 @@
               <span
                 v-if="
                   row.item.queue &&
-                  moment(row.item.queue, 'HH:mm:ss') ===
+                  moment(row.item.queue, 'HH:mm:ss') >
                     moment('08:00:00', 'HH:mm:ss')
                 "
                 >Zatvorené</span
               >
+              <span
+                v-else-if="
+                  !row.item.queue ||
+                  (row.item.queue &&
+                    moment(row.item.queue, 'HH:mm:ss') ===
+                      moment('00:00:00', 'HH:mm:ss'))
+                "
+              ></span>
               <span v-else>
                 {{ row.item.queue | formatDateTime }}
               </span>
 
-              <span v-if="!row.item.queue"> </span>
+              <span
+                v-if="
+                  !row.item.queue ||
+                  (row.item.queue &&
+                    moment(row.item.queue, 'HH:mm:ss') ===
+                      moment('00:00:00', 'HH:mm:ss'))
+                "
+              >
+              </span>
               <span
                 v-else-if="
                   moment(row.item.queue, 'HH:mm:ss') <=
