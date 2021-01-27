@@ -1,4 +1,4 @@
-name: Create docker image - nginx
+name: Create docker image from gh pages - nginx
 
 on:
   push:
