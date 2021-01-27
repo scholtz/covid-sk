@@ -1,0 +1,421 @@
+<template>
+  <div>
+    <div class="app-pane-lgray py-2">
+      <b-container fluid>
+        <h1>
+          {{ $t("navBarAdminManagePlace") }}:
+          <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
+        </h1>
+      </b-container>
+    </div>
+    <b-container fluid v-if="loading">
+      <b-row>
+        <b-col>
+          <b-spinner label="Loading..." />
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container fluid v-if="!loading">
+      <b-card no-body>
+        <b-tabs card v-model="tabIndex">
+          <b-tab title="Prehľad pracovísk">
+            <div v-if="$store.state.place.places">
+              <b-table
+                :items="Object.values($store.state.place.places)"
+                :fields="fields"
+              >
+                <template #cell(id)="row">
+                  <b-button
+                    variant="light"
+                    @click="editPlaceClick(row)"
+                    class="mr-1"
+                    title="Upraviť"
+                    size="sm"
+                  >
+                    <font-awesome-icon class="m-1" icon="edit" />
+                  </b-button>
+                  <b-button
+                    variant="light"
+                    @click="deletePlaceClick(row)"
+                    class="mr-1"
+                    title="Zrušiť"
+                    size="sm"
+                  >
+                    <font-awesome-icon class="m-1" icon="trash" />
+                  </b-button>
+                </template>
+              </b-table>
+            </div>
+          </b-tab>
+          <b-tab title="Formulár pre správu miesta" active>
+            <h2 v-if="place.id">Úprava pracoviska</h2>
+            <h2 v-else>Nové miesto</h2>
+            <b-row>
+              <b-col cols="12" md="6">
+                <label for="name">Názov pracoviska</label>
+                <b-input v-model="place.name" ref="name" id="name" />
+              </b-col>
+              <b-col cols="12" md="6">
+                <label for="address">Adresa</label>
+                <b-input v-model="place.address" ref="address" id="address" />
+              </b-col>
+              <b-col cols="12" md="12">
+                <label for="description">Popis</label>
+                <b-input
+                  v-model="place.description"
+                  ref="description"
+                  id="description"
+                />
+              </b-col>
+              <b-col cols="12" md="3">
+                <label for="lat">GPS Lat</label>
+                <b-input v-model="place.lat" ref="lat" id="lat" />
+              </b-col>
+              <b-col cols="12" md="3">
+                <label for="lng">GPS Lng</label>
+                <b-input v-model="place.lng" ref="lng" id="lng" />
+              </b-col>
+              <b-col cols="12" md="3">
+                <label for="limitPer5MinSlot">Limit úkonov za 5min</label>
+                <b-input
+                  v-model="place.limitPer5MinSlot"
+                  ref="limitPer5MinSlot"
+                  id="limitPer5MinSlot"
+                />
+              </b-col>
+              <b-col cols="12" md="3">
+                <label for="limitPer1HourSlot">Limit úkonov za hodinu</label>
+                <b-input
+                  v-model="place.limitPer1HourSlot"
+                  ref="limitPer1HourSlot"
+                  id="limitPer1HourSlot"
+                />
+              </b-col>
+            </b-row>
+            <b-row class="py-2">
+              <b-col cols="12" md="4">
+                <b-form-checkbox
+                  id="isDriveIn"
+                  v-model="place.isDriveIn"
+                  name="isDriveIn"
+                >
+                  Možnosť prísť autom (Drive Through)
+                </b-form-checkbox>
+              </b-col>
+              <b-col cols="12" md="4">
+                <b-form-checkbox
+                  id="isWalkIn"
+                  v-model="place.isWalkIn"
+                  name="isWalkIn"
+                >
+                  Možnosť prísť pešo (Walk in)
+                </b-form-checkbox>
+              </b-col>
+              <b-col cols="12" md="4">
+                <b-form-checkbox
+                  id="hasReservationSystem"
+                  v-model="place.hasReservationSystem"
+                  name="hasReservationSystem"
+                >
+                  Povoliť rezervácie systémom rýchlejšie.sk
+                </b-form-checkbox>
+              </b-col>
+            </b-row>
+            <b-row class="py-2" v-if="!place.hasReservationSystem">
+              <b-col>
+                <label for="externalReservationSystem"
+                  >Druhý rezervačný systém</label
+                >
+                <b-input
+                  v-model="place.externalReservationSystem"
+                  ref="externalReservationSystem"
+                  id="externalReservationSystem"
+                />
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col class="py-2">
+                <h4>
+                  Otváracie hodiny vo formáte
+                  05:55-11:35,11:45-18:00,18:05-20:00
+                </h4>
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <label for="openingHoursWorkDay"
+                  >Šablóna otváracích hodín 1 (štandardné)</label
+                >
+                <b-input
+                  v-model="place.openingHoursWorkDay"
+                  ref="openingHoursWorkDay"
+                  id="openingHoursWorkDay"
+                  placeholder="08:00-16:00"
+                />
+              </b-col>
+              <b-col>
+                <label for="openingHoursOther1"
+                  >Šablóna otváracích hodín 2 (víkendy)</label
+                >
+                <b-input
+                  v-model="place.openingHoursOther1"
+                  ref="openingHoursOther1"
+                  id="openingHoursOther1"
+                />
+              </b-col>
+              <b-col>
+                <label for="openingHoursOther2"
+                  >Šablóna otváracích hodín 3 (sviatky)</label
+                >
+                <b-input
+                  v-model="place.openingHoursOther2"
+                  ref="openingHoursOther2"
+                  id="openingHoursOther2"
+                />
+              </b-col> </b-row
+            ><b-row>
+              <b-col>
+                Poznámka: Detailné nastavenie prevádzkových hodín sa robí na
+                samostatnej stránke.
+              </b-col>
+            </b-row>
+
+            <b-row>
+              <b-col>
+                <label for="picture1">Foto 1 - URL</label>
+                <b-input
+                  v-model="place.picture1"
+                  ref="picture1"
+                  id="picture1"
+                />
+              </b-col>
+              <b-col>
+                <label for="picture2">Foto 2 - URL</label>
+                <b-input
+                  v-model="place.picture2"
+                  ref="picture2"
+                  id="picture2"
+                />
+              </b-col>
+              <b-col>
+                <label for="picture3">Foto 3 - URL</label>
+                <b-input
+                  v-model="place.picture3"
+                  ref="picture3"
+                  id="picture3"
+                />
+              </b-col>
+            </b-row>
+            <b-row
+              ><button
+                v-if="place.id"
+                @click="clickCreate"
+                class="btn btn-primary my-4"
+              >
+                Upraviť
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </button>
+              <b-button
+                v-if="place.id"
+                @click="clickCancel"
+                class="btn btn-light p-2 m-4"
+              >
+                Zrušiť úpravu
+              </b-button>
+              <button v-else @click="clickCreate" class="btn btn-primary my-4">
+                Vytvoriť
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </button>
+            </b-row>
+          </b-tab>
+        </b-tabs>
+      </b-card>
+    </b-container>
+  </div>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      loading: true,
+      place: {
+        id: "",
+        name: "",
+        description: "",
+        address: "",
+        lat: 48.289218275462225,
+        lng: 17.272996902465824,
+        isDriveIn: false,
+        isWalkIn: false,
+        limitPer5MinSlot: 5,
+        limitPer1HourSlot: 40,
+        openingHoursWorkDay: "08:00-12:00, 13:00-18:00",
+        openingHoursOther1: "",
+        openingHoursOther2: "",
+        hasPCRTestFree: false,
+        hasPCRTestSelf: false,
+        hasPCRTestSelfPrice: 50,
+        hasPCRTestSelfPriceCurrency: "EUR",
+        hasAntTestFree: true,
+        hasAntTestSelf: false,
+        hasAntTestSelfPrice: 5,
+        hasAntTestSelfPriceCurrency: "EUR",
+        hasVaccineFree: false,
+        picture1: "",
+        picture2: "",
+        picture3: "",
+        hasReservationSystem: true,
+      },
+      currencies: ["EUR", "CZK", "USD"],
+      tabIndex: 0,
+      fields: [
+        {
+          label: this.$t("selectPlaceAction"),
+          key: "id",
+        },
+        {
+          label: this.$t("selectPlacePlaceName"),
+          key: "name",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceRegistrations"),
+          key: "registrations",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceStatsHealthy"),
+          key: "healthy",
+          sortable: true,
+        },
+        {
+          label: this.$t("selectPlaceStatsSick"),
+          key: "sick",
+          sortable: true,
+        },
+      ],
+    };
+  },
+  computed: {
+    placePrivider() {
+      if (!this.$store.state.placeProvider.places) return {};
+      return this.$store.state.placeProvider.places.find(
+        p => p.placeProviderId === this.pp
+      );
+    },
+    pp() {
+      if (!this.$store.state) return "";
+      return this.$store.state.user.tokenData.pp;
+    },
+    places() {
+      return this.$store.state.place.places;
+    },
+  },
+  watch: {
+    places() {
+      console.log(
+        "places",
+        this.$store.state.place.places,
+        Object.values(this.$store.state.place.places).length,
+        this.$store.state.place.places &&
+          Object.values(this.$store.state.place.places).length > 0
+      );
+      if (
+        this.$store.state.place.places &&
+        Object.values(this.$store.state.place.places).length > 0
+      ) {
+        this.tabIndex = 0;
+      } else {
+        this.tabIndex = 1;
+      }
+      this.loading = false;
+    },
+  },
+  mounted() {
+    this.ListPrivate();
+    this.ReloadPlaces().then(r => {
+      if (
+        r &&
+        this.$store.state.place.places &&
+        Object.values(this.$store.state.place.places).length > 0
+      ) {
+        this.tabIndex = 0;
+      } else {
+        this.tabIndex = 1;
+      }
+      this.loading = false;
+    });
+  },
+  methods: {
+    ...mapActions({
+      ReloadPlaces: "place/ReloadPrivatePlaces",
+      InsertOrUpdate: "place/InsertOrUpdate",
+      Delete: "place/Delete",
+      ListPrivate: "placeProvider/ListPrivate",
+    }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
+    deletePlaceClick(row) {
+      if (confirm("Naozaj chcete vymazať miesto?")) {
+        if (row.item?.id) {
+          // eslint-disable-next-line
+          this.Delete({ id: row.item?.id }).then(r => {
+            this.ReloadPlaces().then(r2 => {
+              console.log("r", r, r2);
+              this.tabIndex = 0;
+            });
+          });
+        }
+      }
+    },
+    clickCreate() {
+      console.log("this.place", this.place);
+      this.InsertOrUpdate({
+        place: this.place,
+      }).then(r => {
+        if (r) {
+          this.openSuccess("Uložené");
+          this.tabIndex = 0;
+        }
+
+        this.ReloadPlaces().then(r => {
+          console.log("r", r);
+        });
+      });
+    },
+    editPlaceClick(row) {
+      this.place = JSON.parse(JSON.stringify(row.item));
+      console.log("place", this.place);
+      this.tabIndex = 1;
+    },
+    clickCancel() {
+      this.place.id = "";
+      this.tabIndex = 0;
+    },
+  },
+};
+</script>
+<style lang="scss">
+</style>

@@ -1,0 +1,17 @@
+{
+  "PROD":"www.rychlejsie.sk",
+  "ALLOWED_HOSTS":["localhost","www.rychlejsie.sk","covid.pezinok.sk"],
+  "VUE_CONFIG_APP_API": "https://data.rychlejsie.sk/",
+  "APPLICATIONS":[
+    {"Name":"Pezinok","LAU2":"SK0107508179","FE":"https://covid.pezinok.sk/", "BE":"https://covid.pezinok.sk/api/"},
+    {"Name":"Skalica","LAU2":"SK0216504815","FE":"https://skalica.rychlejsie.sk/", "BE":"https://skalica.rychlejsie.sk/api/"},
+    {"Name":"Bratislava","LAU2":"SK0101528595","FE":"https://covid.bratislava.sk/", "BE":"https://covid.bratislava.sk/api/"}
+  ],
+  "DEDICATED_PLACE":false,
+  "MAP_LAT":48.5,
+  "MAP_LNG":19.5,
+  "MAP_ZOOM":8,
+  "CSS":"",
+  "SHOW_DANGER":"Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a MIEST a OBCÍ pre použitie systému rýchlejšie.sk",
+  "LOGO":"./images/logos/Rychlejsie_sk_logo_biele.png"
+}

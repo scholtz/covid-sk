@@ -1,0 +1,3 @@
+This application is property of Scholtz & Copmany, j.s.a. with company id 51 882 272 registered in Slovakia. Contact: ludovit _at_ scholtz.sk
+
+It is forbiddent to commercially use, used by government, distribute or derive work from this source code without prior permission by the owner of the source code. Penalty of 1 000 000 EUR is applicable for distributor as well as government or commercial subject who uses the derived work.
