@@ -18,7 +18,7 @@
         </b-row>
         <b-row>
           <b-col sm="3">
-            <vue-qrcode :value="barcodeValue" />
+            <vue-qrcode :value="barcodeValue" errorCorrectionLevel="H" />
           </b-col>
           <b-col sm="9">
             <barcode
