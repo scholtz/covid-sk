@@ -95,9 +95,9 @@
               $t("navBarPublicRegister")
             }}</b-nav-item>
             <b-nav-item to="/enqueued">Som v rade</b-nav-item>
-            <b-nav-item to="/results"><b>{{
-              $t("navBarPublicResults")
-            }}</b></b-nav-item>
+            <b-nav-item to="/results"
+              ><b>{{ $t("navBarPublicResults") }}</b></b-nav-item
+            >
             <b-nav-item to="/help">{{ $t("navBarPublicHelp") }}</b-nav-item>
           </b-navbar-nav>
 
@@ -237,13 +237,11 @@ export default {
       return false;
     },
     isDataExporter() {
-      return false;
-      /*
       for (const index in this.$store.state.user.tokenData.Role) {
         if (this.$store.state.user.tokenData.Role[index] === "DataExporter")
           return true;
       }
-      return false;*/
+      return false;
     },
     logout() {
       this.setAuthJWT("");
