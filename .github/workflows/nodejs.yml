@@ -59,6 +59,8 @@ jobs:
     -
       name: Checkout
       uses: actions/checkout@v2
+      with:
+        ref: dist
     -
       name: Set up QEMU
       uses: docker/setup-qemu-action@v1
@@ -81,11 +83,3 @@ jobs:
         push: true
         tags: |
           scholtz2/mass-covid-testing-fe-test:latest
-
-
-
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v1
-      with:
-        name: dist
-        path: dist
