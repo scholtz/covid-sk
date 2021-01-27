@@ -78,7 +78,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./public/docker/DockerfileGP
+        file: ./docker/DockerfileGP
         platforms: linux/amd64
         push: true
         tags: |
