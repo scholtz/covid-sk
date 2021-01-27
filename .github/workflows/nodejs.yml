@@ -78,7 +78,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: https://raw.githubusercontent.com/scholtz/covid-sk/master/docker/DockerfileGP
+        file: ./public/docker/DockerfileGP
         platforms: linux/amd64
         push: true
         tags: |
