@@ -53,9 +53,6 @@ jobs:
         SSH: true
         BRANCH: dist
         FOLDER: dist
-
-
-    
     -
       name: Checkout
       uses: actions/checkout@v2
@@ -82,4 +79,4 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          scholtz2/mass-covid-testing-fe-test:latest
+          scholtz2/mass-covid-testing-fe:latest
