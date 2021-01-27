@@ -2,7 +2,7 @@ name: Create docker image from gh pages - nginx
 
 on:
   push:
-    branches: [ gh-pages ]
+    branches: [ dist ]
 
 jobs:
   multi:

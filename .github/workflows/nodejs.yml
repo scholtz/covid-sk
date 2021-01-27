@@ -46,7 +46,14 @@ jobs:
         BRANCH: gh-pages
         FOLDER: dist
 #        TARGET_FOLDER: docs
-  
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        SSH: true
+        BRANCH: dist
+        FOLDER: dist
+
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
