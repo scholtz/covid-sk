@@ -690,6 +690,12 @@ export default {
       load(this.$store.state.config.SITE_KEY).then(recaptcha => {
         recaptcha.execute("submit").then(token => {
           if (token) {
+            if (this.personType == "foreign") {
+              this.rc = "";
+            } else {
+              this.passport = "";
+            }
+
             this.Register({
               personType: this.personType,
               passport: this.passport,
