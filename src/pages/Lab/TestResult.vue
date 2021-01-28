@@ -3,9 +3,11 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>Oznámenie výsledku testu</h1>
+        <!--
         <b-form-checkbox v-model="useQR" name="useQR" switch>
           Používať QR kódy pre testovacie sady
         </b-form-checkbox>
+        -->
       </b-container>
     </div>
     <b-container v-if="action === 'select'">
@@ -162,6 +164,17 @@ export default {
     },
     send() {
       let result = "error";
+      if (this.next) {
+        let found = false;
+        for (let index in this.data) {
+          if (this.data[index].code == this.next) found = true;
+        }
+        if (!found) {
+          this.data.push({ code: this.next, state: "Na odoslanie" });
+          this.next = "";
+        }
+      }
+
       if (this.action === "sick") result = "positive";
       if (this.action === "healthy") result = "negative";
       if (this.action === "repeat") result = "test-to-be-repeated";

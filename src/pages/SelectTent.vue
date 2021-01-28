@@ -144,19 +144,10 @@
 
                         <a
                           class="btn btn-light m-2"
-                          v-if="
-                            $store.state.place.currentPlace
-                              .externalReservationSystem
-                          "
-                          :href="
-                            $store.state.place.currentPlace
-                              .externalReservationSystem
-                          "
+                          v-if="place.externalReservationSystem"
+                          :href="place.externalReservationSystem"
                         >
-                          {{
-                            $store.state.place.currentPlace
-                              .externalReservationSystem
-                          }}
+                          {{ trimLink(place.externalReservationSystem) }}
                         </a>
                       </p>
 
@@ -636,6 +627,15 @@ export default {
         return "./images/icons/map_icon_blue_max_30min.png";
       } else {
         return "./images/icons/map_icon_blue_over_30min.png";
+      }
+    },
+    trimLink(place) {
+      if (!place) return place;
+      console.log(place);
+      if (place.length <= 35) {
+        return place;
+      } else {
+        return place.substring(0, 35) + "..";
       }
     },
     moment(time, format) {
