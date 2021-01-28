@@ -3,9 +3,11 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>Oznámenie výsledku testu</h1>
+        <!--
         <b-form-checkbox v-model="useQR" name="useQR" switch>
           Používať QR kódy pre testovacie sady
         </b-form-checkbox>
+        -->
       </b-container>
     </div>
     <b-container v-if="action === 'select'">
