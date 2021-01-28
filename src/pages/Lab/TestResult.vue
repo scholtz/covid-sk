@@ -18,7 +18,7 @@
             class="my-2 btn btn-primary bg-danger"
             @click="action = 'sick'"
           >
-            Idem nascanovať pozitívne výsledky testov - Chorí na Covid-19
+            Pozitívne výsledky - Chorí na Covid-19
           </button>
         </b-col>
       </b-row>
@@ -28,7 +28,7 @@
             class="my-2 btn btn-primary bg-warning text-dark"
             @click="action = 'repeat'"
           >
-            Idem nascanovať chybné výsledky testov - Na pretestovanie
+            Chybné výsledky - Na pretestovanie
           </button>
         </b-col>
       </b-row>
@@ -38,21 +38,27 @@
             class="my-2 btn btn-primary bg-success"
             @click="action = 'healthy'"
           >
-            Idem nascanovať negatívne výsledky testov - Zdraví
+            Negatívne výsledky - Zdraví
           </button>
         </b-col>
       </b-row>
     </b-container>
     <b-container v-if="action === 'sick'">
-      <button class="float-right bg-light my-2" @click="reset">Zrušiť</button>
+      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
+        Späť na výber akcie
+      </button>
       <h2>Vyberáte pozitívne nálezy - Chorí</h2>
     </b-container>
     <b-container v-if="action === 'repeat'">
-      <button class="float-right bg-light my-2" @click="reset">Zrušiť</button>
+      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
+        Späť na výber akcie
+      </button>
       <h2>Vyberáte chybné nálezy - Zopakovať test</h2>
     </b-container>
     <b-container v-if="action === 'healthy'">
-      <button class="float-right bg-light my-2" @click="reset">Zrušiť</button>
+      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
+        Späť na výber akcie
+      </button>
       <h2>Vyberáte negatívne nálezy - Zdraví</h2>
     </b-container>
     <b-container v-if="action !== 'select'">
@@ -67,7 +73,7 @@
               data.push({
                 code: next,
                 state: 'Na odoslanie',
-                variant: 'alert-info',
+                variant: 'alert alert-info',
               })
             "
           >
@@ -86,7 +92,9 @@
           </button>
         </template>
         <template #cell(state)="row">
-          <div class="alert" :class="variant">{{ row.item.state }}</div>
+          <div :class="row.item.variant">
+            {{ row.item.state }}
+          </div>
         </template>
       </b-table>
 
@@ -183,7 +191,7 @@ export default {
           this.data.push({
             code: this.next,
             state: "Na odoslanie",
-            variant: "alert-info",
+            variant: "alert alert-info",
           });
           this.next = "";
         }
@@ -192,10 +200,11 @@ export default {
       if (this.action === "sick") result = "positive";
       if (this.action === "healthy") result = "negative";
       if (this.action === "repeat") result = "test-to-be-repeated";
-      console.log("result", result);
+      console.log("result", result, this.data);
       this.processing = true;
       this.processingCount = this.data.length;
       let processed = 0;
+
       for (let index in this.data) {
         const code = this.data[index].code;
         console.log("result", result, code);
@@ -204,15 +213,15 @@ export default {
           if (r) {
             console.log("sent", r);
             this.data[index].state = "Odoslané";
-            this.data[index].variant = "alert-success";
+            this.data[index].variant = "alert alert-success";
             if (!r.timeIsValid) {
-              this.data[index].variant = "alert-danger";
+              this.data[index].variant = "alert alert-danger";
               this.data[index].state =
                 "Príliš skoro - Test musí mať prestávku 15 minút";
             }
             if (!r.matched) {
               this.data[index].state = "Nespárovaný klient";
-              this.data[index].variant = "alert-danger";
+              this.data[index].variant = "alert alert-danger";
             }
           }
           if (processed == this.processingCount) {

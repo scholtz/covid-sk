@@ -3,7 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container fluid>
         <h1>
-          {{ $t("workingTimeScheduleTitle") }}: 
+          {{ $t("workingTimeScheduleTitle") }}:
           <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
         </h1>
       </b-container>
@@ -65,11 +65,11 @@
         </b-row>
       </b-container>
     </div>
-    <div class="py-3" v-if="!revision" style="margin-bottom:10px;">
+    <div class="py-3" v-if="!revision" style="margin-bottom: 10px">
       <b-container fluid>
         <b-row>
           <b-col md="3">
-            <p> </p>
+            <p></p>
           </b-col>
           <b-col md="2">
             <b>Nastavujete čas pre:</b>
@@ -78,7 +78,7 @@
               v-model="allPlaces"
               name="allPlaces"
               class="text-right"
-            > 
+            >
               Všetky miesta
             </b-form-checkbox>
           </b-col>
@@ -86,7 +86,7 @@
             <b-form-select
               :disabled="allPlaces"
               v-model="place"
-              :options="Object.values($store.state.place.places)"
+              :options="places"
               text-field="name"
               value-field="id"
             >
@@ -253,6 +253,14 @@ export default {
     pp() {
       if (!this.$store.state) return "";
       return this.$store.state.user.tokenData.pp;
+    },
+    places() {
+      function compare(a, b) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      }
+      return Object.values(this.$store.state.place.places).sort(compare);
     },
   },
   watch: {

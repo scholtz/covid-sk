@@ -5,14 +5,14 @@
         <b-row>
           <b-col md="7">
             <h1>
-              {{ $t("formAdminHRTitle") }}: 
+              {{ $t("formAdminHRTitle") }}:
               <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
             </h1>
           </b-col>
           <b-col md="5" v-if="tabIndex === 0">
             <b-form-select
               v-model="place"
-              :options="Object.values($store.state.place.places)"
+              :options="places"
               text-field="name"
               value-field="id"
               class="mt-2"
@@ -33,7 +33,7 @@
         <b-tab title="Správa užívateľov na odberných miestach">
           <b-row>
             <b-col md="2">
-              <h2>{{ $t("TimeAndPeopleSectionRights") }}: </h2>
+              <h2>{{ $t("TimeAndPeopleSectionRights") }}:</h2>
               <div :style="roleStyle('MedicTester')">
                 <b-form-checkbox v-model="roles.MedicTester" id="MedicTester">
                   {{ role2Text("MedicTester") }}
@@ -447,6 +447,14 @@ export default {
     untilDateMinusOneDay() {
       const day = new Date(this.untilDate);
       return day.setDate(day.getDate() - 1);
+    },
+    places() {
+      function compare(a, b) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      }
+      return Object.values(this.$store.state.place.places).sort(compare);
     },
   },
 

@@ -280,7 +280,7 @@
                     <b-form-select
                       id="place"
                       name="place"
-                      :options="Object.values($store.state.place.places)"
+                      :options="places"
                       value-field="id"
                       text-field="name"
                       v-model="ppr.placeId"
@@ -706,6 +706,14 @@ export default {
     },
     formPPROk() {
       return this.ppr.placeId && this.ppr.productId;
+    },
+    places() {
+      function compare(a, b) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      }
+      return Object.values(this.$store.state.place.places).sort(compare);
     },
   },
   watch: {
