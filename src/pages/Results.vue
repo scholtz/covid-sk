@@ -12,12 +12,10 @@
           <b-col cols="12" md="6">
             <b-input v-model="code" ref="code" />
             <label for="code">{{ $t("resultsCode") }}</label>
-            
           </b-col>
           <b-col cols="12" md="6">
             <b-input v-model="pass" ref="pass" id="pass" />
             <label for="pass">{{ $t("resultsPass") }}</label>
-            
           </b-col>
         </b-row>
         <b-row>
@@ -50,9 +48,13 @@
               >
                 <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
               </svg>
-              <b-spinner small v-if="processingDownload" class="ml-1" />
-            </b-button><br/>
-            {{ $t("resultsPdfNote") }} 
+              <b-spinner
+                small
+                v-if="processingDownload"
+                class="ml-1"
+              /> </b-button
+            ><br />
+            {{ $t("resultsPdfNote") }}
           </b-col>
         </b-row>
         <b-row>
@@ -88,6 +90,24 @@
             </p>
             <p v-if="results.state === 'negative'">
               <span v-html="$t('resultsTestNegativeCertNotTaken')" />
+              <br />
+              <b-button
+                class="my-3"
+                @click="removePersonalData"
+                variant="primary"
+              >
+                {{ $t("resultsRemovePersonalData") }}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </b-button>
             </p>
             <p v-if="results.state === 'negative-certifiacte-sent'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
