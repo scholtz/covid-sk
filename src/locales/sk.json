@@ -153,19 +153,19 @@
   "selectDayTitle":"Vyberte si službu a deň",
   "selectDayYourSelection":"Vybrali ste si: {place}",
   "selectDayQuestion":"V ktorý deň Vám návšteva odberového miesta vyhovuje viac?",
-  "selectDayHelp":"Ak môžete prísť v oba termíny, uprednostnite prosím prvý termín",
+  "selectDayHelp":"Kliknutím vyberte deň:",
   "selectDayButtonText":"Dňa {description} je aktuálne registrovaných {registrations} osôb",
   
   "selectHourTitle":"Vyberte si hodinu testovania",
   "selectHourYourSelection":"Vybrali ste si: {place}, dňa {day}",
   "selectHourQuestion":"V ktorú hodinu Vám to vyhovuje viac?",
-  "selectHourHelp":"Ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším počtom registrácií",
+  "selectHourHelp":"Podržaním kurzoru nad tlačidlom sa zobrazí počet registrovaných záujemcov. Kliknutím zvolíte čas vášho testu:",
   "selectHourButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "selectMinuteTitle":"Vyberte si čas testovania",
   "selectMinuteYourSelection":"Vybrali ste si: {place}, dňa {day} medzi {hour}",
   "selectMinuteQuestion":"Vyberte si ideálny čas odberu",
-  "selectMinuteHelp":"Ak môžete prísť v ľubovoľný čas, uprednostnite termín s nižším počtom registrácií",
+  "selectMinuteHelp":"Podržaním kurzoru nad tlačidlom sa zobrazí počet registrovaných záujemcov. Kliknutím zvolíte čas vášho testu:",
   "selectMinuteButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "registrationTitle":"Posledný krok registrácie - Osobné údaje",
