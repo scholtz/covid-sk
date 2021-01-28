@@ -150,7 +150,9 @@
                           {{ trimLink(place.externalReservationSystem) }}
                         </a>
                       </p>
-
+                      <p v-if="place.description">
+                        {{ place.description }}
+                      </p>
                       <b-link
                         :to="`/place/${place.id}`"
                         class="btn btn-primary"
