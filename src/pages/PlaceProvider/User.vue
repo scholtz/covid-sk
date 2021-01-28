@@ -12,7 +12,7 @@
           <b-col md="5" v-if="tabIndex === 0">
             <b-form-select
               v-model="place"
-              :options="Object.values($store.state.place.places)"
+              :options="places"
               text-field="name"
               value-field="id"
               class="mt-2"
@@ -424,6 +424,15 @@ export default {
     untilDateMinusOneDay() {
       const day = new Date(this.untilDate);
       return day.setDate(day.getDate() - 1);
+    },
+
+    places() {
+      function compare(a, b) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      }
+      return Object.values(this.$store.state.place.places).sort(compare);
     },
   },
 
