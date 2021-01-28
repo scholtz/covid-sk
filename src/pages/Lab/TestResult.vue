@@ -18,7 +18,7 @@
             class="my-2 btn btn-primary bg-danger"
             @click="action = 'sick'"
           >
-            Idem nascanovať pozitívne výsledky testov - Chorí na Covid-19
+            Pozitívne výsledky - Chorí na Covid-19
           </button>
         </b-col>
       </b-row>
@@ -28,7 +28,7 @@
             class="my-2 btn btn-primary bg-warning text-dark"
             @click="action = 'repeat'"
           >
-            Idem nascanovať chybné výsledky testov - Na pretestovanie
+            Chybné výsledky - Na pretestovanie
           </button>
         </b-col>
       </b-row>
@@ -38,7 +38,7 @@
             class="my-2 btn btn-primary bg-success"
             @click="action = 'healthy'"
           >
-            Idem nascanovať negatívne výsledky testov - Zdraví
+            Negatívne výsledky - Zdraví
           </button>
         </b-col>
       </b-row>
