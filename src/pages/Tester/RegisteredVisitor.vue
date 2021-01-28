@@ -199,7 +199,12 @@
               </td>
             </tr>
 
-            <tr v-if="personType === 'idcard' || personType === 'child'">
+            <tr
+              v-if="
+                visitor.personType === 'idcard' ||
+                visitor.personType === 'child'
+              "
+            >
               <td>RČ:</td>
               <td>
                 {{ visitor.rc }}
@@ -212,7 +217,7 @@
                 >
               </td>
             </tr>
-            <tr v-if="personType === 'foreign'">
+            <tr v-if="visitor.personType === 'foreign'">
               <td>Pas:</td>
               <td>
                 {{ visitor.passport }}
