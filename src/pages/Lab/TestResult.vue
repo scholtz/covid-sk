@@ -61,8 +61,15 @@
           <label for="next">Ďalší kód</label>
           <b-input v-model="next" ref="next" id="next" />
           <button
+            :disabled="!next"
             class="btn btn-primary my-2"
-            @click="data.push({ code: next, state: 'Na odoslanie' })"
+            @click="
+              data.push({
+                code: next,
+                state: 'Na odoslanie',
+                variant: 'alert-info',
+              })
+            "
           >
             Pridaj
           </button>
@@ -77,6 +84,9 @@
           >
             Zrušiť
           </button>
+        </template>
+        <template #cell(state)="row">
+          <div class="alert" :class="variant">{{ row.item.state }}</div>
         </template>
       </b-table>
 
@@ -170,7 +180,11 @@ export default {
           if (this.data[index].code == this.next) found = true;
         }
         if (!found) {
-          this.data.push({ code: this.next, state: "Na odoslanie" });
+          this.data.push({
+            code: this.next,
+            state: "Na odoslanie",
+            variant: "alert-info",
+          });
           this.next = "";
         }
       }
@@ -188,7 +202,18 @@ export default {
         this.SetResults({ testCode: code, result }).then(r => {
           processed++;
           if (r) {
+            console.log("sent", r);
             this.data[index].state = "Odoslané";
+            this.data[index].variant = "alert-success";
+            if (!r.timeIsValid) {
+              this.data[index].variant = "alert-danger";
+              this.data[index].state =
+                "Príliš skoro - Test musí mať prestávku 15 minút";
+            }
+            if (!r.matched) {
+              this.data[index].state = "Nespárovaný klient";
+              this.data[index].variant = "alert-danger";
+            }
           }
           if (processed == this.processingCount) {
             this.processing = false;
