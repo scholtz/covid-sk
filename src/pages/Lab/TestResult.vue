@@ -44,15 +44,21 @@
       </b-row>
     </b-container>
     <b-container v-if="action === 'sick'">
-      <button class="float-right bg-light my-2" @click="reset">Zrušiť</button>
+      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
+        Späť na výber akcie
+      </button>
       <h2>Vyberáte pozitívne nálezy - Chorí</h2>
     </b-container>
     <b-container v-if="action === 'repeat'">
-      <button class="float-right bg-light my-2" @click="reset">Zrušiť</button>
+      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
+        Späť na výber akcie
+      </button>
       <h2>Vyberáte chybné nálezy - Zopakovať test</h2>
     </b-container>
     <b-container v-if="action === 'healthy'">
-      <button class="float-right bg-light my-2" @click="reset">Zrušiť</button>
+      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
+        Späť na výber akcie
+      </button>
       <h2>Vyberáte negatívne nálezy - Zdraví</h2>
     </b-container>
     <b-container v-if="action !== 'select'">
