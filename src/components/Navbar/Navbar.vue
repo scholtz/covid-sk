@@ -89,6 +89,7 @@
                 }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
+            <b-nav-item to="/help">{{ $t("navBarPublicHelp") }}</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav v-else>
             <b-nav-item to="/register">{{

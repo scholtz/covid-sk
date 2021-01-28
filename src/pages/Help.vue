@@ -9,14 +9,14 @@
       <b-container class="py-4">
         <b-card no-body>
           <b-tabs card>
-
             <b-tab
               title="Často kladené otázky"
               v-if="
                 $store.state.config.PROD === 'covid.bratislava.sk' ||
-                $store.state.config.PROD === 'www.rychlejsie.sk'
+                $store.state.config.PROD === 'www.rychlejsie.sk' ||
+                $store.state.user.auth
               "
-             >
+            >
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -141,7 +141,7 @@
                 </div>
               </b-card-text>
             </b-tab>
-            
+
             <b-tab title="Na úvod">
               <b-card-text>
                 <div class="accordion" role="tablist">
@@ -169,7 +169,6 @@
             <b-tab title="Verejnosť" active>
               <b-card-text>
                 <div class="accordion" role="tablist">
-
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-5>{{
@@ -205,7 +204,7 @@
                     </b-collapse>
                   </b-card>
 
-                  <b-card no-body class="mb-1" >
+                  <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-10>{{
                         $t("helpPublicQ1")
@@ -272,16 +271,14 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-
-                  
-
                 </div>
               </b-card-text>
             </b-tab>
 
-            
-
-            <b-tab title="Prevádzkovateľ" v-if="!$store.state.config.IS_PROD">
+            <b-tab
+              title="Prevádzkovateľ"
+              v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
+            >
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -346,12 +343,14 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-                  
                 </div>
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Administrátor" v-if="!$store.state.config.IS_PROD">
+            <b-tab
+              title="Administrátor"
+              v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
+            >
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -478,7 +477,10 @@
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Testovanie I." v-if="!$store.state.config.IS_PROD">
+            <b-tab
+              title="Testovanie I."
+              v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
+            >
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -539,7 +541,6 @@
                 </div>
               </b-card-text>
             </b-tab>
-
           </b-tabs>
         </b-card>
       </b-container>
