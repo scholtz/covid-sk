@@ -542,7 +542,11 @@ export default {
       const that = this;
 
       this.setRegistration({});
-
+      if (this.personType == "foreign") {
+        this.rc = "";
+      } else {
+        this.passport = "";
+      }
       this.RegisterByManager({
         personType: this.personType,
         passport: this.passport,
