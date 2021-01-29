@@ -273,18 +273,18 @@
                 >
               </td>
             </tr>
-            <tr>
+            <tr
+              v-if="
+                visitor.result === 'test-not-taken' ||
+                visitor.result === 'test-not-processed' ||
+                visitor.result === 'positive-certifiacte-taken' ||
+                visitor.result === 'positive'
+              "
+            >
               <td>Stav:</td>
               <td>
-                <span v-if="visitor.result === 'not-submitted'">
-                  {{ $t("resultsSendForm") }}
-                </span>
-
-                <span v-else-if="visitor.result === 'test-not-taken'">
+                <span v-if="visitor.result === 'test-not-taken'">
                   {{ $t("resultsTestNotTaken") }}
-                </span>
-                <span v-else-if="visitor.result === 'removed'">
-                  {{ $t("resultsTestRemoved") }}
                 </span>
                 <span v-else-if="visitor.result === 'test-to-be-repeated'">
                   <b-badge variant="info">{{
@@ -297,7 +297,7 @@
                   }}</b-badge>
                 </span>
                 <span
-                  v-else-if="visitor.result === 'positive-certifiacte-sent'"
+                  v-else-if="visitor.result === 'positive-certifiacte-taken'"
                 >
                   <b-badge variant="danger"
                     ><span v-html="$t('resultsTestPositiveCertNotTaken')"
@@ -307,21 +307,6 @@
                   <b-badge variant="danger"
                     ><span v-html="$t('resultsTestPositiveCertNotTaken')"
                   /></b-badge>
-                </span>
-                <span v-else-if="visitor.result === 'negative'">
-                  <b-badge variant="info"
-                    ><span v-html="$t('resultsTestNegativeCertNotTaken')"
-                  /></b-badge>
-                </span>
-                <span
-                  v-else-if="visitor.result === 'negative-certiciate-taken'"
-                >
-                  <b-badge variant="info"
-                    ><span v-html="$t('resultsTestNegativeCertNotTaken')"
-                  /></b-badge>
-                </span>
-                <span v-else>
-                  <b-badge variant="info">Neznámy výsledok</b-badge>
                 </span>
               </td>
             </tr>
