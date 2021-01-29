@@ -185,7 +185,7 @@
               class="m-3"
             >
               <h2>{{ $t("selectDayQuestion") }}</h2>
-              <p>
+              <p v-if="!hoursLoaded">
                 {{ $t("selectDayHelp") }}
               </p>
               <b-container v-if="loading">
@@ -208,6 +208,9 @@
                     })
                   "
                   >{{ slotD.description }}
+                  <div style="font-size: smaller">
+                    ({{ slotD.registrations }})
+                  </div>
                 </span>
               </span>
             </b-card>
@@ -219,7 +222,7 @@
               :text-variant="hourVariantText"
             >
               <h2>{{ $t("selectHourQuestion") }}</h2>
-              <p>
+              <p v-if="!minutesLoaded">
                 {{ $t("selectHourHelp") }}
               </p>
               <b-container v-if="loadingHours">
@@ -239,6 +242,9 @@
                   "
                 >
                   {{ hour.description }}
+                  <div style="font-size: smaller">
+                    ({{ hour.registrations }})
+                  </div>
                 </span>
               </span>
             </b-card>
@@ -277,6 +283,9 @@
                   "
                 >
                   {{ minute.description }}
+                  <div style="font-size: smaller">
+                    ({{ minute.registrations }})
+                  </div>
                 </b-link>
               </span>
             </b-card>
