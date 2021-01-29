@@ -70,27 +70,6 @@
               {{ $t("resultsError") }}
             </p>
 
-            <p v-if="results.state === 'test-not-taken'">
-              {{ $t("resultsTestNotTaken") }}
-              <br />
-              <b-button
-                class="my-3"
-                @click="removePersonalData"
-                variant="primary"
-              >
-                Zrušiť registráciu
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
-                >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-              </b-button>
-            </p>
             <p v-if="results.state === 'removed'">
               {{ $t("resultsTestRemoved") }}
             </p>
@@ -111,13 +90,14 @@
             </p>
             <p v-if="results.state === 'negative'">
               <span v-html="$t('resultsTestNegativeCertNotTaken')" />
-              <br />
+            </p>
+            <p>
               <b-button
                 class="my-3"
                 @click="removePersonalData"
-                variant="primary"
+                variant="danger"
               >
-                {{ $t("resultsRemovePersonalData") }}
+                Zrušiť registráciu
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -132,25 +112,6 @@
             </p>
             <p v-if="results.state === 'negative-certiciate-taken'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
-
-              <br />
-              <b-button
-                class="my-3"
-                @click="removePersonalData"
-                variant="primary"
-              >
-                {{ $t("resultsRemovePersonalData") }}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
-                >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-              </b-button>
             </p>
           </b-col>
         </b-row>
