@@ -2,7 +2,7 @@ const state = () => ({
   PROD: "",
   VUE_CONFIG_APP_API: "",
   ALLOWED_HOSTS: [],
-  LOGO: "./images/logo-rychlejsie-light.svg",
+  LOGO: "./images/Rychlejsie_sk_logo_biele.png",
   DEDICATED_PLACE: false,
   MAP_LAT: 48.5,
   MAP_LNG: 19.5,
