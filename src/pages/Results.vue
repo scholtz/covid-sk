@@ -55,6 +55,20 @@
               /> </b-button
             ><br />
             {{ $t("resultsPdfNote") }}
+
+            <b-button class="my-3" @click="removePersonalData" variant="danger">
+              Zrušiť registráciu
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </b-button>
           </b-col>
         </b-row>
         <b-row>
@@ -90,25 +104,6 @@
             </p>
             <p v-if="results.state === 'negative'">
               <span v-html="$t('resultsTestNegativeCertNotTaken')" />
-            </p>
-            <p>
-              <b-button
-                class="my-3"
-                @click="removePersonalData"
-                variant="danger"
-              >
-                Zrušiť registráciu
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
-                >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-              </b-button>
             </p>
             <p v-if="results.state === 'negative-certiciate-taken'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
