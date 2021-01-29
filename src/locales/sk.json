@@ -152,20 +152,20 @@
   
   "selectDayTitle":"Vyberte si službu a deň",
   "selectDayYourSelection":"Vybrali ste si: {place}",
-  "selectDayQuestion":"V ktorý deň Vám návšteva odberového miesta vyhovuje viac?",
-  "selectDayHelp":"Kliknutím vyberte deň:",
+  "selectDayQuestion":"Kliknutím zvoľte deň testu:",
+  "selectDayHelp":"(v zátvorke sú už obsadené miesta)",
   "selectDayButtonText":"Dňa {description} je aktuálne registrovaných {registrations} osôb",
   
-  "selectHourTitle":"Vyberte si hodinu testovania",
+  "selectHourTitle":"Kliknutím zvoľte hodinu testu (v zátvorke sú už obsadené miesta)",
   "selectHourYourSelection":"Vybrali ste si: {place}, dňa {day}",
-  "selectHourQuestion":"V ktorú hodinu Vám to vyhovuje viac?",
-  "selectHourHelp":"Podržaním kurzoru nad tlačidlom sa zobrazí počet registrovaných záujemcov. Kliknutím zvolíte čas vášho testu:",
+  "selectHourQuestion":"Kliknutím zvoľte hodinu testu",
+  "selectHourHelp":"(v zátvorke sú uvedené už obsadené miesta)",
   "selectHourButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
-  "selectMinuteTitle":"Vyberte si čas testovania",
+  "selectMinuteTitle":"Vyberte si presný čas testu",
   "selectMinuteYourSelection":"Vybrali ste si: {place}, dňa {day} medzi {hour}",
-  "selectMinuteQuestion":"Vyberte si ideálny čas odberu",
-  "selectMinuteHelp":"Podržaním kurzoru nad tlačidlom sa zobrazí počet registrovaných záujemcov. Kliknutím zvolíte čas vášho testu:",
+  "selectMinuteQuestion":"Vyberte si presný čas testovania",
+  "selectMinuteHelp":"(v zátvorke sú uvedené už obsadené miesta)",
   "selectMinuteButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "registrationTitle":"Posledný krok registrácie - Osobné údaje",
