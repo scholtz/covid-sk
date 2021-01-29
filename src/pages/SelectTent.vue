@@ -409,16 +409,6 @@ export default {
             sortable: true,
           },
           {
-            label: this.$t("selectQueue"),
-            key: "queue",
-            sortable: true,
-          },
-          {
-            label: this.$t("selectQueueLastUpdate"),
-            key: "queueLastUpdate",
-            sortable: true,
-          },
-          {
             key: "hasReservationSystem",
             label: this.$t("hasReservationSystem"),
             sortable: true,
@@ -478,16 +468,6 @@ export default {
           {
             label: this.$t("selectPlaceAddress"),
             key: "address",
-            sortable: true,
-          },
-          {
-            label: this.$t("selectQueue"),
-            key: "queue",
-            sortable: true,
-          },
-          {
-            label: this.$t("selectQueueLastUpdate"),
-            key: "queueLastUpdate",
             sortable: true,
           },
           {
