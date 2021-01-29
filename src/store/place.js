@@ -79,6 +79,27 @@ export const actions = {
       { root: true }
     );
   },
+  async SetPlaceLimitation({ dispatch }, { placeId, from, until, limit }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "place/SetPlaceLimitation",
+        params: { placeId, from, until, limit },
+      },
+      { root: true }
+    );
+  },
+  async DeletePlaceLimitation({ dispatch }, { placeId, limitId }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "place/DeletePlaceLimitation",
+        params: { placeId, limitId },
+      },
+      { root: true }
+    );
+  },
   async ScheduleOpenningHours({ dispatch }, { actions }) {
     return await dispatch(
       "axios/post",

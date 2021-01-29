@@ -19,6 +19,9 @@
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/placeprovider/limits"
+                  >Limity kapacít</b-dropdown-item
+                >
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
@@ -41,6 +44,9 @@
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/placeprovider/limits"
+                  >Limity kapacít</b-dropdown-item
+                >
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
