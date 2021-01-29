@@ -127,7 +127,7 @@
                 </svg>
               </b-button>
             </p>
-            <p v-if="results.state === 'negative-certifiacte-sent'">
+            <p v-if="results.state === 'negative-certiciate-taken'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
 
               <br />
