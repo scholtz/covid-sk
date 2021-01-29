@@ -83,7 +83,9 @@
             <p v-if="results.state === 'error'">
               {{ $t("resultsError") }}
             </p>
-
+            <p v-if="results.state === 'test-not-taken'">
+              {{ $t("resultsTestNotTaken") }}
+            </p>
             <p v-if="results.state === 'removed'">
               {{ $t("resultsTestRemoved") }}
             </p>
