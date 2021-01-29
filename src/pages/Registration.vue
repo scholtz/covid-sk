@@ -423,7 +423,7 @@
           <b-col cols="12" md="4">
             <validation-provider
               name="Email"
-              rules="required|email"
+              rules="email"
               v-slot="validationContext"
             >
               <b-form-group
