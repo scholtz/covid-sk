@@ -25,12 +25,9 @@
                 })
               }}
             </h2>
-            <b-link
-              :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}`"
-              class="m-0 btn btn-light"
-            >
+            <div class="m-0 btn btn-light" @click="SaveAndGoBack">
               {{ $t("change") }}
-            </b-link>
+            </div>
           </b-col>
           <b-col v-if="$store.state.slot.product">
             <b-card
@@ -661,8 +658,30 @@ export default {
           return this.setSlotMCurrent(r2);
         });
       });
+
+    if (this.$store.state.slot.registrationAttempt) {
+      this.personType = this.$store.state.slot.registrationAttempt.personType;
+      this.passport = this.$store.state.slot.registrationAttempt.passport;
+      this.rc = this.$store.state.slot.registrationAttempt.rc;
+      this.firstName = this.$store.state.slot.registrationAttempt.firstName;
+      this.lastName = this.$store.state.slot.registrationAttempt.lastName;
+      this.address.street = this.$store.state.slot.registrationAttempt.street;
+      this.address.streetNo = this.$store.state.slot.registrationAttempt.streetNo;
+      this.address.zip = this.$store.state.slot.registrationAttempt.zip;
+      this.address.city = this.$store.state.slot.registrationAttempt.city;
+      this.birthday = {};
+      this.birthday.day = this.$store.state.slot.registrationAttempt.birthDayDay;
+      this.birthday.month = this.$store.state.slot.registrationAttempt.birthDayMonth;
+      this.birthday.year = this.$store.state.slot.registrationAttempt.birthDayYear;
+      this.email = this.$store.state.slot.registrationAttempt.email;
+      this.phone = this.$store.state.slot.registrationAttempt.phone;
+      this.insurance = this.$store.state.slot.registrationAttempt.insurance;
+    }
   },
   methods: {
+    ...mapMutations({
+      setRegistrationAttempt: "slot/setRegistrationAttempt",
+    }),
     ...mapMutations({
       setCurrentPlace: "place/setCurrentPlace",
       setSlotDCurrent: "slot/setSlotDCurrent",
@@ -679,6 +698,44 @@ export default {
       ReloadSlotsM: "slot/ReloadSlotsM",
       Register: "slot/Register",
     }),
+    SaveAndGoBack() {
+      this.saveData();
+      this.$router.push(`/place/${this.$route.params.placeId}/`);
+      //      `${$route.params.dayId}/${$route.params.hourId}`
+    },
+    saveData() {
+      const toSend = {
+        personType: this.personType,
+        passport: this.passport,
+        rc: this.rc,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        street: this.address.street,
+        streetNo: this.address.streetNo,
+        zip: this.address.zip,
+        city: this.address.city,
+        email: this.email,
+        phone: this.phone,
+        insurance: this.insurance,
+        chosenSlot: this.$route.params.minuteId,
+        chosenPlaceId: this.$route.params.placeId,
+        product: this.$store.state.slot.product.id,
+        address:
+          this.address.street +
+          " " +
+          this.address.streetNo +
+          ", " +
+          this.address.zip +
+          " " +
+          this.address.city,
+      };
+      if (this.birthday) {
+        toSend.birthDayDay = this.birthday.day;
+        toSend.birthDayMonth = this.birthday.month;
+        toSend.birthDayYear = this.birthday.year;
+      }
+      this.setRegistrationAttempt(toSend);
+    },
     registerForTest() {
       const that = this;
       this.processing = true;
@@ -695,8 +752,7 @@ export default {
             } else {
               this.passport = "";
             }
-
-            this.Register({
+            const toSend = {
               personType: this.personType,
               passport: this.passport,
               rc: this.rc,
@@ -724,11 +780,16 @@ export default {
                 " " +
                 this.address.city,
               token,
-            })
+            };
+            this.setRegistrationAttempt(toSend);
+
+            this.Register(toSend)
               // eslint-disable-next-line
               .then(r => {
                 this.processing = false;
                 if (r) {
+                  this.setRegistrationAttempt({});
+
                   // redirect only on successfull registration
                   that.$router.push(
                     `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`

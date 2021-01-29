@@ -6,6 +6,7 @@ const state = () => ({
   slotsM: {},
   slotMCurrent: {},
   registration: {},
+  registrationAttempt: {},
   product: {},
 });
 
@@ -33,6 +34,13 @@ const mutations = {
   },
   setRegistration(state, registration) {
     state.registration = Object.assign({}, state.registration, registration);
+  },
+  setRegistrationAttempt(state, registrationAttempt) {
+    state.registrationAttempt = Object.assign(
+      {},
+      state.registrationAttempt,
+      registrationAttempt
+    );
   },
 };
 export const actions = {

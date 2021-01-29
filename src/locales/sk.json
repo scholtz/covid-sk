@@ -169,7 +169,7 @@
   "selectMinuteButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "registrationTitle":"Posledný krok registrácie - Osobné údaje",
-  "registrationHelp1":"Údaje o Vašom testovaní, vrátane osobných údajov môžete vymazať zo stránky výsledky testu, ak sa preukáže, že ochorenie covid19 nemáte. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256. Všetky osobné údaje budú z tejto databázy odstránené najneskôr do 2 pracovných dní od posledného dňa testovania.",
+  "registrationHelp1":"Údaje o Vašom testovaní, vrátane osobných údajov môžete vymazať zo stránky výsledky testu, ak sa preukáže, že ochorenie covid19 nemáte, avšak až po spracovaní údajov pre krajský úrad a hygienu. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256.",
   "registrationYourSelection":"Vybrali ste si: {place}, dňa {day} medzi {time}",
   "registrationFormTypeLabel":"Identifikácia registrovanej osoby",
   "registrationFormTypePersonalCard":"Mám slovenské rodné číslo",
