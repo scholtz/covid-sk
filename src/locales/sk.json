@@ -103,7 +103,7 @@
   "resultsSendForm":"Najprv zadajte vyššie požadované údaje.",
   "resultsCheckingTest":"Kontrolujem stav testu",
   "resultsError":"Pri spracovaní požiadavku vznikla chyba",
-  "resultsTestNotTaken":"Zatiaľ sme nezaznamenali Vašu návštevu",
+  "resultsTestNotTaken":"Zatiaľ bez návštevy testovacieho miesta",
   "resultsTestRemoved":"Test bol vymazaný",
   "resultsTestToRepeat":"S Vašim testom sa vyskytla chyba testovania a test musí byť zopakovaný. Príďte vykonať test znovu. Môžete použiť tento kód registrácie.",
   "resultsTestNotProcessed":"Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva",
