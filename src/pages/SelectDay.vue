@@ -142,11 +142,21 @@
                       Túto službu môžeme poskytnúť iba poistencom
                     </div>
                   </div>
+                  <span
+                    @click="selectedProduct = product.product.id"
+                    class="btn btn-primary"
+                    v-if="
+                      $store.state.place.currentPlace.placeProviderId &&
+                      !selectedProduct
+                    "
+                  >
+                    Vybrať
+                  </span>
                 </b-form-radio>
               </b-card>
             </div>
           </b-col>
-          <b-col v-if="!this.products">
+          <b-col v-if="!products">
             <b-container
               class="my-4"
               v-if="!$store.state.place.currentPlace.placeProviderId"
@@ -349,6 +359,13 @@ export default {
       })
       .then(r => {
         this.products = r;
+
+        if (this.products.length == 1) {
+          for (const index in this.products) {
+            this.selectedProduct = this.products[index].product.id;
+          }
+        }
+
         this.loading = false;
       });
   },
