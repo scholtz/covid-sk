@@ -178,6 +178,9 @@ export default {
       RemoveTest: "result/RemoveTest",
       DownloadPDF: "result/DownloadPDF",
     }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
     check() {
       this.processingRequest = true;
       this.results = { state: "submitting" };
@@ -233,6 +236,7 @@ export default {
       this.RemoveTest({ code: this.code, pass: this.pass }).then(r => {
         if (r) {
           this.results = "removed";
+          this.openSuccess("Registrácia bola vymazaná");
         } else {
           this.results = { state: "error" };
         }
