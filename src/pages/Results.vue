@@ -56,6 +56,22 @@
             ><br />
             {{ $t("resultsPdfNote") }}
             <div>
+              <b-button class="my-3" @click="clickResendResult" variant="light">
+                Poslať certifikát ešte raz
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+                <b-spinner small v-if="resending" class="ml-1" />
+              </b-button>
+            </div>
+            <div>
               <b-button
                 class="my-3"
                 @click="removePersonalData"
@@ -130,7 +146,7 @@ export default {
     return {
       processingRequest: false,
       processingDownload: false,
-
+      resending: false,
       code: "",
       pass: "",
       results: {
@@ -143,6 +159,7 @@ export default {
       GetResults: "result/GetResults",
       RemoveTest: "result/RemoveTest",
       DownloadPDF: "result/DownloadPDF",
+      ResendResult: "result/ResendResult",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -206,6 +223,27 @@ export default {
         } else {
           this.results = { state: "error" };
         }
+      });
+    },
+    clickResendResult() {
+      this.resending = true;
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute("submit").then(token => {
+          if (token) {
+            this.ResendResult({
+              code: this.code,
+              pass: this.pass,
+              captcha: this.captcha,
+            }).then(r => {
+              this.resending = false;
+              if (r) {
+                this.openSuccess("Výsledok bol odoslaný");
+              } else {
+                this.results = { state: "error" };
+              }
+            });
+          }
+        });
       });
     },
   },

@@ -20,6 +20,18 @@ export const actions = {
     );
     return ret;
   },
+  async ResendResult({ dispatch }, { code, pass, captcha }) {
+    const ret = await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ResendResult",
+        params: { code, pass, captcha },
+      },
+      { root: true }
+    );
+    return ret;
+  },
+
   async GetNextTest({ dispatch }) {
     return await dispatch(
       "axios/get",
