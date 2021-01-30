@@ -57,7 +57,7 @@
             {{ $t("resultsPdfNote") }}
             <div>
               <b-button class="my-3" @click="clickResendResult" variant="light">
-                Poslať certifikát ešte raz
+                Znovuposlať potvrdenie o výsledku testu v SMS (e-mailom) ešte raz*
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -70,6 +70,7 @@
                 </svg>
                 <b-spinner small v-if="resending" class="ml-1" />
               </b-button>
+              <br/>* povolené je len jedno znovuzaslanie
             </div>
             <div>
               <b-button
