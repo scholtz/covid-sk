@@ -679,6 +679,7 @@ export default {
     }
 
     if (!this.personType) this.personType = "idcard";
+    if (!this.insurance) this.insurance = "25";
     if (!this.phone) this.phone = "+421";
     if (!this.email) this.email = "@";
   },
