@@ -677,6 +677,10 @@ export default {
       this.phone = this.$store.state.slot.registrationAttempt.phone;
       this.insurance = this.$store.state.slot.registrationAttempt.insurance;
     }
+
+    if (!this.personType) this.personType = "idcard";
+    if (!this.phone) this.phone = "+421";
+    if (!this.email) this.email = "@";
   },
   methods: {
     ...mapMutations({
