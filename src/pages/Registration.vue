@@ -744,10 +744,6 @@ export default {
     registerForTest() {
       const that = this;
       this.processing = true;
-      console.log(
-        "this.$store.state.config.SITE_KEY",
-        this.$store.state.config.SITE_KEY
-      );
 
       load(this.$store.state.config.SITE_KEY).then(recaptcha => {
         recaptcha.execute("submit").then(token => {
