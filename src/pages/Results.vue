@@ -34,67 +34,7 @@
               </svg>
               <b-spinner small v-if="processingRequest" class="ml-1" />
             </b-button>
-          </b-col>
-          <b-col>
-            <b-button class="my-3" @click="downloadPDF" variant="primary">
-              Stiahnuť Certifikát ako PDF súbor zabezpečený heslom*
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17.5"
-                height="19"
-                viewBox="0 0 33 40"
-                role="presentation"
-                focusable="false"
-              >
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-              </svg>
-              <b-spinner
-                small
-                v-if="processingDownload"
-                class="ml-1"
-              /> </b-button
-            ><br />
-            {{ $t("resultsPdfNote") }}
-            <div>
-              <b-button class="my-3" @click="clickResendResult" variant="light">
-                Znovuposlať potvrdenie o výsledku testu v SMS (e-mailom) ešte raz*
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
-                >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-                <b-spinner small v-if="resending" class="ml-1" />
-              </b-button>
-              <br/>* povolené je len jedno znovuzaslanie
-            </div>
-            <div>
-              <b-button
-                class="my-3"
-                @click="removePersonalData"
-                variant="danger"
-              >
-                Zrušiť registráciu
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
-                >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-              </b-button>
-            </div>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col>
+
             <h2>{{ $t("resultsResult") }}:</h2>
             <p v-if="results.state === 'not-submitted'">
               {{ $t("resultsSendForm") }}
@@ -132,6 +72,64 @@
             <p v-if="results.state === 'negative-certiciate-taken'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
             </p>
+          </b-col>
+          <b-col>
+            <b-button class="my-3" @click="downloadPDF" variant="primary">
+              Stiahnuť Certifikát ako PDF súbor zabezpečený heslom*
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner
+                small
+                v-if="processingDownload"
+                class="ml-1"
+              /> </b-button
+            ><br />
+            {{ $t("resultsPdfNote") }}
+            <div>
+              <b-button class="my-3" @click="clickResendResult" variant="light">
+                Znovuposlať potvrdenie o výsledku testu v SMS (e-mailom) ešte
+                raz*
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+                <b-spinner small v-if="resending" class="ml-1" />
+              </b-button>
+              <br />* povolené je len jedno znovuzaslanie
+            </div>
+            <div>
+              <b-button
+                class="my-3"
+                @click="removePersonalData"
+                variant="danger"
+              >
+                Zrušiť registráciu
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </b-button>
+            </div>
           </b-col>
         </b-row>
       </b-container>
