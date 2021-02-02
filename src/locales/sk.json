@@ -105,7 +105,7 @@
   "resultsError":"Pri spracovaní požiadavku vznikla chyba",
   "resultsTestNotTaken":"Zatiaľ bez návštevy testovacieho miesta",
   "resultsTestRemoved":"Test bol vymazaný",
-  "resultsTestToRepeat":"S Vašim testom sa vyskytla chyba testovania a test musí byť zopakovaný. Príďte vykonať test znovu. Môžete použiť tento kód registrácie.",
+  "resultsTestToRepeat":"Ľutujeme, ale váš test nebolo možné vyhodnotiť. Prosím dostavte sa kedykoľvek na opätovný test. Nemusíte sa znovu registrovať.",
   "resultsTestNotProcessed":"Ďakujeme za Vašu návšťevu, Váš test sa práve spracováva",
   "resultsTestPositiveCertTaken":"<b>Bol</b> vám detekovaný COVID. Ostaňte prosím v karanténe.",
   "resultsTestPositiveCertNotTaken":"<b>Bol</b> vám detekovaný COVID. <b>Ostaňte prosím v karanténe.</b>",
