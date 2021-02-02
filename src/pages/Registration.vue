@@ -40,22 +40,30 @@
               <div>
                 <div v-if="$store.state.slot.product.customPrice">
                   <div v-if="$store.state.slot.product.price > 0">
-                    Cena: {{ $store.state.slot.product.price }}
+                    {{ $t("selectDayPrice") }}:
+                    {{ $store.state.slot.product.price }}
                     {{ $store.state.slot.product.priceCurrency }}
                   </div>
-                  <div v-else>Cena: Plne hradené poisťovňou</div>
+                  <div v-else>
+                    {{ $t("selectDayPrice") }}:
+                    {{ $t("selectDayPaidByInsurance") }}
+                  </div>
                 </div>
                 <div v-else>
                   <div
                     v-if="$store.state.slot.product.product.defaultPrice > 0"
                   >
-                    Cena: {{ $store.state.slot.product.product.defaultPrice }}
+                    {{ $t("selectDayPrice") }}:
+                    {{ $store.state.slot.product.product.defaultPrice }}
                     {{ $store.state.slot.product.product.defaultPriceCurrency }}
                   </div>
-                  <div v-else>Cena: Plne hradené poisťovňou</div>
+                  <div v-else>
+                    {{ $t("selectDayPrice") }}:
+                    {{ $t("selectDayPaidByInsurance") }}
+                  </div>
                 </div>
                 <div v-if="$store.state.slot.product.insuranceOnly">
-                  Túto službu môžeme poskytnúť iba poistencom
+                  {{ $t("selectDayOnlyForInsured") }}
                 </div>
               </div>
             </b-card>
@@ -92,7 +100,7 @@
         <b-row>
           <b-col cols="12" md="6" lg="3">
             <validation-provider
-              name="Meno"
+              :name="$t('registrationFormFirstName')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -118,7 +126,7 @@
           </b-col>
           <b-col cols="12" md="6" lg="3">
             <validation-provider
-              name="Priezvisko"
+              :name="$t('registrationFormLastName')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -149,7 +157,11 @@
             v-if="personType === 'idcard' || personType === 'child'"
           >
             <validation-provider
-              name="Rodné číslo"
+              :name="
+                personType === 'idcard'
+                  ? $t('registrationFormPersonalNumber')
+                  : $t('registrationFormPersonalNumberChild')
+              "
               :rules="{ required: true, rc: true }"
               v-slot="validationContext"
             >
@@ -179,7 +191,7 @@
           </b-col>
           <b-col cols="12" md="4" lg="2" v-else>
             <validation-provider
-              name="Číslo cestovného dokladu"
+              :name="$t('registrationFormPassport')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -205,7 +217,7 @@
           </b-col>
           <b-col cols="12" lg="1" md="2">
             <validation-provider
-              name="Deň narodenia"
+              :name="$t('registrationFormDay')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -223,7 +235,7 @@
                   max="31"
                   :state="getValidationState(validationContext)"
                   aria-describedby="birthDayDay-feedback"
-                  data-vv-as="Priezvisko"
+                  :data-vv-as="$t('registrationFormBirthDayDay')"
                 />
 
                 <b-form-invalid-feedback id="lastName-feedback">{{
@@ -233,7 +245,7 @@
             </validation-provider> </b-col
           ><b-col cols="12" lg="1" md="2">
             <validation-provider
-              name="Mesiac narodenia"
+              :name="$t('registrationFormBirthDayMonth')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -262,7 +274,7 @@
 
           <b-col cols="12" md="4" lg="2">
             <validation-provider
-              name="Rok narodenia"
+              :name="$t('registrationFormBirthDayYear')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -292,7 +304,7 @@
         <b-row>
           <b-col cols="12" md="6">
             <validation-provider
-              name="Adresa - Ulica"
+              :name="$t('registrationFormAddressStreet')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -317,7 +329,7 @@
           </b-col>
           <b-col cols="12" md="1">
             <validation-provider
-              name="Číslo"
+              :name="$t('registrationFormAddressStreetNo')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -342,7 +354,7 @@
           </b-col>
           <b-col cols="12" md="2">
             <validation-provider
-              name="PSČ"
+              :name="$t('registrationFormAddressZIP')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -367,7 +379,7 @@
           </b-col>
           <b-col cols="12" md="3">
             <validation-provider
-              name="Mesto"
+              :name="$t('registrationFormAddressCity')"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
@@ -394,7 +406,7 @@
         <b-row>
           <b-col cols="12" md="4">
             <validation-provider
-              name="Telefón"
+              :name="$t('registrationFormMobile')"
               :rules="{ required: true, phone: true }"
               v-slot="validationContext"
             >
@@ -419,7 +431,7 @@
           </b-col>
           <b-col cols="12" md="4">
             <validation-provider
-              name="Email"
+              :name="$t('registrationFormEmail')"
               rules="email"
               v-slot="validationContext"
             >
@@ -489,6 +501,7 @@ import {
   localize,
 } from "vee-validate/dist/vee-validate.full";
 import sk from "vee-validate/dist/locale/sk.json";
+import en from "vee-validate/dist/locale/en.json";
 
 localize("sk", sk);
 
@@ -558,6 +571,16 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+  },
+  computed: {
+    locale() {
+      return this.$i18n.locale;
+    },
+  },
+  watch: {
+    locale() {
+      this.setLanguage();
+    },
   },
   data() {
     return {
@@ -682,6 +705,8 @@ export default {
     if (!this.insurance) this.insurance = "25";
     if (!this.phone) this.phone = "+421";
     if (!this.email) this.email = "@";
+
+    this.setLanguage();
   },
   methods: {
     ...mapMutations({
@@ -805,6 +830,13 @@ export default {
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
+    },
+    setLanguage() {
+      if (this.$i18n.locale == "en" || this.$i18n.locale == "en-US") {
+        localize("en", en);
+      } else {
+        localize("sk", sk);
+      }
     },
   },
 };

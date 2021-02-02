@@ -22,30 +22,38 @@
                   })
                 }}
               </h2>
-              <p>Adresa: {{ $store.state.place.currentPlace.address }}</p>
+              <p>
+                {{ $t("selectDayAddress") }}:
+                {{ $store.state.place.currentPlace.address }}
+              </p>
               <p v-if="gpsLink">
-                GPS:
+                {{ $t("selectDayGPS") }}:
                 <a :href="gpsLink" target="_blank">
-                  Lat:
-                  {{ $store.state.place.currentPlace.lat | formatGps }} Lng:
+                  {{ $t("selectDayLat") }}:
+                  {{ $store.state.place.currentPlace.lat | formatGps }}
+                  {{ $t("selectDayLng") }}:
                   {{ $store.state.place.currentPlace.lng | formatGps }}
                 </a>
               </p>
               <p>
-                Má drive in:
-                <b v-if="$store.state.place.currentPlace.isDriveIn">Áno</b>
-                <b v-else>Nie</b>
+                {{ $t("selectDayDriveThrough") }}:
+                <b v-if="$store.state.place.currentPlace.isDriveIn">{{
+                  $t("yes")
+                }}</b>
+                <b v-else>{{ $t("no") }}</b>
                 <br />
-                Možnosť prísť pešo:
-                <b v-if="$store.state.place.currentPlace.isWalkIn">Áno</b>
-                <b v-else>Nie</b>
+                {{ $t("selectDayWalkIn") }}:
+                <b v-if="$store.state.place.currentPlace.isWalkIn">{{
+                  $t("yes")
+                }}</b>
+                <b v-else>{{ $t("no") }}</b>
               </p>
               <p>
-                Limity:
+                {{ $t("selectDayLimits") }}:
                 <b>{{ $store.state.place.currentPlace.limitPer5MinSlot }}</b> /
-                5 min,
+                {{ $t("selectDay5Min") }},
                 <b>{{ $store.state.place.currentPlace.limitPer1HourSlot }}</b> /
-                hod.
+                {{ $t("selectDay1Hour") }}
               </p>
               <p>
                 {{ $t("hasReservationSystem") }}:
@@ -55,9 +63,9 @@
                     $store.state.place.currentPlace.hasReservationSystem ||
                     $store.state.place.currentPlace.externalReservationSystem
                   "
-                  >Áno</b
+                  >{{ $t("yes") }}</b
                 >
-                <b v-else>Nie</b>
+                <b v-else>{{ $t("no") }}</b>
                 <a
                   class="btn btn-primary m-2"
                   v-if="
@@ -74,13 +82,15 @@
                 <br />
                 {{ $t("registrationIsRequired") }}:
 
-                <b v-if="$store.state.place.currentPlace.hasReservationSystem"
-                  >Áno</b
+                <b
+                  v-if="$store.state.place.currentPlace.hasReservationSystem"
+                  >{{ $t("yes") }}</b
                 >
-                <b v-else>Nie</b>
+                <b v-else>{{ $t("no") }}</b>
               </p>
               <p v-if="$store.state.place.currentPlace.description">
-                Popis: {{ $store.state.place.currentPlace.description }}
+                {{ $t("selectDayDescription") }}:
+                {{ $store.state.place.currentPlace.description }}
               </p>
               <b-link :to="`/register`" class="btn btn-light my-3"
                 >{{ $t("change") }}
@@ -127,19 +137,27 @@
                   <div>
                     <div v-if="product.customPrice">
                       <div v-if="product.price > 0">
-                        Cena: {{ product.price }} {{ product.priceCurrency }}
+                        {{ $t("selectDayPrice") }}: {{ product.price }}
+                        {{ product.priceCurrency }}
                       </div>
-                      <div v-else>Cena: Plne hradené poisťovňou</div>
+                      <div v-else>
+                        {{ $t("selectDayPrice") }}:
+                        {{ $t("selectDayPaidByInsurance") }}
+                      </div>
                     </div>
                     <div v-else>
                       <div v-if="product.product.defaultPrice > 0">
-                        Cena: {{ product.product.defaultPrice }}
+                        {{ $t("selectDayPrice") }}:
+                        {{ product.product.defaultPrice }}
                         {{ product.product.defaultPriceCurrency }}
                       </div>
-                      <div v-else>Cena: Plne hradené poisťovňou</div>
+                      <div v-else>
+                        {{ $t("selectDayPrice") }}:
+                        {{ $t("selectDayPaidByInsurance") }}
+                      </div>
                     </div>
                     <div v-if="product.insuranceOnly">
-                      Túto službu môžeme poskytnúť iba poistencom
+                      {{ $t("selectDayOnlyForInsured") }}
                     </div>
                   </div>
                   <span
@@ -150,7 +168,7 @@
                       !selectedProduct
                     "
                   >
-                    Vybrať
+                    {{ $t("selectDaySelectService") }}
                   </span>
                 </b-form-radio>
               </b-card>
