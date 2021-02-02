@@ -205,6 +205,8 @@
   "registrationFormAddressStreetNo":"Popisné č.",
   "registrationFormAddressZIP":"PSČ",
   "registrationFormAddressCity":"Mesto",
+
+  "registrationFormDay":"Deň narodenia",
   "registrationFormBirthDayDay":"Deň nar.",
   "registrationFormBirthDayMonth":"Mesiac",
   "registrationFormBirthDayYear":"Rok",
