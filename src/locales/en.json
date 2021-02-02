@@ -104,6 +104,12 @@
   "resultsTestNegativeCertTaken":"You are <b>NOT</b> infected. Test has proven that you are not infected with SARS-CoV-2.",
   "resultsTestNegativeCertNotTaken":"You are <b>NOT</b> infected. Test has proven that you are not infected with SARS-CoV-2. <b>Please visit sampling place and take the certificate.</b>",
   "resultsRemovePersonalData":"Delete personal data",
+  "resultsDownloadPDF":"Download password protected PDF file",
+  "resultsResend":"Resend the test result to SMS and Email once more *",
+  "resultsLimitWarning":"* only one resend is allowed",
+  "resultsRemoveRegistration":"Delete registration and personal data",
+  "resultsRegistrationRemoved":"Registration has been removed",
+  "resultsSent":"Test result has been sent",
 
   "chPassTitle":"Change Password",
   "chPassOldPassword":"Old password",

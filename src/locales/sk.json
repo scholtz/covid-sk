@@ -112,7 +112,13 @@
   "resultsTestNegativeCertTaken":"Výsledok testu = NEGATÍVNY. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19.",
   "resultsTestNegativeCertNotTaken":"Výsledok testu = NEGATÍVNY. Test nepreukázal, že by ste boli infikovaný/á vírusom COVID-19. <b>Certifikát si teraz môžete stiahnuť do svojho zariadenia</b>",
   "resultsRemovePersonalData":"Vymazať osobné údaje",
-
+  "resultsDownloadPDF":"Stiahnuť Certifikát ako PDF súbor zabezpečený heslom",
+  "resultsResend":"Znovuposlať potvrdenie o výsledku testu v SMS (e-mailom) ešte raz *",
+  "resultsLimitWarning":"* povolené je len jedno znovuzaslanie",
+  "resultsRemoveRegistration":"Zrušiť registráciu",
+  "resultsRegistrationRemoved":"Registrácia bola vymazaná",
+  "resultsSent":"Výsledok bol odoslaný",
+  
   "chPassTitle":"Zmena hesla",
   "chPassOldPassword":"Staré heslo",
   "chPassNewPassword":"Nové heslo",

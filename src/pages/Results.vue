@@ -75,7 +75,7 @@
           </b-col>
           <b-col>
             <b-button class="my-3" @click="downloadPDF" variant="primary">
-              Stiahnuť Certifikát ako PDF súbor zabezpečený heslom*
+              {{ $t("resultsDownloadPDF") }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
@@ -95,8 +95,7 @@
             {{ $t("resultsPdfNote") }}
             <div>
               <b-button class="my-3" @click="clickResendResult" variant="light">
-                Znovuposlať potvrdenie o výsledku testu v SMS (e-mailom) ešte
-                raz*
+                {{ $t("resultsResend") }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -109,7 +108,7 @@
                 </svg>
                 <b-spinner small v-if="resending" class="ml-1" />
               </b-button>
-              <br />* povolené je len jedno znovuzaslanie
+              <br />{{ $t("resultsLimitWarning") }}
             </div>
             <div>
               <b-button
@@ -117,7 +116,7 @@
                 @click="removePersonalData"
                 variant="danger"
               >
-                Zrušiť registráciu
+                {{ $t("resultsRemoveRegistration") }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -218,7 +217,7 @@ export default {
       this.RemoveTest({ code: this.code, pass: this.pass }).then(r => {
         if (r) {
           this.results = "removed";
-          this.openSuccess("Registrácia bola vymazaná");
+          this.openSuccess(this.$t("resultsRegistrationRemoved"));
         } else {
           this.results = { state: "error" };
         }
@@ -236,7 +235,7 @@ export default {
             }).then(r => {
               this.resending = false;
               if (r) {
-                this.openSuccess("Výsledok bol odoslaný");
+                this.openSuccess(this.$t("resultsSent"));
               } else {
                 this.results = { state: "error" };
               }
