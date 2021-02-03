@@ -21,7 +21,7 @@
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
           </button>
-          <button @click="action = 'regCode'" class="btn btn-primary my-4 mr-4">
+          <!--<button @click="action = 'regCode'" class="btn btn-primary my-4 mr-4">
             Načítať kód registrácie čiarovým kódom
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@
             >
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
-          </button>
+          </button>-->
           <button
             @click="action = 'regCodeQR'"
             class="btn btn-primary my-4 mr-4"
