@@ -376,9 +376,10 @@ export default {
         }
       }
       this.ListPlaceLimits().then(r2 => {
-        console.log("this.allocations1", this.allocations);
         this.allocations = r2;
+        console.log("this.allocations1", this.allocations);
         this.ReloadPlaces().then(r3 => {
+          console.log("this.ReloadPlaces", this.allocations, r3);
           this.redrawEvents();
           this.events = [];
         });
