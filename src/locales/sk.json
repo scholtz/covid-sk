@@ -219,6 +219,7 @@
   "registrationFormButton":"Zaregistrovať",
   "registrationFormInsuranceEU":"EÚ poistenec",
   "registrationFormInsuranceForeigner":"Cudzinec",
+  "registrationLimitReached":"Pre tento časový úsek bol dosiahnutý limit registrácii. Prosím využite iný časový úsek alebo počkajte na navýšenie kapacity. Ďakujeme",
 
   "regDoneTitle":"Úspešne ste sa zaregistrovali k odberu vzorky covid-19",
   "regDoneHelp1":"Zobrazte tento čiarový kód doktorovi pred odobratím vzorky",
