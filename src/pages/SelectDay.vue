@@ -418,6 +418,7 @@ export default {
       this.loadingHours = true;
       this.hoursLoaded = false;
       this.minutesLoaded = false;
+      this.hour = false;
       this.currentSlotD = slotD;
       this.setSlotsH([]);
       this.ReloadSlotsH({
