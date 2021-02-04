@@ -588,11 +588,6 @@ export default {
       return this.$i18n.locale;
     },
     limitReached() {
-      console.log(
-        "$store.state.place.currentPlace",
-        this.$store.state.place.currentPlace,
-        this.$store.state.slot
-      );
       if (
         this.$store.state.slot.slotMCurrent.registrations >=
         this.$store.state.place.currentPlace.limitPer5MinSlot
