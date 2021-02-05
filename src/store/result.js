@@ -76,6 +76,23 @@ export const actions = {
       { root: true }
     );
   },
+  async PrintCertificateByDocumentManager(
+    { dispatch },
+    { registrationCode, personalNumber }
+  ) {
+    return await dispatch(
+      "axios/download",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Result/PrintCertificateByDocumentManager",
+        params: { registrationCode, personalNumber },
+        name: "result.pdf",
+        type: "post",
+      },
+      { root: true }
+    );
+  },
   async Enqueued({ dispatch }, { code, pass, captcha }) {
     return await dispatch(
       "axios/post",
