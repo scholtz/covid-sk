@@ -463,7 +463,11 @@
               </b-form-group>
             </validation-provider>
           </b-col>
-          <b-col cols="12" md="4">
+          <b-col
+            cols="12"
+            md="4"
+            v-if="$store.state.slot.product.product.collectInsurance"
+          >
             <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
               :options="insuranceOptions"
@@ -685,6 +689,7 @@ export default {
       this.$router.push("/place/" + this.$route.params.placeId);
       return;
     }
+
     this.GetPlace({ id: this.$route.params.placeId })
       .then(r => {
         return r;
