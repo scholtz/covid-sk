@@ -3,9 +3,49 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>Správca dokumentov</h1>
-        <p>Správca dokumentov vypisuje certifikáty.</p>
+        <p>
+          Správca dokumentov má možnosť načítať údaje na základe kódu
+          registrácie alebo rodného čísla a vygenerovať a vytlačiť PDF výsledku
+          testu.
+        </p>
       </b-container>
     </div>
+    <b-container
+      ><b-row>
+        <b-col cols="12" md="6">
+          <label for="code">{{ $t("resultsCode") }}</label>
+
+          <b-input v-model="code" ref="code" />
+        </b-col>
+        <b-col cols="12" md="6">
+          <label for="personalNumber">Alebo r.č. alebo č. pasu</label>
+          <b-input
+            v-model="personalNumber"
+            ref="personalNumber"
+            id="personalNumber"
+          />
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <button @click="downloadPDF" class="btn btn-primary my-4">
+            Siahnuť PDF
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+            <b-spinner small v-if="processingDownload" class="ml-1" />
+          </button>
+        </b-col>
+      </b-row>
+    </b-container>
+    <!--
     <b-container>
       <b-table-simple v-if="visitor && visitor.id">
         <b-tr> <b-th>Typ</b-th><b-th>Hodnota</b-th> </b-tr>
@@ -41,6 +81,7 @@
         </svg>
       </button>
     </b-container>
+    -->
   </div>
 </template>
 
@@ -48,17 +89,33 @@
 import { mapActions } from "vuex";
 export default {
   data() {
-    return { visitor: {} };
+    return { visitor: {}, processingDownload: false };
   },
 
   methods: {
     ...mapActions({
       GetNextTest: "result/GetNextTest",
       RemoveFromDocQueue: "result/RemoveFromDocQueue",
+      PrintCertificateByDocumentManager:
+        "result/PrintCertificateByDocumentManager",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
     }),
+    downloadPDF() {
+      this.processingDownload = true;
+      this.PrintCertificateByDocumentManager({
+        registrationCode: this.registrationCode,
+        personalNumber: this.personalNumber,
+      }).then(r => {
+        if (r) {
+          this.results = r;
+        } else {
+          this.results = { state: "error" };
+        }
+        this.processingDownload = false;
+      });
+    },
     nextTestClick() {
       console.log("click");
       if (this.visitor.testingSet) {
