@@ -83,7 +83,7 @@
                 {{ $t("registrationIsRequired") }}:
 
                 <b
-                  v-if="$store.state.place.currentPlace.hasReservationSystem"
+                  v-if="$store.state.place.currentPlace.requiresRegistration"
                   >{{ $t("yes") }}</b
                 >
                 <b v-else>{{ $t("no") }}</b>

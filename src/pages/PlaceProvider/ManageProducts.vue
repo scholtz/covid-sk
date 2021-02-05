@@ -105,6 +105,51 @@
                     />
                   </b-form-group>
                 </validation-provider>
+                <validation-provider name="Zisťovať poisťovňu">
+                  <b-form-group
+                    id="collectInsurance-group-1"
+                    label="Zisťovať poisťovňu"
+                    label-for="collectInsurance"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-checkbox
+                      id="collectInsurance"
+                      name="collectInsurance"
+                      v-model="product.collectInsurance"
+                    />
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider name="Iba pre školy">
+                  <b-form-group
+                    id="schoolOnly-group-1"
+                    label="Iba pre školy"
+                    label-for="schoolOnly"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-checkbox
+                      id="schoolOnly"
+                      name="schoolOnly"
+                      v-model="product.schoolOnly"
+                    />
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider name="Iba pre našich zamestnancov">
+                  <b-form-group
+                    id="employeesOnly-group-1"
+                    label="Iba pre našich zamestnancov"
+                    label-for="employeesOnly"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-checkbox
+                      id="employeesOnly"
+                      name="employeesOnly"
+                      v-model="product.employeesOnly"
+                    />
+                  </b-form-group>
+                </validation-provider>
                 <validation-provider
                   name="Popis produktu"
                   :rules="{ required: true }"
@@ -590,6 +635,9 @@ export default {
         defaultPriceCurrency: "EUR",
         category: "",
         insuranceOnly: false,
+        employeesOnly: false,
+        schoolOnly: false,
+        collectInsurance: true,
       },
       ppr: {
         placeId: "",
@@ -774,6 +822,9 @@ export default {
         defaultPriceCurrency: "EUR",
         category: "",
         insuranceOnly: false,
+        employeesOnly: false,
+        schoolOnly: false,
+        collectInsurance: true,
       };
       this.addProductForm = true;
       this.edit = false;

@@ -111,7 +111,7 @@
               </b-col>
             </b-row>
             <b-row class="py-2">
-              <b-col cols="12" md="3">
+              <b-col>
                 <b-form-checkbox
                   id="isVisible"
                   v-model="place.isVisible"
@@ -120,7 +120,7 @@
                   Zobrazuje sa
                 </b-form-checkbox>
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col>
                 <b-form-checkbox
                   id="isDriveIn"
                   v-model="place.isDriveIn"
@@ -129,7 +129,7 @@
                   Možnosť prísť autom (Drive In)
                 </b-form-checkbox>
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col>
                 <b-form-checkbox
                   id="isWalkIn"
                   v-model="place.isWalkIn"
@@ -138,13 +138,22 @@
                   Možnosť prísť pešo (Walk in)
                 </b-form-checkbox>
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col>
                 <b-form-checkbox
                   id="hasReservationSystem"
                   v-model="place.hasReservationSystem"
                   name="hasReservationSystem"
                 >
                   Povoliť rezervácie systémom rýchlejšie.sk
+                </b-form-checkbox>
+              </b-col>
+              <b-col>
+                <b-form-checkbox
+                  id="requiresRegistration"
+                  v-model="place.requiresRegistration"
+                  name="requiresRegistration"
+                >
+                  Vyžaduje predregistráciu
                 </b-form-checkbox>
               </b-col>
             </b-row>
@@ -319,6 +328,7 @@ export default {
         picture2: "",
         picture3: "",
         hasReservationSystem: true,
+        requiresRegistration: false,
       },
       currencies: ["EUR", "CZK", "USD"],
       tabIndex: 0,
