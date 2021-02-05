@@ -207,6 +207,7 @@
   "registrationFormButton":"Register",
   "registrationFormInsuranceEU":"EU insurance",
   "registrationFormInsuranceForeigner":"Foreigner",
+  "registrationLimitReached":"Limit has been reached for this time slot. Please change your prefered time",
 
   "regDoneTitle":"You have successfully registered for sampling test against covid 19",
   "regDoneHelp1":"Show this code to the doctor at the sampling place",

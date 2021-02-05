@@ -25,10 +25,12 @@
                 })
               }}
             </h2>
+
             <div class="m-0 btn btn-light" @click="SaveAndGoBack">
               {{ $t("change") }}
             </div>
           </b-col>
+
           <b-col v-if="$store.state.slot.product">
             <b-card
               text-variant="dark"
@@ -72,7 +74,14 @@
       </b-container>
     </div>
     <ValidationObserver>
-      <b-container class="my-4">
+      <b-container class="my-4"
+        ><b-row v-if="$store.state.place.currentPlace && limitReached">
+          <b-col>
+            <div class="alert alert-danger my-4">
+              {{ $t("registrationLimitReached") }}
+            </div>
+          </b-col>
+        </b-row>
         <b-row>
           <b-col cols="12" md="4">
             <b-form-group :label="$t('registrationFormTypeLabel')">
@@ -567,6 +576,8 @@ extend("phone", {
 });
 
 import { mapMutations, mapActions } from "vuex";
+import moment from "moment";
+
 export default {
   components: {
     ValidationProvider,
@@ -575,6 +586,43 @@ export default {
   computed: {
     locale() {
       return this.$i18n.locale;
+    },
+    limitReached() {
+      if (
+        this.$store.state.slot.slotMCurrent.registrations >=
+        this.$store.state.place.currentPlace.limitPer5MinSlot
+      ) {
+        return true;
+      }
+      if (
+        this.$store.state.slot.slotHCurrent.registrations >=
+        this.$store.state.place.currentPlace.limitPer1HourSlot
+      ) {
+        return true;
+      }
+      for (const index in this.$store.state.place.currentPlace
+        .otherLimitations) {
+        const limitation = this.$store.state.place.currentPlace
+          .otherLimitations[index];
+        const now = new Date(this.$store.state.slot.slotDCurrent.time);
+        const hour = this.$store.state.slot.slotHCurrent.description.substr(
+          0,
+          2
+        );
+        now.setUTCHours(hour - 1);
+        if (
+          moment(limitation.from).isSameOrBefore(now) &&
+          moment(limitation.until).isAfter(now)
+        ) {
+          if (
+            limitation.hourLimit <=
+            this.$store.state.slot.slotHCurrent.registrations
+          )
+            return true;
+        }
+      }
+
+      return false;
     },
   },
   watch: {

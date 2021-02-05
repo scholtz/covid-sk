@@ -316,6 +316,7 @@
 
 <script>
 import { mapMutations, mapActions } from "vuex";
+import moment from "moment";
 
 export default {
   data() {
@@ -329,6 +330,7 @@ export default {
       day: null,
       hour: null,
       selectedProduct: null,
+      currentSlotD: {},
       dayVariant: "primary",
       dayVariantText: "white",
       hourVariant: "primary",
@@ -416,6 +418,8 @@ export default {
       this.loadingHours = true;
       this.hoursLoaded = false;
       this.minutesLoaded = false;
+      this.hour = false;
+      this.currentSlotD = slotD;
       this.setSlotsH([]);
       this.ReloadSlotsH({
         placeId: this.$route.params.placeId,
@@ -457,23 +461,33 @@ export default {
       });
     },
     hourButtonStyle(hour) {
-      if (!hour) return "bg-danger";
-      if (
-        hour &&
-        hour.registrations >=
-          this.$store.state.place.currentPlace.limitPer1HourSlot
-      )
-        return "bg-danger";
-
+      if (this.hourDisabled(hour)) return "bg-danger";
       if (this.hour && this.hour === hour.slotId) return "btn-primary";
       return "btn-light";
     },
-    hourDisabled(hour) {
-      if (!hour) return true;
-      return (
-        hour.registrations >=
+    hourDisabled(slotsH) {
+      if (
+        slotsH.registrations >=
         this.$store.state.place.currentPlace.limitPer1HourSlot
-      );
+      ) {
+        return true;
+      }
+      for (const index in this.$store.state.place.currentPlace
+        .otherLimitations) {
+        const limitation = this.$store.state.place.currentPlace
+          .otherLimitations[index];
+        const now = new Date(this.currentSlotD.time);
+        const hour = slotsH.description.substr(0, 2);
+        now.setUTCHours(hour - 1);
+        if (
+          moment(limitation.from).isSameOrBefore(now) &&
+          moment(limitation.until).isAfter(now)
+        ) {
+          if (limitation.hourLimit <= slotsH.registrations) return true;
+        }
+      }
+
+      return false;
     },
   },
 };
