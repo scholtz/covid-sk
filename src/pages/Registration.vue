@@ -489,8 +489,19 @@
                 {{ $t("registrationFormGDPR") }}
               </b-form-checkbox>
             </p>
+            <p v-if="$store.state.slot.product.product.schoolOnly">
+              <b-form-checkbox v-model="school" id="school">
+                Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej
+                výuky v škole
+              </b-form-checkbox>
+            </p>
+
             <b-button
-              :disabled="!gdpr || processing"
+              :disabled="
+                !gdpr ||
+                processing ||
+                ($store.state.slot.product.product.schoolOnly && !school)
+              "
               @click="registerForTest"
               variant="primary"
             >
@@ -637,6 +648,7 @@ export default {
   data() {
     return {
       processing: false,
+      school: false,
       personType: "idcard",
       passport: "",
       rc: "",
