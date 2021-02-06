@@ -11,7 +11,9 @@
           <div class="alert alert-danger">
             {{ this.$store.state.user.me.name }}, skontrolujte prosím nastavenie
             Vášho aktuálneho miesta:
-            {{ this.$store.state.user.me.placeObj.name }}
+            <span v-if="this.$store.state.user.me.placeObj">
+              {{ this.$store.state.user.me.placeObj.name }}
+            </span>
 
             <button class="btn btn-danger m-2" @click="confirmPlace">
               Potvrdiť
