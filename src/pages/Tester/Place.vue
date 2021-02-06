@@ -8,13 +8,40 @@
     <div>
       <b-row v-if="needPlaceConfirmation && this.$store.state.user.me">
         <b-col>
-          <div class="alert alert-info my-4">
+          <div class="alert alert-info m-2">
             {{ this.$store.state.user.me.name }}, skontrolujte prosím nastavenie
             Vášho aktuálneho miesta:
-            {{ this.$store.state.user.me.placeObj.name }}
-
-            <button class="btn btn-light m-2" @click="confirmPlace">
-              Potvrdiť
+            <span v-if="this.$store.state.user.me.placeObj">
+              {{ this.$store.state.user.me.placeObj.name }}
+              <button class="btn btn-light m-2" @click="confirmPlace">
+                Potvrdiť
+              </button>
+            </span>
+            <span v-else>
+              <div class="alert alert-danger m-2">
+                <b>Nemáte vybraté miesto</b>
+              </div>
+            </span>
+          </div>
+        </b-col>
+      </b-row>
+      <b-row v-if="!needPlaceConfirmation && this.$store.state.user.me">
+        <b-col>
+          <div class="alert alert-info m-2">
+            Aktuálne pracujete na mieste:
+            <span v-if="this.$store.state.user.me.placeObj">
+              <b>{{ this.$store.state.user.me.placeObj.name }}</b>
+            </span>
+          </div>
+        </b-col>
+      </b-row>
+      <b-row v-if="isAdmin && $store.state.user.me.placeObj">
+        <b-col>
+          <div class="alert alert-info m-2">
+            {{ this.$store.state.user.me.name }}, ako admin si môžete zrušiť
+            miesto
+            <button class="btn btn-light m-2" @click="clearPlace">
+              Zrušiť výber miesta
             </button>
           </div>
         </b-col>
@@ -133,6 +160,24 @@ export default {
           });
         }
       });
+    },
+    clearPlace() {
+      this.SetLocation({ placeId: "" }).then(r => {
+        if (r) {
+          this.ReloadMe().then(r2 => {
+            if (r2) {
+              this.openSuccess("Úspešne ste zrušili svoje miesto");
+            }
+          });
+        }
+      });
+    },
+    isAdmin() {
+      for (const index in this.$store.state.user.tokenData.Role) {
+        if (this.$store.state.user.tokenData.Role[index] === "Admin")
+          return true;
+      }
+      return false;
     },
   },
 };
