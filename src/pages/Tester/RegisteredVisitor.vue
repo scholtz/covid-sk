@@ -13,17 +13,24 @@
             Vášho aktuálneho miesta:
             <span v-if="this.$store.state.user.me.placeObj">
               {{ this.$store.state.user.me.placeObj.name }}
+              <button class="btn btn-danger m-2" @click="confirmPlace">
+                Potvrdiť
+              </button>
+              <button
+                class="btn btn-primary m-2"
+                @click="$router.push('/tester/place')"
+              >
+                Zmeniť
+              </button>
             </span>
-
-            <button class="btn btn-danger m-2" @click="confirmPlace">
-              Potvrdiť
-            </button>
-            <button
-              class="btn btn-primary m-2"
-              @click="$router.push('/tester/place')"
-            >
-              Zmeniť
-            </button>
+            <span v-else>
+              <button
+                class="btn btn-primary m-2"
+                @click="$router.push('/tester/place')"
+              >
+                Vybrať miesto
+              </button>
+            </span>
           </div>
         </b-col>
       </b-row>
