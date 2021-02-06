@@ -642,6 +642,9 @@ export default {
       ReloadMe: "user/ReloadMe",
       SetLocation: "user/SetLocation",
     }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
     ...mapMutations({
       setLastVisitor: "result/setLastVisitor",
     }),

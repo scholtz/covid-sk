@@ -25,6 +25,7 @@
               role="presentation"
               focusable="false"
             ></svg>
+            <b-spinner small v-if="loading1" />
           </button>
         </b-col>
         <b-col>
@@ -41,8 +42,11 @@
               role="presentation"
               focusable="false"
             ></svg>
+            <b-spinner small v-if="loading2" />
           </button>
         </b-col>
+      </b-row>
+      <b-row>
         <b-col>
           <button
             @click="clickProofOfWorkExport"
@@ -57,11 +61,29 @@
               role="presentation"
               focusable="false"
             ></svg>
+            <b-spinner small v-if="loading3" />
           </button>
         </b-col>
         <b-col>
           <button
             @click="clickListAllVisitorsWhoDidNotCome"
+            class="btn btn-primary my-4 form-control"
+          >
+            Export všetkých ktorí neprišli
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            ></svg>
+            <b-spinner small v-if="loading4" />
+          </button>
+        </b-col>
+        <b-col>
+          <button
+            @click="clickListAllVisitors"
             class="btn btn-primary my-4 form-control"
           >
             Export všetkých
@@ -73,6 +95,7 @@
               role="presentation"
               focusable="false"
             ></svg>
+            <b-spinner small v-if="loading5" />
           </button>
         </b-col>
       </b-row>
@@ -87,6 +110,11 @@ export default {
     return {
       days: [],
       selectedDay: null,
+      loading1: false,
+      loading2: false,
+      loading3: false,
+      loading4: false,
+      loading5: false,
     };
   },
   mounted() {
@@ -102,19 +130,57 @@ export default {
       ListVisitorsInProcess: "result/ListVisitorsInProcess",
       ProofOfWorkExport: "result/ProofOfWorkExport",
       ListAllVisitorsWhoDidNotCome: "result/ListAllVisitorsWhoDidNotCome",
+      ListAllVisitors: "result/ListAllVisitors",
       ListExportableDays: "result/ListExportableDays",
     }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
+    }),
     clickExport() {
-      this.FinalDataExport({ day: this.selectedDay });
+      this.loading1 = true;
+      this.FinalDataExport({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading1 = false;
+      });
     },
     clickExportInProcess() {
-      this.ListVisitorsInProcess({ day: this.selectedDay });
+      this.loading2 = true;
+
+      this.ListVisitorsInProcess({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading2 = false;
+      });
     },
     clickProofOfWorkExport() {
-      this.ProofOfWorkExport({ day: this.selectedDay });
+      this.loading3 = true;
+      this.ProofOfWorkExport({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading3 = false;
+      });
     },
     clickListAllVisitorsWhoDidNotCome() {
-      this.ListAllVisitorsWhoDidNotCome({ day: this.selectedDay });
+      this.loading4 = true;
+      this.ListAllVisitorsWhoDidNotCome({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading4 = false;
+      });
+    },
+    clickListAllVisitors() {
+      this.loading5 = true;
+      this.ListAllVisitors({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading5 = false;
+      });
     },
   },
 };

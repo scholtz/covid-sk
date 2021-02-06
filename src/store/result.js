@@ -137,6 +137,18 @@ export const actions = {
           this.state.config.VUE_CONFIG_APP_API +
           "Result/ListAllVisitorsWhoDidNotCome",
         params: { day },
+        name: "visisotrs-did-not-come.csv",
+        type: "get",
+      },
+      { root: true }
+    );
+  },
+  async ListAllVisitors({ dispatch }, { day }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ListAllVisitors",
+        params: { day },
         name: "allvisitors.csv",
         type: "get",
       },
