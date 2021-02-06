@@ -171,7 +171,7 @@
   "selectDay1Hour":"hod.",
   "selectDayDescription":"Popis",
   "selectDayPrice":"Cena",
-  "selectDayPaidByInsurance":"Plne hradené poisťovňou",
+  "selectDayPaidByInsurance":"Bez poplatku",
   "selectDayOnlyForInsured":"Túto službu môžeme poskytnúť iba poistencom",
   "selectDaySelectService":"Vybrať",
   "selectDayButtonText":"Dňa {description} je aktuálne registrovaných {registrations} osôb",

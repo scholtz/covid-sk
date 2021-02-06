@@ -161,7 +161,7 @@
   "selectDay1Hour":"hour",
   "selectDayDescription":"Description",
   "selectDayPrice":"Price",
-  "selectDayPaidByInsurance":"Fully covered by insurance",
+  "selectDayPaidByInsurance":"No fee",
   "selectDayOnlyForInsured":"We can provide this service only for insured citizens",
   "selectDaySelectService":"Select",
   "selectDayButtonText":"On {description} is currently registered {registrations} people",
