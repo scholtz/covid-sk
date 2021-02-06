@@ -5,7 +5,21 @@
         <h1>Výber miesta</h1>
       </b-container>
     </div>
-    <div v-if="$store.state.place.places">
+    <div>
+      <b-row v-if="needPlaceConfirmation && this.$store.state.user.me">
+        <b-col>
+          <div class="alert alert-info my-4">
+            {{ this.$store.state.user.me.name }}, skontrolujte prosím nastavenie
+            Vášho aktuálneho miesta:
+            {{ this.$store.state.user.me.placeObj.name }}
+
+            <button class="btn btn-light m-2" @click="confirmPlace">
+              Potvrdiť
+            </button>
+          </div>
+        </b-col>
+      </b-row>
+
       <b-table :items="places" :fields="fields">
         <template #cell(id)="row">
           <button @click="selectPlace(row)" class="btn btn-primary">
@@ -29,15 +43,9 @@
 
 <script>
 import { mapActions } from "vuex";
+import moment from "moment";
 
 export default {
-  computed: {
-    places() {
-      return Object.values(this.$store.state.place.places).filter(
-        x => x.isVisible && x.hasReservationSystem
-      );
-    },
-  },
   data() {
     return {
       id: "",
@@ -68,15 +76,32 @@ export default {
       ],
     };
   },
+  computed: {
+    places() {
+      return Object.values(this.$store.state.place.places).filter(
+        x => x.isVisible && x.hasReservationSystem
+      );
+    },
+    needPlaceConfirmation() {
+      if (!this.$store.state.user || !this.$store.state.user.me) return false;
+      if (!this.$store.state.user.me.place) return true;
+      return moment(this.$store.state.user.me.placeLastCheck).isBefore(
+        moment().add(-5, "minutes")
+      );
+    },
+  },
   mounted() {
     this.ReloadPlaces().then(r => {
       console.log("r", r);
     });
+
+    this.ReloadMe();
   },
   methods: {
     ...mapActions({
       ReloadPlaces: "place/ReloadPlaces",
       InsertOrUpdate: "place/InsertOrUpdate",
+      ReloadMe: "user/ReloadMe",
       Delete: "place/Delete",
     }),
     ...mapActions({
@@ -89,10 +114,25 @@ export default {
       if (row.item.id) {
         this.SetLocation({ placeId: row.item.id }).then(r => {
           if (r) {
-            this.openSuccess("Úspešne ste si nastavili miesto");
+            this.ReloadMe().then(r2 => {
+              if (r2) {
+                this.openSuccess("Úspešne ste si nastavili miesto");
+              }
+            });
           }
         });
       }
+    },
+    confirmPlace() {
+      this.SetLocation({ placeId: this.$store.state.user.me.place }).then(r => {
+        if (r) {
+          this.ReloadMe().then(r2 => {
+            if (r2) {
+              this.openSuccess("Úspešne ste potvrdili svoje miesto");
+            }
+          });
+        }
+      });
     },
   },
 };
