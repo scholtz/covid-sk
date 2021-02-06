@@ -8,7 +8,14 @@
     <b-container>
       <b-row>
         <b-col>
-          <button @click="clickExport" class="btn btn-primary my-4">
+          <label for="days">Výber dňa exportu</label>
+          <b-form-select v-model="selectedDay" :options="days"></b-form-select>
+        </b-col>
+        <b-col>
+          <button
+            @click="clickExport"
+            class="btn btn-primary my-4 form-control"
+          >
             Stiahnuť testovaných
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -17,13 +24,14 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
           </button>
         </b-col>
         <b-col>
-          <button @click="clickExportInProcess" class="btn btn-primary my-4">
+          <button
+            @click="clickExportInProcess"
+            class="btn btn-primary my-4 form-control"
+          >
             Stiahnuť nespracovaných
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,14 +40,15 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
           </button>
         </b-col>
         <b-col>
-          <button @click="clickProofOfWorkExport" class="btn btn-primary my-4">
-            Export pre NCZI (Krajský úrad)
+          <button
+            @click="clickProofOfWorkExport"
+            class="btn btn-primary my-4 form-control"
+          >
+            NCZI veta (Krajský úrad)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -47,17 +56,15 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
           </button>
         </b-col>
         <b-col>
           <button
             @click="clickListAllVisitorsWhoDidNotCome"
-            class="btn btn-primary my-4"
+            class="btn btn-primary my-4 form-control"
           >
-            Export návštevníkov ktorí neprišli
+            Export všetkých
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -65,9 +72,7 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
           </button>
         </b-col>
       </b-row>
@@ -78,24 +83,38 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      days: [],
+      selectedDay: null,
+    };
+  },
+  mounted() {
+    this.ListExportableDays().then(r => {
+      if (r) {
+        this.days = r;
+      }
+    });
+  },
   methods: {
     ...mapActions({
       FinalDataExport: "result/FinalDataExport",
       ListVisitorsInProcess: "result/ListVisitorsInProcess",
       ProofOfWorkExport: "result/ProofOfWorkExport",
       ListAllVisitorsWhoDidNotCome: "result/ListAllVisitorsWhoDidNotCome",
+      ListExportableDays: "result/ListExportableDays",
     }),
     clickExport() {
-      this.FinalDataExport();
+      this.FinalDataExport({ day: this.selectedDay });
     },
     clickExportInProcess() {
-      this.ListVisitorsInProcess();
+      this.ListVisitorsInProcess({ day: this.selectedDay });
     },
     clickProofOfWorkExport() {
-      this.ProofOfWorkExport();
+      this.ProofOfWorkExport({ day: this.selectedDay });
     },
     clickListAllVisitorsWhoDidNotCome() {
-      this.ListAllVisitorsWhoDidNotCome();
+      this.ListAllVisitorsWhoDidNotCome({ day: this.selectedDay });
     },
   },
 };
