@@ -8,7 +8,14 @@
     <b-container>
       <b-row>
         <b-col>
-          <button @click="clickExport" class="btn btn-primary my-4">
+          <label for="days">Výber dňa exportu</label>
+          <b-form-select v-model="selectedDay" :options="days"></b-form-select>
+        </b-col>
+        <b-col>
+          <button
+            @click="clickExport"
+            class="btn btn-primary my-4 form-control"
+          >
             Stiahnuť testovaných
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -17,13 +24,15 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
+            <b-spinner small v-if="loading1" />
           </button>
         </b-col>
         <b-col>
-          <button @click="clickExportInProcess" class="btn btn-primary my-4">
+          <button
+            @click="clickExportInProcess"
+            class="btn btn-primary my-4 form-control"
+          >
             Stiahnuť nespracovaných
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,14 +41,18 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
+            <b-spinner small v-if="loading2" />
           </button>
         </b-col>
+      </b-row>
+      <b-row>
         <b-col>
-          <button @click="clickProofOfWorkExport" class="btn btn-primary my-4">
-            Export pre NCZI (Krajský úrad)
+          <button
+            @click="clickProofOfWorkExport"
+            class="btn btn-primary my-4 form-control"
+          >
+            NCZI veta (Krajský úrad)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -47,17 +60,16 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
+            <b-spinner small v-if="loading3" />
           </button>
         </b-col>
         <b-col>
           <button
             @click="clickListAllVisitorsWhoDidNotCome"
-            class="btn btn-primary my-4"
+            class="btn btn-primary my-4 form-control"
           >
-            Export návštevníkov ktorí neprišli
+            Export všetkých ktorí neprišli
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -65,9 +77,25 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
+            ></svg>
+            <b-spinner small v-if="loading4" />
+          </button>
+        </b-col>
+        <b-col>
+          <button
+            @click="clickListAllVisitors"
+            class="btn btn-primary my-4 form-control"
+          >
+            Export všetkých
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            ></svg>
+            <b-spinner small v-if="loading5" />
           </button>
         </b-col>
       </b-row>
@@ -78,24 +106,81 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      days: [],
+      selectedDay: null,
+      loading1: false,
+      loading2: false,
+      loading3: false,
+      loading4: false,
+      loading5: false,
+    };
+  },
+  mounted() {
+    this.ListExportableDays().then(r => {
+      if (r) {
+        this.days = r;
+      }
+    });
+  },
   methods: {
     ...mapActions({
       FinalDataExport: "result/FinalDataExport",
       ListVisitorsInProcess: "result/ListVisitorsInProcess",
       ProofOfWorkExport: "result/ProofOfWorkExport",
       ListAllVisitorsWhoDidNotCome: "result/ListAllVisitorsWhoDidNotCome",
+      ListAllVisitors: "result/ListAllVisitors",
+      ListExportableDays: "result/ListExportableDays",
+    }),
+    ...mapActions({
+      openSuccess: "snackbar/openSuccess",
     }),
     clickExport() {
-      this.FinalDataExport();
+      this.loading1 = true;
+      this.FinalDataExport({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading1 = false;
+      });
     },
     clickExportInProcess() {
-      this.ListVisitorsInProcess();
+      this.loading2 = true;
+
+      this.ListVisitorsInProcess({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading2 = false;
+      });
     },
     clickProofOfWorkExport() {
-      this.ProofOfWorkExport();
+      this.loading3 = true;
+      this.ProofOfWorkExport({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading3 = false;
+      });
     },
     clickListAllVisitorsWhoDidNotCome() {
-      this.ListAllVisitorsWhoDidNotCome();
+      this.loading4 = true;
+      this.ListAllVisitorsWhoDidNotCome({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading4 = false;
+      });
+    },
+    clickListAllVisitors() {
+      this.loading5 = true;
+      this.ListAllVisitors({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading5 = false;
+      });
     },
   },
 };

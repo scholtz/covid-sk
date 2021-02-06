@@ -2,11 +2,15 @@ export const state = () => ({
   auth: false,
   authJWT: "",
   tokenData: {},
+  me: {},
 });
 
 export const mutations = {
   setAuth(state, auth) {
     state.auth = auth;
+  },
+  setMe(state, me) {
+    state.me = me;
   },
   setAuthJWT(state, authJWT) {
     localStorage.setItem("jwt", authJWT);
@@ -69,6 +73,19 @@ export const actions = {
     );
     if (token) {
       commit("setAuthJWT", token);
+    }
+  },
+  async ReloadMe({ commit, dispatch }) {
+    if (!this.state.config.VUE_CONFIG_APP_API) return;
+    const data = await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "User/Me",
+      },
+      { root: true }
+    );
+    if (data) {
+      commit("setMe", data);
     }
   },
   async ListUserInvites({ dispatch }) {

@@ -41,11 +41,22 @@ export const actions = {
       { root: true }
     );
   },
-  async FinalDataExport({ dispatch }) {
+  async ListExportableDays({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ListExportableDays",
+      },
+      { root: true }
+    );
+  },
+
+  async FinalDataExport({ dispatch }, { day }) {
     return await dispatch(
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
+        params: { day },
         name: "sick.csv",
         type: "get",
       },
@@ -53,11 +64,12 @@ export const actions = {
     );
   },
 
-  async ProofOfWorkExport({ dispatch }) {
+  async ProofOfWorkExport({ dispatch }, { day }) {
     return await dispatch(
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/ProofOfWorkExport",
+        params: { day },
         name: "proofOfWork.csv",
         type: "get",
       },
@@ -104,26 +116,40 @@ export const actions = {
     );
   },
 
-  async ListVisitorsInProcess({ dispatch }) {
+  async ListVisitorsInProcess({ dispatch }, { day }) {
     return await dispatch(
       "axios/download",
       {
         url:
           this.state.config.VUE_CONFIG_APP_API + "Result/ListVisitorsInProcess",
+        params: { day },
         name: "visitorsInProcess.csv",
         type: "get",
       },
       { root: true }
     );
   },
-  async ListAllVisitorsWhoDidNotCome({ dispatch }) {
+  async ListAllVisitorsWhoDidNotCome({ dispatch }, { day }) {
     return await dispatch(
       "axios/download",
       {
         url:
           this.state.config.VUE_CONFIG_APP_API +
           "Result/ListAllVisitorsWhoDidNotCome",
-        name: "visitorsDidNotCome.csv",
+        params: { day },
+        name: "visisotrs-did-not-come.csv",
+        type: "get",
+      },
+      { root: true }
+    );
+  },
+  async ListAllVisitors({ dispatch }, { day }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ListAllVisitors",
+        params: { day },
+        name: "allvisitors.csv",
         type: "get",
       },
       { root: true }
