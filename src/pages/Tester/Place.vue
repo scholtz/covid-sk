@@ -6,10 +6,7 @@
       </b-container>
     </div>
     <div v-if="$store.state.place.places">
-      <b-table
-        :items="Object.values($store.state.place.places)"
-        :fields="fields"
-      >
+      <b-table :items="places" :fields="fields">
         <template #cell(id)="row">
           <button @click="selectPlace(row)" class="btn btn-primary">
             Vybrať
@@ -34,6 +31,13 @@
 import { mapActions } from "vuex";
 
 export default {
+  computed: {
+    places() {
+      return Object.values(this.$store.state.place.places).filter(
+        x => x.isVisible && x.hasReservationSystem
+      );
+    },
+  },
   data() {
     return {
       id: "",

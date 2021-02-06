@@ -6,6 +6,25 @@
       </b-container>
     </div>
     <b-container class="my-4" v-if="action === 'select'">
+      <b-row v-if="needPlaceConfirmation">
+        <b-col>
+          <div class="alert alert-danger">
+            {{ this.$store.state.user.me.name }}, skontrolujte prosím nastavenie
+            Vášho aktuálneho miesta:
+            {{ this.$store.state.user.me.placeObj.name }}
+
+            <button class="btn btn-danger m-2" @click="confirmPlace">
+              Potvrdiť
+            </button>
+            <button
+              class="btn btn-primary m-2"
+              @click="$router.push('/tester/place')"
+            >
+              Zmeniť
+            </button>
+          </div>
+        </b-col>
+      </b-row>
       <b-row>
         <b-col>
           <button @click="action = 'rc'" class="btn btn-primary my-4 mr-4">
@@ -518,6 +537,7 @@ import { QrcodeStream } from "vue-qrcode-reader";
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
 import { mapActions, mapMutations } from "vuex";
+import moment from "moment";
 
 export default {
   components: {
@@ -583,6 +603,13 @@ export default {
       }
       return false;
     },
+    needPlaceConfirmation() {
+      if (!this.$store.state.user || !this.$store.state.user.me) return false;
+      if (!this.$store.state.user.me.place) return true;
+      return moment(this.$store.state.user.me.placeLastCheck).isBefore(
+        moment().add(-20, "hours")
+      );
+    },
   },
   mounted() {
     console.log("this.$route.params.id", this.$route.params.id);
@@ -600,12 +627,20 @@ export default {
         }
       });
     }
+    if (
+      !this.$store.state.user.me ||
+      !this.$store.state.user.me.placeLastCheck
+    ) {
+      this.ReloadMe();
+    }
   },
   methods: {
     ...mapActions({
       ConnectVisitorToTest: "result/ConnectVisitorToTest",
       GetVisitor: "result/GetVisitor",
       GetVisitorByRC: "result/GetVisitorByRC",
+      ReloadMe: "user/ReloadMe",
+      SetLocation: "user/SetLocation",
     }),
     ...mapMutations({
       setLastVisitor: "result/setLastVisitor",
@@ -724,6 +759,17 @@ export default {
       if (rcmonth > 50) rcmonth -= 50;
       console.log("day, month, year, rc, type", rcyear, rcmonth, rcday);
       return rcyear !== year || rcmonth !== month || rcday !== day;
+    },
+    confirmPlace() {
+      this.SetLocation({ placeId: this.$store.state.user.me.place }).then(r => {
+        if (r) {
+          this.ReloadMe().then(r2 => {
+            if (r2) {
+              this.openSuccess("Úspešne ste potvrdili svoje miesto");
+            }
+          });
+        }
+      });
     },
   },
 };
