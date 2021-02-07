@@ -80,7 +80,6 @@ export default {
   },
   created() {
     // start listening for "toast-message" channel's events
-    console.log("Toasts.Created");
     EventBus.$on("toast-message", this.handleMessageEvent);
   },
   methods: {
