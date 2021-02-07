@@ -127,12 +127,12 @@ export default {
       });
     },
     clickListAnonymizedVisitors() {
-      this.loadin6 = true;
+      this.loading6 = true;
       this.ListAnonymizedVisitors({ day: this.selectedDay }).then(r => {
         if (r) {
           this.openSuccess("Úspešne ste stiahli súbor");
         }
-        this.loadin6 = false;
+        this.loading6 = false;
       });
     },
   },
