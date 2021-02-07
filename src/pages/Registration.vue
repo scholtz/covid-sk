@@ -659,10 +659,8 @@ export default {
     },
     rc() {
       if (this.rc && this.rc.length >= 9) {
-        console.log("rc", this.rc, this.birthday.day, this.rc.substr(4, 2));
         if (!this.birthday.day) {
           this.birthday.day = parseInt(this.rc.substr(4, 2));
-          console.log("rc", this.rc, this.birthday.day, this.rc.substr(4, 2));
         }
         if (!this.birthday.month) {
           let month = parseInt(this.rc.substr(2, 2));
@@ -737,7 +735,6 @@ export default {
       !this.$store.state.slot.product.product ||
       !this.$store.state.slot.product.product.name
     ) {
-      console.log("this.$store.state.slot", this.$store.state.slot);
       this.$router.push("/place/" + this.$route.params.placeId);
       return;
     }
@@ -778,11 +775,6 @@ export default {
           hourSlotId: this.$route.params.hourId,
           minuteSlotId: this.$route.params.minuteId,
         }).then(r2 => {
-          console.log("r2", r2, {
-            placeId: this.$route.params.placeId,
-            hourSlotId: this.$route.params.hourId,
-            minuteSlotId: this.$route.params.minuteId,
-          });
           return this.setSlotMCurrent(r2);
         });
       });

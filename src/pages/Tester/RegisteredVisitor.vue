@@ -621,7 +621,6 @@ export default {
     },
   },
   mounted() {
-    console.log("this.$route.params.id", this.$route.params.id);
     if (this.$route.params.id) {
       this.code = this.$route.params.id;
       // newly registered by reg manager
@@ -750,7 +749,6 @@ export default {
     },
     validateRCWithDate(day, month, year, rc, type) {
       // returns true if validation fails
-      console.log("day, month, year, rc, type", day, month, year, rc, type);
       if (!day || !month || !year) return true;
       if (!type) {
         if (!rc) type = "foreign";
@@ -763,13 +761,13 @@ export default {
       x = x.replace(" ", "");
       if (x.length == 0) return false;
       if (x.length < 9) return true;
-      const rcyear = parseInt(x.substr(0, 2), 10);
+      let rcyear = parseInt(x.substr(0, 2), 10);
       let rcmonth = parseInt(x.substr(2, 2), 10);
       const rcday = parseInt(x.substr(4, 2), 10);
       year -= 1900;
-      if (year > 100) year -= 100;
+      if (rcyear >= 100) rcyear -= 100;
+      if (year >= 100) year -= 100;
       if (rcmonth > 50) rcmonth -= 50;
-      console.log("day, month, year, rc, type", rcyear, rcmonth, rcday);
       return rcyear !== year || rcmonth !== month || rcday !== day;
     },
     confirmPlace() {
