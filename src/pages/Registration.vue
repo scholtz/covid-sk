@@ -31,7 +31,11 @@
             </div>
           </b-col>
 
-          <b-col v-if="$store.state.slot.product">
+          <b-col
+            v-if="
+              $store.state.slot.product && $store.state.slot.product.product
+            "
+          >
             <b-card
               text-variant="dark"
               :title="$store.state.slot.product.product.name"
@@ -479,7 +483,11 @@
           <b-col
             cols="12"
             md="4"
-            v-if="$store.state.slot.product.product.collectInsurance"
+            v-if="
+              $store.state.slot.product &&
+              $store.state.slot.product.product &&
+              $store.state.slot.product.product.collectInsurance
+            "
           >
             <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
@@ -497,19 +505,28 @@
             <p>
               {{ $t("registrationBottomHelp2") }}
             </p>
-            <p>
-              <b-form-checkbox v-model="gdpr" id="gdpr">
-                {{ $t("registrationFormGDPR") }}
-              </b-form-checkbox>
-            </p>
-            <p v-if="$store.state.slot.product.product.schoolOnly">
+            <p
+              v-if="
+                $store.state.slot.product &&
+                $store.state.slot.product.product &&
+                $store.state.slot.product.product.schoolOnly
+              "
+            >
               <b-form-checkbox v-model="school" id="school">
                 Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej
                 výuky v škole
               </b-form-checkbox>
             </p>
+            <p>
+              <b-form-checkbox v-model="gdpr" id="gdpr">
+                {{ $t("registrationFormGDPR") }}
+              </b-form-checkbox>
+            </p>
 
             <b-button
+              v-if="
+                $store.state.slot.product && $store.state.slot.product.product
+              "
               :disabled="
                 !gdpr ||
                 processing ||
@@ -580,6 +597,7 @@ extend("rc", {
 extend("phone", {
   validate: value => {
     let valTrim = value.replace(/\s+|\s+/g, "");
+    if (!valTrim) return false;
     if (valTrim.substr(0, 1) !== "+") return false;
     valTrim = valTrim.substr(1);
 
@@ -622,6 +640,8 @@ export default {
       ) {
         return true;
       }
+      if (!this.$store.state.slot.slotHCurrent) return true;
+      if (!this.$store.state.slot.slotHCurrent.description) return true;
       if (
         this.$store.state.slot.slotHCurrent.registrations >=
         this.$store.state.place.currentPlace.limitPer1HourSlot
@@ -735,8 +755,28 @@ export default {
       !this.$store.state.slot.product.product ||
       !this.$store.state.slot.product.product.name
     ) {
-      this.$router.push("/place/" + this.$route.params.placeId);
-      return;
+      if (this.$route.params.productId) {
+        this.ListPlaceProductByPlace({
+          placeId: this.$route.params.placeId,
+        })
+          .then(r => {
+            if (r) {
+              const selected = r.find(
+                p => p.productId === this.$route.params.productId
+              );
+              if (selected) {
+                this.setProduct(selected);
+              } else {
+                this.$router.push("/place/" + this.$route.params.placeId);
+              }
+            } else {
+              this.$router.push("/place/" + this.$route.params.placeId);
+            }
+          })
+          .catch(r => {
+            this.$router.push("/place/" + this.$route.params.placeId);
+          });
+      }
     }
 
     this.GetPlace({ id: this.$route.params.placeId })
@@ -744,7 +784,9 @@ export default {
         return r;
       })
       .then(r => {
-        this.setCurrentPlace(r);
+        if (r) {
+          this.setCurrentPlace(r);
+        }
         return r;
       })
       // eslint-disable-next-line
@@ -753,7 +795,9 @@ export default {
           placeId: this.$route.params.placeId,
           daySlotId: this.$route.params.dayId,
         }).then(r2 => {
-          this.setSlotDCurrent(r2);
+          if (r2) {
+            this.setSlotDCurrent(r2);
+          }
         });
         return r;
       })
@@ -814,6 +858,7 @@ export default {
       setSlotDCurrent: "slot/setSlotDCurrent",
       setSlotHCurrent: "slot/setSlotHCurrent",
       setSlotMCurrent: "slot/setSlotMCurrent",
+      setProduct: "slot/setProduct",
     }),
     ...mapActions({
       GetPlace: "place/GetPlace",
@@ -824,6 +869,7 @@ export default {
       GetSlotM: "slot/GetSlotM",
       ReloadSlotsM: "slot/ReloadSlotsM",
       Register: "slot/Register",
+      ListPlaceProductByPlace: "placeProvider/ListPlaceProductByPlace",
     }),
     SaveAndGoBack() {
       this.saveData();
