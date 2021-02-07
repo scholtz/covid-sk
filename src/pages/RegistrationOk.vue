@@ -79,7 +79,7 @@
         </b-row>
         <b-row class="py-3">
           <b-link
-            :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${$route.params.minuteId}`"
+            :to="`/place/${$route.params.placeId}/${$route.params.dayId}/${$route.params.hourId}/${$route.params.minuteId}/${$route.params.productId}`"
             class="m-0 btn btn-primary"
           >
             {{ $t("regDoneNextPerson") }}
