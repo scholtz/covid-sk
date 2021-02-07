@@ -428,7 +428,7 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col cols="12" md="4">
+          <b-col cols="12" :md="insuranceColumns">
             <validation-provider
               ref="vpMobile"
               :name="$t('registrationFormMobile')"
@@ -454,7 +454,7 @@
               </b-form-group>
             </validation-provider>
           </b-col>
-          <b-col cols="12" md="4">
+          <b-col cols="12" :md="insuranceColumns">
             <validation-provider
               ref="vpEmail"
               :name="$t('registrationFormEmail')"
@@ -480,15 +480,7 @@
               </b-form-group>
             </validation-provider>
           </b-col>
-          <b-col
-            cols="12"
-            md="4"
-            v-if="
-              $store.state.slot.product &&
-              $store.state.slot.product.product &&
-              $store.state.slot.product.product.collectInsurance
-            "
-          >
+          <b-col cols="12" :md="insuranceColumns" v-if="showInsurance">
             <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
               :options="insuranceOptions"
@@ -630,6 +622,17 @@ export default {
     ValidationObserver,
   },
   computed: {
+    showInsurance() {
+      if (!this.$store.state.slot.product) return false;
+      if (!this.$store.state.slot.product.product) return false;
+      return this.$store.state.slot.product.product.collectInsurance === true;
+    },
+    insuranceColumns() {
+      if (this.showInsurance) {
+        return 4;
+      }
+      return 6;
+    },
     locale() {
       return this.$i18n.locale;
     },
