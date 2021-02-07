@@ -505,8 +505,7 @@
               "
             >
               <b-form-checkbox v-model="school" id="school">
-                Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej
-                výuky v škole
+                {{ $t("registrationSchoolRequiredText") }}
               </b-form-checkbox>
             </p>
             <p>
