@@ -231,7 +231,7 @@ export default {
     },
     clickListAnonymizedVisitors() {
       this.loadin6 = true;
-      this.ListAllVisitors({ day: this.selectedDay }).then(r => {
+      this.ListAnonymizedVisitors({ day: this.selectedDay }).then(r => {
         if (r) {
           this.openSuccess("Úspešne ste stiahli súbor");
         }
