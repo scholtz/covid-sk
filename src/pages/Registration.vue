@@ -109,6 +109,7 @@
         <b-row>
           <b-col cols="12" md="6" lg="3">
             <validation-provider
+              ref="vpFirstName"
               :name="$t('registrationFormFirstName')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -135,6 +136,7 @@
           </b-col>
           <b-col cols="12" md="6" lg="3">
             <validation-provider
+              ref="vpLastName"
               :name="$t('registrationFormLastName')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -166,6 +168,7 @@
             v-if="personType === 'idcard' || personType === 'child'"
           >
             <validation-provider
+              ref="vpPersonalNumber"
               :name="
                 personType === 'idcard'
                   ? $t('registrationFormPersonalNumber')
@@ -200,6 +203,7 @@
           </b-col>
           <b-col cols="12" md="4" lg="2" v-else>
             <validation-provider
+              ref="vpPassport"
               :name="$t('registrationFormPassport')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -226,6 +230,7 @@
           </b-col>
           <b-col cols="12" lg="1" md="2">
             <validation-provider
+              ref="vpBirthDay"
               :name="$t('registrationFormDay')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -254,6 +259,7 @@
             </validation-provider> </b-col
           ><b-col cols="12" lg="1" md="2">
             <validation-provider
+              ref="vpBirthMonth"
               :name="$t('registrationFormBirthDayMonth')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -283,6 +289,7 @@
 
           <b-col cols="12" md="4" lg="2">
             <validation-provider
+              ref="vpBirthYear"
               :name="$t('registrationFormBirthDayYear')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -313,6 +320,7 @@
         <b-row>
           <b-col cols="12" md="6">
             <validation-provider
+              ref="vpStreet"
               :name="$t('registrationFormAddressStreet')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -338,6 +346,7 @@
           </b-col>
           <b-col cols="12" md="1">
             <validation-provider
+              ref="vpStreetNo"
               :name="$t('registrationFormAddressStreetNo')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -363,6 +372,7 @@
           </b-col>
           <b-col cols="12" md="2">
             <validation-provider
+              ref="vpZIP"
               :name="$t('registrationFormAddressZIP')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -388,6 +398,7 @@
           </b-col>
           <b-col cols="12" md="3">
             <validation-provider
+              ref="vpCity"
               :name="$t('registrationFormAddressCity')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -415,6 +426,7 @@
         <b-row>
           <b-col cols="12" md="4">
             <validation-provider
+              ref="vpMobile"
               :name="$t('registrationFormMobile')"
               :rules="{ required: true, phone: true }"
               v-slot="validationContext"
@@ -440,6 +452,7 @@
           </b-col>
           <b-col cols="12" md="4">
             <validation-provider
+              ref="vpEmail"
               :name="$t('registrationFormEmail')"
               rules="email"
               v-slot="validationContext"
@@ -491,10 +504,9 @@
             </p>
             <p v-if="$store.state.slot.product.product.schoolOnly">
               <b-form-checkbox v-model="school" id="school">
-                Som zákonným zástupcom dieťaťa, ktoré sa zúčastňuje prezenčnej
-                výuky v škole/škôlke, resp. pracujem v takomto zariadení.*
+                Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej
+                výuky v škole
               </b-form-checkbox>
-              *Z dôvodu obmedzených testovacích kapacít poskytujeme testovanie len zamestnancom pedagogických zariadení s obnovenou prezenčnou činnosťou, resp. rodičom detí, ktoré tieto zariadenia navštevujú.
             </p>
 
             <b-button
@@ -644,6 +656,33 @@ export default {
   watch: {
     locale() {
       this.setLanguage();
+    },
+    rc() {
+      if (this.rc && this.rc.length >= 9) {
+        console.log("rc", this.rc, this.birthday.day, this.rc.substr(4, 2));
+        if (!this.birthday.day) {
+          this.birthday.day = parseInt(this.rc.substr(4, 2));
+          console.log("rc", this.rc, this.birthday.day, this.rc.substr(4, 2));
+        }
+        if (!this.birthday.month) {
+          let month = parseInt(this.rc.substr(2, 2));
+          if (month > 50) month -= 50;
+          this.birthday.month = month;
+        }
+        if (!this.birthday.year) {
+          let year = parseInt(this.rc.substr(0, 2));
+          if (year > 21) {
+            year += 1900;
+          } else [(year += 2000)];
+          this.birthday.year = year;
+        }
+        this.$forceUpdate();
+      }
+    },
+    gdpr() {
+      if (this.gdpr) {
+        this.validateForm();
+      }
     },
   },
   data() {
@@ -903,6 +942,47 @@ export default {
       } else {
         localize("sk", sk);
       }
+    },
+    validateForm() {
+      this.$refs["vpLastName"]
+        .validate()
+        .then(r => {
+          return this.$refs["vpFirstName"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpBirthDay"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpBirthMonth"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpBirthYear"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpStreet"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpStreetNo"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpZIP"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpCity"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpMobile"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpEmail"].validate();
+        })
+        .then(r => {
+          if (this.personType === "foreign") {
+            return this.$refs["vpPassport"].validate();
+          } else {
+            return this.$refs["vpPersonalNumber"].validate();
+          }
+        });
     },
   },
 };
