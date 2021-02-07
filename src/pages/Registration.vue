@@ -921,7 +921,7 @@ export default {
             } else {
               this.passport = "";
             }
-            const toSend = {
+            let toSend = {
               personType: this.personType,
               passport: this.passport,
               rc: this.rc,
@@ -957,11 +957,50 @@ export default {
               .then(r => {
                 this.processing = false;
                 if (r) {
-                  this.setRegistrationAttempt({});
+                  toSend = {
+                    personType: this.personType,
+                    passport: "",
+                    rc: "",
+                    firstName: "",
+                    lastName: "",
+                    street: this.address.street,
+                    streetNo: this.address.streetNo,
+                    zip: this.address.zip,
+                    city: this.address.city,
+                    email: this.email,
+                    phone: this.phone,
+                    insurance: this.insurance,
+                    chosenSlot: this.$route.params.minuteId,
+                    chosenPlaceId: this.$route.params.placeId,
+                    birthDayDay: "",
+                    birthDayMonth: "",
+                    birthDayYear: "",
+                    product: this.$store.state.slot.product.id,
+                    address:
+                      this.address.street +
+                      " " +
+                      this.address.streetNo +
+                      ", " +
+                      this.address.zip +
+                      " " +
+                      this.address.city,
+                    token,
+                  };
+
+                  this.setRegistrationAttempt(toSend);
 
                   // redirect only on successfull registration
+
+                  this.firstName = "";
+                  this.lastName = "";
+                  this.rc = "";
+                  this.passport = "";
+                  this.birthday.day = "";
+                  this.birthday.month = "";
+                  this.birthday.year = "";
+
                   that.$router.push(
-                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/done`
+                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.$store.state.slot.product.product.id}/done`
                   );
                 }
               });
