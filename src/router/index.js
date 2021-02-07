@@ -191,6 +191,11 @@ const router = new VueRouter({
       component: () => import("../pages/DataExporter/Export.vue"),
     },
     {
+      path: "/admin/export",
+      name: "adminExport",
+      component: () => import("../pages/Admin/Export.vue"),
+    },
+    {
       path: "/gdpr/manage",
       name: "gdpmanage",
       component: () => import("../pages/GDPR/Manage.vue"),
