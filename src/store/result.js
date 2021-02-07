@@ -52,12 +52,42 @@ export const actions = {
   },
 
   async FinalDataExport({ dispatch }, { day }) {
+    let name = "sick-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "sick-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
     return await dispatch(
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/FinalDataExport",
         params: { day },
-        name: "sick.csv",
+        name: name,
+        type: "get",
+      },
+      { root: true }
+    );
+  },
+  async ListTestedVisitors({ dispatch }, { day }) {
+    let name = "tested-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "tested-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
+    return await dispatch(
+      "axios/download",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/ListTestedVisitors",
+        params: { day },
+        name: name,
         type: "get",
       },
       { root: true }
@@ -65,12 +95,21 @@ export const actions = {
   },
 
   async ProofOfWorkExport({ dispatch }, { day }) {
+    let name = "nczi-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "nczi-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
     return await dispatch(
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/ProofOfWorkExport",
         params: { day },
-        name: "proofOfWork.csv",
+        name: name,
         type: "get",
       },
       { root: true }
@@ -117,19 +156,37 @@ export const actions = {
   },
 
   async ListVisitorsInProcess({ dispatch }, { day }) {
+    let name = "in-process-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "in-process-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
     return await dispatch(
       "axios/download",
       {
         url:
           this.state.config.VUE_CONFIG_APP_API + "Result/ListVisitorsInProcess",
         params: { day },
-        name: "visitorsInProcess.csv",
+        name: name,
         type: "get",
       },
       { root: true }
     );
   },
   async ListAllVisitorsWhoDidNotCome({ dispatch }, { day }) {
+    let name = "visisotrs-did-not-come-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "visisotrs-did-not-come-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
     return await dispatch(
       "axios/download",
       {
@@ -137,19 +194,28 @@ export const actions = {
           this.state.config.VUE_CONFIG_APP_API +
           "Result/ListAllVisitorsWhoDidNotCome",
         params: { day },
-        name: "visisotrs-did-not-come.csv",
+        name: name,
         type: "get",
       },
       { root: true }
     );
   },
   async ListAllVisitors({ dispatch }, { day }) {
+    let name = "all-visitors-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "all-visitors-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
     return await dispatch(
       "axios/download",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/ListAllVisitors",
         params: { day },
-        name: "allvisitors.csv",
+        name: name,
         type: "get",
       },
       { root: true }

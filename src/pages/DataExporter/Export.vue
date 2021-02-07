@@ -13,6 +13,23 @@
         </b-col>
         <b-col>
           <button
+            @click="clickExportSick"
+            class="btn btn-primary my-4 form-control"
+          >
+            Stiahnuť chorých
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            ></svg>
+            <b-spinner small v-if="loading1" />
+          </button>
+        </b-col>
+        <b-col>
+          <button
             @click="clickExport"
             class="btn btn-primary my-4 form-control"
           >
@@ -132,13 +149,23 @@ export default {
       ListAllVisitorsWhoDidNotCome: "result/ListAllVisitorsWhoDidNotCome",
       ListAllVisitors: "result/ListAllVisitors",
       ListExportableDays: "result/ListExportableDays",
+      ListTestedVisitors: "result/ListTestedVisitors",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
     }),
+    clickExportSick() {
+      this.loading0 = true;
+      this.FinalDataExport({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading0 = false;
+      });
+    },
     clickExport() {
       this.loading1 = true;
-      this.FinalDataExport({ day: this.selectedDay }).then(r => {
+      this.ListTestedVisitors({ day: this.selectedDay }).then(r => {
         if (r) {
           this.openSuccess("Úspešne ste stiahli súbor");
         }
