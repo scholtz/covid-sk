@@ -491,9 +491,10 @@
             </p>
             <p v-if="$store.state.slot.product.product.schoolOnly">
               <b-form-checkbox v-model="school" id="school">
-                Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej
-                výuky v škole
+                Som zákonným zástupcom dieťaťa, ktoré sa zúčastňuje prezenčnej
+                výuky v škole/škôlke, resp. pracujem v takomto zariadení.*
               </b-form-checkbox>
+              *Z dôvodu obmedzených testovacích kapacít poskytujeme testovanie len zamestnancom pedagogických zariadení s obnovenou prezenčnou činnosťou, resp. rodičom detí, ktoré tieto zariadenia navštevujú.
             </p>
 
             <b-button
