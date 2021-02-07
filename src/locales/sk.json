@@ -26,7 +26,7 @@
   "mainLogin":"Login",
   "mainPassword":"Heslo",
   "mainActionMedicButton":"Začnite zadaním údajov",
-  "mainHelpPerson":"Chráňte <b>svojich blízkych </b> a kolegov. Nechajte sa <b>zadarmo</b> otestovať  antigénovými testami alebo sa objednajte na PCR test. Predregistráciou vyplníte potrebné údaje, miesto aj čas, ktorý vám najlepšie vyhovuje. Nemusíte čakať v radoch. Ak sa dostavíte v objednanom čase, samotný odber vám zaberie len niekoľko sekúnd. <b>SMS</b>kou a e-mailom Vám pošleme kód registrácie, ktorý ukážete pracovníkovi testovacieho miesta. Ani na výsledok testu nemusíte čakať. <b>Elektronický certifikát</b> s výsledkom testovania Vám systém odošle e-mailom. Po zadaní bezpečnostných údajov na stránke aplikácie si môžete svoj certifikát kedykoľvek stiahnuť do svojho mobilu, tabletu, alebo počítača.",
+  "mainHelpPerson":"Zvoľte si miesto, čas a službu. S QR kódom v mobile alebo na papieri sa preukážte na odberovom / testovacom mieste. Nečakáte v radoch pred testom, ani na výsledok. Pošleme Vám ho zdarma cez SMS a e-mailom. <b>Elektronický certifikát</b> e-mailom aj k stiahnutiu na stránke.",
   "mainDoctor":"Chceme zaregistrovať odberové miesto",
 
   "mainDoctorStep1": "Zadajte údaje prevádzkovateľa",
