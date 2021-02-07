@@ -25,7 +25,7 @@
               role="presentation"
               focusable="false"
             ></svg>
-            <b-spinner small v-if="loading1" />
+            <b-spinner small v-if="loading0" />
           </button>
         </b-col>
         <b-col>
@@ -127,6 +127,7 @@ export default {
     return {
       days: [],
       selectedDay: null,
+      loading0: false,
       loading1: false,
       loading2: false,
       loading3: false,
