@@ -286,7 +286,7 @@
                     minute.registrations >=
                     $store.state.place.currentPlace.limitPer5MinSlot
                   "
-                  :to="`/place/${$route.params.placeId}/${day}/${hour}/${minute.slotId}`"
+                  :to="`/place/${$route.params.placeId}/${day}/${hour}/${minute.slotId}/${selectedProduct}`"
                   class="btn btn-light m-1"
                   v-bind:class="{
                     'bg-danger':

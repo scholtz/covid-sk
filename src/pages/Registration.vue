@@ -31,7 +31,11 @@
             </div>
           </b-col>
 
-          <b-col v-if="$store.state.slot.product">
+          <b-col
+            v-if="
+              $store.state.slot.product && $store.state.slot.product.product
+            "
+          >
             <b-card
               text-variant="dark"
               :title="$store.state.slot.product.product.name"
@@ -109,6 +113,7 @@
         <b-row>
           <b-col cols="12" md="6" lg="3">
             <validation-provider
+              ref="vpFirstName"
               :name="$t('registrationFormFirstName')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -135,6 +140,7 @@
           </b-col>
           <b-col cols="12" md="6" lg="3">
             <validation-provider
+              ref="vpLastName"
               :name="$t('registrationFormLastName')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -166,6 +172,7 @@
             v-if="personType === 'idcard' || personType === 'child'"
           >
             <validation-provider
+              ref="vpPersonalNumber"
               :name="
                 personType === 'idcard'
                   ? $t('registrationFormPersonalNumber')
@@ -200,6 +207,7 @@
           </b-col>
           <b-col cols="12" md="4" lg="2" v-else>
             <validation-provider
+              ref="vpPassport"
               :name="$t('registrationFormPassport')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -226,6 +234,7 @@
           </b-col>
           <b-col cols="12" lg="1" md="2">
             <validation-provider
+              ref="vpBirthDay"
               :name="$t('registrationFormDay')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -254,6 +263,7 @@
             </validation-provider> </b-col
           ><b-col cols="12" lg="1" md="2">
             <validation-provider
+              ref="vpBirthMonth"
               :name="$t('registrationFormBirthDayMonth')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -283,6 +293,7 @@
 
           <b-col cols="12" md="4" lg="2">
             <validation-provider
+              ref="vpBirthYear"
               :name="$t('registrationFormBirthDayYear')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -313,6 +324,7 @@
         <b-row>
           <b-col cols="12" md="6">
             <validation-provider
+              ref="vpStreet"
               :name="$t('registrationFormAddressStreet')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -338,6 +350,7 @@
           </b-col>
           <b-col cols="12" md="1">
             <validation-provider
+              ref="vpStreetNo"
               :name="$t('registrationFormAddressStreetNo')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -363,6 +376,7 @@
           </b-col>
           <b-col cols="12" md="2">
             <validation-provider
+              ref="vpZIP"
               :name="$t('registrationFormAddressZIP')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -388,6 +402,7 @@
           </b-col>
           <b-col cols="12" md="3">
             <validation-provider
+              ref="vpCity"
               :name="$t('registrationFormAddressCity')"
               :rules="{ required: true }"
               v-slot="validationContext"
@@ -415,6 +430,7 @@
         <b-row>
           <b-col cols="12" md="4">
             <validation-provider
+              ref="vpMobile"
               :name="$t('registrationFormMobile')"
               :rules="{ required: true, phone: true }"
               v-slot="validationContext"
@@ -440,6 +456,7 @@
           </b-col>
           <b-col cols="12" md="4">
             <validation-provider
+              ref="vpEmail"
               :name="$t('registrationFormEmail')"
               rules="email"
               v-slot="validationContext"
@@ -466,7 +483,11 @@
           <b-col
             cols="12"
             md="4"
-            v-if="$store.state.slot.product.product.collectInsurance"
+            v-if="
+              $store.state.slot.product &&
+              $store.state.slot.product.product &&
+              $store.state.slot.product.product.collectInsurance
+            "
           >
             <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
@@ -484,20 +505,28 @@
             <p>
               {{ $t("registrationBottomHelp2") }}
             </p>
+            <p
+              v-if="
+                $store.state.slot.product &&
+                $store.state.slot.product.product &&
+                $store.state.slot.product.product.schoolOnly
+              "
+            >
+              <b-form-checkbox v-model="school" id="school">
+                Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej
+                výuky v škole
+              </b-form-checkbox>
+            </p>
             <p>
               <b-form-checkbox v-model="gdpr" id="gdpr">
                 {{ $t("registrationFormGDPR") }}
               </b-form-checkbox>
             </p>
-            <p v-if="$store.state.slot.product.product.schoolOnly">
-              <b-form-checkbox v-model="school" id="school">
-                Som zákonným zástupcom dieťaťa, ktoré sa zúčastňuje prezenčnej
-                výuky v škole/škôlke, resp. pracujem v takomto zariadení.*
-              </b-form-checkbox>
-              *Z dôvodu obmedzených testovacích kapacít poskytujeme testovanie len zamestnancom pedagogických zariadení s obnovenou prezenčnou činnosťou, resp. rodičom detí, ktoré tieto zariadenia navštevujú.
-            </p>
 
             <b-button
+              v-if="
+                $store.state.slot.product && $store.state.slot.product.product
+              "
               :disabled="
                 !gdpr ||
                 processing ||
@@ -568,6 +597,7 @@ extend("rc", {
 extend("phone", {
   validate: value => {
     let valTrim = value.replace(/\s+|\s+/g, "");
+    if (!valTrim) return false;
     if (valTrim.substr(0, 1) !== "+") return false;
     valTrim = valTrim.substr(1);
 
@@ -610,6 +640,8 @@ export default {
       ) {
         return true;
       }
+      if (!this.$store.state.slot.slotHCurrent) return true;
+      if (!this.$store.state.slot.slotHCurrent.description) return true;
       if (
         this.$store.state.slot.slotHCurrent.registrations >=
         this.$store.state.place.currentPlace.limitPer1HourSlot
@@ -644,6 +676,31 @@ export default {
   watch: {
     locale() {
       this.setLanguage();
+    },
+    rc() {
+      if (this.rc && this.rc.length >= 9) {
+        if (!this.birthday.day) {
+          this.birthday.day = parseInt(this.rc.substr(4, 2));
+        }
+        if (!this.birthday.month) {
+          let month = parseInt(this.rc.substr(2, 2));
+          if (month > 50) month -= 50;
+          this.birthday.month = month;
+        }
+        if (!this.birthday.year) {
+          let year = parseInt(this.rc.substr(0, 2));
+          if (year > 21) {
+            year += 1900;
+          } else [(year += 2000)];
+          this.birthday.year = year;
+        }
+        this.$forceUpdate();
+      }
+    },
+    gdpr() {
+      if (this.gdpr) {
+        this.validateForm();
+      }
     },
   },
   data() {
@@ -698,9 +755,28 @@ export default {
       !this.$store.state.slot.product.product ||
       !this.$store.state.slot.product.product.name
     ) {
-      console.log("this.$store.state.slot", this.$store.state.slot);
-      this.$router.push("/place/" + this.$route.params.placeId);
-      return;
+      if (this.$route.params.productId) {
+        this.ListPlaceProductByPlace({
+          placeId: this.$route.params.placeId,
+        })
+          .then(r => {
+            if (r) {
+              const selected = r.find(
+                p => p.productId === this.$route.params.productId
+              );
+              if (selected) {
+                this.setProduct(selected);
+              } else {
+                this.$router.push("/place/" + this.$route.params.placeId);
+              }
+            } else {
+              this.$router.push("/place/" + this.$route.params.placeId);
+            }
+          })
+          .catch(r => {
+            this.$router.push("/place/" + this.$route.params.placeId);
+          });
+      }
     }
 
     this.GetPlace({ id: this.$route.params.placeId })
@@ -708,7 +784,9 @@ export default {
         return r;
       })
       .then(r => {
-        this.setCurrentPlace(r);
+        if (r) {
+          this.setCurrentPlace(r);
+        }
         return r;
       })
       // eslint-disable-next-line
@@ -717,7 +795,9 @@ export default {
           placeId: this.$route.params.placeId,
           daySlotId: this.$route.params.dayId,
         }).then(r2 => {
-          this.setSlotDCurrent(r2);
+          if (r2) {
+            this.setSlotDCurrent(r2);
+          }
         });
         return r;
       })
@@ -739,11 +819,6 @@ export default {
           hourSlotId: this.$route.params.hourId,
           minuteSlotId: this.$route.params.minuteId,
         }).then(r2 => {
-          console.log("r2", r2, {
-            placeId: this.$route.params.placeId,
-            hourSlotId: this.$route.params.hourId,
-            minuteSlotId: this.$route.params.minuteId,
-          });
           return this.setSlotMCurrent(r2);
         });
       });
@@ -783,6 +858,7 @@ export default {
       setSlotDCurrent: "slot/setSlotDCurrent",
       setSlotHCurrent: "slot/setSlotHCurrent",
       setSlotMCurrent: "slot/setSlotMCurrent",
+      setProduct: "slot/setProduct",
     }),
     ...mapActions({
       GetPlace: "place/GetPlace",
@@ -793,6 +869,7 @@ export default {
       GetSlotM: "slot/GetSlotM",
       ReloadSlotsM: "slot/ReloadSlotsM",
       Register: "slot/Register",
+      ListPlaceProductByPlace: "placeProvider/ListPlaceProductByPlace",
     }),
     SaveAndGoBack() {
       this.saveData();
@@ -903,6 +980,47 @@ export default {
       } else {
         localize("sk", sk);
       }
+    },
+    validateForm() {
+      this.$refs["vpLastName"]
+        .validate()
+        .then(r => {
+          return this.$refs["vpFirstName"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpBirthDay"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpBirthMonth"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpBirthYear"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpStreet"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpStreetNo"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpZIP"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpCity"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpMobile"].validate();
+        })
+        .then(r => {
+          return this.$refs["vpEmail"].validate();
+        })
+        .then(r => {
+          if (this.personType === "foreign") {
+            return this.$refs["vpPassport"].validate();
+          } else {
+            return this.$refs["vpPersonalNumber"].validate();
+          }
+        });
     },
   },
 };

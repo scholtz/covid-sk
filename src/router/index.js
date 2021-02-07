@@ -78,7 +78,17 @@ const router = new VueRouter({
       component: () => import("../pages/Registration.vue"),
     },
     {
+      path: "/place/:placeId/:dayId/:hourId/:minuteId/:productId",
+      name: "Registration",
+      component: () => import("../pages/Registration.vue"),
+    },
+    {
       path: "/place/:placeId/:dayId/:hourId/:minuteId/done",
+      name: "RegistrationOk",
+      component: () => import("../pages/RegistrationOk.vue"),
+    },
+    {
+      path: "/place/:placeId/:dayId/:hourId/:minuteId/:productId/done",
       name: "RegistrationOk",
       component: () => import("../pages/RegistrationOk.vue"),
     },
