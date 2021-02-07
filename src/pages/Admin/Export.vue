@@ -2,13 +2,14 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Export údajov adminom</h1>
+        <h1>{{ $t("adminReportsTitle") }}</h1>
+        <p>{{ $t("adminReportsDescription") }}</p>
       </b-container>
     </div>
     <b-container>
       <b-row>
         <b-col>
-          <label for="days">Výber dňa exportu</label>
+          <label for="days">{{ $t("reportsChooseDay") }}</label>
           <b-form-select v-model="selectedDay" :options="days"></b-form-select>
         </b-col>
 
@@ -17,7 +18,7 @@
             @click="clickListAnonymizedVisitors"
             class="btn btn-primary my-4 form-control"
           >
-            Export všetkých anonymizovaných
+            {{ $t("adminReportsButton") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"

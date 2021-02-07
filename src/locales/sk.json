@@ -76,8 +76,8 @@
   "navBarLab":"Lab",
   "navBarLabResult":"Výsledok testu",
   
-  "navBarDoc":"Správca dokumentov",
-  "navBarDocCertificate":"Vypisovanie certifikátov",
+  "navBarDoc":"Dokumenty",
+  "navBarDocCertificate":"Certifikáty",
   
   "navBarDataExporter":"Data exporter",
   "navBarDataExporterExport":"Finálny export údajov",
@@ -353,6 +353,27 @@
 
   "mapLegend":"Legenda: rezervácia s  <a href=\"#\"><img src=\"./images/logos/Rychlejsie_sk_logo.png\" height=\"35px\" alt=\"orange\" /></a> priamo na tomto webe: <img src=\"./images/icons/map_icon_orange.png\" height=\"25px\" alt=\"orange\" /> |  Iný rezervačný systém: <img src=\"./images/icons/map_icon_gray_01.png\" height=\"25px\" alt=\"gray\" /> |  Bez rezervácie: <img src=\"./images/icons/map_icon_blue.png\" height=\"25px\" alt=\"red\" />. ",
   "mapLegendSemafor":"<br/>  <b>Význam ikoniek</b>:  zatvorené miesto s rezerváciou: <img src=\"./images/icons/map_icon_gray_01.png\" height=\"25px\" alt=\"red\" />,  zatvorené miesto bez rezervácie: <img src=\"./images/icons/map_icon_blue.png\" height=\"25px\" alt=\"red\" />,   čakanie do 5 min: <img src=\"./images/icons/map_icon_gray_max_5min.png\" height=\"25px\" alt=\"red\" />,  čakanie 5-30 min: <img src=\"./images/icons/map_icon_gray_max_30min.png\" height=\"25px\" alt=\"red\" />,  čakanie nad 30 min: <img src=\"./images/icons/map_icon_gray_over_30min.png\" height=\"25px\" alt=\"red\" />. Kliknite na ikonku pre podrobnosti alebo rezerváciu:",
+ 
+  "documentsTitle":"Správa dokumentov",
+  "documentsDescription":"Pre stiahnutie certifikátu zadajte len registračný kód, alebo len rodné číslo.",
+  "documentsRegNumberLegend":"Zadajte <b>kód registrácie</b>:",
+  "documentsPersonalNumberLegend":"alebo <b>rodné číslo</b>:",
+  "downloadFileButton":"Stiahnuť dokument",
+
+  "reportsTitle":"Exporty",
+  "reportsDescription":"Zvoľte deň a kliknite na tlačidlo exportu.",
+  "reportsChooseDay":"Zvoľte deň",
+  "reportButtonPositive":"Pozitívni",
+  "reportButtonTested":"Testovaní",
+  "reportButtonNotProcessed":"Nespracovaní",
+  "reportButtonNczi":"NCZI veta (Krajský úrad)",
+  "reportButtonMissing":"Neprítomní",
+  "reportButtonAll":"Všetci",
+
+  "adminReportsTitle":"Exporty Administrátora",
+  "adminReportsDescription":"Zvoľte deň a kliknite na tlačidlo exportu.",
+  "adminReportsButton":"Všetci (anonymizovaní)",
+  "":"",
   
   "Scholtz":"Scholtz"
 }

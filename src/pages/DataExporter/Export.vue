@@ -2,13 +2,14 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Finálny export údajov</h1>
+        <h1>{{ $t("reportsTitle") }}</h1>
+        <p>{{ $t("reportsDescription") }}</p>
       </b-container>
     </div>
     <b-container>
       <b-row>
         <b-col>
-          <label for="days">Výber dňa exportu</label>
+          <label for="days">{{ $t("reportsChooseDay") }}</label>
           <b-form-select v-model="selectedDay" :options="days"></b-form-select>
         </b-col>
         <b-col>
@@ -16,7 +17,7 @@
             @click="clickExportSick"
             class="btn btn-primary my-4 form-control"
           >
-            Stiahnuť chorých
+            {{ $t("reportButtonPositive") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -33,7 +34,7 @@
             @click="clickExport"
             class="btn btn-primary my-4 form-control"
           >
-            Stiahnuť testovaných
+            {{ $t("reportButtonTested") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -50,7 +51,7 @@
             @click="clickExportInProcess"
             class="btn btn-primary my-4 form-control"
           >
-            Stiahnuť nespracovaných
+            {{ $t("reportButtonNotProcessed") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -69,7 +70,7 @@
             @click="clickProofOfWorkExport"
             class="btn btn-primary my-4 form-control"
           >
-            NCZI veta (Krajský úrad)
+            {{ $t("reportButtonNczi") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -86,7 +87,7 @@
             @click="clickListAllVisitorsWhoDidNotCome"
             class="btn btn-primary my-4 form-control"
           >
-            Export všetkých ktorí neprišli
+            {{ $t("reportButtonMissing") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -103,7 +104,7 @@
             @click="clickListAllVisitors"
             class="btn btn-primary my-4 form-control"
           >
-            Export všetkých
+            {{ $t("reportButtonAll") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"

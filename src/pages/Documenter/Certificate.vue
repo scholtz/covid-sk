@@ -2,23 +2,19 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Správca dokumentov</h1>
-        <p>
-          Správca dokumentov má možnosť načítať údaje na základe kódu
-          registrácie alebo rodného čísla a vygenerovať a vytlačiť PDF výsledku
-          testu.
-        </p>
+        <h1>{{ $t("documentsTitle") }}</h1>
+        <p>{{ $t("documentsDescription") }}</p>
       </b-container>
     </div>
     <b-container
       ><b-row>
         <b-col cols="12" md="6">
-          <label for="code">{{ $t("resultsCode") }}</label>
+          <label for="code"><div v-html="$t('documentsRegNumberLegend')" /></label>
 
           <b-input v-model="code" ref="code" />
         </b-col>
         <b-col cols="12" md="6">
-          <label for="personalNumber">Alebo r.č. alebo č. pasu</label>
+          <label for="personalNumber"><div v-html="$t('documentsPersonalNumberLegend')" /></label>
           <b-input
             v-model="personalNumber"
             ref="personalNumber"
@@ -29,7 +25,7 @@
       <b-row>
         <b-col>
           <button @click="downloadPDF" class="btn btn-primary my-4">
-            Siahnuť PDF
+            {{ $t("downloadFileButton") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
