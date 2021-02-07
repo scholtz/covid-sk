@@ -19,4 +19,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-vue.config.js
+
