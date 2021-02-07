@@ -42,7 +42,7 @@
       <bpmn:incoming>Flow_1i7ufeq</bpmn:incoming>
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="Flow_1i7ufeq" sourceRef="Activity_172g8r0" targetRef="Event_0t97e6i" />
-    <bpmn:task id="Activity_18ui9g9" name="Uloženie čiarového kódu registrácie">
+    <bpmn:task id="Activity_18ui9g9" name="Uloženie QR kódu registrácie">
       <bpmn:incoming>Flow_1g6wem1</bpmn:incoming>
       <bpmn:outgoing>Flow_14l89bs</bpmn:outgoing>
     </bpmn:task>
