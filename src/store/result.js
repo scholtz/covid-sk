@@ -221,6 +221,30 @@ export const actions = {
       { root: true }
     );
   },
+  async ListAnonymizedVisitors({ dispatch }, { day }) {
+    let name = "all-visitors-anonimized-all.csv";
+    if (day && day.length > 10) {
+      name =
+        "all-visitors-anonimized-" +
+        day.substr(0, 4) +
+        day.substr(5, 2) +
+        day.substr(8, 2) +
+        ".csv";
+    }
+    return await dispatch(
+      "axios/download",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Result/ListAnonymizedVisitors",
+        params: { day },
+        name: name,
+        type: "get",
+      },
+      { root: true }
+    );
+  },
+
   async RemoveFromDocQueue({ dispatch }, { testId }) {
     return await dispatch(
       "axios/post",
