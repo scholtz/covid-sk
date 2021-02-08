@@ -78,6 +78,11 @@ const router = new VueRouter({
       component: () => import("../pages/Registration.vue"),
     },
     {
+      path: "/offline-registration",
+      name: "OfflineRegistration",
+      component: () => import("../pages/OfflineRegistration.vue"),
+    },
+    {
       path: "/place/:placeId/:dayId/:hourId/:minuteId/:productId",
       name: "Registration",
       component: () => import("../pages/Registration.vue"),
