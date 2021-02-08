@@ -17,18 +17,9 @@
           </p>
         </b-row>
         <b-row>
-          <b-col sm="3">
+          <b-col sm="4">
             <vue-qrcode :value="barcodeValue" errorCorrectionLevel="H" />
-          </b-col>
-          <b-col sm="9">
-            <barcode
-              v-bind:value="barcodeValue"
-              format="CODE39"
-              class="barcode thumbnail"
-              :width="barcodeWidth"
-            >
-              {{ $t("regDoneError") }}
-            </barcode>
+            <h1>{{ barcodeValue }}</h1>
           </b-col>
         </b-row>
         <b-row>
@@ -92,12 +83,10 @@
 
 <script>
 import { mapMutations, mapActions } from "vuex";
-import VueBarcode from "vue-barcode";
 import VueQrcode from "vue-qrcode";
 
 export default {
   components: {
-    barcode: VueBarcode,
     VueQrcode,
   },
   data() {
