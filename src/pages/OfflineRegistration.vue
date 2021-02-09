@@ -468,7 +468,7 @@
 <script>
 import { load } from "recaptcha-v3";
 import VueQrcode from "vue-qrcode";
-import eccrypto from "eccrypto"; // for npm
+import eccrypto from "eccrypto"; 
 
 import {
   ValidationObserver,
