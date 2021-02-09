@@ -119,6 +119,12 @@ const router = new VueRouter({
       component: () => import("../pages/User.vue"),
     },
     {
+      path: "/FromBookingsReportingData",
+      name: "FromBookingsReportingData",
+      meta: { layout: "wide" },
+      component: () => import("../pages/FromBookingsReportingData.vue"),
+    },
+    {
       path: "/admin/placeManager",
       name: "AdminPlaceManager",
       meta: { layout: "wide" },
