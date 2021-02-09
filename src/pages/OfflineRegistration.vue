@@ -441,11 +441,23 @@
                 {{ $t("registrationFormGDPR") }}
               </b-form-checkbox>
             </p>
+            <div>
+              <button @click="qrCodeValue" class="btn btn-primary">
+                Generate QR code
+              </button>
+            </div>
             <vue-qrcode
-              v-if="gdpr"
-              :value="qrCodeValue()"
+              v-if="encrypted"
+              :value="encrypted"
               errorCorrectionLevel="H"
             />
+            <h2 v-if="toSend">Encrypted data</h2>
+            <table v-if="toSend">
+              <tr v-for="(value, key) in toSend" :key="key">
+                <th>{{ key }}</th>
+                <td>{{ value }}</td>
+              </tr>
+            </table>
           </b-col>
         </b-row>
       </b-container>
@@ -456,6 +468,7 @@
 <script>
 import { load } from "recaptcha-v3";
 import VueQrcode from "vue-qrcode";
+import eccrypto from "eccrypto"; // for npm
 
 import {
   ValidationObserver,
@@ -627,6 +640,8 @@ export default {
   },
   data() {
     return {
+      encrypted: "",
+      toSend: {},
       processing: false,
       school: false,
       personType: "idcard",
@@ -668,9 +683,17 @@ export default {
           text: this.$t("registrationFormInsuranceForeigner"),
         },
       ],
+      publicKey: {},
     };
   },
   mounted() {
+    this.GetPublicKey().then(r => {
+      if (r) {
+        this.publicKey = Buffer.from(r, "base64");
+        console.log("publickey", this.publicKey);
+      }
+    });
+
     if (
       !this.$store.state.slot ||
       !this.$store.state.slot.product ||
@@ -786,6 +809,7 @@ export default {
       GetPlace: "place/GetPlace",
     }),
     ...mapActions({
+      GetPublicKey: "user/GetPublicKey",
       GetSlotD: "slot/GetSlotD",
       GetSlotH: "slot/GetSlotH",
       GetSlotM: "slot/GetSlotM",
@@ -993,7 +1017,7 @@ export default {
       }
       const toSend = {
         standard: "R01",
-        time: new Date().toISOString(),
+        gdprConsent: new Date().toISOString(),
         personType: this.personType,
         passport: this.passport,
         rc: this.rc,
@@ -1010,9 +1034,42 @@ export default {
         birthDayMonth: this.birthday.month,
         birthDayYear: this.birthday.year,
       };
-      const ret = JSON.stringify(toSend);
+      let toSend2 = {};
+      for (let index in toSend) {
+        if (toSend[index]) {
+          if (index === "email" && toSend[index] === "@") continue;
+          if (index === "phone" && toSend[index] === "+421") continue;
+          toSend2[index] = toSend[index];
+        }
+      }
+      const ret = JSON.stringify(toSend2);
       console.log("toSend", toSend, ret);
-      return ret;
+      const that = this;
+      return eccrypto
+        .encrypt(this.publicKey, Buffer.from(ret))
+        .then(function (encrypted) {
+          const encryptedB64 = {
+            iv: encrypted.iv.toString("base64"),
+            ct: encrypted.ciphertext.toString("base64"),
+            epk: encrypted.ephemPublicKey.toString("base64"),
+            m: encrypted.mac.toString("base64"),
+          };
+
+          const ret = JSON.stringify({
+            standard: "R01ECIES",
+            data: encryptedB64,
+          });
+          console.log("encrypted", encrypted, encryptedB64, ret);
+          that.toSend = toSend2;
+          that.encrypted = ret;
+        });
+      // return ret;
+    },
+    _arrayBufferToBase64(buffer) {
+      return btoa(String.fromCharCode(...new Uint8Array(buffer)));
+    },
+    _base64ToArrayBuffer(base64) {
+      return Uint8Array.from(atob(base64), c => c.charCodeAt(0));
     },
   },
 };

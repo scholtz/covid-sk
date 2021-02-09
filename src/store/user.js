@@ -62,6 +62,24 @@ export const actions = {
       { root: true }
     );
   },
+  async GetPublicKey({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Visitor/GetPublicKey",
+      },
+      { root: true }
+    );
+  },
+  async GetPrivateKey({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Visitor/GetPrivateKey",
+      },
+      { root: true }
+    );
+  },
   async RefreshToken({ commit, dispatch }) {
     if (!this.state.config.VUE_CONFIG_APP_API) return;
     const token = await dispatch(
