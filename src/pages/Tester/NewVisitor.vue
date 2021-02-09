@@ -604,19 +604,24 @@ export default {
       return dirty || validated ? valid : null;
     },
     onDecodeQR(result) {
+      console.log("result", result);
       if (result) {
+        const resultJson = JSON.parse(result);
+        console.log("resultJson", resultJson);
         const encryptedContent = {
-          iv: Buffer.from(result.iv, "base64"),
-          ciphertext: Buffer.from(result.ciphertext, "base64"),
-          ephemPublicKey: Buffer.from(result.epk, "base64"),
-          mac: Buffer.from(result.m, "base64"),
+          iv: Buffer.from(resultJson.data.iv, "base64"),
+          ciphertext: Buffer.from(resultJson.data.ct, "base64"),
+          ephemPublicKey: Buffer.from(resultJson.data.epk, "base64"),
+          mac: Buffer.from(resultJson.data.m, "base64"),
         };
         const that = this;
         eccrypto
           .decrypt(this.privateKey, encryptedContent)
-          .then(function (plaintext) {
+          .then(function (plaintextstring) {
+            const plaintext = JSON.parse(plaintextstring);
             console.log("plaintext", plaintext);
             that.personType = plaintext.personType;
+            that.rc = plaintext.rc;
             that.passport = plaintext.passport;
             that.firstName = plaintext.firstName;
             that.lastName = plaintext.lastName;
