@@ -78,6 +78,11 @@ const router = new VueRouter({
       component: () => import("../pages/Registration.vue"),
     },
     {
+      path: "/offline-registration",
+      name: "OfflineRegistration",
+      component: () => import("../pages/OfflineRegistration.vue"),
+    },
+    {
       path: "/place/:placeId/:dayId/:hourId/:minuteId/:productId",
       name: "Registration",
       component: () => import("../pages/Registration.vue"),
@@ -112,6 +117,12 @@ const router = new VueRouter({
       path: "/user",
       name: "user",
       component: () => import("../pages/User.vue"),
+    },
+    {
+      path: "/FromBookingsReportingData",
+      name: "FromBookingsReportingData",
+      meta: { layout: "wide" },
+      component: () => import("../pages/FromBookingsReportingData.vue"),
     },
     {
       path: "/admin/placeManager",

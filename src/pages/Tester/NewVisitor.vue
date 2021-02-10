@@ -396,12 +396,20 @@
             </button>
           </b-col>
         </b-row>
+        <b-row v-if="privateKey">
+          <b-col>
+            <qrcode-stream @decode="onDecodeQR" />
+          </b-col>
+        </b-row>
       </b-container>
     </ValidationObserver>
   </div>
 </template>
 
 <script>
+import { QrcodeStream } from "vue-qrcode-reader";
+import eccrypto from "eccrypto";
+
 import {
   ValidationObserver,
   ValidationProvider,
@@ -464,9 +472,11 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+    QrcodeStream,
   },
   data() {
     return {
+      privateKey: null,
       personType: "idcard",
       passport: "",
       rc: "",
@@ -508,6 +518,11 @@ export default {
     };
   },
   mounted() {
+    this.GetPrivateKey().then(r => {
+      if (r) {
+        this.privateKey = Buffer.from(r, "base64");
+      }
+    });
     if (this.$store.state.result.lastVisitor) {
       this.personType = this.$store.state.result.lastVisitor.personType;
       this.passport = this.$store.state.result.lastVisitor.passport;
@@ -537,6 +552,7 @@ export default {
     }),
     ...mapActions({
       RegisterByManager: "slot/RegisterByManager",
+      GetPrivateKey: "user/GetPrivateKey",
     }),
     registerForTest() {
       const that = this;
@@ -586,6 +602,41 @@ export default {
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
+    },
+    onDecodeQR(result) {
+      console.log("result", result);
+      if (result) {
+        const resultJson = JSON.parse(result);
+        console.log("resultJson", resultJson);
+        const encryptedContent = {
+          iv: Buffer.from(resultJson.data.iv, "base64"),
+          ciphertext: Buffer.from(resultJson.data.ct, "base64"),
+          ephemPublicKey: Buffer.from(resultJson.data.epk, "base64"),
+          mac: Buffer.from(resultJson.data.m, "base64"),
+        };
+        const that = this;
+        eccrypto
+          .decrypt(this.privateKey, encryptedContent)
+          .then(function (plaintextstring) {
+            const plaintext = JSON.parse(plaintextstring);
+            console.log("plaintext", plaintext);
+            that.personType = plaintext.personType;
+            that.rc = plaintext.rc;
+            that.passport = plaintext.passport;
+            that.firstName = plaintext.firstName;
+            that.lastName = plaintext.lastName;
+            that.address.street = plaintext.street;
+            that.address.streetNo = plaintext.streetNo;
+            that.address.zip = plaintext.zip;
+            that.address.city = plaintext.city;
+            that.email = plaintext.email;
+            that.phone = plaintext.phone;
+            that.insurance = plaintext.insurance;
+            that.birthday.day = plaintext.birthDayDay;
+            that.birthday.month = plaintext.birthDayMonth;
+            that.birthday.year = plaintext.birthDayYear;
+          });
+      }
     },
   },
 };

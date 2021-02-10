@@ -1,7 +1,10 @@
 module.exports = {
   runtimeCompiler: true,
   productionSourceMap: false,
-  publicPath: "https://cdnsitestoragecovid.blob.core.windows.net/web/",
+  publicPath:
+    process.env.NODE_ENV === "production"
+      ? "https://cdnsitestoragecovid.blob.core.windows.net/web/"
+      : "/",
   css: {
     loaderOptions: {
       scss: {
