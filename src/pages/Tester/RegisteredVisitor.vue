@@ -305,6 +305,7 @@
               v-if="
                 visitor.result === 'test-not-taken' ||
                 visitor.result === 'test-not-processed' ||
+                visitor.result === 'positive-certiciate-taken' ||
                 visitor.result === 'positive-certifiacte-taken' ||
                 visitor.result === 'positive'
               "
@@ -325,7 +326,10 @@
                   }}</b-badge>
                 </span>
                 <span
-                  v-else-if="visitor.result === 'positive-certifiacte-taken'"
+                  v-else-if="
+                    visitor.result === 'positive-certifiacte-taken' ||
+                    visitor.result === 'positive-certiciate-taken'
+                  "
                 >
                   <b-badge variant="danger"
                     ><span v-html="$t('resultsTestPositiveCertNotTaken')"

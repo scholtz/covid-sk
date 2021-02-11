@@ -63,6 +63,9 @@
             <p v-if="results.state === 'positive-certifiacte-taken'">
               <span v-html="$t('resultsTestPositiveCertNotTaken')" />
             </p>
+            <p v-if="results.state === 'positive-certiciate-taken'">
+              <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+            </p>
             <p v-if="results.state === 'positive'">
               <span v-html="$t('resultsTestPositiveCertNotTaken')" />
             </p>
