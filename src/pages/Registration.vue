@@ -78,7 +78,70 @@
       </b-container>
     </div>
     <ValidationObserver>
-      <b-container class="my-4"
+      <b-container class="my-4" v-if="showEmployerForm">
+        <b-row>
+          <b-col cols="12" md="6">
+            <validation-provider
+              ref="vpEmployeeNumber"
+              name="Číslo zamestnanca"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="employeeNumber-group-1"
+                label="Číslo zamestnanca"
+                label-for="EmployeeNumber"
+              >
+                <b-form-input
+                  id="employeeNumber"
+                  name="employeeNumber"
+                  v-model="employeeNumber"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="employeeNumber-feedback"
+                />
+
+                <b-form-invalid-feedback id="firstName-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider> </b-col
+          ><b-col cols="12" md="6">
+            <validation-provider
+              ref="vpPass"
+              name="Posledné 4 znaky r.č."
+              :rules="{ required: true, min: 4 }"
+              v-slot="validationContext"
+            >
+              <b-form-group
+                id="employeePass-group-1"
+                label="Posledné 4 znaky r.č."
+                label-for="employeePass"
+              >
+                <b-form-input
+                  id="employeePass"
+                  name="employeePass"
+                  v-model="employeePass"
+                  type="password"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="employeePass-feedback"
+                />
+
+                <b-form-invalid-feedback id="firstName-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+          <b-col cols="12">
+            <button class="btn btn-primary" @click="registerForTestWithCompany">
+              Zaregistrovať sa na termín
+              <b-spinner small class="ml-1" v-if="processing" />
+            </button>
+          </b-col>
+        </b-row>
+      </b-container>
+
+      <b-container class="my-4" v-else
         ><b-row v-if="$store.state.place.currentPlace && limitReached">
           <b-col>
             <div class="alert alert-danger my-4">
@@ -626,6 +689,11 @@ export default {
       if (!this.$store.state.slot.product.product) return false;
       return this.$store.state.slot.product.product.collectInsurance === true;
     },
+    showEmployerForm() {
+      if (!this.$store.state.slot.product) return false;
+      if (!this.$store.state.slot.product.product) return false;
+      return this.$store.state.slot.product.product.employeesOnly === true;
+    },
     insuranceColumns() {
       if (this.showInsurance) {
         return 4;
@@ -748,6 +816,8 @@ export default {
           text: this.$t("registrationFormInsuranceForeigner"),
         },
       ],
+      employeeNumber: "",
+      employeePass: "",
     };
   },
   mounted() {
@@ -871,6 +941,7 @@ export default {
       GetSlotM: "slot/GetSlotM",
       ReloadSlotsM: "slot/ReloadSlotsM",
       Register: "slot/Register",
+      RegisterWithCompanyRegistration: "slot/RegisterWithCompanyRegistration",
       ListPlaceProductByPlace: "placeProvider/ListPlaceProductByPlace",
     }),
     SaveAndGoBack() {
@@ -1001,6 +1072,38 @@ export default {
                   this.birthday.month = "";
                   this.birthday.year = "";
 
+                  that.$router.push(
+                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.$store.state.slot.product.product.id}/done`
+                  );
+                }
+              });
+          } else {
+            this.processing = false;
+          }
+        });
+      });
+    },
+    registerForTestWithCompany() {
+      const that = this;
+      this.processing = true;
+
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute("submit").then(token => {
+          if (token) {
+            let toSend = {
+              employeeNumber: that.employeeNumber,
+              employeePass: that.employeePass,
+              chosenSlot: this.$route.params.minuteId,
+              chosenPlaceId: this.$route.params.placeId,
+              product: this.$store.state.slot.product.id,
+              token,
+            };
+
+            this.RegisterWithCompanyRegistration(toSend)
+              // eslint-disable-next-line
+              .then(r => {
+                this.processing = false;
+                if (r) {
                   that.$router.push(
                     `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.$store.state.slot.product.product.id}/done`
                   );

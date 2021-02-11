@@ -105,6 +105,34 @@ export const actions = {
     }
     return false;
   },
+  async RegisterWithCompanyRegistration(
+    { dispatch, commit },
+    { employeeNumber, employeePass, chosenSlot, chosenPlaceId, product, token }
+  ) {
+    const send = {
+      employeeNumber,
+      pass: employeePass,
+      chosenSlot,
+      chosenPlaceId,
+      product,
+      token,
+    };
+    const data = await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Visitor/RegisterWithCompanyRegistration",
+        params: send,
+      },
+      { root: true }
+    );
+    if (data) {
+      commit("setRegistration", data);
+      return true;
+    }
+    return false;
+  },
   async Register(
     { dispatch, commit },
     {
