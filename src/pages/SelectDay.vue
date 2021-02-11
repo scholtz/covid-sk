@@ -179,14 +179,13 @@
               class="my-4"
               v-if="!$store.state.place.currentPlace.placeProviderId"
             >
-              <h2>Čakáme, kým si odberové miesto vyberie naše služby</h2>
+              <h2>Skúste to prosím neskôr</h2>
               <p>
-                Odberové miesto zatiaľ nie je registrované v našom registračnom
-                systéme. Ak poznáte správcu tohto odberového miesta, prosím
-                dajte mu vedieť o našich službách.
+                Zvolené odberové miesto nemá v tejto chvíli naplánované žiadne termíny na testovanie.<br/>
+                Skúste to prosím neskôr.
               </p>
-              <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"
-                >16 dôvodov prečo použiť náš rezervačný systém
+              <b-link :to="`https://www.rychlejsie.sk`" class="btn btn-primary"
+                >Chcem vedieť viac o službe Rýchlejšie.sk
               </b-link>
             </b-container>
           </b-col>
