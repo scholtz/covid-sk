@@ -131,6 +131,12 @@ const router = new VueRouter({
       component: () => import("../pages/Admin/PlaceManager.vue"),
     },
     {
+      path: "/admin/dashboard",
+      name: "admindashboard",
+      meta: { layout: "wide" },
+      component: () => import("../pages/Admin/Dashboard.vue"),
+    },
+    {
       path: "/admin/users",
       name: "AdminUsers",
       meta: { layout: "wide" },
