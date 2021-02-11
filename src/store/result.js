@@ -255,12 +255,12 @@ export const actions = {
       { root: true }
     );
   },
-  async RemoveTest({ dispatch }, { code, pass }) {
+  async RemoveTest({ dispatch }, { code, pass, captcha }) {
     return await dispatch(
       "axios/post",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Result/RemoveTest",
-        params: { code, pass },
+        params: { code, pass, captcha },
       },
       { root: true }
     );

@@ -130,6 +130,7 @@
                 >
                   <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
                 </svg>
+                <b-spinner small v-if="processingRemoval" class="ml-1" />
               </b-button>
             </div>
           </b-col>
@@ -147,6 +148,7 @@ export default {
     return {
       processingRequest: false,
       processingDownload: false,
+      processingRemoval: false,
       resending: false,
       code: "",
       pass: "",
@@ -217,13 +219,25 @@ export default {
       });
     },
     removePersonalData() {
-      this.RemoveTest({ code: this.code, pass: this.pass }).then(r => {
-        if (r) {
-          this.results = "removed";
-          this.openSuccess(this.$t("resultsRegistrationRemoved"));
-        } else {
-          this.results = { state: "error" };
-        }
+      this.processingRemoval = true;
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute("submit").then(token => {
+          if (token) {
+            this.RemoveTest({
+              code: this.code,
+              pass: this.pass,
+              captcha: this.token,
+            }).then(r => {
+              if (r) {
+                this.results = "removed";
+                this.openSuccess(this.$t("resultsRegistrationRemoved"));
+              } else {
+                this.results = { state: "error" };
+              }
+              this.processingRemoval = false;
+            });
+          }
+        });
       });
     },
     clickResendResult() {
