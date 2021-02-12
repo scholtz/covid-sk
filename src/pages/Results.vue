@@ -226,7 +226,7 @@ export default {
             this.RemoveTest({
               code: this.code,
               pass: this.pass,
-              captcha: this.token,
+              captcha: token,
             }).then(r => {
               if (r) {
                 this.results = "removed";
