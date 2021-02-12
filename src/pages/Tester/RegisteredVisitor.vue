@@ -91,6 +91,22 @@
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
           </button>
+          <button
+            @click="action = 'regCodeEmployee'"
+            class="btn btn-primary my-4 mr-4"
+          >
+            Osoba s kódom zamestnanca
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
         </b-col>
       </b-row>
     </b-container>
@@ -109,6 +125,35 @@
 
           <button @click="loadByRC" class="btn btn-primary my-4">
             Overiť registráciu
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'regCodeEmployee'">
+      <b-row>
+        <b-col cols="12">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
+            Zrušiť
+          </button>
+          <label for="employeeNo">Kód zamestnanca</label>
+          <b-input v-model="employeeNo" id="employeeNo" />
+
+          <button @click="loadByEmployee" class="btn btn-primary my-4">
+            Načítať registráciu
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -215,7 +260,7 @@
               <td>Meno:</td>
               <td>{{ visitor.firstName }} {{ visitor.lastName }}</td>
             </tr>
-            <tr>
+            <tr v-if="visitor.insurance">
               <td>Poisťovňa:</td>
               <td>
                 {{ visitor.insurance }}
@@ -563,6 +608,7 @@ export default {
       state: "check",
       visitor: {},
       scanningData: "code",
+      employeeNo: "",
       code: "",
       lastCode: "",
       testingset: "",
@@ -651,6 +697,7 @@ export default {
       ConnectVisitorToTest: "result/ConnectVisitorToTest",
       GetVisitor: "result/GetVisitor",
       GetVisitorByRC: "result/GetVisitorByRC",
+      LoadVisitorByEmployeeNumber: "result/LoadVisitorByEmployeeNumber",
       ReloadMe: "user/ReloadMe",
       SetLocation: "user/SetLocation",
     }),
@@ -692,6 +739,24 @@ export default {
         }
       });
     },
+    loadByEmployee() {
+      this.visitor = {};
+      this.setLastVisitor({});
+      this.state = "loading-data";
+      this.LoadVisitorByEmployeeNumber({
+        employeeNumber: this.employeeNo,
+      }).then(r => {
+        if (r) {
+          this.employeeNo = "";
+          this.code = r.id;
+          this.visitor = r;
+          this.action = "verifyPerson";
+        } else {
+          this.state = "visitor-error";
+        }
+      });
+    },
+
     save() {
       this.ConnectVisitorToTest({
         visitorCode: this.code,
