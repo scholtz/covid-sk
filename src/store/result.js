@@ -310,6 +310,22 @@ export const actions = {
     commit("setLastVisitor", ret);
     return ret;
   },
+  async LoadVisitorByEmployeeNumber({ dispatch, commit }, { employeeNumber }) {
+    const ret = await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Visitor/LoadVisitorByEmployeeNumber",
+        params: { employeeNumber },
+      },
+      { root: true }
+    );
+
+    commit("setLastVisitor", ret);
+    return ret;
+  },
+
   async ConnectVisitorToTest({ dispatch }, { visitorCode, testCode }) {
     const data = await dispatch(
       "axios/post",
