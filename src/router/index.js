@@ -52,6 +52,11 @@ const router = new VueRouter({
       component: () => import("../pages/PlaceProvider/Terms.vue"),
     },
     {
+      path: "/gdpr",
+      name: "gdpr",
+      component: () => import("../pages/Public/GDPR.vue"),
+    },
+    {
       path: "/registerPlaceProvider",
       name: "PlaceProviderRegistration",
       component: () => import("../pages/PlaceProvider/Register.vue"),

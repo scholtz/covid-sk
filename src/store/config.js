@@ -15,6 +15,11 @@ const state = () => ({
   DEFAULT_VIEW: "table",
   INTRO_TEXT: "",
   IS_PROD: true,
+  GDRP_PREVADZKOVATEL:
+    "Scholtz & Company, j.s.a. so sídlom Švabinského 21, 851 01 Bratislava. IČO spoločnosti: 51 882 272, IČ DPH: SK2120828105",
+  GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA:
+    "Ľudovít Scholtz, kontakt: scholtzandcojsa@gmail.com, Telefón +420 776 082 012",
+  GDRP_SPROSTREDKOVATEL: "",
 });
 
 const mutations = {
@@ -26,6 +31,16 @@ const mutations = {
     }
     if (value.INTRO_TEXT) {
       state.INTRO_TEXT = value.INTRO_TEXT;
+    }
+    if (value.GDRP_PREVADZKOVATEL) {
+      state.GDRP_PREVADZKOVATEL = value.GDRP_PREVADZKOVATEL;
+    }
+    if (value.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA) {
+      state.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA =
+        value.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA;
+    }
+    if (value.GDRP_SPROSTREDKOVATEL) {
+      state.GDRP_SPROSTREDKOVATEL = value.GDRP_SPROSTREDKOVATEL;
     }
     if (value.IS_PROD !== undefined) {
       state.IS_PROD = value.IS_PROD;
