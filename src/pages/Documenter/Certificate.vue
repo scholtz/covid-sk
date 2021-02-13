@@ -9,12 +9,16 @@
     <b-container
       ><b-row>
         <b-col cols="12" md="6">
-          <label for="code"><div v-html="$t('documentsRegNumberLegend')" /></label>
+          <label for="code"
+            ><div v-html="$t('documentsRegNumberLegend')"
+          /></label>
 
           <b-input v-model="code" ref="code" />
         </b-col>
         <b-col cols="12" md="6">
-          <label for="personalNumber"><div v-html="$t('documentsPersonalNumberLegend')" /></label>
+          <label for="personalNumber"
+            ><div v-html="$t('documentsPersonalNumberLegend')"
+          /></label>
           <b-input
             v-model="personalNumber"
             ref="personalNumber"
@@ -85,7 +89,12 @@
 import { mapActions } from "vuex";
 export default {
   data() {
-    return { visitor: {}, processingDownload: false };
+    return {
+      personalNumber: "",
+      code: "",
+      visitor: {},
+      processingDownload: false,
+    };
   },
 
   methods: {
@@ -101,7 +110,7 @@ export default {
     downloadPDF() {
       this.processingDownload = true;
       this.PrintCertificateByDocumentManager({
-        registrationCode: this.registrationCode,
+        registrationCode: this.code,
         personalNumber: this.personalNumber,
       }).then(r => {
         if (r) {
