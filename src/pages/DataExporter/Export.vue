@@ -26,7 +26,7 @@
               role="presentation"
               focusable="false"
             ></svg>
-            <b-spinner small v-if="loading1" />
+            <b-spinner small v-if="loading0" />
           </button>
         </b-col>
         <b-col>
