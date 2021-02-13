@@ -248,7 +248,7 @@ export default {
             this.ResendResult({
               code: this.code,
               pass: this.pass,
-              captcha: this.captcha,
+              captcha: token,
             }).then(r => {
               this.resending = false;
               if (r) {
