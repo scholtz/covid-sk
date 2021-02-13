@@ -181,7 +181,8 @@
             >
               <h2>Skúste to prosím neskôr</h2>
               <p>
-                Zvolené odberové miesto nemá v tejto chvíli naplánované žiadne termíny na testovanie.<br/>
+                Zvolené odberové miesto nemá v tejto chvíli naplánované žiadne
+                termíny na testovanie.<br />
                 Skúste to prosím neskôr.
               </p>
               <b-link :to="`https://www.rychlejsie.sk`" class="btn btn-primary"
@@ -260,7 +261,7 @@
                 >
                   {{ hour.description }}
                   <div style="font-size: smaller">
-                    ({{ hour.registrations }})
+                    ({{ hour.registrations }} / {{ hourLimit(hour) }})
                   </div>
                 </span>
               </span>
@@ -301,7 +302,8 @@
                 >
                   {{ minute.description }}
                   <div style="font-size: smaller">
-                    ({{ minute.registrations }})
+                    ({{ minute.registrations }} /
+                    {{ $store.state.place.currentPlace.limitPer5MinSlot }})
                   </div>
                 </b-link>
               </span>
@@ -487,6 +489,27 @@ export default {
       }
 
       return false;
+    },
+
+    hourLimit(slotsH) {
+      let limit = this.$store.state.place.currentPlace.limitPer1HourSlot;
+
+      for (const index in this.$store.state.place.currentPlace
+        .otherLimitations) {
+        const limitation = this.$store.state.place.currentPlace
+          .otherLimitations[index];
+        const now = new Date(this.currentSlotD.time);
+        const hour = slotsH.description.substr(0, 2);
+        now.setUTCHours(hour - 1);
+        if (
+          moment(limitation.from).isSameOrBefore(now) &&
+          moment(limitation.until).isAfter(now)
+        ) {
+          if (limitation.hourLimit <= limit) limit = limitation.hourLimit;
+        }
+      }
+
+      return limit;
     },
   },
 };
