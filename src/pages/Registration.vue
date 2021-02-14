@@ -83,13 +83,13 @@
           <b-col cols="12" md="6">
             <validation-provider
               ref="vpEmployeeNumber"
-              name="Číslo zamestnanca"
+              name="Osobné číslo zamestnanca"
               :rules="{ required: true }"
               v-slot="validationContext"
             >
               <b-form-group
                 id="employeeNumber-group-1"
-                label="Číslo zamestnanca"
+                label="Osobné číslo zamestnanca"
                 label-for="EmployeeNumber"
               >
                 <b-form-input
@@ -108,13 +108,13 @@
           ><b-col cols="12" md="6">
             <validation-provider
               ref="vpPass"
-              name="Posledné 4 znaky r.č."
+              name="Posledné 4 znaky rodného čísla / pasu"
               :rules="{ required: true, min: 4 }"
               v-slot="validationContext"
             >
               <b-form-group
                 id="employeePass-group-1"
-                label="Posledné 4 znaky r.č."
+                label="Posledné 4 znaky rodného čísla / pasu"
                 label-for="employeePass"
               >
                 <b-form-input
