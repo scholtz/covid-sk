@@ -3,6 +3,7 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>Zaregistrovaný návštevník</h1>
+        <h3>Akým spôsobom chcete zadať zákazníka?</h3>
       </b-container>
     </div>
     <b-container class="my-4" v-if="action === 'select'">
@@ -37,7 +38,7 @@
       <b-row>
         <b-col>
           <button @click="action = 'rc'" class="btn btn-primary my-4 mr-4">
-            Načítať rodné číslo
+            Rodné číslo
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -66,20 +67,7 @@
             @click="action = 'regCodeQR'"
             class="btn btn-primary my-4 mr-4"
           >
-            Načítať kód registrácie QR kódom
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
-          <button @click="newVisitor()" class="btn btn-primary my-4 mr-4">
-            Osoba bez registrácie
+            Kód registrácie / QR kód
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -95,7 +83,7 @@
             @click="action = 'regCodeEmployee'"
             class="btn btn-primary my-4 mr-4"
           >
-            Osoba s kódom zamestnanca
+            Osobný kód zamestnanca
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -107,6 +95,20 @@
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
           </button>
+          <button @click="newVisitor()" class="btn btn-secondary my-4 mr-4">
+            Osoba bez registrácie
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+
         </b-col>
       </b-row>
     </b-container>
@@ -149,7 +151,7 @@
           >
             Zrušiť
           </button>
-          <label for="employeeNo">Kód zamestnanca</label>
+          <label for="employeeNo">Osobný kód zamestnanca</label>
           <b-input v-model="employeeNo" id="employeeNo" />
 
           <button @click="loadByEmployee" class="btn btn-primary my-4">
