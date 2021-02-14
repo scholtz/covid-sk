@@ -332,6 +332,11 @@ export default {
           sortable: true,
         },
         {
+          label: "Role",
+          key: "role",
+          sortable: true,
+        },
+        {
           label: "Akcie",
           key: "actions",
           sortable: false,
