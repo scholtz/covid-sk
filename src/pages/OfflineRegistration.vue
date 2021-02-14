@@ -442,17 +442,31 @@
               </b-form-checkbox>
             </p>
             <div>
+              <button
+                v-if="allowUnencryptedRegistration"
+                @click="qrCodeValueUnencrypted"
+                class="btn btn-primary mr-2"
+              >
+                Vytvoriť nezašifrovaný QR kód
+              </button>
               <button @click="qrCodeValue" class="btn btn-primary">
-                Generate QR code
+                Vytvoriť zašifrovaný QR kód
               </button>
             </div>
+            <p v-if="allowUnencryptedRegistration">
+              Šifrovaný QR kód je vačší a pri zlých svetelných podmienkach sa
+              môže pomalšie alebo horšie načítať obslužnému personálu alebo sa
+              nemusí načítať vôbec. V takom prípade bude musieť obslužný
+              personál všetky údaje vyplniť sám a celý proces sa spomalí.
+              Odporúčame použiť nešifrovaný QR kód ak si ho ukladať nebudete.
+            </p>
             <vue-qrcode
               v-if="encrypted"
               :value="encrypted"
               errorCorrectionLevel="H"
             />
-            <h2 v-if="toSend">Encrypted data</h2>
-            <table v-if="toSend">
+            <h2 v-if="toSend && toSend.gdprConsent">Uložené dáta v QR kóde</h2>
+            <table v-if="toSend && toSend.gdprConsent">
               <tr v-for="(value, key) in toSend" :key="key">
                 <th>{{ key }}</th>
                 <td>{{ value }}</td>
@@ -468,7 +482,7 @@
 <script>
 import { load } from "recaptcha-v3";
 import VueQrcode from "vue-qrcode";
-import eccrypto from "eccrypto"; 
+import eccrypto from "eccrypto";
 
 import {
   ValidationObserver,
@@ -640,6 +654,7 @@ export default {
   },
   data() {
     return {
+      allowUnencryptedRegistration: false,
       encrypted: "",
       toSend: {},
       processing: false,
@@ -1007,9 +1022,7 @@ export default {
           }
         });
     },
-    qrCodeValue() {
-      if (!this.gdpr) return "";
-      console.log("qrCodeValue");
+    qrCodeRaw() {
       if (this.personType == "foreign") {
         this.rc = "";
       } else {
@@ -1042,8 +1055,16 @@ export default {
           toSend2[index] = toSend[index];
         }
       }
-      const ret = JSON.stringify(toSend2);
-      console.log("toSend", toSend, ret);
+      this.toSend = toSend2;
+      return JSON.stringify(toSend2);
+    },
+    qrCodeValueUnencrypted() {
+      this.encrypted = this.qrCodeRaw();
+    },
+    qrCodeValue() {
+      if (!this.gdpr) return "";
+
+      const ret = this.qrCodeRaw();
       const that = this;
       return eccrypto
         .encrypt(this.publicKey, Buffer.from(ret))
@@ -1060,7 +1081,7 @@ export default {
             data: encryptedB64,
           });
           console.log("encrypted", encrypted, encryptedB64, ret);
-          that.toSend = toSend2;
+
           that.encrypted = ret;
         });
       // return ret;

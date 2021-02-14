@@ -603,39 +603,51 @@ export default {
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
     },
+    decryptR01Standard(plaintext) {
+      this.personType = plaintext.personType;
+      this.rc = plaintext.rc;
+      this.passport = plaintext.passport;
+      this.firstName = plaintext.firstName;
+      this.lastName = plaintext.lastName;
+      this.address.street = plaintext.street;
+      this.address.streetNo = plaintext.streetNo;
+      this.address.zip = plaintext.zip;
+      this.address.city = plaintext.city;
+      this.email = plaintext.email;
+      this.phone = plaintext.phone;
+      this.insurance = plaintext.insurance;
+      this.birthday.day = plaintext.birthDayDay;
+      this.birthday.month = plaintext.birthDayMonth;
+      this.birthday.year = plaintext.birthDayYear;
+    },
+
+    decryptR01ECIESStandard(resultJson) {
+      const encryptedContent = {
+        iv: Buffer.from(resultJson.data.iv, "base64"),
+        ciphertext: Buffer.from(resultJson.data.ct, "base64"),
+        ephemPublicKey: Buffer.from(resultJson.data.epk, "base64"),
+        mac: Buffer.from(resultJson.data.m, "base64"),
+      };
+      const that = this;
+      eccrypto
+        .decrypt(this.privateKey, encryptedContent)
+        .then(function (plaintextstring) {
+          const plaintext = JSON.parse(plaintextstring);
+          if (plaintext.standard === "R01") {
+            that.decryptR01Standard(plaintext);
+          }
+        });
+    },
     onDecodeQR(result) {
       console.log("result", result);
       if (result) {
         const resultJson = JSON.parse(result);
         console.log("resultJson", resultJson);
-        const encryptedContent = {
-          iv: Buffer.from(resultJson.data.iv, "base64"),
-          ciphertext: Buffer.from(resultJson.data.ct, "base64"),
-          ephemPublicKey: Buffer.from(resultJson.data.epk, "base64"),
-          mac: Buffer.from(resultJson.data.m, "base64"),
-        };
-        const that = this;
-        eccrypto
-          .decrypt(this.privateKey, encryptedContent)
-          .then(function (plaintextstring) {
-            const plaintext = JSON.parse(plaintextstring);
-            console.log("plaintext", plaintext);
-            that.personType = plaintext.personType;
-            that.rc = plaintext.rc;
-            that.passport = plaintext.passport;
-            that.firstName = plaintext.firstName;
-            that.lastName = plaintext.lastName;
-            that.address.street = plaintext.street;
-            that.address.streetNo = plaintext.streetNo;
-            that.address.zip = plaintext.zip;
-            that.address.city = plaintext.city;
-            that.email = plaintext.email;
-            that.phone = plaintext.phone;
-            that.insurance = plaintext.insurance;
-            that.birthday.day = plaintext.birthDayDay;
-            that.birthday.month = plaintext.birthDayMonth;
-            that.birthday.year = plaintext.birthDayYear;
-          });
+        if (resultJson.standard === "R01ECIES") {
+          this.decryptR01ECIESStandard(resultJson);
+        } else if (resultJson.standard === "R01") {
+          this.decryptR01Standard(resultJson);
+        }
       }
     },
   },
