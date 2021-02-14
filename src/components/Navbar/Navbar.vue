@@ -169,7 +169,10 @@
         ><h2 class="text-center">Prejsť na {{ $store.state.config.PROD }}</h2>
       </a>
     </div>
-    <div class="alert alert-danger m-0" v-if="$store.state.config.SHOW_DANGER">
+    <div
+      class="alert alert-danger m-0"
+      v-if="$store.state.config.SHOW_DANGER && !$store.state.user.auth"
+    >
       <h2 class="text-center">
         <b>{{ $store.state.config.SHOW_DANGER }}</b>
       </h2>
