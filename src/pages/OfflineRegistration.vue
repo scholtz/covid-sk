@@ -654,7 +654,7 @@ export default {
   },
   data() {
     return {
-      allowUnencryptedRegistration: false,
+      allowUnencryptedRegistration: true,
       encrypted: "",
       toSend: {},
       processing: false,
@@ -1080,7 +1080,6 @@ export default {
             standard: "R01ECIES",
             data: encryptedB64,
           });
-          console.log("encrypted", encrypted, encryptedB64, ret);
 
           that.encrypted = ret;
         });

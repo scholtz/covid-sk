@@ -391,12 +391,15 @@
         </b-row>
         <b-row>
           <b-col cols="12" class="my-2">
-            <button class="btn btn-primary" @click="registerForTest">
+            <button class="btn btn-primary mr-2" @click="registerForTest">
               Zaregistrovať / upraviť klienta
+            </button>
+            <button class="btn btn-primary" @click="loadQR = true">
+              Načítať QR kód
             </button>
           </b-col>
         </b-row>
-        <b-row v-if="privateKey">
+        <b-row v-if="privateKey && loadQR">
           <b-col>
             <qrcode-stream @decode="onDecodeQR" />
           </b-col>
@@ -462,7 +465,6 @@ extend("phone", {
     valTrim = valTrim.substr(1);
 
     const ret = valTrim.match(/^\d{12}$/);
-    console.log("valTrim", valTrim, ret);
     return ret;
   },
 });
@@ -476,6 +478,7 @@ export default {
   },
   data() {
     return {
+      loadQR: false,
       privateKey: null,
       personType: "idcard",
       passport: "",
@@ -604,6 +607,7 @@ export default {
       return dirty || validated ? valid : null;
     },
     decryptR01Standard(plaintext) {
+      this.loadQR = false;
       this.personType = plaintext.personType;
       this.rc = plaintext.rc;
       this.passport = plaintext.passport;
@@ -639,10 +643,10 @@ export default {
         });
     },
     onDecodeQR(result) {
-      console.log("result", result);
+
       if (result) {
         const resultJson = JSON.parse(result);
-        console.log("resultJson", resultJson);
+
         if (resultJson.standard === "R01ECIES") {
           this.decryptR01ECIESStandard(resultJson);
         } else if (resultJson.standard === "R01") {
