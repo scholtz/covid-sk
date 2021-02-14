@@ -394,7 +394,11 @@
             <button class="btn btn-primary mr-2" @click="registerForTest">
               Zaregistrovať / upraviť klienta
             </button>
-            <button class="btn btn-primary" @click="loadQR = true">
+            <button
+              v-if="privateKey && !loadQR"
+              class="btn btn-primary"
+              @click="loadQR = true"
+            >
               Načítať QR kód
             </button>
           </b-col>
@@ -402,6 +406,9 @@
         <b-row v-if="privateKey && loadQR">
           <b-col>
             <qrcode-stream @decode="onDecodeQR" />
+            <button class="btn btn-primary" @click="loadQR = false">
+              Vypnúť kameru
+            </button>
           </b-col>
         </b-row>
       </b-container>
@@ -643,7 +650,6 @@ export default {
         });
     },
     onDecodeQR(result) {
-
       if (result) {
         const resultJson = JSON.parse(result);
 
