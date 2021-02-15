@@ -116,6 +116,21 @@ export const actions = {
     );
   },
 
+  async CompanyRegistrationsExport({ dispatch }) {
+    let name = "company-registrations.csv";
+
+    return await dispatch(
+      "axios/download",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Result/CompanyRegistrationsExport",
+        name: name,
+        type: "get",
+      },
+      { root: true }
+    );
+  },
   async ListPPInvites({ dispatch }, { placeProviderId }) {
     return await dispatch(
       "axios/get",

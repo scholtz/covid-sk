@@ -12,6 +12,16 @@
             Zobraziť verziu pre právnikov
           </b-form-checkbox>
           <b-card no-body class="p-2 my-1">
+            <div v-if="$store.state.config.GDRP_PDF">
+              <b-card-title>
+                <h2>Upresnenie pre zamestnancov</h2>
+              </b-card-title>
+              <div class="short my-3 py-1">
+                <a :href="'./files/' + $store.state.config.GDRP_PDF">{{
+                  $store.state.config.GDRP_PDF
+                }}</a>
+              </div>
+            </div>
             <b-card-title>
               <h2>Prečo si od Vás pýtame osobné údaje?</h2>
             </b-card-title>
@@ -86,7 +96,8 @@
               class="short my-3 py-1"
               v-if="$store.state.config.GDRP_SPROSTREDKOVATEL"
             >
-              Prevádzkovateľ je {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
+              Sprostredkovateľ je
+              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
             </div>
             <div class="long bg-light col-11 offset-1 my-3 py-1" v-if="full">
               V súvislosti s § 19 Poskytované informácie, ak osobné údaje sú
