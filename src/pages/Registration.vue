@@ -132,8 +132,22 @@
               </b-form-group>
             </validation-provider>
           </b-col>
+
           <b-col cols="12">
-            <button class="btn btn-primary" @click="registerForTestWithCompany">
+            <b-form-checkbox v-model="gdpr">
+              Súhlasím so spracovaním mojich osobných údajov za účelom ich
+              poskytnutia sprostredkovateľovi – spoločnosť
+              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }} za účelom
+              testovania na ochorenie COVID-19. Podrobné informácie o spracovaní
+              osobných údajov nájdete <a href="#gdpr">tu</a>.
+            </b-form-checkbox>
+          </b-col>
+          <b-col cols="12">
+            <button
+              class="btn btn-primary"
+              @click="registerForTestWithCompany"
+              :disabled="!gdpr"
+            >
               Zaregistrovať sa na termín
               <b-spinner small class="ml-1" v-if="processing" />
             </button>

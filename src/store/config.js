@@ -20,6 +20,7 @@ const state = () => ({
   GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA:
     "Ľudovít Scholtz, kontakt: scholtzandcojsa@gmail.com, Telefón +420 776 082 012",
   GDRP_SPROSTREDKOVATEL: "",
+  GDRP_PDF: "",
 });
 
 const mutations = {
@@ -38,6 +39,9 @@ const mutations = {
     if (value.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA) {
       state.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA =
         value.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA;
+    }
+    if (value.GDRP_PDF) {
+      state.GDRP_PDF = value.GDRP_PDF;
     }
     if (value.GDRP_SPROSTREDKOVATEL) {
       state.GDRP_SPROSTREDKOVATEL = value.GDRP_SPROSTREDKOVATEL;
