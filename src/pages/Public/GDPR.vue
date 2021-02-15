@@ -17,7 +17,7 @@
                 <h2>Upresnenie pre zamestnancov</h2>
               </b-card-title>
               <div class="short my-3 py-1">
-                <a :href="$store.state.config.GDRP_PDF">{{
+                <a :href="'./files/' + $store.state.config.GDRP_PDF">{{
                   $store.state.config.GDRP_PDF
                 }}</a>
               </div>
