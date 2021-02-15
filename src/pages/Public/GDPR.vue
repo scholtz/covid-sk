@@ -96,7 +96,8 @@
               class="short my-3 py-1"
               v-if="$store.state.config.GDRP_SPROSTREDKOVATEL"
             >
-              Prevádzkovateľ je {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
+              Sprostredkovateľ je
+              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
             </div>
             <div class="long bg-light col-11 offset-1 my-3 py-1" v-if="full">
               V súvislosti s § 19 Poskytované informácie, ak osobné údaje sú
