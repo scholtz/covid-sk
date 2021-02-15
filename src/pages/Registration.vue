@@ -134,12 +134,12 @@
           </b-col>
 
           <b-col cols="12">
-            <b-form-checkbox v-model="gdpr">
+            <b-form-checkbox v-model="gdpr" class="my-2">
               Súhlasím so spracovaním mojich osobných údajov za účelom ich
               poskytnutia sprostredkovateľovi – spoločnosť
               {{ $store.state.config.GDRP_SPROSTREDKOVATEL }} za účelom
               testovania na ochorenie COVID-19. Podrobné informácie o spracovaní
-              osobných údajov nájdete <a href="#gdpr">tu</a>.
+              osobných údajov nájdete <a target="_blank" href="/#/gdpr">tu</a>.
             </b-form-checkbox>
           </b-col>
           <b-col cols="12">
