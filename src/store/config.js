@@ -13,6 +13,7 @@ const state = () => ({
   fetched: false,
   DEFAULT_HIDE_HEALTH_STATUS: false,
   DEFAULT_VIEW: "table",
+  HIDE_QUEUE: false,
   INTRO_TEXT: "",
   IS_PROD: true,
   GDRP_PREVADZKOVATEL:
@@ -39,6 +40,9 @@ const mutations = {
     if (value.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA) {
       state.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA =
         value.GDRP_PREVADZKOVATEL_ZODPOVEDNA_OSOBA;
+    }
+    if (value.HIDE_QUEUE) {
+      state.HIDE_QUEUE = value.HIDE_QUEUE;
     }
     if (value.GDRP_PDF) {
       state.GDRP_PDF = value.GDRP_PDF;

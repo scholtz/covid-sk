@@ -105,7 +105,9 @@
             <b-nav-item to="/register">{{
               $t("navBarPublicRegister")
             }}</b-nav-item>
-            <b-nav-item to="/enqueued">Som v rade</b-nav-item>
+            <b-nav-item to="/enqueued" v-if="!$store.state.config.HIDE_QUEUE"
+              >Som v rade</b-nav-item
+            >
             <b-nav-item to="/results"
               ><b>{{ $t("navBarPublicResults") }}</b></b-nav-item
             >
