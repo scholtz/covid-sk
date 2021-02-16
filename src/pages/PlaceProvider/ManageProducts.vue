@@ -138,7 +138,7 @@
                 <validation-provider name="Iba pre našich zamestnancov">
                   <b-form-group
                     id="employeesOnly-group-1"
-                    label="Iba pre našich zamestnancov"
+                    label="Iba pre našich zamestnancov - predvyplnené"
                     label-for="employeesOnly"
                     label-cols-sm="4"
                     label-cols-lg="2"
@@ -147,6 +147,23 @@
                       id="employeesOnly"
                       name="employeesOnly"
                       v-model="product.employeesOnly"
+                    />
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider
+                  name="Iba pre našich zamestnancov - registrácia zamestnancom"
+                >
+                  <b-form-group
+                    id="employeesRegistration-group-1"
+                    label="Iba pre našich zamestnancov  - registrácia zamestnancom"
+                    label-for="employeesRegistration"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-checkbox
+                      id="employeesRegistration"
+                      name="employeesRegistration"
+                      v-model="product.employeesRegistration"
                     />
                   </b-form-group>
                 </validation-provider>
@@ -636,6 +653,7 @@ export default {
         category: "",
         insuranceOnly: false,
         employeesOnly: false,
+        employeesRegistration: false,
         schoolOnly: false,
         collectInsurance: true,
       },
@@ -823,6 +841,7 @@ export default {
         category: "",
         insuranceOnly: false,
         employeesOnly: false,
+        employeesRegistration: false,
         schoolOnly: false,
         collectInsurance: true,
       };

@@ -585,6 +585,42 @@
                 {{ $t("registrationSchoolRequiredText") }}
               </b-form-checkbox>
             </p>
+            <p
+              v-if="
+                $store.state.slot.product &&
+                $store.state.slot.product.product &&
+                $store.state.slot.product.product.employeesRegistration
+              "
+            >
+              <b-form-checkbox v-model="employee">
+                Som zamestnanec firmy {{ $store.state.config.COMPANY_NAME }}
+              </b-form-checkbox>
+              <validation-provider
+                v-if="employee"
+                ref="vpEmployeeId"
+                name="Osobné číslo zamestnanca"
+                rules="required"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="employeeId-group-1"
+                  label="Osobné číslo zamestnanca"
+                  label-for="employeeId"
+                >
+                  <b-form-input
+                    id="employeeId"
+                    name="employeeId"
+                    v-model="employeeId"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="employeeId-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="employeeId-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </p>
             <p>
               <b-form-checkbox v-model="gdpr" id="gdpr">
                 <div v-html="$t('registrationFormGDPR')" />
@@ -598,7 +634,9 @@
               :disabled="
                 !gdpr ||
                 processing ||
-                ($store.state.slot.product.product.schoolOnly && !school)
+                ($store.state.slot.product.product.schoolOnly && !school) ||
+                ($store.state.slot.product.product.employeesRegistration &&
+                  (!employee || !employeeId))
               "
               @click="registerForTest"
               variant="primary"
@@ -789,6 +827,8 @@ export default {
   },
   data() {
     return {
+      employee: false,
+      employeeId: "",
       processing: false,
       school: false,
       personType: "idcard",
@@ -926,6 +966,7 @@ export default {
       this.email = this.$store.state.slot.registrationAttempt.email;
       this.phone = this.$store.state.slot.registrationAttempt.phone;
       this.insurance = this.$store.state.slot.registrationAttempt.insurance;
+      this.employeeId = this.$store.state.slot.registrationAttempt.employeeId;
     }
 
     if (!this.personType) this.personType = "idcard";
@@ -965,6 +1006,7 @@ export default {
     },
     saveData() {
       const toSend = {
+        employeeId: this.employeeId,
         personType: this.personType,
         passport: this.passport,
         rc: this.rc,
@@ -1009,6 +1051,7 @@ export default {
               this.passport = "";
             }
             let toSend = {
+              employeeId: this.employeeId,
               personType: this.personType,
               passport: this.passport,
               rc: this.rc,
@@ -1045,6 +1088,7 @@ export default {
                 this.processing = false;
                 if (r) {
                   toSend = {
+                    employeeId: this.employeeId,
                     personType: this.personType,
                     passport: "",
                     rc: "",
