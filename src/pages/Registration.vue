@@ -587,7 +587,7 @@
             </p>
             <p>
               <b-form-checkbox v-model="gdpr" id="gdpr">
-                {{ $t("registrationFormGDPR") }}
+                <div v-html="$t('registrationFormGDPR')" />
               </b-form-checkbox>
             </p>
 
