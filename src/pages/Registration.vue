@@ -1012,7 +1012,6 @@ export default {
     },
     saveData() {
       const toSend = {
-        employeeId: this.employeeId,
         personType: this.personType,
         passport: this.passport,
         rc: this.rc,
@@ -1028,6 +1027,7 @@ export default {
         chosenSlot: this.$route.params.minuteId,
         chosenPlaceId: this.$route.params.placeId,
         product: this.productId,
+        employeeId: this.employeeId,
         address:
           this.address.street +
           " " +
@@ -1057,7 +1057,6 @@ export default {
               this.passport = "";
             }
             let toSend = {
-              employeeId: this.employeeId,
               personType: this.personType,
               passport: this.passport,
               rc: this.rc,
@@ -1073,6 +1072,7 @@ export default {
               chosenSlot: this.$route.params.minuteId,
               chosenPlaceId: this.$route.params.placeId,
               product: this.productId,
+              employeeId: this.employeeId,
               birthDayDay: this.birthday.day,
               birthDayMonth: this.birthday.month,
               birthDayYear: this.birthday.year,
@@ -1094,7 +1094,6 @@ export default {
                 this.processing = false;
                 if (r) {
                   toSend = {
-                    employeeId: this.employeeId,
                     personType: this.personType,
                     passport: "",
                     rc: "",
@@ -1110,6 +1109,7 @@ export default {
                     chosenSlot: this.$route.params.minuteId,
                     chosenPlaceId: this.$route.params.placeId,
                     product: this.productId,
+                    employeeId: this.employeeId,
                     birthDayDay: "",
                     birthDayMonth: "",
                     birthDayYear: "",
