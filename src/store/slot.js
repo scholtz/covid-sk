@@ -155,6 +155,7 @@ export const actions = {
       birthDayMonth,
       birthDayYear,
       product,
+      employeeId,
       token,
     }
   ) {
@@ -178,6 +179,7 @@ export const actions = {
       birthDayMonth,
       birthDayYear,
       product,
+      employeeId,
       token,
     };
     const data = await dispatch(

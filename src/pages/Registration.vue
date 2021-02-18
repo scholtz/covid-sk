@@ -736,6 +736,12 @@ export default {
     ValidationObserver,
   },
   computed: {
+    productId() {
+      if (this.$route.params.productId) {
+        return this.$route.params.productId;
+      }
+      return this.$store.state.slot.product.product.id;
+    },
     showInsurance() {
       if (!this.$store.state.slot.product) return false;
       if (!this.$store.state.slot.product.product) return false;
@@ -1006,7 +1012,6 @@ export default {
     },
     saveData() {
       const toSend = {
-        employeeId: this.employeeId,
         personType: this.personType,
         passport: this.passport,
         rc: this.rc,
@@ -1021,7 +1026,8 @@ export default {
         insurance: this.insurance,
         chosenSlot: this.$route.params.minuteId,
         chosenPlaceId: this.$route.params.placeId,
-        product: this.$store.state.slot.product.id,
+        product: this.productId,
+        employeeId: this.employeeId,
         address:
           this.address.street +
           " " +
@@ -1051,7 +1057,6 @@ export default {
               this.passport = "";
             }
             let toSend = {
-              employeeId: this.employeeId,
               personType: this.personType,
               passport: this.passport,
               rc: this.rc,
@@ -1066,10 +1071,11 @@ export default {
               insurance: this.insurance,
               chosenSlot: this.$route.params.minuteId,
               chosenPlaceId: this.$route.params.placeId,
+              product: this.productId,
+              employeeId: this.employeeId,
               birthDayDay: this.birthday.day,
               birthDayMonth: this.birthday.month,
               birthDayYear: this.birthday.year,
-              product: this.$store.state.slot.product.id,
               address:
                 this.address.street +
                 " " +
@@ -1088,7 +1094,6 @@ export default {
                 this.processing = false;
                 if (r) {
                   toSend = {
-                    employeeId: this.employeeId,
                     personType: this.personType,
                     passport: "",
                     rc: "",
@@ -1103,10 +1108,11 @@ export default {
                     insurance: this.insurance,
                     chosenSlot: this.$route.params.minuteId,
                     chosenPlaceId: this.$route.params.placeId,
+                    product: this.productId,
+                    employeeId: this.employeeId,
                     birthDayDay: "",
                     birthDayMonth: "",
                     birthDayYear: "",
-                    product: this.$store.state.slot.product.id,
                     address:
                       this.address.street +
                       " " +
@@ -1131,7 +1137,7 @@ export default {
                   this.birthday.year = "";
 
                   that.$router.push(
-                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.$store.state.slot.product.product.id}/done`
+                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.productId}/done`
                   );
                 }
               });
@@ -1153,7 +1159,7 @@ export default {
               employeePass: that.employeePass,
               chosenSlot: this.$route.params.minuteId,
               chosenPlaceId: this.$route.params.placeId,
-              product: this.$store.state.slot.product.id,
+              product: this.productId,
               token,
             };
 
@@ -1163,7 +1169,7 @@ export default {
                 this.processing = false;
                 if (r) {
                   that.$router.push(
-                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.$store.state.slot.product.product.id}/done`
+                    `/place/${this.$route.params.placeId}/${this.$route.params.dayId}/${this.$route.params.hourId}/${this.$route.params.minuteId}/${this.productId}/done`
                   );
                 }
               });

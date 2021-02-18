@@ -56,6 +56,10 @@
                 <b-th>{{ $t("regDoneAddress") }}</b-th
                 ><b-td>{{ $store.state.slot.registration.address }}</b-td>
               </b-tr>
+              <b-tr v-if="$store.state.slot.registration.employeeId">
+                <b-th>Osobné číslo zamestnanca</b-th
+                ><b-td>{{ $store.state.slot.registration.employeeId }}</b-td>
+              </b-tr>
             </b-table-simple>
           </b-col>
         </b-row>
