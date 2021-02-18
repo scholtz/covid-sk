@@ -186,7 +186,7 @@
                 Skúste to prosím neskôr.
               </p>
               <b-link :to="`https://www.rychlejsie.sk`" class="btn btn-primary"
-                >Chcem vedieť viac o službe Rýchlejšie.sk
+                >Viac o službe Rýchlejšie.sk
               </b-link>
             </b-container>
           </b-col>

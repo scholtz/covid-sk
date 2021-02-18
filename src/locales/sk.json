@@ -179,13 +179,13 @@
   "selectHourTitle":"Kliknutím zvoľte hodinu testu (v zátvorke sú už obsadené miesta)",
   "selectHourYourSelection":"Vybrali ste si: {place}, dňa {day}",
   "selectHourQuestion":"Kliknutím zvoľte hodinu testu",
-  "selectHourHelp":"(v zátvorke sú uvedené už obsadené miesta)",
+  "selectHourHelp":"(počet obsadených miest / celkový počet miest)",
   "selectHourButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "selectMinuteTitle":"Vyberte si presný čas testu",
   "selectMinuteYourSelection":"Vybrali ste si: {place}, dňa {day} medzi {hour}",
   "selectMinuteQuestion":"Vyberte si presný čas testovania",
-  "selectMinuteHelp":"(v zátvorke sú uvedené už obsadené miesta)",
+  "selectMinuteHelp":"(počet obsadených miest / celkový počet miest)",
   "selectMinuteButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
   
   "registrationTitle":"Posledný krok registrácie - Osobné údaje",
