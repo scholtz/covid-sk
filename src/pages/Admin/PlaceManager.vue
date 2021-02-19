@@ -67,6 +67,10 @@
                   id="description"
                 />
               </b-col>
+              <b-col cols="12" md="12">
+                <label for="oversight">Garant</label>
+                <b-input v-model="oversight" ref="oversight" id="oversight" />
+              </b-col>
               <b-col cols="12" md="2">
                 <label for="queue">Fronta</label>
                 <b-input
@@ -299,6 +303,7 @@ export default {
   data() {
     return {
       loading: true,
+      oversight: "",
       place: {
         id: "",
         name: "",
@@ -435,6 +440,9 @@ export default {
     },
     clickCreate() {
       console.log("this.place", this.place);
+
+      this.place.medicalOversight = [{ id: "1", name: this.oversight }];
+
       this.InsertOrUpdate({
         place: this.place,
       }).then(r => {
@@ -450,6 +458,11 @@ export default {
     },
     editPlaceClick(row) {
       this.place = JSON.parse(JSON.stringify(row.item));
+      if (this.place.medicalOversight.length > 0) {
+        this.oversight = this.place.medicalOversight[0].name;
+      } else {
+        this.oversight = "";
+      }
       console.log("place", this.place);
       this.tabIndex = 1;
     },
