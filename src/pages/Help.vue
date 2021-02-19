@@ -169,6 +169,44 @@
             <b-tab title="Verejnosť" active>
               <b-card-text>
                 <div class="accordion" role="tablist">
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-6>{{
+                        $t("helpPublicQ6")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-6"
+                      vidible
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpPublicA6')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-7>{{
+                        $t("helpPublicQ7")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-7"
+                      vidible
+                      accordion="public-accordion"
+                      role="tabpanel"
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpPublicA7')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-5>{{
