@@ -458,7 +458,11 @@ export default {
     },
     editPlaceClick(row) {
       this.place = JSON.parse(JSON.stringify(row.item));
-      if (this.place.medicalOversight.length > 0) {
+      if (
+        this.place &&
+        this.place.medicalOversight &&
+        this.place.medicalOversight.length > 0
+      ) {
         this.oversight = this.place.medicalOversight[0].name;
       } else {
         this.oversight = "";
