@@ -527,6 +527,28 @@ export default {
       ],
     };
   },
+  watch: {
+    rc() {
+      if (this.rc && this.rc.length >= 9) {
+        if (!this.birthday.day) {
+          this.birthday.day = parseInt(this.rc.substr(4, 2));
+        }
+        if (!this.birthday.month) {
+          let month = parseInt(this.rc.substr(2, 2));
+          if (month > 50) month -= 50;
+          this.birthday.month = month;
+        }
+        if (!this.birthday.year) {
+          let year = parseInt(this.rc.substr(0, 2));
+          if (year > 21) {
+            year += 1900;
+          } else [(year += 2000)];
+          this.birthday.year = year;
+        }
+        this.$forceUpdate();
+      }
+    },
+  },
   mounted() {
     this.GetPrivateKey().then(r => {
       if (r) {
