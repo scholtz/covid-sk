@@ -19,7 +19,9 @@
         <b-row>
           <b-col cols="12" md="6" class="py-5 pr-3 pl-5">
             <b-carousel id="carousel-1" :interval="4000" controls indicators>
-              <b-carousel-slide img-src="/images/carousel/map.png">
+              <b-carousel-slide
+                img-src="https://cdnsitestoragecovid.blob.core.windows.net/web/images/carousel/map.png"
+              >
                 <b-link
                   to="/registerPlaceProvider"
                   class="opacity-8 btn btn-light"
@@ -27,19 +29,21 @@
                 >
               </b-carousel-slide>
               <b-carousel-slide
-                img-src="./images/carousel/place-management.png"
+                img-src="https://cdnsitestoragecovid.blob.core.windows.net/web/images/carousel/place-management.png"
               >
                 <b-link to="/login" class="opacity-8 btn btn-light">{{
                   $t("mainC2")
                 }}</b-link>
               </b-carousel-slide>
-              <b-carousel-slide img-src="./images/carousel/opening-hours.png">
+              <b-carousel-slide
+                img-src="https://cdnsitestoragecovid.blob.core.windows.net/web/images/carousel/opening-hours.png"
+              >
                 <b-link to="/login" class="opacity-9 btn btn-light">{{
                   $t("mainC3")
                 }}</b-link>
               </b-carousel-slide>
               <b-carousel-slide
-                img-src="./images/carousel/human-resources-management.png"
+                img-src="https://cdnsitestoragecovid.blob.core.windows.net/web/images/carousel/human-resources-management.png"
               >
                 <b-link to="/login" class="opacity-9 btn btn-light"
                   >{{ $t("mainC4") }}v</b-link
