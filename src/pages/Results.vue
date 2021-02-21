@@ -11,11 +11,11 @@
         ><b-row>
           <b-col cols="12" md="6">
             <b-input v-model="code" ref="code" />
-            <label for="code">{{ $t("resultsCode") }}</label>
+            <label for="code"><div v-html="$t('resultsCode')" /></label>
           </b-col>
           <b-col cols="12" md="6">
             <b-input v-model="pass" ref="pass" id="pass" />
-            <label for="pass">{{ $t("resultsPass") }}</label>
+            <label for="pass"><div v-html="$t('resultsPass')" /></label>
           </b-col>
         </b-row>
         <b-row>
@@ -95,7 +95,7 @@
                 class="ml-1"
               /> </b-button
             ><br />
-            {{ $t("resultsPdfNote") }}
+            <div v-html="$t('resultsPdfNote')" />
             <div>
               <b-button class="my-3" @click="clickResendResult" variant="light">
                 {{ $t("resultsResend") }}
