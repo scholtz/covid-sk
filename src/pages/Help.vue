@@ -172,13 +172,30 @@
 
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
+                      <b-button class="p-3" block v-b-toggle.accordion-11>{{
+                        $t("helpPublicQ11")
+                      }}</b-button>
+                    </b-card-header>
+                    <b-collapse
+                      id="accordion-11"
+                      accordion="public-accordion"
+                      role="tabpanel"
+                      visible
+                    >
+                      <b-card-body>
+                        <div v-html="$t('helpPublicA11')" />
+                      </b-card-body>
+                    </b-collapse>
+                  </b-card>
+
+                  <b-card no-body class="mb-1">
+                    <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-6>{{
                         $t("helpPublicQ6")
                       }}</b-button>
                     </b-card-header>
                     <b-collapse
                       id="accordion-6"
-                      vidible
                       accordion="public-accordion"
                       role="tabpanel"
                     >
@@ -196,7 +213,6 @@
                     </b-card-header>
                     <b-collapse
                       id="accordion-7"
-                      vidible
                       accordion="public-accordion"
                       role="tabpanel"
                     >
@@ -215,7 +231,6 @@
                     </b-card-header>
                     <b-collapse
                       id="accordion-5"
-                      vidible
                       accordion="public-accordion"
                       role="tabpanel"
                     >
@@ -228,7 +243,7 @@
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-1>{{
-                        $t("helpPublicQ0")
+                        $t("helpPublicQ1")
                       }}</b-button>
                     </b-card-header>
                     <b-collapse
@@ -237,7 +252,7 @@
                       role="tabpanel"
                     >
                       <b-card-body>
-                        <div v-html="$t('helpPublicA0')" />
+                        <div v-html="$t('helpPublicA1')" />
                       </b-card-body>
                     </b-collapse>
                   </b-card>
@@ -245,7 +260,7 @@
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-10>{{
-                        $t("helpPublicQ1")
+                        $t("helpPublicQ10")
                       }}</b-button>
                     </b-card-header>
                     <b-collapse
@@ -254,7 +269,7 @@
                       role="tabpanel"
                     >
                       <b-card-body>
-                        <div v-html="$t('helpPublicA1')" />
+                        <div v-html="$t('helpPublicA10')" />
                       </b-card-body>
                     </b-collapse>
                   </b-card>
@@ -351,7 +366,6 @@
                     </b-card-header>
                     <b-collapse
                       id="accordion-provider-2"
-                      visible
                       accordion="provider-accordion"
                       role="tabpanel"
                     >
@@ -372,7 +386,6 @@
                     </b-card-header>
                     <b-collapse
                       id="accordion-provider-3"
-                      visible
                       accordion="provider-accordion"
                       role="tabpanel"
                     >
@@ -516,7 +529,7 @@
             </b-tab>
 
             <b-tab
-              title="Testovanie I."
+              title="Práca na odbernom mieste"
               v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
             >
               <b-card-text>
@@ -536,7 +549,9 @@
                       accordion="admin-accordion"
                       role="tabpanel"
                     >
-                      <b-card-body>
+                      <b-card-body><div v-html="$t('helpTesterA1-uvod')" />
+                      <div v-html="$t('helpTesterA1-1')" />
+                      <div v-html="$t('helpTesterA1-2')" />
                         <iframe
                           src="https://player.vimeo.com/video/502757010?byline=0&portrait=0"
                           width="300"
@@ -544,7 +559,9 @@
                           frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowfullscreen
-                        ></iframe>
+                        ></iframe><br/><br/>
+                      <div v-html="$t('helpTesterA1-3')" />
+                      <div v-html="$t('helpTesterA1-4')" />
                       </b-card-body>
                     </b-collapse>
                   </b-card>
