@@ -18,14 +18,6 @@
             class="btn btn-primary my-4 form-control"
           >
             {{ $t("reportButtonPositive") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading0" />
           </button>
         </b-col>
@@ -35,14 +27,6 @@
             class="btn btn-primary my-4 form-control"
           >
             {{ $t("reportButtonTested") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading1" />
           </button>
         </b-col>
@@ -52,14 +36,6 @@
             class="btn btn-primary my-4 form-control"
           >
             {{ $t("reportButtonNotProcessed") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading2" />
           </button>
         </b-col>
@@ -71,14 +47,6 @@
             class="btn btn-primary my-4 form-control"
           >
             {{ $t("reportButtonNczi") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading3" />
           </button>
         </b-col>
@@ -88,14 +56,6 @@
             class="btn btn-primary my-4 form-control"
           >
             {{ $t("reportButtonMissing") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading4" />
           </button>
         </b-col>
@@ -105,50 +65,24 @@
             class="btn btn-primary my-4 form-control"
           >
             {{ $t("reportButtonAll") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading5" />
           </button>
         </b-col>
-
         <b-col>
           <button
             @click="clickCompanyRegistrationsExport"
             class="btn btn-primary my-4 form-control"
           >
             Importovaní zamestnanci
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading7" />
           </button>
         </b-col>
-
         <b-col>
           <button
             @click="clickListAnonymizedVisitors"
             class="btn btn-primary my-4 form-control"
           >
             Všetci anonymizovaní
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            ></svg>
             <b-spinner small v-if="loading6" />
           </button>
         </b-col>
