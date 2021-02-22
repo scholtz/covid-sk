@@ -560,55 +560,55 @@ export default {
       const curTime = new Date();
       if (curTime.getHours() >= 18 || curTime.getHours() < 8) {
         if (place.hasReservationSystem) {
-          return "./images/icons/map_icon_orange.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png";
         } else if (place.externalReservationSystem) {
-          return "./images/icons/map_icon_gray_01.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_01.png";
         } else {
-          return "./images/icons/map_icon_blue.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue.png";
         }
       }
       if (place.hasReservationSystem) {
         if (!place.queue) {
-          return "./images/icons/map_icon_orange.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png";
         } else if (
           moment(place.queue, "HH:mm:ss") <= moment("00:05:00", "HH:mm:ss")
         ) {
-          return "./images/icons/map_icon_orange.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png";
         } else if (
           moment(place.queue, "HH:mm:ss") <= moment("00:30:00", "HH:mm:ss")
         ) {
-          return "./images/icons/map_icon_orange.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png";
         } else {
-          return "./images/icons/map_icon_orange.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png";
         }
       }
       if (place.externalReservationSystem) {
         if (!place.queue) {
-          return "./images/icons/map_icon_gray_01.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_01.png";
         } else if (
           moment(place.queue, "HH:mm:ss") <= moment("00:05:00", "HH:mm:ss")
         ) {
-          return "./images/icons/map_icon_gray_max_5min.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_max_5min.png";
         } else if (
           moment(place.queue, "HH:mm:ss") <= moment("00:30:00", "HH:mm:ss")
         ) {
-          return "./images/icons/map_icon_gray_max_30min.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_max_30min.png";
         } else {
-          return "./images/icons/map_icon_gray_over_30min.png";
+          return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_over_30min.png";
         }
       }
       if (!place.queue) {
-        return "./images/icons/map_icon_blue.png";
+        return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue.png";
       } else if (
         moment(place.queue, "HH:mm:ss") <= moment("00:05:00", "HH:mm:ss")
       ) {
-        return "./images/icons/map_icon_blue_max_5min.png";
+        return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue_max_5min.png";
       } else if (
         moment(place.queue, "HH:mm:ss") <= moment("00:30:00", "HH:mm:ss")
       ) {
-        return "./images/icons/map_icon_blue_max_30min.png";
+        return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue_max_30min.png";
       } else {
-        return "./images/icons/map_icon_blue_over_30min.png";
+        return "https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue_over_30min.png";
       }
     },
     trimLink(place) {
