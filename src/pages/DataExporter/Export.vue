@@ -122,7 +122,7 @@
             @click="clickCompanyRegistrationsExport"
             class="btn btn-primary my-4 form-control"
           >
-            Export importovaných zamestnancov
+            Importovaní zamestnanci
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -140,7 +140,7 @@
             @click="clickListAnonymizedVisitors"
             class="btn btn-primary my-4 form-control"
           >
-            Export všetkých anonymizovaných
+            Všetci anonymizovaní
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
