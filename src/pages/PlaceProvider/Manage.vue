@@ -17,6 +17,53 @@
         <b-col>
           <b-row class="py-1">
             <b-col md="4">
+              <label for="eZdravieUser">EZdravie užívateľ</label>
+            </b-col>
+            <b-col md="8">
+              <b-input
+                v-model="data.eZdravieUser"
+                ref="eZdravieUser"
+                id="eZdravieUser"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="py-1">
+            <b-col md="4">
+              <label for="eZdraviePass">EZdravie heslo</label>
+            </b-col>
+            <b-col md="8">
+              <b-input
+                type="password"
+                v-model="data.eZdraviePass"
+                ref="eZdraviePass"
+                id="eZdraviePass"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="py-1">
+            <b-col offset-md="4">
+              <button @click="clickUpdateEnc" class="btn btn-primary my-4">
+                Upraviť údaje pre moje ezdravie
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+              </button>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
+          <b-row class="py-1">
+            <b-col md="4">
               <label for="MainContact">{{ $t("ppMainContact") }}</label>
             </b-col>
             <b-col md="8">
@@ -157,6 +204,11 @@ export default {
         PublicPhone: "",
         Web: "",
       },
+      data: {
+        placeProviderId: "",
+        eZdraviePass: "",
+        eZdravieUser: "",
+      },
       CountryOptions: [
         { item: "SK", name: "Slovensko" },
         { item: "CZ", name: "Česko" },
@@ -186,10 +238,18 @@ export default {
   },
   mounted() {
     this.ListPrivate();
+    this.GetSensitiveData().then(r => {
+      if (r) {
+        if (r.eZdraviePass) r.eZdraviePass = "";
+        this.data = r;
+      }
+    });
   },
   methods: {
     ...mapActions({
       UpdatePP: "placeProvider/UpdatePP",
+      UpdateSensitiveData: "placeProvider/UpdateSensitiveData",
+      GetSensitiveData: "placeProvider/GetSensitiveData",
       ListPrivate: "placeProvider/ListPrivate",
     }),
     ...mapActions({
@@ -204,6 +264,14 @@ export default {
               this.openSuccess("Informácie o prevádzkovateľovi boli upravené");
             }
           });
+        }
+      });
+    },
+    clickUpdateEnc() {
+      this.data.placeProviderId = this.placePrivider.placeProviderId;
+      this.UpdateSensitiveData({ data: this.data }).then(r => {
+        if (r) {
+          this.openSuccess("Informácie o prevádzkovateľovi boli upravené");
         }
       });
     },

@@ -35,6 +35,18 @@ export const actions = {
       { root: true }
     );
   },
+  async UpdateSensitiveData({ dispatch }, { data }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/UpdateSensitiveData",
+        body: data,
+      },
+      { root: true }
+    );
+  },
   async Register({ dispatch }, { pp }) {
     return await dispatch(
       "axios/post",
@@ -148,6 +160,18 @@ export const actions = {
       { root: true }
     );
   },
+  async GetSensitiveData({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/GetSensitiveData",
+      },
+      { root: true }
+    );
+  },
+
   async CreateProduct({ dispatch }, { product }) {
     return await dispatch(
       "axios/post",
