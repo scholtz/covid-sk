@@ -88,6 +88,42 @@
         </b-col>
       </b-row>
     </b-container>
+    <div class="app-pane-lgray py-2">
+      <b-container>
+        <h1>Stavy testu</h1>
+        <ul>
+          <li>
+          Osoba sa zaregistrovala na test.<br/>
+          NotTaken = "test-not-taken"
+          </li>
+          <li>
+          Pracovník identifikoval občana a priradil mu test. <br/>
+          TestIsBeingProcessing = "test-not-processed"
+          </li>
+          <li>
+          Test bol vyhodnocovaný, nebol ani negatívny ani pozitívny - zlyhal. Je potrebné aby sa občan prišiel pretestovať znovu.<br/>
+          TestMustBeRepeated = "test-to-be-repeated"
+          </li>
+          <li>
+          Test bol vyhodnotený ako pozitívny.<br/>
+          PositiveWaitingForCertificate = "positive"
+          </li>
+          <li>
+          Občan s pozitívnym testom si stiahol elektronický certifikát zo stránky registrácie:<br/>
+          PositiveCertificateTaken = "positive-certiciate-taken"
+          </li>
+          <li>
+          Test bol vyhodnotený ako pozitívny.<br/>
+          NegativeWaitingForCertificate = "negative"
+          </li>
+          <li>
+          Občan s pozitívnym testom si stiahol elektronický certifikát zo stránky registrácie:<br/>
+          NegativeCertificateTaken = "negative-certiciate-taken"
+          </li>
+        </ul>
+      </b-container>
+    </div>
+
   </div>
 </template>
 
