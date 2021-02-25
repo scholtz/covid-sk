@@ -82,7 +82,7 @@
             @click="clickListAnonymizedVisitors"
             class="btn btn-primary my-4 form-control"
           >
-            Všetci anonymizovaní
+            Všetci anonymizovaní 
             <b-spinner small v-if="loading6" />
           </button>
         </b-col>
