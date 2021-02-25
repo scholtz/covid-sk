@@ -2,8 +2,8 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Zaregistrovaný návštevník</h1>
-        <h3>Akým spôsobom chcete zadať zákazníka?</h3>
+        <h1>Zaregistrovaný klient</h1>
+        <p>Pokyny: načítať klienta, overiť osobné údaje a priradiť test.</p>
       </b-container>
     </div>
     <b-container class="my-4" v-if="action === 'select'">
@@ -36,6 +36,7 @@
       </b-row>
       <b-row>
         <b-col>
+          <p>Zvoľte spôsob načítania klienta:</p>
           <button @click="action = 'rc'" class="btn btn-primary my-4 mr-4">
             Rodné číslo
             <svg
@@ -245,10 +246,10 @@
           >
             Zrušiť
           </button>
-          <h2>Overenie užívateľa</h2>
+          <h2>Overte osobné údaje:</h2>
           <table class="table">
             <tr>
-              <td>Kod:</td>
+              <td>Kód registrácie:</td>
               <td>
                 <span v-if="visitor.id">{{ visitor.id }}</span>
 
@@ -279,7 +280,7 @@
                 visitor.personType === 'child'
               "
             >
-              <td>RČ:</td>
+              <td>Rodné číslo / cestovný pas:</td>
               <td>
                 {{ visitor.rc }}
                 <b-badge variant="danger" v-if="validatePersonalNumber"
@@ -310,11 +311,11 @@
               </td>
             </tr>
             <tr>
-              <td>Email:</td>
+              <td>E-mail (nepovinný):</td>
               <td>{{ visitor.email }}</td>
             </tr>
             <tr>
-              <td>Tel:</td>
+              <td>Mobilné telefónne číslo:</td>
               <td>{{ visitor.phone }}</td>
             </tr>
             <tr>
@@ -397,7 +398,7 @@
                   :disabled="invalidID"
                   v-if="visitor.id"
                 >
-                  Osoba je overená, nascanovať QR kód
+                  Priradiť test (QR kód testu)
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -416,7 +417,7 @@
                   class="btn btn-primary my-4 mr-4 collapse"
                   v-if="visitor.id"
                 >
-                  Osoba je overená, nascanovať čiarový kód
+                  Priradiť test skenovaním čiarového kódu
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -435,7 +436,7 @@
                   @click="$router.push('/tester/unannouncedVisitor')"
                   class="btn btn-primary my-4"
                 >
-                  Chybné údaje
+                  Opraviť osobné údaje
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -466,10 +467,10 @@
           >
             Zrušiť
           </button>
-          <label for="testingset1">Kód testovacej sady</label>
+          <label for="testingset1">Kód testu skenujte, alebo vpíšte do políčka:</label>
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
-            Vykonať test
+            Uložiť
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -497,10 +498,10 @@
           >
             Zrušiť
           </button>
-          <label for="testingset1">Kód testovacej sady</label>
+          <label for="testingset1">Naskenujte alebo zapíšte kód testu a kliknite na "<b>Priradiť</b>":</label>
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
-            Vykonať test
+            Priradiť
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
