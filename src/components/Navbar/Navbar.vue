@@ -191,7 +191,7 @@ export default {
   },
   data() {
     return {
-      langs: ["sk", "en"],
+      langs: ["sk", "en", "cs"],
     };
   },
   computed: {
