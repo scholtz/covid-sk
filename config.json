@@ -12,6 +12,6 @@
   "MAP_LNG":19.5,
   "MAP_ZOOM":8,
   "CSS":"",
-  "SHOW_DANGER":"Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a MIEST a OBCÍ pre použitie systému rýchlejšie.sk",
+  "SHOW_DANGER":"mainDangerAlert",
   "LOGO":"./images/logos/Rychlejsie_sk_logo_biele.png"
 }
