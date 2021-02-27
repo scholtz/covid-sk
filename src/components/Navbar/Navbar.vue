@@ -105,9 +105,9 @@
             <b-nav-item to="/register">{{
               $t("navBarPublicRegister")
             }}</b-nav-item>
-            <b-nav-item to="/enqueued" v-if="!$store.state.config.HIDE_QUEUE"
-              >Som v rade</b-nav-item
-            >
+            <b-nav-item to="/enqueued" v-if="!$store.state.config.HIDE_QUEUE">{{
+              $t("navBarPublicEnqueued")
+            }}</b-nav-item>
             <b-nav-item to="/results"
               ><b>{{ $t("navBarPublicResults") }}</b></b-nav-item
             >
@@ -168,7 +168,9 @@
     </b-navbar>
     <div class="alert alert-danger m-0" v-if="isNotProdHost">
       <a :href="`https://${$store.state.config.PROD}`"
-        ><h2 class="text-center">Prejsť na {{ $store.state.config.PROD }}</h2>
+        ><h2 class="text-center">
+          {{ $t("navBarGoTo") }} {{ $store.state.config.PROD }}
+        </h2>
       </a>
     </div>
     <div
@@ -176,7 +178,7 @@
       v-if="$store.state.config.SHOW_DANGER && !$store.state.user.auth"
     >
       <h2 class="text-center">
-        <b>{{ $store.state.config.SHOW_DANGER }}</b>
+        <b>{{ $t($store.state.config.SHOW_DANGER) }}</b>
       </h2>
     </div>
   </div>

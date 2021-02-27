@@ -5,6 +5,7 @@
   "change":"Zmeniť",
   "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
 
+  "mainDangerAlert": "Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a MIEST a OBCÍ pre použitie systému rýchlejšie.sk",
   "mainTitle": "Zoznam odberových miest na antigénové testovanie COVID-19",
   "mainTitleBa": "Zoznam odberových miest na antigénové testovanie COVID-19 v Bratislave",
   "mainSubTitle": "Vítame vás! Na týchto stránkach nájdete podrobný prehľad aktuálne otvorených odberových miest v našom meste. Veríme, že spoločne to zvládneme! ",
@@ -83,6 +84,7 @@
   "navBarDataExporterExport":"Finálny export údajov",
 
   "navBarPublicRegister":"Objednajte sa",
+  "navBarPublicEnqueued": "Som v rade",
   "navBarPublicResults":"Výsledky testu a certifikát",
   "navBarPublicHelp":"Často kladené otázky",
 
@@ -92,7 +94,12 @@
   "navBarUserLogout":"Odhlásenie",
   "navBarUserLogin":"Prihlásenie",
 
+  "navBarGoTo": "Preisť na",
+
   "navBarAdminServicesManagement":"Správa poskytovaných služieb",
+
+  "enqueuedTitle": "Som v rade",
+  "enqueuedInfo": "Pomôžte ostatným zistiť čas strávený v rade. Keď prídete do radu, kliknite na tlačítko som v rade a keď vás pretestujeme, dáme ostatným vedieť koľko ste čakali. Na Vašom odbernom mieste si pozrite informáciu o aktuálnej dĺžke rady. Zároveň tým pomôžete optimalizovať procesy testovania aby sme mohli efektívne porovnať dĺžku radov a odchýlku od času registrácie medzi rôznymi rezervačnými a odberovými systémami.",
 
   "resultsTitle":"Výsledky testovania",
   "resultsCode":"<b>Kód registrácie</b> (9-miestny kód, ktorý ste dostali v sms pri registrácii - stačí zadať číslice bez pomlčiek):",

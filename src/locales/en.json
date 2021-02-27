@@ -5,6 +5,7 @@
   "change":"Change",
   "accessDenied":"You do not have permissions to display this page",
 
+  "mainDangerAlert": "This page is used only for the registration of HOSPITALS, SAMPLING PLACES and CITIES into the system rýchlejšie.sk",
   "mainTitle": "Testing covid with 21st century technologies",
   "mainSubTitle": "This application can be used for any sampling location, city or government. Application was build with security, scalability, and privacy in mind, is open source, free to use or clone and change.",
   "mainStep1": "Select sampling place",
@@ -76,6 +77,7 @@
   "navBarDataExporterExport":"Export data",
   
   "navBarPublicRegister":"Register for sampling",
+  "navBarPublicEnqueued": "Enqueued",
   "navBarPublicResults":"Test results",
   "navBarPublicHelp":"Help",
 
@@ -84,6 +86,8 @@
   "navBarUserInvitations": "Invitations",
   "navBarUserLogout":"Logout",
   "navBarUserLogin":"Login",
+
+  "navBarGoTo": "Go to",
 
   "navBarAdminServicesManagement":"Management of the provided services",
 
