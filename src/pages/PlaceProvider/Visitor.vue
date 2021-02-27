@@ -703,6 +703,14 @@
                     Upraviť záznam
                     <b-spinner small class="ml-1" v-if="processing" />
                   </b-button>
+                  <b-button
+                    variant="primary"
+                    class="ml-3"
+                    @click="clickSendToEHealth"
+                  >
+                    Odoslať do Moje eZdravie
+                    <b-spinner small class="ml-1" v-if="processingE" />
+                  </b-button>
                 </b-col>
               </b-row>
             </b-container>
@@ -795,6 +803,7 @@ export default {
     return {
       loading: true,
       processing: false,
+      processingE: false,
       insuranceColumns: 4,
       visitor: {},
       insuranceOptions: [
@@ -871,6 +880,7 @@ export default {
     ...mapActions({
       FindVisitor: "user/FindVisitor",
       UpdateVisitor: "user/UpdateVisitor",
+      SendResultToEHealth: "user/SendResultToEHealth",
       UpdatePP: "placeProvider/UpdatePP",
       UpdateSensitiveData: "placeProvider/UpdateSensitiveData",
       GetSensitiveData: "placeProvider/GetSensitiveData",
@@ -914,12 +924,34 @@ export default {
       }
     },
     clickUpdateVisitor() {
+      this.processing = true;
       this.UpdateVisitor({ visitor: this.visitor }).then(r => {
+        this.processing = false;
         if (r) {
           this.visitor = r;
           this.openSuccess("Návšteva bola upravená");
         }
       });
+    },
+    clickSendToEHealth() {
+      if (confirm("Potvrďte prosím odoslanie do NCZI")) {
+        this.processingE = true;
+        this.SendResultToEHealth({ visitorId: this.visitor.id }).then(r => {
+          if (r) {
+            this.FindVisitor({ query: this.$route.params.visitorId }).then(
+              r2 => {
+                this.processingE = false;
+                if (r2) {
+                  this.visitor = r2;
+                  this.openSuccess("Návšteva bola odoslaná do NCZI");
+                } else {
+                  this.resetVisitor();
+                }
+              }
+            );
+          }
+        });
+      }
     },
     clickUpdateEnc() {
       this.data.placeProviderId = this.placePrivider.placeProviderId;
