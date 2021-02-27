@@ -175,17 +175,18 @@
     </div>
     <div
       class="alert alert-danger m-0"
-      v-if="$store.state.config.SHOW_DANGER && !$store.state.user.auth"
+      v-if="SHOW_DANGER && !$store.state.user.auth"
     >
       <h2 class="text-center">
-        <b>{{ $t($store.state.config.SHOW_DANGER) }}</b>
+        <b v-if="SHOW_DANGER[$i18n.locale]">{{ SHOW_DANGER[$i18n.locale] }}</b>
+        <b v-else>{{ SHOW_DANGER }}</b>
       </h2>
     </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 export default {
   components: {},
   props: {
@@ -197,6 +198,7 @@ export default {
     };
   },
   computed: {
+    ...mapState("config", ["SHOW_DANGER"]),
     isNotProdHost() {
       return !(
         document.location.host.indexOf(this.$store.state.config.PROD) > -1
