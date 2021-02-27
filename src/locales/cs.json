@@ -4,6 +4,8 @@
   "no": "Ne",
   "change": "Změnit",
   "accessDenied": "Nemáte oprávnění k zobrazení této stránky",
+
+  "mainDangerAlert": "Tato stránka slouží pouze pro registraci NEMOCNIC, MOM a MÍST a OBCÍ pro použití systému rýchlejšie.sk",
   "mainTitle": "Seznam odběrných míst na antigenní testování COVID-19",
   "mainTitleBa": "Seznam odběrných míst na antigenní testování COVID-19 v Bratislavě",
   "mainSubTitle": "Vítáme vás! Na těchto stránkach najdete podrobný přehled aktuálně otevřených odběrných míst v našem městě. Věříme, že společně to zvládneme! ",
@@ -27,16 +29,20 @@
   "mainActionMedicButton": "Začněte zadáním údajů",
   "mainHelpPerson": "Zvolte si místo, čas a službu. S QR kódem v mobilu nebo na papíře se prokažte na odběrném / testovacím místě. Nečekáte ve frontách před testem, ani na výsledek. Pošleme Vám ho zdarma přes SMS a e-mailem. <b>Elektronický certifikát</b> e-mailem i ke stažení na stránce.",
   "mainDoctor": "Chceme zaregistrovat odběrné místo",
+
   "mainDoctorStep1": "Zadejte údaje provozovatele",
   "mainDoctorStep2": "Přidejte odběrné místo",
   "mainDoctorStep3": "Naplánujte služby pracovníkům",
   "mainDoctorStep4": "Testujte a reportujte - efektivně",
   "mainDoctorHelp": "Soustřeďte se na to, co Vám jde nejlépe - <b>služby pro lidi</b>. Přenechte vývoj a provoz programového vybavení na <b>nás</b>. Společnými silami můžeme <b>šetrit síly pracovníků</b> a úplně odbourat riziko šíření nákazy mezi čekajícími ve frontách, nebo na výsledky testování.",
+
   "mainC1": "Poskytujeme nejen možnost registrace pro odběrná místa, nemocnice a stát, ale i podpůrné služby pro rychlejší a hlavně bezpečnejší proces odběru.",
   "mainC2": "Správce odběrných a vakcinačních míst může pracovat s jedním nebo více místy. Pro každé může nastavit jeho technické možnosti, vykonávané úkony - služby a jejich ceny.",
   "mainC3": "Provozní hodiny můžete nastavit shodné, nebo odlišné pro různé dny a různá odběrná místa.",
   "mainC4": "Správa lidských zdrojů poskytuje přehled o vytíženosti pracovníků, zabezpečení odběrných míst potřebnými pracovními rolemi. Umožňuje získat potvrzení od pracovníků, že do služby nastoupí, chrání jejich osobní údaje a zvyšuje efektivitu.",
   "mainStepTitle": "Chci se testovat",
+
+
   "navBarAdmin": "Administrátor",
   "navBarAdminManagePlace": "Správa pracovišť provozovatele",
   "navBarAdminNewUser": "Nový pracovník",
@@ -44,8 +50,10 @@
   "navBarAdminTestingTimes": "Správa provozní doby",
   "navBarAdminManagePP": "Upravit údaje o provozovateli",
   "navBarAdminManageServices": "Správa poskytovaných služeb",
+
   "navBarAdminProvidedServices": "Seznam poskytovaných služeb",
   "navBarAdminServicesOnTheSpots": "Služby poskytované na provozních místech",
+
   "AdminListOfProvidedServicesOnTheSpotName": "Místo",
   "AdminListOfProvidedServicesOnTheSpotServiceName": "Název služby",
   "AdminListOfProvidedServicesOnTheSpotServiceCategory": "Kategorie",
@@ -59,25 +67,40 @@
   "AdminListOfProvidedServicesOnTheSpotPrice": "Standardní cena",
   "AdminListOfProvidedServicesOnTheSpotCurrency": "Měna",
   "AdminListOfProvidedServicesOnTheSpotAction": "Akce",
+
+
   "navBarTester": "Tester",
   "navBarRegVisitor": "Zaregistrovaný klient",
   "navBarNewVisitor": "Neohlášený klient",
   "navBarSetPlace": "Nastavit moje místo",
+
   "navBarLab": "Lab",
   "navBarLabResult": "Výsledek testu",
+
   "navBarDoc": "Dokumenty",
   "navBarDocCertificate": "Certifikáty",
+
   "navBarDataExporter": "Data exporter",
   "navBarDataExporterExport": "Finální export údajů",
-  "navBarPublicRegister": "Objednajte se",
+
+  "navBarPublicRegister": "Objednejte se",
+  "navBarPublicEnqueued": "Jsem ve frontě",
   "navBarPublicResults": "Výsledky testu a certifikát",
   "navBarPublicHelp": "Často kladené otázky",
+
   "navBarUserChangePassword": "Změna hesla",
   "navBarUserChangePP": "Změna provozovatele",
   "navBarUserInvitations": "Pozvánky",
   "navBarUserLogout": "Odhlášení",
   "navBarUserLogin": "Přihlášení",
+  
+  "navBarGoTo": "Přejít na",
+
   "navBarAdminServicesManagement": "Správa poskytovaných služeb",
+
+  "enqueuedTitle": "Jsem ve frontě",
+  "enqueuedInfo": "Pomožte ostatním zjistit čas strávený ve frontě. Jakmile přijdete do fronty, klikněte na tlačítko Jsem ve frontě a jakmile vás protestujeme, dáme ostatním vědět jak dlouho jste čekali. Na Vašem odběrném místě se podívejte na informaci o aktuální délce fronty. Zároveň tím pomůžete optimalizovat procesy testování abychom mohli efektivně porovnat délku front a odchylku od času registrace mezi různymi rezervačními a odběrovými systémami.",
+
   "resultsTitle": "Výsledky testování",
   "resultsCode": "<b>Kód registrace</b> (9-místný kód, který jste dostali v sms při registraci - stačí zadat číslice bez pomlček):",
   "resultsPass": "<b>Poslední čtyři číslice z rodného čísla</b>. Pokud jste se na test registrovali s cestovním dokladem, zadejte poslední čtyři číslice cestovního dokladu:",
@@ -102,17 +125,20 @@
   "resultsRemoveRegistration": "Zrušit registraci",
   "resultsRegistrationRemoved": "Registrace byla vymazaná",
   "resultsSent": "Výsledek byl odeslaný",
+
   "chPassTitle": "Změna hesla",
   "chPassOldPassword": "Staré heslo",
   "chPassNewPassword": "Nové heslo",
   "chPassNewPasswordValidation": "Nové heslo - ověření",
   "chPassSetup": "Nastavit nové heslo",
   "chPassValidationDoNotMatch": "Hesla se neshodují",
+
   "loginTitle": "Přihlášení",
   "loginHelp": "Přihlášení slouží pro obsluhu testovacího místa. Po přihlášení může obsluha scanovat QR kódy z obrazovky mobilu nebo vytištěné na papíře. Po úspešném přihlášení se změní horní menu na rozbalovací seznam rolí a funkcí, které mohou dělat.",
   "loginFormLogin": "Login / E-mail",
   "loginFormPassword": "Heslo",
   "loginFormButton": "Přihlaš",
+
   "selectPlaceTitle": "Výběr odběrného místa",
   "selectPlaceShowTable": "Zobrazit tabulku",
   "selectPlaceShowMap": "Zobrazit mapu",
@@ -132,8 +158,11 @@
   "selectPlaceRegistrations": "Registrací",
   "selectPlaceStatsHealthy": "Počet negativních",
   "selectPlaceStatsSick": "Počet pozitivních",
+
   "selectQueue": "Odhadovaná čekací doba",
   "selectQueueLastUpdate": "Aktualizace čekací doby",
+
+
   "selectDayTitle": "Vyberte si službu a den",
   "selectDayYourSelection": "Vybrali jste si: {place}",
   "selectDayQuestion": "Kliknutím zvolte den testu:",
@@ -153,16 +182,19 @@
   "selectDayOnlyForInsured": "Tuto službu můžeme poskytnout pouze pojištěncům",
   "selectDaySelectService": "Vybrat",
   "selectDayButtonText": "Dne {description} je aktuálně registrovaných {registrations} osob",
+
   "selectHourTitle": "Kliknutím zvolte hodinu testu (v závorce jsou už obsazená místa)",
   "selectHourYourSelection": "Vybrali jste si: {place}, dne {day}",
   "selectHourQuestion": "Kliknutím zvolte hodinu testu",
   "selectHourHelp": "(počet obsazených míst / celkový počet míst)",
   "selectHourButtonText": "Mezi {description} je aktuálně registrovaných {registrations} osob",
+
   "selectMinuteTitle": "Vyberte si přesný čas testu",
   "selectMinuteYourSelection": "Vybrali jste si: {place}, dne {day} mezi {hour}",
   "selectMinuteQuestion": "Vyberte si přesný čas testování",
   "selectMinuteHelp": "(počet obsazených míst / celkový počet míst)",
   "selectMinuteButtonText": "Mezi {description} je aktuálně registrovaných {registrations} osob",
+
   "registrationTitle": "Poslední krok registrace - Osobní údaje",
   "registrationHelp1": "Údaje o Vašem testovaní, včetně osobních údajů můžete vymazat ze stránky výsledky testu, pokud se prokáže, že onemocnění covid19 nemáte, avšak až po zpracovaní údajů pro krajský úřad a hygienu. V případě pozitivního nálezu budou postoupeny hygieně. Po dobu testování budou Vaše osobní údaje chráněné šifrovaním AES256.",
   "registrationYourSelection": "Vybrali jste si: {place}, dne {day} mezi {time}",
@@ -180,6 +212,7 @@
   "registrationFormAddressStreetNo": "Popisné č.",
   "registrationFormAddressZIP": "PSČ",
   "registrationFormAddressCity": "Město",
+
   "registrationFormDay": "Den narození",
   "registrationFormBirthDayDay": "Den nar.",
   "registrationFormBirthDayMonth": "Měsíc",
@@ -189,12 +222,13 @@
   "registrationFormInsurance": "Pojišťovna",
   "registrationBottomHelp1": "Cílem registrace před návštevou odběrného místa je minimalizovat čas potřebný pro výkon testu. V ideálním případě doktor naskenuje QR kód Vaší registrace, QR kód na testovací soupravu a vykoná odběr vzorku. Stistnutím tlačítka níže vytvoříte svůj jedinečný kód registrace, který v kombináci s posledními 4 číslicemi rodného čísla (cestovního dokladu pro cizince) použijete i na zjištění výsledku testu na této stránce.",
   "registrationBottomHelp2": "",
-  "registrationFormGDPR": "Souhlasím se zpracovaním mých osobních údajů za účelem jejich poskytnutí zprostředkovateli – společnosti Scholtz &amp; Company, j.s.a., IČO: 51882272 za účelem testování na onemocnění COVID-19. Podrobné informace o zpracovaní osobních údajů najdete <a href=\"/#/gdpr\" target=\"_blank\">tu</a>.",
+  "registrationFormGDPR": "Souhlasím se zpracovaním mých osobních údajů za účelem jejich poskytnutí zprostředkovateli – společnosti Scholtz &amp; Company, j.s.a., IČO: 51882272 za účelem testování na onemocnění COVID-19. Podrobné informace o zpracovaní osobních údajů najdete <a href=\"/#/gdpr\" target=\"_blank\">zde</a>.",
   "registrationFormButton": "Zaregistrovat",
   "registrationFormInsuranceEU": "EU pojištěnec",
   "registrationFormInsuranceForeigner": "Cizinec",
   "registrationLimitReached": "Pro tento časový úsek byl dosažený limit registrací. Prosím využite jiný časový úsek nebo počkejte na navýšení kapacity. Děkujeme",
   "registrationSchoolRequiredText": "Jsem zákonným zástupcem žáka, který se zúčastňuje prezenční výuky ve škole, nebo jeho pracovníkem.",
+
   "regDoneTitle": "Úspešně jste si rezervovali termín testu.",
   "regDoneHelp1": "Předložte tento QR kód, nebo devítimístný číselný kód na odběrném místě.",
   "regDoneHelp2": "V SMS jsme Vám poslali potvrzení o registraci na test spolu s registračním kódem. Pokud jste zadali e-mail adresu, poslali jsme Vám pokyny i e-mailem. Pokud chcete svoje testování urychlit, ukažte tento QR kód při odběru na testovacím místě (stačí ho ukázat na obrazovce mobilu, nebo vytištěný na papíře).",
@@ -210,13 +244,17 @@
   "regDoneAddress": "Adresa",
   "regDoneYourSelection": "Dostavte se prosím dne {day} mezi {time} na odběrné místo {place}.",
   "regDoneNextPerson": "Zaregistrovat novou osobu na tento termín odběru",
+
   "registrationIsRequired": "Vyžaduje předregistraci",
   "hasReservationSystem": "Možnost předregistrace",
+
   "userWelcome": "{name}, vítejte",
   "userHelp": "Vyberte si z menu akci na základě role, kterou reprezentujete.",
+
   "helpTitle": "Často kladené otázky",
   "helpCommonQ1": "O aplikaci",
   "helpCommonA1": "<p>Přínos pro občany</p><p>Účelem této aplikace je umožnit zájemcům o test objednat se na testování bez potřeby čekání ve frontě. Rezervace šetrí nejen čas občanům, ale snižuje riziko nákazy ve frontách před testováním. Použití aplikace umožňuje, aby občan po testování ihned opustil testovací místo a dostal výsledky testu i elektronicky podepsaný certifikát později. Výsledky jsou chráněné a současně dostupné online, na stránce aplikace, po zadání čísla registrace a posledních čtyř číslic rodného čísla.</p><br><p>Přínos pro provozovatele</p><p>Provozovatelům testovacích míst umožňuje naše řešení správu testovacích míst, provozního času i lidských zdrojů. Vizualizace kalendáře, času a pracovníků v kalendáři poskytuje rychlý přehled o personálním zabezpečení míst. Po naplánovaní pracovního času se pracovníkovi odešle pozvánka, kterou pracovník potvrdí a tím odpadá únavné ujisťování se o tom, zda potřební pracovníci budou na místě v naplánovaném čase. <p>Další výhody</p><p>Aplikace zrychluje proces testování a vyhodnocování testů využitím scanovaní QR kódů. Scanovaní nevyžaduje nákup drahých jednoúčelových scanerů. Namísto toho je možné využít telefon nebo tablet s kamerou a připojením na internet.</p><p>V neposlední řadě šetrí toto řešení čas potřebný na zpracovávání dat. Odpadá časově náročné přepisování dat z papírů. Anonymizovaná statistická data jsou k dispozici v reálném čase pro analýzy prostřednictvím online reportů.</p><p>Hlavním způsobem objednávání se na testy je právě prostřednictvím online aplikace. Hlavním komunikačním kanálem s testovanými je SMS a e-mail. Provozovatel však může vytvořit call centrum, které bude přijímat telefonické objednávky od zájemců, které pracovníci call centra zapisují do aplikace.</p><p>Chraňte své blízké. Objednávejte se na testy v předstihu kde a kdy vám to nejvíce vyhovuje.</p><p>Děkujeme</p><br><p>Aplikaci rádi přizpůsobíme i pro vaše specifické zdravotnické, nebo ne-zdravotnické účely.</p><p>Tým Rýchlejšie.sk</p><p> </p><img class=\"img-fluid\" style=\"margin: 0 auto\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Rychlejsie_sk_logo.png\" />",
+
   "helpPublicQ1": "Jak se objednat na test?",
   "helpPublicA1": "<p>Pokud se chcete objednat na test, klikněte v mapě na oranžovou ikonku odběrného místa a potom na tlačítko \"Vybrat\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_03_mapa_zvolene_miesto.png\" /> <br/><br/> nebo zvolte odběrné místo ze seznamu: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_04_tabulka_miest.png\" /></p><p>Kliknutím na \"Vybrat\" přejdete na stránku provozovny, kde si kliknutím můžete vybrat z nabízených služeb: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_05_vyber_sluzbu.png\" /></p><p>Zobrazí se provozní dni. Kliknutím vyberete den testu: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_06_vyber_den.png\" /></p><p>Kliknutím vyberete hodinu testu: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_07_vyber_hodinu.png\" /></p><p>Kliknutím zvolíte přesný čas: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_08_vyber_slot.png\" /></p><p>Zobrazí se formulář. Vyplňte údaje o osobě, pro kterou službu objednávate. E-mail není povinný. Výsledek testu akceptovatelný Policií dostanete v SMS. Certifikát si po testu budete moct stáhnout z naší stránky po zadaní čísla vaší registrace a 4 číslic rodného čísla, resp. pasu. Heslem pro otevření souboru je vaše rodné číslo (resp. číslo pasu). Dokument dostanete i e-mailem (pokud ho zadáte při registraci). Ujistěte se, že jsou pravdivé a správné kontaktní údaje. Označte, že souhlasíte se zpracovaním osobních dat včetně pro potřeby využití služby a klikněte na tlačítko \"Zaregistrovat\": </p><p>POZNÁMKA: <a href=\"/#/results\">Registraci na test můžete zrušit zde</a>. <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_10_registracny_formular_vyplneny.png\" /></p><p>Zobrazí se potvrzení o úspešné registraci. Potvrzení zasíláme automaticky e-mailem i prostřednictvím SMS. Aby se vaše testování urychlilo, při testování se prokažte tímto potvrzením, minimálně však číslem registrace: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_11_registracia_dokoncena_QR_kod.png\" /></p><p>Kliknutím na tlačítko \"Zaregistrovat novou osobu..\" zobrazíte předvyplněný formulář pro další osobu.<img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/verejnost_registracia_12_registracia_dokoncena_dalsia_osoba.png\" /></p>",
   "helpPublicQ2": "Jak probíhá registrace?",
@@ -235,16 +273,19 @@
   "helpPublicA10": "<p>Osobní údaje jsou odeslané na server v momentě, když stisknete tlačítko \"Zaregistrovat\". Komunikace se serverem je šifrovaná SSL protokolem. </p> <p>Údaje jsou uložené v no-sql databázi. Jsou zašifrované AES256 metodou, která se považuje za najvyšší Standard bezpečnosti uložených údajů. Dvě hesla jsou nastavená administrátorem. </p> <p>   Autorizovaná osoba může podle kódu registrace načíst vaše osobní údaje. Autorizované osoby jsou pozvané do systému. Žádná z autorizovaných osob nemá možnost zobrazit seznam   registračních kódů. Mohou vyhledávat podle rodného čísla (v db zahashované), nebo podle kódu registrace. </p> <p>   Autorizované osoby se přihlašují heslem a autorizované požadavky na server probíhají s JWT tokenom. </p> <p>   Výsledek testování je dostupný jen po zadaní kódu registrace a posledních čtyř číslic rodného čísla. Proto je potřebné chránit přidělený kód registrace. </p> <p>Osobní údaje můžete vymazat ze serveru po převzetí certifikátu s negativním výsledkem. Zobrazte výsledek testu zadáním svého kódu a posledních čtyř číslic rodného čísla (v případě, že jste při registraci použili číslo cestovního pasu, použijte z něho poslední 4 číslice). V případě negativního testu se Vám zobrazí tlačítko vymazat osobní údaje. Po stisknutí tlačítka budou osobní údaje vymazané. Po vymazání bude Vaše návštěva kompletně vymazaná i s dalšími indexovanými údaji, a v systému po Vás zůstane pouze anonymní statistický údaj. </p> <p>   Správcem osobních údajů je osoba uvedená v patičce každé webové stránky aplikace. </p>",
   "helpPublicQ11": "Zrychlení příjmu neregistrovaných osob.",
   "helpPublicA11": "Nestihli jste se zaregistrovat, ale odběrné místo přijímá i neregistrované? Pro odlehčení pracovníkům na příjmu si vygenerujte tzv. \"velké QR kódy\". Kliknutím na \"Vytvořit nezašifrovaný QR kód\" vygeneruje systém NEzašifrovaný QR kód. Naskenováním takového QR kódu pracovník načte údaje do formuláře registrace: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_qr_kod_velky_nezasifrovany.png\" /><br/><br/>nebo zašifrovaný QR kód: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_qr_kod_velky_zasifrovany.png\" /><br/>",
+
   "helpProviderQ1": "Registrace provozovatele služeb",
   "helpProviderA1": "<p>Pokud chcete poskytnout občanům možnost přihlásit se na testy, nejprve musíte zaregistrovat svůj subjekt - provozovatele. Na hlavní stránce klikněte prosím na \"Přihlášení\" (na obrázku označené číslem 1): <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_001_prihlasenie.png\" /></p><p>Pro registraci nového provozovatele klikněte na tlačítko označené na obrázku číslem 1:  <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_002_registracia.png\" /></p><p>Začněte tím, že potvrdíte, že jste oprávnění zastupovat subjekt, který se chystáte zaregistrovat. Vyplňte požadované údaje o vašem subjektu, který provozuje odběrná místa. Před odesláním se ujistěte o správnosti kontaktních údajů. E-mailem Vám pošleme počáteční heslo. <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_003_registacia_form.png\" /></p>",
   "helpProviderQ2": "První kroky po registraci provozovatele",
   "helpProviderA2": "<p>Kontaktní osoba zadaná při registraci provozovatele, je automaticky administrátorem provozovatele. Může řídit pracovníky, přidělovat jim oprávnění i úlohy. Administrátor může spravovat místa, jejich provozní čas i poskytované služby. Pro přihlášení do systému používá kontaktní e-mail zadaný při registraci subjektu - provozovatele odběrných míst a heslo, které dostal e-mailem. Heslo si po prvním přihlášení změňte: <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sprava_000_zmena_hesla.png\" /></p><p>V dalším kroku v menu zvolte \"Pozvánky\". Pokud přijmete pozvánku, získate všechna administrátorská oprávnění k vámi vytvořenému subjektu. V budoucnosti se vám zde mohou zobrazit další pozvánky, pokud vám někdo přidělí oprávnění: <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sprava_001_sprava_pozvanok.png\" /></p>",
   "helpProviderQ3": "Správa agend",
   "helpProviderA3": "<p>Správou agend se myslí:<ul><li>Správa pracovišť</li><li>Správa provozní doby</li><li>Správa lidských zdrojů</li><li>Správa poskytovaných služeb</li><li>Exporty dat</li></ul><br/>Tyto části spravuje administrátor. Podívejte se na část věnovanou této roli. </p>",
+
   "helpAdminQ1": "Správa agend",
   "helpAdminA1": "<p>V horním menu se nachází agendy, které může uživatel spravovat. Po registraci nového provozovatele doporučujeme postupovat agendami odshora dolů (jejich popis najdete v dalších částech tohoto helpu):  <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sprava_003_menu.png\" /></p>",
   "helpAdminQ2": "Správa pracoviště / provozu / pracovního místa / testovacího místa / místa odběru",
   "helpAdminA2": "<p>Pro přidání nového pracoviště zvolte v horním menu \"Správa pracovišť provozovatele\" a vyplňte \"Formulář pro správu pracoviště\":<br><br> Název pracoviště - volte veřejně známá místa, např. <i>Poliklinika Pezinok</i><br> Adresa - doporučujeme zadat ulici, číslo domu a město. Pokud jde o obec, doporučujeme zadat i okres. Popis - využijete, pokud potřebujete blíže specifikovat, jak se občani dostanou do testovacího místa (boční vchod, vstup z vedlejší ulice, 3. poschodí, místnost č. 112 a pod.). GPS souřadnice - pokud se má pracoviště zobrazit na mapě, je nevyhnutné zadat GPS souřadnice. Zjistíte je lehce např. na mapách mapy.cz Limit úkonů za 5 min - max. počet registrací od občanů na 5 minut, které chcete přijmout Limit úkonů za hodinu - max. počet registrací od občanů na 1 hodinu, které chcete přijmout. Myslete prosím na rezervu pro pracovníky. Nižší čísla zajistí, že občani nebudou muset čekat a práce bude plynulejší a bez stresu. Možnost přijet autem (Drive in) - pokud na pracovišti poskytujete službu občanům v autě, kteří přijedou svým automobilem Možnost přijít (Walk in) - pokud  na pracovišti poskytujete službu občanům, kteří přichází pěšky Otevírací hodiny - tato část vám umožňuje vytvořit ihned tři šablony pro dni, kdy poskytujete službu. Zohlední se jen vyplněná políčka. Standardně se vytváří šablona pro pracovní dni a pro víkendy. Prosím nezapomeňte na přestávku pro pracovníky. Příklad: \"08:00-12:00, 13:00-18:00\" předpokladá, že pracovní místo bude otevřené od 8:00 do 12:00 a po obědové prestávce od 13:00 do 18:00 hod. Jde jen o šablonu, kterou nastavíte vybraným dnům. Výjimky budete moct nastavit později v agendě \"Správě provozní doby\".  <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sprava_004_pridanie_pracoviska.png\" /></p> <p>Všechna pracovní místa se zobrazují v přehledné tabulce a kliknutím na příslušnou ikonku je můžete editovat, resp. natrvalo odstranit. <p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sprava_005_zoznam_pracovisk.png\" /></p>",
+
   "helpAdminQ3": "Správa provozní doby",
   "helpAdminA3": "<p>V levém horním menu zvolte \"Správa provozní doby\":<img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_000_menu.png\" /></p><p>Pokud chcete nastavit provozní dobu pro všechny vaše provozovny najednou zaškrtněte tuto možnost (na obrázku označené číslem 1). Pokud chcete nastavit provozní dobu pro konkrétní provozovnu, zvolte ji ze seznamu (na obrázku označené číslem 2). Potom nastavte interval dní, pro který chcete nastavit provozní dobu během dne (na obrázku označené číslem 3):  <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_001_mesiac_prazdny.png\" /></p><p>Datum je možné nastavit v kalendáři, nebo ručně zapsat do políček \"Od\", \"Do\". Po zvolení dní, klikněte na šablonu (v obrázku označené číslem 1), kterou chcete aplikovat na provozní dny (definovali jste ji při definovaní pracovního místa).  </p><p><img class=\"img-fluid\" width=\"45%\" style=\"border: 1px #BBB solid; margin: 20px 20px 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_003_datum_od.png\" /> <img class=\"img-fluid\" width=\"45%\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_004_datum_od_do_nastaveny.png\" /></p><p>Po kliknutí na tlačítko šablony provozní doby v kalendáři se označí zvolené dni barvou šablony. <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_005_sablona_aplikovana_na_interval_dni.png\" /></p><p>Ikdyž už máte nastavenou základní šablonu pro celý měsíc, můžete na vybrané dny aplikovat jiné šablony. Nastavte si dny, nebo označte tahem myší dny v kalendáři a klikněte na zvolenou šablonu (např. víkend): <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_006_nastavenie_datumu_vikendu.png\" /></p><p>Ve zvolených dnech se nastavila šablona provozní doby pro víkend: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_007_aplikovanie_druhej_sablony_na_vikend.png\" /></p><p>Postupně je možné nastavit víkendové šablony pro další soboty a neděle. Nakonec klikněte na \"Přehled změn\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_008_aplikovanie_druhej_sablony_na_vsetky_vikendy.png\" /></p><p>Pokud souhlasíte s nastavením změn, klikněte na \"Uložit\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_009_kontrola_pred_ulozenim.png\" /></p><p>Zobrazí se kalendář. Pokud jste zapomněli na nějaké nastavení, můžete ho aplikovat: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_doba_010_po_ulozeni.png\" /></p>",
   "helpAdminQ4": "Správa lidských zdrojů I. - pozvání pracovníka",
@@ -256,16 +297,21 @@
   "helpAdminA6": "<p>Kliknutím na tlačítko \"+\" v seznamu poskytovaných služeb zobrazíte formulář pro přidání služby: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sluzby_001_poskytovane_sluzby_zoznam.png\" /></p> <p>Vyplňte formulář. Pokud zaškrtnete \"Předvolené na všech místech\" bude se služba poskytovat na všech vašich místech. Klikněte na tlačítko \"Přidej\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sluzby_002_pridanie_sluzby.png\" /></p> <p>V seznamu se zobrazí nově přidaná služba: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sluzby_003_sluzba_bola_pridana.png\" /></p> <p>Pokud jste při definování služby (v předchozích krocích) nenastavili službu, aby se poskytovala na všech místech, můžete zde zadefinovat, na kterých místech se bude poskytovat. Klikněte na tlačítko \"+\": <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sluzby_004_sluzby_poskytovane_na_miestach_zoznam.png\" /></p> <p>Vyplňte formulář a zvolte případné časové ohraničení poskytovaní služby. Nakonec klikněte na \"Přidej: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sluzby_005_sluzby_poskytovane_na_miestach_form.png\" /></p> <p>Služba bude poskytovaná i na zvoleném místě: <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/prevadzk_sluzby_006_sluzby_poskytovane_na_miestach_zaznam_bol_pridany.png\" /></p>",
   "helpAdminQ7": "Exporty dat a reporty testovaných",
   "helpAdminA7": "<h3>Stavy testu uvedené v reportech</h3><ul><li>Osoba se zaregistrovala na test.<br/>NotTaken = \"test-not-taken\"</li><li>Pracovník identifikoval občana a přiřadil mu test. <br/>TestIsBeingProcessing = \"test-not-processed\"</li><li>Test byl vyhodnocovaný, nebyl ani negativní ani pozitivní - selhal. Je potřebné aby se občan přišel protestovat znovu.<br/>TestMustBeRepeated = \"test-to-be-repeated\"</li><li>Test byl vyhodnocený jako pozitivní.<br/>PositiveWaitingForCertificate = \"positive\"</li><li>Občan s pozitivním testem si stáhnul elektronický certifikát ze stránky registrace:<br/>PositiveCertificateTaken = \"positive-certiciate-taken\"</li><li>Test byl vyhodnocený jako pozitivní.<br/>NegativeWaitingForCertificate = \"negative\"</li><li>Občan s pozitivním testem si stáhnul elektronický certifikát ze stránky registrace:<br/>NegativeCertificateTaken = \"negative-certiciate-taken\"</li></ul>",
+
   "helpTesterQ1": "Skenování kódu klienta a přiřazení čísla testu.",
   "helpTesterA1-uvod": "<p>Pracovník, který má v daný den na odběrném místě dělat příjem (identifikovat zájemce o test + přiřazovat číslo testu) si musí po přihlášení do aplikace Rýchlejšie.sk nejprve nastavit místo, na kterém se nachází.</p><p><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_odberne_miesto_potvrdte.png\" /><br/><img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_odberne_miesto_vybrate.png\" /><br/></p><p>Pracovník potom u každé testované osoby zvolí jednu z možností:  <ol><li>Rodné číslo (zvolí, pokud se osoba registrovala na test, ale nepamatuje si číslo registrace)</li><li>Kód registrace / QR kód (zvolí, pokud se osoba registrovala na test, a má u sebe kód registrace v číselném tvaru - např.: 123-456-789, nebo v QR podobě)</li><li>Osobní kód zaměstnance (zvolí, pokud jde o zaměstnance)</li><li>Osoba bez registrace (zvolí, pokud se osoba NEregistrovala na test)</li></ol></p>",
   "helpTesterA1-1": "<h4>1. Rodné číslo</h4><p>zvolte, pokud se osoba registrovala na test, ale nepamatuje si číslo registrace.</p>",
   "helpTesterA1-2": "<h4>2. Registrační kód</h4><p>zvolte, pokud se osoba registrovala na test, a má u sebe kód registrace v číselném tvaru - např.: 123-456-789, nebo v QR podobě).</p>",
   "helpTesterA1-3": "<h4>3. Osobní kód zaměstnance</h4><p>zvolte pokud jde o zaměstnance.</p>",
   "helpTesterA1-4": "<h4>4. Osoba bez registrace</h4><p>zvolte, pokud se osoba NEregistrovala na test.</p><p>Osobám, které nejsou registrované na test můžete umožnit, aby zrychlili testování tím, že při čekání před testem vyplní formulář a vytvoří QR kód pro načítání jejich dat kamerou. Kliknutím na tlačítko \"Načítat QR kód\" zapnete kameru pro snímaní tzv. \"<b>velkého QR kódu neregistrované osoby</b>\"<img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_registracia_noveho_navstevnika_form_prazdny.png\" /><br/>Data uložená v QR kódu se načítají do formuláře. <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_neregistrovany_user_velky_qr_kod_snimanie.png\" /><br/> <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_registracia_noveho_navstevnika_form_plny.png\" /><br/></p>",
+
+
   "helpLabQ1": "Skenování vyhodnocených testů laborantem a jejich odeslání.",
   "helpLabA1": "Na doplnenění..",
+
   "helpDocQ1": "Vypsání dokladu",
   "helpDocA1": "Na doplnění..",
+
   "Často kladené otázky - Bratislava": "Často kladené otázky - Bratislava",
   "FaqBaQ1": "Proč se dát otestovat?",
   "FaqBaA1": "Vládou schválené nařízení ukladá povinnost prokázat se negativním testem od 27.1. při cestě do práce, ale například i během procházky do přírody. Od této povinnosti jsou osvobození senioři nad 65 let a děti do 16 let. Pokud jste doma, ve vlastní bublině a neplánujete to měnit, nevystavujte se zbytečně riziku. I účastí nebo neúčastí na testovaní sledujme v první řadě vlastní ochranu a ochranu svých blízkych. ",
@@ -281,6 +327,7 @@
   "FaqBaA6": "Nebudou. Obyvatele a obyvatelky prosíme o ohleduplnost vůči těmto skupinám během testování a ve frontách, které se mohou tvořit u některých odběrných míst.",
   "FaqBaQ7": "Bude někde drive-through odběr? ",
   "FaqBaA7": "Drive-through odběry plánuje např. Ružinov, bratislavské letiště či Karlova Ves na parkovišti Líščie údolie a pod Mostem Lafranconi.",
+
   "ppTitle": "Registrace provozovatele odběrných míst",
   "ppAgreement": "Jsem oprávněný zastupovat provozovatele pro registraci do systému rýchlejšie.sk . Souhlasím se zpracovaním osobních údajů a dalších údajů provozovatele a souhlasím se smluvními podmínkami služby.",
   "ppTerms": "Obchodní podmínky",
@@ -295,12 +342,19 @@
   "ppPublicE-mail": "Veřejný e-mail",
   "ppPublicPhone": "Veřejný telefon",
   "ppRegister": "Zaregistrovat provozovatele",
+
   "workingTimeScheduleTitle": "Provozní doba pracoviště",
+
+
   "formEditProviderDetailsTitle": "Úprava údajů o provozovateli",
+
   "formAdminHRTitle": "Správa lidských zdrojů",
   "TimeAndPeopleSectionPeople": "Pracovníci",
   "TimeAndPeopleSectionRights": "Pracovní zařazení",
+
+
   "formAdminOpeningHoursTitle": "Správa provozní doby",
+
   "pricingTitle": "Cenová nabídka",
   "pricingSubtitle": "V současnosti nabízíme dvě varianty. Nejrychleji jsme schopní poskytnout první variantu.",
   "pricingVariant1Title": "Varianta 1 - na klíč",
@@ -308,18 +362,23 @@
   "pricingVariant2Title": "Varianta 2 - pronájem kódu aplikace",
   "pricingVariant2Text": "<h4>Specifikace:</h4><ul><li>Licenční použití sw včetně technické podpory</li><li>Kód pro nasazení Služby Rýchlejšie.sk se všemi funkcemi</li><li>Hardware, instalaci si zabezpečuje odběratel</li><li>Kanál pro odeslání SMS zabezpečuje odběratel</li><li>Kanál pro odeslání e-mailů zabezpečuje odběratel</li><li>Technická podpora 4h x 7d. před plánovaným testováním a v jeho průběhu</li><li>Za bezpečnost dat zodpovídá odběratel</li></ul><h3>Cena: </h3><ul><li>0,05 € / osobu, která se dostaví na test </li><li>minimální fakturovaná suma </li><li>je 4.800 €</li></ul><p>Podmínka: Podepsání smlouvy kvalifikovaným elektronickým podpisem osobou oprávněnou konat za provozovatele testovacího místa.</p>",
   "pricingRequestToRegister": "Zaujala vás naše nabídka? Zaregistrujte se nezávazně ihned. Spojíme se s vámi ještě dnes.",
+
   "manageProductsTitle": "Správa poskytovaných služeb",
   "manageProductspart1Title": "Seznam služeb",
   "manageProductspart2Title": "Služby poskytované na místech",
+
   "footerText": "<p>Službu <a href=\"https://www.rychlejsie.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:40px;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Rychlejsie_sk_logo_biele.png\" alt=\"Rýchlejšie.sk - služby bez čekání\" /></a> poskytuje Scholtz &amp; Company, j.s.a. ve spolupráci se <a href=\"https://www.srdcomdoma.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:25px;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Srdcomdoma_logo_horizontal_White_80px.png\" alt=\"Srdcom doma o.z.\" /></a></p><p><a class=\"idsk-footer__link\" href=\"#/gdpr\">Ochrana osobních údajů</a><br /></p>",
   "footerSocial": "<a href=\"https://www.facebook.com/rychlejsie.sk\" target=\"_blank\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/s/f.png\" height=\"25px\" alt=\"facebook link\" /></a> <a href=\"http://instagram.com/rychlejsie.sk\" target=\"_blank\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/s/i.png\" height=\"25px\" alt=\"facebook link\" /> <a href=\"https://twitter.com/rychlejsie\" target=\"_blank\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/s/t.png\" height=\"25px\" alt=\"facebook link\" /></a>",
-  "mapLegend": "Legenda: rezervace s  <a href=\"#\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Rychlejsie_sk_logo.png\" height=\"35px\" alt=\"orange\" /></a> přímo na tomto webu: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png\" height=\"25px\" alt=\"orange\" /> |  Iný rezervačný systém: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_01.png\" height=\"25px\" alt=\"gray\" /> |  Bez rezervace: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue.png\" height=\"25px\" alt=\"red\" />. ",
+
+  "mapLegend": "Legenda: rezervace s  <a href=\"#\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Rychlejsie_sk_logo.png\" height=\"35px\" alt=\"orange\" /></a> přímo na tomto webu: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_orange.png\" height=\"25px\" alt=\"orange\" /> |  Jiný rezervačný systém: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_01.png\" height=\"25px\" alt=\"gray\" /> |  Bez rezervace: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue.png\" height=\"25px\" alt=\"red\" />. ",
   "mapLegendSemafor": "<br/>  <b>Význam ikonek</b>: zavřené místo s rezervací: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_01.png\" height=\"25px\" alt=\"red\" />,  zavřené místo bez rezervace: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_blue.png\" height=\"25px\" alt=\"red\" />,   čekání do 5 min: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_max_5min.png\" height=\"25px\" alt=\"red\" />,  čekání 5-30 min: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_max_30min.png\" height=\"25px\" alt=\"red\" />,  čekání nad 30 min: <img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/map_icon_gray_over_30min.png\" height=\"25px\" alt=\"red\" />. Klikněte na ikonku pro podrobnosti nebo rezervaci:",
+
   "documentsTitle": "Správa dokumentů",
   "documentsDescription": "Pro stáhnutí certifikátu zadejte jen registrační kód, nebo jen rodné číslo.",
   "documentsRegNumberLegend": "Zadejte <b>kód registrace</b>:",
   "documentsPersonalNumberLegend": "nebo <b>rodné číslo</b>:",
   "downloadFileButton": "Stáhnout dokument",
+
   "reportsTitle": "Exporty",
   "reportsDescription": "Zvolte den a klikněte na tlačítko exportu.",
   "reportsChooseDay": "Zvolte den",
@@ -329,9 +388,11 @@
   "reportButtonNczi": "NCZI věta (Krajský úřad)",
   "reportButtonMissing": "Nepřítomní",
   "reportButtonAll": "Všichni",
+
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvolte den a klikněte na tlačítko exportu.",
   "adminReportsButton": "Všichni (anonymizovaní)",
   "": "",
+
   "Scholtz": "Scholtz"
 }

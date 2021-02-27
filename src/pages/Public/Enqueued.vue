@@ -2,22 +2,16 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Som v rade</h1>
+        <h1>{{ $t("enqueuedTitle") }}</h1>
         <p>
-          Pomôžte ostatným zistiť čas strávený v rade. Keď prídete do radu,
-          kliknite na tlačítko som v rade a keď vás pretestujeme, dáme ostatným
-          vedieť koľko ste čakali. Na Vašom odbernom mieste si pozrite
-          informáciu o aktuálnej dĺžke rady. Zároveň tým pomôžete optimalizovať
-          procesy testovania aby sme mohli efektívne porovnať dĺžku radov a
-          odchýlku od času registrácie medzi rôznymi rezervačnými a odberovými
-          systémami.
+          {{ $t("enqueuedInfo") }}
         </p>
       </b-container>
     </div>
 
     <div class="py-5">
       <b-container>
-        <b-col v-if="success"> Ďakujeme za pomoc </b-col>
+        <b-col v-if="success"> {{ $t("") }} </b-col>
         <b-row v-if="!success">
           <b-col cols="12" md="6">
             <b-input v-model="code" ref="code" />
@@ -32,7 +26,7 @@
           <b-col> </b-col>
           <b-col>
             <b-button class="my-3" @click="enqueuee" variant="primary">
-              Som v rade
+              {{ $t("enqueuedTitle") }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
@@ -107,5 +101,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
