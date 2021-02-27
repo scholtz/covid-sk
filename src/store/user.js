@@ -171,6 +171,16 @@ export const actions = {
       { root: true }
     );
   },
+  async SendResultToEHealth({ dispatch }, { visitorId }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/SendResultToEHealth",
+        params: { visitorId },
+      },
+      { root: true }
+    );
+  },
   async Preauthenticate({ dispatch }, { email }) {
     return await dispatch(
       "axios/post",
