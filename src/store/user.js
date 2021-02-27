@@ -151,6 +151,26 @@ export const actions = {
       { root: true }
     );
   },
+  async FindVisitor({ dispatch }, { query }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/FindVisitor",
+        params: { query },
+      },
+      { root: true }
+    );
+  },
+  async UpdateVisitor({ dispatch }, { visitor }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/UpdateVisitor",
+        body: visitor,
+      },
+      { root: true }
+    );
+  },
   async Preauthenticate({ dispatch }, { email }) {
     return await dispatch(
       "axios/post",

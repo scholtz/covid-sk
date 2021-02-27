@@ -165,6 +165,11 @@ const router = new VueRouter({
       component: () => import("../pages/Admin/Invite.vue"),
     },
     {
+      path: "/admin/visitor/:visitorId",
+      name: "AdminVisitor",
+      component: () => import("../pages/PlaceProvider/Visitor.vue"),
+    },
+    {
       path: "/admin/managepp",
       name: "managepp",
       component: () => import("../pages/PlaceProvider/Manage.vue"),
