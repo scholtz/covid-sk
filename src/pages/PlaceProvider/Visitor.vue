@@ -642,6 +642,22 @@
                     />
                   </b-form-group>
                 </b-col>
+                <b-col>
+                  <b-form-group
+                    id="eHealthNotifiedAt-group-1"
+                    label="eHealthNotifiedAt"
+                    label-for="eHealthNotifiedAt"
+                  >
+                    <VueCtkDateTimePicker
+                      v-model="visitor.eHealthNotifiedAt"
+                      label="eHealthNotifiedAt"
+                      time-zone="Europe/Bratislava"
+                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                      formatted="llll"
+                      :locale="locale"
+                    />
+                  </b-form-group>
+                </b-col>
               </b-row>
               <b-row>
                 <b-col cols="12" class="my-2">
