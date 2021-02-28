@@ -171,6 +171,18 @@ export const actions = {
       { root: true }
     );
   },
+  async DownloadEHealthVisitors({ dispatch }, { day }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Admin/DownloadEHealthVisitors",
+        params: { day },
+      },
+      { root: true }
+    );
+  },
   async SendResultToEHealth({ dispatch }, { visitorId }) {
     return await dispatch(
       "axios/post",
