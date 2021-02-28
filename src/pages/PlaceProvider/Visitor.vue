@@ -660,6 +660,16 @@
                 </b-col>
               </b-row>
               <b-row>
+                <b-col cols="12" :md="resultColumns">
+                  <label for="result"> Výsledok testu </label>
+                  <b-form-select
+                    :options="resultOptions"
+                    v-model="visitor.result"
+                    id="result"
+                  />
+                </b-col>
+              </b-row>
+              <b-row>
                 <b-col cols="12" class="my-2">
                   <p>
                     <b-form-checkbox v-model="visitor.school" id="school">
@@ -826,6 +836,36 @@ export default {
         {
           value: "99",
           text: this.$t("registrationFormInsuranceForeigner"),
+        },
+      ],
+      resultOptions: [
+        {
+          value: "test-not-taken",
+          text: "test-not-taken",
+        },
+        {
+          value: "test-not-processed",
+          text: "test-not-processed",
+        },
+        {
+          value: "test-to-be-repeated",
+          text: "test-to-be-repeated",
+        },
+        {
+          value: "positive",
+          text: "positive",
+        },
+        {
+          value: "positive-certiciate-taken",
+          text: "positive-certiciate-taken",
+        },
+        {
+          value: "negative",
+          text: "negative",
+        },
+        {
+          value: "negative-certiciate-taken",
+          text: "negative-certiciate-taken",
         },
       ],
     };
