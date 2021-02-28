@@ -660,13 +660,27 @@
                 </b-col>
               </b-row>
               <b-row>
-                <b-col cols="12" :md="resultColumns">
+                <b-col>
                   <label for="result"> Výsledok testu </label>
                   <b-form-select
                     :options="resultOptions"
                     v-model="visitor.result"
                     id="result"
                   />
+                </b-col>
+
+                <b-col>
+                  <b-form-group
+                    id="personTrackingNumber-group-1"
+                    label="Covid Pass"
+                    label-for="personTrackingNumber"
+                  >
+                    <b-form-input
+                      id="personTrackingNumber"
+                      name="personTrackingNumber"
+                      v-model="visitor.personTrackingNumber"
+                    />
+                  </b-form-group>
                 </b-col>
               </b-row>
               <b-row>
