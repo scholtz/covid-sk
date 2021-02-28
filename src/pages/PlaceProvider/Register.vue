@@ -18,13 +18,13 @@
                   href="#/terms-and-conditions"
                   target="_blank"
                   class="btn bg-light text-dark p-1 m-1"
-                  >Obchodné podmienky</a
+                  >{{ $t("ppTerms") }}</a
                 >
                 <a
                   href="#/pricing"
                   target="_blank"
                   class="btn bg-light text-dark p-1 m-1"
-                  >Cenník</a
+                  >{{ $t("ppPricing") }}</a
                 >
               </p>
             </b-col>
@@ -173,62 +173,10 @@
           </b-row>
         </b-col>
         <b-col>
-          <h2>Prečo si zvoliť rýchlejšie.sk?</h2>
+          <h2>{{ $t("ppInfoQ") }}</h2>
 
           <ol>
-            <li>
-              Sme <b>jediný</b> poskytovaľ služby objednávkového systému na
-              Slovensku pre odoberanie vzoriek choroby COVID-19 s rozsahom od
-              predregistrácie cez testovanie až po reporting hygiene
-            </li>
-            <li>Robíme to preto, že <b>chceme pomôcť</b>, nie kôli peniazom</li>
-            <li>
-              Možnosť zriadiť rezervačný a testovací systém <b>úplne zadarmo</b>
-            </li>
-            <li>
-              Jediná aplikácia ktorá je <b>škálovateľná</b> v rozsahu že zvládne
-              otestovať aj celé Slovensko za 2 dni. Bola spustená ešte pred
-              prvým hromadným testovaním.
-            </li>
-            <li>
-              Podpora IT znamená pre odberové miesto
-              <b>5 - 20 násobne rýchlejší</b>
-              vykon testu ako pri papierovej podobe.
-            </li>
-            <li>
-              Jeden doktor pri odbere zvládne pretestovať minimálne 3 ľudí za
-              minútu.
-            </li>
-            <li>
-              Dvaja doktori pri odbere zvládne pretestovať minimálne 6 ľudí za
-              minútu.
-            </li>
-            <li><b>Bez čakania</b> a radov</li>
-            <li>
-              Riziko <b>prenosu</b> vírusu od návštevníka <b>k doktorovi</b> je
-              <b>minimalizované</b>.
-            </li>
-            <li>
-              Riziko prenosu vírusu od návštevníka k ďalšiemu návštevníkovi je
-              minimalizované.
-            </li>
-            <li>Podpora DriveIn testovania. Podpora WalkIn testovania.</li>
-            <li>Technická možnosť zriadiť offline testovacie miesto.</li>
-            <li>
-              Efektívne pre <b>životné prostredie</b> - bez papierovačiek.
-            </li>
-            <li>
-              Jasná definícia GDPR. Riziko zneužitia osobných údajov je
-              minimalizované na minimum.
-            </li>
-            <li>
-              Osobné údaje sú zašifrované najsilnejšími šifrovacími spôsobmi.
-              Neexistuje časový bod v ktorom by sa dali extrahovať údaje pretože
-              dáta sa po teste a notifikácii užívateľovi zmažú.
-            </li>
-            <li>
-              Real time monitoring štatistických údajov, napríklad pre médiá
-            </li>
+            <li v-for="i in 16" :key="i" v-html="$t('ppInfoA' + i)" />
           </ol>
         </b-col>
       </b-row>
@@ -282,5 +230,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

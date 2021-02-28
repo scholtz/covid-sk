@@ -5,7 +5,6 @@
   "change":"Zmeniť",
   "accessDenied":"Nemáte oprávnenie k zobrazeniu tejto stránky",
 
-  "mainDangerAlert": "Táto stránka slúži iba pre registráciu NEMOCNÍC, MOM a MIEST a OBCÍ pre použitie systému rýchlejšie.sk",
   "mainTitle": "Zoznam odberových miest na antigénové testovanie COVID-19",
   "mainTitleBa": "Zoznam odberových miest na antigénové testovanie COVID-19 v Bratislave",
   "mainSubTitle": "Vítame vás! Na týchto stránkach nájdete podrobný prehľad aktuálne otvorených odberových miest v našom meste. Veríme, že spoločne to zvládneme! ",
@@ -87,6 +86,8 @@
   "navBarPublicEnqueued": "Som v rade",
   "navBarPublicResults":"Výsledky testu a certifikát",
   "navBarPublicHelp":"Často kladené otázky",
+  "navBarPublicHelpIntroduction":"Na úvod",
+  "navBarPublicHelpPublic":"Verejnosť",
 
   "navBarUserChangePassword":"Zmena hesla",
   "navBarUserChangePP":"Zmena prevádzkovateľa",
@@ -138,6 +139,7 @@
   "loginFormLogin":"Login / E-mail",
   "loginFormPassword":"Heslo",
   "loginFormButton":"Prihlás",
+  "loginFormRegisterPlaceProvider":"Registrácia nemocnice, mobilného odberového miesta, alebo vakcinačného miesta",
   
   "selectPlaceTitle":"Výber odberového miesta",
   "selectPlaceShowTable":"Zobraziť tabuľku",
@@ -342,6 +344,24 @@
   "ppPublicE-mail":"Verejný e-mail",
   "ppPublicPhone":"Verejný telefón",
   "ppRegister":"Zaregistrovať prevádzkovateľa",
+
+  "ppInfoQ":"Prečo si zvoliť rýchlejšie.sk?",
+  "ppInfoA1":"Sme <b>jediný</b> poskytovaľ služby objednávkového systému na Slovensku pre odoberanie vzoriek choroby COVID-19 s rozsahom od predregistrácie cez testovanie až po reporting hygiene",
+  "ppInfoA2":"Robíme to preto, že <b>chceme pomôcť</b>, nie kôli peniazom",
+  "ppInfoA3":"Možnosť zriadiť rezervačný a testovací systém <b>úplne zadarmo</b>",
+  "ppInfoA4":"Jediná aplikácia ktorá je <b>škálovateľná</b> v rozsahu že zvládne otestovať aj celé Slovensko za 2 dni. Bola spustená ešte pred prvým hromadným testovaním.",
+  "ppInfoA5":"Podpora IT znamená pre odberové miesto <b>5 - 20 násobne rýchlejší</b> vykon testu ako pri papierovej podobe.",
+  "ppInfoA6":"Jeden doktor pri odbere zvládne pretestovať minimálne 3 ľudí za minútu.",
+  "ppInfoA7":"Dvaja doktori pri odbere zvládne pretestovať minimálne 6 ľudí za minútu.",
+  "ppInfoA8":"<b>Bez čakania</b> a radov",
+  "ppInfoA9":"Riziko <b>prenosu</b> vírusu od návštevníka <b>k doktorovi</b> je <b>minimalizované</b>.",
+  "ppInfoA10":"Riziko prenosu vírusu od návštevníka k ďalšiemu návštevníkovi je minimalizované.",
+  "ppInfoA11":"Podpora DriveIn testovania. Podpora WalkIn testovania.",
+  "ppInfoA12":"Technická možnosť zriadiť offline testovacie miesto.",
+  "ppInfoA13":"Efektívne pre <b>životné prostredie</b> - bez papierovačiek.",
+  "ppInfoA14":"Jasná definícia GDPR. Riziko zneužitia osobných údajov je minimalizované na minimum.",
+  "ppInfoA15":"Osobné údaje sú zašifrované najsilnejšími šifrovacími spôsobmi. Neexistuje časový bod v ktorom by sa dali extrahovať údaje pretože dáta sa po teste a notifikácii užívateľovi zmažú.",
+  "ppInfoA16":"Real time monitoring štatistických údajov, napríklad pre médiá",
 
   "workingTimeScheduleTitle":"Prevádzková doba pracoviska",
  

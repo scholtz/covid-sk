@@ -15,11 +15,11 @@
         <b-row v-if="!success">
           <b-col cols="12" md="6">
             <b-input v-model="code" ref="code" />
-            <label for="code">{{ $t("resultsCode") }}</label>
+            <label for="code" v-html="$t('resultsCode')" />
           </b-col>
           <b-col cols="12" md="6">
             <b-input v-model="pass" ref="pass" id="pass" />
-            <label for="pass">{{ $t("resultsPass") }}</label>
+            <label for="pass" v-html="$t('resultsPass')" />
           </b-col>
         </b-row>
         <b-row v-if="!success">
