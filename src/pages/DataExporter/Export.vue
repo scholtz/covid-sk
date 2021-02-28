@@ -68,6 +68,8 @@
             <b-spinner small v-if="loading5" />
           </button>
         </b-col>
+      </b-row>
+      <b-row>
         <b-col>
           <button
             @click="clickCompanyRegistrationsExport"
@@ -82,7 +84,7 @@
             @click="clickExportResultSubmissions"
             class="btn btn-primary my-4 form-control"
           >
-            Export odoslaných výsledkov
+            Vyhodnotené testy
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
