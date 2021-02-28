@@ -142,7 +142,7 @@
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Na úvod">
+            <b-tab :title="$t('navBarPublicHelpIntroduction')">
               <b-card-text>
                 <div class="accordion" role="tablist">
                   <b-card no-body class="mb-1">
@@ -166,10 +166,9 @@
               </b-card-text>
             </b-tab>
 
-            <b-tab title="Verejnosť" active>
+            <b-tab :title="$t('navBarPublicHelpPublic')" active>
               <b-card-text>
                 <div class="accordion" role="tablist">
-
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button class="p-3" block v-b-toggle.accordion-11>{{
@@ -221,7 +220,6 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-
 
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
@@ -525,7 +523,6 @@
                     </b-collapse>
                   </b-card>
 
-
                   <b-card no-body class="mb-1">
                     <b-card-header header-tag="header" class="p-0" role="tab">
                       <b-button
@@ -545,7 +542,6 @@
                       </b-card-body>
                     </b-collapse>
                   </b-card>
-
                 </div>
               </b-card-text>
             </b-tab>
@@ -571,9 +567,10 @@
                       accordion="admin-accordion"
                       role="tabpanel"
                     >
-                      <b-card-body><div v-html="$t('helpTesterA1-uvod')" />
-                      <div v-html="$t('helpTesterA1-1')" />
-                      <div v-html="$t('helpTesterA1-2')" />
+                      <b-card-body
+                        ><div v-html="$t('helpTesterA1-uvod')" />
+                        <div v-html="$t('helpTesterA1-1')" />
+                        <div v-html="$t('helpTesterA1-2')" />
                         <iframe
                           src="https://player.vimeo.com/video/502757010?byline=0&portrait=0"
                           width="300"
@@ -581,9 +578,10 @@
                           frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowfullscreen
-                        ></iframe><br/><br/>
-                      <div v-html="$t('helpTesterA1-3')" />
-                      <div v-html="$t('helpTesterA1-4')" />
+                        ></iframe
+                        ><br /><br />
+                        <div v-html="$t('helpTesterA1-3')" />
+                        <div v-html="$t('helpTesterA1-4')" />
                       </b-card-body>
                     </b-collapse>
                   </b-card>
@@ -625,9 +623,7 @@
   </div>
 </template>
 
-
 <script>
 export default {};
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

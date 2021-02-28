@@ -7,10 +7,9 @@
           {{ $t("loginHelp") }}
         </p>
         <p>
-          <b-link to="/registerPlaceProvider" class="opacity-8 btn btn-light"
-            >Registrácia nemocnice, mobilného odberového miesta, alebo
-            vakcinačného miesta</b-link
-          >
+          <b-link to="/registerPlaceProvider" class="opacity-8 btn btn-light">{{
+            $t("loginFormRegisterPlaceProvider")
+          }}</b-link>
         </p>
       </b-container>
     </div>
@@ -96,5 +95,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
