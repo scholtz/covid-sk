@@ -41,6 +41,17 @@
                 v-if="processingDownloadEHealthVisitors"
               />
             </button>
+            <button
+              class="btn btn-primary m-2"
+              @click="clickSendDayResultsToEHealth"
+            >
+              Odoslať výsledky občanom
+              <b-spinner
+                small
+                class="ml-1"
+                v-if="processingSendDayResultsToEHealth"
+              />
+            </button>
           </b-card>
         </b-col>
         <b-col col="6">
@@ -85,6 +96,7 @@ export default {
       rolesList: ["Admin", "PasswordProtected"],
       hasFile: false,
       processingDownloadEHealthVisitors: false,
+      processingSendDayResultsToEHealth: false,
     };
   },
   computed: {
@@ -96,6 +108,7 @@ export default {
     ...mapActions({
       InviteUser: "user/InviteUser",
       DownloadEHealthVisitors: "user/DownloadEHealthVisitors",
+      SendDayResultsToEHealth: "user/SendDayResultsToEHealth",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -145,10 +158,24 @@ export default {
       const that = this;
       this.DownloadEHealthVisitors({ day: this.importTime }).then(r => {
         this.processingDownloadEHealthVisitors = false;
+        console.log("DownloadEHealthVisitors", r);
         if (r) {
           that.openSuccess("Úspešne stiahnutých záznamov: " + r);
         } else {
           that.openError("Nestiahol sa žiadny záznam " + r);
+        }
+      });
+    },
+    clickSendDayResultsToEHealth() {
+      this.processingSendDayResultsToEHealth = true;
+      const that = this;
+      this.SendDayResultsToEHealth({ date: this.importTime }).then(r => {
+        this.processingSendDayResultsToEHealth = false;
+        console.log("SendDayResultsToEHealth", r);
+        if (r) {
+          that.openSuccess("Úspešne odoslaných záznamov: " + r);
+        } else {
+          that.openError("Neodoslal sa žiadny záznam " + r);
         }
       });
     },

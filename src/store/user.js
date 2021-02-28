@@ -183,6 +183,18 @@ export const actions = {
       { root: true }
     );
   },
+  async SendDayResultsToEHealth({ dispatch }, { date }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Admin/SendDayResultsToEHealth",
+        params: { date },
+      },
+      { root: true }
+    );
+  },
   async SendResultToEHealth({ dispatch }, { visitorId }) {
     return await dispatch(
       "axios/post",
