@@ -41,6 +41,12 @@
                 v-if="processingDownloadEHealthVisitors"
               />
             </button>
+
+            <label for="days">Exportovateľné dni</label>
+            <b-form-select
+              v-model="selectedDay"
+              :options="days"
+            ></b-form-select>
             <button
               class="btn btn-primary m-2"
               @click="clickSendDayResultsToEHealth"
@@ -92,6 +98,8 @@ export default {
       name: "",
       email: "",
       visitor: "",
+      days: [],
+      selectedDay: null,
       roles: ["Admin"],
       rolesList: ["Admin", "PasswordProtected"],
       hasFile: false,
@@ -104,11 +112,19 @@ export default {
       return this.$i18n.locale;
     },
   },
+  mounted() {
+    this.ListExportableDays().then(r => {
+      if (r) {
+        this.days = r;
+      }
+    });
+  },
   methods: {
     ...mapActions({
       InviteUser: "user/InviteUser",
       DownloadEHealthVisitors: "user/DownloadEHealthVisitors",
       SendDayResultsToEHealth: "user/SendDayResultsToEHealth",
+      ListExportableDays: "result/ListExportableDays",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -169,7 +185,7 @@ export default {
     clickSendDayResultsToEHealth() {
       this.processingSendDayResultsToEHealth = true;
       const that = this;
-      this.SendDayResultsToEHealth({ date: this.importTime }).then(r => {
+      this.SendDayResultsToEHealth({ date: this.selectedDay }).then(r => {
         this.processingSendDayResultsToEHealth = false;
         console.log("SendDayResultsToEHealth", r);
         if (r) {
