@@ -68,6 +68,8 @@
             <b-spinner small v-if="loading5" />
           </button>
         </b-col>
+      </b-row>
+      <b-row>
         <b-col>
           <button
             @click="clickCompanyRegistrationsExport"
@@ -79,10 +81,27 @@
         </b-col>
         <b-col>
           <button
+            @click="clickExportResultSubmissions"
+            class="btn btn-primary my-4 form-control"
+          >
+            Vyhodnotené testy
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            ></svg>
+            <b-spinner small v-if="loading8" />
+          </button>
+        </b-col>
+        <b-col>
+          <button
             @click="clickListAnonymizedVisitors"
             class="btn btn-primary my-4 form-control"
           >
-            Všetci anonymizovaní 
+            Všetci anonymizovaní
             <b-spinner small v-if="loading6" />
           </button>
         </b-col>
@@ -93,37 +112,39 @@
         <h1>Stavy testu</h1>
         <ul>
           <li>
-          Osoba sa zaregistrovala na test.<br/>
-          NotTaken = "test-not-taken"
+            Osoba sa zaregistrovala na test.<br />
+            NotTaken = "test-not-taken"
           </li>
           <li>
-          Pracovník identifikoval občana a priradil mu test. <br/>
-          TestIsBeingProcessing = "test-not-processed"
+            Pracovník identifikoval občana a priradil mu test. <br />
+            TestIsBeingProcessing = "test-not-processed"
           </li>
           <li>
-          Test bol vyhodnocovaný, nebol ani negatívny ani pozitívny - zlyhal. Je potrebné aby sa občan prišiel pretestovať znovu.<br/>
-          TestMustBeRepeated = "test-to-be-repeated"
+            Test bol vyhodnocovaný, nebol ani negatívny ani pozitívny - zlyhal.
+            Je potrebné aby sa občan prišiel pretestovať znovu.<br />
+            TestMustBeRepeated = "test-to-be-repeated"
           </li>
           <li>
-          Test bol vyhodnotený ako pozitívny.<br/>
-          PositiveWaitingForCertificate = "positive"
+            Test bol vyhodnotený ako pozitívny.<br />
+            PositiveWaitingForCertificate = "positive"
           </li>
           <li>
-          Občan s pozitívnym testom si stiahol elektronický certifikát zo stránky registrácie:<br/>
-          PositiveCertificateTaken = "positive-certiciate-taken"
+            Občan s pozitívnym testom si stiahol elektronický certifikát zo
+            stránky registrácie:<br />
+            PositiveCertificateTaken = "positive-certiciate-taken"
           </li>
           <li>
-          Test bol vyhodnotený ako pozitívny.<br/>
-          NegativeWaitingForCertificate = "negative"
+            Test bol vyhodnotený ako pozitívny.<br />
+            NegativeWaitingForCertificate = "negative"
           </li>
           <li>
-          Občan s pozitívnym testom si stiahol elektronický certifikát zo stránky registrácie:<br/>
-          NegativeCertificateTaken = "negative-certiciate-taken"
+            Občan s pozitívnym testom si stiahol elektronický certifikát zo
+            stránky registrácie:<br />
+            NegativeCertificateTaken = "negative-certiciate-taken"
           </li>
         </ul>
       </b-container>
     </div>
-
   </div>
 </template>
 
@@ -141,6 +162,7 @@ export default {
       loading5: false,
       loading6: false,
       loading7: false,
+      loading8: false,
     };
   },
   mounted() {
@@ -161,6 +183,7 @@ export default {
       ListTestedVisitors: "result/ListTestedVisitors",
       ListAnonymizedVisitors: "result/ListAnonymizedVisitors",
       CompanyRegistrationsExport: "user/CompanyRegistrationsExport",
+      ExportResultSubmissions: "result/ExportResultSubmissions",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -236,6 +259,15 @@ export default {
           this.openSuccess("Úspešne ste stiahli súbor");
         }
         this.loading7 = false;
+      });
+    },
+    clickExportResultSubmissions() {
+      this.loading8 = true;
+      this.ExportResultSubmissions({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading8 = false;
       });
     },
   },

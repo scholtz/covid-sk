@@ -20,6 +20,47 @@
           </b-card>
         </b-col>
         <b-col col="6">
+          <b-card title="Správa eZdravie">
+            <VueCtkDateTimePicker
+              v-model="importTime"
+              label="Dátum importu"
+              time-zone="Europe/Bratislava"
+              format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+              formatted="llll"
+              :locale="locale"
+            />
+
+            <button
+              class="btn btn-primary m-2"
+              @click="clickDownloadEHealthVisitors"
+            >
+              Načítať údaje pre vybratý deň
+              <b-spinner
+                small
+                class="ml-1"
+                v-if="processingDownloadEHealthVisitors"
+              />
+            </button>
+
+            <label for="days">Exportovateľné dni</label>
+            <b-form-select
+              v-model="selectedDay"
+              :options="days"
+            ></b-form-select>
+            <button
+              class="btn btn-primary m-2"
+              @click="clickSendDayResultsToEHealth"
+            >
+              Odoslať výsledky občanom
+              <b-spinner
+                small
+                class="ml-1"
+                v-if="processingSendDayResultsToEHealth"
+              />
+            </button>
+          </b-card>
+        </b-col>
+        <b-col col="6">
           <b-card title="Nahratie zamestnancov">
             <input
               class="form-control btn btn-primary m-2 p-1"
@@ -43,23 +84,47 @@
 </template>
 
 <script>
+import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
+import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 import { mapActions } from "vuex";
 import axios from "axios";
 export default {
+  components: {
+    VueCtkDateTimePicker,
+  },
   data() {
     return {
+      importTime: "",
       name: "",
       email: "",
       visitor: "",
+      days: [],
+      selectedDay: null,
       roles: ["Admin"],
       rolesList: ["Admin", "PasswordProtected"],
       hasFile: false,
+      processingDownloadEHealthVisitors: false,
+      processingSendDayResultsToEHealth: false,
     };
   },
-  computed: {},
+  computed: {
+    locale() {
+      return this.$i18n.locale;
+    },
+  },
+  mounted() {
+    this.ListExportableDays().then(r => {
+      if (r) {
+        this.days = r;
+      }
+    });
+  },
   methods: {
     ...mapActions({
       InviteUser: "user/InviteUser",
+      DownloadEHealthVisitors: "user/DownloadEHealthVisitors",
+      SendDayResultsToEHealth: "user/SendDayResultsToEHealth",
+      ListExportableDays: "result/ListExportableDays",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -103,6 +168,32 @@ export default {
     },
     loadVisitor() {
       this.$router.push("/admin/visitor/" + this.visitor);
+    },
+    clickDownloadEHealthVisitors() {
+      this.processingDownloadEHealthVisitors = true;
+      const that = this;
+      this.DownloadEHealthVisitors({ day: this.importTime }).then(r => {
+        this.processingDownloadEHealthVisitors = false;
+        console.log("DownloadEHealthVisitors", r);
+        if (r) {
+          that.openSuccess("Úspešne stiahnutých záznamov: " + r);
+        } else {
+          that.openError("Nestiahol sa žiadny záznam " + r);
+        }
+      });
+    },
+    clickSendDayResultsToEHealth() {
+      this.processingSendDayResultsToEHealth = true;
+      const that = this;
+      this.SendDayResultsToEHealth({ date: this.selectedDay }).then(r => {
+        this.processingSendDayResultsToEHealth = false;
+        console.log("SendDayResultsToEHealth", r);
+        if (r) {
+          that.openSuccess("Úspešne odoslaných záznamov: " + r);
+        } else {
+          that.openError("Neodoslal sa žiadny záznam " + r);
+        }
+      });
     },
   },
 };

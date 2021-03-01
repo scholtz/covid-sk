@@ -30,6 +30,23 @@
             <b-spinner small v-if="loading6" />
           </button>
         </b-col>
+        <b-col>
+          <button
+            @click="clickExportResultSubmissions"
+            class="btn btn-primary my-4 form-control"
+          >
+            ExportResultSubmissions
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            ></svg>
+            <b-spinner small v-if="loading7" />
+          </button>
+        </b-col>
       </b-row>
     </b-container>
   </div>
@@ -49,6 +66,7 @@ export default {
       loading4: false,
       loading5: false,
       loading6: false,
+      loading7: false,
     };
   },
   mounted() {
@@ -68,6 +86,7 @@ export default {
       ListExportableDays: "result/ListExportableDays",
       ListTestedVisitors: "result/ListTestedVisitors",
       ListAnonymizedVisitors: "result/ListAnonymizedVisitors",
+      ExportResultSubmissions: "result/ExportResultSubmissions",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -134,6 +153,15 @@ export default {
           this.openSuccess("Úspešne ste stiahli súbor");
         }
         this.loading6 = false;
+      });
+    },
+    clickExportResultSubmissions() {
+      this.loading7 = true;
+      this.ExportResultSubmissions({ day: this.selectedDay }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading7 = false;
       });
     },
   },

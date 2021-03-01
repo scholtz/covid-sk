@@ -660,6 +660,30 @@
                 </b-col>
               </b-row>
               <b-row>
+                <b-col>
+                  <label for="result"> Výsledok testu </label>
+                  <b-form-select
+                    :options="resultOptions"
+                    v-model="visitor.result"
+                    id="result"
+                  />
+                </b-col>
+
+                <b-col>
+                  <b-form-group
+                    id="personTrackingNumber-group-1"
+                    label="Covid Pass"
+                    label-for="personTrackingNumber"
+                  >
+                    <b-form-input
+                      id="personTrackingNumber"
+                      name="personTrackingNumber"
+                      v-model="visitor.personTrackingNumber"
+                    />
+                  </b-form-group>
+                </b-col>
+              </b-row>
+              <b-row>
                 <b-col cols="12" class="my-2">
                   <p>
                     <b-form-checkbox v-model="visitor.school" id="school">
@@ -826,6 +850,36 @@ export default {
         {
           value: "99",
           text: this.$t("registrationFormInsuranceForeigner"),
+        },
+      ],
+      resultOptions: [
+        {
+          value: "test-not-taken",
+          text: "test-not-taken",
+        },
+        {
+          value: "test-not-processed",
+          text: "test-not-processed",
+        },
+        {
+          value: "test-to-be-repeated",
+          text: "test-to-be-repeated",
+        },
+        {
+          value: "positive",
+          text: "positive",
+        },
+        {
+          value: "positive-certiciate-taken",
+          text: "positive-certiciate-taken",
+        },
+        {
+          value: "negative",
+          text: "negative",
+        },
+        {
+          value: "negative-certiciate-taken",
+          text: "negative-certiciate-taken",
         },
       ],
     };
