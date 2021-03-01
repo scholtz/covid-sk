@@ -2,28 +2,28 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Dashboard administrátora</h1>
+        <h1>{{ $t("adminDashboardTitle") }}</h1>
       </b-container>
     </div>
     <b-container class="my-2">
       <b-row>
         <b-col col="6">
-          <b-card title="Správa návštevníka">
+          <b-card :title="$t('adminDashboardVisitorManagement')">
             <input
               class="form-control"
               v-model="visitor"
-              placeholder="R.č., číslo registrácie, covid-pass.."
+              :placeholder="$t('adminDashboardVisitorDetails')"
             />
             <button class="btn btn-primary m-2" @click="loadVisitor">
-              Načítať
+              {{ $t("adminDashboardLoad") }}
             </button>
           </b-card>
         </b-col>
         <b-col col="6">
-          <b-card title="Správa eZdravie">
+          <b-card :title="$t('adminDashboardEzdravieManagement')">
             <VueCtkDateTimePicker
               v-model="importTime"
-              label="Dátum importu"
+              :label="$t('adminDashboardImportDate')"
               time-zone="Europe/Bratislava"
               format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
               formatted="llll"
@@ -34,7 +34,7 @@
               class="btn btn-primary m-2"
               @click="clickDownloadEHealthVisitors"
             >
-              Načítať údaje pre vybratý deň
+              {{ $t("adminDashboardLoadDetails") }}
               <b-spinner
                 small
                 class="ml-1"
@@ -42,7 +42,7 @@
               />
             </button>
 
-            <label for="days">Exportovateľné dni</label>
+            <label for="days">{{ $t("adminDashboardExportableDays") }}</label>
             <b-form-select
               v-model="selectedDay"
               :options="days"
@@ -51,7 +51,7 @@
               class="btn btn-primary m-2"
               @click="clickSendDayResultsToEHealth"
             >
-              Odoslať výsledky občanom
+              {{ $t("adminDashboardSentResults") }}
               <b-spinner
                 small
                 class="ml-1"
@@ -61,7 +61,7 @@
           </b-card>
         </b-col>
         <b-col col="6">
-          <b-card title="Nahratie zamestnancov">
+          <b-card :title="$t('adminDashboardEmployeeUpload')">
             <input
               class="form-control btn btn-primary m-2 p-1"
               type="file"
@@ -74,7 +74,7 @@
               v-if="hasFile"
               @click="submitFile"
             >
-              Nahrať
+              {{ $t("adminDashboardUpload") }}
             </button>
           </b-card>
         </b-col>
@@ -198,5 +198,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
