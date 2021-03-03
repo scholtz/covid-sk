@@ -41,7 +41,6 @@
   "mainC4": "Správa lidských zdrojů poskytuje přehled o vytíženosti pracovníků, zabezpečení odběrných míst potřebnými pracovními rolemi. Umožňuje získat potvrzení od pracovníků, že do služby nastoupí, chrání jejich osobní údaje a zvyšuje efektivitu.",
   "mainStepTitle": "Chci se testovat",
 
-
   "navBarAdmin": "Administrátor",
   "navBarAdminManagePlace": "Správa pracovišť provozovatele",
   "navBarAdminNewUser": "Nový pracovník",
@@ -66,7 +65,6 @@
   "AdminListOfProvidedServicesOnTheSpotPrice": "Standardní cena",
   "AdminListOfProvidedServicesOnTheSpotCurrency": "Měna",
   "AdminListOfProvidedServicesOnTheSpotAction": "Akce",
-
 
   "navBarTester": "Tester",
   "navBarRegVisitor": "Zaregistrovaný klient",
@@ -163,7 +161,6 @@
 
   "selectQueue": "Odhadovaná čekací doba",
   "selectQueueLastUpdate": "Aktualizace čekací doby",
-
 
   "selectDayTitle": "Vyberte si službu a den",
   "selectDayYourSelection": "Vybrali jste si: {place}",
@@ -307,7 +304,6 @@
   "helpTesterA1-3": "<h4>3. Osobní kód zaměstnance</h4><p>zvolte pokud jde o zaměstnance.</p>",
   "helpTesterA1-4": "<h4>4. Osoba bez registrace</h4><p>zvolte, pokud se osoba NEregistrovala na test.</p><p>Osobám, které nejsou registrované na test můžete umožnit, aby zrychlili testování tím, že při čekání před testem vyplní formulář a vytvoří QR kód pro načítání jejich dat kamerou. Kliknutím na tlačítko \"Načítat QR kód\" zapnete kameru pro snímaní tzv. \"<b>velkého QR kódu neregistrované osoby</b>\"<img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_registracia_noveho_navstevnika_form_prazdny.png\" /><br/>Data uložená v QR kódu se načítají do formuláře. <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_neregistrovany_user_velky_qr_kod_snimanie.png\" /><br/> <img class=\"img-fluid\" style=\"border: 1px #BBB solid; margin: 20px 0 35px 0;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/sk/na_OM_registracia_noveho_navstevnika_form_plny.png\" /><br/></p>",
 
-
   "helpLabQ1": "Skenování vyhodnocených testů laborantem a jejich odeslání.",
   "helpLabA1": "Na doplnenění..",
 
@@ -365,13 +361,11 @@
 
   "workingTimeScheduleTitle": "Provozní doba pracoviště",
 
-
   "formEditProviderDetailsTitle": "Úprava údajů o provozovateli",
 
   "formAdminHRTitle": "Správa lidských zdrojů",
   "TimeAndPeopleSectionPeople": "Pracovníci",
   "TimeAndPeopleSectionRights": "Pracovní zařazení",
-
 
   "formAdminOpeningHoursTitle": "Správa provozní doby",
 
@@ -408,6 +402,27 @@
   "reportButtonNczi": "NCZI věta (Krajský úřad)",
   "reportButtonMissing": "Nepřítomní",
   "reportButtonAll": "Všichni",
+
+  "testerRegistredClient": "Zaregistrovaný klient",
+  "testerHelperAdvice": "Pokyny: načíst klienta, ověřit osobní údaje a priřadit test.",
+  "testerAtFirstChoosePlace": "nejprve vyberte odběrné místo",
+  "testerConfirm": "Potvrdit",
+  "testerChange": "Změnit",
+  "testerChoosePlace": "Vybrat místo",
+  "testerChooseClientReading": "Zvolte způsob načítání klienta",
+  "testerPersonalIdentificationNumber": "Rodné číslo",
+  "testerRegistrationCodeOrQRCode": "Kód registrace / QR kód",
+  "testerEmployeeCode": "Osobní kód zaměstnance",
+  "testerPersonWithNoRegistration": "Osoba bez registrace",
+  "testerCancel": "Zrušit",
+  "testerCheckRegistration": "Overit registraci",
+  "testerLoadRegistration": "Načíst registraci",
+  "testerLoadRegistrationCode": "Načíst kód registrace",
+  "testerVerifyPerson": "Ověřte osobní údaje",
+  "testerRegistationCode": "Kód registrace",
+  "testerRegistationCodeInvalid": "Chybný kód registrace",
+  "testerName": "Jméno",
+  "testerInsurance": "Pojišťovna",
 
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvolte den a klikněte na tlačítko exportu.",
