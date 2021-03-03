@@ -49,7 +49,7 @@ function defaultLanguage() {
 }
 
 function fallbackLanguage() {
-  if (defaultLanguage() !== "en") return "en";
+  // if (defaultLanguage() !== "en") return "en";
   return process.env.VUE_APP_I18N_FALLBACK_LOCALE || "sk";
 }
 
