@@ -4,9 +4,9 @@
       <b-container>
         <b-row>
           <b-col>
-            <h1>{{ $t("registrationTitle") }}</h1>
+            <h1>{{ $t("offlineRegistrationTitle") }}</h1>
             <p>
-              {{ $t("registrationHelp1") }}
+              {{ $t("offlineRegistrationHelp1") }}
             </p>
           </b-col>
         </b-row>
@@ -438,7 +438,7 @@
             </p>
             <p>
               <b-form-checkbox v-model="gdpr" id="gdpr">
-                {{ $t("registrationFormGDPR") }}
+                <div v-html="$t('registrationFormGDPR')" />
               </b-form-checkbox>
             </p>
             <div>
