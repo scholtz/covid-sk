@@ -194,6 +194,9 @@
   "selectMinuteHelp": "(počet obsazených míst / celkový počet míst)",
   "selectMinuteButtonText": "Mezi {description} je aktuálně registrovaných {registrations} osob",
 
+  "offlineRegistrationTitle": "Offline registrace = rychlejší testování",
+  "offlineRegistrationHelp1": "Vytvořte si QR kód v mobilu bez odesílání do našeho systému. Bude obsahovat vaše údaje. Pracovník odběrového místa ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude muset vaše údaje ťukat do počítače. Údaje o Vašem testování, včetně osobních údajů a výsledku budete moci vymazat ze systému při negativním výsledku a po zpracování údajů pro krajský úřad a hygienu. V případě pozitivní nálezu budou postoupeny hygieně. Po dobu testování budou Vaše osobní údaje chráněny šifrováním AES256.",
+
   "registrationTitle": "Poslední krok registrace - Osobní údaje",
   "registrationHelp1": "Údaje o Vašem testovaní, včetně osobních údajů můžete vymazat ze stránky výsledky testu, pokud se prokáže, že onemocnění covid19 nemáte, avšak až po zpracovaní údajů pro krajský úřad a hygienu. V případě pozitivního nálezu budou postoupeny hygieně. Po dobu testování budou Vaše osobní údaje chráněné šifrovaním AES256.",
   "registrationYourSelection": "Vybrali jste si: {place}, dne {day} mezi {time}",
