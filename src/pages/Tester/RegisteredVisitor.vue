@@ -2,25 +2,26 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Zaregistrovaný klient</h1>
-        <p>Pokyny: načítať klienta, overiť osobné údaje a priradiť test.</p>
+        <h1>{{ $t("testerRegistredClient") }}</h1>
+        <p>{{ $t("testerHelperAdvice") }}</p>
       </b-container>
     </div>
     <b-container class="my-4" v-if="action === 'select'">
       <b-row v-if="needPlaceConfirmation">
         <b-col>
           <div class="alert alert-danger">
-            {{ this.$store.state.user.me.name }}, najprv vyberte odberné miesto:
+            {{ this.$store.state.user.me.name }},
+            {{ $t("testerAtFirstChoosePlace") }}:
             <span v-if="this.$store.state.user.me.placeObj">
               {{ this.$store.state.user.me.placeObj.name }}
               <button class="btn btn-danger m-2" @click="confirmPlace">
-                Potvrdiť
+                {{ $t("testerConfirm") }}
               </button>
               <button
                 class="btn btn-primary m-2"
                 @click="$router.push('/tester/place')"
               >
-                Zmeniť
+                {{ $t("testerChange") }}
               </button>
             </span>
             <span v-else>
@@ -28,7 +29,7 @@
                 class="btn btn-primary m-2"
                 @click="$router.push('/tester/place')"
               >
-                Vybrať miesto
+                {{ $t("testerChoosePlace") }}
               </button>
             </span>
           </div>
@@ -36,9 +37,9 @@
       </b-row>
       <b-row>
         <b-col>
-          <p>Zvoľte spôsob načítania klienta:</p>
+          <p>{{ $t("testerChooseClientReading") }}:</p>
           <button @click="action = 'rc'" class="btn btn-primary my-4 mr-4">
-            Rodné číslo
+            {{ $t("testerPersonalIdentificationNumber") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -67,7 +68,7 @@
             @click="action = 'regCodeQR'"
             class="btn btn-primary my-4 mr-4"
           >
-            Kód registrácie / QR kód
+            {{ $t("testerRegistrationCodeOrQRCode") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -83,7 +84,7 @@
             @click="action = 'regCodeEmployee'"
             class="btn btn-primary my-4 mr-4"
           >
-            Osobný kód zamestnanca
+            {{ $t("testerEmployeeCode") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -96,7 +97,7 @@
             </svg>
           </button>
           <button @click="newVisitor()" class="btn btn-secondary my-4 mr-4">
-            Osoba bez registrácie
+            {{ $t("testerPersonWithNoRegistration") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -108,7 +109,6 @@
               <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
             </svg>
           </button>
-
         </b-col>
       </b-row>
     </b-container>
@@ -120,13 +120,15 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <label for="codeRc">Rodné číslo</label>
+          <label for="codeRc">{{
+            $t("testerPersonalIdentificationNumber")
+          }}</label>
           <b-input v-model="code" id="codeRc" />
 
           <button @click="loadByRC" class="btn btn-primary my-4">
-            Overiť registráciu
+            {{ $t("testerCheckRegistration") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -149,13 +151,13 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <label for="employeeNo">Osobný kód zamestnanca</label>
+          <label for="employeeNo">{{ $t("testerEmployeeCode") }}</label>
           <b-input v-model="employeeNo" id="employeeNo" />
 
           <button @click="loadByEmployee" class="btn btn-primary my-4">
-            Načítať registráciu
+            {{ $t("testerLoadRegistration") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -178,13 +180,13 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <label for="code1">Kód registrácie</label>
+          <label for="code1">{{ $t("testerRegistrationCode") }}</label>
           <b-input v-model="code" id="code1" />
           <div class="m-4">&nbsp;</div>
           <button @click="confirmCode" class="btn btn-primary my-4">
-            Načítať kód registrácie
+            {{ $t("testerLoadRegistrationCode") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -211,13 +213,13 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <label for="codeQR">Kód registrácie</label>
+          <label for="codeQR">{{ $t("testerRegistrationCode") }}</label>
           <b-input v-model="code" id="codeQR" />
           <div class="m-4">&nbsp;</div>
           <button @click="confirmCode" class="btn btn-primary my-4">
-            Načítať kód registrácie
+            {{ $t("testerLoadRegistrationCode") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -244,26 +246,26 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <h2>Overte osobné údaje:</h2>
+          <h2>{{ $t("testerVerifyPerson") }}:</h2>
           <table class="table">
             <tr>
-              <td>Kód registrácie:</td>
+              <td>{{ $t("testerRegistrationCode") }}:</td>
               <td>
                 <span v-if="visitor.id">{{ visitor.id }}</span>
 
-                <span v-else class="badge badge-danger ml-5"
-                  >Chybný kód registrácie</span
-                >
+                <span v-else class="badge badge-danger ml-5">{{
+                  $t("testerRegistrationCodeInvalid")
+                }}</span>
               </td>
             </tr>
             <tr>
-              <td>Meno:</td>
+              <td>{{ $t("testerName") }}:</td>
               <td>{{ visitor.firstName }} {{ visitor.lastName }}</td>
             </tr>
             <tr v-if="visitor.insurance">
-              <td>Poisťovňa:</td>
+              <td>{{ $t("testerInsurance") }}:</td>
               <td>
                 {{ visitor.insurance }}
                 <span v-if="visitor.insurance === '24'">- Dôvera</span>
@@ -280,46 +282,46 @@
                 visitor.personType === 'child'
               "
             >
-              <td>Rodné číslo / cestovný pas:</td>
+              <td>{{ $t("testerPersonalIdentificationNumberOrPassport") }}:</td>
               <td>
                 {{ visitor.rc }}
-                <b-badge variant="danger" v-if="validatePersonalNumber"
-                  >Pozor, RČ vyzerá byť nesprávne</b-badge
-                >
+                <b-badge variant="danger" v-if="validatePersonalNumber">{{
+                  $t("testerInvalidPesonalNumberNotification")
+                }}</b-badge>
 
-                <b-badge variant="danger" v-if="invalidID"
-                  >Pozor, doklad nie je vyplnený</b-badge
-                >
+                <b-badge variant="danger" v-if="invalidID">{{
+                  $t("testerInvalidIDNotification")
+                }}</b-badge>
               </td>
             </tr>
             <tr v-if="visitor.personType === 'foreign'">
-              <td>Pas:</td>
+              <td>{{ $t("testerPassport") }}:</td>
               <td>
                 {{ visitor.passport }}
-                <b-badge variant="danger" v-if="invalidID"
-                  >Pozor, doklad nie je vyplnený</b-badge
-                >
+                <b-badge variant="danger" v-if="invalidID">{{
+                  $t("testerInvalidIDNotification")
+                }}</b-badge>
               </td>
             </tr>
             <tr>
-              <td>Adresa:</td>
+              <td>{{ $t("testerAddress") }}:</td>
               <td>
                 {{ visitor.address }}
-                <b-badge variant="danger" v-if="!visitor.address"
-                  >Pozor, adresa je nesprávne zadaná</b-badge
-                >
+                <b-badge variant="danger" v-if="!visitor.address">{{
+                  $t("testerInvalidAddressNotification")
+                }}</b-badge>
               </td>
             </tr>
             <tr>
-              <td>E-mail (nepovinný):</td>
+              <td>{{ $t("testerEmail") }}:</td>
               <td>{{ visitor.email }}</td>
             </tr>
             <tr>
-              <td>Mobilné telefónne číslo:</td>
+              <td>{{ $t("testerPhoneNumber") }}:</td>
               <td>{{ visitor.phone }}</td>
             </tr>
             <tr>
-              <td>Dátum narodenia:</td>
+              <td>{{ $t("testerBirthDate") }}:</td>
               <td>
                 {{ visitor.birthDayDay }}.{{ visitor.birthDayMonth }}.{{
                   visitor.birthDayYear
@@ -332,7 +334,7 @@
                     !visitor.birthDayMonth ||
                     !visitor.birthDayYear
                   "
-                  >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
+                  >{{ $t("testerInvalidBirthDateNotification") }}</b-badge
                 ><b-badge
                   variant="danger"
                   v-if="
@@ -344,7 +346,7 @@
                       visitor.personType
                     )
                   "
-                  >Pozor, dátum narodenia vyzerá byť nesprávny</b-badge
+                  >{{ $t("testerInvalidBirthDateNotification") }}</b-badge
                 >
               </td>
             </tr>
@@ -357,7 +359,7 @@
                 visitor.result === 'positive'
               "
             >
-              <td>Stav:</td>
+              <td>{{ $t("testerState") }}:</td>
               <td>
                 <span v-if="visitor.result === 'test-not-taken'">
                   {{ $t("resultsTestNotTaken") }}
@@ -398,7 +400,7 @@
                   :disabled="invalidID"
                   v-if="visitor.id"
                 >
-                  Priradiť test (QR kód testu)
+                  {{ $t("testerSetCodeQR") }}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -417,7 +419,8 @@
                   class="btn btn-primary my-4 mr-4 collapse"
                   v-if="visitor.id"
                 >
-                  Priradiť test skenovaním čiarového kódu
+                  {{ $t("testerSetCode") }}
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -436,7 +439,7 @@
                   @click="$router.push('/tester/unannouncedVisitor')"
                   class="btn btn-primary my-4"
                 >
-                  Opraviť osobné údaje
+                  {{ $t("testerEditPersonalData") }}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -465,12 +468,12 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <label for="testingset1">Kód testu skenujte, alebo vpíšte do políčka:</label>
+          <label for="testingset1">{{ $t("testerScanTestCode") }}:</label>
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
-            Uložiť
+            {{ $t("testerSave") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -496,12 +499,12 @@
             class="btn btn-light btn-sm float-right bg-light my-2"
             @click="reset"
           >
-            Zrušiť
+            {{ $t("testerCancel") }}
           </button>
-          <label for="testingset1">Naskenujte alebo zapíšte kód testu a kliknite na "<b>Priradiť</b>":</label>
+          <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
-            Priradiť
+            {{ $t("testerSet") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -523,22 +526,25 @@
     <b-container class="my-4" v-if="action === 'old'">
       <b-row>
         <b-col cols="4">
-          <b-form-group label="Scanuje sa typ údaju">
-            <b-form-radio v-model="scanningData" name="person-type" value="code"
-              >Kód registrácie</b-form-radio
+          <b-form-group :label="$t('testerScanningData')">
+            <b-form-radio
+              v-model="scanningData"
+              name="person-type"
+              value="code"
+              >{{ $t("testerRegistationCode") }}</b-form-radio
             >
             <b-form-radio
               v-model="scanningData"
               name="person-type"
               value="testingset"
-              >Skúmavka</b-form-radio
+              >{{ $t("testerTestTube") }}</b-form-radio
             >
           </b-form-group>
         </b-col>
         <b-col cols="8">
           <b-row>
             <b-col cols="12">
-              <label for="code">Kód registrácie</label>
+              <label for="code">{{ $t("testerRegistationCode") }}</label>
               <b-input v-model="code" ref="code" id="code" />
             </b-col>
             <b-col
@@ -546,7 +552,7 @@
               v-if="state === 'check' || state === 'visitor-error'"
             >
               <button @click="load" class="btn btn-primary my-4 mr-4">
-                Skontrolovať údaje
+                {{ $t("testerCheckData") }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -559,18 +565,23 @@
                 </svg>
               </button> </b-col
             ><b-col cols="12" v-if="state === 'loading-data'">
-              <div><B>Čítam dáta</B> <b-spinner /></div> </b-col
+              <div>
+                <B>{{ $t("testerLoadingData") }}</B> <b-spinner />
+              </div> </b-col
             ><b-col cols="12" v-if="state === 'visitor-loaded'">
-              <div>Meno: {{ visitor.firstName }} {{ visitor.lastName }}</div>
-              <div>Poisťovňa: {{ visitor.insurance }}</div>
+              <div>
+                {{ $t("testerName") }}: {{ visitor.firstName }}
+                {{ visitor.lastName }}
+              </div>
+              <div>{{ $t("testerInsurance") }}: {{ visitor.insurance }}</div>
             </b-col>
             <b-col cols="12">
-              <label for="testingset">Skúmavka</label>
+              <label for="testingset">{{ $t("testerTestTube") }}</label>
               <b-input v-model="testingset" ref="testingset" id="testingset" />
             </b-col>
             <b-col cols="12" v-if="state === 'visitor-loaded'">
               <button @click="save" class="btn btn-primary my-4">
-                Uložiť
+                {{ $t("testerSave") }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -846,7 +857,7 @@ export default {
         if (r) {
           this.ReloadMe().then(r2 => {
             if (r2) {
-              this.openSuccess("Úspešne ste potvrdili svoje miesto");
+              this.openSuccess(this.$t("testerSuccessfulConfirmation"));
             }
           });
         }
@@ -855,5 +866,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

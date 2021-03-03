@@ -43,13 +43,13 @@ function defaultLanguage() {
     return lang;
   }
 
-  lang = process.env.VUE_APP_I18N_LOCALE || "en";
+  lang = process.env.VUE_APP_I18N_LOCALE || "sk";
   localStorage.setItem("lang", lang);
   return lang;
 }
 
 function fallbackLanguage() {
-  if (defaultLanguage() !== "en") return "en";
+  // if (defaultLanguage() !== "en") return "en";
   return process.env.VUE_APP_I18N_FALLBACK_LOCALE || "sk";
 }
 
