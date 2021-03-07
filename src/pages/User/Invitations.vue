@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Správa pozvánok</h1>
+        <h1>{{ $t("invitationsManagement") }}</h1>
       </b-container>
     </div>
     <b-container>
@@ -19,13 +19,13 @@
             </template>
             <template #cell(status)="row">
               <span v-if="row.item.status === 'invited'">
-                Čaká sa na potvrdenie
+                {{ $t("invitationsWaitingForConfirmation") }}
               </span>
               <span v-else-if="row.item.status === 'declined'">
-                Pozvánka bola zamietnutá
+                {{ $t("invitationsInvitationDeclined") }}
               </span>
               <span v-else-if="row.item.status === 'accepted'">
-                Pozvánka bola prijatá
+                {{ $t("invitationsInvitationAccepted") }}
               </span>
               <span v-else>
                 {{ row.item.status }}
@@ -37,13 +37,13 @@
                   @click="acceptInvitationClick(row)"
                   class="btn btn-primary m-2"
                 >
-                  Prijať
+                  {{ $t("invitationsAccept") }}
                 </button>
                 <button
                   @click="cancelInvitationClick(row)"
                   class="btn btn-light m-2"
                 >
-                  Zamietnuť
+                  {{ $t("invitationsDecline") }}
                 </button>
               </span>
             </template>
@@ -63,27 +63,27 @@ export default {
       dataInvitations: [],
       fieldsInvitations: [
         {
-          label: "Spoločnosť",
+          label: this.$t("invitationsCompany"),
           key: "companyName",
           sortable: true,
         },
         {
-          label: "Pozval ma",
+          label: this.$t("invitationsInviter"),
           key: "inviterName",
           sortable: true,
         },
         {
-          label: "Čas pozvánky",
+          label: this.$t("invitationsInvitationTime"),
           key: "invitationTime",
           sortable: true,
         },
         {
-          label: "Stav pozvánky",
+          label: this.$t("invitationsStatus"),
           key: "status",
           sortable: true,
         },
         {
-          label: "Akcie",
+          label: this.$t("invitationsActions"),
           key: "actions",
           sortable: false,
         },
@@ -157,5 +157,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

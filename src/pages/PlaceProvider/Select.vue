@@ -2,10 +2,9 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Výber spoločnosti</h1>
+        <h1>{{ $t("selectCompanyTitle") }}</h1>
         <p>
-          V prípade ak zastupujete viacero spoločností, musíte si vybrať jednu v
-          rámci ktorej ste prihlásený
+          {{ $t("selectCompanyWarning") }}
         </p>
       </b-container>
     </div>
@@ -17,9 +16,11 @@
             class="btn btn-primary m-2"
             v-if="$store.state.user.tokenData.pp !== row.item.placeProviderId"
           >
-            Vybrať
+            {{ $t("selectCompanySelect") }}
           </b-link>
-          <div v-else>Aktuálne vybratá spoločnosť</div>
+          <div v-else>
+            {{ $t("selectCompanyCurrentlySelected") }}
+          </div>
         </template>
       </b-table></b-container
     >
@@ -34,11 +35,11 @@ export default {
       items: [],
       fields: [
         {
-          label: "Akcia",
+          label: this.$t("selectCompanyAction"),
           key: "id",
         },
         {
-          label: "Spoločnosť",
+          label: this.$t("selectCompanyCompany"),
           key: "companyName",
           sortable: true,
         },

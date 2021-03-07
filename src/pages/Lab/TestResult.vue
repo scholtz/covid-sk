@@ -72,7 +72,7 @@
             @click="
               data.push({
                 code: next,
-                state: $t('labStateReadyToSend'),
+                state: 'labStateReadyToSend',
                 variant: 'alert alert-info',
               })
             "
@@ -93,7 +93,7 @@
         </template>
         <template #cell(state)="row">
           <div :class="row.item.variant">
-            {{ row.item.state }}
+            {{ $t(row.item.state) }}
           </div>
         </template>
       </b-table>
@@ -190,7 +190,7 @@ export default {
         if (!found) {
           this.data.push({
             code: this.next,
-            state: this.$t("labStateReadyToSend"),
+            state: "labStateReadyToSend",
             variant: "alert alert-info",
           });
           this.next = "";
@@ -212,14 +212,14 @@ export default {
           processed++;
           if (r) {
             console.log("sent", r);
-            this.data[index].state = this.$t("labStateSent");
+            this.data[index].state = "labStateSent";
             this.data[index].variant = "alert alert-success";
             if (!r.timeIsValid) {
               this.data[index].variant = "alert alert-danger";
-              this.data[index].state = this.$t("labStateTooSoon");
+              this.data[index].state = "labStateTooSoon";
             }
             if (!r.matched) {
-              this.data[index].state = this.$t("labStateNotMatched");
+              this.data[index].state = "labStateNotMatched";
               this.data[index].variant = "alert alert-danger";
             }
           }
