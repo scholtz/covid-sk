@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Oznámenie výsledku testu</h1>
+        <h1>{{ $t("labTestResultsAnnouncement") }}</h1>
         <!--
         <b-form-checkbox v-model="useQR" name="useQR" switch>
           Používať QR kódy pre testovacie sady
@@ -11,14 +11,14 @@
       </b-container>
     </div>
     <b-container v-if="action === 'select'">
-      <h2>Vyberte čo idete nascanovať</h2>
+      <h2>{{ $t("labSelectItemToScan") }}</h2>
       <b-row>
         <b-col>
           <button
             class="my-2 btn btn-primary bg-danger"
             @click="action = 'sick'"
           >
-            Pozitívne výsledky - Chorí na Covid-19
+            {{ $t("labTestResultsSick") }}
           </button>
         </b-col>
       </b-row>
@@ -28,7 +28,7 @@
             class="my-2 btn btn-primary bg-warning text-dark"
             @click="action = 'repeat'"
           >
-            Chybné výsledky - Na pretestovanie
+            {{ $t("labTestResultsRepeat") }}
           </button>
         </b-col>
       </b-row>
@@ -38,33 +38,33 @@
             class="my-2 btn btn-primary bg-success"
             @click="action = 'healthy'"
           >
-            Negatívne výsledky - Zdraví
+            {{ $t("labTestResultsHealthy") }}
           </button>
         </b-col>
       </b-row>
     </b-container>
     <b-container v-if="action === 'sick'">
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
-        Späť na výber akcie
+        {{ $t("labBackToSelection") }}
       </button>
-      <h2>Vyberáte pozitívne nálezy - Chorí</h2>
+      <h2>{{ $t("labSelectTestResultsSick") }}</h2>
     </b-container>
     <b-container v-if="action === 'repeat'">
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
-        Späť na výber akcie
+        {{ $t("labBackToSelection") }}
       </button>
-      <h2>Vyberáte chybné nálezy - Zopakovať test</h2>
+      <h2>{{ $t("labSelectTestResultsRepeat") }}</h2>
     </b-container>
     <b-container v-if="action === 'healthy'">
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
-        Späť na výber akcie
+        {{ $t("labBackToSelection") }}
       </button>
-      <h2>Vyberáte negatívne nálezy - Zdraví</h2>
+      <h2>{{ $t("labSelectTestResultsHealthy") }}</h2>
     </b-container>
     <b-container v-if="action !== 'select'">
       <b-row>
         <b-col cols="12">
-          <label for="next">Ďalší kód</label>
+          <label for="next">{{ $t("labNextCode") }}</label>
           <b-input v-model="next" ref="next" id="next" />
           <button
             :disabled="!next"
@@ -72,12 +72,12 @@
             @click="
               data.push({
                 code: next,
-                state: 'Na odoslanie',
+                state: 'labStateReadyToSend',
                 variant: 'alert alert-info',
               })
             "
           >
-            Pridaj
+            {{ $t("labAdd") }}
           </button>
         </b-col>
       </b-row>
@@ -88,12 +88,12 @@
             @click="data.splice(row.index, 1)"
             class="btn btn-primary m-2 bg-light"
           >
-            Zrušiť
+            {{ $t("labCancel") }}
           </button>
         </template>
         <template #cell(state)="row">
           <div :class="row.item.variant">
-            {{ row.item.state }}
+            {{ $t(row.item.state) }}
           </div>
         </template>
       </b-table>
@@ -104,13 +104,13 @@
           class="btn btn-danger my-2"
           @click="send"
         >
-          Oznámiť pozitívne prípady
+          {{ $t("labSendSickAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
       </b-container>
       <b-container v-if="action === 'repeat'">
         <button :disabled="processing" class="btn btn-info my-2" @click="send">
-          Oznámiť chybné prípady
+          {{ $t("labSendRepeatAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
       </b-container>
@@ -120,7 +120,7 @@
           class="btn btn-success my-2"
           @click="send"
         >
-          Oznámiť negatívne prípady
+          {{ $t("labSendHealthyAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
       </b-container>
@@ -150,16 +150,16 @@ export default {
       processingCount: 0,
       fields: [
         {
-          label: "Akcia",
+          label: this.$t("labAction"),
           key: "id",
         },
         {
-          label: "Kód testovacej sady",
+          label: this.$t("labTestCode"),
           key: "code",
           sortable: true,
         },
         {
-          label: "Stav",
+          label: this.$t("labState"),
           key: "state",
           sortable: true,
         },
@@ -190,7 +190,7 @@ export default {
         if (!found) {
           this.data.push({
             code: this.next,
-            state: "Na odoslanie",
+            state: "labStateReadyToSend",
             variant: "alert alert-info",
           });
           this.next = "";
@@ -212,15 +212,14 @@ export default {
           processed++;
           if (r) {
             console.log("sent", r);
-            this.data[index].state = "Odoslané";
+            this.data[index].state = "labStateSent";
             this.data[index].variant = "alert alert-success";
             if (!r.timeIsValid) {
               this.data[index].variant = "alert alert-danger";
-              this.data[index].state =
-                "Príliš skoro - Test musí mať prestávku 15 minút";
+              this.data[index].state = "labStateTooSoon";
             }
             if (!r.matched) {
-              this.data[index].state = "Nespárovaný klient";
+              this.data[index].state = "labStateNotMatched";
               this.data[index].variant = "alert alert-danger";
             }
           }
@@ -233,5 +232,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
