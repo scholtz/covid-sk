@@ -686,21 +686,9 @@
               <b-row>
                 <b-col cols="12" class="my-2">
                   <p>
-                    <b-form-checkbox v-model="visitor.school" id="school">
-                      Zákonný zástupca žiaka, ktorý sa zúčastňuje prezenčnej
-                      výuky v škole, alebo jej pracovníkom.
-                    </b-form-checkbox>
-                  </p>
-                  <p>
-                    <b-form-checkbox v-model="visitor.employee">
-                      Zamestnanec firmy
-                      {{ $store.state.config.COMPANY_NAME }}
-                    </b-form-checkbox>
                     <validation-provider
-                      v-if="visitor.employee"
                       ref="vpEmployeeId"
                       name="Osobné číslo zamestnanca"
-                      rules="required"
                       v-slot="validationContext"
                     >
                       <b-form-group

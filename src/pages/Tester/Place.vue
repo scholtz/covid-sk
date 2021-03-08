@@ -2,24 +2,24 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container fluid>
-        <h1>Výber miesta</h1>
+        <h1>{{ $t("testerPlaceSelection") }}</h1>
       </b-container>
     </div>
     <div>
       <b-row v-if="needPlaceConfirmation && this.$store.state.user.me">
         <b-col>
           <div class="alert alert-info m-2">
-            {{ this.$store.state.user.me.name }}, skontrolujte prosím nastavenie
-            Vášho aktuálneho miesta:
+            {{ this.$store.state.user.me.name }},
+            {{ $t("testerPlaceCheckCurrentPlace") }}:
             <span v-if="this.$store.state.user.me.placeObj">
               {{ this.$store.state.user.me.placeObj.name }}
               <button class="btn btn-light m-2" @click="confirmPlace">
-                Potvrdiť
+                {{ $t("testerPlaceConfirm") }}
               </button>
             </span>
             <span v-else>
               <div class="alert alert-danger m-2">
-                <b>Nemáte vybraté miesto</b>
+                <b>{{ $t("testerPlaceNoPlaceSelected") }}</b>
               </div>
             </span>
           </div>
@@ -28,7 +28,7 @@
       <b-row v-if="!needPlaceConfirmation && this.$store.state.user.me">
         <b-col>
           <div class="alert alert-info m-2">
-            Aktuálne pracujete na mieste:
+            {{ $t("testerPlaceCurrentlyWorkingAt") }}:
             <span v-if="this.$store.state.user.me.placeObj">
               <b>{{ this.$store.state.user.me.placeObj.name }}</b>
             </span>
@@ -38,10 +38,10 @@
       <b-row v-if="isAdmin && $store.state.user.me.placeObj">
         <b-col>
           <div class="alert alert-info m-2">
-            {{ this.$store.state.user.me.name }}, ako admin si môžete zrušiť
-            miesto
+            {{ this.$store.state.user.me.name }},
+            {{ $t("testerPlaceAdminCanCancelPlace") }}
             <button class="btn btn-light m-2" @click="clearPlace">
-              Zrušiť výber miesta
+              {{ $t("testerPlaceCancelPlace") }}
             </button>
           </div>
         </b-col>
@@ -50,7 +50,7 @@
       <b-table :items="places" :fields="fields">
         <template #cell(id)="row">
           <button @click="selectPlace(row)" class="btn btn-primary">
-            Vybrať
+            {{ $t("testerPlaceSelect") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -87,16 +87,16 @@ export default {
       limitPer1HourSlot: 40,
       fields: [
         {
-          label: "Akcia",
+          label: this.$t("testerPlaceAction"),
           key: "id",
         },
         {
-          label: "Názov miesta",
+          label: this.$t("testerPlaceName"),
           key: "name",
           sortable: true,
         },
         {
-          label: "Adresa",
+          label: this.$t("testerPlaceAddress"),
           key: "address",
           sortable: true,
         },
@@ -182,5 +182,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

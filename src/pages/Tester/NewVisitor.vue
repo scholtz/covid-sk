@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Registrácia nového návštevníka</h1>
+        <h1>{{ $t("registrationFormNewVisitorRegistration") }}</h1>
       </b-container>
     </div>
 
@@ -10,24 +10,26 @@
       <b-container class="my-4">
         <b-row>
           <b-col cols="12" md="4">
-            <b-form-group label="Identifikácia registrovanej osoby">
+            <b-form-group
+              :label="$t('registrationFormNewVisitorIdentification')"
+            >
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="idcard"
-                >Dospelá osoba s občianskym preukazom</b-form-radio
+                >{{ $t("registrationFormAdultWithIdentityCard") }}</b-form-radio
               >
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="child"
-                >Registrácia dieťaťa zákonným zástupcom</b-form-radio
+                >{{ $t("registrationFormChildRegistration") }}</b-form-radio
               >
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="foreign"
-                >Cudzinec</b-form-radio
+                >{{ $t("registrationFormForeigner") }}</b-form-radio
               >
             </b-form-group>
           </b-col>
@@ -41,7 +43,7 @@
             >
               <b-form-group
                 id="firstName-group-1"
-                label="Meno"
+                :label="$t('registrationFormFirstname')"
                 label-for="firstName"
               >
                 <b-form-input
@@ -67,7 +69,7 @@
             >
               <b-form-group
                 id="lastName-group-1"
-                label="Priezvisko"
+                :label="$t('registrationFormLastname')"
                 label-for="lastName"
               >
                 <b-form-input
@@ -100,8 +102,8 @@
                 id="rc-group-1"
                 :label="
                   personType === 'idcard'
-                    ? 'Rodné číslo bez lomítka'
-                    : 'Rodné číslo dieťaťa bez lomítka'
+                    ? $t('registrationFormRcNumber')
+                    : $t('registrationFormRcNumberChild')
                 "
                 label-for="rc"
               >
@@ -128,7 +130,7 @@
             >
               <b-form-group
                 id="passport-group-1"
-                label="Číslo cestovného dokladu"
+                :label="$t('registrationFormPassportNumber')"
                 label-for="passport"
               >
                 <b-form-input
@@ -342,7 +344,7 @@
             >
               <b-form-group
                 id="phone-group-1"
-                label="Telefón bez medzier s predvoľbou štátu"
+                :label="$t('registrationFormPhoneNumberFull')"
                 label-for="phone"
               >
                 <b-form-input
@@ -365,7 +367,11 @@
               rules="required|email"
               v-slot="validationContext"
             >
-              <b-form-group id="email-group-1" label="Email" label-for="email">
+              <b-form-group
+                id="email-group-1"
+                :label="$t('registrationFormEmail')"
+                label-for="email"
+              >
                 <b-form-input
                   id="email"
                   name="email"
@@ -381,7 +387,7 @@
             </validation-provider>
           </b-col>
           <b-col cols="12" md="4">
-            <label for="insurance">Poisťovňa</label>
+            <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
               :options="insuranceOptions"
               v-model="insurance"
@@ -392,14 +398,14 @@
         <b-row>
           <b-col cols="12" class="my-2">
             <button class="btn btn-primary mr-2" @click="registerForTest">
-              Zaregistrovať / upraviť klienta
+              {{ $t("registrationFormRegisterOrEditClient") }}
             </button>
             <button
               v-if="privateKey && !loadQR"
               class="btn btn-primary"
               @click="loadQR = true"
             >
-              Načítať QR kód
+              {{ $t("registrationFormLoadQR") }}
             </button>
           </b-col>
         </b-row>
@@ -407,7 +413,7 @@
           <b-col>
             <qrcode-stream @decode="onDecodeQR" />
             <button class="btn btn-primary" @click="loadQR = false">
-              Vypnúť kameru
+              {{ $t("registrationFormTurnOffCamera") }}
             </button>
           </b-col>
         </b-row>
@@ -689,5 +695,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -10,7 +10,7 @@
         <b-card no-body>
           <b-tabs card>
             <b-tab
-              title="Často kladené otázky"
+              :title="$t('navBarPublicHelpFaq')"
               v-if="
                 $store.state.config.PROD === 'covid.bratislava.sk' ||
                 $store.state.config.PROD === 'www.rychlejsie.sk' ||
@@ -327,7 +327,7 @@
             </b-tab>
 
             <b-tab
-              title="Prevádzkovateľ"
+              :title="$t('navBarPublicHelpProvider')"
               v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
             >
               <b-card-text>
@@ -397,7 +397,7 @@
             </b-tab>
 
             <b-tab
-              title="Administrátor"
+              :title="$t('navBarPublicHelpAdmin')"
               v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
             >
               <b-card-text>
@@ -547,7 +547,7 @@
             </b-tab>
 
             <b-tab
-              title="Práca na odbernom mieste"
+              :title="$t('navBarPublicHelpWork')"
               v-if="!$store.state.config.IS_PROD || $store.state.user.auth"
             >
               <b-card-text>
