@@ -125,11 +125,11 @@
   "chPassValidationDoNotMatch":"Passwords do not match",
 
   "loginTitle":"Login",
-  "loginHelp":"Authentication is for authorized personell only. After medic authenticate, he or she can scan registration bar codes from mobile device screen or printed out. After successfull authorization, the top menu changes, and person can access required action there.",
+  "loginHelp":"Login for administrators and employees of the Rýchlejšie.sk system. After successful login, additional options will be displayed in the top menu.",
   "loginFormLogin":"Login / Email",
   "loginFormPassword":"Password",
   "loginFormButton":"Login",
-  "loginFormRegisterPlaceProvider":"Registration for hospitals, mobile sampling or vaccination places",
+  "loginFormRegisterPlaceProvider":"Registration of the operator of the collection or vaccination site.",
 
   "selectPlaceTitle":"Select your sampling place",
   "selectPlaceShowTable":"Show table",
@@ -315,6 +315,8 @@
   "ppInfoA14":"Jasná definícia GDPR. Riziko zneužitia osobných údajov je minimalizované na minimum.",
   "ppInfoA15":"Osobné údaje sú zašifrované najsilnejšími šifrovacími spôsobmi. Neexistuje časový bod v ktorom by sa dali extrahovať údaje pretože dáta sa po teste a notifikácii užívateľovi zmažú.",
   "ppInfoA16":"Real time monitoring štatistických údajov, napríklad pre médiá",
+  "ppLinkToFeatures":"<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Find more about Rychlejsie.sk</a>",
+
 
   "formEditProviderDetailsTitle":"Úprava údajov o prevádzkovateľovi",
 
