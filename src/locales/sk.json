@@ -137,11 +137,11 @@
   "chPassValidationDoNotMatch": "Heslá sa nezhodujú",
 
   "loginTitle": "Prihlásenie",
-  "loginHelp": "Prihlásenie slúži pre obsluhu testovacieho miesta. Po prihlásení môže obsluha scanovať QR kódy z obrazovky mobilu alebo vytlačené na papieri. Po úspešnom prihlásení sa zmení horné menu na rozbaľovací zoznam rolí a funkcií ktoré môžu robiť.",
+  "loginHelp": "Prihlásenie pre administrátorov a pracovníkov systému Rýchlejšie.sk. Po úspešnom prihlásení sa zobrazia ďalšie možnosti v hornom menu.",
   "loginFormLogin": "Login / E-mail",
   "loginFormPassword": "Heslo",
   "loginFormButton": "Prihlás",
-  "loginFormRegisterPlaceProvider": "Registrácia nemocnice, mobilného odberového miesta, alebo vakcinačného miesta",
+  "loginFormRegisterPlaceProvider": "Registrácia prevádzkovateľa odberového, alebo vakcinačného miesta.",
 
   "selectPlaceTitle": "Výber odberového miesta",
   "selectPlaceShowTable": "Zobraziť tabuľku",
@@ -437,6 +437,7 @@
   "ppInfoA14": "Jasná definícia GDPR. Riziko zneužitia osobných údajov je minimalizované na minimum.",
   "ppInfoA15": "Osobné údaje sú zašifrované najsilnejšími šifrovacími spôsobmi. Neexistuje časový bod v ktorom by sa dali extrahovať údaje pretože dáta sa po teste a notifikácii užívateľovi zmažú.",
   "ppInfoA16": "Real time monitoring štatistických údajov, napríklad pre médiá",
+  "ppLinkToFeatures":"<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Viac o vlastnostiach a výhodách riešenia Rýchlejšie.sk</a>",
 
   "workingTimeScheduleTitle": "Prevádzková doba pracoviska",
 

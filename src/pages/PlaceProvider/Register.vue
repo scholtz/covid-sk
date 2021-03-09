@@ -21,7 +21,7 @@
                   >{{ $t("ppTerms") }}</a
                 >
                 <a
-                  href="#/pricing"
+                  href="https://rychlejsie.sk/#pricing"
                   target="_blank"
                   class="btn bg-light text-dark p-1 m-1"
                   >{{ $t("ppPricing") }}</a
@@ -174,10 +174,7 @@
         </b-col>
         <b-col>
           <h2>{{ $t("ppInfoQ") }}</h2>
-
-          <ol>
-            <li v-for="i in 16" :key="i" v-html="$t('ppInfoA' + i)" />
-          </ol>
+          <div v-html="$t('ppLinkToFeatures')" />
         </b-col>
       </b-row>
     </b-container>
