@@ -95,18 +95,16 @@ const mutations = {
         found = true;
       }
     }
-
-    if (!found) {
-      const hostToRedirect = "https://" + state.PROD;
-      window.location.href = hostToRedirect;
-    }
-
     if (state.CSS) {
       let style = document.createElement("link");
       style.type = "text/css";
       style.rel = "stylesheet";
       style.href = state.CSS;
       document.head.appendChild(style);
+    }
+    if (!found && state.PROD) {
+      const hostToRedirect = "https://" + state.PROD;
+      window.location.href = hostToRedirect;
     }
   },
 };
