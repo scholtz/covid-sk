@@ -18,7 +18,7 @@
     <b-container fluid v-if="!loading">
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
-          <b-tab title="Prehľad pracovísk">
+          <b-tab :title="$t('adminPlaceManagement')">
             <div v-if="$store.state.place.places">
               <b-table
                 :items="Object.values($store.state.place.places)"
@@ -29,7 +29,7 @@
                     variant="light"
                     @click="editPlaceClick(row)"
                     class="mr-1"
-                    title="Upraviť"
+                    :title="$t('adminPlaceManagementEdit')"
                     size="sm"
                   >
                     <font-awesome-icon class="m-1" icon="edit" />
@@ -38,7 +38,7 @@
                     variant="light"
                     @click="deletePlaceClick(row)"
                     class="mr-1"
-                    title="Zrušiť"
+                    :title="$t('adminPlaceManagementDelete')"
                     size="sm"
                   >
                     <font-awesome-icon class="m-1" icon="trash" />
@@ -47,20 +47,24 @@
               </b-table>
             </div>
           </b-tab>
-          <b-tab title="Formulár pre správu miesta" active>
-            <h2 v-if="place.id">Úprava pracoviska</h2>
-            <h2 v-else>Nové miesto</h2>
+          <b-tab :title="$t('adminPlaceManagementForm')" active>
+            <h2 v-if="place.id">{{ $t("adminPlaceManagementEditPlace") }}</h2>
+            <h2 v-else>{{ $t("adminPlaceManagementNewPlace") }}</h2>
             <b-row>
               <b-col cols="12" md="6">
-                <label for="name">Názov pracoviska</label>
+                <label for="name">{{ $t("adminPlaceManagementName") }}</label>
                 <b-input v-model="place.name" ref="name" id="name" />
               </b-col>
               <b-col cols="12" md="6">
-                <label for="address">Adresa</label>
+                <label for="address">{{
+                  $t("adminPlaceManagementAddress")
+                }}</label>
                 <b-input v-model="place.address" ref="address" id="address" />
               </b-col>
               <b-col cols="12" md="12">
-                <label for="description">Popis</label>
+                <label for="description">{{
+                  $t("adminPlaceManagementDescription")
+                }}</label>
                 <b-input
                   v-model="place.description"
                   ref="description"
@@ -68,11 +72,13 @@
                 />
               </b-col>
               <b-col cols="12" md="12">
-                <label for="oversight">Garant</label>
+                <label for="oversight">{{
+                  $t("adminPlaceManagementGarant")
+                }}</label>
                 <b-input v-model="oversight" ref="oversight" id="oversight" />
               </b-col>
               <b-col cols="12" md="2">
-                <label for="queue">Fronta</label>
+                <label for="queue">{{ $t("adminPlaceManagementQueue") }}</label>
                 <b-input
                   type="time"
                   v-model="place.queue"
@@ -82,7 +88,9 @@
                 />
               </b-col>
               <b-col cols="12" md="2">
-                <label for="queueLastUpdate">Čas zmeny fronty</label>
+                <label for="queueLastUpdate">{{
+                  $t("adminPlaceManagementQueueLastUpdate")
+                }}</label>
                 <VueCtkDateTimePicker
                   v-model="place.queueLastUpdate"
                   ref="queueLastUpdate"
@@ -90,15 +98,17 @@
                 />
               </b-col>
               <b-col cols="12" md="2">
-                <label for="lat">GPS Lat</label>
+                <label for="lat">{{ $t("adminPlaceManagementLat") }}</label>
                 <b-input v-model="place.lat" ref="lat" id="lat" />
               </b-col>
               <b-col cols="12" md="2">
-                <label for="lng">GPS Lng</label>
+                <label for="lng">{{ $t("adminPlaceManagementLng") }}</label>
                 <b-input v-model="place.lng" ref="lng" id="lng" />
               </b-col>
               <b-col cols="12" md="2">
-                <label for="limitPer5MinSlot">Limit úkonov za 5min</label>
+                <label for="limitPer5MinSlot">{{
+                  $t("adminPlaceManagementLimitPer5MinSlot")
+                }}</label>
                 <b-input
                   v-model="place.limitPer5MinSlot"
                   ref="limitPer5MinSlot"
@@ -106,7 +116,9 @@
                 />
               </b-col>
               <b-col cols="12" md="2">
-                <label for="limitPer1HourSlot">Limit úkonov za hodinu</label>
+                <label for="limitPer1HourSlot">{{
+                  $t("adminPlaceManagementLimitPer1HourSlot")
+                }}</label>
                 <b-input
                   v-model="place.limitPer1HourSlot"
                   ref="limitPer1HourSlot"
@@ -121,7 +133,7 @@
                   v-model="place.isVisible"
                   name="isVisible"
                 >
-                  Zobrazuje sa
+                  {{ $t("adminPlaceManagementIsVisible") }}
                 </b-form-checkbox>
               </b-col>
               <b-col>
@@ -130,7 +142,7 @@
                   v-model="place.isDriveIn"
                   name="isDriveIn"
                 >
-                  Možnosť prísť autom (Drive In)
+                  {{ $t("adminPlaceManagementIsDriveIn") }}
                 </b-form-checkbox>
               </b-col>
               <b-col>
@@ -139,7 +151,7 @@
                   v-model="place.isWalkIn"
                   name="isWalkIn"
                 >
-                  Možnosť prísť pešo (Walk in)
+                  {{ $t("adminPlaceManagementIsWalkIn") }}
                 </b-form-checkbox>
               </b-col>
               <b-col>
@@ -148,7 +160,7 @@
                   v-model="place.hasReservationSystem"
                   name="hasReservationSystem"
                 >
-                  Povoliť rezervácie systémom rýchlejšie.sk
+                  {{ $t("adminPlaceManagementHasReservationSystem") }}
                 </b-form-checkbox>
               </b-col>
               <b-col>
@@ -157,15 +169,15 @@
                   v-model="place.requiresRegistration"
                   name="requiresRegistration"
                 >
-                  Vyžaduje predregistráciu
+                  {{ $t("adminPlaceManagementRequiresRegistration") }}
                 </b-form-checkbox>
               </b-col>
             </b-row>
             <b-row class="py-2" v-if="!place.hasReservationSystem">
               <b-col>
-                <label for="externalReservationSystem"
-                  >Druhý rezervačný systém</label
-                >
+                <label for="externalReservationSystem">{{
+                  $t("adminPlaceManagementOpeningHoursTitle")
+                }}</label>
                 <b-input
                   v-model="place.externalReservationSystem"
                   ref="externalReservationSystem"
@@ -176,16 +188,15 @@
             <b-row>
               <b-col class="py-2">
                 <h4>
-                  Otváracie hodiny vo formáte
-                  05:55-11:35,11:45-18:00,18:05-20:00
+                  {{ $t("adminPlaceManagementOpeningHoursTitle") }}
                 </h4>
               </b-col>
             </b-row>
             <b-row>
               <b-col>
-                <label for="openingHoursWorkDay"
-                  >Šablóna otváracích hodín 1 (štandardné)</label
-                >
+                <label for="openingHoursWorkDay">{{
+                  $t("adminPlaceManagementOpeningHoursWorkDay")
+                }}</label>
                 <b-input
                   v-model="place.openingHoursWorkDay"
                   ref="openingHoursWorkDay"
@@ -194,9 +205,9 @@
                 />
               </b-col>
               <b-col>
-                <label for="openingHoursOther1"
-                  >Šablóna otváracích hodín 2 (víkendy)</label
-                >
+                <label for="openingHoursOther1">{{
+                  $t("adminPlaceManagementOpeningHoursOther1")
+                }}</label>
                 <b-input
                   v-model="place.openingHoursOther1"
                   ref="openingHoursOther1"
@@ -204,9 +215,9 @@
                 />
               </b-col>
               <b-col>
-                <label for="openingHoursOther2"
-                  >Šablóna otváracích hodín 3 (sviatky)</label
-                >
+                <label for="openingHoursOther2">{{
+                  $t("adminPlaceManagementOpeningHoursOther2")
+                }}</label>
                 <b-input
                   v-model="place.openingHoursOther2"
                   ref="openingHoursOther2"
@@ -215,14 +226,15 @@
               </b-col> </b-row
             ><b-row>
               <b-col>
-                Poznámka: Detailné nastavenie prevádzkových hodín sa robí na
-                samostatnej stránke.
+                {{ $t("adminPlaceManagementOpeningHoursNote") }}
               </b-col>
             </b-row>
 
             <b-row>
               <b-col>
-                <label for="picture1">Foto 1 - URL</label>
+                <label for="picture1">{{
+                  $t("adminPlaceManagementPicture1")
+                }}</label>
                 <b-input
                   v-model="place.picture1"
                   ref="picture1"
@@ -230,7 +242,9 @@
                 />
               </b-col>
               <b-col>
-                <label for="picture2">Foto 2 - URL</label>
+                <label for="picture2">{{
+                  $t("adminPlaceManagementPicture2")
+                }}</label>
                 <b-input
                   v-model="place.picture2"
                   ref="picture2"
@@ -238,7 +252,9 @@
                 />
               </b-col>
               <b-col>
-                <label for="picture3">Foto 3 - URL</label>
+                <label for="picture3">{{
+                  $t("adminPlaceManagementPicture3")
+                }}</label>
                 <b-input
                   v-model="place.picture3"
                   ref="picture3"
@@ -252,7 +268,7 @@
                 @click="clickCreate"
                 class="btn btn-primary my-4"
               >
-                Upraviť
+                {{ $t("adminPlaceManagementEdit") }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -269,10 +285,10 @@
                 @click="clickCancel"
                 class="btn btn-light p-2 m-4"
               >
-                Zrušiť úpravu
+                {{ $t("adminPlaceManagementCancelEditting") }}
               </b-button>
               <button v-else @click="clickCreate" class="btn btn-primary my-4">
-                Vytvoriť
+                {{ $t("adminPlaceManagementCreate") }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
@@ -477,5 +493,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
