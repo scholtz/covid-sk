@@ -18,7 +18,7 @@
     <b-container fluid v-if="!loading">
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
-          <b-tab title="Prehľad pracovísk">
+          <b-tab :title="$t('adminPlaceManagement')">
             <div v-if="$store.state.place.places">
               <b-table
                 :items="Object.values($store.state.place.places)"
@@ -29,7 +29,7 @@
                     variant="light"
                     @click="editPlaceClick(row)"
                     class="mr-1"
-                    title="Upraviť"
+                    :title="$t('adminPlaceManagementEdit')"
                     size="sm"
                   >
                     <font-awesome-icon class="m-1" icon="edit" />
@@ -38,7 +38,7 @@
                     variant="light"
                     @click="deletePlaceClick(row)"
                     class="mr-1"
-                    title="Zrušiť"
+                    :title="$t('adminPlaceManagementDelete')"
                     size="sm"
                   >
                     <font-awesome-icon class="m-1" icon="trash" />
@@ -47,20 +47,24 @@
               </b-table>
             </div>
           </b-tab>
-          <b-tab title="Formulár pre správu miesta" active>
-            <h2 v-if="place.id">Úprava pracoviska</h2>
-            <h2 v-else>Nové miesto</h2>
+          <b-tab :title="$t('adminPlaceManagementForm')" active>
+            <h2 v-if="place.id">{{ $t("adminPlaceManagementEditPlace") }}</h2>
+            <h2 v-else>{{ $t("adminPlaceManagementNewPlace") }}</h2>
             <b-row>
               <b-col cols="12" md="6">
-                <label for="name">Názov pracoviska</label>
+                <label for="name">{{ $t("adminPlaceManagementName") }}</label>
                 <b-input v-model="place.name" ref="name" id="name" />
               </b-col>
               <b-col cols="12" md="6">
-                <label for="address">Adresa</label>
+                <label for="address">{{
+                  $t("adminPlaceManagementAddress")
+                }}</label>
                 <b-input v-model="place.address" ref="address" id="address" />
               </b-col>
               <b-col cols="12" md="12">
-                <label for="description">Popis</label>
+                <label for="description">{{
+                  $t("adminPlaceManagementDescription")
+                }}</label>
                 <b-input
                   v-model="place.description"
                   ref="description"
@@ -68,15 +72,17 @@
                 />
               </b-col>
               <b-col cols="12" md="3">
-                <label for="lat">GPS Lat</label>
+                <label for="lat">{{ $t("adminPlaceManagementLat") }}</label>
                 <b-input v-model="place.lat" ref="lat" id="lat" />
               </b-col>
               <b-col cols="12" md="3">
-                <label for="lng">GPS Lng</label>
+                <label for="lng">{{ $t("adminPlaceManagementLng") }}</label>
                 <b-input v-model="place.lng" ref="lng" id="lng" />
               </b-col>
               <b-col cols="12" md="3">
-                <label for="limitPer5MinSlot">Limit úkonov za 5min</label>
+                <label for="limitPer5MinSlot">{{
+                  $t("adminPlaceManagementLimitPer5MinSlot")
+                }}</label>
                 <b-input
                   v-model="place.limitPer5MinSlot"
                   ref="limitPer5MinSlot"
@@ -84,7 +90,9 @@
                 />
               </b-col>
               <b-col cols="12" md="3">
-                <label for="limitPer1HourSlot">Limit úkonov za hodinu</label>
+                <label for="limitPer1HourSlot">{{
+                  $t("adminPlaceManagementLimitPer1HourSlot")
+                }}</label>
                 <b-input
                   v-model="place.limitPer1HourSlot"
                   ref="limitPer1HourSlot"
@@ -98,8 +106,7 @@
                   id="isDriveIn"
                   v-model="place.isDriveIn"
                   name="isDriveIn"
-                >
-                  Možnosť prísť autom (Drive Through)
+                  >{{ $t("adminPlaceManagementIsDriveIn") }}
                 </b-form-checkbox>
               </b-col>
               <b-col cols="12" md="4">
@@ -107,8 +114,7 @@
                   id="isWalkIn"
                   v-model="place.isWalkIn"
                   name="isWalkIn"
-                >
-                  Možnosť prísť pešo (Walk in)
+                  >{{ $t("adminPlaceManagementIsWalkIn") }}
                 </b-form-checkbox>
               </b-col>
               <b-col cols="12" md="4">
@@ -116,16 +122,15 @@
                   id="hasReservationSystem"
                   v-model="place.hasReservationSystem"
                   name="hasReservationSystem"
-                >
-                  Povoliť rezervácie systémom rýchlejšie.sk
+                  >{{ $t("adminPlaceManagementHasReservationSystem") }}
                 </b-form-checkbox>
               </b-col>
             </b-row>
             <b-row class="py-2" v-if="!place.hasReservationSystem">
               <b-col>
-                <label for="externalReservationSystem"
-                  >Druhý rezervačný systém</label
-                >
+                <label for="externalReservationSystem">{{
+                  $t("adminPlaceManagementExternalReservationSystem")
+                }}</label>
                 <b-input
                   v-model="place.externalReservationSystem"
                   ref="externalReservationSystem"
@@ -135,10 +140,7 @@
             </b-row>
             <b-row>
               <b-col class="py-2">
-                <h4>
-                  Otváracie hodiny vo formáte
-                  05:55-11:35,11:45-18:00,18:05-20:00
-                </h4>
+                <h4>{{ $t("adminPlaceManagementOpeningHoursTitle") }}</h4>
               </b-col>
             </b-row>
             <b-row>
@@ -417,5 +419,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
