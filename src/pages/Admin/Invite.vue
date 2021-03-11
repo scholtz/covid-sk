@@ -2,17 +2,17 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Pozvanie ďalších administrátorov</h1>
+        <h1>{{ $t("adminInviteAnotherAdmins") }}</h1>
       </b-container>
     </div>
     <b-container>
       <b-row>
         <b-col cols="12" md="6">
-          <label for="name">Meno</label>
+          <label for="name">{{ $t("adminInviteName") }}</label>
           <b-input v-model="name" ref="name" id="name" />
         </b-col>
         <b-col cols="12" md="6">
-          <label for="email">Email</label>
+          <label for="email">{{ $t("adminInviteEmail") }}</label>
           <b-input v-model="email" ref="email" id="email" type="email" />
         </b-col>
         <!--
@@ -28,13 +28,13 @@
       </b-row>
       <b-row>
         <b-col cols="12" md="12">
-          <p>Na tejto stránke môžete pridať ďalších administrátorov</p>
+          <p>{{ $t("adminInviteAnotherAdminsTitle") }}</p>
           <button @click="inviteUserClick" class="btn btn-primary my-4">
-            Pozvať
+            {{ $t("adminInvite") }}
           </button>
 
           <b-link to="/admin/users" class="btn btn-light m-4">
-            Správa iných rolí
+            {{ $t("adminInviteRoleManagement") }}
           </b-link>
         </b-col>
       </b-row>
@@ -76,5 +76,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
