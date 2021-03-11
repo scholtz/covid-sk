@@ -12,26 +12,34 @@
       <b-container fluid>
         <b-row>
           <b-col>
-            <h2>Revízia zmien</h2>
+            <h2>{{ $t("workingTimeRevision") }}</h2>
             <ol id="example-2">
               <li v-for="(item, index) in sortedActions()" :key="index">
                 <span v-if="item.type === 'delete'">
-                  Dňa
-                  <b>{{ new Date(item.date).toLocaleDateString("sk") }}</b> bude
-                  odberové miesto <b>zavreté</b>
+                  {{ $t("workingTimeOnDay") }}
+                  <b>{{
+                    new Date(item.date).toLocaleDateString($i18n.locale || "sk")
+                  }}</b>
+                  {{ $t("workingTimePlaceWillBe") }}
+                  <b>{{ $t("workingTimeClosed") }}</b>
                 </span>
                 <span v-if="item.type === 'set'">
-                  Dňa
-                  <b>{{ new Date(item.date).toLocaleDateString("sk") }}</b> bude
-                  odberové miesto
+                  {{ $t("workingTimeOnDay") }}
+                  <b>{{
+                    new Date(item.date).toLocaleDateString($i18n.locale || "sk")
+                  }}</b>
+                  {{ $t("workingTimePlaceWillBe") }}
                   <span v-if="placeObj"
                     ><b>{{ placeObj.name }}</b></span
                   >
-                  otvorené so šablónou
-                  <b>č. {{ item.openingHoursTemplateId }}</b>
-                  <span v-if="!placeObj"
-                    >ktorá je nastavená v každom odbernom mieste zvlášť</span
-                  > </span
+                  {{ $t("workingTimeClosed") }}
+                  <b
+                    >{{ $t("workingTimeNumber") }}
+                    {{ item.openingHoursTemplateId }}</b
+                  >
+                  <span v-if="!placeObj">{{
+                    $t("workingTimeThatIsSpecific")
+                  }}</span> </span
                 ><span v-if="placeObj">
                   - <b>{{ template1 }}</b></span
                 >
@@ -42,11 +50,10 @@
         <b-row>
           <b-col offset-md="0">
             <div class="alert alert-danger" v-if="allPlaces">
-              Pozor! Chystáte sa zmeniť otváracie miesta na všetkých Vašich
-              odberných miestach
+              {{ $t("workingTimeWarningAlert") }}
             </div>
             <b-button @click="saveClick" class="m-2" variant="primary">
-              Uložiť
+              {{ $t("workingTimeSave") }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.5"
@@ -59,7 +66,7 @@
               </svg>
             </b-button>
             <b-button @click="revisionBackClick" class="m-2" variant="light">
-              Späť
+              {{ $t("workingTimeBack") }}
             </b-button>
           </b-col>
         </b-row>
@@ -72,14 +79,14 @@
             <p></p>
           </b-col>
           <b-col md="2">
-            <b>Nastavujete čas pre:</b>
+            <b>{{ $t("workingTimeSetTimeFor") }}:</b>
             <b-form-checkbox
               id="allPlaces"
               v-model="allPlaces"
               name="allPlaces"
               class="text-right"
             >
-              Všetky miesta
+              {{ $t("workingTimeAllPlaces") }}
             </b-form-checkbox>
           </b-col>
           <b-col cols="7">
@@ -90,10 +97,9 @@
               text-field="name"
               value-field="id"
             >
-              <b-form-select-option disabled value=""
-                >Vyberte si miesto pre nastavenie harmonogramu otváracích
-                hodín</b-form-select-option
-              >
+              <b-form-select-option disabled value="">{{
+                $t("workingTimeSelectPlace")
+              }}</b-form-select-option>
             </b-form-select>
           </b-col>
         </b-row>
@@ -102,24 +108,26 @@
     <b-container fluid v-if="!revision">
       <b-row>
         <b-col md="3">
-          <h2>Otváracie hodiny</h2>
+          <h2>{{ $t("workingTimeOpeningHours") }}</h2>
           <b-row>
             <b-col>
-              Od
+              {{ $t("workingTimeFrom") }}
               <VueCtkDateTimePicker
                 v-model="fromDate"
                 :only-date="true"
                 formatted="DD.MM.YYYY"
-                label="Od dátumu"
+                :label="$t('workingTimeFromDate')"
+                :locale="locale"
               />
             </b-col>
             <b-col>
-              Do
+              {{ $t("workingTimeUntil") }}
               <VueCtkDateTimePicker
                 v-model="untilDate"
                 :only-date="true"
                 formatted="DD.MM.YYYY"
-                label="Do dátumu"
+                :label="$t('workingTimeUntilDate')"
+                :locale="locale"
               />
             </b-col>
           </b-row>
@@ -136,31 +144,33 @@
             class="my-2 w-100 btn btn-primary"
             style="background: navy; color: white"
           >
-            Šablóna otváracích hodín 2 (víkendy)
+            {{ $t("workingTimeOpeningHoursOther1") }}
           </button>
           <button
             @click="createEvent(3)"
             class="my-2 w-100 btn btn-primary"
             style="background: purple; color: white"
           >
-            Šablóna otváracích hodín 3 (sviatky)
+            {{ $t("workingTimeOpeningHoursOther2") }}
           </button>
           <button
             @click="createEvent(4)"
             class="my-2 w-100 btn btn-primary"
             style="background: darkred; color: white"
           >
-            Zatvorené
+            {{ $t("workingTimeClosedOption") }}
           </button>
         </b-col>
         <b-col md="9">
-          <FullCalendar :options="calendarOptions" />
+          <FullCalendar
+            :options="{ ...calendarOptions, locale: calendarLocale }"
+          />
         </b-col>
       </b-row>
       <b-row class="my-4">
         <b-col offset-md="3">
           <button @click="revisionClick" class="btn btn-primary my-2">
-            Prehľad zmien
+            {{ $t("workingTimeRevisionOverview") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -184,6 +194,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { mapActions } from "vuex";
 import skLocale from "@fullcalendar/core/locales/sk";
+import csLocale from "@fullcalendar/core/locales/cs";
 
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
@@ -221,6 +232,9 @@ export default {
     };
   },
   computed: {
+    locale() {
+      return this.$i18n.locale;
+    },
     placeObj() {
       if (!this.$store.state.place.places) return {};
       if (!this.$store.state.place.places[this.place]) return {};
@@ -229,19 +243,19 @@ export default {
     template1() {
       const obj = this.placeObj;
       if (!obj || !obj["openingHoursWorkDay"])
-        return "Šablóna otváracích hodín 1";
+        return this.$t("workingTimeOpeningHoursWorkDay");
       return obj["openingHoursWorkDay"];
     },
     template2() {
       const obj = this.placeObj;
       if (!obj || !obj["openingHoursOther1"])
-        return "Šablóna otváracích hodín 2";
+        return this.$t("workingTimeOpeningHoursOther1");
       return obj["openingHoursOther1"];
     },
     template3() {
       const obj = this.placeObj;
       if (!obj || !obj["openingHoursOther2"])
-        return "Šablóna otváracích hodín 3";
+        return this.$t("workingTimeOpeningHoursOther2");
       return obj["openingHoursOther2"];
     },
     placePrivider() {
@@ -261,6 +275,16 @@ export default {
         return 0;
       }
       return Object.values(this.$store.state.place.places).sort(compare);
+    },
+    calendarLocale() {
+      switch (this.$i18n.locale) {
+        case "sk":
+          return skLocale;
+        case "cs":
+          return csLocale;
+        default:
+          return null;
+      }
     },
   },
   watch: {
@@ -309,10 +333,13 @@ export default {
       this.actions = {};
       for (const index in r) {
         const day = r[index];
-        let title = "Rôžne šablóny otv. hodín";
+        let title = this.$t("workingTimeOpeningHoursTemplatesOthers");
         let bck = this.getBackground(0);
         if (day.openingHoursTemplates.length == 1) {
-          title = "Šablóna otv. hodín miesta " + day.openingHoursTemplates[0];
+          title =
+            this.$t("workingTimeOpeningHoursTemplate") +
+            " " +
+            day.openingHoursTemplates[0];
           bck = this.getBackground(day.openingHoursTemplates[0]);
         }
         if (day.openingHours.length == 1) {
@@ -374,9 +401,7 @@ export default {
               if (r2) {
                 this.processScheduledDays(r2);
                 this.revision = false;
-                this.openSuccess(
-                  "Dni testovania boli nastavené. Verejnosť sa teraz môže objednať k odberu/vakcinácii."
-                );
+                this.openSuccess(this.$t("workingTimeSetSuccessMessage"));
               }
             });
           }
@@ -400,7 +425,7 @@ export default {
           x => x.start !== date
         );
         if (i <= 3) {
-          let text = "Šablóna otv. hodín miesta " + i;
+          let text = this.$t("workingTimeOpeningHoursTemplate") + " " + i;
           if (i === 1) text = this.template1;
           if (i === 2) text = this.template2;
           if (i === 3) text = this.template3;
@@ -431,5 +456,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

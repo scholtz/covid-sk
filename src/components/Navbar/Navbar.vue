@@ -16,20 +16,20 @@
           <b-navbar-nav v-if="$store.state.user.auth">
             <b-navbar-nav v-if="isAdmin()">
               <b-nav-item-dropdown :text="$t('navBarAdmin')">
-                <b-dropdown-item to="/admin/dashboard"
-                  >Dashboard</b-dropdown-item
-                >
+                <b-dropdown-item to="/admin/dashboard">{{
+                  $t("navBarAdminDashboard")
+                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
                 }}</b-dropdown-item>
-                <b-dropdown-item to="/placeprovider/limits"
-                  >Limity kapacít</b-dropdown-item
-                >
+                <b-dropdown-item to="/placeprovider/limits">{{
+                  $t("navBarAdminLimits")
+                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/invite">
-                  Pridanie admina
+                  {{ $t("navBarAdminInviteAdmin") }}
                 </b-dropdown-item>
                 <b-dropdown-item to="/admin/users">{{
                   $t("navBarAdminAuditUsers")
@@ -43,14 +43,16 @@
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav v-if="isPPAdmin()">
-              <b-dropdown-item to="/admin/dashboard">Dashboard</b-dropdown-item>
+              <b-dropdown-item to="/admin/dashboard">{{
+                $t("navBarAdminDashboard")
+              }}</b-dropdown-item>
               <b-nav-item-dropdown :text="$t('navBarAdmin')">
                 <b-dropdown-item to="/admin/placeManager">{{
                   $t("navBarAdminManagePlace")
                 }}</b-dropdown-item>
-                <b-dropdown-item to="/placeprovider/limits"
-                  >Limity kapacít</b-dropdown-item
-                >
+                <b-dropdown-item to="/placeprovider/limits">{{
+                  $t("navBarAdminLimits")
+                }}</b-dropdown-item>
                 <b-dropdown-item to="/admin/testingTime">{{
                   $t("navBarAdminTestingTimes")
                 }}</b-dropdown-item>
