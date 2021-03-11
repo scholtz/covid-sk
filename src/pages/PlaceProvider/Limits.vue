@@ -5,7 +5,7 @@
         <b-row>
           <b-col md="7">
             <h1>
-              Hodinové limity odberných miest
+              {{ $t("adminLimitsHourlyLimits") }}
               <span v-if="placePrivider">{{ placePrivider.companyName }}</span>
             </h1>
           </b-col>
@@ -18,9 +18,9 @@
               class="mt-2"
               :class="this.place === '' ? 'border-danger' : ''"
             >
-              <b-form-select-option disabled value=""
-                >Vyberte si miesto pre správu limitov</b-form-select-option
-              >
+              <b-form-select-option disabled value="">{{
+                $t("adminLimitsSelectPlaceToManage")
+              }}</b-form-select-option>
             </b-form-select>
           </b-col>
         </b-row>
@@ -33,57 +33,66 @@
           <FullCalendar
             ref="calendar"
             id="calendar"
-            :options="calendarOptions"
+            :options="{ ...calendarOptions, locale: calendarLocale }"
           />
         </b-col>
       </b-row>
     </b-container>
     <b-modal
-      title="Alokácia limitácie odberného miesta"
+      :title="$t('adminLimitsPlaceAlocation')"
       v-if="eventinfo && eventinfo.event && eventinfo.event.start"
       v-model="modalEditShow"
-      ok-title="Odobrať limit"
-      cancel-title="Zrušiť"
+      :ok-title="$t('adminLimitsRemoveLimit')"
+      :cancel-title="$t('adminLimitsCancel')"
       @ok="unassignClick(eventinfo.event)"
     >
       <div>
-        Limit pre čas: {{ eventinfo.event.start | formatDateTime }} -
+        {{ $t("adminLimitsDatetimeLimit") }}:
+        {{ eventinfo.event.start | formatDateTime }} -
         {{ eventinfo.event.end | formatDateTime }}
       </div>
     </b-modal>
     <b-modal
-      title="Alokácia limitácií odberného miesta"
+      :title="$t('adminLimitsPlaceAlocation')"
       v-model="modalSetupShow"
-      ok-title="Priradiť"
-      cancel-title="Zrušiť"
+      :ok-title="$t('adminLimitsAssign')"
+      :cancel-title="$t('adminLimitsCancel')"
       @ok="assignClick"
     >
       <div class="alert alert-danger" v-if="this.place === ''">
-        Vyberte si odberové miesto
+        {{ $t("adminLimitsSelectPlace") }}
       </div>
       <div v-else>
-        <h4>Odberové miesto</h4>
+        <h4>{{ $t("adminLimitsPlace") }}</h4>
         <p>{{ this.placeObj.name }}</p>
       </div>
 
-      <h4>Časová alokácia</h4>
+      <h4>{{ $t("adminLimitsAlocationTime") }}</h4>
       <div v-if="fullDayMode">
-        Limit na celý pracovný deň
+        {{ $t("adminLimitsFullDayLimit") }}
         <div>
-          Pre dátumy Od {{ fromDate | formatDate }} Do
-          {{ untilDateMinusOneDay | formatDate }} večer
+          {{ $t("adminLimitsDates") }}
+          {{ $t("adminLimitsFrom") }} {{ fromDate | formatDate }}
+          {{ $t("adminLimitsUntil") }}
+          {{ untilDateMinusOneDay | formatDate }} {{ $t("adminLimitsEvening") }}
         </div>
       </div>
       <div v-else>
-        Denne Od {{ displayHoursFrom() }}:00 Do {{ displayHoursUntil() }}:00
+        {{ $t("adminLimitsDaily") }} {{ $t("adminLimitsFrom") }}
+        {{ displayHoursFrom() }}:00 {{ $t("adminLimitsUntil") }}
+        {{ displayHoursUntil() }}:00
         <div>
-          Pre dátumy Od {{ fromDate | formatDate }} Do
+          {{ $t("adminLimitsDates") }}
+          {{ $t("adminLimitsFrom") }} {{ fromDate | formatDate }}
+          {{ $t("adminLimitsUntil") }}
           {{ untilDate | formatDate }}
         </div>
       </div>
 
       <div>
-        <label for="limit"><h4>Hodinový limit</h4></label>
+        <label for="limit"
+          ><h4>{{ $t("adminLimitsHourlyLimit") }}</h4></label
+        >
         <b-input id="limit" type="number" min="0" max="1000" v-model="limit" />
       </div>
     </b-modal>
@@ -97,6 +106,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import skLocale from "@fullcalendar/core/locales/sk";
+import csLocale from "@fullcalendar/core/locales/cs";
 
 export default {
   components: {
@@ -266,6 +276,16 @@ export default {
         return 0;
       }
       return Object.values(this.$store.state.place.places).sort(compare);
+    },
+    calendarLocale() {
+      switch (this.$i18n.locale) {
+        case "sk":
+          return skLocale;
+        case "cs":
+          return csLocale;
+        default:
+          return null;
+      }
     },
   },
 
@@ -605,5 +625,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

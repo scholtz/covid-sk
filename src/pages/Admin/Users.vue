@@ -18,10 +18,9 @@
               class="mt-2"
               :class="this.place === '' ? 'border-danger' : ''"
             >
-              <b-form-select-option disabled value=""
-                >Vyberte si miesto pre alokovanie osôb na odberové
-                miesta</b-form-select-option
-              >
+              <b-form-select-option disabled value="">{{
+                $t("formAdminHRSelectAlocationPlace")
+              }}</b-form-select-option>
             </b-form-select>
           </b-col>
         </b-row>
@@ -30,7 +29,7 @@
 
     <b-container class="my-4" fluid>
       <b-tabs card v-model="tabIndex">
-        <b-tab title="Správa užívateľov na odberných miestach">
+        <b-tab :title="$t('formAdminHRUserManagement')">
           <b-row>
             <b-col md="2">
               <h2>{{ $t("TimeAndPeopleSectionRights") }}:</h2>
@@ -81,22 +80,22 @@
               <FullCalendar
                 ref="calendar"
                 id="calendar"
-                :options="calendarOptions"
+                :options="{ ...calendarOptions, locale: calendarLocale }"
               />
             </b-col>
           </b-row>
         </b-tab>
-        <b-tab title="Prehľad užívateľov">
+        <b-tab :title="$t('formAdminHRUserOverview')">
           <b-table :items="data" :fields="fields">
             <template #cell(id)="row">
               <button @click="editPlaceClick(row)" class="btn btn-primary m-2">
-                Edit
+                {{ $t("formAdminHREdit") }}
               </button>
               <button
                 @click="deletePlaceClick(row)"
                 class="btn btn-primary m-2"
               >
-                Delete
+                {{ $t("formAdminHRDelete") }}
               </button>
             </template>
             <template #cell(role)="row">
@@ -104,20 +103,20 @@
             </template>
             <template #cell(actions)="row">
               <button @click="deleteUserClick(row)" class="btn btn-primary m-2">
-                Vymazať
+                {{ $t("formAdminHRDelete") }}
               </button>
             </template>
           </b-table>
         </b-tab>
-        <b-tab title="Pozvať užívateľa">
+        <b-tab :title="$t('formAdminHRUserInvite')">
           <b-row class="my-2">
             <b-col md="10" offset-md="2">
-              <h2>Odoslať pozvánku</h2>
+              <h2>{{ $t("formAdminHRSendInvitation") }}</h2>
             </b-col>
           </b-row>
           <b-row class="my-2">
             <b-col md="2">
-              <label for="name">Meno</label>
+              <label for="name">{{ $t("formAdminHRName") }}</label>
             </b-col>
             <b-col md="10">
               <b-input v-model="person.name" ref="name" id="name" />
@@ -125,7 +124,7 @@
           </b-row>
           <b-row class="my-2">
             <b-col md="2">
-              <label for="email">Email</label>
+              <label for="email">{{ $t("formAdminHREmail") }}</label>
             </b-col>
             <b-col md="10">
               <b-input
@@ -138,7 +137,7 @@
           </b-row>
           <b-row class="my-2">
             <b-col md="2">
-              <label for="phone">Mobil</label>
+              <label for="phone">{{ $t("formAdminHRPhone") }}</label>
             </b-col>
             <b-col md="10">
               <b-input v-model="person.phone" ref="phone" id="phone" />
@@ -146,7 +145,7 @@
           </b-row>
           <b-row class="my-2">
             <b-col md="2">
-              <label for="message">Text pozvánky</label>
+              <label for="message">{{ $t("formAdminHRInvitationText") }}</label>
             </b-col>
             <b-col md="10">
               <b-input v-model="person.message" ref="message" id="message" />
@@ -159,12 +158,12 @@
                 @click="inviteUserClick"
                 class="btn btn-primary"
               >
-                Pozvať
+                {{ $t("formAdminHRInvite") }}
               </button>
             </b-col>
           </b-row>
 
-          <h2>Odoslané pozvánky</h2>
+          <h2>{{ $t("formAdminHRInvitationSent") }}</h2>
           <b-table
             :items="dataInvitations"
             :fields="fieldsInvitations"
@@ -176,13 +175,13 @@
             </template>
             <template #cell(status)="row">
               <span v-if="row.item.status === 'invited'">
-                Čaká sa na potvrdenie
+                {{ $t("formAdminHRInvitationWaiting") }}
               </span>
               <span v-else-if="row.item.status === 'declined'">
-                Pozvánka bola zamietnutá
+                {{ $t("formAdminHRInvitationDeclined") }}
               </span>
               <span v-else-if="row.item.status === 'accepted'">
-                Pozvánka bola prijatá
+                {{ $t("formAdminHRInvitationAccepted") }}
               </span>
               <span v-else>
                 {{ row.item.status }}
@@ -193,7 +192,7 @@
                 @click="deleteInvitationClick(row)"
                 class="btn btn-primary m-2"
               >
-                Zrušiť
+                {{ $t("formAdminHRDeleteInvitation") }}
               </button>
             </template>
           </b-table>
@@ -201,43 +200,47 @@
       </b-tabs>
     </b-container>
     <b-modal
-      title="Prehľad osoby na odbernom mieste"
+      :title="$t('formAdminHRUserOverviewTitle')"
       v-if="eventinfo && eventinfo.event && eventinfo.event.start"
       v-model="modalEditShow"
-      ok-title="Odobrať oprávnenia"
-      cancel-title="Zrušiť"
+      :ok-title="$t('formAdminHRUnassign')"
+      :cancel-title="$t('formAdminHRCancel')"
       @ok="unassignClick(eventinfo.event)"
     >
       <h4>{{ getUser(eventinfo.event.extendedProps.user).name }}</h4>
       <div :style="roleStyle(eventinfo.event.extendedProps.role)">
         {{ role2Text(eventinfo.event.extendedProps.role) }}
       </div>
-      <div>Email: {{ getUser(eventinfo.event.extendedProps.user).email }}</div>
       <div>
-        Skratka:
+        {{ $t("formAdminHREmail") }}:
+        {{ getUser(eventinfo.event.extendedProps.user).email }}
+      </div>
+      <div>
+        {{ $t("formAdminHRShortcut") }}:
         {{ name2shortcut(getUser(eventinfo.event.extendedProps.user).name) }}
       </div>
       <div>
-        Alokovaný pre čas: {{ eventinfo.event.start | formatDateTime }} -
+        {{ $t("formAdminHRAlocatedTime") }}:
+        {{ eventinfo.event.start | formatDateTime }} -
         {{ eventinfo.event.end | formatDateTime }}
       </div>
     </b-modal>
     <b-modal
-      title="Pridať osobu na odberové miesto"
+      :title="$t('formAdminHRAddUserTitle')"
       v-model="modalSetupShow"
-      ok-title="Priradiť"
-      cancel-title="Zrušiť"
+      :ok-title="$t('formAdminHRAssign')"
+      :cancel-title="$t('formAdminHRCancel')"
       @ok="assignClick"
     >
       <div class="alert alert-danger" v-if="this.place === ''">
-        Vyberte si odberové miesto
+        {{ $t("formAdminHRSelectPlace") }}
       </div>
       <div v-else>
-        <h4>Odberové miesto</h4>
+        <h4>{{ $t("formAdminHRPlace") }}</h4>
         <p>{{ this.placeObj.name }}</p>
       </div>
       <div class="alert alert-danger" v-if="roleNotSelected()">
-        Vyberte si rolu/oprávnenia
+        {{ $t("formAdminHRSelectRole") }}
       </div>
       <div v-for="(tr, role) in this.roles" :key="role">
         <div v-if="tr">
@@ -247,32 +250,36 @@
         </div>
       </div>
       <div class="alert alert-danger" v-if="userNotSelected()">
-        Vyberte si užívateľa
+        {{ $t("formAdminHRSelectUser") }}
       </div>
 
       <div v-for="(tr, email) in this.selectedUsers" :key="email">
         <div v-if="tr">
           <h4>{{ getUser(email).name }}</h4>
-          <div>Email: {{ email }}</div>
+          <div>{{ $t("formAdminHREmail") }}: {{ email }}</div>
           <div>
-            Skratka:
+            {{ $t("formAdminHRShortcut") }}:
             {{ name2shortcut(getUser(email).name) }}
           </div>
         </div>
       </div>
 
-      <h4>Časová alokácia</h4>
+      <h4>{{ $t("adminLimitsAlocationTime") }}</h4>
       <div v-if="fullDayMode">
-        Alokácia na celý pracovný deň
+        {{ $t("formAdminHRFullDayAlocation") }}
         <div>
-          Pre dátumy Od {{ fromDate | formatDate }} Do
-          {{ untilDateMinusOneDay | formatDate }} večer
+          {{ $t("adminLimitsDates") }} {{ $t("adminLimitsFrom") }}
+          {{ fromDate | formatDate }} {{ $t("adminLimitsUntil") }}
+          {{ untilDateMinusOneDay | formatDate }} {{ $t("adminLimitsEvening") }}
         </div>
       </div>
       <div v-else>
-        Denne Od {{ displayHoursFrom() }}:00 Do {{ displayHoursUntil() }}:00
+        {{ $t("adminLimitsDaily") }} {{ $t("adminLimitsFrom") }}
+        {{ displayHoursFrom() }}:00 {{ $t("adminLimitsUntil") }}
+        {{ displayHoursUntil() }}:00
         <div>
-          Pre dátumy Od {{ fromDate | formatDate }} Do
+          {{ $t("adminLimitsDates") }} {{ $t("adminLimitsFrom") }}
+          {{ fromDate | formatDate }} {{ $t("adminLimitsUntil") }}
           {{ untilDate | formatDate }}
         </div>
       </div>
@@ -287,6 +294,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import skLocale from "@fullcalendar/core/locales/sk";
+import csLocale from "@fullcalendar/core/locales/cs";
 
 export default {
   components: {
@@ -322,54 +330,54 @@ export default {
       },
       fields: [
         {
-          label: "Meno",
+          label: this.$t("formAdminHRName"),
           key: "name",
           sortable: true,
         },
         {
-          label: "Email",
+          label: this.$t("formAdminHREmail"),
           key: "email",
           sortable: true,
         },
         {
-          label: "Role",
+          label: this.$t("formAdminHRRole"),
           key: "role",
           sortable: true,
         },
         {
-          label: "Akcie",
+          label: this.$t("formAdminHRActions"),
           key: "actions",
           sortable: false,
         },
       ],
       fieldsInvitations: [
         {
-          label: "Meno",
+          label: this.$t("formAdminHRName"),
           key: "name",
           sortable: true,
         },
         {
-          label: "Email",
+          label: this.$t("formAdminHREmail"),
           key: "email",
           sortable: true,
         },
         {
-          label: "Pozvaný osobou",
+          label: this.$t("formAdminHRInviterName"),
           key: "inviterName",
           sortable: true,
         },
         {
-          label: "Čas pozvánky",
+          label: this.$t("formAdminHRInvitationTime"),
           key: "invitationTime",
           sortable: true,
         },
         {
-          label: "Stav pozvánky",
+          label: this.$t("formAdminHRStatus"),
           key: "status",
           sortable: true,
         },
         {
-          label: "Akcie",
+          label: this.$t("formAdminHRActions"),
           key: "actions",
           sortable: false,
         },
@@ -460,6 +468,16 @@ export default {
         return 0;
       }
       return Object.values(this.$store.state.place.places).sort(compare);
+    },
+    calendarLocale() {
+      switch (this.$i18n.locale) {
+        case "sk":
+          return skLocale;
+        case "cs":
+          return csLocale;
+        default:
+          return null;
+      }
     },
   },
 
@@ -597,7 +615,7 @@ export default {
       return data.item.roles.join(", ");
     },
     deleteUserClick(row) {
-      if (confirm("Naozaj chcete vymazať užívateľa?")) {
+      if (confirm(this.$t("formAdminHRDeleteUserMessage"))) {
         this.RemoveUser({ email: row.item.email }).then(r => {
           if (r) {
             this.LoadUsers().then(r => {
@@ -610,7 +628,7 @@ export default {
       }
     },
     deleteInvitationClick(row) {
-      if (confirm("Naozaj chcete zrušiť pozvánku?")) {
+      if (confirm(this.$t("formAdminHRDeleteInvitationMessage"))) {
         console.log("todo");
       }
     },
@@ -619,7 +637,7 @@ export default {
       this.InviteUserToPP(this.person).then(r => {
         this.sendingInvitation = false;
         if (r) {
-          this.openSuccess("Užívateľ pozvaný");
+          this.openSuccess(this.$t("formAdminHRUserinvited"));
           this.email = "";
           this.name = "";
           this.phone = "";
@@ -750,15 +768,15 @@ export default {
       if (!role) return "?";
       switch (role) {
         case "Helper":
-          return "Pomocník";
+          return this.$t("formAdminHRHelper");
         case "MedicTester":
-          return "Doktor pri odbere";
+          return this.$t("formAdminHRMedicTester");
         case "MedicLab":
-          return "Doktor v laboratóriu";
+          return this.$t("formAdminHRMedicLab");
         case "DocumentManager":
-          return "Správca certifikátov";
+          return this.$t("formAdminHRDocumentManager");
         case "DataExporter":
-          return "Exporter údajov pre hygienu";
+          return this.$t("formAdminHRDataExporter");
       }
       return "red";
     },
@@ -808,5 +826,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
