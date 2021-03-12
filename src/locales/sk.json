@@ -784,6 +784,7 @@
   "adminReportsTitle":"Exporty Administrátora",
   "adminReportsDescription":"Zvoľte deň a kliknite na tlačidlo exportu.",
   "adminReportsButton":"Všetci (anonymizovaní)",
+<<<<<<< HEAD
   "":"",
 >>>>>>> a3740ba... translate public pages - Help, Login, Register
   
@@ -895,4 +896,19 @@
   "adminInviteRoleManagement": "Správa iných rolí",
 
   "Scholtz": "Scholtz"
+=======
+  "adminDashboardTitle": "Dashboard administrátora",
+  "adminDashboardLoad":"Načítať",
+  "adminDashboardVisitorManagement":"Správa návštevníka",
+  "adminDashboardVisitorDetails":"R.č., číslo registrácie, covid-pass..",
+  "adminDashboardEzdravieManagement":"Správa eZdravie",
+  "adminDashboardImportDate":"Dátum importu",
+  "adminDashboardLoadDetails":"Načítať údaje pre vybratý deň",
+  "adminDashboardExportableDays":"Exportovateľné dni",
+  "adminDashboardSentResults":"Odoslať výsledky občanom",
+  "adminDashboardEmployeeUpload":"Nahratie zamestnancov",
+  "adminDashboardUpload":"Nahrať",
+
+  "Scholtz":"Scholtz"
+>>>>>>> 9af8319... translate admin dashboard
 }

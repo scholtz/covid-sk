@@ -642,6 +642,7 @@
   "adminReportsDescription": "Zvolte den a klikněte na tlačítko exportu.",
   "adminReportsButton": "Všichni (anonymizovaní)",
   "adminDashboardTitle": "Dashboard administrátora",
+<<<<<<< HEAD
   "adminDashboardLoad": "Načíst",
   "adminDashboardVisitorManagement": "Správa návštevníka",
   "adminDashboardVisitorDetails": "R.č., číslo registrace, covid-pass..",
@@ -709,6 +710,18 @@
   "adminInviteAnotherAdminsTitle": "Na této stránce můžete přidat další administrátory",
   "adminInvite": "Pozvat",
   "adminInviteRoleManagement": "Správa jiných rolí",
+=======
+  "adminDashboardLoad":"Načíst",
+  "adminDashboardVisitorManagement":"Správa návštevníka",
+  "adminDashboardVisitorDetails":"R.č., číslo registrace, covid-pass..",
+  "adminDashboardEzdravieManagement":"Správa eZdravie",
+  "adminDashboardImportDate":"Datum importu",
+  "adminDashboardLoadDetails":"Načíst údaje pro vybraný den",
+  "adminDashboardExportableDays":"Exportovatelné dni",
+  "adminDashboardSentResults":"Odeslat výsledky občanům",
+  "adminDashboardEmployeeUpload":"Nahrání zaměstnanců",
+  "adminDashboardUpload":"Nahrát",
+>>>>>>> 9af8319... translate admin dashboard
 
   "Scholtz": "Scholtz"
 }

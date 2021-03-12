@@ -331,5 +331,17 @@
   "TimeAndPeopleSectionPeople":"Workers",
   "TimeAndPeopleSectionRights":"Working role",
 
+  "adminDashboardTitle": "Dashboard administrátora",
+  "adminDashboardLoad":"Načíst",
+  "adminDashboardVisitorManagement":"Správa návštevníka",
+  "adminDashboardVisitorDetails":"R.č., číslo registrace, covid-pass..",
+  "adminDashboardEzdravieManagement":"Správa eZdravie",
+  "adminDashboardImportDate":"Datum importu",
+  "adminDashboardLoadDetails":"Načíst údaje pro vybraný den",
+  "adminDashboardExportableDays":"Exportovatelné dni",
+  "adminDashboardSentResults":"Odeslat výsledky občanům",
+  "adminDashboardEmployeeUpload":"Nahrání zaměstnanců",
+  "adminDashboardUpload":"Nahrát",
+
   "Scholtz":"Scholtz"
 }
