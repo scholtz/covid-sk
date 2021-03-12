@@ -99,10 +99,7 @@
   "navBarUserInvitations": "Pozvánky",
   "navBarUserLogout": "Odhlášení",
   "navBarUserLogin": "Přihlášení",
-<<<<<<< HEAD
-=======
 
->>>>>>> b36d54a... translate newly added phrases in registration form
   "navBarGoTo": "Přejít na",
 
   "navBarAdminServicesManagement": "Správa poskytovaných služeb",
@@ -143,7 +140,7 @@
   "chPassValidationDoNotMatch": "Hesla se neshodují",
 
   "loginTitle": "Přihlášení",
-  "loginHelp": "Přihlášení slouží pro obsluhu testovacího místa. Po přihlášení může obsluha scanovat QR kódy z obrazovky mobilu nebo vytištěné na papíře. Po úspešném přihlášení se změní horní menu na rozbalovací seznam rolí a funkcí, které mohou dělat.",
+  "loginHelp": "Přihlášení pro administrátory a pracovníky systému Rýchlejšie.sk. Po úspěšném přihlášení se zobrazí další možnosti v horním menu.",
   "loginFormLogin": "Login / E-mail",
   "loginFormPassword": "Heslo",
   "loginFormButton": "Přihlaš",
@@ -223,10 +220,6 @@
   "invitationsStatus": "Stav pozvánky",
   "invitationsActions": "Akce",
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5831630... translate GDPR page
   "gdprTitle": "Ochrana osobních údajů",
   "gdprShowLawyerVersion": "Zobrazit verzi pro právniky",
   "gdprDetailsForEmployees": "Upřesnění pro zaměstnance",
@@ -264,17 +257,7 @@
   "gdprA8Short": "Údaje ukládané v souvislosti s klienty: Jméno, Příjmení, Datum narození, Rodné číslo, Číslo cestovního pasu, Bydliště, Ulice, Číslo domu, PSČ, Obec, Telefonní číslo, E-mail adresa, Zdravotní pojišťovna, Údaje o úkonu, Datum a čas úkonu, Typ úkonu (např. antigenní test), Číslo úkonu (např. testu), Výsledek úkonu (např. testu), IP Adresy, Časy jednotlivých eventů a další údaje spojené s provozem informačních systémů",
   "gdprAdditionalDetailsTitle": "Další upřesnění",
   "gdprAdditionalDetails": "Slovenská republika, Úřad veřejného zdraví Ministerstvo zdravotnictví Slovenské republiky, Ministerstvo vnitra Slovenské republiky, Policejní sbor a další instituce Slovenské republiky a Evropské unie vyžadují nebo mohou vyžadovat a provozovatel služby jim poskytuje osobní data osob, kterým byl vykonaný úkon. Osobní data osob jsou ukládané v službě Rýchlejšie.sk výhradně v elektronické podobě v cloud prostředí Microsoft Azure, lokalita západní Evropa v zašifrované podobě. Osobní údaje v rozsahu Jméno, Rok narození a datum vykonání testu mohou být odeslané prostředníctvím SMS zprávy. Všechny osobní údaje mohou být odeslané v emailové komunikaci v zašifrované podobě (v PDF). Jméno osoby může být odeslané v emailové komunikaci v nešifrované podobě. Logovací služby jako např. papertrail, azure logs a podobné mohou obsahovat IP adresy, hash identifikačních údajů nebo hash kontaktních údajů. Služby třetích stran na poskytování emailu, SMS zpráv nebo jiných zpráv mohou ukládat zprávy odeslané přes jejich službu, čas komunikace a jiné metadata specifické pro danou službu. Služby třetích stran jsou primárně MailGun, SendGrid, GoSMS nebo jiné.",
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 3c586f1... translate Help, Select & Invitations
-=======
-  
->>>>>>> 5831630... translate GDPR page
-=======
-
->>>>>>> b36d54a... translate newly added phrases in registration form
   "offlineRegistrationTitle": "Offline registrace = rychlejší testování",
   "offlineRegistrationHelp1": "Vytvořte si QR kód v mobilu bez odesílání do našeho systému. Bude obsahovat vaše údaje. Pracovník odběrového místa ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude muset vaše údaje ťukat do počítače. Údaje o Vašem testování, včetně osobních údajů a výsledku budete moci vymazat ze systému při negativním výsledku a po zpracování údajů pro krajský úřad a hygienu. V případě pozitivní nálezu budou postoupeny hygieně. Po dobu testování budou Vaše osobní údaje chráněny šifrováním AES256.",
 
@@ -447,10 +430,6 @@
   "ppPublicPhone": "Veřejný telefon",
   "ppRegister": "Zaregistrovat provozovatele",
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b36d54a... translate newly added phrases in registration form
   "ppInfoQ": "Proč si zvolit rýchlejšie.sk?",
   "ppInfoA1": "Jsme <b>jediný</b> poskytovatel služby objednávkového systému na Slovensku pro odebírání vzorků choroby COVID-19 s rozsahem od předregistrace přes testování až po reporting hygieně",
   "ppInfoA2": "Děláme to proto, že <b>chceme pomoct</b>, ne kvůli penězům",
@@ -469,35 +448,8 @@
   "ppInfoA15": "Osobní údaje jsou zašifrované najsilnejšími šifrovacími způsoby. Neexistuje časový bod, ve kterém by sa daly extrahovat údaje, protože data se po testu a notifikaci uživateli smažou.",
   "ppInfoA16": "Real time monitoring statistických údajů například pro média",
   "ppLinkToFeatures": "<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Víc o vlastnostech a výhodách řešení Rýchlejšie.sk</a>",
-<<<<<<< HEAD
-=======
-  "ppInfoQ":"Proč si zvolit rýchlejšie.sk?",
-  "ppInfoA1":"Jsme <b>jediný</b> poskytovatel služby objednávkového systému na Slovensku pro odebírání vzorků choroby COVID-19 s rozsahem od předregistrace přes testování až po reporting hygieně",
-  "ppInfoA2":"Děláme to proto, že <b>chceme pomoct</b>, ne kvůli penězům",
-  "ppInfoA3":"Možnost zřídit rezervační a testovací systém <b>úplně zadarmo</b>",
-  "ppInfoA4":"Jediná aplikace, která je <b>škálovatelná</b> v rozsahu, že zvládne otestovat i celé Slovensko za 2 dny. Byla spuštěná ještě pred prvním hromadným testováním.",
-  "ppInfoA5":"Podpora IT znamená pro odběrné místo <b>5 - 20 násobně rychlejší</b> výkon testu než při papírové podobě.",
-  "ppInfoA6":"Jeden doktor při odběru zvládne protestovat minimálně 3 lidi za minutu.",
-  "ppInfoA7":"Dvaja doktori při odběru zvládne protestovat minimálně 6 lidí za minutu.",
-  "ppInfoA8":"<b>Bez čekání</b> a front",
-  "ppInfoA9":"Riziko <b>přenosu</b> viru od návštěvníka <b>k doktorovi</b> je <b>minimalizované</b>.",
-  "ppInfoA10":"Riziko přenosu viru od návštěvníka k dalšímu návštěvníkovi je minimalizované.",
-  "ppInfoA11":"Podpora DriveIn testování. Podpora WalkIn testování.",
-  "ppInfoA12":"Technická možnost zřídit offline testovací místo.",
-  "ppInfoA13":"Efektivní pro <b>životní prostředí</b> - bez papírování.",
-  "ppInfoA14":"Jasná definice GDPR. Riziko zneužití osobních údajů je minimalizované na minimum.",
-  "ppInfoA15":"Osobní údaje jsou zašifrované najsilnejšími šifrovacími způsoby. Neexistuje časový bod, ve kterém by sa daly extrahovat údaje, protože data se po testu a notifikaci uživateli smažou.",
-  "ppInfoA16":"Real time monitoring statistických údajů například pro média",
-  "ppLinkToFeatures":"<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Víc o vlastnostech a výhodách řešení Rýchlejšie.sk</a>",
->>>>>>> 79b1abb... translate missing words to CS + collecting hardcoded phrases to be translated (admin pages)
-=======
->>>>>>> b36d54a... translate newly added phrases in registration form
 
   "workingTimeScheduleTitle": "Provozní doba pracoviště",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d86e004... translate admin/TestingTime admin/Limits calendars navbar etc.
   "workingTimeRevision": "Revize změn",
   "workingTimeOnDay": "Dne",
   "workingTimePlaceWillBe": "bude odběrné místo",
@@ -524,11 +476,6 @@
   "workingTimeOpeningHoursOther1": "Šablona otevíracích hodin 2 (víkendy)",
   "workingTimeOpeningHoursOther2": "Šablona otevíracích hodin 3 (svátky)",
   "workingTimeSetSuccessMessage": "Dny testování byly nastavené. Veřejnost se teď může objednat k odběru/vakcinaci.",
-<<<<<<< HEAD
-=======
->>>>>>> ccb8526... set sk as default language, tester translations
-=======
->>>>>>> d86e004... translate admin/TestingTime admin/Limits calendars navbar etc.
 
   "formEditProviderDetailsTitle": "Úprava údajů o provozovateli",
 
@@ -615,40 +562,21 @@
   "reportButtonAll": "Všichni",
 
   "testerRegistredClient": "Zaregistrovaný klient",
-<<<<<<< HEAD
-<<<<<<< HEAD
   "testerHelperAdvice": "Pokyny: načíst klienta, ověřit osobní údaje a přiřadit test.",
-=======
-  "testerHelperAdvice": "Pokyny: načíst klienta, ověřit osobní údaje a priřadit test.",
->>>>>>> ccb8526... set sk as default language, tester translations
-=======
-  "testerHelperAdvice": "Pokyny: načíst klienta, ověřit osobní údaje a přiřadit test.",
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
   "testerAtFirstChoosePlace": "nejprve vyberte odběrné místo",
   "testerConfirm": "Potvrdit",
   "testerChange": "Změnit",
   "testerChoosePlace": "Vybrat místo",
   "testerChooseClientReading": "Zvolte způsob načítání klienta",
   "testerPersonalIdentificationNumber": "Rodné číslo",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
   "testerPersonalIdentificationNumberOrPassport": "Rodné číslo / cestovní pas",
   "testerInvalidPesonalNumberNotification": "Pozor, RČ vypadá být nesprávné",
   "testerInvalidIDNotification": "Pozor, doklad není vyplněný",
   "testerPassport": "Pas",
-<<<<<<< HEAD
-=======
->>>>>>> ccb8526... set sk as default language, tester translations
-=======
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
   "testerRegistrationCodeOrQRCode": "Kód registrace / QR kód",
   "testerEmployeeCode": "Osobní kód zaměstnance",
   "testerPersonWithNoRegistration": "Osoba bez registrace",
   "testerCancel": "Zrušit",
-<<<<<<< HEAD
-<<<<<<< HEAD
   "testerCheckRegistration": "Ověřit registraci",
   "testerLoadRegistration": "Načíst registraci",
   "testerLoadRegistrationCode": "Načíst kód registrace",
@@ -692,19 +620,7 @@
   "labTestResultsAnnouncement": "Oznámení výsledku testu",
   "labSelectItemToScan": "Vyberte co jdete nascanovat",
   "labTestResultsSick": "Pozitivní výsledky - Nemocný na Covid-19",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   "labTestResultsRepeat": "Chybné výsledky - Na přetestování",
-=======
-  "labTestResultsRepeat": "Chybné výsledky - Na pretestovanie",
->>>>>>> 43107b1... translate Lab page
-=======
-  "labTestResultsRepeat": "Chybné výsledky - Na pretestování",
->>>>>>> 79b1abb... translate missing words to CS + collecting hardcoded phrases to be translated (admin pages)
-=======
-  "labTestResultsRepeat": "Chybné výsledky - Na přetestování",
->>>>>>> b36d54a... translate newly added phrases in registration form
   "labTestResultsHealthy": "Negativní výsledky - Zdravý",
   "labBackToSelection": "Zpět na výběr akce",
   "labSelectTestResultsSick": "Vybíráte pozitívní nálezy - Nemocný",
@@ -723,53 +639,11 @@
   "labStateSent": "Odeslané",
   "labStateTooSoon": "Příliš brzy - Test musí mít přestávku 15 minut",
   "labStateNotMatched": "Nespárovaný klient",
-<<<<<<< HEAD
-=======
-  "testerCheckRegistration": "Overit registraci",
-=======
-  "testerCheckRegistration": "Ověřit registraci",
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
-  "testerLoadRegistration": "Načíst registraci",
-  "testerLoadRegistrationCode": "Načíst kód registrace",
-  "testerVerifyPerson": "Ověřte osobní údaje",
-  "testerRegistrationCode": "Kód registrace",
-  "testerRegistrationCodeInvalid": "Chybný kód registrace",
-  "testerName": "Jméno",
-  "testerInsurance": "Pojišťovna",
-<<<<<<< HEAD
->>>>>>> ccb8526... set sk as default language, tester translations
-=======
-  "testerAddress": "Adresa",
-  "testerInvalidAddressNotification": "Pozor, adresa je nesprávně zadaná",
-  "testerEmail": "E-mail (nepovinný)",
-  "testerPhoneNumber": "Mobilní telefonní číslo",
-  "testerBirthDate": "Datum narození",
-  "testerInvalidBirthDateNotification": "Pozor, datum narození vypadá být nesprávné",
-  "testerState": "Stav",
-  "testerSetCodeQR": "Přiřadit test (QR kód testu)",
-  "testerSetCode": "Přiřadit test skenováním čárového kódu",
-  "testerEditPersonalData": "Opravit osobní údaje",
-  "testerScanTestCode": "Kód testu skenujte, nebo vpište do políčka",
-  "testerSave": "Uložit",
-  "testerScanTestCodeAndSet": "Naskenujte nebo zapište kód testu a klikněte na \"<b>Přiřadit</b>\":",
-  "testerSet": "Přiřadit",
-  "testerTestTube": "Zkumavka",
-  "testerCheckData": "Zkontrolovat údaje",
-  "testerLoadingData": "Načítám data",
-  "testerScanningData": "Skenuje se typ údajů",
-  "testerSuccessfulConfirmation": "Úspešně jste potvrdili svoje místo",
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
-=======
->>>>>>> 43107b1... translate Lab page
 
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvolte den a klikněte na tlačítko exportu.",
   "adminReportsButton": "Všichni (anonymizovaní)",
   "adminDashboardTitle": "Dashboard administrátora",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b36d54a... translate newly added phrases in registration form
   "adminDashboardLoad": "Načíst",
   "adminDashboardVisitorManagement": "Správa návštevníka",
   "adminDashboardVisitorDetails": "R.č., číslo registrace, covid-pass..",
@@ -780,7 +654,6 @@
   "adminDashboardSentResults": "Odeslat výsledky občanům",
   "adminDashboardEmployeeUpload": "Nahrání zaměstnanců",
   "adminDashboardUpload": "Nahrát",
-<<<<<<< HEAD
   "adminPlaceManagement": "Přehled pracovišť",
   "adminPlaceManagementForm": "Formulář pro správu místa",
   "adminPlaceManagementEdit": "Upravit",
@@ -813,81 +686,6 @@
   "adminPlaceManagementPicture3": "Foto 3 - URL",
   "adminPlaceManagementCancelEditting": "Zrušit úpravu",
   "adminPlaceManagementCreate": "Vytvořit",
-
-  "adminLimitsHourlyLimits": "Hodinové limity odběrných míst",
-  "adminLimitsSelectPlaceToManage": "Vyberte si místo pro správu limitů",
-  "adminLimitsPlaceAlocation": "Alokace limitů odběrného místa",
-  "adminLimitsRemoveLimit": "Odebrat limit",
-  "adminLimitsCancel": "Zrušit",
-  "adminLimitsAssign": "Přiřadit",
-  "adminLimitsDatetimeLimit": "Limit pro čas",
-  "adminLimitsSelectPlace": "Vyberte si odběrné místo",
-  "adminLimitsPlace": "Odběrné místo",
-  "adminLimitsAlocationTime": "Časová alokace",
-  "adminLimitsFullDayLimit": "Limit na celý pracovní den",
-  "adminLimitsEvening": "večer",
-  "adminLimitsDaily": "Denně",
-  "adminLimitsDates": "Pro datumy",
-  "adminLimitsFrom": "Od",
-  "adminLimitsUntil": "Do",
-  "adminLimitsHourlyLimit": "Hodinový limit",
-
-  "adminInviteAnotherAdmins": "Pozvání dalších administrátorů",
-  "adminInviteName": "Jméno",
-  "adminInviteEmail": "Email",
-  "adminInviteAnotherAdminsTitle": "Na této stránce můžete přidat další administrátory",
-  "adminInvite": "Pozvat",
-  "adminInviteRoleManagement": "Správa jiných rolí",
-=======
-  "adminDashboardLoad":"Načíst",
-  "adminDashboardVisitorManagement":"Správa návštevníka",
-  "adminDashboardVisitorDetails":"R.č., číslo registrace, covid-pass..",
-  "adminDashboardEzdravieManagement":"Správa eZdravie",
-  "adminDashboardImportDate":"Datum importu",
-  "adminDashboardLoadDetails":"Načíst údaje pro vybraný den",
-  "adminDashboardExportableDays":"Exportovatelné dny",
-  "adminDashboardSentResults":"Odeslat výsledky občanům",
-  "adminDashboardEmployeeUpload":"Nahrání zaměstnanců",
-<<<<<<< HEAD
-  "adminDashboardUpload":"Nahrát",
->>>>>>> 9af8319... translate admin dashboard
-=======
-  "adminDashboardUpload":"Nahrát", 
-=======
->>>>>>> b36d54a... translate newly added phrases in registration form
-  "adminPlaceManagement": "Přehled pracovišť",
-  "adminPlaceManagementForm": "Formulář pro správu místa",
-  "adminPlaceManagementEdit": "Upravit",
-  "adminPlaceManagementDelete": "Zrušit",
-  "adminPlaceManagementEditPlace": "Úprava pracoviště",
-  "adminPlaceManagementNewPlace": "Nové místo",
-  "adminPlaceManagementName": "Název pracoviště",
-  "adminPlaceManagementAddress": "Adresa",
-  "adminPlaceManagementDescription": "Popis",
-  "adminPlaceManagementLat": "GPS Lat",
-  "adminPlaceManagementLng": "GPS Lng",
-  "adminPlaceManagementLimitPer5MinSlot": "Limit úkonů za 5min",
-  "adminPlaceManagementLimitPer1HourSlot": "Limit úkonů za hodinu",
-  "adminPlaceManagementIsDriveIn": "Možnost přijet autem (Drive Through)",
-  "adminPlaceManagementIsWalkIn": "Možnost přijít pěšky (Walk in)",
-  "adminPlaceManagementHasReservationSystem": "Povolit rezervace systémem rýchlejšie.sk",
-  "adminPlaceManagementRequiresRegistration": "Vyžaduje předregistraci",
-  "adminPlaceManagementExternalReservationSystem": "Jiný rezervační systém",
-  "adminPlaceManagementOpeningHoursTitle": "Otevírací hodiny ve formátu: 05:55-11:35,11:45-18:00,18:05-20:00",
-  "adminPlaceManagementGarant": "Garant",
-  "adminPlaceManagementQueue": "Fronta",
-  "adminPlaceManagementQueueLastUpdate": "Čas změny fronty",
-  "adminPlaceManagementIsVisible": "Zobrazuje se",
-  "adminPlaceManagementOpeningHoursWorkDay": "Šablona otevíracích hodin 1 (standardní)",
-  "adminPlaceManagementOpeningHoursOther1": "Šablona otevíracích hodin 2 (víkendy)",
-  "adminPlaceManagementOpeningHoursOther2": "Šablona otevíracích hodin 3 (svátky)",
-  "adminPlaceManagementOpeningHoursNote": "Poznámka: Detailní nastavení provozních hodin se dělá na samostatné stránce.",
-  "adminPlaceManagementPicture1": "Foto 1 - URL",
-  "adminPlaceManagementPicture2": "Foto 2 - URL",
-  "adminPlaceManagementPicture3": "Foto 3 - URL",
-  "adminPlaceManagementCancelEditting": "Zrušit úpravu",
-  "adminPlaceManagementCreate": "Vytvořit",
->>>>>>> 79b1abb... translate missing words to CS + collecting hardcoded phrases to be translated (admin pages)
 
   "adminLimitsHourlyLimits": "Hodinové limity odběrných míst",
   "adminLimitsSelectPlaceToManage": "Vyberte si místo pro správu limitů",
