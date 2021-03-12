@@ -180,12 +180,8 @@
       v-if="SHOW_DANGER && !$store.state.user.auth"
     >
       <h2 class="text-center">
-<<<<<<< HEAD
         <b v-if="SHOW_DANGER[$i18n.locale]">{{ SHOW_DANGER[$i18n.locale] }}</b>
         <b v-else>{{ SHOW_DANGER }}</b>
-=======
-        <b>{{ $t($store.state.config.SHOW_DANGER) }}</b>
->>>>>>> 99203f9... unite cs.json w/ sk.json, translate Navbar + Enqueued page
       </h2>
     </div>
   </div>
