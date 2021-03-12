@@ -107,8 +107,9 @@ export default {
     places() {
       return Object.values(this.$store.state.place.places).filter(
         x =>
-          (x.isVisible && x.hasReservationSystem) ||
-          (this.$store.state.user.me.place && x.isVisibleOnlyForAuthorized)
+          x.placeProviderId === this.$store.state.user.tokenData.pp &&
+          ((x.isVisible && x.hasReservationSystem) ||
+            x.isVisibleOnlyForAuthorized)
       );
     },
     needPlaceConfirmation() {
