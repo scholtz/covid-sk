@@ -106,7 +106,9 @@ export default {
   computed: {
     places() {
       return Object.values(this.$store.state.place.places).filter(
-        x => x.isVisible && x.hasReservationSystem
+        x =>
+          (x.isVisible && x.hasReservationSystem) ||
+          (this.$store.state.user.me.place && x.isVisibleOnlyForAuthorized)
       );
     },
     needPlaceConfirmation() {

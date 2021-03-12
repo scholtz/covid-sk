@@ -138,6 +138,15 @@
               </b-col>
               <b-col>
                 <b-form-checkbox
+                  id="isVisibleOnlyForAuthorized"
+                  v-model="place.isVisibleOnlyForAuthorized"
+                  name="isVisibleOnlyForAuthorized"
+                >
+                  {{ $t("adminPlaceManagementIsVisibleOnlyForAuthorized") }}
+                </b-form-checkbox>
+              </b-col>
+              <b-col>
+                <b-form-checkbox
                   id="isDriveIn"
                   v-model="place.isDriveIn"
                   name="isDriveIn"

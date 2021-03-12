@@ -690,6 +690,7 @@
   "adminPlaceManagementQueue": "Fronta",
   "adminPlaceManagementQueueLastUpdate": "Čas zmeny fronty",
   "adminPlaceManagementIsVisible": "Zobrazuje sa",
+  "adminPlaceManagementIsVisibleOnlyForAuthorized": "Zobrazuje sa iba prihláseným",
   "adminPlaceManagementOpeningHoursWorkDay": "Šablóna otváracích hodín 1 (štandardné)",
   "adminPlaceManagementOpeningHoursOther1": "Šablóna otváracích hodín 2 (víkendy)",
   "adminPlaceManagementOpeningHoursOther2": "Šablóna otváracích hodín 3 (sviatky)",
