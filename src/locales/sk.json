@@ -453,14 +453,20 @@
   "registrationBottomHelp2": "",
   "registrationFormGDPR": "Súhlasím so spracovaním mojich osobných údajov za účelom ich poskytnutia sprostredkovateľovi – spoločnosti Scholtz &amp; Company, j.s.a., IČO: 51882272 za účelom testovania na ochorenie COVID-19. Podrobné informácie o spracovaní osobných údajov nájdete <a href=\"/#/gdpr\" target=\"_blank\">tu</a>.",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "registrationFormGDPRStatementA": "Súhlasím so spracovaním mojich osobných údajov za účelom ich poskytnutia sprostredkovateľovi – spoločnosť ",
   "registrationFormGDPRStatementB": " za účelom testovania na ochorenie COVID-19. Podrobné informácie o spracovaní osobných údajov nájdete ",
   "registrationFormHere": "tu",
   "registrationFormRegisterOnDate": "Zaregistrovať sa na termín",
   "registrationFormIAmEmployee": "Som zamestnanec firmy",
   "registrationFormEmployeeID": "Osobné číslo zamestnanca",
+<<<<<<< HEAD
 =======
 >>>>>>> ccb8526... set sk as default language, tester translations
+=======
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "registrationFormButton": "Zaregistrovať",
   "registrationFormInsuranceEU": "EÚ poistenec",
   "registrationFormInsuranceForeigner": "Cudzinec",

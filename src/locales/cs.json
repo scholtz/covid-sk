@@ -99,6 +99,10 @@
   "navBarUserInvitations": "Pozvánky",
   "navBarUserLogout": "Odhlášení",
   "navBarUserLogin": "Přihlášení",
+<<<<<<< HEAD
+=======
+
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "navBarGoTo": "Přejít na",
 
   "navBarAdminServicesManagement": "Správa poskytovaných služeb",
@@ -261,12 +265,16 @@
   "gdprAdditionalDetailsTitle": "Další upřesnění",
   "gdprAdditionalDetails": "Slovenská republika, Úřad veřejného zdraví Ministerstvo zdravotnictví Slovenské republiky, Ministerstvo vnitra Slovenské republiky, Policejní sbor a další instituce Slovenské republiky a Evropské unie vyžadují nebo mohou vyžadovat a provozovatel služby jim poskytuje osobní data osob, kterým byl vykonaný úkon. Osobní data osob jsou ukládané v službě Rýchlejšie.sk výhradně v elektronické podobě v cloud prostředí Microsoft Azure, lokalita západní Evropa v zašifrované podobě. Osobní údaje v rozsahu Jméno, Rok narození a datum vykonání testu mohou být odeslané prostředníctvím SMS zprávy. Všechny osobní údaje mohou být odeslané v emailové komunikaci v zašifrované podobě (v PDF). Jméno osoby může být odeslané v emailové komunikaci v nešifrované podobě. Logovací služby jako např. papertrail, azure logs a podobné mohou obsahovat IP adresy, hash identifikačních údajů nebo hash kontaktních údajů. Služby třetích stran na poskytování emailu, SMS zpráv nebo jiných zpráv mohou ukládat zprávy odeslané přes jejich službu, čas komunikace a jiné metadata specifické pro danou službu. Služby třetích stran jsou primárně MailGun, SendGrid, GoSMS nebo jiné.",
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 3c586f1... translate Help, Select & Invitations
 =======
   
 >>>>>>> 5831630... translate GDPR page
+=======
+
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "offlineRegistrationTitle": "Offline registrace = rychlejší testování",
   "offlineRegistrationHelp1": "Vytvořte si QR kód v mobilu bez odesílání do našeho systému. Bude obsahovat vaše údaje. Pracovník odběrového místa ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude muset vaše údaje ťukat do počítače. Údaje o Vašem testování, včetně osobních údajů a výsledku budete moci vymazat ze systému při negativním výsledku a po zpracování údajů pro krajský úřad a hygienu. V případě pozitivní nálezu budou postoupeny hygieně. Po dobu testování budou Vaše osobní údaje chráněny šifrováním AES256.",
 
@@ -439,6 +447,9 @@
   "ppRegister": "Zaregistrovat provozovatele",
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "ppInfoQ": "Proč si zvolit rýchlejšie.sk?",
   "ppInfoA1": "Jsme <b>jediný</b> poskytovatel služby objednávkového systému na Slovensku pro odebírání vzorků choroby COVID-19 s rozsahem od předregistrace přes testování až po reporting hygieně",
   "ppInfoA2": "Děláme to proto, že <b>chceme pomoct</b>, ne kvůli penězům",
@@ -457,6 +468,7 @@
   "ppInfoA15": "Osobní údaje jsou zašifrované najsilnejšími šifrovacími způsoby. Neexistuje časový bod, ve kterém by sa daly extrahovat údaje, protože data se po testu a notifikaci uživateli smažou.",
   "ppInfoA16": "Real time monitoring statistických údajů například pro média",
   "ppLinkToFeatures": "<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Víc o vlastnostech a výhodách řešení Rýchlejšie.sk</a>",
+<<<<<<< HEAD
 =======
   "ppInfoQ":"Proč si zvolit rýchlejšie.sk?",
   "ppInfoA1":"Jsme <b>jediný</b> poskytovatel služby objednávkového systému na Slovensku pro odebírání vzorků choroby COVID-19 s rozsahem od předregistrace přes testování až po reporting hygieně",
@@ -477,6 +489,8 @@
   "ppInfoA16":"Real time monitoring statistických údajů například pro média",
   "ppLinkToFeatures":"<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Víc o vlastnostech a výhodách řešení Rýchlejšie.sk</a>",
 >>>>>>> 79b1abb... translate missing words to CS + collecting hardcoded phrases to be translated (admin pages)
+=======
+>>>>>>> b36d54a... translate newly added phrases in registration form
 
   "workingTimeScheduleTitle": "Provozní doba pracoviště",
 <<<<<<< HEAD
@@ -679,6 +693,7 @@
   "labTestResultsSick": "Pozitivní výsledky - Nemocný na Covid-19",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "labTestResultsRepeat": "Chybné výsledky - Na přetestování",
 =======
   "labTestResultsRepeat": "Chybné výsledky - Na pretestovanie",
@@ -686,6 +701,9 @@
 =======
   "labTestResultsRepeat": "Chybné výsledky - Na pretestování",
 >>>>>>> 79b1abb... translate missing words to CS + collecting hardcoded phrases to be translated (admin pages)
+=======
+  "labTestResultsRepeat": "Chybné výsledky - Na přetestování",
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "labTestResultsHealthy": "Negativní výsledky - Zdravý",
   "labBackToSelection": "Zpět na výběr akce",
   "labSelectTestResultsSick": "Vybíráte pozitívní nálezy - Nemocný",
@@ -748,6 +766,9 @@
   "adminReportsButton": "Všichni (anonymizovaní)",
   "adminDashboardTitle": "Dashboard administrátora",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "adminDashboardLoad": "Načíst",
   "adminDashboardVisitorManagement": "Správa návštevníka",
   "adminDashboardVisitorDetails": "R.č., číslo registrace, covid-pass..",
@@ -758,6 +779,7 @@
   "adminDashboardSentResults": "Odeslat výsledky občanům",
   "adminDashboardEmployeeUpload": "Nahrání zaměstnanců",
   "adminDashboardUpload": "Nahrát",
+<<<<<<< HEAD
   "adminPlaceManagement": "Přehled pracovišť",
   "adminPlaceManagementForm": "Formulář pro správu místa",
   "adminPlaceManagementEdit": "Upravit",
@@ -830,6 +852,8 @@
 >>>>>>> 9af8319... translate admin dashboard
 =======
   "adminDashboardUpload":"Nahrát", 
+=======
+>>>>>>> b36d54a... translate newly added phrases in registration form
   "adminPlaceManagement": "Přehled pracovišť",
   "adminPlaceManagementForm": "Formulář pro správu místa",
   "adminPlaceManagementEdit": "Upravit",
