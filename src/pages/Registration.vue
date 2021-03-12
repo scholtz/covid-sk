@@ -135,11 +135,13 @@
 
           <b-col cols="12">
             <b-form-checkbox v-model="gdpr" class="my-2">
-              Súhlasím so spracovaním mojich osobných údajov za účelom ich
-              poskytnutia sprostredkovateľovi – spoločnosť
-              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }} za účelom
-              testovania na ochorenie COVID-19. Podrobné informácie o spracovaní
-              osobných údajov nájdete <a target="_blank" href="/#/gdpr">tu</a>.
+              {{ $t("registrationFormGDPRStatementA") }}
+              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
+              {{ $t("registrationFormGDPRStatementB") }}
+              <a target="_blank" href="/#/gdpr">{{
+                $t("registrationFormHere")
+              }}</a
+              >.
             </b-form-checkbox>
           </b-col>
           <b-col cols="12">
@@ -148,7 +150,7 @@
               @click="registerForTestWithCompany"
               :disabled="!gdpr"
             >
-              Zaregistrovať sa na termín
+              {{ $t("registrationFormRegisterOnDate") }}
               <b-spinner small class="ml-1" v-if="processing" />
             </button>
           </b-col>
@@ -593,7 +595,8 @@
               "
             >
               <b-form-checkbox v-model="employee">
-                Som zamestnanec firmy {{ $store.state.config.COMPANY_NAME }}
+                {{ $t("registrationFormIAmEmployee") }}
+                {{ $store.state.config.COMPANY_NAME }}
               </b-form-checkbox>
               <validation-provider
                 v-if="employee"
@@ -604,7 +607,7 @@
               >
                 <b-form-group
                   id="employeeId-group-1"
-                  label="Osobné číslo zamestnanca"
+                  :label="$t('registrationFormEmployeeID')"
                   label-for="employeeId"
                 >
                   <b-form-input
@@ -1233,5 +1236,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
