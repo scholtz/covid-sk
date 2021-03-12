@@ -43,9 +43,13 @@
 
   "navBarAdmin": "Administrátor",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "navBarAdminDashboard": "Dashboard",
 =======
 >>>>>>> ccb8526... set sk as default language, tester translations
+=======
+  "navBarAdminDashboard": "Dashboard",
+>>>>>>> d86e004... translate admin/TestingTime admin/Limits calendars navbar etc.
   "navBarAdminManagePlace": "Správa pracovísk prevádzkovateľa",
   "navBarAdminNewUser": "Nový pracovník",
   "navBarAdminAuditUsers": "Správa ľudských zdrojov",
@@ -627,10 +631,13 @@
   "workingTimeOpeningHoursOther1": "Šablóna otváracích hodín 2 (víkendy)",
   "workingTimeOpeningHoursOther2": "Šablóna otváracích hodín 3 (sviatky)",
   "workingTimeSetSuccessMessage": "Dni testovania boli nastavené. Verejnosť sa teraz môže objednať k odberu/vakcinácii.",
+<<<<<<< HEAD
 =======
 
   "workingTimeScheduleTitle": "Prevádzková doba pracoviska",
 >>>>>>> ccb8526... set sk as default language, tester translations
+=======
+>>>>>>> d86e004... translate admin/TestingTime admin/Limits calendars navbar etc.
 
   "formEditProviderDetailsTitle": "Úprava údajov o prevádzkovateľovi",
 
@@ -1058,6 +1065,24 @@
   "adminPlaceManagementPicture3": "Foto 3 - URL",
   "adminPlaceManagementCancelEditting": "Zrušiť úpravu",
   "adminPlaceManagementCreate": "Vytvoriť",
+
+  "adminLimitsHourlyLimits": "Hodinové limity odberných miest",
+  "adminLimitsSelectPlaceToManage": "Vyberte si miesto pre správu limitov",
+  "adminLimitsPlaceAlocation": "Alokácia limitácie odberného miesta",
+  "adminLimitsRemoveLimit": "Odobrať limit",
+  "adminLimitsCancel": "Zrušiť",
+  "adminLimitsAssign": "Priradiť",
+  "adminLimitsDatetimeLimit": "Limit pre čas",
+  "adminLimitsSelectPlace": "Vyberte si odberové miesto",
+  "adminLimitsPlace": "Odberové miesto",
+  "adminLimitsAlocationTime": "Časová alokácia",
+  "adminLimitsFullDayLimit": "Limit na celý pracovný deň",
+  "adminLimitsEvening": "večer",
+  "adminLimitsDaily": "Denne",
+  "adminLimitsDates": "Pre dátumy",
+  "adminLimitsFrom": "Od",
+  "adminLimitsUntil": "Do",
+  "adminLimitsHourlyLimit": "Hodinový limit",
 
   "Scholtz": "Scholtz"
 >>>>>>> ccb8526... set sk as default language, tester translations

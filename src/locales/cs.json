@@ -480,6 +480,9 @@
 
   "workingTimeScheduleTitle": "Provozní doba pracoviště",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d86e004... translate admin/TestingTime admin/Limits calendars navbar etc.
   "workingTimeRevision": "Revize změn",
   "workingTimeOnDay": "Dne",
   "workingTimePlaceWillBe": "bude odběrné místo",
@@ -506,8 +509,11 @@
   "workingTimeOpeningHoursOther1": "Šablona otevíracích hodin 2 (víkendy)",
   "workingTimeOpeningHoursOther2": "Šablona otevíracích hodin 3 (svátky)",
   "workingTimeSetSuccessMessage": "Dny testování byly nastavené. Veřejnost se teď může objednat k odběru/vakcinaci.",
+<<<<<<< HEAD
 =======
 >>>>>>> ccb8526... set sk as default language, tester translations
+=======
+>>>>>>> d86e004... translate admin/TestingTime admin/Limits calendars navbar etc.
 
   "formEditProviderDetailsTitle": "Úprava údajů o provozovateli",
 
@@ -857,6 +863,24 @@
   "adminPlaceManagementCancelEditting": "Zrušit úpravu",
   "adminPlaceManagementCreate": "Vytvořit",
 >>>>>>> 79b1abb... translate missing words to CS + collecting hardcoded phrases to be translated (admin pages)
+
+  "adminLimitsHourlyLimits": "Hodinové limity odběrných míst",
+  "adminLimitsSelectPlaceToManage": "Vyberte si místo pro správu limitů",
+  "adminLimitsPlaceAlocation": "Alokace limitů odběrného místa",
+  "adminLimitsRemoveLimit": "Odebrat limit",
+  "adminLimitsCancel": "Zrušit",
+  "adminLimitsAssign": "Přiřadit",
+  "adminLimitsDatetimeLimit": "Limit pro čas",
+  "adminLimitsSelectPlace": "Vyberte si odběrné místo",
+  "adminLimitsPlace": "Odběrné místo",
+  "adminLimitsAlocationTime": "Časová alokace",
+  "adminLimitsFullDayLimit": "Limit na celý pracovní den",
+  "adminLimitsEvening": "večer",
+  "adminLimitsDaily": "Denně",
+  "adminLimitsDates": "Pro datumy",
+  "adminLimitsFrom": "Od",
+  "adminLimitsUntil": "Do",
+  "adminLimitsHourlyLimit": "Hodinový limit",
 
   "Scholtz": "Scholtz"
 }
