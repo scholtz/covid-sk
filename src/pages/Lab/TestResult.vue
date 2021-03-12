@@ -72,7 +72,11 @@
             @click="
               data.push({
                 code: next,
+<<<<<<< HEAD
                 state: 'labStateReadyToSend',
+=======
+                state: $t('labStateReadyToSend'),
+>>>>>>> 43107b1... translate Lab page
                 variant: 'alert alert-info',
               })
             "
@@ -190,7 +194,11 @@ export default {
         if (!found) {
           this.data.push({
             code: this.next,
+<<<<<<< HEAD
             state: "labStateReadyToSend",
+=======
+            state: this.$t("labStateReadyToSend"),
+>>>>>>> 43107b1... translate Lab page
             variant: "alert alert-info",
           });
           this.next = "";
@@ -212,6 +220,7 @@ export default {
           processed++;
           if (r) {
             console.log("sent", r);
+<<<<<<< HEAD
             this.data[index].state = "labStateSent";
             this.data[index].variant = "alert alert-success";
             if (!r.timeIsValid) {
@@ -220,6 +229,16 @@ export default {
             }
             if (!r.matched) {
               this.data[index].state = "labStateNotMatched";
+=======
+            this.data[index].state = this.$t("labStateSent");
+            this.data[index].variant = "alert alert-success";
+            if (!r.timeIsValid) {
+              this.data[index].variant = "alert alert-danger";
+              this.data[index].state = this.$t("labStateTooSoon");
+            }
+            if (!r.matched) {
+              this.data[index].state = this.$t("labStateNotMatched");
+>>>>>>> 43107b1... translate Lab page
               this.data[index].variant = "alert alert-danger";
             }
           }

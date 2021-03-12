@@ -640,7 +640,11 @@
   "labTestResultsAnnouncement": "Oznámení výsledku testu",
   "labSelectItemToScan": "Vyberte co jdete nascanovat",
   "labTestResultsSick": "Pozitivní výsledky - Nemocný na Covid-19",
+<<<<<<< HEAD
   "labTestResultsRepeat": "Chybné výsledky - Na přetestování",
+=======
+  "labTestResultsRepeat": "Chybné výsledky - Na pretestovanie",
+>>>>>>> 43107b1... translate Lab page
   "labTestResultsHealthy": "Negativní výsledky - Zdravý",
   "labBackToSelection": "Zpět na výběr akce",
   "labSelectTestResultsSick": "Vybíráte pozitívní nálezy - Nemocný",
@@ -659,6 +663,7 @@
   "labStateSent": "Odeslané",
   "labStateTooSoon": "Příliš brzy - Test musí mít přestávku 15 minut",
   "labStateNotMatched": "Nespárovaný klient",
+<<<<<<< HEAD
 =======
   "testerCheckRegistration": "Overit registraci",
 =======
@@ -694,6 +699,8 @@
   "testerScanningData": "Skenuje se typ údajů",
   "testerSuccessfulConfirmation": "Úspešně jste potvrdili svoje místo",
 >>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
+=======
+>>>>>>> 43107b1... translate Lab page
 
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvolte den a klikněte na tlačítko exportu.",

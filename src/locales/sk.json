@@ -877,6 +877,7 @@
   "labStateSent": "Odoslané",
   "labStateTooSoon": "Príliš skoro - Test musí mať prestávku 15 minút",
   "labStateNotMatched": "Nespárovaný klient",
+<<<<<<< HEAD
 =======
   "testerRegistationCode": "Kód registrácie",
   "testerRegistationCodeInvalid": "Chybný kód registrácie",
@@ -908,6 +909,8 @@
   "testerScanningData": "Scanuje sa typ údaju",
   "testerSuccessfulConfirmation": "Úspešne ste potvrdili svoje miesto",
 >>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
+=======
+>>>>>>> 43107b1... translate Lab page
 
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvoľte deň a kliknite na tlačidlo exportu.",
