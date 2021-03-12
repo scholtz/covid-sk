@@ -13,9 +13,6 @@
             {{ $t("testerPlaceCheckCurrentPlace") }}:
             <span v-if="this.$store.state.user.me.placeObj">
               {{ this.$store.state.user.me.placeObj.name }}
-              <button class="btn btn-light m-2" @click="confirmPlace">
-                {{ $t("testerPlaceConfirm") }}
-              </button>
             </span>
             <span v-else>
               <div class="alert alert-danger m-2">
