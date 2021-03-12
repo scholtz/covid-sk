@@ -137,8 +137,8 @@
               <h2>Čakáme, kým si odberové miesto vyberie naše služby</h2>
               <p>
                 Odberové miesto zatiaľ nie je registrované v našom registračnom
-                systéme. Ak poznáte správcu tohto odberového miesta, prosím dajte
-                mu vedieť o našich službách.
+                systéme. Ak poznáte správcu tohto odberového miesta, prosím
+                dajte mu vedieť o našich službách.
               </p>
               <b-link :to="`/registerPlaceProvider`" class="btn btn-primary"
                 >16 dôvodov prečo použiť náš rezervačný systém
@@ -158,9 +158,10 @@
               class="m-3"
             >
               <h2>{{ $t("selectDayQuestion") }}</h2>
-              <p>
+              <p v-if="$store.state.slot.slotsD">
                 {{ $t("selectDayHelp") }}
               </p>
+              <span v-else> Počkajte prosím na vypísanie nových termínov </span>
               <b-container v-if="loading">
                 <b-spinner /> {{ $t("loadingData") }}
               </b-container>
