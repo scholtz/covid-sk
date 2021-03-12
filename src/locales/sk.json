@@ -237,6 +237,9 @@
   "selectMinuteButtonText": "Medzi {description} je aktuálne registrovaných {registrations} osôb",
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c586f1... translate Help, Select & Invitations
   "selectCompanyTitle": "Výber spoločnosti",
   "selectCompanyWarning": "V prípade ak zastupujete viacero spoločností, musíte si vybrať jednu v rámci ktorej ste prihlásený",
   "selectCompanySelect": "Vybrať",
@@ -256,6 +259,7 @@
   "invitationsStatus": "Stav pozvánky",
   "invitationsActions": "Akcie",
 
+<<<<<<< HEAD
   "gdprTitle": "Ochrana osobných údajov",
   "gdprShowLawyerVersion": "Zobraziť verziu pre právnikov",
   "gdprDetailsForEmployees": "Upresnenie pre zamestnancov",
@@ -384,6 +388,8 @@
   "selectHourButtonText":"Medzi {description} je aktuálne registrovaných {registrations} osôb",
 >>>>>>> a3740ba... translate public pages - Help, Login, Register
   
+=======
+>>>>>>> 3c586f1... translate Help, Select & Invitations
   "offlineRegistrationTitle": "Offline registrácia = rýchlejšie testovanie",
   "offlineRegistrationHelp1": "Vytvorte si QR kód v mobile bez odosielania do nášho systému. Bude obsahovať vaše údaje. Pracovník odberového miesta ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude musieť vaše údaje ťukať do počítača. Údaje o Vašom testovaní, vrátane osobných údajov a výsledku budete môcť vymazať zo systému pri negatívnom výsledku a po spracovaní údajov pre krajský úrad a hygienu. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256.",
 

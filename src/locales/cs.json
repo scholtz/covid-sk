@@ -219,6 +219,7 @@
   "invitationsStatus": "Stav pozvánky",
   "invitationsActions": "Akce",
 
+<<<<<<< HEAD
   "gdprTitle": "Ochrana osobních údajů",
   "gdprShowLawyerVersion": "Zobrazit verzi pro právniky",
   "gdprDetailsForEmployees": "Upřesnění pro zaměstnance",
@@ -257,6 +258,8 @@
   "gdprAdditionalDetailsTitle": "Další upřesnění",
   "gdprAdditionalDetails": "Slovenská republika, Úřad veřejného zdraví Ministerstvo zdravotnictví Slovenské republiky, Ministerstvo vnitra Slovenské republiky, Policejní sbor a další instituce Slovenské republiky a Evropské unie vyžadují nebo mohou vyžadovat a provozovatel služby jim poskytuje osobní data osob, kterým byl vykonaný úkon. Osobní data osob jsou ukládané v službě Rýchlejšie.sk výhradně v elektronické podobě v cloud prostředí Microsoft Azure, lokalita západní Evropa v zašifrované podobě. Osobní údaje v rozsahu Jméno, Rok narození a datum vykonání testu mohou být odeslané prostředníctvím SMS zprávy. Všechny osobní údaje mohou být odeslané v emailové komunikaci v zašifrované podobě (v PDF). Jméno osoby může být odeslané v emailové komunikaci v nešifrované podobě. Logovací služby jako např. papertrail, azure logs a podobné mohou obsahovat IP adresy, hash identifikačních údajů nebo hash kontaktních údajů. Služby třetích stran na poskytování emailu, SMS zpráv nebo jiných zpráv mohou ukládat zprávy odeslané přes jejich službu, čas komunikace a jiné metadata specifické pro danou službu. Služby třetích stran jsou primárně MailGun, SendGrid, GoSMS nebo jiné.",
 
+=======
+>>>>>>> 3c586f1... translate Help, Select & Invitations
   "offlineRegistrationTitle": "Offline registrace = rychlejší testování",
   "offlineRegistrationHelp1": "Vytvořte si QR kód v mobilu bez odesílání do našeho systému. Bude obsahovat vaše údaje. Pracovník odběrového místa ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude muset vaše údaje ťukat do počítače. Údaje o Vašem testování, včetně osobních údajů a výsledku budete moci vymazat ze systému při negativním výsledku a po zpracování údajů pro krajský úřad a hygienu. V případě pozitivní nálezu budou postoupeny hygieně. Po dobu testování budou Vaše osobní údaje chráněny šifrováním AES256.",
 

@@ -73,10 +73,14 @@
               data.push({
                 code: next,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 state: 'labStateReadyToSend',
 =======
                 state: $t('labStateReadyToSend'),
 >>>>>>> 43107b1... translate Lab page
+=======
+                state: 'labStateReadyToSend',
+>>>>>>> 3c586f1... translate Help, Select & Invitations
                 variant: 'alert alert-info',
               })
             "
@@ -195,10 +199,14 @@ export default {
           this.data.push({
             code: this.next,
 <<<<<<< HEAD
+<<<<<<< HEAD
             state: "labStateReadyToSend",
 =======
             state: this.$t("labStateReadyToSend"),
 >>>>>>> 43107b1... translate Lab page
+=======
+            state: "labStateReadyToSend",
+>>>>>>> 3c586f1... translate Help, Select & Invitations
             variant: "alert alert-info",
           });
           this.next = "";
@@ -221,6 +229,7 @@ export default {
           if (r) {
             console.log("sent", r);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.data[index].state = "labStateSent";
             this.data[index].variant = "alert alert-success";
             if (!r.timeIsValid) {
@@ -231,14 +240,21 @@ export default {
               this.data[index].state = "labStateNotMatched";
 =======
             this.data[index].state = this.$t("labStateSent");
+=======
+            this.data[index].state = "labStateSent";
+>>>>>>> 3c586f1... translate Help, Select & Invitations
             this.data[index].variant = "alert alert-success";
             if (!r.timeIsValid) {
               this.data[index].variant = "alert alert-danger";
-              this.data[index].state = this.$t("labStateTooSoon");
+              this.data[index].state = "labStateTooSoon";
             }
             if (!r.matched) {
+<<<<<<< HEAD
               this.data[index].state = this.$t("labStateNotMatched");
 >>>>>>> 43107b1... translate Lab page
+=======
+              this.data[index].state = "labStateNotMatched";
+>>>>>>> 3c586f1... translate Help, Select & Invitations
               this.data[index].variant = "alert alert-danger";
             }
           }
