@@ -470,17 +470,7 @@
           >
             {{ $t("testerCancel") }}
           </button>
-<<<<<<< HEAD
-<<<<<<< HEAD
           <label for="testingset1">{{ $t("testerScanTestCode") }}:</label>
-=======
-          <label for="testingset1"
-            >Kód testu skenujte, alebo vpíšte do políčka:</label
-          >
->>>>>>> ccb8526... set sk as default language, tester translations
-=======
-          <label for="testingset1">{{ $t("testerScanTestCode") }}:</label>
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
             {{ $t("testerSave") }}
@@ -511,18 +501,7 @@
           >
             {{ $t("testerCancel") }}
           </button>
-<<<<<<< HEAD
-<<<<<<< HEAD
           <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
-=======
-          <label for="testingset1"
-            >Naskenujte alebo zapíšte kód testu a kliknite na
-            "<b>Priradiť</b>":</label
-          >
->>>>>>> ccb8526... set sk as default language, tester translations
-=======
-          <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
->>>>>>> 4b1b8e2... translate Tester/RegisteredVisitor
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
             {{ $t("testerSet") }}
