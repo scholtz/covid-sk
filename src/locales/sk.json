@@ -463,10 +463,14 @@
   "registrationFormIAmEmployee": "Som zamestnanec firmy",
   "registrationFormEmployeeID": "Osobné číslo zamestnanca",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ccb8526... set sk as default language, tester translations
 =======
 >>>>>>> b36d54a... translate newly added phrases in registration form
+=======
+  "registrationFormEmployeePass": "Posledné 4 číslice rodného čísla / pasu",
+>>>>>>> 7d71171... small changes
   "registrationFormButton": "Zaregistrovať",
   "registrationFormInsuranceEU": "EÚ poistenec",
   "registrationFormInsuranceForeigner": "Cudzinec",
