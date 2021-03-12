@@ -310,6 +310,7 @@
   "registrationFormRegisterOnDate": "Zaregistrovat se na termín",
   "registrationFormIAmEmployee": "Jsem zaměstnanec firmy",
   "registrationFormEmployeeID": "Osobní číslo zaměstnance",
+  "registrationFormEmployeePass": "Poslední 4 číslice rodného čísla / pasu",
   "registrationFormButton": "Zaregistrovat",
   "registrationFormInsuranceEU": "EU pojištěnec",
   "registrationFormInsuranceForeigner": "Cizinec",

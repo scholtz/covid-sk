@@ -89,7 +89,7 @@
             >
               <b-form-group
                 id="employeeNumber-group-1"
-                label="Osobné číslo zamestnanca"
+                :label="$t('registrationFormEmployeeID')"
                 label-for="EmployeeNumber"
               >
                 <b-form-input
@@ -114,7 +114,7 @@
             >
               <b-form-group
                 id="employeePass-group-1"
-                label="Posledné 4 číslice rodného čísla / pasu"
+                :label="$t('registrationFormEmployeePass')"
                 label-for="employeePass"
               >
                 <b-form-input
