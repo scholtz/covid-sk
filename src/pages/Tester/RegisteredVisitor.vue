@@ -14,9 +14,6 @@
             {{ $t("testerAtFirstChoosePlace") }}:
             <span v-if="this.$store.state.user.me.placeObj">
               {{ this.$store.state.user.me.placeObj.name }}
-              <button class="btn btn-danger m-2" @click="confirmPlace">
-                {{ $t("testerConfirm") }}
-              </button>
               <button
                 class="btn btn-primary m-2"
                 @click="$router.push('/tester/place')"
