@@ -260,6 +260,9 @@
   "invitationsActions": "Akcie",
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5831630... translate GDPR page
   "gdprTitle": "Ochrana osobných údajov",
   "gdprShowLawyerVersion": "Zobraziť verziu pre právnikov",
   "gdprDetailsForEmployees": "Upresnenie pre zamestnancov",
@@ -297,6 +300,7 @@
   "gdprA8Short": "Údaje ukladané v súvislosti s klientami: Meno, Priezvisko, Dátum narodenia, Rodné číslo, Číslo cestovného pasu, Bydlisko, Ulica, Číslo domu, PSČ, Obec, Telefónne číslo, E-mail adresa, Zdravotná poisťovňa, Údaje o úkone, Dátum a čas úkonu, Typ úkonu (napr. antigénový test), Číslo úkonu (napr. testu), Výsledok úkonu (napr. testu), IP Adresy, Časy jednotlivých eventov a ďalšie údaje spojené s prevádzkou informačných systémov",
   "gdprAdditionalDetailsTitle": "Ďalšie upresnenia",
   "gdprAdditionalDetails": "Slovenská republika, Úrad verejného zdravia Ministerstvo zdravotníctva Slovenskej republiky, Ministerstvo vnútra Slovenskej republiky, Policajný zbor a ďalšie inštitúcie Slovenskej republiky a Európskej únie vyžadujú alebo môžu vyžadovať a prevádzkovateľ služby im poskytuje osobné dáta osôb, ktorým bol vykonaný úkon. Osobné dáta osôb sú ukladané v službe Rýchlejšie.sk výhradne v elektronickej podobe v cloud prostredí Microsoft Azure, lokalita západná Európa v zašifrovanej podobe. Osobné údaje v rozsahu Meno, Rok narodenia a dátum vykonania testu môžu byť odosielané prostredníctvom SMS správy. Všetky osobné údaje môžu byť odoslané v emailovej komunikácii v zašifrovanej podobe (v PDF). Meno osoby môže byť odoslané v emailovej komunikácii v nešifrovanej podobe. Logovacie služby ako npr papertrail, azure logs a podobné môžu obsahovať IP adresy, hash identifikačných údajov alebo hash kontaktných údajov. Služby tretích strán na poskytovanie emailu, SMS správ alebo iných správ môžu ukladať správy odoslané cez ich službu, čas komunikácie a iné metadáta špecifické pre danú službu. Služby tretích strán sú primárne MailGun, SendGrid, GoSMS alebo iné.",
+<<<<<<< HEAD
 =======
   "resultsTitle":"Výsledky testovania",
   "resultsCode":"<b>Kód registrácie</b> (9-miestny kód, ktorý ste dostali v sms pri registrácii - stačí zadať číslice bez pomlčiek):",
@@ -390,6 +394,9 @@
   
 =======
 >>>>>>> 3c586f1... translate Help, Select & Invitations
+=======
+  
+>>>>>>> 5831630... translate GDPR page
   "offlineRegistrationTitle": "Offline registrácia = rýchlejšie testovanie",
   "offlineRegistrationHelp1": "Vytvorte si QR kód v mobile bez odosielania do nášho systému. Bude obsahovať vaše údaje. Pracovník odberového miesta ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude musieť vaše údaje ťukať do počítača. Údaje o Vašom testovaní, vrátane osobných údajov a výsledku budete môcť vymazať zo systému pri negatívnom výsledku a po spracovaní údajov pre krajský úrad a hygienu. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256.",
 
