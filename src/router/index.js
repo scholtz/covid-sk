@@ -246,7 +246,9 @@ const router = new VueRouter({
 });
 
 const setPageTitle = async (to, from, next) => {
-  document.title = to.meta.title || "rychlejsie.sk";
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
   next();
 };
 
