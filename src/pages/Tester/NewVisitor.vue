@@ -102,7 +102,11 @@
                 id="rc-group-1"
                 :label="
                   personType === 'idcard'
-                    ? $t('registrationFormRcNumber')
+                    ? $store.state.config.RC_IS_INSURANCE
+                      ? $t('registrationFormRcNumberIns')
+                      : $t('registrationFormRcNumber')
+                    : $store.state.config.RC_IS_INSURANCE
+                    ? $t('registrationFormRcNumberChildIns')
                     : $t('registrationFormRcNumberChild')
                 "
                 label-for="rc"

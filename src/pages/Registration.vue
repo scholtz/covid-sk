@@ -165,14 +165,19 @@
             </div>
           </b-col>
         </b-row>
-        <b-row>
+        <b-row v-if="!$store.state.config.INSURED_ONLY">
           <b-col cols="12" md="4">
             <b-form-group :label="$t('registrationFormTypeLabel')">
               <b-form-radio
                 v-model="personType"
                 name="person-type"
                 value="idcard"
-                >{{ $t("registrationFormTypePersonalCard") }}</b-form-radio
+                ><span v-if="$store.state.config.RC_IS_INSURANCE">
+                  {{ $t("registrationFormTypePersonalCardIns") }}
+                </span>
+                <span v-else>
+                  {{ $t("registrationFormTypePersonalCard") }}
+                </span></b-form-radio
               >
               <b-form-radio
                 v-model="personType"
@@ -254,7 +259,11 @@
               ref="vpPersonalNumber"
               :name="
                 personType === 'idcard'
-                  ? $t('registrationFormPersonalNumber')
+                  ? $store.state.config.RC_IS_INSURANCE
+                    ? $t('registrationFormPersonalNumberIns')
+                    : $t('registrationFormPersonalNumber')
+                  : $store.state.config.RC_IS_INSURANCE
+                  ? $t('registrationFormPersonalNumberChildIns')
                   : $t('registrationFormPersonalNumberChild')
               "
               :rules="{ required: true, rc: true }"
@@ -264,7 +273,11 @@
                 id="rc-group-1"
                 :label="
                   personType === 'idcard'
-                    ? $t('registrationFormPersonalNumber')
+                    ? $store.state.config.RC_IS_INSURANCE
+                      ? $t('registrationFormPersonalNumberIns')
+                      : $t('registrationFormPersonalNumber')
+                    : $store.state.config.RC_IS_INSURANCE
+                    ? $t('registrationFormPersonalNumberChildIns')
                     : $t('registrationFormPersonalNumberChild')
                 "
                 label-for="rc"
