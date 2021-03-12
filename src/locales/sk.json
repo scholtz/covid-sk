@@ -643,6 +643,9 @@
 
   "formAdminHRTitle": "Správa ľudských zdrojov",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bb346f5... translate admin/Invite admin/Users pages
   "formAdminHRSelectAlocationPlace": "Vyberte si miesto pre alokovanie osôb na odberové miesta",
   "formAdminHRName": "Meno",
   "formAdminHREmail": "Email",
@@ -685,8 +688,11 @@
   "formAdminHRSelectRole": "Vyberte si rolu/oprávnenia",
   "formAdminHRSelectUser": "Vyberte si užívateľa",
   "formAdminHRFullDayAlocation": "Alokácia na celý pracovný deň",
+<<<<<<< HEAD
 =======
 >>>>>>> ccb8526... set sk as default language, tester translations
+=======
+>>>>>>> bb346f5... translate admin/Invite admin/Users pages
   "TimeAndPeopleSectionPeople": "Pracovníci",
   "TimeAndPeopleSectionRights": "Pracovné zaradenie",
 
@@ -1083,6 +1089,13 @@
   "adminLimitsFrom": "Od",
   "adminLimitsUntil": "Do",
   "adminLimitsHourlyLimit": "Hodinový limit",
+
+  "adminInviteAnotherAdmins": "Pozvanie ďalších administrátorov",
+  "adminInviteName": "Meno",
+  "adminInviteEmail": "Email",
+  "adminInviteAnotherAdminsTitle": "Na tejto stránke môžete pridať ďalších administrátorov",
+  "adminInvite": "Pozvať",
+  "adminInviteRoleManagement": "Správa iných rolí",
 
   "Scholtz": "Scholtz"
 >>>>>>> ccb8526... set sk as default language, tester translations

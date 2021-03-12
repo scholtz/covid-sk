@@ -882,5 +882,12 @@
   "adminLimitsUntil": "Do",
   "adminLimitsHourlyLimit": "Hodinový limit",
 
+  "adminInviteAnotherAdmins": "Pozvání dalších administrátorů",
+  "adminInviteName": "Jméno",
+  "adminInviteEmail": "Email",
+  "adminInviteAnotherAdminsTitle": "Na této stránce můžete přidat další administrátory",
+  "adminInvite": "Pozvat",
+  "adminInviteRoleManagement": "Správa jiných rolí",
+
   "Scholtz": "Scholtz"
 }
