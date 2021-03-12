@@ -23,8 +23,8 @@ const state = () => ({
   GDRP_SPROSTREDKOVATEL: "",
   GDRP_PDF: "",
   COMPANY_NAME: "",
-  RC_IS_INSURANCE: true,
-  INSURED_ONLY: true,
+  RC_IS_INSURANCE: false,
+  INSURED_ONLY: false,
 });
 
 const mutations = {
