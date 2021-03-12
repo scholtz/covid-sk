@@ -448,6 +448,7 @@
   "ppLinkToFeatures": "<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Víc o vlastnostech a výhodách řešení Rýchlejšie.sk</a>",
 
   "workingTimeScheduleTitle": "Provozní doba pracoviště",
+<<<<<<< HEAD
   "workingTimeRevision": "Revize změn",
   "workingTimeOnDay": "Dne",
   "workingTimePlaceWillBe": "bude odběrné místo",
@@ -474,6 +475,8 @@
   "workingTimeOpeningHoursOther1": "Šablona otevíracích hodin 2 (víkendy)",
   "workingTimeOpeningHoursOther2": "Šablona otevíracích hodin 3 (svátky)",
   "workingTimeSetSuccessMessage": "Dny testování byly nastavené. Veřejnost se teď může objednat k odběru/vakcinaci.",
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
 
   "formEditProviderDetailsTitle": "Úprava údajů o provozovateli",
 
@@ -560,21 +563,29 @@
   "reportButtonAll": "Všichni",
 
   "testerRegistredClient": "Zaregistrovaný klient",
+<<<<<<< HEAD
   "testerHelperAdvice": "Pokyny: načíst klienta, ověřit osobní údaje a přiřadit test.",
+=======
+  "testerHelperAdvice": "Pokyny: načíst klienta, ověřit osobní údaje a priřadit test.",
+>>>>>>> ccb8526... set sk as default language, tester translations
   "testerAtFirstChoosePlace": "nejprve vyberte odběrné místo",
   "testerConfirm": "Potvrdit",
   "testerChange": "Změnit",
   "testerChoosePlace": "Vybrat místo",
   "testerChooseClientReading": "Zvolte způsob načítání klienta",
   "testerPersonalIdentificationNumber": "Rodné číslo",
+<<<<<<< HEAD
   "testerPersonalIdentificationNumberOrPassport": "Rodné číslo / cestovní pas",
   "testerInvalidPesonalNumberNotification": "Pozor, RČ vypadá být nesprávné",
   "testerInvalidIDNotification": "Pozor, doklad není vyplněný",
   "testerPassport": "Pas",
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "testerRegistrationCodeOrQRCode": "Kód registrace / QR kód",
   "testerEmployeeCode": "Osobní kód zaměstnance",
   "testerPersonWithNoRegistration": "Osoba bez registrace",
   "testerCancel": "Zrušit",
+<<<<<<< HEAD
   "testerCheckRegistration": "Ověřit registraci",
   "testerLoadRegistration": "Načíst registraci",
   "testerLoadRegistrationCode": "Načíst kód registrace",
@@ -637,6 +648,16 @@
   "labStateSent": "Odeslané",
   "labStateTooSoon": "Příliš brzy - Test musí mít přestávku 15 minut",
   "labStateNotMatched": "Nespárovaný klient",
+=======
+  "testerCheckRegistration": "Overit registraci",
+  "testerLoadRegistration": "Načíst registraci",
+  "testerLoadRegistrationCode": "Načíst kód registrace",
+  "testerVerifyPerson": "Ověřte osobní údaje",
+  "testerRegistationCode": "Kód registrace",
+  "testerRegistationCodeInvalid": "Chybný kód registrace",
+  "testerName": "Jméno",
+  "testerInsurance": "Pojišťovna",
+>>>>>>> ccb8526... set sk as default language, tester translations
 
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvolte den a klikněte na tlačítko exportu.",

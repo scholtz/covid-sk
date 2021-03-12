@@ -42,7 +42,10 @@
   "mainStepTitle": "Chcem sa testovať",
 
   "navBarAdmin": "Administrátor",
+<<<<<<< HEAD
   "navBarAdminDashboard": "Dashboard",
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "navBarAdminManagePlace": "Správa pracovísk prevádzkovateľa",
   "navBarAdminNewUser": "Nový pracovník",
   "navBarAdminAuditUsers": "Správa ľudských zdrojov",
@@ -86,6 +89,7 @@
   "navBarPublicRegister": "Objednajte sa",
   "navBarPublicEnqueued": "Som v rade",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "navBarPublicResults": "Výsledky testu a certifikát",
   "navBarPublicHelp": "Často kladené otázky",
   "navBarPublicHelpFaq": "Často kladené otázky",
@@ -106,6 +110,15 @@
   "navBarUserChangePassword":"Zmena hesla",
   "navBarUserChangePP":"Zmena prevádzkovateľa",
 >>>>>>> a3740ba... translate public pages - Help, Login, Register
+=======
+  "navBarPublicResults": "Výsledky testu a certifikát",
+  "navBarPublicHelp": "Často kladené otázky",
+  "navBarPublicHelpIntroduction": "Na úvod",
+  "navBarPublicHelpPublic": "Verejnosť",
+
+  "navBarUserChangePassword": "Zmena hesla",
+  "navBarUserChangePP": "Zmena prevádzkovateľa",
+>>>>>>> ccb8526... set sk as default language, tester translations
   "navBarUserInvitations": "Pozvánky",
   "navBarUserLogout": "Odhlásenie",
   "navBarUserLogin": "Prihlásenie",
@@ -118,6 +131,9 @@
   "enqueuedInfo": "Pomôžte ostatným zistiť čas strávený v rade. Keď prídete do radu, kliknite na tlačítko som v rade a keď vás pretestujeme, dáme ostatným vedieť koľko ste čakali. Na Vašom odbernom mieste si pozrite informáciu o aktuálnej dĺžke rady. Zároveň tým pomôžete optimalizovať procesy testovania aby sme mohli efektívne porovnať dĺžku radov a odchýlku od času registrácie medzi rôznymi rezervačnými a odberovými systémami.",
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "resultsTitle": "Výsledky testovania",
   "resultsCode": "<b>Kód registrácie</b> (9-miestny kód, ktorý ste dostali v sms pri registrácii - stačí zadať číslice bez pomlčiek):",
   "resultsPass": "<b>Posledné štyri číslice z rodného čísla</b>. Ak ste sa na test registrovali s cestovným dokladom, zadajte posledné štyri číslice cestovného dokladu:",
@@ -151,11 +167,19 @@
   "chPassValidationDoNotMatch": "Heslá sa nezhodujú",
 
   "loginTitle": "Prihlásenie",
+<<<<<<< HEAD
   "loginHelp": "Prihlásenie pre administrátorov a pracovníkov systému Rýchlejšie.sk. Po úspešnom prihlásení sa zobrazia ďalšie možnosti v hornom menu.",
   "loginFormLogin": "Login / E-mail",
   "loginFormPassword": "Heslo",
   "loginFormButton": "Prihlás",
   "loginFormRegisterPlaceProvider": "Registrácia prevádzkovateľa odberového, alebo vakcinačného miesta.",
+=======
+  "loginHelp": "Prihlásenie slúži pre obsluhu testovacieho miesta. Po prihlásení môže obsluha scanovať QR kódy z obrazovky mobilu alebo vytlačené na papieri. Po úspešnom prihlásení sa zmení horné menu na rozbaľovací zoznam rolí a funkcií ktoré môžu robiť.",
+  "loginFormLogin": "Login / E-mail",
+  "loginFormPassword": "Heslo",
+  "loginFormButton": "Prihlás",
+  "loginFormRegisterPlaceProvider": "Registrácia nemocnice, mobilného odberového miesta, alebo vakcinačného miesta",
+>>>>>>> ccb8526... set sk as default language, tester translations
 
   "selectPlaceTitle": "Výber odberového miesta",
   "selectPlaceShowTable": "Zobraziť tabuľku",
@@ -212,6 +236,7 @@
   "selectMinuteHelp": "(počet obsadených miest / celkový počet miest)",
   "selectMinuteButtonText": "Medzi {description} je aktuálne registrovaných {registrations} osôb",
 
+<<<<<<< HEAD
   "selectCompanyTitle": "Výber spoločnosti",
   "selectCompanyWarning": "V prípade ak zastupujete viacero spoločností, musíte si vybrať jednu v rámci ktorej ste prihlásený",
   "selectCompanySelect": "Vybrať",
@@ -362,6 +387,8 @@
   "offlineRegistrationTitle": "Offline registrácia = rýchlejšie testovanie",
   "offlineRegistrationHelp1": "Vytvorte si QR kód v mobile bez odosielania do nášho systému. Bude obsahovať vaše údaje. Pracovník odberového miesta ho naskenuje a zapíše do systému Rýchlejšie.sk - nebude musieť vaše údaje ťukať do počítača. Údaje o Vašom testovaní, vrátane osobných údajov a výsledku budete môcť vymazať zo systému pri negatívnom výsledku a po spracovaní údajov pre krajský úrad a hygienu. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256.",
 
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "registrationTitle": "Posledný krok registrácie - Osobné údaje",
   "registrationHelp1": "Údaje o Vašom testovaní, vrátane osobných údajov môžete vymazať zo stránky výsledky testu, ak sa preukáže, že ochorenie covid19 nemáte, avšak až po spracovaní údajov pre krajský úrad a hygienu. V prípade pozitívne nálezu budú postúpené hygiene. Po dobu testovania budú Vaše osobné údaje chránené šifrovaním AES256.",
   "registrationYourSelection": "Vybrali ste si: {place}, dňa {day} medzi {time}",
@@ -380,6 +407,7 @@
   "registrationFormAddressZIP": "PSČ",
   "registrationFormAddressCity": "Mesto",
 
+<<<<<<< HEAD
   "registrationFormNewVisitorRegistration": "Registrácia nového návštevníka",
   "registrationFormNewVisitorIdentification": "Identifikácia registrovanej osoby",
   "registrationFormAdultWithIdentityCard": "Dospelá osoba s občianskym preukazom",
@@ -395,6 +423,8 @@
   "registrationFormLoadQR": "Načítať QR kód",
   "registrationFormTurnOffCamera": "Vypnúť kameru",
 
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "registrationFormDay": "Deň narodenia",
   "registrationFormBirthDayDay": "Deň nar.",
   "registrationFormBirthDayMonth": "Mesiac",
@@ -405,12 +435,15 @@
   "registrationBottomHelp1": "Cieľom registrácie pred návštevou odberového miesta je minimalizovať čas potrebný pre výkon testu. V ideálnom prípade doktor naskenuje QR kód Vašej registrácie, QR kód na testovacej súprave a vykoná odobratie vzorky. Stlačením tlačidla nižšie vytvoríte svoj jedinečný kód registrácie, ktorý s kombináciou posledných 4 čísel rodného čísla (cestovného dokladu pre cudzincov) použijete aj na zistenie výsledku testu na tejto stránke.",
   "registrationBottomHelp2": "",
   "registrationFormGDPR": "Súhlasím so spracovaním mojich osobných údajov za účelom ich poskytnutia sprostredkovateľovi – spoločnosti Scholtz &amp; Company, j.s.a., IČO: 51882272 za účelom testovania na ochorenie COVID-19. Podrobné informácie o spracovaní osobných údajov nájdete <a href=\"/#/gdpr\" target=\"_blank\">tu</a>.",
+<<<<<<< HEAD
   "registrationFormGDPRStatementA": "Súhlasím so spracovaním mojich osobných údajov za účelom ich poskytnutia sprostredkovateľovi – spoločnosť ",
   "registrationFormGDPRStatementB": " za účelom testovania na ochorenie COVID-19. Podrobné informácie o spracovaní osobných údajov nájdete ",
   "registrationFormHere": "tu",
   "registrationFormRegisterOnDate": "Zaregistrovať sa na termín",
   "registrationFormIAmEmployee": "Som zamestnanec firmy",
   "registrationFormEmployeeID": "Osobné číslo zamestnanca",
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "registrationFormButton": "Zaregistrovať",
   "registrationFormInsuranceEU": "EÚ poistenec",
   "registrationFormInsuranceForeigner": "Cudzinec",
@@ -520,6 +553,9 @@
   "ppTerms": "Obchodné podmienky",
   "ppMainContact": "Kontaktná osoba",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "ppPricing": "Cenník",
   "ppCountry": "Štát registrácie prevádzkovateľa",
   "ppCompanyId": "IČO",
@@ -548,6 +584,7 @@
   "ppInfoA14": "Jasná definícia GDPR. Riziko zneužitia osobných údajov je minimalizované na minimum.",
   "ppInfoA15": "Osobné údaje sú zašifrované najsilnejšími šifrovacími spôsobmi. Neexistuje časový bod v ktorom by sa dali extrahovať údaje pretože dáta sa po teste a notifikácii užívateľovi zmažú.",
   "ppInfoA16": "Real time monitoring štatistických údajov, napríklad pre médiá",
+<<<<<<< HEAD
   "ppLinkToFeatures":"<a href=\"https://www.rychlejsie.sk/#features\" target=\"_blank\">Viac o vlastnostiach a výhodách riešenia Rýchlejšie.sk</a>",
 
   "workingTimeScheduleTitle": "Prevádzková doba pracoviska",
@@ -577,10 +614,15 @@
   "workingTimeOpeningHoursOther1": "Šablóna otváracích hodín 2 (víkendy)",
   "workingTimeOpeningHoursOther2": "Šablóna otváracích hodín 3 (sviatky)",
   "workingTimeSetSuccessMessage": "Dni testovania boli nastavené. Verejnosť sa teraz môže objednať k odberu/vakcinácii.",
+=======
+
+  "workingTimeScheduleTitle": "Prevádzková doba pracoviska",
+>>>>>>> ccb8526... set sk as default language, tester translations
 
   "formEditProviderDetailsTitle": "Úprava údajov o prevádzkovateľovi",
 
   "formAdminHRTitle": "Správa ľudských zdrojov",
+<<<<<<< HEAD
   "formAdminHRSelectAlocationPlace": "Vyberte si miesto pre alokovanie osôb na odberové miesta",
   "formAdminHRName": "Meno",
   "formAdminHREmail": "Email",
@@ -623,6 +665,8 @@
   "formAdminHRSelectRole": "Vyberte si rolu/oprávnenia",
   "formAdminHRSelectUser": "Vyberte si užívateľa",
   "formAdminHRFullDayAlocation": "Alokácia na celý pracovný deň",
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "TimeAndPeopleSectionPeople": "Pracovníci",
   "TimeAndPeopleSectionRights": "Pracovné zaradenie",
 
@@ -670,10 +714,13 @@
   "testerChoosePlace": "Vybrať miesto",
   "testerChooseClientReading": "Zvoľte spôsob načítania klienta",
   "testerPersonalIdentificationNumber": "Rodné číslo",
+<<<<<<< HEAD
   "testerPersonalIdentificationNumberOrPassport": "Rodné číslo / cestovný pas",
   "testerInvalidPesonalNumberNotification": "Pozor, RČ vyzerá byť nesprávne",
   "testerInvalidIDNotification": "Pozor, doklad nie je vyplnený",
   "testerPassport": "Pas",
+=======
+>>>>>>> ccb8526... set sk as default language, tester translations
   "testerRegistrationCodeOrQRCode": "Kód registrácie / QR kód",
   "testerEmployeeCode": "Osobný kód zamestnanca",
   "testerPersonWithNoRegistration": "Osoba bez registrácie",
@@ -682,6 +729,7 @@
   "testerLoadRegistration": "Načítať registráciu",
   "testerLoadRegistrationCode": "Načítať kód registrácie",
   "testerVerifyPerson": "Overte osobné údaje",
+<<<<<<< HEAD
   "testerRegistrationCode": "Kód registrácie",
   "testerRegistrationCodeInvalid": "Chybný kód registrácie",
   "testerName": "Meno",
@@ -822,10 +870,17 @@
   "labStateSent": "Odoslané",
   "labStateTooSoon": "Príliš skoro - Test musí mať prestávku 15 minút",
   "labStateNotMatched": "Nespárovaný klient",
+=======
+  "testerRegistationCode": "Kód registrácie",
+  "testerRegistationCodeInvalid": "Chybný kód registrácie",
+  "testerName": "Meno",
+  "testerInsurance": "Poisťovňa",
+>>>>>>> ccb8526... set sk as default language, tester translations
 
   "adminReportsTitle": "Exporty Administrátora",
   "adminReportsDescription": "Zvoľte deň a kliknite na tlačidlo exportu.",
   "adminReportsButton": "Všetci (anonymizovaní)",
+<<<<<<< HEAD
   "adminDashboardTitle": "Dashboard administrátora",
   "adminDashboardLoad": "Načítať",
   "adminDashboardVisitorManagement": "Správa návštevníka",
@@ -911,4 +966,19 @@
 
   "Scholtz":"Scholtz"
 >>>>>>> 9af8319... translate admin dashboard
+=======
+  "adminDashboardTitle": "Dashboard administrátora",
+  "adminDashboardLoad": "Načítať",
+  "adminDashboardVisitorManagement": "Správa návštevníka",
+  "adminDashboardVisitorDetails": "R.č., číslo registrácie, covid-pass..",
+  "adminDashboardEzdravieManagement": "Správa eZdravie",
+  "adminDashboardImportDate": "Dátum importu",
+  "adminDashboardLoadDetails": "Načítať údaje pre vybratý deň",
+  "adminDashboardExportableDays": "Exportovateľné dni",
+  "adminDashboardSentResults": "Odoslať výsledky občanom",
+  "adminDashboardEmployeeUpload": "Nahratie zamestnancov",
+  "adminDashboardUpload": "Nahrať",
+
+  "Scholtz": "Scholtz"
+>>>>>>> ccb8526... set sk as default language, tester translations
 }
