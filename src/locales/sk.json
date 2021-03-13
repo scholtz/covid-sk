@@ -319,7 +319,9 @@
   "registrationFormIAmEmployee": "Som zamestnanec firmy",
   "registrationFormEmployeeID": "Osobné číslo zamestnanca",
   "registrationFormEmployeePass": "Posledné 4 číslice rodného čísla / pasu",
+  "registrationFormButton": "Zaregistrovať",
   "registrationFormInsuranceEU": "EÚ poistenec",
+  "registrationFormInsuranceForeigner": "Cudzinec",
   "registrationLimitReached": "Pre tento časový úsek bol dosiahnutý limit registrácii. Prosím využite iný časový úsek alebo počkajte na navýšenie kapacity. Ďakujeme",
   "registrationSchoolRequiredText": "Som zákonným zástupcom žiaka, ktorý sa zúčastňuje prezenčnej výuky v škole, alebo jej pracovníkom.",
 
