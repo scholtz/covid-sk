@@ -129,7 +129,13 @@
               <h2>{{ $t("gdprQ8") }}</h2>
             </b-card-title>
 
-            <div class="short my-3 py-1">
+            <div
+              v-if="$store.state.config.RC_IS_INSURANCE"
+              class="short my-3 py-1"
+            >
+              {{ $t("gdprA8ShortIns") }}
+            </div>
+            <div v-else class="short my-3 py-1">
               {{ $t("gdprA8Short") }}
             </div>
           </b-card>

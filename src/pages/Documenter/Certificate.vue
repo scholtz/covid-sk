@@ -3,7 +3,10 @@
     <div class="app-pane-lgray py-2">
       <b-container>
         <h1>{{ $t("documentsTitle") }}</h1>
-        <p>{{ $t("documentsDescription") }}</p>
+        <p v-if="$store.state.config.RC_IS_INSURANCE">
+          {{ $t("documentsDescriptionIns") }}
+        </p>
+        <p v-else>{{ $t("documentsDescription") }}</p>
       </b-container>
     </div>
     <b-container
@@ -17,7 +20,10 @@
         </b-col>
         <b-col cols="12" md="6">
           <label for="personalNumber"
-            ><div v-html="$t('documentsPersonalNumberLegend')"
+            ><div
+              v-if="$store.state.config.RC_IS_INSURANCE"
+              v-html="$t('documentsPersonalNumberLegendIns')" />
+            <div v-else v-html="$t('documentsPersonalNumberLegend')"
           /></label>
           <b-input
             v-model="personalNumber"

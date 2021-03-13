@@ -12,7 +12,7 @@
             <b-tab
               :title="$t('navBarPublicHelpFaq')"
               v-if="
-                $store.state.config.PROD === 'covid.bratislava.sk' ||
+                $store.state.config.PROD === 'ruzinov.bratislava.sk' ||
                 $store.state.config.PROD === 'www.rychlejsie.sk' ||
                 $store.state.user.auth
               "
@@ -569,7 +569,11 @@
                     >
                       <b-card-body
                         ><div v-html="$t('helpTesterA1-uvod')" />
-                        <div v-html="$t('helpTesterA1-1')" />
+                        <div
+                          v-if="$store.state.config.RC_IS_INSURANCE"
+                          v-html="$t('helpTesterA1-1Ins')"
+                        />
+                        <div v-else v-html="$t('helpTesterA1-1')" />
                         <div v-html="$t('helpTesterA1-2')" />
                         <iframe
                           src="https://player.vimeo.com/video/502757010?byline=0&portrait=0"

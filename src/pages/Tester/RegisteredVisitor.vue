@@ -14,9 +14,6 @@
             {{ $t("testerAtFirstChoosePlace") }}:
             <span v-if="this.$store.state.user.me.placeObj">
               {{ this.$store.state.user.me.placeObj.name }}
-              <button class="btn btn-danger m-2" @click="confirmPlace">
-                {{ $t("testerConfirm") }}
-              </button>
               <button
                 class="btn btn-primary m-2"
                 @click="$router.push('/tester/place')"
@@ -39,7 +36,10 @@
         <b-col>
           <p>{{ $t("testerChooseClientReading") }}:</p>
           <button @click="action = 'rc'" class="btn btn-primary my-4 mr-4">
-            {{ $t("testerPersonalIdentificationNumber") }}
+            <span v-if="$store.state.config.RC_IS_INSURANCE">{{
+              $t("testerPersonalIdentificationNumberIns")
+            }}</span>
+            <span v-else>{{ $t("testerPersonalIdentificationNumber") }}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -122,7 +122,10 @@
           >
             {{ $t("testerCancel") }}
           </button>
-          <label for="codeRc">{{
+          <label v-if="$store.state.config.RC_IS_INSURANCE" for="codeRc">{{
+            $t("testerPersonalIdentificationNumberIns")
+          }}</label>
+          <label v-else for="codeRc">{{
             $t("testerPersonalIdentificationNumber")
           }}</label>
           <b-input v-model="code" id="codeRc" />
@@ -282,7 +285,12 @@
                 visitor.personType === 'child'
               "
             >
-              <td>{{ $t("testerPersonalIdentificationNumberOrPassport") }}:</td>
+              <td v-if="$store.state.config.RC_IS_INSURANCE">
+                {{ $t("testerPersonalIdentificationNumberOrPassportIns") }}:
+              </td>
+              <td v-else>
+                {{ $t("testerPersonalIdentificationNumberOrPassport") }}:
+              </td>
               <td>
                 {{ visitor.rc }}
                 <b-badge variant="danger" v-if="validatePersonalNumber">{{

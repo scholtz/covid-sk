@@ -201,6 +201,7 @@
               :bg-variant="dayVariant"
               :text-variant="dayVariantText"
               class="m-3"
+              v-if="Object.keys($store.state.slot.slotsD).length > 0"
             >
               <h2>{{ $t("selectDayQuestion") }}</h2>
               <p v-if="!hoursLoaded">
@@ -232,7 +233,11 @@
                 </span>
               </span>
             </b-card>
-
+            <b-card bg-variant="light" text-variant="dark" class="m-3" v-else>
+              Zvolené odberové miesto nemá v tejto chvíli naplánované žiadne
+              termíny na testovanie.<br />
+              Skúste to prosím neskôr.
+            </b-card>
             <b-card
               v-if="hoursLoaded"
               class="m-3"
