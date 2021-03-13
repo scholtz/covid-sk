@@ -33,7 +33,7 @@ function defaultLanguage() {
     return lang;
   }
   if (userLang.length >= 2 && userLang.substring(0, 2) == "cs") {
-    lang = "sk";
+    lang = "cs";
     localStorage.setItem("lang", lang);
     return lang;
   }
