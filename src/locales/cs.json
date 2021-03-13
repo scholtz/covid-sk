@@ -319,6 +319,7 @@
   "registrationFormIAmEmployee": "Jsem zaměstnanec firmy",
   "registrationFormEmployeeID": "Osobní číslo zaměstnance",
   "registrationFormEmployeePass": "Poslední 4 číslice rodného čísla / pasu",
+  "registrationFormEmployeePassIns": "Poslední 4 číslice čísla pojištěnce",
   "registrationFormButton": "Zaregistrovat",
   "registrationFormInsuranceEU": "EU pojištěnec",
   "registrationFormInsuranceForeigner": "Cizinec",
