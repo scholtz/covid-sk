@@ -12,7 +12,7 @@
             <b-tab
               :title="$t('navBarPublicHelpFaq')"
               v-if="
-                $store.state.config.PROD === 'covid.bratislava.sk' ||
+                $store.state.config.PROD === 'ruzinov.bratislava.sk' ||
                 $store.state.config.PROD === 'www.rychlejsie.sk' ||
                 $store.state.user.auth
               "

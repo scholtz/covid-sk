@@ -66,7 +66,11 @@
         -->
         <h1>{{ $t("selectPlaceTitle") }}</h1>
 
-        <div v-if="showing === 'map'" v-html="$t('mapLegend')" />
+        <div v-if="showing === 'map' && $store.state.config.PROD === 'ruzinov.bratislava.sk' "
+         v-html="$t('mapLegend')" />
+        <div v-if="showing === 'map' && $store.state.config.PROD != 'ruzinov.bratislava.sk' "
+         v-html="$t('mapLegendShort')" />
+        
 
         <p v-if="showing === 'table'">
           {{ $t("selectPlaceHelpTable") }}
