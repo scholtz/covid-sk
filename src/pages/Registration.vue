@@ -143,13 +143,13 @@
 
           <b-col cols="12">
             <b-form-checkbox v-model="gdpr" class="my-2">
-              {{ $t("registrationFormGDPRStatementA") }}
-              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
-              {{ $t("registrationFormGDPRStatementB") }}
-              <a target="_blank" href="/#/gdpr">{{
-                $t("registrationFormHere")
-              }}</a
-              >.
+              <div
+                v-html="
+                  $t('registrationFormGDPRStatement', {
+                    company: $store.state.config.GDRP_SPROSTREDKOVATEL,
+                  })
+                "
+              />
             </b-form-checkbox>
           </b-col>
           <b-col cols="12">
