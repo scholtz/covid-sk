@@ -118,15 +118,11 @@
             >
               <b-form-group
                 id="employeePass-group-1"
-<<<<<<< HEAD
-                :label="$t('registrationFormEmployeePass')"
-=======
                 :label="
                   $store.state.config.RC_IS_INSURANCE
                     ? $t('registrationFormEmployeePassIns')
                     : $t('registrationFormEmployeePass')
                 "
->>>>>>> upstream/master
                 label-for="employeePass"
               >
                 <b-form-input
