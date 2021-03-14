@@ -108,13 +108,21 @@
           ><b-col cols="12" md="6">
             <validation-provider
               ref="vpPass"
-              name="Posledné 4 číslice rodného čísla / pasu"
+              :name="
+                $store.state.config.RC_IS_INSURANCE
+                  ? $t('registrationFormEmployeePassIns')
+                  : $t('registrationFormEmployeePass')
+              "
               :rules="{ required: true, min: 4 }"
               v-slot="validationContext"
             >
               <b-form-group
                 id="employeePass-group-1"
-                :label="$t('registrationFormEmployeePass')"
+                :label="
+                  $store.state.config.RC_IS_INSURANCE
+                    ? $t('registrationFormEmployeePassIns')
+                    : $t('registrationFormEmployeePass')
+                "
                 label-for="employeePass"
               >
                 <b-form-input
@@ -135,13 +143,13 @@
 
           <b-col cols="12">
             <b-form-checkbox v-model="gdpr" class="my-2">
-              {{ $t("registrationFormGDPRStatementA") }}
-              {{ $store.state.config.GDRP_SPROSTREDKOVATEL }}
-              {{ $t("registrationFormGDPRStatementB") }}
-              <a target="_blank" href="/#/gdpr">{{
-                $t("registrationFormHere")
-              }}</a
-              >.
+              <div
+                v-html="
+                  $t('registrationFormGDPRStatement', {
+                    company: $store.state.config.GDRP_SPROSTREDKOVATEL,
+                  })
+                "
+              />
             </b-form-checkbox>
           </b-col>
           <b-col cols="12">
