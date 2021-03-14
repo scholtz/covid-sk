@@ -21,6 +21,7 @@
         </b-col>
         <b-col col="6">
           <b-card :title="$t('adminDashboardEzdravieManagement')">
+            <label for="locale">{{ $t("adminDashboardImportDateLabel") }}</label>
             <VueCtkDateTimePicker
               v-model="importTime"
               :label="$t('adminDashboardImportDate')"
@@ -40,7 +41,7 @@
                 class="ml-1"
                 v-if="processingDownloadEHealthVisitors"
               />
-            </button>
+            </button><br/><br/>
 
             <label for="days">{{ $t("adminDashboardExportableDays") }}</label>
             <b-form-select
