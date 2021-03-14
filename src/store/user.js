@@ -205,6 +205,33 @@ export const actions = {
       { root: true }
     );
   },
+  async LoadEmployeeByEmployeeNumber({ dispatch }, { employeeNumber }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Visitor/LoadEmployeeByEmployeeNumber",
+        params: { employeeNumber },
+      },
+      { root: true }
+    );
+  },
+  async RegisterEmployeeByDocumenter(
+    { dispatch },
+    { employeeId, email, phone, time, productId, result }
+  ) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Visitor/RegisterEmployeeByDocumenter",
+        params: { employeeId, email, phone, time, productId, result },
+      },
+      { root: true }
+    );
+  },
   async Preauthenticate({ dispatch }, { email }) {
     return await dispatch(
       "axios/post",

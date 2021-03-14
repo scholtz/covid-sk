@@ -79,6 +79,7 @@
 
   "navBarDoc": "Dokumenty",
   "navBarDocCertificate": "Certifikáty",
+  "navBarDocSelfCerts": "Samotesty / Ext. testy",
 
   "navBarDataExporter": "Data exporter",
   "navBarDataExporterExport": "Finálny export údajov",
@@ -333,6 +334,7 @@
   "regDoneValue": "Hodnota",
   "regDoneName": "Meno",
   "regDoneE-mail": "E-mail",
+  "regDoneEmail": "E-mail",
   "regDoneMobile": "Telefón",
   "regDonePersonalNumber": "RČ",
   "regDonePassport": "Cestovný doklad",

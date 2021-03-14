@@ -92,6 +92,9 @@
                 <b-dropdown-item to="/documenter/certificate">{{
                   $t("navBarDocCertificate")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/documenter/selfCert">{{
+                  $t("navBarDocSelfCerts")
+                }}</b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav v-if="isDataExporter()">

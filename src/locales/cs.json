@@ -79,6 +79,7 @@
 
   "navBarDoc": "Dokumenty",
   "navBarDocCertificate": "Certifikáty",
+  "navBarDocSelfCerts": "Samotesty / Ext. testy",
 
   "navBarDataExporter": "Data exporter",
   "navBarDataExporterExport": "Finální export údajů",
@@ -311,8 +312,8 @@
   "registrationFormInsurance": "Pojišťovna",
   "registrationBottomHelp1": "Cílem registrace před návštevou odběrného místa je minimalizovat čas potřebný pro výkon testu. V ideálním případě doktor naskenuje QR kód Vaší registrace, QR kód na testovací soupravu a vykoná odběr vzorku. Stistnutím tlačítka níže vytvoříte svůj jedinečný kód registrace, který v kombináci s posledními 4 číslicemi rodného čísla (cestovního dokladu pro cizince) použijete i na zjištění výsledku testu na této stránce.",
   "registrationBottomHelp2": "",
-  "registrationFormGDPR": "Souhlasím se zpracovaním mých osobních údajů za účelem jejich poskytnutí zprostředkovateli – společnosti Scholtz &amp; Company, j.s.a., IČO: 51882272 za účelem testování na onemocnění COVID-19. Podrobné informace o zpracovaní osobních údajů najdete <a href=\"/#/gdpr\" target=\"_blank\">zde</a>.",
-  "registrationFormGDPRStatement": "Souhlasím se zpracovaním mých osobních údajů za účelem jejich poskytnutí zprostředkovateli – společnosti {company} za účelem testování na onemocnění COVID-19. Podrobné informace o zpracovaní osobních údajů najdete <a target=\"_blank\" href=\"/#/gdpr\">zde</a>.",
+  "registrationFormGDPR": "Souhlasím se zpracování mých osobních údajů, za účelem jejich poskytnutí společnosti za účelem testování na onemocnění COVID-19. Podrobné informace o zpracovaní osobních údajů najdete <a href=\"/#/gdpr\" target=\"_blank\">zde</a>.",
+  "registrationFormGDPRStatement": "Souhlasím se zpracování mých osobních údajů, za účelem jejich poskytnutí společnosti za účelem testování na onemocnění COVID-19. Podrobné informace o zpracovaní osobních údajů najdete <a target=\"_blank\" href=\"/#/gdpr\">zde</a>.",
   "registrationFormRegisterOnDate": "Zaregistrovat se na termín",
   "registrationFormIAmEmployee": "Jsem zaměstnanec firmy",
   "registrationFormEmployeeID": "Osobní číslo zaměstnance",
@@ -333,6 +334,7 @@
   "regDoneValue": "Hodnota",
   "regDoneName": "Jméno",
   "regDoneE-mail": "E-mail",
+  "regDoneEmail": "E-mail",
   "regDoneMobile": "Telefon",
   "regDonePersonalNumber": "RČ",
   "regDonePassport": "Cestovní doklad",

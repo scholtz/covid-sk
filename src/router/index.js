@@ -233,6 +233,11 @@ const router = new VueRouter({
       component: () => import("../pages/Documenter/Certificate.vue"),
     },
     {
+      path: "/documenter/selfCert",
+      name: "documenter-self-certificate",
+      component: () => import("../pages/Documenter/SelfCerts.vue"),
+    },
+    {
       path: "/help",
       name: "help",
       component: () => import("../pages/Help.vue"),
