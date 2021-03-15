@@ -741,6 +741,8 @@
   "selfCertsResult": "Výsledok",
   "selfCertsRegisterTest": "Zaznamenať test",
   "selfCertsTestInsertedMessage": "Test bol vložený do systému",
+  "selfCertsNegative": "Negatívny",
+  "selfCertsPositive": "Pozitívny",
 
   "Scholtz": "Scholtz"
 }

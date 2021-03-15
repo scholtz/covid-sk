@@ -127,14 +127,14 @@
             label-cols-sm="4"
             label-cols-lg="2"
           >
-            <b-form-select
-              id="result"
-              name="result"
-              :options="results"
-              value-field="item"
-              text-field="name"
-              v-model="toSend.result"
-            >
+            <b-form-select id="result" name="result" v-model="toSend.result">
+              <b-select-option
+                v-for="result in results"
+                :key="result.item"
+                :value="result.item"
+              >
+                {{ $t(result.name) }}
+              </b-select-option>
             </b-form-select>
           </b-form-group>
         </b-col>
@@ -189,8 +189,8 @@ export default {
         result: "negative",
       },
       results: [
-        { item: "negative", name: "Negatívny" },
-        { item: "positive", name: "Pozitívny" },
+        { item: "negative", name: "selfCertsNegative" },
+        { item: "positive", name: "selfCertsPositive" },
       ],
     };
   },
