@@ -2,10 +2,9 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Vystavenie certifikátov zo samotestov</h1>
+        <h1>{{ $t("selfCertsExport") }}</h1>
         <p>
-          Spoločnosť si môže evidovať samotesty zamestnancov alebo testy u
-          externých testovacích laboratóriách
+          {{ $t("selfCertsExportInfo") }}
         </p>
       </b-container>
     </div>
@@ -13,7 +12,7 @@
       <b-row>
         <b-col>
           <b-form-group
-            label="Osobné číslo zamestnanca"
+            :label="$t('selfCertsEmployeeId')"
             label-for="employeeId"
             label-cols-sm="4"
             label-cols-lg="2"
@@ -28,7 +27,7 @@
             class="btn btn-primary my-4"
             :disabled="processingRegDownload"
           >
-            Načítať osobu
+            {{ $t("selfCertsLoad") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -46,7 +45,7 @@
       <b-row class="py-1" v-if="employeeLoaded">
         <b-col>
           <b-form-group
-            label="Meno"
+            :label="$t('selfCertsName')"
             label-for="name"
             label-cols-sm="4"
             label-cols-lg="2"
@@ -58,7 +57,7 @@
       <b-row class="py-1" v-if="employeeLoaded">
         <b-col>
           <b-form-group
-            label="Email"
+            :label="$t('selfCertsEmail')"
             label-for="email"
             label-cols-sm="4"
             label-cols-lg="2"
@@ -70,7 +69,7 @@
       <b-row class="py-1" v-if="employeeLoaded">
         <b-col>
           <b-form-group
-            label="Mobil"
+            :label="$t('selfCertsPhone')"
             label-for="phone"
             label-cols-sm="4"
             label-cols-lg="2"
@@ -82,7 +81,7 @@
       <b-row class="py-1" v-if="employeeLoaded">
         <b-col>
           <b-form-group
-            label="Produkt"
+            :label="$t('selfCertsProduct')"
             label-for="product"
             label-cols-sm="4"
             label-cols-lg="2"
@@ -102,13 +101,13 @@
       <b-row class="py-1" v-if="employeeLoaded">
         <b-col>
           <b-form-group
-            label="Čas testu"
+            :label="$t('selfCertsTime')"
             label-for="time"
             label-cols-sm="4"
             label-cols-lg="2"
           >
             <VueCtkDateTimePicker
-              label="Čas testu"
+              :label="$t('selfCertsTime')"
               v-model="toSend.time"
               ref="time"
               id="time"
@@ -123,7 +122,7 @@
       <b-row class="py-1" v-if="employeeLoaded">
         <b-col>
           <b-form-group
-            label="Výsledok"
+            :label="$t('selfCertsResult')"
             label-for="result"
             label-cols-sm="4"
             label-cols-lg="2"
@@ -147,7 +146,7 @@
             class="btn btn-primary my-4"
             :disabled="!toSend.time || !toSend.productId || processingRegInsert"
           >
-            Zaznamenať test
+            {{ $t("selfCertsLoad") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -252,7 +251,7 @@ export default {
         employeeNumber: this.employeeId,
       }).then(r => {
         if (r) {
-          this.openSuccess("Test bol vložený do systému");
+          this.openSuccess(this.$t("selfCertsTestInsertedMessage"));
         }
         this.processingRegInsert = false;
       });

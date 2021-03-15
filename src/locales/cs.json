@@ -729,5 +729,18 @@
   "adminInvite": "Pozvat",
   "adminInviteRoleManagement": "Správa jiných rolí",
 
+  "selfCertsExport": "Vystavení certifikátů ze samotestů",
+  "selfCertsExportInfo": "Společnost si může evidovat samotesty nebo testy u externích testovacích laboratořích",
+  "selfCertsLoad": "Načíst osobu",
+  "selfCertsEmployeeId": "Osobní číslo zaměstnance",
+  "selfCertsName": "Jméno",
+  "selfCertsEmail": "Email",
+  "selfCertsPhone": "Mobil",
+  "selfCertsProduct": "Produkt",
+  "selfCertsTime": "Čas testu",
+  "selfCertsResult": "Výsledek",
+  "selfCertsRegisterTest": "Zaznamenat test",
+  "selfCertsTestInsertedMessage": "Test byl vložený do systému",
+
   "Scholtz": "Scholtz"
 }
