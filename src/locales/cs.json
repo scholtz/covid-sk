@@ -663,6 +663,7 @@
   "adminDashboardVisitorManagement": "Správa návštevníka",
   "adminDashboardVisitorDetails": "R.č., číslo registrace, covid-pass..",
   "adminDashboardEzdravieManagement": "Správa eZdravie",
+  "adminDashboardImportDateLabel": "Import rezervací z korona.gov:",
   "adminDashboardImportDate": "Datum importu",
   "adminDashboardLoadDetails": "Načíst údaje pro vybraný den",
   "adminDashboardExportableDays": "Exportovatelné dny",
