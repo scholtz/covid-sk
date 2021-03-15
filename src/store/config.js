@@ -25,6 +25,7 @@ const state = () => ({
   COMPANY_NAME: "",
   RC_IS_INSURANCE: false,
   INSURED_ONLY: false,
+  COUNTRY: "SK",
 });
 
 const mutations = {
@@ -36,6 +37,9 @@ const mutations = {
     }
     if (value.INTRO_TEXT) {
       state.INTRO_TEXT = value.INTRO_TEXT;
+    }
+    if (value.COUNTRY) {
+      state.COUNTRY = value.COUNTRY;
     }
     if (value.COMPANY_NAME) {
       state.COMPANY_NAME = value.COMPANY_NAME;
@@ -127,7 +131,14 @@ const actions = {
         { root: true }
       );
       if (data) {
-        commit("setConfig", data);
+        await commit("setConfig", data);
+        await dispatch(
+          "insurance/setCountry",
+          { country: data.COUNTRY },
+          {
+            root: true,
+          }
+        );
         return data;
       }
     } catch (error) {

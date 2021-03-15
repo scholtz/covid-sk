@@ -583,7 +583,7 @@
           <b-col cols="12" :md="insuranceColumns" v-if="showInsurance">
             <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
             <b-form-select
-              :options="insuranceOptions"
+              :options="$store.state.insurance.list"
               v-model="insurance"
               id="insurance"
             />
@@ -878,28 +878,6 @@ export default {
       phone: "+421",
       insurance: "25",
       gdpr: false,
-      insuranceOptions: [
-        {
-          value: "24",
-          text: "Dôvera",
-        },
-        {
-          value: "25",
-          text: "VšZP",
-        },
-        {
-          value: "27",
-          text: "Union",
-        },
-        {
-          value: "98",
-          text: this.$t("registrationFormInsuranceEU"),
-        },
-        {
-          value: "99",
-          text: this.$t("registrationFormInsuranceForeigner"),
-        },
-      ],
       employeeNumber: "",
       employeePass: "",
     };

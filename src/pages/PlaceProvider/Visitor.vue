@@ -436,7 +436,7 @@
                     $t("registrationFormInsurance")
                   }}</label>
                   <b-form-select
-                    :options="insuranceOptions"
+                    :options="$store.state.insurance.list"
                     v-model="visitor.insurance"
                     id="insurance"
                   />
@@ -829,28 +829,6 @@ export default {
       processingE: false,
       insuranceColumns: 4,
       visitor: {},
-      insuranceOptions: [
-        {
-          value: "24",
-          text: "Dôvera",
-        },
-        {
-          value: "25",
-          text: "VšZP",
-        },
-        {
-          value: "27",
-          text: "Union",
-        },
-        {
-          value: "98",
-          text: this.$t("registrationFormInsuranceEU"),
-        },
-        {
-          value: "99",
-          text: this.$t("registrationFormInsuranceForeigner"),
-        },
-      ],
       resultOptions: [
         {
           value: "test-not-taken",

@@ -270,7 +270,7 @@
             <tr v-if="visitor.insurance">
               <td>{{ $t("testerInsurance") }}:</td>
               <td>
-                {{ visitor.insurance }}
+                {{ getInsurance() }}
                 <span v-if="visitor.insurance === '24'">- Dôvera</span>
                 <span v-if="visitor.insurance === '25'">- VšZP</span>
                 <span v-if="visitor.insurance === '27'">- Union</span>
@@ -870,6 +870,16 @@ export default {
           });
         }
       });
+    },
+    getInsurance() {
+      const insurance = this.$store.state.insurance.list.filter(
+        x => x.value === this.visitor.insurance
+      );
+      if (insurance.length > 0) {
+        return this.visitor.insurance + " - " + insurance[0].text;
+      } else {
+        return this.visitor.insurance;
+      }
     },
   },
 };

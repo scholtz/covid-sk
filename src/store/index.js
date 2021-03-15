@@ -8,6 +8,7 @@ import snackbar from "./snackbar";
 import result from "./result";
 import user from "./user";
 import placeProvider from "./placeProvider";
+import insurance from "./insurance";
 
 Vue.use(Vuex);
 
@@ -23,6 +24,7 @@ export default new Vuex.Store({
     result,
     user,
     placeProvider,
+    insurance,
   },
   strict: debugStrict,
 });
