@@ -99,7 +99,7 @@ const router = new VueRouter({
     },
     {
       path: "/place/:placeId/:dayId/:hourId/:minuteId/:productId/done",
-      name: "RegistrationOk",
+      name: "RegistrationOk2",
       component: () => import("../pages/RegistrationOk.vue"),
     },
 
@@ -128,6 +128,12 @@ const router = new VueRouter({
       name: "FromBookingsReportingData",
       meta: { layout: "wide" },
       component: () => import("../pages/FromBookingsReportingData.vue"),
+    },
+    {
+      path: "/admin/buttons",
+      name: "adminbuttons",
+      meta: { layout: "wide" },
+      component: () => import("../pages/Admin/Buttons.vue"),
     },
     {
       path: "/admin/placeManager",

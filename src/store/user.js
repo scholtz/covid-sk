@@ -62,6 +62,15 @@ export const actions = {
       { root: true }
     );
   },
+  async DashboardStats({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Admin/DashboardStats",
+      },
+      { root: true }
+    );
+  },
   async GetPublicKey({ dispatch }) {
     return await dispatch(
       "axios/get",

@@ -21,7 +21,9 @@
         </b-col>
         <b-col col="6">
           <b-card :title="$t('adminDashboardEzdravieManagement')">
-            <label for="locale">{{ $t("adminDashboardImportDateLabel") }}</label>
+            <label for="locale">{{
+              $t("adminDashboardImportDateLabel")
+            }}</label>
             <VueCtkDateTimePicker
               v-model="importTime"
               :label="$t('adminDashboardImportDate')"
@@ -40,8 +42,8 @@
                 small
                 class="ml-1"
                 v-if="processingDownloadEHealthVisitors"
-              />
-            </button><br/><br/>
+              /></button
+            ><br /><br />
 
             <label for="days">{{ $t("adminDashboardExportableDays") }}</label>
             <b-form-select
@@ -80,6 +82,11 @@
           </b-card>
         </b-col>
       </b-row>
+      <b-row v-if="statsLoaded">
+        <b-col>
+          <DashboardChart :showdata="showdata" />
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -89,9 +96,11 @@ import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 import { mapActions } from "vuex";
 import axios from "axios";
+import DashboardChart from "../../components/Charts/Dashboard";
 export default {
   components: {
     VueCtkDateTimePicker,
+    DashboardChart,
   },
   data() {
     return {
@@ -106,6 +115,8 @@ export default {
       hasFile: false,
       processingDownloadEHealthVisitors: false,
       processingSendDayResultsToEHealth: false,
+      statsLoaded: false,
+      showdata: { labels: [], series: [] },
     };
   },
   computed: {
@@ -119,6 +130,8 @@ export default {
         this.days = r;
       }
     });
+
+    this.loadDashboardStats();
   },
   methods: {
     ...mapActions({
@@ -126,6 +139,7 @@ export default {
       DownloadEHealthVisitors: "user/DownloadEHealthVisitors",
       SendDayResultsToEHealth: "user/SendDayResultsToEHealth",
       ListExportableDays: "result/ListExportableDays",
+      DashboardStats: "user/DashboardStats",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -193,6 +207,15 @@ export default {
           that.openSuccess("Úspešne odoslaných záznamov: " + r);
         } else {
           that.openError("Neodoslal sa žiadny záznam " + r);
+        }
+      });
+    },
+    loadDashboardStats() {
+      this.DashboardStats().then(r => {
+        if (r) {
+          console.log("stats", r);
+          this.showdata = r;
+          this.statsLoaded = true;
         }
       });
     },

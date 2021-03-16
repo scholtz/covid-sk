@@ -9,6 +9,7 @@ import result from "./result";
 import user from "./user";
 import placeProvider from "./placeProvider";
 import insurance from "./insurance";
+import admin from "./admin";
 
 Vue.use(Vuex);
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     user,
     placeProvider,
     insurance,
+    admin,
   },
   strict: debugStrict,
 });
