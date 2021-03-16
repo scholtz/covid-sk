@@ -1,5 +1,5 @@
 <template>
-  <div class="example">
+  <div class="dashboard-chart">
     <apexchart
       height="350"
       type="line"
@@ -13,7 +13,7 @@
 import VueApexCharts from "vue-apexcharts";
 
 export default {
-  name: "MixedExample",
+  name: "DashboardData",
   components: {
     apexchart: VueApexCharts,
   },
@@ -55,7 +55,7 @@ export default {
         },
         yaxis: {
           title: {
-            text: "Points",
+            text: "Osoby",
           },
           min: 0,
         },
@@ -65,7 +65,7 @@ export default {
           y: {
             formatter: function (y) {
               if (typeof y !== "undefined") {
-                return y.toFixed(0) + " points";
+                return y.toFixed(0);
               }
               return y;
             },
