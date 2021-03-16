@@ -200,7 +200,7 @@ export default {
     },
   },
   mounted() {
-    this.ListProducts().then(r => {
+    this.ListExternalProducts().then(r => {
       if (r) {
         this.products = r;
         this.loading = false;
@@ -213,7 +213,7 @@ export default {
       RemoveFromDocQueue: "result/RemoveFromDocQueue",
       PrintCertificateByDocumentManager:
         "result/PrintCertificateByDocumentManager",
-      ListProducts: "placeProvider/ListProducts",
+      ListExternalProducts: "placeProvider/ListExternalProducts",
       LoadEmployeeByEmployeeNumber: "user/LoadEmployeeByEmployeeNumber",
       RegisterEmployeeByDocumenter: "user/RegisterEmployeeByDocumenter",
     }),

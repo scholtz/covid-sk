@@ -215,6 +215,17 @@ export const actions = {
       { root: true }
     );
   },
+  async ListExternalProducts({ dispatch }) {
+    return await dispatch(
+      "axios/get",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "PlaceProvider/ListExternalProducts",
+      },
+      { root: true }
+    );
+  },
 };
 export default {
   namespaced: true,
