@@ -167,6 +167,21 @@
                     />
                   </b-form-group>
                 </validation-provider>
+                <validation-provider name="Externý test - umožniť samotesty">
+                  <b-form-group
+                    id="externalOnly-group-1"
+                    label="Externý test - umožniť samotesty"
+                    label-for="externalOnly"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-checkbox
+                      id="externalOnly"
+                      name="externalOnly"
+                      v-model="product.externalOnly"
+                    />
+                  </b-form-group>
+                </validation-provider>
                 <validation-provider
                   name="Popis produktu"
                   :rules="{ required: true }"
