@@ -51,7 +51,7 @@ export default {
           size: 0,
         },
         xaxis: {
-          type: "datetime",
+          type: "category",
         },
         yaxis: {
           title: {
