@@ -133,7 +133,7 @@ export const actions = {
       {
         url:
           this.state.config.VUE_CONFIG_APP_API +
-          "Result/CompanyRegistrationsExport",
+          "User/CompanyRegistrationsExport",
         name: name,
         type: "get",
       },
