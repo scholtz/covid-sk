@@ -106,6 +106,32 @@
           </button>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col>
+          <label for="days">Typ prispôsobeného reportu</label>
+          <b-form-select
+            v-model="customreport"
+            :options="customreports"
+          ></b-form-select>
+        </b-col>
+        <b-col>
+          <button
+            @click="clickCustomExport"
+            class="btn btn-primary my-4 form-control"
+          >
+            Prispôsobené reporty
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            ></svg>
+            <b-spinner small v-if="loading9" />
+          </button>
+        </b-col>
+      </b-row>
     </b-container>
     <div class="app-pane-lgray py-2">
       <b-container>
@@ -154,6 +180,8 @@ export default {
   data() {
     return {
       days: [],
+      customreport: "aures-1",
+      customreports: ["aures-1"],
       selectedDay: null,
       loading1: false,
       loading2: false,
@@ -163,6 +191,7 @@ export default {
       loading6: false,
       loading7: false,
       loading8: false,
+      loading9: false,
     };
   },
   mounted() {
@@ -184,6 +213,7 @@ export default {
       ListAnonymizedVisitors: "result/ListAnonymizedVisitors",
       CompanyRegistrationsExport: "user/CompanyRegistrationsExport",
       ExportResultSubmissions: "result/ExportResultSubmissions",
+      CustomExport: "result/CustomExport",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -268,6 +298,18 @@ export default {
           this.openSuccess("Úspešne ste stiahli súbor");
         }
         this.loading8 = false;
+      });
+    },
+    clickCustomExport() {
+      this.loading9 = true;
+      this.CustomExport({
+        exportType: this.customreport,
+        day: this.selectedDay,
+      }).then(r => {
+        if (r) {
+          this.openSuccess("Úspešne ste stiahli súbor");
+        }
+        this.loading9 = false;
       });
     },
   },
