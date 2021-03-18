@@ -799,6 +799,14 @@ export default {
     if (!this.phone) this.phone = "+421";
     if (!this.email) this.email = "@";
 
+    if (this.$store.state.config.COUNTRY === "CZ") {
+      if (this.phone === "+421") {
+        this.phone = "+420";
+      }
+      if (this.insurance === "25") {
+        this.insurance = "111";
+      }
+    }
     this.setLanguage();
   },
   methods: {
