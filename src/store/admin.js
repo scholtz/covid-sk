@@ -8,6 +8,17 @@ export const actions = {
       { root: true }
     );
   },
+  async FixConnectVisitorsWithEmployeeId({ dispatch }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Admin/FixConnectVisitorsWithEmployeeId",
+      },
+      { root: true }
+    );
+  },
 };
 export default {
   namespaced: true,

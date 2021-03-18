@@ -7,7 +7,12 @@
     </div>
     <b-container class="my-2">
       <b-row>
-        <button @click="FixAdvancedStatsClick">Fis Advanced Stats</button>
+        <button @click="FixAdvancedStatsClick">Fix Advanced Stats</button>
+      </b-row>
+      <b-row>
+        <button @click="FixConnectVisitorsWithEmployeeIdClick">
+          FixConnectVisitorsWithEmployeeId
+        </button>
       </b-row>
     </b-container>
   </div>
@@ -31,6 +36,8 @@ export default {
       ListExportableDays: "result/ListExportableDays",
       DashboardStats: "user/DashboardStats",
       FixAdvancedStats: "admin/FixAdvancedStats",
+      FixConnectVisitorsWithEmployeeId:
+        "admin/FixConnectVisitorsWithEmployeeId",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -41,6 +48,13 @@ export default {
         return;
 
       this.FixAdvancedStats().then(r => {
+        if (r) {
+          this.openSuccess("OK");
+        }
+      });
+    },
+    FixConnectVisitorsWithEmployeeIdClick() {
+      this.FixConnectVisitorsWithEmployeeId().then(r => {
         if (r) {
           this.openSuccess("OK");
         }
