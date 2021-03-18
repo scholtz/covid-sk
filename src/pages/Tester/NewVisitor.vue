@@ -8,7 +8,7 @@
 
     <ValidationObserver>
       <b-container class="my-4">
-        <b-row>
+        <b-row v-if="!$store.state.config.INSURED_ONLY">
           <b-col cols="12" md="4">
             <b-form-group
               :label="$t('registrationFormNewVisitorIdentification')"
