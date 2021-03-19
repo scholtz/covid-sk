@@ -19,6 +19,16 @@ export const actions = {
       { root: true }
     );
   },
+  async DeleteAllRegistrations({ dispatch }) {
+    return await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API + "Admin/DeleteAllRegistrations",
+      },
+      { root: true }
+    );
+  },
 };
 export default {
   namespaced: true,

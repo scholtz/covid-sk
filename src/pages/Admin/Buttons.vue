@@ -6,12 +6,22 @@
       </b-container>
     </div>
     <b-container class="my-2">
-      <b-row>
-        <button @click="FixAdvancedStatsClick">Fix Advanced Stats</button>
+      <b-row class="my-2">
+        <button @click="FixAdvancedStatsClick" class="btn btn-light">
+          Fix Advanced Stats
+        </button>
       </b-row>
-      <b-row>
-        <button @click="FixConnectVisitorsWithEmployeeIdClick">
+      <b-row class="my-2">
+        <button
+          @click="FixConnectVisitorsWithEmployeeIdClick"
+          class="btn btn-light"
+        >
           FixConnectVisitorsWithEmployeeId
+        </button>
+      </b-row>
+      <b-row class="my-2">
+        <button @click="DeleteAllRegistrationsClick" class="btn btn-light">
+          DeleteAllRegistrations
         </button>
       </b-row>
     </b-container>
@@ -38,6 +48,7 @@ export default {
       FixAdvancedStats: "admin/FixAdvancedStats",
       FixConnectVisitorsWithEmployeeId:
         "admin/FixConnectVisitorsWithEmployeeId",
+      DeleteAllRegistrations: "admin/DeleteAllRegistrations",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -55,6 +66,13 @@ export default {
     },
     FixConnectVisitorsWithEmployeeIdClick() {
       this.FixConnectVisitorsWithEmployeeId().then(r => {
+        if (r) {
+          this.openSuccess("OK");
+        }
+      });
+    },
+    DeleteAllRegistrationsClick() {
+      this.DeleteAllRegistrations().then(r => {
         if (r) {
           this.openSuccess("OK");
         }
