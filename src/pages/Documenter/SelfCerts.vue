@@ -247,9 +247,7 @@ export default {
     clickRegisterTest() {
       this.employeeLoaded = false;
       this.processingRegInsert = true;
-      this.LoadEmployeeByEmployeeNumber({
-        employeeNumber: this.employeeId,
-      }).then(r => {
+      this.RegisterEmployeeByDocumenter(this.toSend).then(r => {
         if (r) {
           this.openSuccess(this.$t("selfCertsTestInsertedMessage"));
         }
