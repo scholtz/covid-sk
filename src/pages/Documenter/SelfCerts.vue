@@ -146,7 +146,7 @@
             class="btn btn-primary my-4"
             :disabled="!toSend.time || !toSend.productId || processingRegInsert"
           >
-            {{ $t("selfCertsLoad") }}
+            Zaregistruj test
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"

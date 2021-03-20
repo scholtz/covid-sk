@@ -78,6 +78,7 @@
               @click="submitFile"
             >
               {{ $t("adminDashboardUpload") }}
+              <b-spinner small v-if="submitFileProcessing" />
             </button>
           </b-card>
         </b-col>
@@ -116,6 +117,7 @@ export default {
       processingDownloadEHealthVisitors: false,
       processingSendDayResultsToEHealth: false,
       statsLoaded: false,
+      submitFileProcessing: false,
       showdata: { labels: [], series: [] },
     };
   },
@@ -147,6 +149,7 @@ export default {
     }),
 
     submitFile() {
+      this.submitFileProcessing = true;
       let formData = new FormData();
       formData.append("file", this.file);
       console.log(">> formData >> ", formData);
@@ -164,8 +167,11 @@ export default {
           }
         )
         .then(function (r) {
-          console.log("r", r);
-          that.openSuccess("Úspešne nahratých záznamov: " + r.data);
+          if (r) {
+            console.log("Processed employees upload records", r);
+            that.openSuccess("Úspešne nahratých záznamov: " + r.data);
+          }
+          this.submitFileProcessing = false;
         })
         .catch(function (r) {
           console.log("r", r);
