@@ -6,12 +6,31 @@
       </b-container>
     </div>
     <b-container class="my-2">
-      <b-row>
-        <button @click="FixAdvancedStatsClick">Fix Advanced Stats</button>
+      <b-row class="my-2">
+        <button @click="FixAdvancedStatsClick" class="btn btn-light">
+          Fix Advanced Stats
+          <b-spinner small v-if="FixAdvancedStatsProcessing" />
+        </button>
       </b-row>
-      <b-row>
-        <button @click="FixConnectVisitorsWithEmployeeIdClick">
+      <b-row class="my-2">
+        <button
+          @click="FixConnectVisitorsWithEmployeeIdClick"
+          class="btn btn-light"
+        >
           FixConnectVisitorsWithEmployeeId
+          <b-spinner small v-if="FixConnectVisitorsWithEmployeeIdProcessing" />
+        </button>
+      </b-row>
+      <b-row class="my-2">
+        <button @click="DeleteAllRegistrationsClick" class="btn btn-light">
+          DeleteAllRegistrations
+          <b-spinner small v-if="DeleteAllRegistrationsProcessing" />
+        </button>
+      </b-row>
+      <b-row class="my-2">
+        <button @click="RequeeUnprocessedVisitorsClick" class="btn btn-light">
+          DeleteAllRegistrations
+          <b-spinner small v-if="RequeeUnprocessedVisitorsProcessing" />
         </button>
       </b-row>
     </b-container>
@@ -22,6 +41,14 @@
 import { mapActions } from "vuex";
 
 export default {
+  data() {
+    return {
+      FixAdvancedStatsProcessing: false,
+      FixConnectVisitorsWithEmployeeIdProcessing: false,
+      RequeeUnprocessedVisitorsProcessing: false,
+      DeleteAllRegistrationsProcessing: false,
+    };
+  },
   computed: {
     locale() {
       return this.$i18n.locale;
@@ -38,6 +65,8 @@ export default {
       FixAdvancedStats: "admin/FixAdvancedStats",
       FixConnectVisitorsWithEmployeeId:
         "admin/FixConnectVisitorsWithEmployeeId",
+      DeleteAllRegistrations: "admin/DeleteAllRegistrations",
+      RequeeUnprocessedVisitors: "admin/RequeeUnprocessedVisitors",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -46,18 +75,39 @@ export default {
     FixAdvancedStatsClick() {
       if (!confirm("Táto metóda môže vymazať údaje zo systému!! Pokračovať?"))
         return;
-
+      this.FixAdvancedStatsProcessing = true;
       this.FixAdvancedStats().then(r => {
         if (r) {
-          this.openSuccess("OK");
+          this.openSuccess("OK " + r);
         }
+        this.FixAdvancedStatsProcessing = false;
       });
     },
     FixConnectVisitorsWithEmployeeIdClick() {
+      this.FixConnectVisitorsWithEmployeeIdProcessing = true;
       this.FixConnectVisitorsWithEmployeeId().then(r => {
         if (r) {
-          this.openSuccess("OK");
+          this.openSuccess("OK " + r);
         }
+        this.FixConnectVisitorsWithEmployeeIdProcessing = false;
+      });
+    },
+    DeleteAllRegistrationsClick() {
+      this.DeleteAllRegistrationsProcessing = true;
+      this.DeleteAllRegistrations().then(r => {
+        if (r) {
+          this.openSuccess("OK " + r);
+        }
+        this.DeleteAllRegistrationsProcessing = false;
+      });
+    },
+    RequeeUnprocessedVisitorsClick() {
+      this.RequeeUnprocessedVisitorsProcessing = true;
+      this.RequeeUnprocessedVisitors().then(r => {
+        if (r) {
+          this.openSuccess("OK " + r);
+        }
+        this.RequeeUnprocessedVisitorsProcessing = false;
       });
     },
   },

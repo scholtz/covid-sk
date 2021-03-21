@@ -146,7 +146,7 @@
             class="btn btn-primary my-4"
             :disabled="!toSend.time || !toSend.productId || processingRegInsert"
           >
-            {{ $t("selfCertsLoad") }}
+            Zaregistruj test
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.5"
@@ -247,9 +247,7 @@ export default {
     clickRegisterTest() {
       this.employeeLoaded = false;
       this.processingRegInsert = true;
-      this.LoadEmployeeByEmployeeNumber({
-        employeeNumber: this.employeeId,
-      }).then(r => {
+      this.RegisterEmployeeByDocumenter(this.toSend).then(r => {
         if (r) {
           this.openSuccess(this.$t("selfCertsTestInsertedMessage"));
         }

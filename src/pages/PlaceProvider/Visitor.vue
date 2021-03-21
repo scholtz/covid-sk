@@ -495,6 +495,20 @@
                     />
                   </b-form-group>
                 </b-col>
+                <b-col>
+                  <b-form-group
+                    id="placeProviderId-group-1"
+                    label="placeProviderId"
+                    label-for="placeProviderId"
+                  >
+                    <b-form-input
+                      disabled
+                      id="placeProviderId"
+                      name="placeProviderId"
+                      v-model="visitor.placeProviderId"
+                    />
+                  </b-form-group>
+                </b-col>
               </b-row>
 
               <b-row>
@@ -541,6 +555,22 @@
               <b-row>
                 <b-col>
                   <b-form-group
+                    id="registrationTime-group-1"
+                    label="registrationTime"
+                    label-for="registrationTime"
+                  >
+                    <VueCtkDateTimePicker
+                      v-model="visitor.registrationTime"
+                      label="registrationTime"
+                      time-zone="Europe/Bratislava"
+                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                      formatted="llll"
+                      :locale="locale"
+                    />
+                  </b-form-group>
+                </b-col>
+                <b-col>
+                  <b-form-group
                     id="chosenSlotTime-group-1"
                     label="chosenSlotTime"
                     label-for="chosenSlotTime"
@@ -548,6 +578,73 @@
                     <VueCtkDateTimePicker
                       v-model="visitor.chosenSlotTime"
                       label="chosenSlotTime"
+                      time-zone="Europe/Bratislava"
+                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                      formatted="llll"
+                      :locale="locale"
+                    />
+                  </b-form-group>
+                </b-col>
+
+                <b-col>
+                  <b-form-group
+                    id="testingTime-group-1"
+                    label="testingTime"
+                    label-for="testingTime"
+                  >
+                    <VueCtkDateTimePicker
+                      v-model="visitor.testingTime"
+                      label="testingTime"
+                      time-zone="Europe/Bratislava"
+                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                      formatted="llll"
+                      :locale="locale"
+                    />
+                  </b-form-group>
+                </b-col>
+
+                <b-col>
+                  <b-form-group
+                    id="testResultTime-group-1"
+                    label="testResultTime"
+                    label-for="testResultTime"
+                  >
+                    <VueCtkDateTimePicker
+                      v-model="visitor.testResultTime"
+                      label="testResultTime"
+                      time-zone="Europe/Bratislava"
+                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                      formatted="llll"
+                      :locale="locale"
+                    />
+                  </b-form-group>
+                </b-col> </b-row
+              ><b-row>
+                <b-col>
+                  <b-form-group
+                    id="resultNotifiedAt-group-1"
+                    label="resultNotifiedAt"
+                    label-for="resultNotifiedAt"
+                  >
+                    <VueCtkDateTimePicker
+                      v-model="visitor.resultNotifiedAt"
+                      label="resultNotifiedAt"
+                      time-zone="Europe/Bratislava"
+                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                      formatted="llll"
+                      :locale="locale"
+                    />
+                  </b-form-group>
+                </b-col>
+                <b-col>
+                  <b-form-group
+                    id="eHealthNotifiedAt-group-1"
+                    label="eHealthNotifiedAt"
+                    label-for="eHealthNotifiedAt"
+                  >
+                    <VueCtkDateTimePicker
+                      v-model="visitor.eHealthNotifiedAt"
+                      label="eHealthNotifiedAt"
                       time-zone="Europe/Bratislava"
                       format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
                       formatted="llll"
@@ -580,88 +677,6 @@
                     <VueCtkDateTimePicker
                       v-model="visitor.lastUpdate"
                       label="lastUpdate"
-                      time-zone="Europe/Bratislava"
-                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
-                      formatted="llll"
-                      :locale="locale"
-                    />
-                  </b-form-group>
-                </b-col>
-                <b-col>
-                  <b-form-group
-                    id="registrationTime-group-1"
-                    label="registrationTime"
-                    label-for="registrationTime"
-                  >
-                    <VueCtkDateTimePicker
-                      v-model="visitor.registrationTime"
-                      label="registrationTime"
-                      time-zone="Europe/Bratislava"
-                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
-                      formatted="llll"
-                      :locale="locale"
-                    />
-                  </b-form-group>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <b-form-group
-                    id="resultNotifiedAt-group-1"
-                    label="resultNotifiedAt"
-                    label-for="resultNotifiedAt"
-                  >
-                    <VueCtkDateTimePicker
-                      v-model="visitor.resultNotifiedAt"
-                      label="resultNotifiedAt"
-                      time-zone="Europe/Bratislava"
-                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
-                      formatted="llll"
-                      :locale="locale"
-                    />
-                  </b-form-group>
-                </b-col>
-                <b-col>
-                  <b-form-group
-                    id="testResultTime-group-1"
-                    label="testResultTime"
-                    label-for="testResultTime"
-                  >
-                    <VueCtkDateTimePicker
-                      v-model="visitor.testResultTime"
-                      label="testResultTime"
-                      time-zone="Europe/Bratislava"
-                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
-                      formatted="llll"
-                      :locale="locale"
-                    />
-                  </b-form-group>
-                </b-col>
-                <b-col>
-                  <b-form-group
-                    id="testingTime-group-1"
-                    label="testingTime"
-                    label-for="testingTime"
-                  >
-                    <VueCtkDateTimePicker
-                      v-model="visitor.testingTime"
-                      label="testingTime"
-                      time-zone="Europe/Bratislava"
-                      format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
-                      formatted="llll"
-                      :locale="locale"
-                    />
-                  </b-form-group>
-                </b-col>
-                <b-col>
-                  <b-form-group
-                    id="eHealthNotifiedAt-group-1"
-                    label="eHealthNotifiedAt"
-                    label-for="eHealthNotifiedAt"
-                  >
-                    <VueCtkDateTimePicker
-                      v-model="visitor.eHealthNotifiedAt"
-                      label="eHealthNotifiedAt"
                       time-zone="Europe/Bratislava"
                       format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
                       formatted="llll"

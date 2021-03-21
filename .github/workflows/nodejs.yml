@@ -67,6 +67,12 @@ jobs:
       with:
         username: scholtz2
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    - name: Get current date
+      id: datehour
+      run: echo "::set-output name=datehour::$(date +'%Y-%m-%d-%H')"
     -
       name: Build and push
       uses: docker/build-push-action@v2
@@ -76,4 +82,4 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          scholtz2/mass-covid-testing-fe:latest
+          scholtz2/mass-covid-testing-fe:latest,scholtz2/mass-covid-testing-fe:${{ steps.date.outputs.date }},scholtz2/mass-covid-testing-fe:${{ steps.datehour.outputs.datehour }}
