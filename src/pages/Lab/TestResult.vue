@@ -44,6 +44,8 @@
       </b-row>
     </b-container>
     <b-container v-if="action === 'sick'">
+      <b-row>
+        <b-col>
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
         {{ $t("labBackToSelection") }}
       </button>
@@ -54,8 +56,12 @@
         Reset
       </button>
       <h2>{{ $t("labSelectTestResultsSick") }}</h2>
+        </b-col>
+      </b-row>
     </b-container>
     <b-container v-if="action === 'repeat'">
+      <b-row>
+        <b-col>
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
         {{ $t("labBackToSelection") }}
       </button>
@@ -66,8 +72,12 @@
         Reset
       </button>
       <h2>{{ $t("labSelectTestResultsRepeat") }}</h2>
+        </b-col>
+      </b-row>
     </b-container>
     <b-container v-if="action === 'healthy'">
+      <b-row>
+        <b-col>
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
         {{ $t("labBackToSelection") }}
       </button>
@@ -78,10 +88,13 @@
         Reset
       </button>
       <h2>{{ $t("labSelectTestResultsHealthy") }}</h2>
+        </b-col>
+      </b-row>
     </b-container>
-    <b-container v-if="action !== 'select'">
+
+    <b-container v-if="action !== 'select'" class="my-2">
       <b-row>
-        <b-col>
+        <b-col >
           <label for="next">{{ $t("labNextCode") }}</label>
           <b-input v-model="next" ref="next" id="next" />
           <button
@@ -97,17 +110,11 @@
           >
             {{ $t("labAdd") }}
           </button>
-        </b-col>
-        <b-col v-if="scanbox === 'right'">
-          <qrcode-stream v-if="useQR" @decode="onDecode" />
-          <StreamBarcodeReader v-else @decode="onDecode" />
-        </b-col>
-      </b-row>
 
-      <b-container v-if="scanbox === 'aboveTable'">
+      <div v-if="scanbox === 'aboveTable'">
         <qrcode-stream v-if="useQR" @decode="onDecode" />
         <StreamBarcodeReader v-else @decode="onDecode" />
-      </b-container>
+      </div>
       <b-table :items="data" :fields="fields">
         <template #cell(id)="row">
           <button
@@ -123,8 +130,15 @@
           </div>
         </template>
       </b-table>
+        </b-col>
+        <b-col v-if="scanbox === 'right'">
+          <qrcode-stream v-if="useQR" @decode="onDecode" />
+          <StreamBarcodeReader v-else @decode="onDecode" />
+        </b-col>
+      </b-row>
 
-      <b-container v-if="action === 'sick'">
+
+      <div v-if="action === 'sick'">
         <button
           :disabled="processing"
           class="btn btn-danger my-2"
@@ -133,14 +147,14 @@
           {{ $t("labSendSickAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
-      </b-container>
-      <b-container v-if="action === 'repeat'">
+      </div>
+      <div v-if="action === 'repeat'">
         <button :disabled="processing" class="btn btn-info my-2" @click="send">
           {{ $t("labSendRepeatAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
-      </b-container>
-      <b-container v-if="action === 'healthy'">
+      </div>
+      <div v-if="action === 'healthy'">
         <button
           :disabled="processing"
           class="btn btn-success my-2"
@@ -149,12 +163,12 @@
           {{ $t("labSendHealthyAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
-      </b-container>
+      </div>
 
-      <b-container v-if="scanbox === 'belowTable'">
+      <div v-if="scanbox === 'belowTable'">
         <qrcode-stream v-if="useQR" @decode="onDecode" />
         <StreamBarcodeReader v-else @decode="onDecode" />
-      </b-container>
+      </div>
       <b-container>
         <b-row>
           <b-col>
