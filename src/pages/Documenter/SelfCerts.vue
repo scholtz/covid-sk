@@ -226,7 +226,7 @@ export default {
       this.LoadEmployeeByEmployeeNumber({
         employeeNumber: this.employeeId,
       }).then(r => {
-        if (r) {
+        if (r && r.lastName) {
           this.employee = r;
           this.toSend.name =
             this.employee.firstName + " " + this.employee.lastName;
