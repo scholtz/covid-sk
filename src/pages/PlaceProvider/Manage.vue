@@ -163,6 +163,42 @@
             </b-col>
           </b-row>
           <b-row class="py-1">
+            <b-col md="4">
+              <label for="supportName">{{ $t("ppSupportName") }}</label>
+            </b-col>
+            <b-col md="8">
+              <b-input
+                v-model="pp.supportName"
+                ref="supportName"
+                id="supportName"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="py-1">
+            <b-col md="4">
+              <label for="supportEmail">{{ $t("ppSupportEmail") }}</label>
+            </b-col>
+            <b-col md="8">
+              <b-input
+                v-model="pp.supportEmail"
+                ref="supportEmail"
+                id="supportEmail"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="py-1">
+            <b-col md="4">
+              <label for="supportPhone">{{ $t("ppSupportPhone") }}</label>
+            </b-col>
+            <b-col md="8">
+              <b-input
+                v-model="pp.supportPhone"
+                ref="supportPhone"
+                id="supportPhone"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="py-1">
             <b-col offset-md="4">
               <button @click="clickUpdate" class="btn btn-primary my-4">
                 Upraviť správcu odberných miest

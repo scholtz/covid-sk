@@ -26,6 +26,9 @@ const state = () => ({
   RC_IS_INSURANCE: false,
   INSURED_ONLY: false,
   COUNTRY: "SK",
+  SUPPORT_NAME: "",
+  SUPPORT_EMAIL: "",
+  SUPPORT_PHONE: "",
 });
 
 const mutations = {
@@ -34,6 +37,15 @@ const mutations = {
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     if (value.ALLOWED_HOSTS) {
       state.ALLOWED_HOSTS = value.ALLOWED_HOSTS;
+    }
+    if (value.SUPPORT_NAME) {
+      state.SUPPORT_NAME = value.SUPPORT_NAME;
+    }
+    if (value.SUPPORT_EMAIL) {
+      state.SUPPORT_EMAIL = value.SUPPORT_EMAIL;
+    }
+    if (value.SUPPORT_PHONE) {
+      state.SUPPORT_PHONE = value.SUPPORT_PHONE;
     }
     if (value.INTRO_TEXT) {
       state.INTRO_TEXT = value.INTRO_TEXT;
