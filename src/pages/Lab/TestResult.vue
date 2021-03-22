@@ -44,26 +44,57 @@
       </b-row>
     </b-container>
     <b-container v-if="action === 'sick'">
+      <b-row>
+        <b-col>
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
         {{ $t("labBackToSelection") }}
+      </button>
+      <button
+        class="float-right bg-light m-2 btn btn-light"
+        @click="resetTable"
+      >
+        Reset
       </button>
       <h2>{{ $t("labSelectTestResultsSick") }}</h2>
+        </b-col>
+      </b-row>
     </b-container>
     <b-container v-if="action === 'repeat'">
+      <b-row>
+        <b-col>
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
         {{ $t("labBackToSelection") }}
+      </button>
+      <button
+        class="float-right bg-light m-2 btn btn-light"
+        @click="resetTable"
+      >
+        Reset
       </button>
       <h2>{{ $t("labSelectTestResultsRepeat") }}</h2>
+        </b-col>
+      </b-row>
     </b-container>
     <b-container v-if="action === 'healthy'">
+      <b-row>
+        <b-col>
       <button class="float-right bg-light my-2 btn btn-light" @click="reset">
         {{ $t("labBackToSelection") }}
       </button>
+      <button
+        class="float-right bg-light m-2 btn btn-light"
+        @click="resetTable"
+      >
+        Reset
+      </button>
       <h2>{{ $t("labSelectTestResultsHealthy") }}</h2>
+        </b-col>
+      </b-row>
     </b-container>
-    <b-container v-if="action !== 'select'">
+
+    <b-container v-if="action !== 'select'" class="my-2">
       <b-row>
-        <b-col cols="12">
+        <b-col >
           <label for="next">{{ $t("labNextCode") }}</label>
           <b-input v-model="next" ref="next" id="next" />
           <button
@@ -79,9 +110,11 @@
           >
             {{ $t("labAdd") }}
           </button>
-        </b-col>
-      </b-row>
 
+      <div v-if="scanbox === 'aboveTable'">
+        <qrcode-stream v-if="useQR" @decode="onDecode" />
+        <StreamBarcodeReader v-else @decode="onDecode" />
+      </div>
       <b-table :items="data" :fields="fields">
         <template #cell(id)="row">
           <button
@@ -97,8 +130,15 @@
           </div>
         </template>
       </b-table>
+        </b-col>
+        <b-col v-if="scanbox === 'right'">
+          <qrcode-stream v-if="useQR" @decode="onDecode" />
+          <StreamBarcodeReader v-else @decode="onDecode" />
+        </b-col>
+      </b-row>
 
-      <b-container v-if="action === 'sick'">
+
+      <div v-if="action === 'sick'">
         <button
           :disabled="processing"
           class="btn btn-danger my-2"
@@ -107,14 +147,14 @@
           {{ $t("labSendSickAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
-      </b-container>
-      <b-container v-if="action === 'repeat'">
+      </div>
+      <div v-if="action === 'repeat'">
         <button :disabled="processing" class="btn btn-info my-2" @click="send">
           {{ $t("labSendRepeatAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
-      </b-container>
-      <b-container v-if="action === 'healthy'">
+      </div>
+      <div v-if="action === 'healthy'">
         <button
           :disabled="processing"
           class="btn btn-success my-2"
@@ -123,11 +163,38 @@
           {{ $t("labSendHealthyAnnouncement") }}
           <b-spinner small v-if="processing" />
         </button>
+      </div>
+
+      <div v-if="scanbox === 'belowTable'">
+        <qrcode-stream v-if="useQR" @decode="onDecode" />
+        <StreamBarcodeReader v-else @decode="onDecode" />
+      </div>
+      <b-container>
+        <b-row>
+          <b-col>
+            <p>
+              Funkcionalita tlačítka Reset: Ak je aspoň jeden odoslaný výsledok,
+              vymaže výsledky úspešne odoslaných zo zoznamu. Ak nie je odoslaný
+              žiadny výsledok, ak je v zozname na odoslanie aspoň jeden výsledok
+              na odoslanie po stlačení sa vymažú z tabuľky záznamy na odoslanie
+              a zostanú iba záznamy chybne odoslané. Ak sa stlačí tlačítko reset
+              bez záznamov na odoslanie a bez úspešne odoslaných záznamov, z
+              tabuľky sa vymažú aj nespárované záznamy alebo záznamy s inou
+              chybou.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <label for="scanbox">Pozícia scanboxu</label>
+            <b-form-select
+              :options="scanboxPositions"
+              v-model="scanbox"
+              id="scanbox"
+            />
+          </b-col>
+        </b-row>
       </b-container>
-    </b-container>
-    <b-container v-if="action !== 'select'">
-      <qrcode-stream v-if="useQR" @decode="onDecode" />
-      <StreamBarcodeReader v-else @decode="onDecode" />
     </b-container>
   </div>
 </template>
@@ -148,6 +215,21 @@ export default {
       useQR: true,
       processing: false,
       processingCount: 0,
+      scanbox: "right",
+      scanboxPositions: [
+        {
+          text: "Vpravo od vstupu",
+          value: "right",
+        },
+        {
+          text: "Nad tabuľkou na celú šírku",
+          value: "aboveTable",
+        },
+        {
+          text: "Pod tabuľkou na celú šírku",
+          value: "belowTable",
+        },
+      ],
       fields: [
         {
           label: this.$t("labAction"),
@@ -169,6 +251,17 @@ export default {
       action: "select",
     };
   },
+  watch: {
+    scanbox() {
+      localStorage.setItem("scanbox", this.scanbox);
+    },
+  },
+  mounted() {
+    const scanPos = localStorage.getItem("scanbox");
+    if (scanPos) {
+      this.scanbox = scanPos;
+    }
+  },
   methods: {
     ...mapActions({
       SetResults: "result/SetResults",
@@ -179,6 +272,24 @@ export default {
     reset() {
       this.action = "select";
       this.data = [];
+      this.next = "";
+    },
+    resetTable() {
+      this.next = "";
+      const countReady = this.data.filter(
+        x => x.state === "labStateReadyToSend"
+      ).length;
+
+      const countSent = this.data.filter(x => x.state === "labStateSent")
+        .length;
+
+      if (this.data.length > countReady && countReady > 0) {
+        this.data = this.data.filter(x => x.state != "labStateReadyToSend");
+      } else if (this.data.length > countSent && countSent > 0) {
+        this.data = this.data.filter(x => x.state != "labStateSent");
+      } else {
+        this.data = [];
+      }
     },
     send() {
       let result = "error";

@@ -297,6 +297,9 @@
   "ppPrivatePhone":"Primary nonpublic phone",
   "ppPublicE-mail":"Public email",
   "ppPublicPhone":"Public phone",
+  "ppSupportName": "Support name (email sender)",
+  "ppSupportEmail": "Support email (sender)",
+  "ppSupportPhone": "Support phone",
   "ppRegister":"Register as testing/vaccination place provider",
 
   "ppInfoQ":"Prečo si zvoliť rýchlejšie.sk?",

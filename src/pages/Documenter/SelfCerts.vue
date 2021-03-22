@@ -226,7 +226,7 @@ export default {
       this.LoadEmployeeByEmployeeNumber({
         employeeNumber: this.employeeId,
       }).then(r => {
-        if (r) {
+        if (r && r.lastName) {
           this.employee = r;
           this.toSend.name =
             this.employee.firstName + " " + this.employee.lastName;
@@ -245,11 +245,14 @@ export default {
       });
     },
     clickRegisterTest() {
-      this.employeeLoaded = false;
       this.processingRegInsert = true;
       this.RegisterEmployeeByDocumenter(this.toSend).then(r => {
         if (r) {
           this.openSuccess(this.$t("selfCertsTestInsertedMessage"));
+          this.toSend = {
+            result: "negative",
+          };
+          this.employeeLoaded = false;
         }
         this.processingRegInsert = false;
       });

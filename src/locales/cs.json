@@ -438,6 +438,9 @@
   "ppPrivatePhone": "NEveřejný mobil (hlavní kontakt)",
   "ppPublicE-mail": "Veřejný e-mail",
   "ppPublicPhone": "Veřejný telefon",
+  "ppSupportName": "Podpora - jméno (odesílatel emailů)",
+  "ppSupportEmail": "Podpora - email (odesílatel)",
+  "ppSupportPhone": "Podpora - telefon",
   "ppRegister": "Zaregistrovat provozovatele",
 
   "ppInfoQ": "Proč si zvolit rýchlejšie.sk?",

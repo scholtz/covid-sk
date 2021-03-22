@@ -271,6 +271,34 @@
                 />
               </b-col>
             </b-row>
+
+            <b-row>
+              <b-col>
+                <label for="supportName">{{ $t("ppSupportName") }}</label>
+                <b-input
+                  v-model="place.supportName"
+                  ref="supportName"
+                  id="supportName"
+                />
+              </b-col>
+              <b-col>
+                <label for="supportEmail">{{ $t("ppSupportEmail") }}</label>
+                <b-input
+                  v-model="place.supportEmail"
+                  ref="supportEmail"
+                  id="supportEmail"
+                />
+              </b-col>
+              <b-col>
+                <label for="supportPhone">{{ $t("ppSupportPhone") }}</label>
+                <b-input
+                  v-model="place.supportPhone"
+                  ref="supportPhone"
+                  id="supportPhone"
+                />
+              </b-col>
+            </b-row>
+
             <b-row
               ><button
                 v-if="place.id"

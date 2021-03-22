@@ -176,6 +176,7 @@ export default {
         .catch(function (r) {
           console.log("r", r);
           that.openError("Chyba pri nahrávaní súboru");
+          this.submitFileProcessing = false;
         });
     },
     handleFileUpload() {
