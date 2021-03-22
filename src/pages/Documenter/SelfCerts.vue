@@ -250,6 +250,9 @@ export default {
       this.RegisterEmployeeByDocumenter(this.toSend).then(r => {
         if (r) {
           this.openSuccess(this.$t("selfCertsTestInsertedMessage"));
+          this.toSend = {
+            result: "negative",
+          };
         }
         this.processingRegInsert = false;
       });
