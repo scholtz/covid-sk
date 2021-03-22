@@ -245,7 +245,6 @@ export default {
       });
     },
     clickRegisterTest() {
-      this.employeeLoaded = false;
       this.processingRegInsert = true;
       this.RegisterEmployeeByDocumenter(this.toSend).then(r => {
         if (r) {
@@ -253,6 +252,7 @@ export default {
           this.toSend = {
             result: "negative",
           };
+          this.employeeLoaded = false;
         }
         this.processingRegInsert = false;
       });
