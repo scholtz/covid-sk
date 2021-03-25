@@ -371,7 +371,7 @@ export default {
       openSuccess: "snackbar/openSuccess",
       openError: "snackbar/openError",
     }),
-    SetLimitToPlace(limits) {
+    async SetLimitToPlace(limits) {
       if (!this.place) {
         this.openError("Zadajte miesto");
         return;
@@ -387,7 +387,7 @@ export default {
         for (const index2 in event1) {
           const event2 = event1[index2];
           console.log("event1", event1, event2);
-          this.SetPlaceLimitation({
+          await this.SetPlaceLimitation({
             placeId: this.place,
             from: event2.start,
             until: event2.end,
