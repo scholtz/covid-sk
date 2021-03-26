@@ -2,7 +2,7 @@
   <div>
     <div class="app-pane-lgray py-2">
       <b-container>
-        <h1>Prehľad návštevníka - test {{ visitor.id }}</h1>
+        <h1>Prehľad návštevníka s kódom registrácie: {{ visitor.id }}</h1>
       </b-container>
     </div>
     <b-container class="py-3" v-if="loading">
