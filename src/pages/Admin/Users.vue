@@ -289,6 +289,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import moment from "moment";
 import FullCalendar from "@fullcalendar/vue";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -596,10 +597,10 @@ export default {
       this.modalSetupShow = true;
     },
     displayHoursFrom() {
-      return new Date(this.fromDate).getHours();
+      return moment(this.fromDate).hours();
     },
     displayHoursUntil() {
-      return new Date(this.untilDate).getHours();
+      return moment(this.untilDate).hours();
     },
     selectAllow: function (info) {
       console.log("info", info, new Date() < info.start);
