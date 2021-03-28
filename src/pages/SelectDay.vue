@@ -244,32 +244,37 @@
               :bg-variant="hourVariant"
               :text-variant="hourVariantText"
             >
-              <h2>{{ $t("selectHourQuestion") }}</h2>
-              <p v-if="!minutesLoaded">
-                {{ $t("selectHourHelp") }}
-              </p>
-              <b-container v-if="loadingHours">
-                <b-spinner /> {{ $t("loadingData") }}
-              </b-container>
-              <span v-for="hour in $store.state.slot.slotsH" :key="hour.from">
-                <span
-                  :disabled="hourDisabled(hour)"
-                  @click="hourClicked(hour)"
-                  class="btn m-1"
-                  :class="hourButtonStyle(hour)"
-                  :title="
-                    $t('selectHourButtonText', {
-                      description: hour.description,
-                      registrations: hour.registrations,
-                    })
-                  "
-                >
-                  {{ hour.description }}
-                  <div style="font-size: smaller">
-                    ({{ hour.registrations }} / {{ hourLimit(hour) }})
-                  </div>
+              <h4 v-if="Object.keys($store.state.slot.slotsH).length === 0">
+                {{ $t("selectHourNoSlotsAvailable") }}
+              </h4>
+              <div v-else>
+                <h2>{{ $t("selectHourQuestion") }}</h2>
+                <p v-if="!minutesLoaded">
+                  {{ $t("selectHourHelp") }}
+                </p>
+                <b-container v-if="loadingHours">
+                  <b-spinner /> {{ $t("loadingData") }}
+                </b-container>
+                <span v-for="hour in $store.state.slot.slotsH" :key="hour.from">
+                  <span
+                    :disabled="hourDisabled(hour)"
+                    @click="hourClicked(hour)"
+                    class="btn m-1"
+                    :class="hourButtonStyle(hour)"
+                    :title="
+                      $t('selectHourButtonText', {
+                        description: hour.description,
+                        registrations: hour.registrations,
+                      })
+                    "
+                  >
+                    {{ hour.description }}
+                    <div style="font-size: smaller">
+                      ({{ hour.registrations }} / {{ hourLimit(hour) }})
+                    </div>
+                  </span>
                 </span>
-              </span>
+              </div>
             </b-card>
 
             <b-card
@@ -519,5 +524,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -195,6 +195,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { mapActions } from "vuex";
 import skLocale from "@fullcalendar/core/locales/sk";
 import csLocale from "@fullcalendar/core/locales/cs";
+import moment from "moment";
 
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
@@ -422,7 +423,7 @@ export default {
         dateObj.setHours(12, 0, 0, 0);
         const date = dateObj.toISOString();
         this.calendarOptions.events = this.calendarOptions.events.filter(
-          x => x.start !== date
+          x => moment(x.start).format("L") !== moment(date).format("L")
         );
         if (i <= 3) {
           let text = this.$t("workingTimeOpeningHoursTemplate") + " " + i;

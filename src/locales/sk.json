@@ -192,6 +192,7 @@
   "selectDaySelectService": "Vybrať",
   "selectDayButtonText": "Dňa {description} je aktuálne registrovaných {registrations} osôb",
 
+  "selectHourNoSlotsAvailable": "Pre vybraný deň nie sú dostupné žiadne voľné sloty",
   "selectHourTitle": "Kliknutím zvoľte hodinu testu (v zátvorke sú už obsadené miesta)",
   "selectHourYourSelection": "Vybrali ste si: {place}, dňa {day}",
   "selectHourQuestion": "Kliknutím zvoľte hodinu testu",
