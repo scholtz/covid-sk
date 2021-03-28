@@ -63,14 +63,11 @@
             <p v-if="results.state === 'test-not-processed'">
               {{ $t("resultsTestNotProcessed") }}
             </p>
-            <p v-if="results.state === 'positive-certifiacte-sent'">
+            <p v-if="results.state === 'positive-certificate-sent'">
               <span v-html="$t('resultsTestPositiveCertTaken')" />
             </p>
-            <p v-if="results.state === 'positive-certifiacte-taken'">
-              <span v-html="$t('resultsTestPositiveCertNotTaken')" />
-            </p>
-            <p v-if="results.state === 'positive-certiciate-taken'">
-              <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+            <p v-if="results.state === 'positive-certificate-taken'">
+              <span v-html="$t('resultsTestPositiveCertTaken')" />
             </p>
             <p v-if="results.state === 'positive'">
               <span v-html="$t('resultsTestPositiveCertNotTaken')" />
@@ -78,7 +75,7 @@
             <p v-if="results.state === 'negative'">
               <span v-html="$t('resultsTestNegativeCertNotTaken')" />
             </p>
-            <p v-if="results.state === 'negative-certiciate-taken'">
+            <p v-if="results.state === 'negative-certificate-taken'">
               <span v-html="$t('resultsTestNegativeCertTaken')" />
             </p>
           </b-col>
@@ -274,5 +271,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

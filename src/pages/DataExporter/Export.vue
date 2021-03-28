@@ -157,7 +157,7 @@
           <li>
             Občan s pozitívnym testom si stiahol elektronický certifikát zo
             stránky registrácie:<br />
-            PositiveCertificateTaken = "positive-certiciate-taken"
+            PositiveCertificateTaken = "positive-certificate-taken"
           </li>
           <li>
             Test bol vyhodnotený ako pozitívny.<br />
@@ -166,7 +166,7 @@
           <li>
             Občan s pozitívnym testom si stiahol elektronický certifikát zo
             stránky registrácie:<br />
-            NegativeCertificateTaken = "negative-certiciate-taken"
+            NegativeCertificateTaken = "negative-certificate-taken"
           </li>
         </ul>
       </b-container>
@@ -315,5 +315,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -862,16 +862,16 @@ export default {
           text: "positive",
         },
         {
-          value: "positive-certiciate-taken",
-          text: "positive-certiciate-taken",
+          value: "positive-certificate-taken",
+          text: "positive-certificate-taken",
         },
         {
           value: "negative",
           text: "negative",
         },
         {
-          value: "negative-certiciate-taken",
-          text: "negative-certiciate-taken",
+          value: "negative-certificate-taken",
+          text: "negative-certificate-taken",
         },
       ],
     };
@@ -1010,5 +1010,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
