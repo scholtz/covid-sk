@@ -107,6 +107,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import skLocale from "@fullcalendar/core/locales/sk";
 import csLocale from "@fullcalendar/core/locales/cs";
+import moment from 'moment'
 
 export default {
   components: {
@@ -440,10 +441,10 @@ export default {
       this.modalSetupShow = true;
     },
     displayHoursFrom() {
-      return new Date(this.fromDate).getHours();
+      return moment(this.fromDate).hours();
     },
     displayHoursUntil() {
-      return new Date(this.untilDate).getHours();
+      return moment(this.untilDate).hours();
     },
     selectAllow: function (info) {
       console.log("info", info, new Date() < info.start);
