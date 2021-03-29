@@ -374,40 +374,27 @@ export default {
       return ret;
     },
   },
-  mounted() {
+  async mounted() {
     this.setSlotsH([]);
-    this.GetPlace({ id: this.$route.params.placeId })
-      .then(r => {
-        if (r) {
-          this.setCurrentPlace(r);
-          return r;
-        }
-      })
-      .then(r => {
-        if (r) {
-          if (!this.$store.state.place.currentPlace.placeProviderId)
-            return false;
-          return this.ReloadSlotsD({ placeId: this.$route.params.placeId });
-        }
-      })
-      .then(r => {
-        if (r) {
-          return this.ListPlaceProductByPlace({
-            placeId: this.$route.params.placeId,
-          });
-        }
-      })
-      .then(r => {
-        this.products = r;
+    const place = await this.GetPlace({ id: this.$route.params.placeId });
+    if (place) await this.setCurrentPlace(place);
 
-        if (this.products.length == 1) {
-          for (const index in this.products) {
-            this.selectedProduct = this.products[index].product.id;
-          }
-        }
+    if (!this.$store.state.place.currentPlace.placeProviderId) return;
+    else await this.ReloadSlotsD({ placeId: this.$route.params.placeId });
 
-        this.loading = false;
-      });
+    const products = await this.ListPlaceProductByPlace({
+      placeId: this.$route.params.placeId,
+    });
+
+    this.products = products;
+
+    if (this.products.length == 1) {
+      for (const index in this.products) {
+        this.selectedProduct = this.products[index].product.id;
+      }
+    }
+
+    this.loading = false;
   },
   methods: {
     ...mapMutations({
@@ -487,9 +474,7 @@ export default {
         .otherLimitations) {
         const limitation = this.$store.state.place.currentPlace
           .otherLimitations[index];
-        const now = new Date(this.currentSlotD.time);
-        const hour = slotsH.description.substr(0, 2);
-        now.setUTCHours(hour - 1);
+        const now = moment(slotsH.time);
         if (
           moment(limitation.from).isSameOrBefore(now) &&
           moment(limitation.until).isAfter(now)
