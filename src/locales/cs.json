@@ -637,6 +637,7 @@
   "testerPlaceName": "Název místa",
   "testerPlaceAddress": "Adresa",
   
+  "testerChosenSlotTime": "Čas zvoleného slotu",
   "testerTestNumber": "Číslo testu",
   "testerTestingTime": "Čas testování",
   "testerTestResultTime": "Čas vyhodnocení testu",
