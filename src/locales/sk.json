@@ -637,6 +637,11 @@
   "testerPlaceName": "Názov miesta",
   "testerPlaceAddress": "Adresa",
 
+  "testerTestNumber": "Číslo testu",
+  "testerTestingTime": "Čas testovania",
+  "testerTestResultTime": "Čas vyhodnotenie testu",
+  "testerResultNotifiedAt": "Notifikácia o výsledku testu",
+
   "labTestResultsAnnouncement": "Oznámenie výsledku testu",
   "labSelectItemToScan": "Vyberte čo idete nascanovať",
   "labTestResultsSick": "Pozitívne výsledky - Chorí na Covid-19",
