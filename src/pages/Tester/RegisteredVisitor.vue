@@ -366,6 +366,7 @@
                 visitor.result === 'positive-certificate-taken' ||
                 visitor.result === 'positive' ||
                 visitor.result === 'negative-certificate-taken' ||
+                visitor.result === 'negative-certiciate-taken' ||
                 visitor.result === 'negative'
               "
             >
@@ -397,7 +398,7 @@
                   /></b-badge>
                 </span>
                 <span
-                  v-else-if="visitor.result === 'negative-certificate-taken'"
+                  v-else-if="visitor.result === 'negative-certificate-taken' || visitor.result === 'negative-certiciate-taken'"
                 >
                   <b-badge variant="danger"
                     ><span v-html="$t('resultsTestNegativeCertTaken')"

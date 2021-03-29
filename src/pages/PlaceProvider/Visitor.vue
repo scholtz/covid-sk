@@ -873,6 +873,10 @@ export default {
           value: "negative-certificate-taken",
           text: "negative-certificate-taken",
         },
+        {
+          value: "negative-certiciate-taken",
+          text: "negative-certiciate-taken",
+        },
       ],
     };
   },
