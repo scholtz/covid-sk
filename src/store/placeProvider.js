@@ -1,6 +1,7 @@
 const state = () => ({
   places: [],
   currentPlace: {},
+  contacts: null,
 });
 
 const mutations = {
@@ -9,6 +10,9 @@ const mutations = {
   },
   setCurrentPlace(state, id) {
     state.currentPlace = state.places.find(p => p.placeProviderId === id);
+  },
+  setContacts(state, contacts) {
+    state.contacts = contacts;
   },
 };
 

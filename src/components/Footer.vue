@@ -12,6 +12,9 @@
     <b-container :fluid="fluid">
       <b-row>
         <b-col md="12" style="text-align: center">
+          <div v-if="contacts.length" class="mt-2">
+            {{ $t("footerProviderContacts") }}{{ contacts.join(", ") }}.
+          </div>
           <div v-html="$t('footerText')" />
           <div class="m-2 text-dark">
             <span v-if="$store.state.config.SUPPORT_NAME">
@@ -47,14 +50,43 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   name: "Footer",
   props: {
     fluid: Boolean,
   },
   computed: {
-    ...mapState("config", ["SHOW_DANGER"]),
+    ...mapState("config", ["SHOW_DANGER", "VUE_CONFIG_APP_API"]),
+    ...mapState("user", ["authJWT"]),
+    ...mapState("placeProvider", { contacts: state => state.contacts || [] }),
+  },
+  watch: {
+    authJWT() {
+      if (!this.VUE_CONFIG_APP_API || this.contacts.length > 0) return;
+      this.loadPp();
+    },
+  },
+  methods: {
+    ...mapMutations({
+      setContacts: "placeProvider/setContacts",
+    }),
+    ...mapActions({
+      ListPrivate: "placeProvider/ListPrivate",
+    }),
+    async loadPp() {
+      await this.ListPrivate();
+      const {
+        publicEmail,
+        publicPhone,
+      } = this.$store.state.placeProvider.places.find(
+        p => p.placeProviderId === this.$store.state.user.tokenData.pp
+      );
+      const contacts = [];
+      if (publicEmail) contacts.push(publicEmail);
+      if (publicPhone) contacts.push(publicPhone);
+      this.setContacts(contacts);
+    },
   },
 };
 </script>

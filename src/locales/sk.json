@@ -552,7 +552,8 @@
   "manageProductsTitle": "Správa poskytovaných služieb",
   "manageProductspart1Title": "Zoznam služieb",
   "manageProductspart2Title": "Služby poskytované na miestach",
-
+  
+  "footerProviderContacts": "Podpora pre verejnosť: ",
   "footerText": "<p>Službu <a href=\"https://www.rychlejsie.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:40px;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Rychlejsie_sk_logo_biele.png\" alt=\"Rýchlejšie.sk - služby bez čakania\" /></a> poskytuje Scholtz &amp; Company, j.s.a. v spolupráci so <a href=\"https://www.srdcomdoma.sk\" target=\"_blank\"><img style=\"margin: 0 auto; height:25px;\" src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/logos/Srdcomdoma_logo_horizontal_White_80px.png\" alt=\"Srdcom doma o.z.\" /></a></p><p><a class=\"idsk-footer__link\" href=\"#/gdpr\">Ochrana osobných údajov</a><br /></p>",
   "footerSocial": "<a href=\"https://www.facebook.com/rychlejsie.sk\" target=\"_blank\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/s/f.png\" height=\"25px\" alt=\"facebook link\" /></a> <a href=\"http://instagram.com/rychlejsie.sk\" target=\"_blank\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/s/i.png\" height=\"25px\" alt=\"facebook link\" /> <a href=\"https://twitter.com/rychlejsie\" target=\"_blank\"><img src=\"https://cdnsitestoragecovid.blob.core.windows.net/web/images/icons/s/t.png\" height=\"25px\" alt=\"facebook link\" /></a>",
 
