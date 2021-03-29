@@ -358,6 +358,14 @@
                 >
               </td>
             </tr>
+            <tr v-if="visitor.chosenSlotTime">
+              <td>{{ $t("testerChosenSlotTime") }}:</td>
+              <td>
+                {{
+                  visitor.chosenSlotTime | formatDateTime({ separator: "|" })
+                }}
+              </td>
+            </tr>
             <tr v-if="visitor.testingSet">
               <td>{{ $t("testerTestNumber") }}:</td>
               <td>{{ visitor.testingSet }}</td>
