@@ -508,9 +508,7 @@ export default {
         .otherLimitations) {
         const limitation = this.$store.state.place.currentPlace
           .otherLimitations[index];
-        const now = new Date(this.currentSlotD.time);
-        const hour = slotsH.description.substr(0, 2);
-        now.setUTCHours(hour - 1);
+        const now = moment(slotsH.time);
         if (
           moment(limitation.from).isSameOrBefore(now) &&
           moment(limitation.until).isAfter(now)
