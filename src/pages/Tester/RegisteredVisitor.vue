@@ -358,6 +358,32 @@
                 >
               </td>
             </tr>
+            <tr v-if="visitor.testingSet">
+              <td>{{ $t("testerTestNumber") }}:</td>
+              <td>{{ visitor.testingSet }}</td>
+            </tr>
+            <tr v-if="visitor.testingTime">
+              <td>{{ $t("testerTestingTime") }}:</td>
+              <td>
+                {{ visitor.testingTime | formatDateTime({ separator: "|" }) }}
+              </td>
+            </tr>
+            <tr v-if="visitor.testResultTime">
+              <td>{{ $t("testerTestResultTime") }}:</td>
+              <td>
+                {{
+                  visitor.testResultTime | formatDateTime({ separator: "|" })
+                }}
+              </td>
+            </tr>
+            <tr v-if="visitor.resultNotifiedAt">
+              <td>{{ $t("testerResultNotifiedAt") }}:</td>
+              <td>
+                {{
+                  visitor.resultNotifiedAt | formatDateTime({ separator: "|" })
+                }}
+              </td>
+            </tr>
             <tr
               v-if="
                 visitor.result === 'test-not-taken' ||
@@ -398,7 +424,10 @@
                   /></b-badge>
                 </span>
                 <span
-                  v-else-if="visitor.result === 'negative-certificate-taken' || visitor.result === 'negative-certiciate-taken'"
+                  v-else-if="
+                    visitor.result === 'negative-certificate-taken' ||
+                    visitor.result === 'negative-certiciate-taken'
+                  "
                 >
                   <b-badge variant="danger"
                     ><span v-html="$t('resultsTestNegativeCertTaken')"
