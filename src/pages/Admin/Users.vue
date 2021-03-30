@@ -75,6 +75,16 @@
                   </b-form-checkbox>
                 </div>
               </div>
+              <div v-if="showDeletingButton">
+                <b-button
+                  variant="danger"
+                  class="mt-4"
+                  size="sm"
+                  @click="unassignAllRoles"
+                  >{{ $t("deleteAllUserRoles")
+                  }}<b-spinner v-if="isDeletingLoading" class="ml-2" small
+                /></b-button>
+              </div>
             </b-col>
             <b-col md="10">
               <FullCalendar
@@ -425,6 +435,7 @@ export default {
         title: "Title",
         allDay: true,
       },
+      isDeletingLoading: false,
     };
   },
   computed: {
@@ -479,6 +490,22 @@ export default {
         default:
           return null;
       }
+    },
+    selectedUsersArray() {
+      return Object.entries(this.selectedUsers)
+        .filter(u => u[1])
+        .map(u => u[0]);
+    },
+    selectedRolesArray() {
+      return Object.entries(this.roles)
+        .filter(r => r[1])
+        .map(r => r[0]);
+    },
+    showDeletingButton() {
+      return (
+        this.selectedUsersArray.length === 1 &&
+        this.getUserAllocations(this.selectedUsersArray[0]).length > 0
+      );
     },
   },
 
@@ -675,6 +702,36 @@ export default {
           }
         });
       }
+    },
+    async unassignAllRoles() {
+      if (
+        confirm("Naozaj chcete odobrať všetky oprávnenia? Akcia je nevratná!")
+      ) {
+        this.isDeletingLoading = true;
+        const userAllocations = this.getUserAllocations(
+          this.selectedUsersArray[0]
+        );
+
+        for (const allocation of userAllocations) {
+          await this.RemoveAllocationAtPlace({
+            allocationId: allocation.id,
+            placeId: this.place,
+          });
+        }
+
+        const response = await this.ListPlaceAllocations({
+          placeId: this.place,
+        });
+
+        this.allocations = response;
+        this.redrawEvents(response);
+        this.isDeletingLoading = false;
+      }
+    },
+    getUserAllocations(user = "") {
+      const allocations = this.allocations || [];
+      const roles = this.selectedRolesArray || [];
+      return allocations.filter(a => a.user === user && roles.includes(a.role));
     },
     assignClick() {
       console.log("this.selectedUsers", this.selectedUsers);
