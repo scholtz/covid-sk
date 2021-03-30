@@ -420,30 +420,24 @@
                   }}</b-badge>
                 </span>
                 <span
-                  v-else-if="visitor.result === 'positive-certificate-taken'"
+                  v-else-if="
+                    visitor.result === 'positive-certificate-taken' ||
+                    visitor.result === 'positive'
+                  "
                 >
                   <b-badge variant="danger"
-                    ><span v-html="$t('resultsTestPositiveCertTaken')"
-                  /></b-badge>
-                </span>
-                <span v-else-if="visitor.result === 'positive'">
-                  <b-badge variant="danger"
-                    ><span v-html="$t('resultsTestPositiveCertNotTaken')"
+                    ><span v-html="$t('resultsTestPositive')"
                   /></b-badge>
                 </span>
                 <span
                   v-else-if="
                     visitor.result === 'negative-certificate-taken' ||
-                    visitor.result === 'negative-certiciate-taken'
+                    visitor.result === 'negative-certiciate-taken' ||
+                    visitor.result === 'negative'
                   "
                 >
-                  <b-badge variant="danger"
-                    ><span v-html="$t('resultsTestNegativeCertTaken')"
-                  /></b-badge>
-                </span>
-                <span v-else-if="visitor.result === 'negative'">
-                  <b-badge variant="danger"
-                    ><span v-html="$t('resultsTestNegativeCertNotTaken')"
+                  <b-badge variant="success"
+                    ><span v-html="$t('resultsTestNegative')"
                   /></b-badge>
                 </span>
               </td>
