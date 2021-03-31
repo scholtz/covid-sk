@@ -734,6 +734,15 @@ export default {
         if (!this.roles[role]) continue;
         for (let user in this.selectedUsers) {
           if (!this.selectedUsers[user]) continue;
+          if (
+            this.checkAllocationDupicity({
+              user: user,
+              role: role,
+              from: this.fromDate,
+              until: this.untilDate,
+            })
+          )
+            continue;
           console.log("selectedUsers", role, user);
           const from = new Date(this.fromDate);
           const until = new Date(this.untilDate);
@@ -791,6 +800,20 @@ export default {
           }
         });
       }
+    },
+    checkAllocationDupicity({ user, role, from, until } = {}) {
+      const allocations =
+        this.selectedAllocations.filter(
+          a => a.role === role && a.user === user
+        ) || [];
+      for (const allocation of allocations) {
+        if (
+          moment(from).isSame(allocation.start) &&
+          moment(until).isSame(allocation.end)
+        )
+          return true;
+      }
+      return false;
     },
     roleStyle(role) {
       const color = this.roleColor(role);
