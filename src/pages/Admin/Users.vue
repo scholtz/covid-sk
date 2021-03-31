@@ -75,12 +75,12 @@
                   </b-form-checkbox>
                 </div>
               </div>
-              <div v-if="showDeletingButton">
+              <div v-if="selectedAllocations.length > 0">
                 <b-button
                   variant="danger"
                   class="mt-4"
                   size="sm"
-                  @click="unassignAllRoles"
+                  @click="unassignSelectedAllocations"
                   >{{ $t("deleteAllUserRoles")
                   }}<b-spinner v-if="isDeletingLoading" class="ml-2" small
                 /></b-button>
@@ -501,10 +501,12 @@ export default {
         .filter(r => r[1])
         .map(r => r[0]);
     },
-    showDeletingButton() {
-      return (
-        this.selectedUsersArray.length === 1 &&
-        this.getUserAllocations(this.selectedUsersArray[0]).length > 0
+    selectedAllocations() {
+      const allocations = this.allocations || [];
+      const roles = this.selectedRolesArray || [];
+      const users = this.selectedUsersArray || [];
+      return allocations.filter(
+        a => users.includes(a.user) && roles.includes(a.role)
       );
     },
   },
@@ -703,16 +705,13 @@ export default {
         });
       }
     },
-    async unassignAllRoles() {
+    async unassignSelectedAllocations() {
       if (
         confirm("Naozaj chcete odobrať všetky oprávnenia? Akcia je nevratná!")
       ) {
         this.isDeletingLoading = true;
-        const userAllocations = this.getUserAllocations(
-          this.selectedUsersArray[0]
-        );
 
-        for (const allocation of userAllocations) {
+        for (const allocation of this.selectedAllocations) {
           await this.RemoveAllocationAtPlace({
             allocationId: allocation.id,
             placeId: this.place,
@@ -727,11 +726,6 @@ export default {
         this.redrawEvents(response);
         this.isDeletingLoading = false;
       }
-    },
-    getUserAllocations(user = "") {
-      const allocations = this.allocations || [];
-      const roles = this.selectedRolesArray || [];
-      return allocations.filter(a => a.user === user && roles.includes(a.role));
     },
     assignClick() {
       console.log("this.selectedUsers", this.selectedUsers);
