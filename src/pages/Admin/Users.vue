@@ -808,8 +808,10 @@ export default {
         ) || [];
       for (const allocation of allocations) {
         if (
-          moment(from).isSame(allocation.start) &&
-          moment(until).isSame(allocation.end)
+          (moment(allocation.start).isSameOrAfter(from) &&
+            moment(allocation.start).isBefore(until)) ||
+          (moment(allocation.end).isAfter(from) &&
+            moment(allocation.end).isSameOrBefore(until))
         )
           return true;
       }
