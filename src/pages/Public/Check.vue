@@ -24,7 +24,7 @@
               <th>Meno testovanej osoby:</th>
               <td>{{ result.name }}</td>
             </tr>
-            <tr>
+            <tr v-if="result.result">
               <th>Výsledok:</th>
               <td>
                 {{ result.result }}
