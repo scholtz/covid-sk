@@ -617,6 +617,7 @@
   "testerState": "Stav",
   "testerSetCodeQR": "Přiřadit test (QR kód testu)",
   "testerSetCode": "Přiřadit test skenováním čárového kódu",
+  "testerSetNewTest": "Vytvořit test s novým kódem registrace",
   "testerEditPersonalData": "Opravit osobní údaje",
   "testerScanTestCode": "Kód testu skenujte, nebo vpište do políčka",
   "testerSave": "Uložit",

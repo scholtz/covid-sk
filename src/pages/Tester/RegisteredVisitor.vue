@@ -449,7 +449,7 @@
                   @click="action = 'testSetCodeQR'"
                   class="btn btn-primary my-4 mr-4"
                   :disabled="invalidID"
-                  v-if="visitor.id"
+                  v-if="visitor.id && !visitor.testingSet"
                 >
                   {{ $t("testerSetCodeQR") }}
                   <svg
@@ -468,10 +468,30 @@
                 ><button
                   @click="action = 'testSetCode'"
                   class="btn btn-primary my-4 mr-4 collapse"
-                  v-if="visitor.id"
+                  v-if="visitor.id && !visitor.testingSet"
                 >
                   {{ $t("testerSetCode") }}
 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  v-if="visitor.id && visitor.testingSet"
+                  @click="action = 'testSetNew'"
+                  class="btn btn-primary my-4 mr-4"
+                >
+                  {{ $t("testerSetNewTest") }}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17.5"
@@ -555,6 +575,37 @@
           <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
           <b-input v-model="testingset" id="testingset1" />
           <button @click="save" class="btn btn-primary my-4">
+            {{ $t("testerSet") }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17.5"
+              height="19"
+              viewBox="0 0 33 40"
+              role="presentation"
+              focusable="false"
+            >
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </b-col>
+        <b-col>
+          <qrcode-stream @decode="onDecodeQR" />
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <b-container class="my-4" v-if="action === 'testSetNew'">
+      <b-row>
+        <b-col cols="12">
+          <button
+            class="btn btn-light btn-sm float-right bg-light my-2"
+            @click="reset"
+          >
+            {{ $t("testerCancel") }}
+          </button>
+          <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
+          <b-input v-model="testingset" id="testingset1" />
+          <button @click="saveNew" class="btn btn-primary my-4">
             {{ $t("testerSet") }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -733,21 +784,20 @@ export default {
         moment().add(-20, "hours")
       );
     },
+    paramsId() {
+      return this.$route.params.id;
+    },
+  },
+  watch: {
+    paramsId(value) {
+      if (value) {
+        this.loadVisitor();
+      }
+    },
   },
   mounted() {
     if (this.$route.params.id) {
-      this.code = this.$route.params.id;
-      // newly registered by reg manager
-      this.GetVisitor({
-        visitorCode: this.code,
-      }).then(r => {
-        if (r) {
-          this.visitor = r;
-          this.action = "verifyPerson";
-        } else {
-          this.state = "visitor-error";
-        }
-      });
+      this.loadVisitor();
     }
     if (
       !this.$store.state.user.me ||
@@ -764,6 +814,7 @@ export default {
       LoadVisitorByEmployeeNumber: "result/LoadVisitorByEmployeeNumber",
       ReloadMe: "user/ReloadMe",
       SetLocation: "user/SetLocation",
+      RegisterByManager: "slot/RegisterByManager",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -771,6 +822,20 @@ export default {
     ...mapMutations({
       setLastVisitor: "result/setLastVisitor",
     }),
+    loadVisitor() {
+      this.code = this.$route.params.id;
+      // newly registered by reg manager
+      this.GetVisitor({
+        visitorCode: this.code,
+      }).then(r => {
+        if (r) {
+          this.visitor = r;
+          this.action = "verifyPerson";
+        } else {
+          this.state = "visitor-error";
+        }
+      });
+    },
     load() {
       this.visitor = {};
       this.setLastVisitor({});
@@ -833,6 +898,45 @@ export default {
           this.setLastVisitor({});
         }
       });
+    },
+    async saveNew() {
+      let visitor = { ...this.visitor };
+      visitor = {
+        personType: visitor.personType,
+        passport: visitor.passport,
+        rc: visitor.rc,
+        firstName: visitor.firstName,
+        lastName: visitor.lastName,
+        address: visitor.address,
+        email: visitor.email,
+        phone: visitor.phone,
+        insurance: visitor.insurance,
+        chosenSlot: visitor.chosenSlot,
+        chosenPlaceId: visitor.chosenPlaceId,
+        birthDayDay: visitor.birthDayDay,
+        birthDayMonth: visitor.birthDayMonth,
+        birthDayYear: visitor.birthDayYear,
+        street: visitor.street,
+        streetNo: visitor.streetNo,
+        zip: visitor.zip,
+        city: visitor.city,
+      };
+      const response = await this.RegisterByManager(visitor);
+      if (response) {
+        const code = this.$store.state.slot.registration.id;
+
+        const r = await this.ConnectVisitorToTest({
+          visitorCode: code,
+          testCode: this.testingset,
+        });
+        if (r) {
+          this.action = "verifyPerson";
+          this.$router.replace({
+            name: "TesterRegisteredVisitorWithId",
+            params: { id: code },
+          });
+        }
+      }
     },
     onDecode(result) {
       if (result) {
