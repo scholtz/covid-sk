@@ -3,13 +3,15 @@
     <div class="app-pane-lgray p-5">
       <b-container
         ><b-row
-          ><b-col><h1>Overenie testu</h1></b-col></b-row
+          ><b-col
+            ><h1>{{ $t("checkTitle") }}</h1></b-col
+          ></b-row
         ></b-container
       >
     </div>
     <b-container v-if="loading">
       <b-row>
-        <b-col> <b-spinner label="Čítam údaje..." /> </b-col>
+        <b-col> <b-spinner :label="$t('checkLoadingData')" /> </b-col>
       </b-row>
     </b-container>
     <b-container v-if="!loading">
@@ -17,40 +19,42 @@
         <b-col>
           <table v-if="result.id">
             <tr>
-              <th>Kód výsledku:</th>
+              <th>{{ $t("checkResultCode") }}:</th>
               <td>{{ result.id }}</td>
             </tr>
             <tr>
-              <th>Meno testovanej osoby:</th>
+              <th>{{ $t("checkTestedPersonName") }}:</th>
               <td>{{ result.name }}</td>
             </tr>
             <tr v-if="result.result">
-              <th>Výsledok:</th>
+              <th>{{ $t("checkResultCode") }}:</th>
               <td>
                 {{ result.result }}
-                <b-badge variant="success" v-if="result.result === 'negative'"
-                  >Testovaná osoba je pravdepodobne zdravá</b-badge
+                <b-badge
+                  variant="success"
+                  v-if="result.result === 'negative'"
+                  >{{ $t("checkNegativeMessage") }}</b-badge
                 >
-                <b-badge variant="danger" v-if="result.result === 'positive'"
-                  >Testom bol preukázaný COVID</b-badge
-                >
+                <b-badge variant="danger" v-if="result.result === 'positive'">{{
+                  $t("checkPositiveMessage")
+                }}</b-badge>
               </td>
             </tr>
             <tr>
-              <th>Čas odberu vzorky:</th>
+              <th>{{ $t("checkTestTime") }}:</th>
               <td>{{ result.time | formatDateTime }}</td>
             </tr>
             <tr>
-              <th>Test vykonal:</th>
+              <th>{{ $t("checkTestedBy") }}:</th>
               <td>{{ result.testingEntity }}</td>
             </tr>
             <tr>
-              <th>Adresa výkonu testu:</th>
+              <th>{{ $t("checkTestingAddress") }}:</th>
               <td>{{ result.testingAddress }}</td>
             </tr>
           </table>
           <div v-else class="alert alert-danger my-4">
-            Tento test je neplatný alebo bol vykonaný skôr ako týždeň dozadu
+            {{ $t("checkTestInvalidMessage") }}
           </div>
         </b-col>
       </b-row>

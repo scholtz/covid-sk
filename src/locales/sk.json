@@ -226,6 +226,18 @@
   "invitationsStatus": "Stav pozvánky",
   "invitationsActions": "Akcie",
 
+  "checkTitle": "Overenie testu",
+  "checkLoadingData": "Čítam údaje...",
+  "checkResultCode": "Kód výsledku",
+  "checkTestedPersonName": "Meno testovanej osoby",
+  "checkResult": "Výsledok",
+  "checkNegativeMessage": "Testovaná osoba je pravdepodobne zdravá",
+  "checkPositiveMessage": "Testom bol preukázaný COVID",
+  "checkTestTime": "Čas odberu vzorky",
+  "checkTestedBy": "Test vykonal",
+  "checkTestingAddress": "Adresa výkonu testu",
+  "checkTestInvalidMessage": "Tento test je neplatný alebo bol vykonaný skôr ako týždeň dozadu",
+
   "gdprTitle": "Ochrana osobných údajov",
   "gdprShowLawyerVersion": "Zobraziť verziu pre právnikov",
   "gdprDetailsForEmployees": "Upresnenie pre zamestnancov",
