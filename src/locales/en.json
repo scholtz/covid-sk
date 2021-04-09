@@ -185,6 +185,18 @@
   "selectMinuteQuestion":"Please select time that is ideal for you",
   "selectMinuteHelp":"In case you can visit sampling place any time, please select hour with minimum registrations",
   "selectMinuteButtonText":"Between {description} is currently registered {registrations} people",
+  
+  "checkTitle": "Test check",
+  "checkLoadingData": "Loading data...",
+  "checkResultCode": "Result code",
+  "checkTestedPersonName": "Name of tested person",
+  "checkResult": "Result",
+  "checkNegativeMessage": "Tested person is negative",
+  "checkPositiveMessage": "Tested person is infected by prokázaný COVID",
+  "checkTestTime": "Testing time",
+  "checkTestedBy": "Tested by",
+  "checkTestingAddress": "Testing address",
+  "checkTestInvalidMessage": "This test is invalid or the testing time is older than one week ago",
 
   "offlineRegistrationTitle": "Offline registration = faster testing",
   "offlineRegistrationHelp1": "Generate your own code in your mobile with your personal data. The employee will scan read the date by scanning the QR code.",
