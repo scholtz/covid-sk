@@ -150,6 +150,10 @@
   "loginFormPassword": "Heslo",
   "loginFormButton": "Prihlás",
   "loginFormRegisterPlaceProvider": "Registrácia prevádzkovateľa odberového, alebo vakcinačného miesta.",
+  "loginFormButtonReset": "Reset hesla",
+  "loginFormPassResetedEmailEmpty": "Prosím, vyplňte validný E-mail.",
+  "loginFormPassResetedConfirmationMessage": "Naozaj si prajete resetovať Vaše existujúce heslo?",
+  "loginFormPassResetedSuccessMessage": "Reset hesla prebehol úspešne, nové heslo nájdete vo Vašej E-mailovej schránke.",
 
   "selectPlaceTitle": "Výber odberového miesta",
   "selectPlaceShowTable": "Zobraziť tabuľku",
