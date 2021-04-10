@@ -50,7 +50,7 @@
   "navBarAdminManagePP": "Upravit údaje o provozovateli",
   "navBarAdminManageServices": "Správa poskytovaných služeb",
   "navBarAdminLimits": "Limity kapacit",
-  "navBarAdminInviteAdmin": "Přidání admina",
+  "navBarAdminInviteAdmin": "Správa dalších administrátorů",
 
   "navBarAdminProvidedServices": "Seznam poskytovaných služeb",
   "navBarAdminServicesOnTheSpots": "Služby poskytované na provozních místech",
@@ -150,10 +150,12 @@
   "loginFormPassword": "Heslo",
   "loginFormButton": "Přihlaš",
   "loginFormRegisterPlaceProvider": "Registrace provozovatele odběrového nebo očkovacího místa.",
+  "loginFormCancel": "Zrušit",
+  "loginFormResetTitle": "Reset hesla dalších administrátorů",
   "loginFormButtonReset": "Reset hesla",
   "loginFormPassResetedEmailEmpty": "Prosím, vyplňte validní E-mail.",
-  "loginFormPassResetedConfirmationMessage": "Opravdu si přejete resetovat Vaše stávající heslo?",
-  "loginFormPassResetedSuccessMessage": "Reset hesla proběhl úspěšně, nové heslo naleznete ve Vaší E-mailové schránce.",
+  "loginFormPassResetedConfirmationMessage": "Opravdu si přejete heslo resetovat?",
+  "loginFormPassResetedSuccessMessage": "Reset hesla proběhl úspěšně.",
 
   "selectPlaceTitle": "Výběr odběrného místa",
   "selectPlaceShowTable": "Zobrazit tabulku",
