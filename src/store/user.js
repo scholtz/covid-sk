@@ -1,3 +1,5 @@
+import i18n from "@/i18n";
+
 export const state = () => ({
   auth: false,
   authJWT: "",
@@ -347,6 +349,28 @@ export const actions = {
     commit("setAuthJWT", token);
     if (token) return true;
     return false;
+  },
+  async ResetPassword({ dispatch }, { email }) {
+    const response = await dispatch(
+      "axios/post",
+      {
+        url:
+          this.state.config.VUE_CONFIG_APP_API +
+          "Admin/ResetPassword?email=" +
+          email,
+      },
+      { root: true }
+    );
+    if (response) {
+      dispatch(
+        "snackbar/openSuccess",
+        i18n.t("loginFormPassResetedSuccessMessage"),
+        {
+          root: true,
+        }
+      );
+      return true;
+    } else return false;
   },
 };
 export default {
