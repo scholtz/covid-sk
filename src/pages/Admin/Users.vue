@@ -207,6 +207,9 @@
             </template>
           </b-table>
         </b-tab>
+        <b-tab :title="$t('loginFormButtonReset')">
+          
+        </b-tab>
       </b-tabs>
     </b-container>
     <b-modal
