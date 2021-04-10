@@ -61,7 +61,7 @@
       <b-container>
         <b-row>
           <b-col cols="12" md="6">
-            <label for="emailToReset">{{ $t("adminInviteEmail") }}</label>
+            <label for="emailToReset">{{ $t("loginFormLogin") }}</label>
             <b-input
               v-model="email"
               ref="emailToReset"
@@ -73,7 +73,7 @@
         <b-row>
           <b-col cols="12" md="12">
             <b-button @click="clickReset" variant="primary" class="mr-2 my-4">
-              {{ $t("loginFormButtonReset") }}
+              {{ $t("loginFormButtonResetConfirm") }}
             </b-button>
             <b-button
               @click="isResetPassword = false"
