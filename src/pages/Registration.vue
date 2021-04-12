@@ -802,26 +802,16 @@ export default {
       }
       for (const index in this.$store.state.place.currentPlace
         .otherLimitations) {
-        const limitation = this.$store.state.place.currentPlace
-          .otherLimitations[index];
-        const now = new Date(this.$store.state.slot.slotDCurrent.time);
-        const hour = this.$store.state.slot.slotHCurrent.description.substr(
-          0,
-          2
-        );
-        now.setUTCHours(hour - 1);
+
+        const limitation = this.$store.state.place.currentPlace.otherLimitations[index];
+        const now = moment(slotsH.time);
         if (
           moment(limitation.from).isSameOrBefore(now) &&
           moment(limitation.until).isAfter(now)
         ) {
-          if (
-            limitation.hourLimit <=
-            this.$store.state.slot.slotHCurrent.registrations
-          )
-            return true;
+          if (limitation.hourLimit <= this.$store.state.slot.slotHCurrent.registrations) return true;
         }
       }
-
       return false;
     },
   },
