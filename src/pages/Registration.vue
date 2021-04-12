@@ -804,7 +804,7 @@ export default {
         .otherLimitations) {
 
         const limitation = this.$store.state.place.currentPlace.otherLimitations[index];
-        const now = moment(slotsH.time);
+        const now = moment(this.$store.state.slot.slotHCurrent.time);
         if (
           moment(limitation.from).isSameOrBefore(now) &&
           moment(limitation.until).isAfter(now)
