@@ -53,7 +53,7 @@
             <b-row>
               <b-col cols="12" md="6">
                 <label for="name">{{ $t("adminPlaceManagementName") }}</label>
-                <b-input v-model="place.name" ref="name" id="name" />
+                <b-input v-model="place.name" ref="name" id="name" autofocus />
               </b-col>
               <b-col cols="12" md="6">
                 <label for="address">{{
