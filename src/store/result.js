@@ -129,7 +129,12 @@ export const actions = {
   },
   async PrintCertificateByDocumentManager(
     { dispatch },
-    { registrationCode, personalNumber }
+    {
+      testingSet = "",
+      registrationCode = "",
+      personalNumber = "",
+      employeeId = "",
+    }
   ) {
     return await dispatch(
       "axios/download",
@@ -137,7 +142,7 @@ export const actions = {
         url:
           this.state.config.VUE_CONFIG_APP_API +
           "Result/PrintCertificateByDocumentManager",
-        params: { registrationCode, personalNumber },
+        params: { testingSet, registrationCode, personalNumber, employeeId },
         name: "result.pdf",
         type: "post",
       },

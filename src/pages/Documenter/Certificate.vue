@@ -9,47 +9,88 @@
         <p v-else>{{ $t("documentsDescription") }}</p>
       </b-container>
     </div>
-    <b-container
-      ><b-row>
-        <b-col cols="12" md="6">
-          <label for="code"
-            ><div v-html="$t('documentsRegNumberLegend')"
-          /></label>
+    <b-container>
+      <b-form @submit.prevent="downloadPDF">
+        <b-form-group :label="$t('documentsIdentificationBy')">
+          <b-form-radio v-model="identificationBy" value="testingSet">{{
+            $t("documentsTestingSet")
+          }}</b-form-radio>
+          <b-form-radio v-model="identificationBy" value="registrationCode">
+            {{ $t("documentsRegistrationCode") }}
+          </b-form-radio>
+          <b-form-radio v-model="identificationBy" value="personalNumber">
+            {{
+              $store.state.config.RC_IS_INSURANCE
+                ? $t("documentsPersonalNumberIns")
+                : $t("documentsPersonalNumber")
+            }}
+          </b-form-radio>
+          <b-form-radio v-model="identificationBy" value="employeeId">{{
+            $t("documentsEmployeeId")
+          }}</b-form-radio>
+        </b-form-group>
+        <b-row>
+          <b-col v-if="identificationBy === 'testingSet'" cols="12" md="6">
+            <label for="testingSet"
+              ><div v-html="$t('documentsTestingSetLegend')"
+            /></label>
 
-          <b-input v-model="code" ref="code" />
-        </b-col>
-        <b-col cols="12" md="6">
-          <label for="personalNumber"
-            ><div
-              v-if="$store.state.config.RC_IS_INSURANCE"
-              v-html="$t('documentsPersonalNumberLegendIns')" />
-            <div v-else v-html="$t('documentsPersonalNumberLegend')"
-          /></label>
-          <b-input
-            v-model="personalNumber"
-            ref="personalNumber"
-            id="personalNumber"
-          />
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
-          <button @click="downloadPDF" class="btn btn-primary my-4">
-            {{ $t("downloadFileButton") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-            <b-spinner small v-if="processingDownload" class="ml-1" />
-          </button>
-        </b-col>
-      </b-row>
+            <b-input v-model="testingSet" ref="testingSet" />
+          </b-col>
+          <b-col
+            v-else-if="identificationBy === 'registrationCode'"
+            cols="12"
+            md="6"
+          >
+            <label for="registrationCode"
+              ><div v-html="$t('documentsRegNumberLegend')"
+            /></label>
+
+            <b-input v-model="registrationCode" ref="registrationCode" />
+          </b-col>
+          <b-col
+            v-else-if="identificationBy === 'personalNumber'"
+            cols="12"
+            md="6"
+          >
+            <label for="personalNumber"
+              ><div
+                v-if="$store.state.config.RC_IS_INSURANCE"
+                v-html="$t('documentsPersonalNumberLegendIns')" />
+              <div v-else v-html="$t('documentsPersonalNumberLegend')"
+            /></label>
+            <b-input
+              v-model="personalNumber"
+              ref="personalNumber"
+              id="personalNumber"
+            />
+          </b-col>
+          <b-col v-else-if="identificationBy === 'employeeId'" cols="12" md="6">
+            <label for="employeeId">
+              <div v-html="$t('documentsEmployeeIdLegend')"
+            /></label>
+            <b-input v-model="employeeId" ref="employeeId" id="employeeId" />
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <button type="submit" class="btn btn-primary my-4">
+              {{ $t("downloadFileButton") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner small v-if="processingDownload" class="ml-1" />
+            </button>
+          </b-col>
+        </b-row>
+      </b-form>
     </b-container>
     <!--
     <b-container>
@@ -96,13 +137,27 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      testingSet: "",
+      identificationBy: "",
+      registrationCode: "",
       personalNumber: "",
-      code: "",
+      employeeId: "",
       visitor: {},
       processingDownload: false,
     };
   },
-
+  created() {
+    this.identificationBy =
+      localStorage.getItem("documentsIdentificationBy") || "testingSet";
+  },
+  watch: {
+    identificationBy(value) {
+      localStorage.setItem("documentsIdentificationBy", value);
+      setTimeout(() => {
+        this.$refs[value].focus();
+      }, 0);
+    },
+  },
   methods: {
     ...mapActions({
       GetNextTest: "result/GetNextTest",
@@ -116,8 +171,7 @@ export default {
     downloadPDF() {
       this.processingDownload = true;
       this.PrintCertificateByDocumentManager({
-        registrationCode: this.code,
-        personalNumber: this.personalNumber,
+        [this.identificationBy]: this[this.identificationBy],
       }).then(r => {
         if (r) {
           this.results = r;
@@ -166,5 +220,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
