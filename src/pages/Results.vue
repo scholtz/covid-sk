@@ -7,144 +7,156 @@
     </div>
 
     <div class="py-5">
-      <b-container
-        ><b-row>
-          <b-col cols="12" md="6">
-            <b-input v-model="code" ref="code" />
-            <label for="code"><div v-html="$t('resultsCode')" /></label>
-          </b-col>
-          <b-col cols="12" md="6">
-            <b-input v-model="pass" ref="pass" id="pass" />
-            <label for="pass">
+      <b-container>
+        <b-form @submit.prevent="check">
+          <b-row>
+            <b-col cols="12" md="6">
+              <b-input v-model="code" ref="code" autofocus />
+              <label for="code"><div v-html="$t('resultsCode')" /></label>
+            </b-col>
+            <b-col cols="12" md="6">
+              <b-input v-model="pass" ref="pass" id="pass" />
+              <label for="pass">
+                <div
+                  v-if="$store.state.config.RC_IS_INSURANCE"
+                  v-html="$t('resultsPassIns')"
+                />
+                <div v-else v-html="$t('resultsPass')" />
+              </label>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <b-button class="my-3" type="submit" variant="primary">
+                {{ $t("resultsCheckResults") }}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+                <b-spinner small v-if="processingRequest" class="ml-1" />
+              </b-button>
+
+              <h2>{{ $t("resultsResult") }}:</h2>
+              <p v-if="results.state === 'not-submitted'">
+                {{ $t("resultsSendForm") }}
+              </p>
+              <p v-if="results.state === 'submitting'">
+                {{ $t("resultsCheckingTest") }}
+              </p>
+              <p v-if="results.state === 'error'">
+                {{ $t("resultsError") }}
+              </p>
+              <p v-if="results.state === 'test-not-taken'">
+                {{ $t("resultsTestNotTaken") }}
+              </p>
+              <p v-if="results.state === 'removed'">
+                {{ $t("resultsTestRemoved") }}
+              </p>
+              <p v-if="results.state === 'test-to-be-repeated'">
+                {{ $t("resultsTestToRepeat") }}
+              </p>
+              <p v-if="results.state === 'test-not-processed'">
+                {{ $t("resultsTestNotProcessed") }}
+              </p>
+              <p v-if="results.state === 'positive-certificate-sent'">
+                <span v-html="$t('resultsTestPositiveCertTaken')" />
+              </p>
+              <p v-if="results.state === 'positive-certificate-taken'">
+                <span v-html="$t('resultsTestPositiveCertTaken')" />
+              </p>
+              <p v-if="results.state === 'positive'">
+                <span v-html="$t('resultsTestPositiveCertNotTaken')" />
+              </p>
+              <p v-if="results.state === 'negative'">
+                <span v-html="$t('resultsTestNegativeCertNotTaken')" />
+              </p>
+              <p v-if="results.state === 'negative-certiciate-taken'">
+                <span v-html="$t('resultsTestNegativeCertTaken')" />
+              </p>
+              <p v-if="results.state === 'negative-certificate-taken'">
+                <span v-html="$t('resultsTestNegativeCertTaken')" />
+              </p>
+            </b-col>
+            <b-col>
+              <b-button class="my-3" @click="downloadPDF" variant="primary">
+                {{ $t("resultsDownloadPDF") }}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17.5"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+                <b-spinner
+                  small
+                  v-if="processingDownload"
+                  class="ml-1"
+                /> </b-button
+              ><br />
               <div
                 v-if="$store.state.config.RC_IS_INSURANCE"
-                v-html="$t('resultsPassIns')"
+                v-html="$t('resultsPdfNoteIns')"
               />
-              <div v-else v-html="$t('resultsPass')" />
-            </label>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col>
-            <b-button class="my-3" @click="check" variant="primary">
-              {{ $t("resultsCheckResults") }}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17.5"
-                height="19"
-                viewBox="0 0 33 40"
-                role="presentation"
-                focusable="false"
-              >
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-              </svg>
-              <b-spinner small v-if="processingRequest" class="ml-1" />
-            </b-button>
-
-            <h2>{{ $t("resultsResult") }}:</h2>
-            <p v-if="results.state === 'not-submitted'">
-              {{ $t("resultsSendForm") }}
-            </p>
-            <p v-if="results.state === 'submitting'">
-              {{ $t("resultsCheckingTest") }}
-            </p>
-            <p v-if="results.state === 'error'">
-              {{ $t("resultsError") }}
-            </p>
-            <p v-if="results.state === 'test-not-taken'">
-              {{ $t("resultsTestNotTaken") }}
-            </p>
-            <p v-if="results.state === 'removed'">
-              {{ $t("resultsTestRemoved") }}
-            </p>
-            <p v-if="results.state === 'test-to-be-repeated'">
-              {{ $t("resultsTestToRepeat") }}
-            </p>
-            <p v-if="results.state === 'test-not-processed'">
-              {{ $t("resultsTestNotProcessed") }}
-            </p>
-            <p v-if="results.state === 'positive-certificate-sent'">
-              <span v-html="$t('resultsTestPositiveCertTaken')" />
-            </p>
-            <p v-if="results.state === 'positive-certificate-taken'">
-              <span v-html="$t('resultsTestPositiveCertTaken')" />
-            </p>
-            <p v-if="results.state === 'positive'">
-              <span v-html="$t('resultsTestPositiveCertNotTaken')" />
-            </p>
-            <p v-if="results.state === 'negative'">
-              <span v-html="$t('resultsTestNegativeCertNotTaken')" />
-            </p>
-            <p v-if="results.state === 'negative-certiciate-taken'">
-              <span v-html="$t('resultsTestNegativeCertTaken')" />
-            </p>
-            <p v-if="results.state === 'negative-certificate-taken'">
-              <span v-html="$t('resultsTestNegativeCertTaken')" />
-            </p>
-          </b-col>
-          <b-col>
-            <b-button class="my-3" @click="downloadPDF" variant="primary">
-              {{ $t("resultsDownloadPDF") }}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17.5"
-                height="19"
-                viewBox="0 0 33 40"
-                role="presentation"
-                focusable="false"
-              >
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-              </svg>
-              <b-spinner
-                small
-                v-if="processingDownload"
-                class="ml-1"
-              /> </b-button
-            ><br />
-            <div
-              v-if="$store.state.config.RC_IS_INSURANCE"
-              v-html="$t('resultsPdfNoteIns')"
-            />
-            <div v-else v-html="$t('resultsPdfNote')" />
-            <div>
-              <b-button class="my-3" @click="clickResendResult" variant="light">
-                {{ $t("resultsResend") }}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
+              <div v-else v-html="$t('resultsPdfNote')" />
+              <div>
+                <b-button
+                  class="my-3"
+                  @click="clickResendResult"
+                  variant="light"
                 >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-                <b-spinner small v-if="resending" class="ml-1" />
-              </b-button>
-              <br />{{ $t("resultsLimitWarning") }}
-            </div>
-            <div>
-              <b-button
-                class="my-3"
-                @click="removePersonalData"
-                variant="danger"
-              >
-                {{ $t("resultsRemoveRegistration") }}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
+                  {{ $t("resultsResend") }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                  <b-spinner small v-if="resending" class="ml-1" />
+                </b-button>
+                <br />{{ $t("resultsLimitWarning") }}
+              </div>
+              <div>
+                <b-button
+                  class="my-3"
+                  @click="removePersonalData"
+                  variant="danger"
                 >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-                <b-spinner small v-if="processingRemoval" class="ml-1" />
-              </b-button>
-            </div>
-          </b-col>
-        </b-row>
+                  {{ $t("resultsRemoveRegistration") }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                  <b-spinner small v-if="processingRemoval" class="ml-1" />
+                </b-button>
+              </div>
+            </b-col>
+          </b-row>
+        </b-form>
       </b-container>
     </div>
   </div>

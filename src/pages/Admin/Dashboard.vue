@@ -8,16 +8,18 @@
     <b-container class="my-2">
       <b-row>
         <b-col col="6">
-          <b-card :title="$t('adminDashboardVisitorManagement')">
-            <input
-              class="form-control"
-              v-model="visitor"
-              :placeholder="$t('adminDashboardVisitorDetails')"
-            />
-            <button class="btn btn-primary m-2" @click="loadVisitor">
-              {{ $t("adminDashboardLoad") }}
-            </button>
-          </b-card>
+          <b-form @submit.prevent="loadVisitor">
+            <b-card :title="$t('adminDashboardVisitorManagement')">
+              <input
+                class="form-control"
+                v-model="visitor"
+                :placeholder="$t('adminDashboardVisitorDetails')"
+              />
+              <button class="btn btn-primary m-2" type="submit">
+                {{ $t("adminDashboardLoad") }}
+              </button>
+            </b-card>
+          </b-form>
         </b-col>
         <b-col col="6">
           <b-card :title="$t('adminDashboardEzdravieManagement')">

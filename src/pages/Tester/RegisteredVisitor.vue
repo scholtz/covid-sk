@@ -122,27 +122,29 @@
           >
             {{ $t("testerCancel") }}
           </button>
-          <label v-if="$store.state.config.RC_IS_INSURANCE" for="codeRc">{{
-            $t("testerPersonalIdentificationNumberIns")
-          }}</label>
-          <label v-else for="codeRc">{{
-            $t("testerPersonalIdentificationNumber")
-          }}</label>
-          <b-input v-model="code" id="codeRc" />
+          <b-form @submit.prevent="loadByRC">
+            <label v-if="$store.state.config.RC_IS_INSURANCE" for="codeRc">{{
+              $t("testerPersonalIdentificationNumberIns")
+            }}</label>
+            <label v-else for="codeRc">{{
+              $t("testerPersonalIdentificationNumber")
+            }}</label>
+            <b-input v-model="code" id="codeRc" autofocus required />
 
-          <button @click="loadByRC" class="btn btn-primary my-4">
-            {{ $t("testerCheckRegistration") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
+            <button type="submit" class="btn btn-primary my-4">
+              {{ $t("testerCheckRegistration") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </button>
+          </b-form>
         </b-col>
       </b-row>
     </b-container>
@@ -156,22 +158,24 @@
           >
             {{ $t("testerCancel") }}
           </button>
-          <label for="employeeNo">{{ $t("testerEmployeeCode") }}</label>
-          <b-input v-model="employeeNo" id="employeeNo" />
+          <b-form @submit.prevent="loadByEmployee">
+            <label for="employeeNo">{{ $t("testerEmployeeCode") }}</label>
+            <b-input v-model="employeeNo" id="employeeNo" autofocus required />
 
-          <button @click="loadByEmployee" class="btn btn-primary my-4">
-            {{ $t("testerLoadRegistration") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
+            <button type="submit" class="btn btn-primary my-4">
+              {{ $t("testerLoadRegistration") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </button>
+          </b-form>
         </b-col>
       </b-row>
     </b-container>
@@ -185,22 +189,24 @@
           >
             {{ $t("testerCancel") }}
           </button>
-          <label for="code1">{{ $t("testerRegistrationCode") }}</label>
-          <b-input v-model="code" id="code1" />
-          <div class="m-4">&nbsp;</div>
-          <button @click="confirmCode" class="btn btn-primary my-4">
-            {{ $t("testerLoadRegistrationCode") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
+          <b-form @submit.prevent="confirmCode">
+            <label for="code1">{{ $t("testerRegistrationCode") }}</label>
+            <b-input v-model="code" id="code1" autofocus required />
+            <div class="m-4">&nbsp;</div>
+            <button type="submit" class="btn btn-primary my-4">
+              {{ $t("testerLoadRegistrationCode") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </button>
+          </b-form>
         </b-col>
 
         <b-col>
@@ -219,7 +225,7 @@
             {{ $t("testerCancel") }}
           </button>
           <label for="codeQR">{{ $t("testerRegistrationCode") }}</label>
-          <b-input v-model="code" id="codeQR" />
+          <b-input v-model="code" id="codeQR" autofocus />
           <div class="m-4">&nbsp;</div>
           <button @click="confirmCode" class="btn btn-primary my-4">
             {{ $t("testerLoadRegistrationCode") }}
@@ -572,21 +578,28 @@
           >
             {{ $t("testerCancel") }}
           </button>
-          <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
-          <b-input v-model="testingset" id="testingset1" />
-          <button @click="save" class="btn btn-primary my-4">
-            {{ $t("testerSet") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
+          <b-form @submit.prevent="save">
+            <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
+            <b-input v-model="testingset" id="testingset1" autofocus required />
+            <button
+              type="submit"
+              class="btn btn-primary my-4"
+              :disabled="submitted"
             >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
+              {{ $t("testerSet") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner v-if="submitted" small class="ml-1" />
+            </button>
+          </b-form>
         </b-col>
         <b-col>
           <qrcode-stream @decode="onDecodeQR" />
@@ -603,21 +616,28 @@
           >
             {{ $t("testerCancel") }}
           </button>
-          <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
-          <b-input v-model="testingset" id="testingset1" />
-          <button @click="saveNew" class="btn btn-primary my-4">
-            {{ $t("testerSet") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
+          <b-form @submit.prevent="saveNew">
+            <label for="testingset1" v-html="$t('testerScanTestCodeAndSet')" />
+            <b-input v-model="testingset" id="testingset1" autofocus required />
+            <button
+              type="submit"
+              class="btn btn-primary my-4"
+              :disabled="submitted"
             >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </button>
+              {{ $t("testerSet") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner v-if="submitted" small class="ml-1" />
+            </button>
+          </b-form>
         </b-col>
         <b-col>
           <qrcode-stream @decode="onDecodeQR" />
@@ -732,6 +752,7 @@ export default {
         height: 90,
       },
       detecteds: [],
+      submitted: false,
     };
   },
   computed: {
@@ -887,6 +908,7 @@ export default {
     },
 
     save() {
+      this.submitted = true;
       this.ConnectVisitorToTest({
         visitorCode: this.code,
         testCode: this.testingset,
@@ -897,9 +919,11 @@ export default {
           this.testingset = "";
           this.setLastVisitor({});
         }
+        this.submitted = false;
       });
     },
     async saveNew() {
+      this.submitted = true;
       let visitor = { ...this.visitor };
       visitor = {
         personType: visitor.personType,
@@ -937,6 +961,7 @@ export default {
           });
         }
       }
+      this.submitted = false;
     },
     onDecode(result) {
       if (result) {

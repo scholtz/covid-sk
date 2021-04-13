@@ -48,296 +48,306 @@
             </div>
           </b-tab>
           <b-tab :title="$t('adminPlaceManagementForm')" active>
-            <h2 v-if="place.id">{{ $t("adminPlaceManagementEditPlace") }}</h2>
-            <h2 v-else>{{ $t("adminPlaceManagementNewPlace") }}</h2>
-            <b-row>
-              <b-col cols="12" md="6">
-                <label for="name">{{ $t("adminPlaceManagementName") }}</label>
-                <b-input v-model="place.name" ref="name" id="name" />
-              </b-col>
-              <b-col cols="12" md="6">
-                <label for="address">{{
-                  $t("adminPlaceManagementAddress")
-                }}</label>
-                <b-input v-model="place.address" ref="address" id="address" />
-              </b-col>
-              <b-col cols="12" md="12">
-                <label for="description">{{
-                  $t("adminPlaceManagementDescription")
-                }}</label>
-                <b-input
-                  v-model="place.description"
-                  ref="description"
-                  id="description"
-                />
-              </b-col>
-              <b-col cols="12" md="12">
-                <label for="oversight">{{
-                  $t("adminPlaceManagementGarant")
-                }}</label>
-                <b-input v-model="oversight" ref="oversight" id="oversight" />
-              </b-col>
-              <b-col cols="12" md="2">
-                <label for="queue">{{ $t("adminPlaceManagementQueue") }}</label>
-                <b-input
-                  type="time"
-                  v-model="place.queue"
-                  ref="queue"
-                  id="queue"
-                  step="2"
-                />
-              </b-col>
-              <b-col cols="12" md="2">
-                <label for="queueLastUpdate">{{
-                  $t("adminPlaceManagementQueueLastUpdate")
-                }}</label>
-                <VueCtkDateTimePicker
-                  v-model="place.queueLastUpdate"
-                  ref="queueLastUpdate"
-                  id="queueLastUpdate"
-                />
-              </b-col>
-              <b-col cols="12" md="2">
-                <label for="lat">{{ $t("adminPlaceManagementLat") }}</label>
-                <b-input v-model="place.lat" ref="lat" id="lat" />
-              </b-col>
-              <b-col cols="12" md="2">
-                <label for="lng">{{ $t("adminPlaceManagementLng") }}</label>
-                <b-input v-model="place.lng" ref="lng" id="lng" />
-              </b-col>
-              <b-col cols="12" md="2">
-                <label for="limitPer5MinSlot">{{
-                  $t("adminPlaceManagementLimitPer5MinSlot")
-                }}</label>
-                <b-input
-                  v-model="place.limitPer5MinSlot"
-                  ref="limitPer5MinSlot"
-                  id="limitPer5MinSlot"
-                />
-              </b-col>
-              <b-col cols="12" md="2">
-                <label for="limitPer1HourSlot">{{
-                  $t("adminPlaceManagementLimitPer1HourSlot")
-                }}</label>
-                <b-input
-                  v-model="place.limitPer1HourSlot"
-                  ref="limitPer1HourSlot"
-                  id="limitPer1HourSlot"
-                />
-              </b-col>
-            </b-row>
-            <b-row class="py-2">
-              <b-col>
-                <b-form-checkbox
-                  id="isVisible"
-                  v-model="place.isVisible"
-                  name="isVisible"
-                >
-                  {{ $t("adminPlaceManagementIsVisible") }}
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="isVisibleOnlyForAuthorized"
-                  v-model="place.isVisibleOnlyForAuthorized"
-                  name="isVisibleOnlyForAuthorized"
-                >
-                  {{ $t("adminPlaceManagementIsVisibleOnlyForAuthorized") }}
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="isDriveIn"
-                  v-model="place.isDriveIn"
-                  name="isDriveIn"
-                >
-                  {{ $t("adminPlaceManagementIsDriveIn") }}
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="isWalkIn"
-                  v-model="place.isWalkIn"
-                  name="isWalkIn"
-                >
-                  {{ $t("adminPlaceManagementIsWalkIn") }}
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="hasReservationSystem"
-                  v-model="place.hasReservationSystem"
-                  name="hasReservationSystem"
-                >
-                  {{ $t("adminPlaceManagementHasReservationSystem") }}
-                </b-form-checkbox>
-              </b-col>
-              <b-col>
-                <b-form-checkbox
-                  id="requiresRegistration"
-                  v-model="place.requiresRegistration"
-                  name="requiresRegistration"
-                >
-                  {{ $t("adminPlaceManagementRequiresRegistration") }}
-                </b-form-checkbox>
-              </b-col>
-            </b-row>
-            <b-row class="py-2" v-if="!place.hasReservationSystem">
-              <b-col>
-                <label for="externalReservationSystem">{{
-                  $t("adminPlaceManagementOpeningHoursTitle")
-                }}</label>
-                <b-input
-                  v-model="place.externalReservationSystem"
-                  ref="externalReservationSystem"
-                  id="externalReservationSystem"
-                />
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col class="py-2">
-                <h4>
-                  {{ $t("adminPlaceManagementOpeningHoursTitle") }}
-                </h4>
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col>
-                <label for="openingHoursWorkDay">{{
-                  $t("adminPlaceManagementOpeningHoursWorkDay")
-                }}</label>
-                <b-input
-                  v-model="place.openingHoursWorkDay"
-                  ref="openingHoursWorkDay"
-                  id="openingHoursWorkDay"
-                  placeholder="08:00-16:00"
-                />
-              </b-col>
-              <b-col>
-                <label for="openingHoursOther1">{{
-                  $t("adminPlaceManagementOpeningHoursOther1")
-                }}</label>
-                <b-input
-                  v-model="place.openingHoursOther1"
-                  ref="openingHoursOther1"
-                  id="openingHoursOther1"
-                />
-              </b-col>
-              <b-col>
-                <label for="openingHoursOther2">{{
-                  $t("adminPlaceManagementOpeningHoursOther2")
-                }}</label>
-                <b-input
-                  v-model="place.openingHoursOther2"
-                  ref="openingHoursOther2"
-                  id="openingHoursOther2"
-                />
-              </b-col> </b-row
-            ><b-row>
-              <b-col>
-                {{ $t("adminPlaceManagementOpeningHoursNote") }}
-              </b-col>
-            </b-row>
+            <b-form @submit.prevent="clickCreate">
+              <h2 v-if="place.id">{{ $t("adminPlaceManagementEditPlace") }}</h2>
+              <h2 v-else>{{ $t("adminPlaceManagementNewPlace") }}</h2>
+              <b-row>
+                <b-col cols="12" md="6">
+                  <label for="name">{{ $t("adminPlaceManagementName") }}</label>
+                  <b-input v-model="place.name" ref="name" id="name" />
+                </b-col>
+                <b-col cols="12" md="6">
+                  <label for="address">{{
+                    $t("adminPlaceManagementAddress")
+                  }}</label>
+                  <b-input v-model="place.address" ref="address" id="address" />
+                </b-col>
+                <b-col cols="12" md="12">
+                  <label for="description">{{
+                    $t("adminPlaceManagementDescription")
+                  }}</label>
+                  <b-input
+                    v-model="place.description"
+                    ref="description"
+                    id="description"
+                  />
+                </b-col>
+                <b-col cols="12" md="12">
+                  <label for="oversight">{{
+                    $t("adminPlaceManagementGarant")
+                  }}</label>
+                  <b-input v-model="oversight" ref="oversight" id="oversight" />
+                </b-col>
+                <b-col cols="12" md="2">
+                  <label for="queue">{{
+                    $t("adminPlaceManagementQueue")
+                  }}</label>
+                  <b-input
+                    type="time"
+                    v-model="place.queue"
+                    ref="queue"
+                    id="queue"
+                    step="2"
+                  />
+                </b-col>
+                <b-col cols="12" md="2">
+                  <label for="queueLastUpdate">{{
+                    $t("adminPlaceManagementQueueLastUpdate")
+                  }}</label>
+                  <VueCtkDateTimePicker
+                    v-model="place.queueLastUpdate"
+                    ref="queueLastUpdate"
+                    id="queueLastUpdate"
+                  />
+                </b-col>
+                <b-col cols="12" md="2">
+                  <label for="lat">{{ $t("adminPlaceManagementLat") }}</label>
+                  <b-input v-model="place.lat" ref="lat" id="lat" />
+                </b-col>
+                <b-col cols="12" md="2">
+                  <label for="lng">{{ $t("adminPlaceManagementLng") }}</label>
+                  <b-input v-model="place.lng" ref="lng" id="lng" />
+                </b-col>
+                <b-col cols="12" md="2">
+                  <label for="limitPer5MinSlot">{{
+                    $t("adminPlaceManagementLimitPer5MinSlot")
+                  }}</label>
+                  <b-input
+                    v-model="place.limitPer5MinSlot"
+                    ref="limitPer5MinSlot"
+                    id="limitPer5MinSlot"
+                  />
+                </b-col>
+                <b-col cols="12" md="2">
+                  <label for="limitPer1HourSlot">{{
+                    $t("adminPlaceManagementLimitPer1HourSlot")
+                  }}</label>
+                  <b-input
+                    v-model="place.limitPer1HourSlot"
+                    ref="limitPer1HourSlot"
+                    id="limitPer1HourSlot"
+                  />
+                </b-col>
+              </b-row>
+              <b-row class="py-2">
+                <b-col>
+                  <b-form-checkbox
+                    id="isVisible"
+                    v-model="place.isVisible"
+                    name="isVisible"
+                  >
+                    {{ $t("adminPlaceManagementIsVisible") }}
+                  </b-form-checkbox>
+                </b-col>
+                <b-col>
+                  <b-form-checkbox
+                    id="isVisibleOnlyForAuthorized"
+                    v-model="place.isVisibleOnlyForAuthorized"
+                    name="isVisibleOnlyForAuthorized"
+                  >
+                    {{ $t("adminPlaceManagementIsVisibleOnlyForAuthorized") }}
+                  </b-form-checkbox>
+                </b-col>
+                <b-col>
+                  <b-form-checkbox
+                    id="isDriveIn"
+                    v-model="place.isDriveIn"
+                    name="isDriveIn"
+                  >
+                    {{ $t("adminPlaceManagementIsDriveIn") }}
+                  </b-form-checkbox>
+                </b-col>
+                <b-col>
+                  <b-form-checkbox
+                    id="isWalkIn"
+                    v-model="place.isWalkIn"
+                    name="isWalkIn"
+                  >
+                    {{ $t("adminPlaceManagementIsWalkIn") }}
+                  </b-form-checkbox>
+                </b-col>
+                <b-col>
+                  <b-form-checkbox
+                    id="hasReservationSystem"
+                    v-model="place.hasReservationSystem"
+                    name="hasReservationSystem"
+                  >
+                    {{ $t("adminPlaceManagementHasReservationSystem") }}
+                  </b-form-checkbox>
+                </b-col>
+                <b-col>
+                  <b-form-checkbox
+                    id="requiresRegistration"
+                    v-model="place.requiresRegistration"
+                    name="requiresRegistration"
+                  >
+                    {{ $t("adminPlaceManagementRequiresRegistration") }}
+                  </b-form-checkbox>
+                </b-col>
+              </b-row>
+              <b-row class="py-2" v-if="!place.hasReservationSystem">
+                <b-col>
+                  <label for="externalReservationSystem">{{
+                    $t("adminPlaceManagementOpeningHoursTitle")
+                  }}</label>
+                  <b-input
+                    v-model="place.externalReservationSystem"
+                    ref="externalReservationSystem"
+                    id="externalReservationSystem"
+                  />
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col class="py-2">
+                  <h4>
+                    {{ $t("adminPlaceManagementOpeningHoursTitle") }}
+                  </h4>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <label for="openingHoursWorkDay">{{
+                    $t("adminPlaceManagementOpeningHoursWorkDay")
+                  }}</label>
+                  <b-input
+                    v-model="place.openingHoursWorkDay"
+                    ref="openingHoursWorkDay"
+                    id="openingHoursWorkDay"
+                    placeholder="08:00-16:00"
+                  />
+                </b-col>
+                <b-col>
+                  <label for="openingHoursOther1">{{
+                    $t("adminPlaceManagementOpeningHoursOther1")
+                  }}</label>
+                  <b-input
+                    v-model="place.openingHoursOther1"
+                    ref="openingHoursOther1"
+                    id="openingHoursOther1"
+                  />
+                </b-col>
+                <b-col>
+                  <label for="openingHoursOther2">{{
+                    $t("adminPlaceManagementOpeningHoursOther2")
+                  }}</label>
+                  <b-input
+                    v-model="place.openingHoursOther2"
+                    ref="openingHoursOther2"
+                    id="openingHoursOther2"
+                  />
+                </b-col> </b-row
+              ><b-row>
+                <b-col>
+                  {{ $t("adminPlaceManagementOpeningHoursNote") }}
+                </b-col>
+              </b-row>
 
-            <b-row>
-              <b-col>
-                <label for="picture1">{{
-                  $t("adminPlaceManagementPicture1")
-                }}</label>
-                <b-input
-                  v-model="place.picture1"
-                  ref="picture1"
-                  id="picture1"
-                />
-              </b-col>
-              <b-col>
-                <label for="picture2">{{
-                  $t("adminPlaceManagementPicture2")
-                }}</label>
-                <b-input
-                  v-model="place.picture2"
-                  ref="picture2"
-                  id="picture2"
-                />
-              </b-col>
-              <b-col>
-                <label for="picture3">{{
-                  $t("adminPlaceManagementPicture3")
-                }}</label>
-                <b-input
-                  v-model="place.picture3"
-                  ref="picture3"
-                  id="picture3"
-                />
-              </b-col>
-            </b-row>
+              <b-row>
+                <b-col>
+                  <label for="picture1">{{
+                    $t("adminPlaceManagementPicture1")
+                  }}</label>
+                  <b-input
+                    v-model="place.picture1"
+                    ref="picture1"
+                    id="picture1"
+                  />
+                </b-col>
+                <b-col>
+                  <label for="picture2">{{
+                    $t("adminPlaceManagementPicture2")
+                  }}</label>
+                  <b-input
+                    v-model="place.picture2"
+                    ref="picture2"
+                    id="picture2"
+                  />
+                </b-col>
+                <b-col>
+                  <label for="picture3">{{
+                    $t("adminPlaceManagementPicture3")
+                  }}</label>
+                  <b-input
+                    v-model="place.picture3"
+                    ref="picture3"
+                    id="picture3"
+                  />
+                </b-col>
+              </b-row>
 
-            <b-row>
-              <b-col>
-                <label for="supportName">{{ $t("ppSupportName") }}</label>
-                <b-input
-                  v-model="place.supportName"
-                  ref="supportName"
-                  id="supportName"
-                />
-              </b-col>
-              <b-col>
-                <label for="supportEmail">{{ $t("ppSupportEmail") }}</label>
-                <b-input
-                  v-model="place.supportEmail"
-                  ref="supportEmail"
-                  id="supportEmail"
-                />
-              </b-col>
-              <b-col>
-                <label for="supportPhone">{{ $t("ppSupportPhone") }}</label>
-                <b-input
-                  v-model="place.supportPhone"
-                  ref="supportPhone"
-                  id="supportPhone"
-                />
-              </b-col>
-            </b-row>
+              <b-row>
+                <b-col>
+                  <label for="supportName">{{ $t("ppSupportName") }}</label>
+                  <b-input
+                    v-model="place.supportName"
+                    ref="supportName"
+                    id="supportName"
+                  />
+                </b-col>
+                <b-col>
+                  <label for="supportEmail">{{ $t("ppSupportEmail") }}</label>
+                  <b-input
+                    v-model="place.supportEmail"
+                    ref="supportEmail"
+                    id="supportEmail"
+                  />
+                </b-col>
+                <b-col>
+                  <label for="supportPhone">{{ $t("ppSupportPhone") }}</label>
+                  <b-input
+                    v-model="place.supportPhone"
+                    ref="supportPhone"
+                    id="supportPhone"
+                  />
+                </b-col>
+              </b-row>
 
-            <b-row
-              ><button
-                v-if="place.id"
-                @click="clickCreate"
-                class="btn btn-primary my-4"
-              >
-                {{ $t("adminPlaceManagementEdit") }}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
+              <b-row
+                ><button
+                  v-if="place.id"
+                  type="submit"
+                  class="btn btn-primary my-4"
                 >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-              </button>
-              <b-button
-                v-if="place.id"
-                @click="clickCancel"
-                class="btn btn-light p-2 m-4"
-              >
-                {{ $t("adminPlaceManagementCancelEditting") }}
-              </b-button>
-              <button v-else @click="clickCreate" class="btn btn-primary my-4">
-                {{ $t("adminPlaceManagementCreate") }}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17.5"
-                  height="19"
-                  viewBox="0 0 33 40"
-                  role="presentation"
-                  focusable="false"
+                  {{ $t("adminPlaceManagementEdit") }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                </button>
+                <b-button
+                  v-if="place.id"
+                  @click="clickCancel"
+                  class="btn btn-light p-2 m-4"
                 >
-                  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                </svg>
-              </button>
-            </b-row>
+                  {{ $t("adminPlaceManagementCancelEditting") }}
+                </b-button>
+                <button v-else type="submit" class="btn btn-primary my-4">
+                  {{ $t("adminPlaceManagementCreate") }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                </button>
+              </b-row>
+            </b-form>
           </b-tab>
         </b-tabs>
       </b-card>
@@ -451,6 +461,13 @@ export default {
         this.tabIndex = 1;
       }
       this.loading = false;
+    },
+    tabIndex(value) {
+      if (value === 1) {
+        setTimeout(() => {
+          this.$refs.name.focus();
+        }, 0);
+      }
     },
   },
   mounted() {

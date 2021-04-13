@@ -9,9 +9,9 @@
         <p v-else>{{ $t("documentsDescription") }}</p>
       </b-container>
     </div>
-    <b-container>
+    <b-container class="mt-4">
       <b-form @submit.prevent="downloadPDF">
-        <b-form-group :label="$t('documentsIdentificationBy')">
+        <b-form-group :label="$t('documentsIdentificationBy')" class="mb-4">
           <b-form-radio v-model="identificationBy" value="testingSet">{{
             $t("documentsTestingSet")
           }}</b-form-radio>
@@ -35,7 +35,7 @@
               ><div v-html="$t('documentsTestingSetLegend')"
             /></label>
 
-            <b-input v-model="testingSet" ref="testingSet" />
+            <b-input v-model="testingSet" required ref="testingSet" />
           </b-col>
           <b-col
             v-else-if="identificationBy === 'registrationCode'"
@@ -46,7 +46,11 @@
               ><div v-html="$t('documentsRegNumberLegend')"
             /></label>
 
-            <b-input v-model="registrationCode" ref="registrationCode" />
+            <b-input
+              v-model="registrationCode"
+              required
+              ref="registrationCode"
+            />
           </b-col>
           <b-col
             v-else-if="identificationBy === 'personalNumber'"
@@ -69,7 +73,12 @@
             <label for="employeeId">
               <div v-html="$t('documentsEmployeeIdLegend')"
             /></label>
-            <b-input v-model="employeeId" ref="employeeId" id="employeeId" />
+            <b-input
+              v-model="employeeId"
+              required
+              ref="employeeId"
+              id="employeeId"
+            />
           </b-col>
         </b-row>
         <b-row>

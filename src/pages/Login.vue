@@ -14,33 +14,48 @@
       </b-container>
     </div>
     <b-container class="py-3">
-      <b-row>
-        <b-col cols="12" md="6">
-          <label for="login">{{ $t("loginFormLogin") }}</label>
-          <b-input v-model="login" ref="login" id="login" />
-        </b-col>
-        <b-col cols="12" md="6">
-          <label for="pass">{{ $t("loginFormPassword") }}</label>
-          <b-input v-model="pass" ref="pass" id="pass" type="password" />
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" md="6">
-          <b-button @click="clickLogin" class="my-4">
-            {{ $t("loginFormButton") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
-            >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-          </b-button>
-        </b-col>
-      </b-row>
+      <b-form @submit.prevent="clickLogin">
+        <b-row>
+          <b-col cols="12" md="6">
+            <label for="login">{{ $t("loginFormLogin") }}</label>
+            <b-input
+              v-model="login"
+              ref="login"
+              id="login"
+              type="email"
+              autofocus
+              required
+            />
+          </b-col>
+          <b-col cols="12" md="6">
+            <label for="pass">{{ $t("loginFormPassword") }}</label>
+            <b-input
+              v-model="pass"
+              ref="pass"
+              id="pass"
+              type="password"
+              required
+            />
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="6">
+            <b-button type="submit" class="my-4">
+              {{ $t("loginFormButton") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </b-button>
+          </b-col>
+        </b-row>
+      </b-form>
     </b-container>
   </div>
 </template>

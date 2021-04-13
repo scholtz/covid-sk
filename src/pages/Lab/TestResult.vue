@@ -46,97 +46,101 @@
     <b-container v-if="action === 'sick'">
       <b-row>
         <b-col>
-      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
-        {{ $t("labBackToSelection") }}
-      </button>
-      <button
-        class="float-right bg-light m-2 btn btn-light"
-        @click="resetTable"
-      >
-        Reset
-      </button>
-      <h2>{{ $t("labSelectTestResultsSick") }}</h2>
+          <button
+            class="float-right bg-light my-2 btn btn-light"
+            @click="reset"
+          >
+            {{ $t("labBackToSelection") }}
+          </button>
+          <button
+            class="float-right bg-light m-2 btn btn-light"
+            @click="resetTable"
+          >
+            Reset
+          </button>
+          <h2>{{ $t("labSelectTestResultsSick") }}</h2>
         </b-col>
       </b-row>
     </b-container>
     <b-container v-if="action === 'repeat'">
       <b-row>
         <b-col>
-      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
-        {{ $t("labBackToSelection") }}
-      </button>
-      <button
-        class="float-right bg-light m-2 btn btn-light"
-        @click="resetTable"
-      >
-        Reset
-      </button>
-      <h2>{{ $t("labSelectTestResultsRepeat") }}</h2>
+          <button
+            class="float-right bg-light my-2 btn btn-light"
+            @click="reset"
+          >
+            {{ $t("labBackToSelection") }}
+          </button>
+          <button
+            class="float-right bg-light m-2 btn btn-light"
+            @click="resetTable"
+          >
+            Reset
+          </button>
+          <h2>{{ $t("labSelectTestResultsRepeat") }}</h2>
         </b-col>
       </b-row>
     </b-container>
     <b-container v-if="action === 'healthy'">
       <b-row>
         <b-col>
-      <button class="float-right bg-light my-2 btn btn-light" @click="reset">
-        {{ $t("labBackToSelection") }}
-      </button>
-      <button
-        class="float-right bg-light m-2 btn btn-light"
-        @click="resetTable"
-      >
-        Reset
-      </button>
-      <h2>{{ $t("labSelectTestResultsHealthy") }}</h2>
+          <button
+            class="float-right bg-light my-2 btn btn-light"
+            @click="reset"
+          >
+            {{ $t("labBackToSelection") }}
+          </button>
+          <button
+            class="float-right bg-light m-2 btn btn-light"
+            @click="resetTable"
+          >
+            Reset
+          </button>
+          <h2>{{ $t("labSelectTestResultsHealthy") }}</h2>
         </b-col>
       </b-row>
     </b-container>
 
     <b-container v-if="action !== 'select'" class="my-2">
       <b-row>
-        <b-col >
-          <label for="next">{{ $t("labNextCode") }}</label>
-          <b-input v-model="next" ref="next" id="next" />
-          <button
-            :disabled="!next"
-            class="btn btn-primary my-2"
-            @click="
-              data.push({
-                code: next,
-                state: 'labStateReadyToSend',
-                variant: 'alert alert-info',
-              })
-            "
-          >
-            {{ $t("labAdd") }}
-          </button>
+        <b-col>
+          <b-form @submit.prevent="onLabAdd">
+            <label for="next">{{ $t("labNextCode") }}</label>
+            <b-input v-model="next" ref="next" id="next" autofocus required />
+            <button
+              :disabled="!next"
+              class="btn btn-primary my-2"
+              type="submit"
+            >
+              {{ $t("labAdd") }}
+            </button>
+          </b-form>
 
-      <div v-if="scanbox === 'aboveTable'">
-        <qrcode-stream v-if="useQR" @decode="onDecode" />
-        <StreamBarcodeReader v-else @decode="onDecode" />
-      </div>
-      <b-table :items="data" :fields="fields">
-        <template #cell(id)="row">
-          <button
-            @click="data.splice(row.index, 1)"
-            class="btn btn-primary m-2 bg-light"
-          >
-            {{ $t("labCancel") }}
-          </button>
-        </template>
-        <template #cell(state)="row">
-          <div :class="row.item.variant">
-            {{ $t(row.item.state) }}
+          <div v-if="scanbox === 'aboveTable'">
+            <qrcode-stream v-if="useQR" @decode="onDecode" />
+            <StreamBarcodeReader v-else @decode="onDecode" />
           </div>
-        </template>
-      </b-table>
+          <b-table :items="data" :fields="fields">
+            <template #cell(id)="row">
+              <button
+                @click="data.splice(row.index, 1)"
+                class="btn btn-primary m-2 bg-light"
+              >
+                {{ $t("labCancel") }}
+              </button>
+            </template>
+            <template #cell(state)="row">
+              <div :class="row.item.variant">
+                {{ $t(row.item.state) }}
+              </div>
+            </template>
+          </b-table>
         </b-col>
         <b-col v-if="scanbox === 'right'">
           <qrcode-stream v-if="useQR" @decode="onDecode" />
           <StreamBarcodeReader v-else @decode="onDecode" />
         </b-col>
       </b-row>
-
 
       <div v-if="action === 'sick'">
         <button
@@ -266,6 +270,14 @@ export default {
     ...mapActions({
       SetResults: "result/SetResults",
     }),
+    onLabAdd() {
+      this.data.push({
+        code: this.next,
+        state: "labStateReadyToSend",
+        variant: "alert alert-info",
+      });
+      this.next = "";
+    },
     onDecode(result) {
       this.next = result;
     },

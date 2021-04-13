@@ -9,158 +9,169 @@
       </b-container>
     </div>
     <b-container class="py-4">
-      <b-row>
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsEmployeeId')"
-            label-for="employeeId"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <b-input v-model="employeeId" ref="employeeId" />
-          </b-form-group>
-        </b-col> </b-row
-      ><b-row>
-        <b-col offset-lg="2" offset-sm="4">
-          <button
-            @click="clickRegDownload"
-            class="btn btn-primary my-4"
-            :disabled="processingRegDownload"
-          >
-            {{ $t("selfCertsLoad") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
+      <b-form @submit.prevent="clickRegDownload">
+        <b-row>
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsEmployeeId')"
+              label-for="employeeId"
+              label-cols-sm="4"
+              label-cols-lg="2"
             >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-            <b-spinner small v-if="processingRegDownload" class="ml-1" />
-          </button>
-        </b-col>
-      </b-row>
-      <b-row class="py-1" v-if="employeeLoaded">
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsName')"
-            label-for="name"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <b-input v-model="toSend.name" ref="name" id="name" disabled />
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row class="py-1" v-if="employeeLoaded">
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsEmail')"
-            label-for="email"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <b-input v-model="toSend.email" ref="email" id="email" />
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row class="py-1" v-if="employeeLoaded">
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsPhone')"
-            label-for="phone"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <b-input v-model="toSend.phone" ref="phone" id="phone" />
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row class="py-1" v-if="employeeLoaded">
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsProduct')"
-            label-for="product"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <b-form-select
-              id="product"
-              name="product"
-              :options="products"
-              value-field="id"
-              text-field="name"
-              v-model="toSend.productId"
+              <b-input
+                v-model="employeeId"
+                ref="employeeId"
+                required
+                autofocus
+              />
+            </b-form-group>
+          </b-col> </b-row
+        ><b-row>
+          <b-col offset-lg="2" offset-sm="4">
+            <button
+              type="submit"
+              class="btn btn-primary my-4"
+              :disabled="processingRegDownload"
             >
-            </b-form-select>
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row class="py-1" v-if="employeeLoaded">
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsTime')"
-            label-for="time"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <VueCtkDateTimePicker
-              :label="$t('selfCertsTime')"
-              v-model="toSend.time"
-              ref="time"
-              id="time"
-              time-zone="Europe/Bratislava"
-              format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
-              formatted="llll"
-              :locale="locale"
-            />
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row class="py-1" v-if="employeeLoaded">
-        <b-col>
-          <b-form-group
-            :label="$t('selfCertsResult')"
-            label-for="result"
-            label-cols-sm="4"
-            label-cols-lg="2"
-          >
-            <b-form-select id="result" name="result" v-model="toSend.result">
-              <b-select-option
-                v-for="result in results"
-                :key="result.item"
-                :value="result.item"
+              {{ $t("selfCertsLoad") }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
               >
-                {{ $t(result.name) }}
-              </b-select-option>
-            </b-form-select>
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row v-if="employeeLoaded">
-        <b-col offset-lg="2" offset-sm="4">
-          <button
-            @click="clickRegisterTest"
-            class="btn btn-primary my-4"
-            :disabled="!toSend.time || !toSend.productId || processingRegInsert"
-          >
-            Zaregistruj test
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.5"
-              height="19"
-              viewBox="0 0 33 40"
-              role="presentation"
-              focusable="false"
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner small v-if="processingRegDownload" class="ml-1" />
+            </button>
+          </b-col>
+        </b-row>
+      </b-form>
+      <b-form v-if="employeeLoaded" @submit.prevent="clickRegisterTest">
+        <b-row class="py-1">
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsName')"
+              label-for="name"
+              label-cols-sm="4"
+              label-cols-lg="2"
             >
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-            <b-spinner small v-if="processingRegInsert" class="ml-1" />
-          </button>
-        </b-col>
-      </b-row>
+              <b-input v-model="toSend.name" ref="name" id="name" disabled />
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row class="py-1">
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsEmail')"
+              label-for="email"
+              label-cols-sm="4"
+              label-cols-lg="2"
+            >
+              <b-input v-model="toSend.email" ref="email" id="email" />
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row class="py-1">
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsPhone')"
+              label-for="phone"
+              label-cols-sm="4"
+              label-cols-lg="2"
+            >
+              <b-input v-model="toSend.phone" ref="phone" id="phone" />
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row class="py-1">
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsProduct')"
+              label-for="product"
+              label-cols-sm="4"
+              label-cols-lg="2"
+            >
+              <b-form-select
+                id="product"
+                name="product"
+                required
+                :options="products"
+                value-field="id"
+                text-field="name"
+                v-model="toSend.productId"
+              >
+              </b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row class="py-1">
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsTime')"
+              label-for="time"
+              label-cols-sm="4"
+              label-cols-lg="2"
+            >
+              <VueCtkDateTimePicker
+                :label="$t('selfCertsTime')"
+                v-model="toSend.time"
+                required
+                ref="time"
+                id="time"
+                time-zone="Europe/Bratislava"
+                format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+                formatted="llll"
+                :locale="locale"
+              />
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row class="py-1">
+          <b-col>
+            <b-form-group
+              :label="$t('selfCertsResult')"
+              label-for="result"
+              label-cols-sm="4"
+              label-cols-lg="2"
+            >
+              <b-form-select id="result" name="result" v-model="toSend.result">
+                <b-select-option
+                  v-for="result in results"
+                  :key="result.item"
+                  :value="result.item"
+                >
+                  {{ $t(result.name) }}
+                </b-select-option>
+              </b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col offset-lg="2" offset-sm="4">
+            <button
+              type="submit"
+              class="btn btn-primary my-4"
+              :disabled="processingRegInsert"
+            >
+              Zaregistruj test
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.5"
+                height="19"
+                viewBox="0 0 33 40"
+                role="presentation"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+              <b-spinner small v-if="processingRegInsert" class="ml-1" />
+            </button>
+          </b-col>
+        </b-row>
+      </b-form>
     </b-container>
   </div>
 </template>
@@ -206,6 +217,19 @@ export default {
         this.loading = false;
       }
     });
+  },
+  watch: {
+    employeeLoaded(value) {
+      if (value) {
+        setTimeout(() => {
+          this.$refs.email.focus();
+        }, 0);
+      } else {
+        setTimeout(() => {
+          this.$refs.employeeId.focus();
+        }, 0);
+      }
+    },
   },
   methods: {
     ...mapActions({
