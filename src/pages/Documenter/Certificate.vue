@@ -35,7 +35,7 @@
               ><div v-html="$t('documentsTestingSetLegend')"
             /></label>
 
-            <b-input v-model="testingSet" required ref="testingSet" />
+            <b-input v-model="code" required ref="testingSet" />
           </b-col>
           <b-col
             v-else-if="identificationBy === 'registrationCode'"
@@ -46,11 +46,7 @@
               ><div v-html="$t('documentsRegNumberLegend')"
             /></label>
 
-            <b-input
-              v-model="registrationCode"
-              required
-              ref="registrationCode"
-            />
+            <b-input v-model="code" required ref="registrationCode" />
           </b-col>
           <b-col
             v-else-if="identificationBy === 'personalNumber'"
@@ -63,22 +59,13 @@
                 v-html="$t('documentsPersonalNumberLegendIns')" />
               <div v-else v-html="$t('documentsPersonalNumberLegend')"
             /></label>
-            <b-input
-              v-model="personalNumber"
-              ref="personalNumber"
-              id="personalNumber"
-            />
+            <b-input v-model="code" ref="personalNumber" id="personalNumber" />
           </b-col>
           <b-col v-else-if="identificationBy === 'employeeId'" cols="12" md="6">
             <label for="employeeId">
               <div v-html="$t('documentsEmployeeIdLegend')"
             /></label>
-            <b-input
-              v-model="employeeId"
-              required
-              ref="employeeId"
-              id="employeeId"
-            />
+            <b-input v-model="code" required ref="employeeId" id="employeeId" />
           </b-col>
         </b-row>
         <b-row>
@@ -146,11 +133,8 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      testingSet: "",
       identificationBy: "",
-      registrationCode: "",
-      personalNumber: "",
-      employeeId: "",
+      code: "",
       visitor: {},
       processingDownload: false,
     };
@@ -180,7 +164,7 @@ export default {
     downloadPDF() {
       this.processingDownload = true;
       this.PrintCertificateByDocumentManager({
-        [this.identificationBy]: this[this.identificationBy],
+        [this.identificationBy]: this.code,
       }).then(r => {
         if (r) {
           this.results = r;
