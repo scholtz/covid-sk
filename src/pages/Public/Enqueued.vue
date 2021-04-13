@@ -14,7 +14,7 @@
         <b-col v-if="success"> {{ $t("") }} </b-col>
         <b-row v-if="!success">
           <b-col cols="12" md="6">
-            <b-input v-model="code" ref="code" />
+            <b-input v-model="code" ref="code" autofocus />
             <label for="code" v-html="$t('resultsCode')" />
           </b-col>
           <b-col cols="12" md="6">
