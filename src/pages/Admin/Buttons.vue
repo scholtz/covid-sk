@@ -7,46 +7,73 @@
     </div>
     <b-container class="my-2">
       <b-row class="my-2">
-        <button @click="FixAdvancedStatsClick" class="btn btn-light">
-          Fix Advanced Stats
-          <b-spinner small v-if="FixAdvancedStatsProcessing" />
-        </button>
+        <b-col cols="auto" class="d-flex align-items-end">
+          <button @click="FixAdvancedStatsClick" class="btn btn-light">
+            Fix Advanced Stats
+            <b-spinner small v-if="FixAdvancedStatsProcessing" />
+          </button>
+        </b-col>
+        <b-col cols="auto">
+          <VueCtkDateTimePicker
+            v-model="from"
+            label="Od data"
+            time-zone="Europe/Bratislava"
+            format="YYYY-MM-DDTHH:mm:ss.SSSSZ"
+            formatted="llll"
+            :locale="locale"
+          />
+        </b-col>
       </b-row>
       <b-row class="my-2">
-        <button
-          @click="FixConnectVisitorsWithEmployeeIdClick"
-          class="btn btn-light"
-        >
-          FixConnectVisitorsWithEmployeeId
-          <b-spinner small v-if="FixConnectVisitorsWithEmployeeIdProcessing" />
-        </button>
+        <b-col cols="auto">
+          <button
+            @click="FixConnectVisitorsWithEmployeeIdClick"
+            class="btn btn-light"
+          >
+            FixConnectVisitorsWithEmployeeId
+            <b-spinner
+              small
+              v-if="FixConnectVisitorsWithEmployeeIdProcessing"
+            />
+          </button>
+        </b-col>
       </b-row>
       <b-row class="my-2">
-        <button @click="DeleteAllRegistrationsClick" class="btn btn-light">
-          DeleteAllRegistrations
-          <b-spinner small v-if="DeleteAllRegistrationsProcessing" />
-        </button>
+        <b-col cols="auto">
+          <button @click="DeleteAllRegistrationsClick" class="btn btn-light">
+            DeleteAllRegistrations
+            <b-spinner small v-if="DeleteAllRegistrationsProcessing" />
+          </button>
+        </b-col>
       </b-row>
       <b-row class="my-2">
-        <button @click="RequeeUnprocessedVisitorsClick" class="btn btn-light">
-          DeleteAllRegistrations
-          <b-spinner small v-if="RequeeUnprocessedVisitorsProcessing" />
-        </button>
+        <b-col cols="auto">
+          <button @click="RequeeUnprocessedVisitorsClick" class="btn btn-light">
+            DeleteAllRegistrations
+            <b-spinner small v-if="RequeeUnprocessedVisitorsProcessing" />
+          </button>
+        </b-col>
       </b-row>
     </b-container>
   </div>
 </template>
 
 <script>
+import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
+import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 import { mapActions } from "vuex";
 
 export default {
+  components: {
+    VueCtkDateTimePicker,
+  },
   data() {
     return {
       FixAdvancedStatsProcessing: false,
       FixConnectVisitorsWithEmployeeIdProcessing: false,
       RequeeUnprocessedVisitorsProcessing: false,
       DeleteAllRegistrationsProcessing: false,
+      from: "",
     };
   },
   computed: {
@@ -76,7 +103,8 @@ export default {
       if (!confirm("Táto metóda môže vymazať údaje zo systému!! Pokračovať?"))
         return;
       this.FixAdvancedStatsProcessing = true;
-      this.FixAdvancedStats().then(r => {
+      const from = this.from || null;
+      this.FixAdvancedStats({ from }).then(r => {
         if (r) {
           this.openSuccess("OK " + r);
         }
