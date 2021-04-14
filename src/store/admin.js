@@ -1,9 +1,11 @@
 export const actions = {
-  async FixAdvancedStats({ dispatch }) {
+  async FixAdvancedStats({ dispatch }, { from }) {
+    const params = from ? { from } : {};
     return await dispatch(
       "axios/post",
       {
         url: this.state.config.VUE_CONFIG_APP_API + "Admin/FixAdvancedStats",
+        params,
       },
       { root: true }
     );
