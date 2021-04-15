@@ -829,6 +829,7 @@ export default {
   },
   methods: {
     ...mapActions({
+      openError: "snackbar/openError",
       ConnectVisitorToTest: "result/ConnectVisitorToTest",
       GetVisitor: "result/GetVisitor",
       GetVisitorByRC: "result/GetVisitorByRC",
@@ -870,6 +871,9 @@ export default {
           this.action = "verifyPerson";
         } else {
           this.state = "visitor-error";
+
+          // !! TEMPORARY HACK FOR MISSING BACKEND ERRORS
+          if (this.code.length <= 9) this.openError("Neplatný kód registrace");
         }
       });
     },
@@ -996,7 +1000,6 @@ export default {
       }
     },
     confirmCode() {
-      this.action = "verifyPerson";
       this.load();
     },
     reset() {
