@@ -350,15 +350,6 @@ export default {
       minutesVariantText: "white",
     };
   },
-  watch: {
-    selectedProduct() {
-      if (this.selectedProduct) {
-        this.setProduct(
-          this.products.find(p => p.product.id === this.selectedProduct)
-        );
-      }
-    },
-  },
   computed: {
     gpsLink() {
       if (
@@ -372,6 +363,15 @@ export default {
       }
       const ret = `http://www.google.com/maps/place/${this.$store.state.place.currentPlace.lat},${this.$store.state.place.currentPlace.lng}`;
       return ret;
+    },
+  },
+  watch: {
+    selectedProduct() {
+      if (this.selectedProduct) {
+        this.setProduct(
+          this.products.find(p => p.product.id === this.selectedProduct)
+        );
+      }
     },
   },
   async mounted() {

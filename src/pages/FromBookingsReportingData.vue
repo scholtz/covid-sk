@@ -57,7 +57,7 @@
     <b-container fluid>
       <b-row>
         <b-col>
-          <b-textarea rows="5" v-model="text"></b-textarea>
+          <b-textarea rows="5" v-model="text" />
         </b-col>
       </b-row>
     </b-container>
@@ -65,16 +65,22 @@
 </template>
 
 <script>
-import { load } from "recaptcha-v3";
 import VueQrcode from "vue-qrcode";
 import eccrypto from "eccrypto";
 
 import { mapMutations, mapActions } from "vuex";
-import moment from "moment";
 
 export default {
   components: {
     VueQrcode,
+  },
+  data() {
+    return {
+      text:
+        "Date Time	Customer Name	Customer Email	Customer Phone	Customer Address	Staff	Service	Location	Duration (mins.)	Type\n",
+      parsed: [],
+      publicKey: {},
+    };
   },
   computed: {
     locale() {
@@ -85,14 +91,6 @@ export default {
     text() {
       this.parse();
     },
-  },
-  data() {
-    return {
-      text:
-        "Date Time	Customer Name	Customer Email	Customer Phone	Customer Address	Staff	Service	Location	Duration (mins.)	Type\n",
-      parsed: [],
-      publicKey: {},
-    };
   },
   mounted() {
     this.GetPublicKey().then(r => {
@@ -225,5 +223,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

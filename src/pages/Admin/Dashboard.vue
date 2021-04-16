@@ -51,7 +51,7 @@
             <b-form-select
               v-model="selectedDay"
               :options="days"
-            ></b-form-select>
+            />
             <button
               class="btn btn-primary m-2"
               @click="clickSendDayResultsToEHealth"

@@ -659,7 +659,7 @@ export default {
     },
     deleteInvitationClick(row) {
       if (confirm(this.$t("formAdminHRDeleteInvitationMessage"))) {
-        console.log("todo");
+        console.log("todo", row);
       }
     },
     inviteUserClick() {

@@ -107,7 +107,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import skLocale from "@fullcalendar/core/locales/sk";
 import csLocale from "@fullcalendar/core/locales/cs";
-import moment from 'moment'
+import moment from "moment";
 
 export default {
   components: {
@@ -407,12 +407,14 @@ export default {
       });
     },
     async ListPlaceLimits() {
-      this.ReloadPlaces().then(r => {
+      this.ReloadPlaces().then(() => {
         if (!this.placeObj) return;
         return this.placeObj.otherLimitations;
       });
     },
-    RemovePlaceLimit(placeId, limitId) {},
+    RemovePlaceLimit(placeId, limitId) {
+      console.log("RemovePlaceLimit", placeId, limitId);
+    },
     redrawEvents() {
       if (!this.placeObj) return;
       const allocations = this.placeObj.otherLimitations;
@@ -474,7 +476,7 @@ export default {
     },
     deleteInvitationClick(row) {
       if (confirm("Naozaj chcete zrušiť pozvánku?")) {
-        console.log("todo");
+        console.log("todo", row);
       }
     },
     eventRender: function (event, element) {
@@ -490,7 +492,7 @@ export default {
           placeId: this.place,
         }).then(r => {
           if (r) {
-            this.ReloadPlaces().then(r3 => {
+            this.ReloadPlaces().then(() => {
               this.ListPlaceLimits().then(r2 => {
                 this.allocations = r2;
                 this.redrawEvents();

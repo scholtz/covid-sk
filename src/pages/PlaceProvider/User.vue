@@ -580,7 +580,7 @@ export default {
     },
     deleteInvitationClick(row) {
       if (confirm("Naozaj chcete zrušiť pozvánku?")) {
-        console.log("todo");
+        console.log("todo", row);
       }
     },
     inviteUserClick() {

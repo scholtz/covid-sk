@@ -28,7 +28,7 @@
           </b-col>
         </b-row>
         <b-row v-if="!success">
-          <b-col> </b-col>
+          <b-col/>
           <b-col>
             <b-button class="my-3" @click="enqueuee" variant="primary">
               {{ $t("enqueuedTitle") }}

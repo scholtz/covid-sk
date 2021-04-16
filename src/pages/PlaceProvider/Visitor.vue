@@ -837,6 +837,11 @@ extend("phone", {
 });
 
 export default {
+  components: {
+    ValidationProvider,
+    ValidationObserver,
+    VueCtkDateTimePicker,
+  },
   data() {
     return {
       loading: true,
@@ -879,11 +884,6 @@ export default {
         },
       ],
     };
-  },
-  components: {
-    ValidationProvider,
-    ValidationObserver,
-    VueCtkDateTimePicker,
   },
   computed: {
     locale() {

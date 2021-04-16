@@ -582,8 +582,7 @@
                           frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowfullscreen
-                        ></iframe
-                        ><br /><br />
+                        /><br /><br />
                         <div v-html="$t('helpTesterA1-3')" />
                         <div v-html="$t('helpTesterA1-4')" />
                       </b-card-body>
@@ -613,7 +612,7 @@
                           frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowfullscreen
-                        ></iframe>
+                        />
                       </b-card-body>
                     </b-collapse>
                   </b-card>

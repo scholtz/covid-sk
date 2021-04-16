@@ -139,10 +139,6 @@ export default {
       processingDownload: false,
     };
   },
-  created() {
-    this.identificationBy =
-      localStorage.getItem("documentsIdentificationBy") || "testingSet";
-  },
   watch: {
     identificationBy(value) {
       localStorage.setItem("documentsIdentificationBy", value);
@@ -150,6 +146,10 @@ export default {
         this.$refs[value].focus();
       }, 0);
     },
+  },
+  created() {
+    this.identificationBy =
+      localStorage.getItem("documentsIdentificationBy") || "testingSet";
   },
   methods: {
     ...mapActions({
