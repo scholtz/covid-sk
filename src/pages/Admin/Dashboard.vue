@@ -7,7 +7,7 @@
     </div>
     <b-container class="my-2">
       <b-row>
-        <b-col col="6">
+        <b-col>
           <b-form @submit.prevent="loadVisitor">
             <b-card :title="$t('adminDashboardVisitorManagement')">
               <input
@@ -21,7 +21,7 @@
             </b-card>
           </b-form>
         </b-col>
-        <b-col col="6">
+        <b-col>
           <b-card :title="$t('adminDashboardEzdravieManagement')">
             <label for="locale">{{
               $t("adminDashboardImportDateLabel")
@@ -48,10 +48,7 @@
             ><br /><br />
 
             <label for="days">{{ $t("adminDashboardExportableDays") }}</label>
-            <b-form-select
-              v-model="selectedDay"
-              :options="days"
-            />
+            <b-form-select v-model="selectedDay" :options="days" />
             <button
               class="btn btn-primary m-2"
               @click="clickSendDayResultsToEHealth"
@@ -65,7 +62,7 @@
             </button>
           </b-card>
         </b-col>
-        <b-col col="6">
+        <b-col>
           <b-card :title="$t('adminDashboardEmployeeUpload')">
             <input
               class="form-control btn btn-primary m-2 p-1"

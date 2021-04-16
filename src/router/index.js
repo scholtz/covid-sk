@@ -171,6 +171,11 @@ const router = new VueRouter({
       component: () => import("../pages/Admin/Invite.vue"),
     },
     {
+      path: "/admin/resetPassword",
+      name: "ResetPassword",
+      component: () => import("../pages/Admin/ResetPassword.vue"),
+    },
+    {
       path: "/admin/visitor/:visitorId",
       name: "AdminVisitor",
       component: () => import("../pages/PlaceProvider/Visitor.vue"),

@@ -40,6 +40,9 @@
                 <b-dropdown-item to="/admin/manageProducts">{{
                   $t("navBarAdminManageServices")
                 }}</b-dropdown-item>
+                <b-dropdown-item to="/admin/resetPassword">
+                  {{ $t("navBarAdminResetPassword") }}
+                </b-dropdown-item>
               </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav v-if="isPPAdmin()">
