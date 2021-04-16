@@ -10,7 +10,7 @@
       <b-row>
         <b-col>
           <label for="days">{{ $t("reportsChooseDay") }}</label>
-          <b-form-select v-model="selectedDay" :options="days"></b-form-select>
+          <b-form-select v-model="selectedDay" :options="days"/>
         </b-col>
         <b-col>
           <button
@@ -92,7 +92,7 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            ></svg>
+            />
             <b-spinner small v-if="loading8" />
           </button>
         </b-col>
@@ -112,7 +112,7 @@
           <b-form-select
             v-model="customreport"
             :options="customreports"
-          ></b-form-select>
+          />
         </b-col>
         <b-col>
           <button
@@ -127,7 +127,7 @@
               viewBox="0 0 33 40"
               role="presentation"
               focusable="false"
-            ></svg>
+            />
             <b-spinner small v-if="loading9" />
           </button>
         </b-col>

@@ -236,7 +236,7 @@
                     moment(row.item.queue, 'HH:mm:ss') ===
                       moment('00:00:00', 'HH:mm:ss'))
                 "
-              ></span>
+              />
               <span v-else>
                 {{ row.item.queue | formatDateTime }}
               </span>
@@ -248,8 +248,7 @@
                     moment(row.item.queue, 'HH:mm:ss') ===
                       moment('00:00:00', 'HH:mm:ss'))
                 "
-              >
-              </span>
+              />
               <span
                 v-else-if="
                   moment(row.item.queue, 'HH:mm:ss') <=

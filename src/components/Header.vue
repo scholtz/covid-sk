@@ -29,7 +29,6 @@
                   }}</router-link>
                 </b-nav-item>
               </b-nav>
-
             </b-col>
           </b-col>
         </b-row>
@@ -39,13 +38,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   name: "Header",
-  components: {
-    IncomingCalls,
-  },
   props: {
     headerbg: String,
     light: {
@@ -59,7 +53,7 @@ export default {
       acceptCalls: true,
       isOpen: false,
       isOpenMobileMenu: false,
-    }
+    };
   },
 };
 </script>

@@ -76,7 +76,7 @@
       <b-container fluid>
         <b-row>
           <b-col md="3">
-            <p></p>
+            <p/>
           </b-col>
           <b-col md="2">
             <b>{{ $t("workingTimeSetTimeFor") }}:</b>

@@ -102,8 +102,7 @@
                 value-field="id"
                 text-field="name"
                 v-model="toSend.productId"
-              >
-              </b-form-select>
+              />
             </b-form-group>
           </b-col>
         </b-row>
@@ -210,14 +209,6 @@ export default {
       return this.$i18n.locale;
     },
   },
-  mounted() {
-    this.ListExternalProducts().then(r => {
-      if (r) {
-        this.products = r;
-        this.loading = false;
-      }
-    });
-  },
   watch: {
     employeeLoaded(value) {
       if (value) {
@@ -230,6 +221,14 @@ export default {
         }, 0);
       }
     },
+  },
+  mounted() {
+    this.ListExternalProducts().then(r => {
+      if (r) {
+        this.products = r;
+        this.loading = false;
+      }
+    });
   },
   methods: {
     ...mapActions({

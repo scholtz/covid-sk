@@ -449,7 +449,7 @@
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td/>
               <td>
                 <button
                   @click="action = 'testSetCodeQR'"

@@ -759,6 +759,33 @@ export default {
     ValidationProvider,
     ValidationObserver,
   },
+  data() {
+    return {
+      employee: false,
+      employeeId: "",
+      processing: false,
+      school: false,
+      personType: "idcard",
+      passport: "",
+      rc: "",
+      firstName: "",
+      lastName: "",
+      address: {
+        street: "",
+        streetNo: "",
+        zip: "",
+        city: "",
+      },
+      birthday: { day: "", month: "", year: "" },
+
+      email: "@",
+      phone: "+421",
+      insurance: "25",
+      gdpr: false,
+      employeeNumber: "",
+      employeePass: "",
+    };
+  },
   computed: {
     productId() {
       if (this.$route.params.productId) {
@@ -802,14 +829,18 @@ export default {
       }
       for (const index in this.$store.state.place.currentPlace
         .otherLimitations) {
-
-        const limitation = this.$store.state.place.currentPlace.otherLimitations[index];
+        const limitation = this.$store.state.place.currentPlace
+          .otherLimitations[index];
         const now = moment(this.$store.state.slot.slotHCurrent.time);
         if (
           moment(limitation.from).isSameOrBefore(now) &&
           moment(limitation.until).isAfter(now)
         ) {
-          if (limitation.hourLimit <= this.$store.state.slot.slotHCurrent.registrations) return true;
+          if (
+            limitation.hourLimit <=
+            this.$store.state.slot.slotHCurrent.registrations
+          )
+            return true;
         }
       }
       return false;
@@ -845,33 +876,6 @@ export default {
       }
     },
   },
-  data() {
-    return {
-      employee: false,
-      employeeId: "",
-      processing: false,
-      school: false,
-      personType: "idcard",
-      passport: "",
-      rc: "",
-      firstName: "",
-      lastName: "",
-      address: {
-        street: "",
-        streetNo: "",
-        zip: "",
-        city: "",
-      },
-      birthday: { day: "", month: "", year: "" },
-
-      email: "@",
-      phone: "+421",
-      insurance: "25",
-      gdpr: false,
-      employeeNumber: "",
-      employeePass: "",
-    };
-  },
   mounted() {
     if (
       !this.$store.state.slot ||
@@ -897,7 +901,7 @@ export default {
               this.$router.push("/place/" + this.$route.params.placeId);
             }
           })
-          .catch(r => {
+          .catch(() => {
             this.$router.push("/place/" + this.$route.params.placeId);
           });
       }
@@ -1192,37 +1196,37 @@ export default {
     validateForm() {
       this.$refs["vpLastName"]
         .validate()
-        .then(r => {
+        .then(() => {
           return this.$refs["vpFirstName"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpBirthDay"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpBirthMonth"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpBirthYear"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpStreet"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpStreetNo"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpZIP"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpCity"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpMobile"].validate();
         })
-        .then(r => {
+        .then(() => {
           return this.$refs["vpEmail"].validate();
         })
-        .then(r => {
+        .then(() => {
           if (this.personType === "foreign") {
             return this.$refs["vpPassport"].validate();
           } else {
