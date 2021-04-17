@@ -57,6 +57,7 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="firstName-feedback"
                     data-vv-as="Name"
+                    required
                     autofocus
                   />
 
@@ -84,6 +85,7 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="lastName-feedback"
                     data-vv-as="Priezvisko"
+                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -123,6 +125,7 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="rc-feedback"
                     data-vv-as="Rodné číslo"
+                    required
                   />
 
                   <b-form-invalid-feedback id="rc-feedback">{{
@@ -149,6 +152,7 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="passport-feedback"
                     data-vv-as="Číslo cestovného dokladu"
+                    required
                   />
 
                   <b-form-invalid-feedback id="passport-feedback">{{
@@ -436,7 +440,7 @@
 <script>
 import { QrcodeStream } from "vue-qrcode-reader";
 import eccrypto from "eccrypto";
-
+import i18n from "@/i18n";
 import {
   ValidationObserver,
   ValidationProvider,
@@ -481,12 +485,14 @@ extend("rc", {
   validate: value => {
     return testRC(value);
   },
+  message: i18n.t("formInputInvalidMessage"),
 });
 extend("emailWithAtSign", {
   validate: value => {
     const res = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return res.test(String(value).toLowerCase()) || value === "@";
   },
+  message: i18n.t("formInputInvalidMessage"),
 });
 extend("phone", {
   validate: value => {
@@ -497,6 +503,7 @@ extend("phone", {
     const ret = valTrim.match(/^\d{12}$/);
     return ret;
   },
+  message: i18n.t("formInputInvalidMessage"),
 });
 
 import { mapMutations, mapActions } from "vuex";
