@@ -78,8 +78,8 @@
       </b-container>
     </div>
     <b-container class="my-4" v-if="showEmployerForm">
-      <ValidationObserver ref="formEmployer">
-        <b-form @submit.prevent="registerForTestWithCompany">
+      <ValidationObserver v-slot="{ handleSubmit }" ref="formEmployer">
+        <b-form @submit.prevent="handleSubmit(registerForTestWithCompany)">
           <b-row>
             <b-col cols="12" md="6">
               <validation-provider
@@ -169,8 +169,8 @@
     </b-container>
 
     <b-container class="my-4" v-else>
-      <ValidationObserver ref="form">
-        <b-form @submit.prevent="registerForTest">
+      <ValidationObserver v-slot="{ handleSubmit }" ref="form">
+        <b-form @submit.prevent="handleSubmit(registerForTest)">
           <b-row v-if="$store.state.place.currentPlace && limitReached">
             <b-col>
               <div class="alert alert-danger my-4">
