@@ -449,7 +449,7 @@
               </td>
             </tr>
             <tr>
-              <td/>
+              <td />
               <td>
                 <button
                   @click="action = 'testSetCodeQR'"
@@ -958,11 +958,11 @@ export default {
           testCode: this.testingset,
         });
         if (r) {
-          this.action = "verifyPerson";
-          this.$router.replace({
-            name: "TesterRegisteredVisitorWithId",
-            params: { id: code },
-          });
+          this.action = "select";
+          // this.$router.replace({
+          //   name: "TesterRegisteredVisitorWithId",
+          //   params: { id: code },
+          // });
         }
       }
       this.submitted = false;
