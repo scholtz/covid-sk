@@ -578,7 +578,7 @@
             <b-col cols="12" :md="insuranceColumns">
               <validation-provider
                 name="Email"
-                rules="required|emailWithAtSign"
+                rules="emailWithAtSign"
                 v-slot="validationContext"
               >
                 <b-form-group
