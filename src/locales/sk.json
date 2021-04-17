@@ -309,6 +309,7 @@
   "registrationFormAddressZIP": "PSČ",
   "registrationFormAddressCity": "Mesto",
 
+  "formInvalidDataConfirmationMessage": "Naozaj chcete odoslať formulár s nezvalidovanými dátami?",
   "registrationFormNewVisitorRegistration": "Registrácia nového návštevníka",
   "registrationFormNewVisitorIdentification": "Identifikácia registrovanej osoby",
   "registrationFormAdultWithIdentityCard": "Dospelá osoba s občianskym preukazom",
