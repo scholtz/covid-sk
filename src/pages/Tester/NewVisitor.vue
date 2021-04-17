@@ -180,7 +180,8 @@
                     max="31"
                     :state="getValidationState(validationContext)"
                     aria-describedby="birthDayDay-feedback"
-                    data-vv-as="Priezvisko"
+                    data-vv-as="Deň narodenia"
+                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -208,6 +209,7 @@
                     max="12"
                     :state="getValidationState(validationContext)"
                     aria-describedby="birthDayMonth-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -237,6 +239,7 @@
                     max="2021"
                     :state="getValidationState(validationContext)"
                     aria-describedby="birthDayYear-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -264,6 +267,7 @@
                     v-model="address.street"
                     :state="getValidationState(validationContext)"
                     aria-describedby="street-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="address-feedback">{{
@@ -289,6 +293,7 @@
                     v-model="address.streetNo"
                     :state="getValidationState(validationContext)"
                     aria-describedby="streetNo-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="streetNo-feedback">{{
@@ -314,6 +319,7 @@
                     v-model="address.zip"
                     :state="getValidationState(validationContext)"
                     aria-describedby="zip-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="zip-feedback">{{
@@ -339,6 +345,7 @@
                     v-model="address.city"
                     :state="getValidationState(validationContext)"
                     aria-describedby="city-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="city-feedback">{{
@@ -366,6 +373,7 @@
                     v-model="phone"
                     :state="getValidationState(validationContext)"
                     aria-describedby="phone-feedback"
+                    required
                   />
 
                   <b-form-invalid-feedback id="phone-feedback">{{
