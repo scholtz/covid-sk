@@ -309,6 +309,7 @@
   "registrationFormAddressZIP": "PSČ",
   "registrationFormAddressCity": "Mesto",
 
+  "formInputInvalidMessage": "Hodnota položky nie je platná.",
   "formInvalidDataConfirmationMessage": "Naozaj chcete odoslať formulár s nezvalidovanými dátami?",
   "registrationFormNewVisitorRegistration": "Registrácia nového návštevníka",
   "registrationFormNewVisitorIdentification": "Identifikácia registrovanej osoby",

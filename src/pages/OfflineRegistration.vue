@@ -495,6 +495,7 @@
 import { load } from "recaptcha-v3";
 import VueQrcode from "vue-qrcode";
 import eccrypto from "eccrypto";
+import i18n from "@/i18n";
 
 import {
   ValidationObserver,
@@ -541,6 +542,7 @@ extend("rc", {
   validate: value => {
     return testRC(value);
   },
+  message: i18n.t("formInputInvalidMessage"),
 });
 extend("phone", {
   validate: value => {
@@ -567,6 +569,7 @@ extend("phone", {
     const ret = valTrim.match(/^\d{11}$/);
     return ret;
   },
+  message: i18n.t("formInputInvalidMessage"),
 });
 
 import { mapMutations, mapActions } from "vuex";
