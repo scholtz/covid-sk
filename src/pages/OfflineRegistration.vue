@@ -12,116 +12,107 @@
         </b-row>
       </b-container>
     </div>
-    <ValidationObserver>
+    <ValidationObserver ref="form">
       <b-container class="my-4">
-        <b-row v-if="!$store.state.config.INSURED_ONLY">
-          <b-col cols="12" md="4">
-            <b-form-group :label="$t('registrationFormTypeLabel')">
-              <b-form-radio
-                v-model="personType"
-                name="person-type"
-                value="idcard"
-              >
-                <span v-if="$store.state.config.RC_IS_INSURANCE">
-                  {{ $t("registrationFormTypePersonalCardIns") }}
-                </span>
-                <span v-else>
-                  {{ $t("registrationFormTypePersonalCard") }}
-                </span>
-              </b-form-radio>
-              <b-form-radio
-                v-model="personType"
-                name="person-type"
-                value="child"
-                >{{ $t("registrationFormTypePersonalChild") }}</b-form-radio
-              >
-              <b-form-radio
-                v-model="personType"
-                name="person-type"
-                value="foreign"
-                >{{ $t("registrationFormTypePersonalForeigner") }}</b-form-radio
-              >
-            </b-form-group>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12" md="6" lg="3">
-            <validation-provider
-              ref="vpFirstName"
-              :name="$t('registrationFormFirstName')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="firstName-group-1"
-                :label="$t('registrationFormFirstName')"
-                label-for="firstName"
-              >
-                <b-form-input
-                  id="firstName"
-                  name="firstName"
-                  v-model="firstName"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="firstName-feedback"
-                  data-vv-as="Name"
-                />
-
-                <b-form-invalid-feedback id="firstName-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
+        <b-form @submit.prevent="qrCodeValueUnencrypted">
+          <b-row v-if="!$store.state.config.INSURED_ONLY">
+            <b-col cols="12" md="4">
+              <b-form-group :label="$t('registrationFormTypeLabel')">
+                <b-form-radio
+                  v-model="personType"
+                  name="person-type"
+                  value="idcard"
+                >
+                  <span v-if="$store.state.config.RC_IS_INSURANCE">
+                    {{ $t("registrationFormTypePersonalCardIns") }}
+                  </span>
+                  <span v-else>
+                    {{ $t("registrationFormTypePersonalCard") }}
+                  </span>
+                </b-form-radio>
+                <b-form-radio
+                  v-model="personType"
+                  name="person-type"
+                  value="child"
+                  >{{ $t("registrationFormTypePersonalChild") }}</b-form-radio
+                >
+                <b-form-radio
+                  v-model="personType"
+                  name="person-type"
+                  value="foreign"
+                  >{{
+                    $t("registrationFormTypePersonalForeigner")
+                  }}</b-form-radio
+                >
               </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" md="6" lg="3">
-            <validation-provider
-              ref="vpLastName"
-              :name="$t('registrationFormLastName')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="lastName-group-1"
-                :label="$t('registrationFormLastName')"
-                label-for="lastName"
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="12" md="6" lg="3">
+              <validation-provider
+                ref="vpFirstName"
+                :name="$t('registrationFormFirstName')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
               >
-                <b-form-input
-                  id="lastName"
-                  name="lastName"
-                  v-model="lastName"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="lastName-feedback"
-                  data-vv-as="Priezvisko"
-                />
+                <b-form-group
+                  id="firstName-group-1"
+                  :label="$t('registrationFormFirstName')"
+                  label-for="firstName"
+                >
+                  <b-form-input
+                    ref="firstName"
+                    id="firstName"
+                    name="firstName"
+                    v-model="firstName"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="firstName-feedback"
+                    data-vv-as="Name"
+                    autofocus
+                  />
 
-                <b-form-invalid-feedback id="lastName-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col
-            cols="12"
-            lg="2"
-            md="4"
-            v-if="personType === 'idcard' || personType === 'child'"
-          >
-            <validation-provider
-              ref="vpPersonalNumber"
-              :name="
-                personType === 'idcard'
-                  ? $store.state.config.RC_IS_INSURANCE
-                    ? $t('registrationFormPersonalNumberIns')
-                    : $t('registrationFormPersonalNumber')
-                  : $store.state.config.RC_IS_INSURANCE
-                  ? $t('registrationFormPersonalNumberChildIns')
-                  : $t('registrationFormPersonalNumberChild')
-              "
-              :rules="{ required: true, rc: true }"
-              v-slot="validationContext"
+                  <b-form-invalid-feedback id="firstName-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" md="6" lg="3">
+              <validation-provider
+                ref="vpLastName"
+                :name="$t('registrationFormLastName')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="lastName-group-1"
+                  :label="$t('registrationFormLastName')"
+                  label-for="lastName"
+                >
+                  <b-form-input
+                    id="lastName"
+                    name="lastName"
+                    v-model="lastName"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="lastName-feedback"
+                    data-vv-as="Priezvisko"
+                  />
+
+                  <b-form-invalid-feedback id="lastName-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col
+              cols="12"
+              lg="2"
+              md="4"
+              v-if="personType === 'idcard' || personType === 'child'"
             >
-              <b-form-group
-                id="rc-group-1"
-                :label="
+              <validation-provider
+                ref="vpPersonalNumber"
+                :name="
                   personType === 'idcard'
                     ? $store.state.config.RC_IS_INSURANCE
                       ? $t('registrationFormPersonalNumberIns')
@@ -130,352 +121,371 @@
                     ? $t('registrationFormPersonalNumberChildIns')
                     : $t('registrationFormPersonalNumberChild')
                 "
-                label-for="rc"
+                :rules="{ required: true, rc: true }"
+                v-slot="validationContext"
               >
-                <b-form-input
-                  id="rc"
-                  name="rc"
-                  v-model="rc"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="rc-feedback"
-                  data-vv-as="Rodné číslo"
-                />
+                <b-form-group
+                  id="rc-group-1"
+                  :label="
+                    personType === 'idcard'
+                      ? $store.state.config.RC_IS_INSURANCE
+                        ? $t('registrationFormPersonalNumberIns')
+                        : $t('registrationFormPersonalNumber')
+                      : $store.state.config.RC_IS_INSURANCE
+                      ? $t('registrationFormPersonalNumberChildIns')
+                      : $t('registrationFormPersonalNumberChild')
+                  "
+                  label-for="rc"
+                >
+                  <b-form-input
+                    id="rc"
+                    name="rc"
+                    v-model="rc"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="rc-feedback"
+                    data-vv-as="Rodné číslo"
+                  />
 
-                <b-form-invalid-feedback id="rc-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" md="4" lg="2" v-else>
-            <validation-provider
-              ref="vpPassport"
-              :name="$t('registrationFormPassport')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
+                  <b-form-invalid-feedback id="rc-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" md="4" lg="2" v-else>
+              <validation-provider
+                ref="vpPassport"
+                :name="$t('registrationFormPassport')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="passport-group-1"
+                  :label="$t('registrationFormPassport')"
+                  label-for="passport"
+                >
+                  <b-form-input
+                    id="passport"
+                    name="passport"
+                    v-model="passport"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="passport-feedback"
+                    data-vv-as="Číslo cestovného dokladu"
+                  />
+
+                  <b-form-invalid-feedback id="passport-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" lg="1" md="2">
+              <validation-provider
+                ref="vpBirthDay"
+                :name="$t('registrationFormDay')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="birthDayDay-group-1"
+                  :label="$t('registrationFormBirthDayDay')"
+                  label-for="birthDayDay"
+                >
+                  <b-form-input
+                    id="birthDayDay"
+                    name="birthDayDay"
+                    v-model="birthday.day"
+                    type="number"
+                    min="1"
+                    max="31"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="birthDayDay-feedback"
+                    :data-vv-as="$t('registrationFormBirthDayDay')"
+                  />
+
+                  <b-form-invalid-feedback id="lastName-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider> </b-col
+            ><b-col cols="12" lg="1" md="2">
+              <validation-provider
+                ref="vpBirthMonth"
+                :name="$t('registrationFormBirthDayMonth')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="birthDayMonth-group-1"
+                  :label="$t('registrationFormBirthDayMonth')"
+                  label-for="birthDayMonth"
+                >
+                  <b-form-input
+                    id="birthDayMonth"
+                    name="birthDayMonth"
+                    v-model="birthday.month"
+                    type="number"
+                    min="1"
+                    max="12"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="birthDayMonth-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="lastName-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+
+            <b-col cols="12" md="4" lg="2">
+              <validation-provider
+                ref="vpBirthYear"
+                :name="$t('registrationFormBirthDayYear')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="birthDayYear-group-1"
+                  :label="$t('registrationFormBirthDayYear')"
+                  label-for="birthDayYearh"
+                >
+                  <b-form-input
+                    id="birthDayYear"
+                    name="birthDayYear"
+                    v-model="birthday.year"
+                    type="number"
+                    min="1900"
+                    max="2021"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="birthDayYear-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="lastName-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="12" md="6">
+              <validation-provider
+                ref="vpStreet"
+                :name="$t('registrationFormAddressStreet')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="street-group-1"
+                  :label="$t('registrationFormAddressStreet')"
+                  label-for="street"
+                >
+                  <b-form-input
+                    id="street"
+                    name="street"
+                    v-model="address.street"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="street-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="address-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" md="1">
+              <validation-provider
+                ref="vpStreetNo"
+                :name="$t('registrationFormAddressStreetNo')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="streetNo-group-1"
+                  :label="$t('registrationFormAddressStreetNo')"
+                  label-for="streetNo"
+                >
+                  <b-form-input
+                    id="streetNo"
+                    name="streetNo"
+                    v-model="address.streetNo"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="streetNo-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="streetNo-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" md="2">
+              <validation-provider
+                ref="vpZIP"
+                :name="$t('registrationFormAddressZIP')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="zip-group-1"
+                  :label="$t('registrationFormAddressZIP')"
+                  label-for="zip"
+                >
+                  <b-form-input
+                    id="zip"
+                    name="zip"
+                    v-model="address.zip"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="zip-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="zip-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" md="3">
+              <validation-provider
+                ref="vpCity"
+                :name="$t('registrationFormAddressCity')"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="city-group-1"
+                  :label="$t('registrationFormAddressCity')"
+                  label-for="city"
+                >
+                  <b-form-input
+                    id="city"
+                    name="city"
+                    v-model="address.city"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="city-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="city-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="12" :md="insuranceColumns">
+              <validation-provider
+                ref="vpMobile"
+                :name="$t('registrationFormMobile')"
+                :rules="{ required: true, phone: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="phone-group-1"
+                  :label="$t('registrationFormMobile')"
+                  label-for="phone"
+                >
+                  <b-form-input
+                    id="phone"
+                    name="phone"
+                    v-model="phone"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="phone-feedback"
+                  />
+
+                  <b-form-invalid-feedback id="phone-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col cols="12" :md="insuranceColumns">
               <b-form-group
-                id="passport-group-1"
-                :label="$t('registrationFormPassport')"
-                label-for="passport"
+                id="email-group-1"
+                :label="$t('registrationFormEmail')"
+                label-for="email"
               >
                 <b-form-input
-                  id="passport"
-                  name="passport"
-                  v-model="passport"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="passport-feedback"
-                  data-vv-as="Číslo cestovného dokladu"
+                  id="email"
+                  name="email"
+                  v-model="email"
+                  aria-describedby="email-feedback"
                 />
-
-                <b-form-invalid-feedback id="passport-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
               </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" lg="1" md="2">
-            <validation-provider
-              ref="vpBirthDay"
-              :name="$t('registrationFormDay')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="birthDayDay-group-1"
-                :label="$t('registrationFormBirthDayDay')"
-                label-for="birthDayDay"
-              >
-                <b-form-input
-                  id="birthDayDay"
-                  name="birthDayDay"
-                  v-model="birthday.day"
-                  type="number"
-                  min="1"
-                  max="31"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="birthDayDay-feedback"
-                  :data-vv-as="$t('registrationFormBirthDayDay')"
-                />
-
-                <b-form-invalid-feedback id="lastName-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider> </b-col
-          ><b-col cols="12" lg="1" md="2">
-            <validation-provider
-              ref="vpBirthMonth"
-              :name="$t('registrationFormBirthDayMonth')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="birthDayMonth-group-1"
-                :label="$t('registrationFormBirthDayMonth')"
-                label-for="birthDayMonth"
-              >
-                <b-form-input
-                  id="birthDayMonth"
-                  name="birthDayMonth"
-                  v-model="birthday.month"
-                  type="number"
-                  min="1"
-                  max="12"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="birthDayMonth-feedback"
-                />
-
-                <b-form-invalid-feedback id="lastName-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-
-          <b-col cols="12" md="4" lg="2">
-            <validation-provider
-              ref="vpBirthYear"
-              :name="$t('registrationFormBirthDayYear')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="birthDayYear-group-1"
-                :label="$t('registrationFormBirthDayYear')"
-                label-for="birthDayYearh"
-              >
-                <b-form-input
-                  id="birthDayYear"
-                  name="birthDayYear"
-                  v-model="birthday.year"
-                  type="number"
-                  min="1900"
-                  max="2021"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="birthDayYear-feedback"
-                />
-
-                <b-form-invalid-feedback id="lastName-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12" md="6">
-            <validation-provider
-              ref="vpStreet"
-              :name="$t('registrationFormAddressStreet')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="street-group-1"
-                :label="$t('registrationFormAddressStreet')"
-                label-for="street"
-              >
-                <b-form-input
-                  id="street"
-                  name="street"
-                  v-model="address.street"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="street-feedback"
-                />
-
-                <b-form-invalid-feedback id="address-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" md="1">
-            <validation-provider
-              ref="vpStreetNo"
-              :name="$t('registrationFormAddressStreetNo')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="streetNo-group-1"
-                :label="$t('registrationFormAddressStreetNo')"
-                label-for="streetNo"
-              >
-                <b-form-input
-                  id="streetNo"
-                  name="streetNo"
-                  v-model="address.streetNo"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="streetNo-feedback"
-                />
-
-                <b-form-invalid-feedback id="streetNo-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" md="2">
-            <validation-provider
-              ref="vpZIP"
-              :name="$t('registrationFormAddressZIP')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="zip-group-1"
-                :label="$t('registrationFormAddressZIP')"
-                label-for="zip"
-              >
-                <b-form-input
-                  id="zip"
-                  name="zip"
-                  v-model="address.zip"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="zip-feedback"
-                />
-
-                <b-form-invalid-feedback id="zip-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" md="3">
-            <validation-provider
-              ref="vpCity"
-              :name="$t('registrationFormAddressCity')"
-              :rules="{ required: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="city-group-1"
-                :label="$t('registrationFormAddressCity')"
-                label-for="city"
-              >
-                <b-form-input
-                  id="city"
-                  name="city"
-                  v-model="address.city"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="city-feedback"
-                />
-
-                <b-form-invalid-feedback id="city-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12" :md="insuranceColumns">
-            <validation-provider
-              ref="vpMobile"
-              :name="$t('registrationFormMobile')"
-              :rules="{ required: true, phone: true }"
-              v-slot="validationContext"
-            >
-              <b-form-group
-                id="phone-group-1"
-                :label="$t('registrationFormMobile')"
-                label-for="phone"
-              >
-                <b-form-input
-                  id="phone"
-                  name="phone"
-                  v-model="phone"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="phone-feedback"
-                />
-
-                <b-form-invalid-feedback id="phone-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
-            </validation-provider>
-          </b-col>
-          <b-col cols="12" :md="insuranceColumns">
-            <b-form-group
-              id="email-group-1"
-              :label="$t('registrationFormEmail')"
-              label-for="email"
-            >
-              <b-form-input
-                id="email"
-                name="email"
-                v-model="email"
-                aria-describedby="email-feedback"
+            </b-col>
+            <b-col cols="12" :md="insuranceColumns" v-if="showInsurance">
+              <label for="insurance">{{
+                $t("registrationFormInsurance")
+              }}</label>
+              <b-form-select
+                :options="$store.state.insurance.list"
+                v-model="insurance"
+                id="insurance"
               />
-            </b-form-group>
-          </b-col>
-          <b-col cols="12" :md="insuranceColumns" v-if="showInsurance">
-            <label for="insurance">{{ $t("registrationFormInsurance") }}</label>
-            <b-form-select
-              :options="$store.state.insurance.list"
-              v-model="insurance"
-              id="insurance"
-            />
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12" class="my-2">
-            <p>
-              {{ $t("registrationBottomHelp1") }}
-            </p>
-            <p>
-              {{ $t("registrationBottomHelp2") }}
-            </p>
-            <p
-              v-if="
-                $store.state.slot.product &&
-                $store.state.slot.product.product &&
-                $store.state.slot.product.product.schoolOnly
-              "
-            >
-              <b-form-checkbox v-model="school" id="school">
-                {{ $t("registrationSchoolRequiredText") }}
-              </b-form-checkbox>
-            </p>
-            <p>
-              <b-form-checkbox v-model="gdpr" id="gdpr">
-                <div v-html="$t('registrationFormGDPR')" />
-              </b-form-checkbox>
-            </p>
-            <div>
-              <button
-                v-if="allowUnencryptedRegistration"
-                @click="qrCodeValueUnencrypted"
-                class="btn btn-primary mr-2"
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="12" class="my-2">
+              <p>
+                {{ $t("registrationBottomHelp1") }}
+              </p>
+              <p>
+                {{ $t("registrationBottomHelp2") }}
+              </p>
+              <p
+                v-if="
+                  $store.state.slot.product &&
+                  $store.state.slot.product.product &&
+                  $store.state.slot.product.product.schoolOnly
+                "
               >
-                Vytvoriť nezašifrovaný QR kód
-              </button>
-              <button @click="qrCodeValue" class="btn btn-primary">
-                Vytvoriť zašifrovaný QR kód
-              </button>
-            </div>
-            <p v-if="allowUnencryptedRegistration">
-              Šifrovaný QR kód je vačší a pri zlých svetelných podmienkach sa
-              môže pomalšie alebo horšie načítať obslužnému personálu alebo sa
-              nemusí načítať vôbec. V takom prípade bude musieť obslužný
-              personál všetky údaje vyplniť sám a celý proces sa spomalí.
-              Odporúčame použiť nešifrovaný QR kód ak si ho ukladať nebudete.
-            </p>
-            <vue-qrcode
-              v-if="encrypted"
-              :value="encrypted"
-              errorCorrectionLevel="H"
-            />
-            <h2 v-if="toSend && toSend.gdprConsent">Uložené dáta v QR kóde</h2>
-            <table v-if="toSend && toSend.gdprConsent">
-              <tr v-for="(value, key) in toSend" :key="key">
-                <th>{{ key }}</th>
-                <td>{{ value }}</td>
-              </tr>
-            </table>
-          </b-col>
-        </b-row>
+                <b-form-checkbox v-model="school" id="school">
+                  {{ $t("registrationSchoolRequiredText") }}
+                </b-form-checkbox>
+              </p>
+              <p>
+                <b-form-checkbox v-model="gdpr" id="gdpr">
+                  <div v-html="$t('registrationFormGDPR')" />
+                </b-form-checkbox>
+              </p>
+              <div>
+                <button
+                  v-if="allowUnencryptedRegistration"
+                  type="submit"
+                  class="btn btn-primary mr-2"
+                >
+                  Vytvoriť nezašifrovaný QR kód
+                </button>
+                <button @click="qrCodeValue" class="btn btn-primary">
+                  Vytvoriť zašifrovaný QR kód
+                </button>
+              </div>
+              <p v-if="allowUnencryptedRegistration">
+                Šifrovaný QR kód je vačší a pri zlých svetelných podmienkach sa
+                môže pomalšie alebo horšie načítať obslužnému personálu alebo sa
+                nemusí načítať vôbec. V takom prípade bude musieť obslužný
+                personál všetky údaje vyplniť sám a celý proces sa spomalí.
+                Odporúčame použiť nešifrovaný QR kód ak si ho ukladať nebudete.
+              </p>
+              <vue-qrcode
+                v-if="encrypted"
+                :value="encrypted"
+                errorCorrectionLevel="H"
+              />
+              <h2 v-if="toSend && toSend.gdprConsent">
+                Uložené dáta v QR kóde
+              </h2>
+              <table v-if="toSend && toSend.gdprConsent">
+                <tr v-for="(value, key) in toSend" :key="key">
+                  <th>{{ key }}</th>
+                  <td>{{ value }}</td>
+                </tr>
+              </table>
+            </b-col>
+          </b-row>
+        </b-form>
       </b-container>
     </ValidationObserver>
   </div>
@@ -677,8 +687,13 @@ export default {
     },
     gdpr() {
       if (this.gdpr) {
-        this.validateForm();
+        this.$refs.form.validate();
       }
+    },
+    personType() {
+      setTimeout(() => {
+        this.$refs.firstName.focus();
+      }, 0);
     },
   },
   mounted() {
@@ -969,46 +984,15 @@ export default {
         localize("sk", sk);
       }
     },
-    validateForm() {
-      this.$refs["vpLastName"]
-        .validate()
-        .then(() => {
-          return this.$refs["vpFirstName"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpBirthDay"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpBirthMonth"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpBirthYear"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpStreet"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpStreetNo"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpZIP"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpCity"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpMobile"].validate();
-        })
-        .then(() => {
-          return this.$refs["vpEmail"].validate();
-        })
-        .then(() => {
-          if (this.personType === "foreign") {
-            return this.$refs["vpPassport"].validate();
-          } else {
-            return this.$refs["vpPersonalNumber"].validate();
-          }
-        });
+    async validateForm() {
+      const validated = await this.$refs.form.validate();
+      if (!validated) {
+        const confirmed = await this.$bvModal.msgBoxConfirm(
+          this.$t("formInvalidDataConfirmationMessage")
+        );
+        if (!confirmed) return false;
+      }
+      return true;
     },
     qrCodeRaw() {
       if (this.personType == "foreign") {
@@ -1046,11 +1030,16 @@ export default {
       this.toSend = toSend2;
       return JSON.stringify(toSend2);
     },
-    qrCodeValueUnencrypted() {
+    async qrCodeValueUnencrypted() {
+      const validated = await this.validateForm();
+      if (!validated) return;
+
       this.encrypted = this.qrCodeRaw();
     },
-    qrCodeValue() {
+    async qrCodeValue() {
       if (!this.gdpr) return "";
+      const validated = await this.validateForm();
+      if (!validated) return;
 
       const ret = this.qrCodeRaw();
       const that = this;

@@ -6,7 +6,7 @@
       </b-container>
     </div>
 
-    <ValidationObserver>
+    <ValidationObserver ref="form">
       <b-container class="my-4">
         <b-form @submit.prevent="registerForTest">
           <b-row v-if="!$store.state.config.INSURED_ONLY">
@@ -57,7 +57,6 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="firstName-feedback"
                     data-vv-as="Name"
-                    required
                     autofocus
                   />
 
@@ -85,7 +84,6 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="lastName-feedback"
                     data-vv-as="Priezvisko"
-                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -125,7 +123,6 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="rc-feedback"
                     data-vv-as="Rodné číslo"
-                    required
                   />
 
                   <b-form-invalid-feedback id="rc-feedback">{{
@@ -152,7 +149,6 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="passport-feedback"
                     data-vv-as="Číslo cestovného dokladu"
-                    required
                   />
 
                   <b-form-invalid-feedback id="passport-feedback">{{
@@ -181,7 +177,6 @@
                     :state="getValidationState(validationContext)"
                     aria-describedby="birthDayDay-feedback"
                     data-vv-as="Priezvisko"
-                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -209,7 +204,6 @@
                     max="12"
                     :state="getValidationState(validationContext)"
                     aria-describedby="birthDayMonth-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -239,7 +233,6 @@
                     max="2021"
                     :state="getValidationState(validationContext)"
                     aria-describedby="birthDayYear-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="lastName-feedback">{{
@@ -267,7 +260,6 @@
                     v-model="address.street"
                     :state="getValidationState(validationContext)"
                     aria-describedby="street-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="address-feedback">{{
@@ -293,7 +285,6 @@
                     v-model="address.streetNo"
                     :state="getValidationState(validationContext)"
                     aria-describedby="streetNo-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="streetNo-feedback">{{
@@ -319,7 +310,6 @@
                     v-model="address.zip"
                     :state="getValidationState(validationContext)"
                     aria-describedby="zip-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="zip-feedback">{{
@@ -345,7 +335,6 @@
                     v-model="address.city"
                     :state="getValidationState(validationContext)"
                     aria-describedby="city-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="city-feedback">{{
@@ -373,7 +362,6 @@
                     v-model="phone"
                     :state="getValidationState(validationContext)"
                     aria-describedby="phone-feedback"
-                    required
                   />
 
                   <b-form-invalid-feedback id="phone-feedback">{{
@@ -383,18 +371,28 @@
               </validation-provider>
             </b-col>
             <b-col cols="12" md="4">
-              <b-form-group
-                id="email-group-1"
-                :label="$t('registrationFormEmail')"
-                label-for="email"
+              <validation-provider
+                name="Email"
+                rules="required|emailWithAtSign"
+                v-slot="validationContext"
               >
-                <b-form-input
-                  id="email"
-                  name="email"
-                  v-model="email"
-                  aria-describedby="email-feedback"
-                />
-              </b-form-group>
+                <b-form-group
+                  id="email-group-1"
+                  :label="$t('registrationFormEmail')"
+                  label-for="email"
+                >
+                  <b-form-input
+                    id="email"
+                    name="email"
+                    v-model="email"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="email-feedback"
+                  />
+                  <b-form-invalid-feedback id="email-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
             </b-col>
             <b-col cols="12" md="4">
               <label for="insurance">{{
@@ -482,6 +480,12 @@ function testRC(x) {
 extend("rc", {
   validate: value => {
     return testRC(value);
+  },
+});
+extend("emailWithAtSign", {
+  validate: value => {
+    const res = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return res.test(String(value).toLowerCase()) || value === "@";
   },
 });
 extend("phone", {
@@ -601,7 +605,20 @@ export default {
       RegisterByManager: "slot/RegisterByManager",
       GetPrivateKey: "user/GetPrivateKey",
     }),
-    registerForTest() {
+    async validateForm() {
+      const validated = await this.$refs.form.validate();
+      if (!validated) {
+        const confirmed = await this.$bvModal.msgBoxConfirm(
+          this.$t("formInvalidDataConfirmationMessage")
+        );
+        if (!confirmed) return false;
+      }
+      return true;
+    },
+    async registerForTest() {
+      const validated = await this.validateForm();
+      if (!validated) return;
+
       const that = this;
 
       this.setRegistration({});
