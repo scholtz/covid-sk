@@ -383,31 +383,19 @@
               </validation-provider>
             </b-col>
             <b-col cols="12" md="4">
-              <validation-provider
-                name="Email"
-                rules="required|email"
-                v-slot="validationContext"
+              <b-form-group
+                id="email-group-1"
+                :label="$t('registrationFormEmail')"
+                label-for="email"
               >
-                <b-form-group
-                  id="email-group-1"
-                  :label="$t('registrationFormEmail')"
-                  label-for="email"
-                >
-                  <b-form-input
-                    id="email"
-                    name="email"
-                    type="email"
-                    v-model="email"
-                    :state="getValidationState(validationContext)"
-                    aria-describedby="email-feedback"
-                    required
-                  />
-
-                  <b-form-invalid-feedback id="email-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
-                </b-form-group>
-              </validation-provider>
+                <b-form-input
+                  id="email"
+                  name="email"
+                  type="email"
+                  v-model="email"
+                  aria-describedby="email-feedback"
+                />
+              </b-form-group>
             </b-col>
             <b-col cols="12" md="4">
               <label for="insurance">{{
