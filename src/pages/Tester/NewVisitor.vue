@@ -391,7 +391,6 @@
                 <b-form-input
                   id="email"
                   name="email"
-                  type="email"
                   v-model="email"
                   aria-describedby="email-feedback"
                 />
