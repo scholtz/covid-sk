@@ -29,6 +29,7 @@ const state = () => ({
   SUPPORT_NAME: "",
   SUPPORT_EMAIL: "",
   SUPPORT_PHONE: "",
+  IS_AURES: false,
 });
 
 const mutations = {
@@ -110,6 +111,9 @@ const mutations = {
     }
     if (value.SITE_KEY) {
       state.SITE_KEY = value.SITE_KEY;
+    }
+    if (value.IS_AURES) {
+      state.IS_AURES = value.IS_AURES;
     }
     state.fetched = true;
     let found = false;

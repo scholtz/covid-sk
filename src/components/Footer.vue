@@ -15,7 +15,7 @@
           <div v-if="contacts.length" class="mt-2">
             {{ $t("footerProviderContacts") }}{{ contacts.join(", ") }}.
           </div>
-          <div v-html="$t('footerText')" />
+          <div v-html="IS_AURES ? $t('footerTextAures') : $t('footerText')" />
           <div class="m-2 text-dark">
             <span v-if="$store.state.config.SUPPORT_NAME">
               <span v-if="$store.state.config.SUPPORT_NAME[$i18n.locale]">{{
@@ -42,7 +42,9 @@
               ></span
             >
           </div>
-          <div v-html="$t('footerSocial')" />
+          <div
+            v-html="IS_AURES ? $t('footerSocialAures') : $t('footerSocial')"
+          />
         </b-col>
       </b-row>
     </b-container>
@@ -57,7 +59,7 @@ export default {
     fluid: Boolean,
   },
   computed: {
-    ...mapState("config", ["SHOW_DANGER", "VUE_CONFIG_APP_API"]),
+    ...mapState("config", ["SHOW_DANGER", "VUE_CONFIG_APP_API", "IS_AURES"]),
     ...mapState("user", ["authJWT"]),
     ...mapState("placeProvider", { contacts: state => state.contacts || [] }),
   },
