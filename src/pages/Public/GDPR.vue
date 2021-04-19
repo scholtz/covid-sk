@@ -5,7 +5,25 @@
         <h1>{{ $t("gdprTitle") }}</h1>
       </b-container>
     </div>
-    <b-container class="py-3">
+    <b-container v-if="IS_AURES" class="py-4">
+      <b-card no-body class="p-3 mb-5">
+        <b-card-text>
+          <b-card-title class="mt-0 mb-2">
+            {{ $t("gdprAuresTitle") }}
+          </b-card-title>
+          <p v-html="$t('gdprAuresText')" class="mb-1" />
+        </b-card-text>
+      </b-card>
+      <b-table-simple bordered responsive>
+        <b-tbody>
+          <b-tr v-for="i in 9" :key="i">
+            <b-th v-html="$t(`gdprAuresQ${i}`)" />
+            <b-td v-html="$t(`gdprAuresA${i}`)" />
+          </b-tr>
+        </b-tbody>
+      </b-table-simple>
+    </b-container>
+    <b-container v-else class="py-3">
       <b-row>
         <b-col md="12">
           <b-form-checkbox v-model="full" name="check-button" switch>
@@ -154,11 +172,15 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
       full: true,
     };
+  },
+  computed: {
+    ...mapState("config", ["IS_AURES"]),
   },
 };
 </script>

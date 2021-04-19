@@ -6,7 +6,51 @@
       </b-container>
     </div>
     <div>
-      <b-container class="py-4">
+      <b-container v-if="IS_AURES" class="py-4">
+        <b-card v-for="i in 3" :key="i" no-body class="p-3 mb-2">
+          <b-card-text>
+            <b-card-title class="text-danger mt-0 mb-2">
+              {{ $t(`FaqAuresQ${i}`) }}
+            </b-card-title>
+            <p v-html="$t(`FaqAuresA${i}`)" class="mb-1" />
+          </b-card-text>
+        </b-card>
+        <b-card no-body class="p-3 mb-2">
+          <b-card-text>
+            <b-card-title class="text-danger mt-0 mb-4">
+              {{ $t("FaqAuresQ4") }}
+            </b-card-title>
+            <div v-for="i in 4" :key="i" class="mb-4">
+              <div class="text-secondary h6">
+                {{ $t(`FaqAuresA4Subtitle${i}`) }}
+              </div>
+              <p v-html="$t(`FaqAuresA4Subtext${i}`)" class="mb-1" />
+            </div>
+          </b-card-text>
+        </b-card>
+        <b-card no-body class="p-3 mb-2">
+          <b-card-text>
+            <b-card-title class="text-danger mt-0 mb-4">
+              {{ $t("FaqAuresQ5") }}
+            </b-card-title>
+            <div v-for="i in 4" :key="i" class="mb-4">
+              <div class="text-secondary h6">
+                {{ $t(`FaqAuresA5Subtitle${i}`) }}
+              </div>
+              <p v-html="$t(`FaqAuresA5Subtext${i}`)" class="mb-1" />
+            </div>
+          </b-card-text>
+        </b-card>
+        <b-card no-body class="p-3 mb-2">
+          <b-card-text>
+            <b-card-title class="text-danger mt-0 mb-2">
+              {{ $t("FaqAuresQ6") }}
+            </b-card-title>
+            <p v-html="$t('FaqAuresA6')" class="mb-1" />
+          </b-card-text>
+        </b-card>
+      </b-container>
+      <b-container v-else class="py-4">
         <b-card no-body>
           <b-tabs card>
             <b-tab
@@ -627,6 +671,11 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState("config", ["IS_AURES"]),
+  },
+};
 </script>
 <style lang="scss"></style>
