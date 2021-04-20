@@ -12,7 +12,7 @@
     <b-container :fluid="fluid">
       <b-row>
         <b-col md="12" style="text-align: center">
-          <div v-if="Object.keys(contacts).length" class="mt-2">
+          <div v-if="supportName || supportEmail || supportPhone" class="mt-2">
             {{ $t("footerProviderContacts") }}
             <span v-if="supportName">
               <span v-if="supportName[$i18n.locale]" class="p-2">
@@ -62,6 +62,13 @@ export default {
   props: {
     fluid: Boolean,
   },
+  data() {
+    return {
+      placeSupportName: null,
+      placeSupportEmail: null,
+      placeSupportPhone: null,
+    };
+  },
   computed: {
     ...mapState("config", [
       "SUPPORT_NAME",
@@ -80,15 +87,26 @@ export default {
       TWITTER_LINK_HIDDEN: state => state.TWITTER_LINK_HIDDEN || false,
     }),
     ...mapState("user", ["authJWT"]),
-    ...mapState("placeProvider", ["contacts", "contactsFetched"]),
+    ...mapState("placeProvider", ["contacts"]),
+    ...mapState("place", ["currentPlace"]),
     supportName() {
-      return this.SUPPORT_NAME || this.contacts.supportName;
+      return (
+        this.placeSupportName || this.SUPPORT_NAME || this.contacts.supportName
+      );
     },
     supportPhone() {
-      return this.SUPPORT_PHONE || this.contacts.supportPhone;
+      return (
+        this.placeSupportPhone ||
+        this.SUPPORT_PHONE ||
+        this.contacts.supportPhone
+      );
     },
     supportEmail() {
-      return this.SUPPORT_EMAIL || this.contacts.supportEmail;
+      return (
+        this.placeSupportEmail ||
+        this.SUPPORT_EMAIL ||
+        this.contacts.supportEmail
+      );
     },
   },
   watch: {
@@ -97,10 +115,18 @@ export default {
       this.resetContacts();
 
       if (value) this.loadPpPrivate();
-      else this.loadPpPublic();
     },
-    VUE_CONFIG_APP_API() {
-      if (!this.authJWT) this.loadPpPublic();
+    currentPlace(value) {
+      const {
+        supportEmail,
+        supportPhone,
+        supportName,
+        placeProviderId,
+      } = value;
+      this.placeSupportName = supportName;
+      this.placeSupportEmail = supportEmail;
+      this.placeSupportPhone = supportPhone;
+      this.loadPpPublic({ id: placeProviderId });
     },
   },
   methods: {
@@ -112,35 +138,28 @@ export default {
       ListPrivate: "placeProvider/ListPrivate",
       ListPublic: "placeProvider/ListPublic",
     }),
-    async loadPpPublic() {
+    async loadPpPublic({ id } = {}) {
       await this.ListPublic();
-      const placeProvider = this.$store.state.placeProvider.publicPlaces.find(
-        p => p.placeProviderId === this.$store.state.user.tokenData.pp
-      );
+      const placeProvider = id
+        ? this.$store.state.placeProvider.publicPlaces.find(p => p.id == id)
+        : {};
       this.setProviderContacts(placeProvider);
     },
     async loadPpPrivate() {
       await this.ListPrivate();
-      const placeProvider = this.$store.state.placeProvider.places.find(
-        p => p.placeProviderId === this.$store.state.user.tokenData.pp
-      );
+      const placeProvider = this.$store.state.user.tokenData.pp
+        ? this.$store.state.placeProvider.places.find(
+            p => p.placeProviderId === this.$store.state.user.tokenData.pp
+          )
+        : {};
       this.setProviderContacts(placeProvider);
     },
     setProviderContacts(placeProvider = {}) {
       const contacts = {};
-      if (placeProvider.supportName) {
-        contacts.supportName = placeProvider.supportName;
-      }
-      if (placeProvider.supportPhone) {
-        contacts.supportPhone = placeProvider.supportPhone;
-      } else if (placeProvider.publicPhone) {
-        contacts.supportPhone = placeProvider.publicPhone;
-      }
-      if (placeProvider.supportEmail) {
-        contacts.supportEmail = placeProvider.supportEmail;
-      } else if (placeProvider.publicEmail) {
-        contacts.supportEmail = placeProvider.publicEmail;
-      }
+      const { supportName, supportPhone, supportEmail } = placeProvider;
+      if (supportName) contacts.supportName = supportName;
+      if (supportPhone) contacts.supportPhone = supportPhone;
+      if (supportEmail) contacts.supportEmail = supportEmail;
 
       this.setContacts(contacts);
     },
