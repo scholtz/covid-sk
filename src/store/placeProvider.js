@@ -1,18 +1,25 @@
 const state = () => ({
   places: [],
+  publicPlaces: [],
   currentPlace: {},
-  contacts: null,
+  contacts: {},
 });
 
 const mutations = {
   setPlaces(state, places) {
     state.places = places;
   },
+  setPublicPlaces(state, publicPlaces) {
+    state.publicPlaces = publicPlaces;
+  },
   setCurrentPlace(state, id) {
     state.currentPlace = state.places.find(p => p.placeProviderId === id);
   },
   setContacts(state, contacts) {
-    state.contacts = contacts;
+    state.contacts = { ...state.contacts, ...contacts };
+  },
+  resetContacts(state) {
+    state.contacts = {};
   },
 };
 
@@ -71,6 +78,19 @@ export const actions = {
     );
     if (data) {
       commit("setPlaces", data);
+    }
+    return data;
+  },
+  async ListPublic({ dispatch, commit }) {
+    const data = await dispatch(
+      "axios/get",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "PlaceProvider/ListPublic",
+      },
+      { root: true }
+    );
+    if (data) {
+      commit("setPublicPlaces", data);
     }
     return data;
   },
