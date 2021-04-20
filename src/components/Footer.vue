@@ -112,7 +112,7 @@ export default {
   watch: {
     authJWT(value) {
       if (!this.VUE_CONFIG_APP_API) return;
-      this.resetContacts();
+      this.setContacts({});
 
       if (value) this.loadPpPrivate();
     },
@@ -132,7 +132,6 @@ export default {
   methods: {
     ...mapMutations({
       setContacts: "placeProvider/setContacts",
-      resetContacts: "placeProvider/resetContacts",
     }),
     ...mapActions({
       ListPrivate: "placeProvider/ListPrivate",

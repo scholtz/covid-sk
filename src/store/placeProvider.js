@@ -16,10 +16,7 @@ const mutations = {
     state.currentPlace = state.places.find(p => p.placeProviderId === id);
   },
   setContacts(state, contacts) {
-    state.contacts = { ...state.contacts, ...contacts };
-  },
-  resetContacts(state) {
-    state.contacts = {};
+    state.contacts = contacts;
   },
 };
 
