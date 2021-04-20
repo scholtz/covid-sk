@@ -12,36 +12,28 @@
     <b-container :fluid="fluid">
       <b-row>
         <b-col md="12" style="text-align: center">
-          <div v-if="contacts.length" class="mt-2">
-            {{ $t("footerProviderContacts") }}{{ contacts.join(", ") }}.
+          <div v-if="Object.keys(contacts).length" class="mt-2">
+            {{ $t("footerProviderContacts") }}
+            <span v-if="supportName">
+              <span v-if="supportName[$i18n.locale]" class="p-2">
+                {{ supportName[$i18n.locale] }}
+              </span>
+              <span v-else class="p-2">{{ supportName }}</span>
+              |
+            </span>
+            <span v-if="supportPhone">
+              <a class="idsk-footer__link p-2" :href="'callto:' + supportPhone">
+                {{ supportPhone }}
+              </a>
+              |
+            </span>
+            <span v-if="supportEmail">
+              <a class="idsk-footer__link p-2" :href="'mailto:' + supportEmail">
+                {{ supportEmail }}</a
+              >
+            </span>
           </div>
           <div v-html="$t('footerText')" />
-          <div class="m-2 text-dark">
-            <span v-if="$store.state.config.SUPPORT_NAME">
-              <span v-if="$store.state.config.SUPPORT_NAME[$i18n.locale]">{{
-                $store.state.config.SUPPORT_NAME[$i18n.locale]
-              }}</span>
-              <span v-else>{{ $store.state.config.SUPPORT_NAME }}</span
-              >:</span
-            >
-            <span v-if="$store.state.config.SUPPORT_PHONE">
-              <a
-                :href="'callto:' + $store.state.config.SUPPORT_PHONE"
-                class="text-dark"
-              >
-                {{ $store.state.config.SUPPORT_PHONE }}
-              </a>
-            </span>
-
-            <span v-if="$store.state.config.SUPPORT_EMAIL">
-              <a
-                :href="'mailto:' + $store.state.config.SUPPORT_EMAIL"
-                class="text-dark"
-              >
-                {{ $store.state.config.SUPPORT_EMAIL }}</a
-              ></span
-            >
-          </div>
           <div>
             <span
               v-html="
@@ -71,7 +63,13 @@ export default {
     fluid: Boolean,
   },
   computed: {
-    ...mapState("config", ["SHOW_DANGER", "VUE_CONFIG_APP_API"]),
+    ...mapState("config", [
+      "SUPPORT_NAME",
+      "SUPPORT_PHONE",
+      "SUPPORT_EMAIL",
+      "SHOW_DANGER",
+      "VUE_CONFIG_APP_API",
+    ]),
     ...mapState("config", {
       FACEBOOK_LINK: state =>
         state.FACEBOOK_LINK || "https://www.facebook.com/rychlejsie.sk",
@@ -82,32 +80,68 @@ export default {
       TWITTER_LINK_HIDDEN: state => state.TWITTER_LINK_HIDDEN || false,
     }),
     ...mapState("user", ["authJWT"]),
-    ...mapState("placeProvider", { contacts: state => state.contacts || [] }),
+    ...mapState("placeProvider", ["contacts", "contactsFetched"]),
+    supportName() {
+      return this.SUPPORT_NAME || this.contacts.supportName;
+    },
+    supportPhone() {
+      return this.SUPPORT_PHONE || this.contacts.supportPhone;
+    },
+    supportEmail() {
+      return this.SUPPORT_EMAIL || this.contacts.supportEmail;
+    },
   },
   watch: {
-    authJWT() {
-      if (!this.VUE_CONFIG_APP_API || this.contacts.length > 0) return;
-      this.loadPp();
+    authJWT(value) {
+      if (!this.VUE_CONFIG_APP_API) return;
+      this.resetContacts();
+
+      if (value) this.loadPpPrivate();
+      else this.loadPpPublic();
+    },
+    VUE_CONFIG_APP_API() {
+      if (!this.authJWT) this.loadPpPublic();
     },
   },
   methods: {
     ...mapMutations({
       setContacts: "placeProvider/setContacts",
+      resetContacts: "placeProvider/resetContacts",
     }),
     ...mapActions({
       ListPrivate: "placeProvider/ListPrivate",
+      ListPublic: "placeProvider/ListPublic",
     }),
-    async loadPp() {
-      await this.ListPrivate();
-      const {
-        publicEmail,
-        publicPhone,
-      } = this.$store.state.placeProvider.places.find(
+    async loadPpPublic() {
+      await this.ListPublic();
+      const placeProvider = this.$store.state.placeProvider.publicPlaces.find(
         p => p.placeProviderId === this.$store.state.user.tokenData.pp
       );
-      const contacts = [];
-      if (publicEmail) contacts.push(publicEmail);
-      if (publicPhone) contacts.push(publicPhone);
+      this.setProviderContacts(placeProvider);
+    },
+    async loadPpPrivate() {
+      await this.ListPrivate();
+      const placeProvider = this.$store.state.placeProvider.places.find(
+        p => p.placeProviderId === this.$store.state.user.tokenData.pp
+      );
+      this.setProviderContacts(placeProvider);
+    },
+    setProviderContacts(placeProvider = {}) {
+      const contacts = {};
+      if (placeProvider.supportName) {
+        contacts.supportName = placeProvider.supportName;
+      }
+      if (placeProvider.supportPhone) {
+        contacts.supportPhone = placeProvider.supportPhone;
+      } else if (placeProvider.publicPhone) {
+        contacts.supportPhone = placeProvider.publicPhone;
+      }
+      if (placeProvider.supportEmail) {
+        contacts.supportEmail = placeProvider.supportEmail;
+      } else if (placeProvider.publicEmail) {
+        contacts.supportEmail = placeProvider.publicEmail;
+      }
+
       this.setContacts(contacts);
     },
   },

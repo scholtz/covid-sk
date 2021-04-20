@@ -236,6 +236,9 @@ export default {
         PublicEmail: "",
         PublicPhone: "",
         Web: "",
+        SupportName: "",
+        SupportEmail: "",
+        SupportPhone: "",
       },
       data: {
         placeProviderId: "",
@@ -255,7 +258,7 @@ export default {
       if (!this.$store.state) return "";
       return this.$store.state.user.tokenData.pp;
     },
-    placePrivider() {
+    placeProvider() {
       if (!this.$store.state.placeProvider.places) return {};
       return this.$store.state.placeProvider.places.find(
         p => p.placeProviderId === this.ppStore
@@ -263,8 +266,8 @@ export default {
     },
   },
   watch: {
-    placePrivider() {
-      this.pp = this.placePrivider;
+    placeProvider() {
+      this.pp = { ...this.placeProvider };
       console.log("pp", this.pp);
       this.loading = false;
     },
@@ -274,7 +277,7 @@ export default {
     this.GetSensitiveData().then(r => {
       if (r) {
         if (r.eZdraviePass) r.eZdraviePass = "";
-        this.data = r;
+        this.data = { ...r };
       }
     });
   },
@@ -293,7 +296,7 @@ export default {
         if (r) {
           this.ListPrivate().then(r2 => {
             if (r2) {
-              this.pp = this.placePrivider;
+              this.pp = { ...this.placeProvider };
               this.openSuccess("Informácie o prevádzkovateľovi boli upravené");
             }
           });
@@ -302,7 +305,7 @@ export default {
       this.$refs.MainContact.focus();
     },
     async clickUpdateEnc() {
-      this.data.placeProviderId = this.placePrivider.placeProviderId;
+      this.data.placeProviderId = this.placeProvider.placeProviderId;
       const response = await this.UpdateSensitiveData({ data: this.data });
       if (response)
         this.openSuccess("Informácie o prevádzkovateľovi boli upravené");
