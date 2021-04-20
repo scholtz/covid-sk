@@ -6,7 +6,7 @@
       </b-container>
     </div>
     <div>
-      <b-container v-if="IS_AURES" class="py-4">
+      <b-container v-if="CUSTOM_FAQ === 'aures'" class="py-4">
         <b-card v-for="i in 3" :key="i" no-body class="p-3 mb-2">
           <b-card-text>
             <b-card-title class="text-danger mt-0 mb-2">
@@ -674,7 +674,7 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState("config", ["IS_AURES"]),
+    ...mapState("config", ["CUSTOM_FAQ"]),
   },
 };
 </script>

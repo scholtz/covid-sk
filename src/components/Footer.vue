@@ -15,7 +15,7 @@
           <div v-if="contacts.length" class="mt-2">
             {{ $t("footerProviderContacts") }}{{ contacts.join(", ") }}.
           </div>
-          <div v-html="IS_AURES ? $t('footerTextAures') : $t('footerText')" />
+          <div v-html="$t('footerText')" />
           <div class="m-2 text-dark">
             <span v-if="$store.state.config.SUPPORT_NAME">
               <span v-if="$store.state.config.SUPPORT_NAME[$i18n.locale]">{{
@@ -42,9 +42,21 @@
               ></span
             >
           </div>
-          <div
-            v-html="IS_AURES ? $t('footerSocialAures') : $t('footerSocial')"
-          />
+          <div>
+            <span
+              v-html="
+                $t('footerSocial', {
+                  facebookLink: FACEBOOK_LINK,
+                  instagramLink: INSTAGRAM_LINK,
+                })
+              "
+            />
+            <span
+              v-if="!TWITTER_LINK_HIDDEN"
+              v-html="$t('footerTwitter', { twitterLink: TWITTER_LINK })"
+              class="ml-1"
+            />
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -59,7 +71,16 @@ export default {
     fluid: Boolean,
   },
   computed: {
-    ...mapState("config", ["SHOW_DANGER", "VUE_CONFIG_APP_API", "IS_AURES"]),
+    ...mapState("config", ["SHOW_DANGER", "VUE_CONFIG_APP_API"]),
+    ...mapState("config", {
+      FACEBOOK_LINK: state =>
+        state.FACEBOOK_LINK || "https://www.facebook.com/rychlejsie.sk",
+      INSTAGRAM_LINK: state =>
+        state.INSTAGRAM_LINK || "http://instagram.com/rychlejsie.sk",
+      TWITTER_LINK: state =>
+        state.TWITTER_LINK || "https://twitter.com/rychlejsie",
+      TWITTER_LINK_HIDDEN: state => state.TWITTER_LINK_HIDDEN || false,
+    }),
     ...mapState("user", ["authJWT"]),
     ...mapState("placeProvider", { contacts: state => state.contacts || [] }),
   },

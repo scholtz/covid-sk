@@ -5,7 +5,7 @@
         <h1>{{ $t("gdprTitle") }}</h1>
       </b-container>
     </div>
-    <b-container v-if="IS_AURES" class="py-4">
+    <b-container v-if="CUSTOM_GDPR === 'aures'" class="py-4">
       <b-card no-body class="p-3 mb-5">
         <b-card-text>
           <b-card-title class="mt-0 mb-2">
@@ -180,7 +180,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("config", ["IS_AURES"]),
+    ...mapState("config", ["CUSTOM_GDPR"]),
   },
 };
 </script>
