@@ -29,7 +29,12 @@ const state = () => ({
   SUPPORT_NAME: "",
   SUPPORT_EMAIL: "",
   SUPPORT_PHONE: "",
-  IS_AURES: false,
+  FACEBOOK_LINK: "https://www.facebook.com/rychlejsie.sk",
+  INSTAGRAM_LINK: "http://instagram.com/rychlejsie.sk",
+  TWITTER_LINK: "https://twitter.com/rychlejsie",
+  TWITTER_LINK_HIDDEN: false,
+  CUSTOM_GDPR: false,
+  CUSTOM_FAQ: false,
 });
 
 const mutations = {
@@ -112,8 +117,23 @@ const mutations = {
     if (value.SITE_KEY) {
       state.SITE_KEY = value.SITE_KEY;
     }
-    if (value.IS_AURES) {
-      state.IS_AURES = value.IS_AURES;
+    if (value.FACEBOOK_LINK) {
+      state.FACEBOOK_LINK = value.FACEBOOK_LINK;
+    }
+    if (value.INSTAGRAM_LINK) {
+      state.INSTAGRAM_LINK = value.INSTAGRAM_LINK;
+    }
+    if (value.TWITTER_LINK) {
+      state.TWITTER_LINK = value.TWITTER_LINK;
+    }
+    if (value.TWITTER_LINK_HIDDEN) {
+      state.TWITTER_LINK_HIDDEN = value.TWITTER_LINK_HIDDEN;
+    }
+    if (value.CUSTOM_GDPR) {
+      state.CUSTOM_GDPR = value.CUSTOM_GDPR;
+    }
+    if (value.CUSTOM_FAQ) {
+      state.CUSTOM_FAQ = value.CUSTOM_FAQ;
     }
     state.fetched = true;
     let found = false;
