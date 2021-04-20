@@ -141,7 +141,9 @@ export default {
     async loadPpPublic({ id } = {}) {
       await this.ListPublic();
       const placeProvider = id
-        ? this.$store.state.placeProvider.publicPlaces.find(p => p.id == id)
+        ? this.$store.state.placeProvider.publicPlaces.find(
+            p => p.placeProviderId == id
+          )
         : {};
       this.setProviderContacts(placeProvider);
     },
