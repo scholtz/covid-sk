@@ -62,13 +62,6 @@ export default {
   props: {
     fluid: Boolean,
   },
-  data() {
-    return {
-      placeSupportName: null,
-      placeSupportEmail: null,
-      placeSupportPhone: null,
-    };
-  },
   computed: {
     ...mapState("config", [
       "SUPPORT_NAME",
@@ -90,23 +83,13 @@ export default {
     ...mapState("placeProvider", ["contacts"]),
     ...mapState("place", ["currentPlace"]),
     supportName() {
-      return (
-        this.placeSupportName || this.SUPPORT_NAME || this.contacts.supportName
-      );
+      return this.SUPPORT_NAME || this.contacts.supportName;
     },
     supportPhone() {
-      return (
-        this.placeSupportPhone ||
-        this.SUPPORT_PHONE ||
-        this.contacts.supportPhone
-      );
+      return this.SUPPORT_PHONE || this.contacts.supportPhone;
     },
     supportEmail() {
-      return (
-        this.placeSupportEmail ||
-        this.SUPPORT_EMAIL ||
-        this.contacts.supportEmail
-      );
+      return this.SUPPORT_EMAIL || this.contacts.supportEmail;
     },
   },
   watch: {
@@ -117,15 +100,7 @@ export default {
       if (value) this.loadPpPrivate();
     },
     currentPlace(value) {
-      const {
-        supportEmail,
-        supportPhone,
-        supportName,
-        placeProviderId,
-      } = value;
-      this.placeSupportName = supportName;
-      this.placeSupportEmail = supportEmail;
-      this.placeSupportPhone = supportPhone;
+      const { placeProviderId } = value;
       this.loadPpPublic({ id: placeProviderId });
     },
   },
