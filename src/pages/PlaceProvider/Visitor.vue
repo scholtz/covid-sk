@@ -445,6 +445,19 @@
               <b-row>
                 <b-col>
                   <b-form-group
+                    id="productId-group-1"
+                    label="productId"
+                    label-for="productId"
+                  >
+                    <b-form-input
+                      id="productId"
+                      name="productId"
+                      v-model="visitor.product"
+                    />
+                  </b-form-group>
+                </b-col>
+                <b-col>
+                  <b-form-group
                     id="chosenPlaceId-group-1"
                     label="chosenPlaceId"
                     label-for="chosenPlaceId"
@@ -482,7 +495,7 @@
                     />
                   </b-form-group>
                 </b-col>
-                <b-col>
+                <b-col cols="1">
                   <b-form-group
                     id="language-group-1"
                     label="language"
@@ -560,6 +573,7 @@
                     label-for="registrationTime"
                   >
                     <VueCtkDateTimePicker
+                      id="registrationTime"
                       v-model="visitor.registrationTime"
                       label="registrationTime"
                       time-zone="Europe/Bratislava"
@@ -576,6 +590,7 @@
                     label-for="chosenSlotTime"
                   >
                     <VueCtkDateTimePicker
+                      id="chosenSlotTime"
                       v-model="visitor.chosenSlotTime"
                       label="chosenSlotTime"
                       time-zone="Europe/Bratislava"
@@ -593,6 +608,7 @@
                     label-for="testingTime"
                   >
                     <VueCtkDateTimePicker
+                      id="testingTime"
                       v-model="visitor.testingTime"
                       label="testingTime"
                       time-zone="Europe/Bratislava"
@@ -610,6 +626,7 @@
                     label-for="testResultTime"
                   >
                     <VueCtkDateTimePicker
+                      id="testResultTime"
                       v-model="visitor.testResultTime"
                       label="testResultTime"
                       time-zone="Europe/Bratislava"
@@ -627,6 +644,7 @@
                     label-for="resultNotifiedAt"
                   >
                     <VueCtkDateTimePicker
+                      id="resultNotifiedAt"
                       v-model="visitor.resultNotifiedAt"
                       label="resultNotifiedAt"
                       time-zone="Europe/Bratislava"
@@ -643,6 +661,7 @@
                     label-for="eHealthNotifiedAt"
                   >
                     <VueCtkDateTimePicker
+                      id="eHealthNotifiedAt"
                       v-model="visitor.eHealthNotifiedAt"
                       label="eHealthNotifiedAt"
                       time-zone="Europe/Bratislava"
@@ -659,6 +678,7 @@
                     label-for="lastStatusCheck"
                   >
                     <VueCtkDateTimePicker
+                      id="lastStatusCheck"
                       v-model="visitor.lastStatusCheck"
                       label="lastStatusCheck"
                       time-zone="Europe/Bratislava"
@@ -675,6 +695,7 @@
                     label-for="lastUpdate"
                   >
                     <VueCtkDateTimePicker
+                      id="lastUpdate"
                       v-model="visitor.lastUpdate"
                       label="lastUpdate"
                       time-zone="Europe/Bratislava"
