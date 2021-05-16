@@ -36,6 +36,32 @@
                 >
               </b-form-group>
             </b-col>
+            <b-col cols="12" offset-md="4" md="4">
+              <validation-provider
+                name="Product"
+                :rules="{ required: true }"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="product-group-1"
+                  :label="$t('registrationFormProduct')"
+                  label-for="product"
+                >
+                  <b-form-select
+                    id="product"
+                    name="product"
+                    :options="productOptions"
+                    v-model="selectedProduct"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="product-feedback"
+                    data-vv-as="Product"
+                  />
+                  <b-form-invalid-feedback id="product-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
           </b-row>
           <b-row>
             <b-col cols="12" md="4" lg="2">
@@ -406,7 +432,11 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-            <b-col cols="12" md="4">
+            <b-col
+              v-if="selectedProduct && selectedProduct.collectInsurance"
+              cols="12"
+              md="4"
+            >
               <label for="insurance">{{
                 $t("registrationFormInsurance")
               }}</label>
@@ -541,7 +571,19 @@ export default {
       },
       birthday: { day: "", month: "", year: "" },
       gdpr: false,
+      products: [],
+      selectedProduct: null,
     };
+  },
+  computed: {
+    productOptions() {
+      return (
+        this.products.map(p => ({
+          value: p,
+          text: p.name,
+        })) || []
+      );
+    },
   },
   watch: {
     rc() {
@@ -570,7 +612,7 @@ export default {
       }, 0);
     },
   },
-  mounted() {
+  async mounted() {
     this.GetPrivateKey().then(r => {
       if (r) {
         this.privateKey = Buffer.from(r, "base64");
@@ -611,6 +653,9 @@ export default {
         this.insurance = "111";
       }
     }
+
+    const products = await this.ListPlaceProduct();
+    this.products = products.map(p => p.product);
   },
   methods: {
     ...mapMutations({
@@ -619,6 +664,7 @@ export default {
     ...mapActions({
       RegisterByManager: "slot/RegisterByManager",
       GetPrivateKey: "user/GetPrivateKey",
+      ListPlaceProduct: "placeProvider/ListPlaceProduct",
     }),
     async validateForm() {
       const validated = await this.$refs.form.validate();
@@ -668,6 +714,7 @@ export default {
         streetNo: this.address.streetNo,
         zip: this.address.zip,
         city: this.address.city,
+        product: this.selectedProduct.id,
       })
         // eslint-disable-next-line
         .then(r => {

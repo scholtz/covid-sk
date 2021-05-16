@@ -367,6 +367,7 @@
   "registrationFormButton": "Zaregistrovat",
   "registrationFormInsuranceEU": "EU pojištěnec",
   "registrationFormInsuranceForeigner": "Cizinec",
+  "registrationFormProduct": "Produkt",
   "registrationLimitReached": "Pro tento časový úsek byl dosažený limit registrací. Prosím využite jiný časový úsek nebo počkejte na navýšení kapacity. Děkujeme",
   "registrationSchoolRequiredText": "Jsem zákonným zástupcem žáka, který se zúčastňuje prezenční výuky ve škole, nebo jeho pracovníkem.",
 
@@ -686,6 +687,7 @@
   "testerRegistrationCodeInvalid": "Chybný kód registrace",
   "testerName": "Jméno",
   "testerInsurance": "Pojišťovna",
+  "testerProduct": "Produkt",
   "testerAddress": "Adresa",
   "testerInvalidAddressNotification": "Pozor, adresa je nesprávně zadaná",
   "testerEmail": "E-mail (nepovinný)",
