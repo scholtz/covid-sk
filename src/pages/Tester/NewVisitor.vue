@@ -448,6 +448,65 @@
             </b-col>
           </b-row>
           <b-row>
+            <b-col
+              v-if="selectedProduct && selectedProduct.collectNationality"
+              cols="12"
+              md="4"
+            >
+              <validation-provider
+                name="Nationality"
+                rules="required"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="nationality-group-1"
+                  :label="$t('registrationFormNationality')"
+                  label-for="nationality"
+                >
+                  <b-form-select
+                    id="nationality"
+                    name="nationality"
+                    :options="nationalityOptions"
+                    v-model="nationality"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="nationality-feedback"
+                  />
+                  <b-form-invalid-feedback id="nationality-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col
+              v-if="selectedProduct && selectedProduct.collectEmployeeNo"
+              cols="12"
+              md="4"
+            >
+              <validation-provider
+                name="EmployeeNo"
+                rules="required"
+                v-slot="validationContext"
+              >
+                <b-form-group
+                  id="employeeNo-group-1"
+                  :label="$t('registrationFormEmployeeId')"
+                  label-for="employeeNo"
+                >
+                  <b-form-input
+                    id="employeeNo"
+                    name="employeeNo"
+                    v-model="employeeId"
+                    :state="getValidationState(validationContext)"
+                    aria-describedby="employeeNo-feedback"
+                  />
+                  <b-form-invalid-feedback id="employeeNo-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+          </b-row>
+          <b-row>
             <b-col cols="12" class="my-2">
               <button class="btn btn-primary mr-2" type="submit">
                 {{ $t("registrationFormRegisterOrEditClient") }}
@@ -573,6 +632,58 @@ export default {
       gdpr: false,
       products: [],
       selectedProduct: null,
+      employeeId: null,
+      nationality: null,
+      nationalityOptions: [
+        {
+          value: "CZE",
+          text: "Česká republika",
+        },
+        {
+          value: "SVK",
+          text: "Slovensko",
+        },
+        {
+          value: "UKR",
+          text: "Ukrajina",
+        },
+        {
+          value: "POL",
+          text: "Polsko",
+        },
+        {
+          value: "HRV",
+          text: "Chorvatsko",
+        },
+        {
+          value: "MDA",
+          text: "Moldavsko",
+        },
+        {
+          value: "OTHER",
+          text: "Ostatní",
+        },
+        {
+          value: "RUS",
+          text: "Rusko",
+        },
+        {
+          value: "KAZ",
+          text: "Kazachstán",
+        },
+        {
+          value: "BLR",
+          text: "Bělorusko",
+        },
+        {
+          value: "DNK",
+          text: "Dánsko",
+        },
+        {
+          value: "GBR",
+          text: "Velká Británie",
+        },
+      ],
     };
   },
   computed: {
@@ -715,6 +826,9 @@ export default {
         zip: this.address.zip,
         city: this.address.city,
         product: this.selectedProduct.id,
+        productName: this.selectedProduct.name,
+        employeeId: this.employeeId,
+        nationality: this.nationality,
       })
         // eslint-disable-next-line
         .then(r => {
