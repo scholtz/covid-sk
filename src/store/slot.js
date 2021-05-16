@@ -66,6 +66,9 @@ export const actions = {
       birthDayMonth,
       birthDayYear,
       product,
+      productName,
+      employeeId,
+      nationality,
       token,
     }
   ) {
@@ -89,6 +92,9 @@ export const actions = {
       birthDayMonth,
       birthDayYear,
       product,
+      productName,
+      employeeId,
+      nationality,
       token,
     };
     const data = await dispatch(

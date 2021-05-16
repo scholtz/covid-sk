@@ -287,7 +287,19 @@
             <tr v-if="visitor.product">
               <td>{{ $t("testerProduct") }}:</td>
               <td>
-                {{ productObj.name }}
+                {{ visitor.productName }}
+              </td>
+            </tr>
+            <tr v-if="visitor.employeeId">
+              <td>{{ $t("testerEmployeeId") }}:</td>
+              <td>
+                {{ visitor.employeeId }}
+              </td>
+            </tr>
+            <tr v-if="visitor.nationality">
+              <td>{{ $t("testerNationality") }}:</td>
+              <td>
+                {{ visitor.nationality }}
               </td>
             </tr>
 
@@ -832,6 +844,7 @@ export default {
         this.productObj =
           products.find(p => p.id === this.visitor.product) || {};
       }
+      console.log("this.visitor", this.visitor);
     }
     if (
       !this.$store.state.user.me ||
