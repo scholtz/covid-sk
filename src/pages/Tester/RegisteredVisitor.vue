@@ -284,6 +284,12 @@
                 <span v-if="visitor.insurance === '99'">- Cudzinec</span>
               </td>
             </tr>
+            <tr v-if="visitor.product">
+              <td>{{ $t("testerProduct") }}:</td>
+              <td>
+                {{ productObj.name }}
+              </td>
+            </tr>
 
             <tr
               v-if="
@@ -753,6 +759,7 @@ export default {
       },
       detecteds: [],
       submitted: false,
+      productObj: {},
     };
   },
   computed: {
@@ -816,9 +823,15 @@ export default {
       }
     },
   },
-  mounted() {
+  async mounted() {
     if (this.$route.params.id) {
-      this.loadVisitor();
+      await this.loadVisitor();
+
+      if (this.visitor.product) {
+        const products = await this.ListProducts();
+        this.productObj =
+          products.find(p => p.id === this.visitor.product) || {};
+      }
     }
     if (
       !this.$store.state.user.me ||
@@ -837,6 +850,7 @@ export default {
       ReloadMe: "user/ReloadMe",
       SetLocation: "user/SetLocation",
       RegisterByManager: "slot/RegisterByManager",
+      ListProducts: "placeProvider/ListProducts",
     }),
     ...mapActions({
       openSuccess: "snackbar/openSuccess",
@@ -844,19 +858,19 @@ export default {
     ...mapMutations({
       setLastVisitor: "result/setLastVisitor",
     }),
-    loadVisitor() {
+    async loadVisitor() {
       this.code = this.$route.params.id;
       // newly registered by reg manager
-      this.GetVisitor({
+      const r = await this.GetVisitor({
         visitorCode: this.code,
-      }).then(r => {
-        if (r) {
-          this.visitor = r;
-          this.action = "verifyPerson";
-        } else {
-          this.state = "visitor-error";
-        }
       });
+      if (r) {
+        this.visitor = r;
+        this.action = "verifyPerson";
+      } else {
+        this.state = "visitor-error";
+      }
+      return;
     },
     load() {
       this.visitor = {};
