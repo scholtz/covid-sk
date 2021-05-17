@@ -765,8 +765,16 @@ export default {
       }
     }
 
+    await this.ReloadMe();
     const products = await this.ListPlaceProduct();
-    this.products = products.map(p => p.product);
+    const products2 = products.filter(key => key.placeId == this.$store.state.user.me.placeObj.id);
+    if(!this.$store.state.user.me || this.$store.state.user.me.placeObj || products2.length == 0){
+      this.products = products.map(p => p.product);
+    }else{
+      this.products = products2.map(p => p.product);
+    }
+    // console.log("me", this.$store.state.user.me.placeObj,products, products.filter(key => key.placeId == this.$store.state.user.me.placeObj.id),this.products)
+    
   },
   methods: {
     ...mapMutations({
@@ -776,6 +784,7 @@ export default {
       RegisterByManager: "slot/RegisterByManager",
       GetPrivateKey: "user/GetPrivateKey",
       ListPlaceProduct: "placeProvider/ListPlaceProduct",
+      ReloadMe: "user/ReloadMe",
     }),
     async validateForm() {
       const validated = await this.$refs.form.validate();
