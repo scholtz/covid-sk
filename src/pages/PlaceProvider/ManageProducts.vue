@@ -208,6 +208,31 @@
                   </b-form-group>
                 </validation-provider>
                 <validation-provider
+                  name="Brand produktu (do cert)"
+                  v-slot="validationContext"
+                >
+                  <b-form-group
+                    id="testBrandName-group-1"
+                    label="Brand produktu (do cert)"
+                    label-for="testBrandName"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-input
+                      id="testBrandName"
+                      name="testBrandName"
+                      v-model="product.testBrandName"
+                      placeholder="npr. SD BIOSENSOR, Inc.; Roche, STANDARD Q COVID-19 Ag Test"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="testBrandName-feedback"
+                    />
+
+                    <b-form-invalid-feedback id="testBrandName-feedback">{{
+                      validationContext.errors[0]
+                    }}</b-form-invalid-feedback>
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider
                   name="Predvolená cena"
                   :rules="{ required: true, regex: /^(?=.*[0-9])\d+(\.\d+)?$/ }"
                   v-slot="validationContext"
