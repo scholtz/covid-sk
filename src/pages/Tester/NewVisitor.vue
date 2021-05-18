@@ -36,7 +36,7 @@
                 >
               </b-form-group>
             </b-col>
-            <b-col cols="12" offset-md="4" md="4">
+            <b-col v-if="selectedProductId" cols="12" offset-md="4" md="4">
               <validation-provider
                 name="Product"
                 :rules="{ required: true }"
@@ -51,7 +51,7 @@
                     id="product"
                     name="product"
                     :options="productOptions"
-                    v-model="selectedProduct"
+                    v-model="selectedProductId"
                     :state="getValidationState(validationContext)"
                     aria-describedby="product-feedback"
                     data-vv-as="Product"
@@ -603,7 +603,7 @@ extend("phone", {
   message: i18n.t("formInputInvalidMessage"),
 });
 
-import { mapMutations, mapActions } from "vuex";
+import { mapMutations, mapActions, mapState } from "vuex";
 export default {
   components: {
     ValidationProvider,
@@ -631,6 +631,7 @@ export default {
       birthday: { day: "", month: "", year: "" },
       gdpr: false,
       products: [],
+      selectedProductId: null,
       selectedProduct: null,
       employeeId: null,
       nationality: null,
@@ -687,10 +688,11 @@ export default {
     };
   },
   computed: {
+    ...mapState("user", { placeId: state => state.me?.placeObj?.id }),
     productOptions() {
       return (
         this.products.map(p => ({
-          value: p,
+          value: p.id,
           text: p.name,
         })) || []
       );
@@ -721,6 +723,10 @@ export default {
       setTimeout(() => {
         this.$refs.firstName.focus();
       }, 0);
+    },
+    selectedProductId(value) {
+      localStorage.setItem("selectedProductId", value);
+      this.selectedProduct = this.products.find(p => p.id == value);
     },
   },
   async mounted() {
@@ -766,15 +772,12 @@ export default {
     }
 
     await this.ReloadMe();
-    const products = await this.ListPlaceProduct();
-    const products2 = products.filter(key => key.placeId == this.$store.state.user.me.placeObj.id);
-    if(!this.$store.state.user.me || this.$store.state.user.me.placeObj || products2.length == 0){
-      this.products = products.map(p => p.product);
-    }else{
-      this.products = products2.map(p => p.product);
-    }
-    // console.log("me", this.$store.state.user.me.placeObj,products, products.filter(key => key.placeId == this.$store.state.user.me.placeObj.id),this.products)
-    
+    const products = (await this.ListPlaceProduct()) || [];
+    const placeProducts = products.filter(key => key.placeId == this.placeId);
+
+    this.products = placeProducts.map(p => p.product);
+
+    this.loadSelectedProduct();
   },
   methods: {
     ...mapMutations({
@@ -795,6 +798,12 @@ export default {
         if (!confirmed) return false;
       }
       return true;
+    },
+    loadSelectedProduct() {
+      const selectedProductId = localStorage.getItem("selectedProductId");
+      if (selectedProductId) this.selectedProductId = selectedProductId;
+      else if (this.products.length > 0)
+        this.selectedProductId = this.products[0].id;
     },
     async registerForTest() {
       const validated = await this.validateForm();
@@ -834,7 +843,7 @@ export default {
         streetNo: this.address.streetNo,
         zip: this.address.zip,
         city: this.address.city,
-        product: this.selectedProduct.id,
+        product: this.selectedProductId,
         productName: this.selectedProduct.name,
         employeeId: this.employeeId,
         nationality: this.nationality,

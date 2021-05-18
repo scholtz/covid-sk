@@ -149,6 +149,8 @@ export default {
           }
         });
       }
+
+      localStorage.removeItem("selectedProductId");
     },
     confirmPlace() {
       this.SetLocation({ placeId: this.$store.state.user.me.place }).then(r => {
