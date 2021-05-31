@@ -35,6 +35,7 @@ const state = () => ({
   TWITTER_LINK_HIDDEN: false,
   CUSTOM_GDPR: false,
   CUSTOM_FAQ: false,
+  DGC: true,
 });
 
 const mutations = {
@@ -43,6 +44,9 @@ const mutations = {
     state.DEDICATED_PLACE = value.DEDICATED_PLACE;
     if (value.ALLOWED_HOSTS) {
       state.ALLOWED_HOSTS = value.ALLOWED_HOSTS;
+    }
+    if (value.DGC) {
+      state.DGC = value.DGC;
     }
     if (value.SUPPORT_NAME) {
       state.SUPPORT_NAME = value.SUPPORT_NAME;

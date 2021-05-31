@@ -127,6 +127,18 @@ export const actions = {
       { root: true }
     );
   },
+  async DownloadPkPass({ dispatch }, { code, pass, captcha }) {
+    return await dispatch(
+      "axios/download",
+      {
+        url: this.state.config.VUE_CONFIG_APP_API + "Result/DownloadWalletDGC",
+        params: { code, pass, captcha },
+        name: "passport.pkpass",
+        type: "post",
+      },
+      { root: true }
+    );
+  },
   async PrintCertificateByDocumentManager(
     { dispatch },
     {

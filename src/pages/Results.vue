@@ -107,6 +107,33 @@
                 v-html="$t('resultsPdfNoteIns')"
               />
               <div v-else v-html="$t('resultsPdfNote')" />
+              <div v-if="$store.state.config.DGC">
+                <b-button
+                  class="my-3"
+                  @click="downloadPkPassClick"
+                  variant="primary"
+                >
+                  {{ $t("resultsDownloadPkPass") }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.5"
+                    height="19"
+                    viewBox="0 0 33 40"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M0 0h13l20 20-20 20H0l20-20z"
+                    />
+                  </svg>
+                  <b-spinner
+                    small
+                    v-if="processingDownloadPkPass"
+                    class="ml-1"
+                  /> </b-button
+                ><br />
+              </div>
               <div>
                 <b-button
                   class="my-3"
@@ -170,6 +197,7 @@ export default {
     return {
       processingRequest: false,
       processingDownload: false,
+      processingDownloadPkPass: false,
       processingRemoval: false,
       resending: false,
       code: "",
@@ -184,6 +212,7 @@ export default {
       GetResults: "result/GetResults",
       RemoveTest: "result/RemoveTest",
       DownloadPDF: "result/DownloadPDF",
+      DownloadPkPass: "result/DownloadPkPass",
       ResendResult: "result/ResendResult",
     }),
     ...mapActions({
@@ -222,6 +251,31 @@ export default {
         recaptcha.execute("submit").then(token => {
           if (token) {
             this.DownloadPDF({
+              code: this.code,
+              pass: this.pass,
+              captcha: token,
+            }).then(r => {
+              if (r) {
+                this.results = r;
+              } else {
+                this.results = { state: "error" };
+              }
+              this.processingDownload = false;
+            });
+          } else {
+            this.results = { state: "error" };
+            this.processingDownload = false;
+          }
+        });
+      });
+    },
+    downloadPkPassClick() {
+      this.processingDownloadPkPass = true;
+      this.results = { state: "submitting" };
+      load(this.$store.state.config.SITE_KEY).then(recaptcha => {
+        recaptcha.execute("submit").then(token => {
+          if (token) {
+            this.DownloadPkPass({
               code: this.code,
               pass: this.pass,
               captcha: token,

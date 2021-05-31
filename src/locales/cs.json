@@ -132,6 +132,7 @@
   "resultsTestNegativeCertNotTaken": "Výsledek testu = NEGATIVNÍ. Test neprokázal, že byste byl infikovaný/á virusem COVID-19. <b>Certifikát si teď můžete stáhnout do svého zařízení</b>",
   "resultsRemovePersonalData": "Vymazat osobní údaje",
   "resultsDownloadPDF": "Stáhnout Certifikát jako PDF soubor zabezpečený heslem*",
+  "resultsDownloadPkPass": "Stáhnout DGC Certifikát do walletu*",
   "resultsResend": "Znovuposlat potvrzení o výsledku testu v SMS (e-mailem) ještě jednou **",
   "resultsLimitWarning": "** povolené je jen jedno znovuzaslání",
   "resultsRemoveRegistration": "Zrušit registraci",

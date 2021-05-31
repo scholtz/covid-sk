@@ -112,6 +112,7 @@
   "resultsTestNegativeCertNotTaken":"You are <b>NOT</b> infected. Test has proven that you are not infected with SARS-CoV-2. <b>Please visit sampling place and take the certificate.</b>",
   "resultsRemovePersonalData":"Delete personal data",
   "resultsDownloadPDF":"Download password protected PDF file",
+  "resultsDownloadPkPass":"Download DGC wallet file",
   "resultsResend":"Resend the test result to SMS and Email once more *",
   "resultsLimitWarning":"* only one resend is allowed",
   "resultsRemoveRegistration":"Delete registration and personal data",
