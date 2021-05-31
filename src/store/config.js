@@ -35,7 +35,7 @@ const state = () => ({
   TWITTER_LINK_HIDDEN: false,
   CUSTOM_GDPR: false,
   CUSTOM_FAQ: false,
-  DGC: true,
+  DGC: false,
 });
 
 const mutations = {
