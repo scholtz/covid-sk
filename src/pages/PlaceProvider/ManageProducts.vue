@@ -210,6 +210,7 @@
                 <validation-provider
                   name="Brand produktu (do cert)"
                   v-slot="validationContext"
+                  v-if="product.category == 'ant'"
                 >
                   <b-form-group
                     id="testBrandName-group-1"
@@ -218,16 +219,98 @@
                     label-cols-sm="4"
                     label-cols-lg="2"
                   >
-                    <b-form-input
-                      id="testBrandName"
-                      name="testBrandName"
+                    <vSelect
                       v-model="product.testBrandName"
-                      placeholder="npr. SD BIOSENSOR, Inc.; Roche, STANDARD Q COVID-19 Ag Test"
-                      :state="getValidationState(validationContext)"
-                      aria-describedby="testBrandName-feedback"
+                      :options="tests"
+                      :reduce="test => test.value"
+                      label="display"
+                      v-if="tests"
                     />
-
                     <b-form-invalid-feedback id="testBrandName-feedback">{{
+                      validationContext.errors[0]
+                    }}</b-form-invalid-feedback>
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider
+                  name="Produkt vakcíny"
+                  v-slot="validationContext"
+                  v-if="product.category == 'vac'"
+                >
+                  <b-form-group
+                    id="testBrandName-group-1"
+                    label="Produkt vakcíny"
+                    label-for="testBrandName"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <vSelect
+                      v-model="product.testBrandName"
+                      :options="vaccines"
+                      :reduce="vaccine => vaccine.value"
+                      label="display"
+                      v-if="vaccines"
+                    />
+                    <b-form-invalid-feedback id="testBrandName-feedback">{{
+                      validationContext.errors[0]
+                    }}</b-form-invalid-feedback>
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider name="Výrobca" v-slot="validationContext">
+                  <b-form-group
+                    id="testManufacturer-group-1"
+                    label="Výrobca"
+                    label-for="testManufacturer"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-input
+                      id="testManufacturer"
+                      v-model="product.testManufacturer"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="testManufacturer-feedback"
+                    />
+                    <b-form-invalid-feedback id="testManufacturer-feedback">{{
+                      validationContext.errors[0]
+                    }}</b-form-invalid-feedback>
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider name="IssuerId" v-slot="validationContext">
+                  <b-form-group
+                    id="issuerId-group-1"
+                    label="IssuerId"
+                    label-for="issuerId"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-input
+                      id="issuerId"
+                      v-model="product.issuerId"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="issuerId-feedback"
+                    />
+                    <b-form-invalid-feedback id="issuerId-feedback">{{
+                      validationContext.errors[0]
+                    }}</b-form-invalid-feedback>
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider
+                  name="DgcIssuer"
+                  v-slot="validationContext"
+                >
+                  <b-form-group
+                    id="dgcIssuer-group-1"
+                    label="DgcIssuer"
+                    label-for="dgcIssuer"
+                    label-cols-sm="4"
+                    label-cols-lg="2"
+                  >
+                    <b-form-input
+                      id="dgcIssuer"
+                      v-model="product.dgcIssuer"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="dgcIssuer-feedback"
+                    />
+                    <b-form-invalid-feedback id="dgcIssuer-feedback">{{
                       validationContext.errors[0]
                     }}</b-form-invalid-feedback>
                   </b-form-group>
@@ -660,6 +743,8 @@
 </template>
 <script>
 import { mapActions } from "vuex";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
 import {
   ValidationObserver,
@@ -669,10 +754,16 @@ import {
 import sk from "vee-validate/dist/locale/sk.json";
 localize("sk", sk);
 
+Array.prototype.sortBy = function (p) {
+  return this.slice(0).sort(function (a, b) {
+    return a[p] > b[p] ? 1 : a[p] < b[p] ? -1 : 0;
+  });
+};
 export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+    vSelect,
   },
   data() {
     return {
@@ -711,6 +802,8 @@ export default {
         { text: "Antigénový Test", value: "ant" },
         { text: "Vakcína", value: "vac" },
       ],
+      tests: [],
+      vaccines: [],
       fieldsProducts: [
         {
           label: "Názov",
@@ -830,7 +923,7 @@ export default {
       if (!this.untilBool) this.ppr.until = null;
     },
   },
-  mounted() {
+  async mounted() {
     this.ListProducts().then(r => {
       if (r) {
         this.products = r;
@@ -850,9 +943,37 @@ export default {
         });
       }
     });
+
+    // source https://raw.githubusercontent.com/ehn-digital-green-development/ehn-dgc-schema/main/valuesets/test-manf.json
+    const data = await this.axiosGet({ url: "./valueset/test-manf.json" });
+    if (data && data.valueSetValues) {
+      for (let index in data.valueSetValues) {
+        data.valueSetValues[index]["value"] = index;
+      }
+      let dataArr = Object.values(data.valueSetValues);
+
+      dataArr = dataArr.sortBy("display");
+      dataArr.unshift({ display: "Iný produkt", value: "other" });
+      this.tests = dataArr;
+    }
+
+    const dataVacc = await this.axiosGet({
+      url: "./valueset/vaccine-medicinal-product.json",
+    });
+    if (dataVacc && dataVacc.valueSetValues) {
+      for (let index in dataVacc.valueSetValues) {
+        dataVacc.valueSetValues[index]["value"] = index;
+      }
+      let dataArrVacc = Object.values(dataVacc.valueSetValues);
+
+      dataArrVacc = dataArrVacc.sortBy("display");
+      dataArrVacc.unshift({ display: "Iná vakcína", value: "other" });
+      this.vaccines = dataArrVacc;
+    }
   },
   methods: {
     ...mapActions({
+      axiosGet: "axios/get",
       ListProducts: "placeProvider/ListProducts",
       CreateProduct: "placeProvider/CreateProduct",
       UpdateProduct: "placeProvider/UpdateProduct",
