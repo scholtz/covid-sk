@@ -109,13 +109,21 @@
         <b-row class="py-1">
           <b-col>
             <b-form-group
-              :label="$t('selfCertsTime')"
+              :label="
+                product && product.category != 'vac'
+                  ? $t('selfCertsTime')
+                  : $t('selfVacTime')
+              "
               label-for="time"
               label-cols-sm="4"
               label-cols-lg="2"
             >
               <VueCtkDateTimePicker
-                :label="$t('selfCertsTime')"
+                :label="
+                  product && product.category != 'vac'
+                    ? $t('selfCertsTime')
+                    : $t('selfVacTime')
+                "
                 v-model="toSend.time"
                 required
                 ref="time"
@@ -128,7 +136,7 @@
             </b-form-group>
           </b-col>
         </b-row>
-        <b-row class="py-1">
+        <b-row class="py-1" v-if="product && product.category != 'vac'">
           <b-col>
             <b-form-group
               :label="$t('selfCertsResult')"
@@ -208,6 +216,11 @@ export default {
     locale() {
       return this.$i18n.locale;
     },
+    product() {
+      if (!this.products) return {};
+      if (!this.toSend.productId) return {};
+      return this.products.find(r => r.id == this.toSend.productId);
+    },
   },
   watch: {
     employeeLoaded(value) {
@@ -269,6 +282,9 @@ export default {
     },
     clickRegisterTest() {
       this.processingRegInsert = true;
+      if (this.product && this.product.category == "vac") {
+        this.toSend.result = "negative";
+      }
       this.RegisterEmployeeByDocumenter(this.toSend).then(r => {
         if (r) {
           this.openSuccess(this.$t("selfCertsTestInsertedMessage"));
