@@ -72,7 +72,7 @@
   
   "navBarDoc":"Document Manager",
   "navBarDocCertificate":"Certificate issuance",
-  "navBarDocSelfCerts": "Self tests",
+  "navBarDocSelfCerts": "Self tests / vaccination",
 
   "navBarDataExporter":"Data exporter",
   "navBarDataExporterExport":"Export data",
@@ -560,7 +560,7 @@
   "selfCertsPhone": "Mobil",
   "selfCertsProduct": "Produkt",
   "selfCertsTime": "Čas testu",
-  "selfVacTime": "Dátum vakcinácie",
+  "selfVacTime": "Dátum očkovania",
   "selfCertsResult": "Výsledok",
   "selfCertsRegisterTest": "Zaznamenať test",
   "selfCertsTestInsertedMessage": "Test bol vložený do systému",

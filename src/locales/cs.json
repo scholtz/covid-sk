@@ -80,7 +80,7 @@
 
   "navBarDoc": "Dokumenty",
   "navBarDocCertificate": "Certifikáty",
-  "navBarDocSelfCerts": "Samotesty / Ext. testy",
+  "navBarDocSelfCerts": "Samotesty / Ext. testy / Očkování",
 
   "navBarDataExporter": "Data exporter",
   "navBarDataExporterExport": "Finální export údajů",
@@ -838,7 +838,7 @@
   "selfCertsPhone": "Mobil",
   "selfCertsProduct": "Produkt",
   "selfCertsTime": "Čas testu",
-  "selfVacTime": "Dátum vakcinace",
+  "selfVacTime": "Dátum očkování",
   "selfCertsResult": "Výsledek",
   "selfCertsRegisterTest": "Zaznamenat test",
   "selfCertsTestInsertedMessage": "Test byl vložený do systému",
