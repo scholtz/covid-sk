@@ -78,6 +78,7 @@ export default {
       TWITTER_LINK: state =>
         state.TWITTER_LINK || "https://twitter.com/rychlejsie",
       TWITTER_LINK_HIDDEN: state => state.TWITTER_LINK_HIDDEN || false,
+      fetched: state => state.fetched || false,
     }),
     ...mapState("user", ["authJWT"]),
     ...mapState("placeProvider", ["contacts"]),
@@ -97,7 +98,14 @@ export default {
       if (!this.VUE_CONFIG_APP_API) return;
       this.setContacts({});
 
-      if (value) this.loadPpPrivate();
+      if (value){
+        this.loadPpPrivate();
+      }else{
+        this.loadPpPublic();
+      }
+    },
+    fetched(){
+      this.loadPpPublic();
     },
     currentPlace(value) {
       const { placeProviderId } = value;
@@ -114,11 +122,14 @@ export default {
     }),
     async loadPpPublic({ id } = {}) {
       await this.ListPublic();
-      const placeProvider = id
+      let placeProvider = id
         ? this.$store.state.placeProvider.publicPlaces.find(
             p => p.placeProviderId == id
           )
         : {};
+        if(!placeProvider.supportPhone && this.$store.state.placeProvider.publicPlaces.length > 0){
+          placeProvider = this.$store.state.placeProvider.publicPlaces[0]
+        }
       this.setProviderContacts(placeProvider);
     },
     async loadPpPrivate() {
@@ -132,10 +143,14 @@ export default {
     },
     setProviderContacts(placeProvider = {}) {
       const contacts = {};
-      const { supportName, supportPhone, supportEmail } = placeProvider;
+      const { supportName, supportPhone, supportEmail,publicEmail,publicPhone } = placeProvider;
+
       if (supportName) contacts.supportName = supportName;
       if (supportPhone) contacts.supportPhone = supportPhone;
       if (supportEmail) contacts.supportEmail = supportEmail;
+
+      if (!contacts.supportPhone) contacts.supportPhone = publicPhone;
+      if (!contacts.supportEmail) contacts.supportEmail = publicEmail;
 
       this.setContacts(contacts);
     },
