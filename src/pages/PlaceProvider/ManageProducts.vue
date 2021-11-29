@@ -219,12 +219,11 @@
                     label-cols-sm="4"
                     label-cols-lg="2"
                   >
-                    <vSelect
+                    <b-form-input
+                      id="testBrandName"
                       v-model="product.testBrandName"
-                      :options="tests"
-                      :reduce="test => test.value"
-                      label="display"
-                      v-if="tests"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="testBrandName-feedback"
                     />
                     <b-form-invalid-feedback id="testBrandName-feedback">{{
                       validationContext.errors[0]
@@ -243,12 +242,11 @@
                     label-cols-sm="4"
                     label-cols-lg="2"
                   >
-                    <vSelect
+                    <b-form-input
+                      id="testBrandName"
                       v-model="product.testBrandName"
-                      :options="vaccines"
-                      :reduce="vaccine => vaccine.value"
-                      label="display"
-                      v-if="vaccines"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="testBrandName-feedback"
                     />
                     <b-form-invalid-feedback id="testBrandName-feedback">{{
                       validationContext.errors[0]
@@ -743,7 +741,6 @@
 </template>
 <script>
 import { mapActions } from "vuex";
-import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 
 import {
@@ -763,7 +760,6 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
-    vSelect,
   },
   data() {
     return {
