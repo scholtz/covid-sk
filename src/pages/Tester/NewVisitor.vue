@@ -6,6 +6,14 @@
       </b-container>
     </div>
 
+    <div v-if="!placeId">
+      <b-container>
+        <div class="alert alert-danger">
+          Vyberte si odberové miesto
+        </div>
+      </b-container>
+    </div>
+
     <ValidationObserver ref="form">
       <b-container class="my-4">
         <b-form @submit.prevent="registerForTest">
