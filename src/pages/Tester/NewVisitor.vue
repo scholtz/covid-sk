@@ -36,7 +36,7 @@
                 >
               </b-form-group>
             </b-col>
-            <b-col v-if="selectedProductId" cols="12" offset-md="4" md="4">
+            <b-col cols="12" offset-md="4" md="4">
               <validation-provider
                 name="Product"
                 :rules="{ required: true }"
