@@ -113,7 +113,7 @@
     "@vue/cli": "^4.5.10",
     "@vue/cli-plugin-babel": "^4.5.10",
     "@vue/cli-plugin-eslint": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
+    "@vue/cli-service": "^5.0.8",
     "babel-eslint": "latest",
     "babel-polyfill": "latest",
     "core-js": "^3.8.2",
