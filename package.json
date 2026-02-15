@@ -44,7 +44,7 @@
     "material-design-icons-iconfont": "latest",
     "mockjs": "latest",
     "moment": "latest",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "pe7-icon": "latest",
     "perfect-scrollbar": "latest",
     "postcss": "latest",
